@@ -1087,8 +1087,10 @@ public class ApiClient {
             reqBody = serialize(body, contentType);
         }
 
-        Map<String, String> signHeaders = buildSignHeaders(method, url, reqBody);
-        processHeaderParams(signHeaders, reqBuilder);
+        if (this.key != null && !this.key.equals("")) {
+            Map<String, String> signHeaders = buildSignHeaders(method, url, reqBody);
+            processHeaderParams(signHeaders, reqBuilder);
+        }
 
         Request request = null;
 
