@@ -32,34 +32,8 @@ Cancel a single order
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 String orderId = "orderId_example"; // String | order id
 try {
     apiInstance.cancelOrder(orderId);
@@ -79,10 +53,6 @@ Name | Type | Description  | Notes
 
 null (empty response body)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -96,34 +66,8 @@ Cancel all &#x60;open&#x60; orders matched
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 String contract = "contract_example"; // String | futures contract
 String side = "side_example"; // String | All bids or asks. Both included in not specfied
 try {
@@ -145,10 +89,6 @@ Name | Type | Description  | Notes
 
 null (empty response body)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -162,35 +102,9 @@ Create a futures order
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
-FuturesOrder futuresOrder = {"$ref":"examples/mercury/FuturesOrder.json"}; // FuturesOrder | 
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
+FuturesOrder futuresOrder = new FuturesOrder(contract="contract_example", size=100L, price="4000"); // FuturesOrder | 
 try {
     FuturesOrder result = apiInstance.createOrder(futuresOrder);
     System.out.println(result);
@@ -210,10 +124,6 @@ Name | Type | Description  | Notes
 
 [**FuturesOrder**](FuturesOrder.md)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -227,34 +137,8 @@ List personal trading history
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 String contract = "contract_example"; // String | futures contract. If specified, return only data related to the contract
 Integer limit = 100; // Integer | maximum number of data returned in one request
 String lastId = "lastId_example"; // String | specify list staring record. Use the `id` in every last record of one list-query request to achieve consecutive list query
@@ -279,10 +163,6 @@ Name | Type | Description  | Notes
 
 [**List&lt;MyFuturesTrade&gt;**](MyFuturesTrade.md)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -296,34 +176,8 @@ Get a single order
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 String orderId = "orderId_example"; // String | order id
 try {
     FuturesOrder result = apiInstance.getOrder(orderId);
@@ -344,10 +198,6 @@ Name | Type | Description  | Notes
 
 [**FuturesOrder**](FuturesOrder.md)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -361,34 +211,8 @@ Query futures account
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 try {
     FuturesAccount result = apiInstance.listFuturesAccounts();
     System.out.println(result);
@@ -405,10 +229,6 @@ This endpoint does not need any parameter.
 
 [**FuturesAccount**](FuturesAccount.md)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -424,11 +244,6 @@ Return specified contract candlesticks. If prefix &#x60;contract&#x60; with &#x6
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.api.FuturesApi;
-
-
 FuturesApi apiInstance = new FuturesApi();
 String contract = "contract_example"; // String | futures contract
 BigDecimal from = new BigDecimal(); // BigDecimal | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to `to - 100 * interval` if not specified 
@@ -458,10 +273,6 @@ Name | Type | Description  | Notes
 
 [**FuturesCandlestick**](FuturesCandlestick.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -475,11 +286,6 @@ List all futures contracts
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.api.FuturesApi;
-
-
 FuturesApi apiInstance = new FuturesApi();
 try {
     List<Contract> result = apiInstance.listFuturesContracts();
@@ -497,10 +303,6 @@ This endpoint does not need any parameter.
 
 [**List&lt;Contract&gt;**](Contract.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -514,11 +316,6 @@ Funding rate history
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.api.FuturesApi;
-
-
 FuturesApi apiInstance = new FuturesApi();
 String contract = "contract_example"; // String | futures contract
 Integer limit = 100; // Integer | maximum number of data returned in one request
@@ -542,10 +339,6 @@ Name | Type | Description  | Notes
 
 [**FundingRateRecord**](FundingRateRecord.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -559,11 +352,6 @@ Futures insurance balance history
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.api.FuturesApi;
-
-
 FuturesApi apiInstance = new FuturesApi();
 Integer limit = 100; // Integer | maximum number of data returned in one request
 try {
@@ -585,10 +373,6 @@ Name | Type | Description  | Notes
 
 [**InsuranceRecord**](InsuranceRecord.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -604,11 +388,6 @@ bids will be sorted by price from high to low, while asks sorted reversely
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.api.FuturesApi;
-
-
 FuturesApi apiInstance = new FuturesApi();
 String contract = "contract_example"; // String | futures contract
 String interval = "0"; // String | order depth. 0 means no aggregation is applied. default to 0
@@ -634,10 +413,6 @@ Name | Type | Description  | Notes
 
 [**FuturesOrderBook**](FuturesOrderBook.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -651,11 +426,6 @@ List futures tickers
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.api.FuturesApi;
-
-
 FuturesApi apiInstance = new FuturesApi();
 String contract = "contract_example"; // String | futures contract. If specified, return only data related to the contract
 try {
@@ -677,10 +447,6 @@ Name | Type | Description  | Notes
 
 [**List&lt;FuturesTicker&gt;**](FuturesTicker.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -694,11 +460,6 @@ Futures trading history
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.api.FuturesApi;
-
-
 FuturesApi apiInstance = new FuturesApi();
 String contract = "contract_example"; // String | futures contract
 Integer limit = 100; // Integer | maximum number of data returned in one request
@@ -724,10 +485,6 @@ Name | Type | Description  | Notes
 
 [**List&lt;FuturesTrade&gt;**](FuturesTrade.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -741,34 +498,8 @@ List futures orders
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 String contract = "contract_example"; // String | futures contract
 String status = "status_example"; // String | order status
 Integer limit = 100; // Integer | maximum number of data returned in one request
@@ -795,10 +526,6 @@ Name | Type | Description  | Notes
 
 [**List&lt;FuturesOrder&gt;**](FuturesOrder.md)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -812,34 +539,8 @@ List all positions
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 try {
     List<Position> result = apiInstance.listPositions();
     System.out.println(result);
@@ -856,10 +557,6 @@ This endpoint does not need any parameter.
 
 [**List&lt;Position&gt;**](Position.md)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -873,34 +570,8 @@ Update position leverage
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 String contract = "contract_example"; // String | futures contract
 String leverage = "leverage_example"; // String | new leverage of position
 try {
@@ -923,10 +594,6 @@ Name | Type | Description  | Notes
 
 [**Position**](Position.md)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -940,34 +607,8 @@ Update position margin
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 String contract = "contract_example"; // String | futures contract
 String change = "change_example"; // String | margin change. Use positive number to increase margin, negative number otherwise.
 try {
@@ -990,10 +631,6 @@ Name | Type | Description  | Notes
 
 [**Position**](Position.md)
 
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1007,34 +644,8 @@ Update poisition risk limit
 
 ### Example
 ```java
-// Import classes:
-//import io.gate.gateclient.ApiClient;
-//import io.gate.gateclient.ApiException;
-//import io.gate.gateclient.Configuration;
-//import io.gate.gateclient.auth.*;
-//import io.gate.gateclient.api.FuturesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api_key
-ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_sign
-ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-api_sign.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_sign.setApiKeyPrefix("Token");
-
-// Configure API key authorization: api_timestamp
-ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-api_timestamp.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_timestamp.setApiKeyPrefix("Token");
-
-FuturesApi apiInstance = new FuturesApi();
+ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+FuturesApi apiInstance = new FuturesApi(apiClient);
 String contract = "contract_example"; // String | futures contract
 String riskLimit = "riskLimit_example"; // String | new risk limit of position
 try {
@@ -1056,10 +667,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Position**](Position.md)
-
-### Authorization
-
-[api_key](../README.md#api_key), [api_sign](../README.md#api_sign), [api_timestamp](../README.md#api_timestamp)
 
 ### HTTP request headers
 

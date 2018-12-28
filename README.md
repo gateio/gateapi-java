@@ -71,44 +71,32 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-
-import io.gate.gateclient.*;
-import io.gate.gateclient.auth.*;
-import io.gate.gateclient.models.*;
+import io.gate.gateclient.ApiClient;
 import io.gate.gateclient.api.FuturesApi;
-
-import java.io.File;
-import java.util.*;
+import io.gate.gateclient.models.Contract;
+import io.gate.gateclient.models.FuturesOrder;
 
 public class FuturesApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: api_sign
-        ApiKeyAuth api_sign = (ApiKeyAuth) defaultClient.getAuthentication("api_sign");
-        api_sign.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_sign.setApiKeyPrefix("Token");
-
-        // Configure API key authorization: api_timestamp
-        ApiKeyAuth api_timestamp = (ApiKeyAuth) defaultClient.getAuthentication("api_timestamp");
-        api_timestamp.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_timestamp.setApiKeyPrefix("Token");
-
-        FuturesApi apiInstance = new FuturesApi();
-        String orderId = "orderId_example"; // String | order id
+        ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+        // uncomment the next line if testing the API with TestNet
+        // apiClient.setBasePath("https://fx-api-testnet.gateio.io/api/v4");
+        FuturesApi futuresApi = new FuturesApi(apiClient);
         try {
-            apiInstance.cancelOrder(orderId);
+            List<Contract> contracts = futuresApi.listFuturesContracts();
+            for (Contract c: contracts) {
+                System.out.println(c.getName());
+            }
+            String contract = "BTC_USD";
+            FuturesOrder order = new FuturesOrder();
+            order.setContract(contract);
+            order.setSize(100L);
+            order.setPrice("4000");
+            order = futuresApi.createOrder(order);
+            System.out.println(order.getId());
         } catch (ApiException e) {
-            System.err.println("Exception when calling FuturesApi#cancelOrder");
+            System.err.println(e.getResponseBody());
             e.printStackTrace();
         }
     }
@@ -157,28 +145,6 @@ Class | Method | HTTP request | Description
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [MyFuturesTrade](docs/MyFuturesTrade.md)
  - [Position](docs/Position.md)
-
-
-## Documentation for Authorization
-
-Authentication schemes defined for the API:
-### api_key
-
-- **Type**: API key
-- **API key parameter name**: KEY
-- **Location**: HTTP header
-
-### api_sign
-
-- **Type**: API key
-- **API key parameter name**: SIGN
-- **Location**: HTTP header
-
-### api_timestamp
-
-- **Type**: API key
-- **API key parameter name**: Timestamp
-- **Location**: HTTP header
 
 
 ## Recommendation

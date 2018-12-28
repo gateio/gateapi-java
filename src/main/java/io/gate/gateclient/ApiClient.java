@@ -17,12 +17,16 @@ import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
+import okio.Buffer;
 import okio.BufferedSink;
 import okio.Okio;
 
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuilder;
-import org.apache.oltu.oauth2.common.message.types.GrantType;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import javax.net.ssl.*;
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +36,9 @@ import java.lang.reflect.Type;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.security.GeneralSecurityException;
+import java.security.InvalidKeyException;
 import java.security.KeyStore;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
@@ -53,7 +59,6 @@ import io.gate.gateclient.auth.HttpBasicAuth;
 import io.gate.gateclient.auth.ApiKeyAuth;
 import io.gate.gateclient.auth.OAuth;
 import io.gate.gateclient.auth.RetryingOAuth;
-import io.gate.gateclient.auth.OAuthFlow;
 
 public class ApiClient {
 
@@ -78,12 +83,21 @@ public class ApiClient {
 
     private HttpLoggingInterceptor loggingInterceptor;
 
+    private String key;
+    private String secret;
+
     /*
      * Constructor for ApiClient
      */
     public ApiClient() {
+        this("", "");
+    }
+
+    public ApiClient(String key, String secret) {
         init();
 
+        this.key = key;
+        this.secret = secret;
         // Setup authentications (key: authentication name, value: authentication).
         authentications.put("api_key", new ApiKeyAuth("header", "KEY"));
         authentications.put("api_sign", new ApiKeyAuth("header", "SIGN"));
@@ -91,7 +105,7 @@ public class ApiClient {
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
-    
+
     private void init() {
         httpClient = new OkHttpClient();
 
@@ -163,6 +177,16 @@ public class ApiClient {
      */
     public ApiClient setJSON(JSON json) {
         this.json = json;
+        return this;
+    }
+
+    public ApiClient setKey(String key) {
+        this.key = key;
+        return this;
+    }
+
+    public ApiClient setSecret(String secret) {
+        this.secret = secret;
         return this;
     }
 
@@ -976,6 +1000,46 @@ public class ApiClient {
         return httpClient.newCall(request);
     }
 
+    private String bodyToString(RequestBody body) {
+        try {
+            Buffer buffer = new Buffer();
+            body.writeTo(buffer);
+            return buffer.readUtf8();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    private Map<String, String> buildSignHeaders(String method, String fullUrl, RequestBody body) {
+        Map<String, String> headers = new HashMap<>();
+        String ts = String.valueOf(System.currentTimeMillis() / 1000);
+        String resourcePath = fullUrl;
+        int resourceIndex = fullUrl.indexOf("/api");
+        if (resourceIndex > 0) {
+            resourcePath = fullUrl.substring(resourceIndex);
+        }
+        String[] splitUrl = resourcePath.split("\\?");
+        String bodyString = (body != null) ? this.bodyToString(body): "";
+        String signatureString = String.format("%s\n%s\n%s\n%s\n%s", method, splitUrl[0], (splitUrl.length > 1) ? splitUrl[1] : "",
+                DigestUtils.sha512Hex(bodyString), ts);
+
+        String signature;
+        try {
+            Mac hmacSha512 = Mac.getInstance("HmacSHA512");
+            SecretKeySpec spec = new SecretKeySpec(this.secret.getBytes(), "HmacSHA512");
+            hmacSha512.init(spec);
+            signature = Hex.encodeHexString(hmacSha512.doFinal(signatureString.getBytes()));
+        } catch (InvalidKeyException | NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return headers;
+        }
+        headers.put("KEY", this.key);
+        headers.put("SIGN", signature);
+        headers.put("Timestamp", ts);
+        return headers;
+    }
+
     /**
      * Build an HTTP request with the given options.
      *
@@ -992,7 +1056,7 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      */
     public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        updateParamsForAuth(authNames, queryParams, headerParams);
+        // updateParamsForAuth(authNames, queryParams, headerParams);
 
         final String url = buildUrl(path, queryParams, collectionQueryParams);
         final Request.Builder reqBuilder = new Request.Builder().url(url);
@@ -1022,6 +1086,9 @@ public class ApiClient {
         } else {
             reqBody = serialize(body, contentType);
         }
+
+        Map<String, String> signHeaders = buildSignHeaders(method, url, reqBody);
+        processHeaderParams(signHeaders, reqBuilder);
 
         Request request = null;
 
