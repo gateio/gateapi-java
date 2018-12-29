@@ -71,10 +71,10 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-import io.gate.gateclient.ApiClient;
-import io.gate.gateclient.api.FuturesApi;
-import io.gate.gateclient.models.Contract;
-import io.gate.gateclient.models.FuturesOrder;
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.models.Contract;
+import io.gate.gateapi.models.FuturesOrder;
 
 public class FuturesApiExample {
 
