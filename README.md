@@ -1,7 +1,7 @@
-# gate-client
+# gate-api
 
 Gate API v4
-- API version: 1.0.0
+- API version: 1.1.0
 
 APIv4 futures provides all sorts of futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -39,8 +39,8 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
   <groupId>io.gate</groupId>
-  <artifactId>gate-client</artifactId>
-  <version>1.0.0</version>
+  <artifactId>gate-api</artifactId>
+  <version>1.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-client:1.0.0"
+compile "io.gate:gate-api:1.1.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-client-1.0.0.jar`
+* `target/gate-api-1.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -71,30 +71,25 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-import io.gate.gateapi.ApiClient;
+
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.FuturesApi;
-import io.gate.gateapi.models.Contract;
-import io.gate.gateapi.models.FuturesOrder;
+
+import java.io.File;
+import java.util.*;
 
 public class FuturesApiExample {
 
     public static void main(String[] args) {
-        ApiClient apiClient = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-        // uncomment the next line if testing the API with TestNet
-        // apiClient.setBasePath("https://fx-api-testnet.gateio.io/api/v4");
-        FuturesApi futuresApi = new FuturesApi(apiClient);
+        ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+        // uncomment the next line if testing the API with other host
+        // apiClient.setBasePath("https://some-other-host");
+        FuturesApi apiInstance = new FuturesApi(client);
+        String orderId = "12345"; // String | ID returned on order successfully being created
         try {
-            List<Contract> contracts = futuresApi.listFuturesContracts();
-            for (Contract c: contracts) {
-                System.out.println(c.getName());
-            }
-            String contract = "BTC_USD";
-            FuturesOrder order = new FuturesOrder();
-            order.setContract(contract);
-            order.setSize(100L);
-            order.setPrice("4000");
-            order = futuresApi.createOrder(order);
-            System.out.println(order.getId());
+            FuturesOrder result = apiInstance.cancelOrder(orderId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println(e.getResponseBody());
             e.printStackTrace();
@@ -124,10 +119,11 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listFuturesTickers**](docs/FuturesApi.md#listFuturesTickers) | **GET** /futures/tickers | List futures tickers
 *FuturesApi* | [**listFuturesTrades**](docs/FuturesApi.md#listFuturesTrades) | **GET** /futures/trades | Futures trading history
 *FuturesApi* | [**listOrders**](docs/FuturesApi.md#listOrders) | **GET** /futures/orders | List futures orders
-*FuturesApi* | [**listPositions**](docs/FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions
+*FuturesApi* | [**listPositionClose**](docs/FuturesApi.md#listPositionClose) | **GET** /futures/position_close | List position close history
+*FuturesApi* | [**listPositions**](docs/FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions of a user
 *FuturesApi* | [**updatePositionLeverage**](docs/FuturesApi.md#updatePositionLeverage) | **POST** /futures/positions/{contract}/leverage | Update position leverage
 *FuturesApi* | [**updatePositionMargin**](docs/FuturesApi.md#updatePositionMargin) | **POST** /futures/positions/{contract}/margin | Update position margin
-*FuturesApi* | [**updatePositionRiskLimit**](docs/FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/positions/{contract}/risk_limit | Update poisition risk limit
+*FuturesApi* | [**updatePositionRiskLimit**](docs/FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/positions/{contract}/risk_limit | Update position risk limit
 
 
 ## Documentation for Models
@@ -136,7 +132,6 @@ Class | Method | HTTP request | Description
  - [FundingRateRecord](docs/FundingRateRecord.md)
  - [FuturesAccount](docs/FuturesAccount.md)
  - [FuturesCandlestick](docs/FuturesCandlestick.md)
- - [FuturesErrorResponse](docs/FuturesErrorResponse.md)
  - [FuturesOrder](docs/FuturesOrder.md)
  - [FuturesOrderBook](docs/FuturesOrderBook.md)
  - [FuturesOrderBookItem](docs/FuturesOrderBookItem.md)
@@ -145,6 +140,8 @@ Class | Method | HTTP request | Description
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [MyFuturesTrade](docs/MyFuturesTrade.md)
  - [Position](docs/Position.md)
+ - [PositionClose](docs/PositionClose.md)
+ - [PositionCloseOrder](docs/PositionCloseOrder.md)
 
 
 ## Recommendation

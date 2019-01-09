@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.gate</groupId>
-    <artifactId>gate-client</artifactId>
+    <artifactId>gate-api</artifactId>
     <packaging>jar</packaging>
-    <name>gate-client</name>
-    <version>1.0.0</version>
+    <name>gate-api</name>
+    <version>1.1.0</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>
     <scm>
@@ -224,11 +224,6 @@
             <artifactId>junit</artifactId>
             <version>${junit-version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.6</version>
         </dependency>
     </dependencies>
     <properties>

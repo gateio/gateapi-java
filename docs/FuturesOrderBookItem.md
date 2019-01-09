@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**p** | **String** | price |  [optional]
-**s** | **Long** | size |  [optional]
+**p** | **String** | Price |  [optional]
+**s** | **Long** | Size |  [optional]
 
 
 

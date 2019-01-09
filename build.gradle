@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'io.gate'
-version = '1.0.0'
+version = '1.1.0'
 
 buildscript {
     repositories {
@@ -83,7 +83,7 @@ if(hasProperty('target') && target == 'android') {
 
     install {
         repositories.mavenInstaller {
-            pom.artifactId = 'gate-client'
+            pom.artifactId = 'gate-api'
         }
     }
 
