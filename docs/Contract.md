@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **tradeId** | **Long** | Current trade ID |  [optional]
 **tradeSize** | **Long** | Historical accumulation trade size |  [optional]
 **positionSize** | **Long** | Current total long position size |  [optional]
+**configChangeTime** | [**BigDecimal**](BigDecimal.md) | Configuration&#39;s last changed time |  [optional]
 
 
 <a name="TypeEnum"></a>

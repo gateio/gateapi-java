@@ -7,8 +7,11 @@ Method | HTTP request | Description
 [**cancelOrder**](FuturesApi.md#cancelOrder) | **DELETE** /futures/orders/{order_id} | Cancel a single order
 [**cancelOrders**](FuturesApi.md#cancelOrders) | **DELETE** /futures/orders | Cancel all &#x60;open&#x60; orders matched
 [**createOrder**](FuturesApi.md#createOrder) | **POST** /futures/orders | Create a futures order
+[**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/contracts/{contract} | Get a single contract
 [**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/my_trades | List personal trading history
 [**getOrder**](FuturesApi.md#getOrder) | **GET** /futures/orders/{order_id} | Get a single order
+[**getPosition**](FuturesApi.md#getPosition) | **GET** /futures/positions/{contract} | Get single position
+[**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/account_book | Query account book
 [**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/accounts | Query futures account
 [**listFuturesCandlesticks**](FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/candlesticks | Get futures candlesticks
 [**listFuturesContracts**](FuturesApi.md#listFuturesContracts) | **GET** /futures/contracts | List all futures contracts
@@ -174,6 +177,52 @@ Authentication with API key and secret is required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getFuturesContract"></a>
+# **getFuturesContract**
+> Contract getFuturesContract(contract)
+
+Get a single contract
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+FuturesApi apiInstance = new FuturesApi();
+String contract = "BTC_USD"; // String | Futures contract
+try {
+    Contract result = apiInstance.getFuturesContract(contract);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#getFuturesContract");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **String**| Futures contract |
+
+### Return type
+
+[**Contract**](Contract.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getMyTrades"></a>
 # **getMyTrades**
 > List&lt;MyFuturesTrade&gt; getMyTrades(contract, order, limit, lastId)
@@ -268,6 +317,110 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FuturesOrder**](FuturesOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getPosition"></a>
+# **getPosition**
+> Position getPosition(contract)
+
+Get single position
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+String contract = "BTC_USD"; // String | Futures contract
+try {
+    Position result = apiInstance.getPosition(contract);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#getPosition");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **String**| Futures contract |
+
+### Return type
+
+[**Position**](Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listFuturesAccountBook"></a>
+# **listFuturesAccountBook**
+> List&lt;FuturesAccountBook&gt; listFuturesAccountBook(limit, from, to, type)
+
+Query account book
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer from = 1547706332; // Integer | Start timestamp
+Integer to = 1547706332; // Integer | End timestamp
+String type = "type_example"; // String | Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
+try {
+    List<FuturesAccountBook> result = apiInstance.listFuturesAccountBook(limit, from, to, type);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#listFuturesAccountBook");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **from** | **Integer**| Start timestamp | [optional]
+ **to** | **Integer**| End timestamp | [optional]
+ **type** | **String**| Changing Type  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding | [optional] [enum: dnw, pnl, fee, refr, fund]
+
+### Return type
+
+[**List&lt;FuturesAccountBook&gt;**](FuturesAccountBook.md)
 
 ### Authorization
 
