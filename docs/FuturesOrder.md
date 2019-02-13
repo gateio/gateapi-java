@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **text** | **String** | How order is created  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance  |  [optional]
 **tkfr** | **String** | Taker fee |  [optional]
 **mkfr** | **String** | Maker fee |  [optional]
-**refu** | **String** | Reference user ID |  [optional]
+**refu** | **Integer** | Reference user ID |  [optional]
 
 
 <a name="FinishAsEnum"></a>
