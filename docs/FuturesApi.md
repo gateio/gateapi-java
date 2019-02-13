@@ -399,7 +399,7 @@ FuturesApi apiInstance = new FuturesApi(client);
 Integer limit = 100; // Integer | Maximum number of record returned in one list
 Integer from = 1547706332; // Integer | Start timestamp
 Integer to = 1547706332; // Integer | End timestamp
-String type = "type_example"; // String | Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
+String type = "dnw"; // String | Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
 try {
     List<FuturesAccountBook> result = apiInstance.listFuturesAccountBook(limit, from, to, type);
     System.out.println(result);
