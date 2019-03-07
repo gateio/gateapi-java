@@ -1,9 +1,9 @@
 # gate-api
 
 Gate API v4
-- API version: 1.3.0
+- API version: 4.5.0
 
-APIv4 futures provides all sorts of futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
+APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
   For more information, please visit [https://gate.io/page/contacts](https://gate.io/page/contacts)
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.gate</groupId>
   <artifactId>gate-api</artifactId>
-  <version>1.3.0</version>
+  <version>4.5.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:1.3.0"
+compile "io.gate:gate-api:4.5.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-1.3.0.jar`
+* `target/gate-api-4.5.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -101,17 +101,21 @@ public class FuturesApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://fx-api.gateio.ws/api/v4*
+All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *FuturesApi* | [**cancelOrder**](docs/FuturesApi.md#cancelOrder) | **DELETE** /futures/orders/{order_id} | Cancel a single order
 *FuturesApi* | [**cancelOrders**](docs/FuturesApi.md#cancelOrders) | **DELETE** /futures/orders | Cancel all &#x60;open&#x60; orders matched
+*FuturesApi* | [**cancelPriceTriggeredOrder**](docs/FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/price_orders/{order_id} | Cancel a single order
+*FuturesApi* | [**cancelPriceTriggeredOrderList**](docs/FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/price_orders | Cancel all open orders
 *FuturesApi* | [**createOrder**](docs/FuturesApi.md#createOrder) | **POST** /futures/orders | Create a futures order
+*FuturesApi* | [**createPriceTriggeredOrder**](docs/FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/price_orders | Create a price-triggered order
 *FuturesApi* | [**getFuturesContract**](docs/FuturesApi.md#getFuturesContract) | **GET** /futures/contracts/{contract} | Get a single contract
 *FuturesApi* | [**getMyTrades**](docs/FuturesApi.md#getMyTrades) | **GET** /futures/my_trades | List personal trading history
 *FuturesApi* | [**getOrder**](docs/FuturesApi.md#getOrder) | **GET** /futures/orders/{order_id} | Get a single order
 *FuturesApi* | [**getPosition**](docs/FuturesApi.md#getPosition) | **GET** /futures/positions/{contract} | Get single position
+*FuturesApi* | [**getPriceTriggeredOrder**](docs/FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/price_orders/{order_id} | Get a single order
 *FuturesApi* | [**listFuturesAccountBook**](docs/FuturesApi.md#listFuturesAccountBook) | **GET** /futures/account_book | Query account book
 *FuturesApi* | [**listFuturesAccounts**](docs/FuturesApi.md#listFuturesAccounts) | **GET** /futures/accounts | Query futures account
 *FuturesApi* | [**listFuturesCandlesticks**](docs/FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/candlesticks | Get futures candlesticks
@@ -124,28 +128,77 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listOrders**](docs/FuturesApi.md#listOrders) | **GET** /futures/orders | List futures orders
 *FuturesApi* | [**listPositionClose**](docs/FuturesApi.md#listPositionClose) | **GET** /futures/position_close | List position close history
 *FuturesApi* | [**listPositions**](docs/FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions of a user
+*FuturesApi* | [**listPriceTriggeredOrders**](docs/FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/price_orders | List all auto orders
 *FuturesApi* | [**updatePositionLeverage**](docs/FuturesApi.md#updatePositionLeverage) | **POST** /futures/positions/{contract}/leverage | Update position leverage
 *FuturesApi* | [**updatePositionMargin**](docs/FuturesApi.md#updatePositionMargin) | **POST** /futures/positions/{contract}/margin | Update position margin
 *FuturesApi* | [**updatePositionRiskLimit**](docs/FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/positions/{contract}/risk_limit | Update position risk limit
+*MarginApi* | [**cancelLoan**](docs/MarginApi.md#cancelLoan) | **DELETE** /margin/loans/{loan_id} | Cancel lending loan
+*MarginApi* | [**createLoan**](docs/MarginApi.md#createLoan) | **POST** /margin/loans | Lend or borrow
+*MarginApi* | [**getLoan**](docs/MarginApi.md#getLoan) | **GET** /margin/loans/{loan_id} | Retrieve one single loan detail
+*MarginApi* | [**getLoanRecord**](docs/MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
+*MarginApi* | [**listFundingAccounts**](docs/MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list
+*MarginApi* | [**listFundingBook**](docs/MarginApi.md#listFundingBook) | **GET** /margin/funding_book | Order book of lending loans
+*MarginApi* | [**listLoanRecords**](docs/MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of specified loan
+*MarginApi* | [**listLoanRepayments**](docs/MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records
+*MarginApi* | [**listLoans**](docs/MarginApi.md#listLoans) | **GET** /margin/loans | List all loans
+*MarginApi* | [**listMarginAccounts**](docs/MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list
+*MarginApi* | [**listMarginCurrencyPairs**](docs/MarginApi.md#listMarginCurrencyPairs) | **GET** /margin/currency_pairs | List all supported currency pairs supported in margin trading
+*MarginApi* | [**mergeLoans**](docs/MarginApi.md#mergeLoans) | **POST** /margin/merged_loans | Merge multiple lending loans
+*MarginApi* | [**repayLoan**](docs/MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan
+*MarginApi* | [**updateLoan**](docs/MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan
+*MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
+*SpotApi* | [**cancelOrder**](docs/SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
+*SpotApi* | [**cancelOrders**](docs/SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
+*SpotApi* | [**createOrder**](docs/SpotApi.md#createOrder) | **POST** /spot/orders | Create an order
+*SpotApi* | [**getCurrencyPair**](docs/SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get detail of one single order
+*SpotApi* | [**getOrder**](docs/SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
+*SpotApi* | [**listCandlesticks**](docs/SpotApi.md#listCandlesticks) | **GET** /spot/candlesticks | Market candlesticks
+*SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
+*SpotApi* | [**listMyTrades**](docs/SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
+*SpotApi* | [**listOrderBook**](docs/SpotApi.md#listOrderBook) | **GET** /spot/order_book | Retrieve order book
+*SpotApi* | [**listOrders**](docs/SpotApi.md#listOrders) | **GET** /spot/orders | List futures orders
+*SpotApi* | [**listSpotAccounts**](docs/SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot accounts
+*SpotApi* | [**listTickers**](docs/SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information
+*SpotApi* | [**listTrades**](docs/SpotApi.md#listTrades) | **GET** /spot/trades | Retrieve market trades
 
 
 ## Documentation for Models
 
  - [Contract](docs/Contract.md)
+ - [CurrencyPair](docs/CurrencyPair.md)
+ - [FundingAccount](docs/FundingAccount.md)
+ - [FundingBookItem](docs/FundingBookItem.md)
  - [FundingRateRecord](docs/FundingRateRecord.md)
  - [FuturesAccount](docs/FuturesAccount.md)
  - [FuturesAccountBook](docs/FuturesAccountBook.md)
  - [FuturesCandlestick](docs/FuturesCandlestick.md)
+ - [FuturesInitialOrder](docs/FuturesInitialOrder.md)
  - [FuturesOrder](docs/FuturesOrder.md)
  - [FuturesOrderBook](docs/FuturesOrderBook.md)
  - [FuturesOrderBookItem](docs/FuturesOrderBookItem.md)
+ - [FuturesPriceTrigger](docs/FuturesPriceTrigger.md)
+ - [FuturesPriceTriggeredOrder](docs/FuturesPriceTriggeredOrder.md)
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
+ - [Loan](docs/Loan.md)
+ - [LoanPatch](docs/LoanPatch.md)
+ - [LoanRecord](docs/LoanRecord.md)
+ - [MarginAccount](docs/MarginAccount.md)
+ - [MarginAccountCurrency](docs/MarginAccountCurrency.md)
+ - [MarginCurrencyPair](docs/MarginCurrencyPair.md)
  - [MyFuturesTrade](docs/MyFuturesTrade.md)
+ - [Order](docs/Order.md)
+ - [OrderBook](docs/OrderBook.md)
  - [Position](docs/Position.md)
  - [PositionClose](docs/PositionClose.md)
  - [PositionCloseOrder](docs/PositionCloseOrder.md)
+ - [RepayRequest](docs/RepayRequest.md)
+ - [Repayment](docs/Repayment.md)
+ - [SpotAccount](docs/SpotAccount.md)
+ - [Ticker](docs/Ticker.md)
+ - [Trade](docs/Trade.md)
+ - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
 
 
 ## Recommendation

@@ -1,16 +1,20 @@
 # FuturesApi
 
-All URIs are relative to *https://fx-api.gateio.ws/api/v4*
+All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelOrder**](FuturesApi.md#cancelOrder) | **DELETE** /futures/orders/{order_id} | Cancel a single order
 [**cancelOrders**](FuturesApi.md#cancelOrders) | **DELETE** /futures/orders | Cancel all &#x60;open&#x60; orders matched
+[**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/price_orders/{order_id} | Cancel a single order
+[**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/price_orders | Cancel all open orders
 [**createOrder**](FuturesApi.md#createOrder) | **POST** /futures/orders | Create a futures order
+[**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/price_orders | Create a price-triggered order
 [**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/contracts/{contract} | Get a single contract
 [**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/my_trades | List personal trading history
 [**getOrder**](FuturesApi.md#getOrder) | **GET** /futures/orders/{order_id} | Get a single order
 [**getPosition**](FuturesApi.md#getPosition) | **GET** /futures/positions/{contract} | Get single position
+[**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/price_orders/{order_id} | Get a single order
 [**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/account_book | Query account book
 [**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/accounts | Query futures account
 [**listFuturesCandlesticks**](FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/candlesticks | Get futures candlesticks
@@ -23,6 +27,7 @@ Method | HTTP request | Description
 [**listOrders**](FuturesApi.md#listOrders) | **GET** /futures/orders | List futures orders
 [**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/position_close | List position close history
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions of a user
+[**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/price_orders | List all auto orders
 [**updatePositionLeverage**](FuturesApi.md#updatePositionLeverage) | **POST** /futures/positions/{contract}/leverage | Update position leverage
 [**updatePositionMargin**](FuturesApi.md#updatePositionMargin) | **POST** /futures/positions/{contract}/margin | Update position margin
 [**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/positions/{contract}/risk_limit | Update position risk limit
@@ -128,6 +133,104 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="cancelPriceTriggeredOrder"></a>
+# **cancelPriceTriggeredOrder**
+> FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(orderId)
+
+Cancel a single order
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+String orderId = "orderId_example"; // String | ID returned on order successfully being created
+try {
+    FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredOrder(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#cancelPriceTriggeredOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| ID returned on order successfully being created |
+
+### Return type
+
+[**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="cancelPriceTriggeredOrderList"></a>
+# **cancelPriceTriggeredOrderList**
+> List&lt;FuturesPriceTriggeredOrder&gt; cancelPriceTriggeredOrderList(contract)
+
+Cancel all open orders
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+String contract = "BTC_USD"; // String | Futures contract
+try {
+    List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredOrderList(contract);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#cancelPriceTriggeredOrderList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **String**| Futures contract |
+
+### Return type
+
+[**List&lt;FuturesPriceTriggeredOrder&gt;**](FuturesPriceTriggeredOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="createOrder"></a>
 # **createOrder**
 > FuturesOrder createOrder(futuresOrder)
@@ -167,6 +270,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FuturesOrder**](FuturesOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createPriceTriggeredOrder"></a>
+# **createPriceTriggeredOrder**
+> TriggerOrderResponse createPriceTriggeredOrder(futuresPriceTriggeredOrder)
+
+Create a price-triggered order
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+FuturesPriceTriggeredOrder futuresPriceTriggeredOrder = new FuturesPriceTriggeredOrder(); // FuturesPriceTriggeredOrder | 
+try {
+    TriggerOrderResponse result = apiInstance.createPriceTriggeredOrder(futuresPriceTriggeredOrder);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#createPriceTriggeredOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **futuresPriceTriggeredOrder** | [**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)|  |
+
+### Return type
+
+[**TriggerOrderResponse**](TriggerOrderResponse.md)
 
 ### Authorization
 
@@ -366,6 +518,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Position**](Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getPriceTriggeredOrder"></a>
+# **getPriceTriggeredOrder**
+> FuturesPriceTriggeredOrder getPriceTriggeredOrder(orderId)
+
+Get a single order
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+String orderId = "orderId_example"; // String | ID returned on order successfully being created
+try {
+    FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredOrder(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#getPriceTriggeredOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| ID returned on order successfully being created |
+
+### Return type
+
+[**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)
 
 ### Authorization
 
@@ -957,6 +1158,61 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;Position&gt;**](Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listPriceTriggeredOrders"></a>
+# **listPriceTriggeredOrders**
+> List&lt;FuturesPriceTriggeredOrder&gt; listPriceTriggeredOrders(status, contract, limit, offset)
+
+List all auto orders
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+String status = "status_example"; // String | List orders based on status
+String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer offset = 0; // Integer | List offset, starting from 0
+try {
+    List<FuturesPriceTriggeredOrder> result = apiInstance.listPriceTriggeredOrders(status, contract, limit, offset);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#listPriceTriggeredOrders");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **String**| List orders based on status | [enum: open, finished]
+ **contract** | **String**| Futures contract, return related data only if specified | [optional]
+ **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;FuturesPriceTriggeredOrder&gt;**](FuturesPriceTriggeredOrder.md)
 
 ### Authorization
 
