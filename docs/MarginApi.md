@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 <a name="cancelLoan"></a>
 # **cancelLoan**
-> Loan cancelLoan(currency)
+> Loan cancelLoan(loanId, currency)
 
 Cancel lending loan
 
@@ -43,9 +43,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
+String loanId = "loanId_example"; // String | Loan ID
 String currency = "BTC"; // String | Retrieved specified currency related data
 try {
-    Loan result = apiInstance.cancelLoan(currency);
+    Loan result = apiInstance.cancelLoan(loanId, currency);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarginApi#cancelLoan");
@@ -57,6 +58,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
  **currency** | **String**| Retrieved specified currency related data |
 
 ### Return type
@@ -123,7 +125,7 @@ Authentication with API key and secret is required
 
 <a name="getLoan"></a>
 # **getLoan**
-> Loan getLoan(side)
+> Loan getLoan(loanId, side)
 
 Retrieve one single loan detail
 
@@ -141,9 +143,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
+String loanId = "loanId_example"; // String | Loan ID
 String side = "lend"; // String | Lend or borrow
 try {
-    Loan result = apiInstance.getLoan(side);
+    Loan result = apiInstance.getLoan(loanId, side);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarginApi#getLoan");
@@ -155,6 +158,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
  **side** | **String**| Lend or borrow | [enum: lend, borrow]
 
 ### Return type
@@ -172,7 +176,7 @@ Authentication with API key and secret is required
 
 <a name="getLoanRecord"></a>
 # **getLoanRecord**
-> LoanRecord getLoanRecord(loanId)
+> LoanRecord getLoanRecord(loanRecordId, loanId)
 
 Get one single loan record
 
@@ -190,9 +194,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
+String loanRecordId = "loanRecordId_example"; // String | Loan record ID
 String loanId = "loanId_example"; // String | Loan ID
 try {
-    LoanRecord result = apiInstance.getLoanRecord(loanId);
+    LoanRecord result = apiInstance.getLoanRecord(loanRecordId, loanId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarginApi#getLoanRecord");
@@ -204,6 +209,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loanRecordId** | **String**| Loan record ID |
  **loanId** | **String**| Loan ID |
 
 ### Return type
@@ -371,7 +377,7 @@ Authentication with API key and secret is required
 
 <a name="listLoanRepayments"></a>
 # **listLoanRepayments**
-> List&lt;Repayment&gt; listLoanRepayments()
+> List&lt;Repayment&gt; listLoanRepayments(loanId)
 
 List loan repayment records
 
@@ -389,8 +395,9 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
+String loanId = "loanId_example"; // String | Loan ID
 try {
-    List<Repayment> result = apiInstance.listLoanRepayments();
+    List<Repayment> result = apiInstance.listLoanRepayments(loanId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarginApi#listLoanRepayments");
@@ -399,7 +406,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
 
 ### Return type
 
@@ -615,7 +625,7 @@ Authentication with API key and secret is required
 
 <a name="repayLoan"></a>
 # **repayLoan**
-> Loan repayLoan(repayRequest)
+> Loan repayLoan(loanId, repayRequest)
 
 Repay a loan
 
@@ -633,9 +643,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
+String loanId = "loanId_example"; // String | Loan ID
 RepayRequest repayRequest = new RepayRequest(); // RepayRequest | 
 try {
-    Loan result = apiInstance.repayLoan(repayRequest);
+    Loan result = apiInstance.repayLoan(loanId, repayRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarginApi#repayLoan");
@@ -647,6 +658,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
  **repayRequest** | [**RepayRequest**](RepayRequest.md)|  |
 
 ### Return type
@@ -664,7 +676,7 @@ Authentication with API key and secret is required
 
 <a name="updateLoan"></a>
 # **updateLoan**
-> Loan updateLoan(loanPatch)
+> Loan updateLoan(loanId, loanPatch)
 
 Modify a loan
 
@@ -684,9 +696,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
+String loanId = "loanId_example"; // String | Loan ID
 LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
 try {
-    Loan result = apiInstance.updateLoan(loanPatch);
+    Loan result = apiInstance.updateLoan(loanId, loanPatch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarginApi#updateLoan");
@@ -698,6 +711,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
  **loanPatch** | [**LoanPatch**](LoanPatch.md)|  |
 
 ### Return type
@@ -715,7 +729,7 @@ Authentication with API key and secret is required
 
 <a name="updateLoanRecord"></a>
 # **updateLoanRecord**
-> LoanRecord updateLoanRecord(loanPatch)
+> LoanRecord updateLoanRecord(loanRecordId, loanPatch)
 
 Modify a loan record
 
@@ -735,9 +749,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
+String loanRecordId = "loanRecordId_example"; // String | Loan record ID
 LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
 try {
-    LoanRecord result = apiInstance.updateLoanRecord(loanPatch);
+    LoanRecord result = apiInstance.updateLoanRecord(loanRecordId, loanPatch);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarginApi#updateLoanRecord");
@@ -749,6 +764,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **loanRecordId** | **String**| Loan record ID |
  **loanPatch** | [**LoanPatch**](LoanPatch.md)|  |
 
 ### Return type
