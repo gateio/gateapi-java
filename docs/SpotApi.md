@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 <a name="cancelOrder"></a>
 # **cancelOrder**
-> Order cancelOrder()
+> Order cancelOrder(orderId, currencyPair)
 
 Cancel a single order
 
@@ -39,8 +39,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 SpotApi apiInstance = new SpotApi(client);
+String orderId = "12345"; // String | ID returned on order successfully being created
+String currencyPair = "BTC_USDT"; // String | Currency pair
 try {
-    Order result = apiInstance.cancelOrder();
+    Order result = apiInstance.cancelOrder(orderId, currencyPair);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SpotApi#cancelOrder");
@@ -49,7 +51,11 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| ID returned on order successfully being created |
+ **currencyPair** | **String**| Currency pair |
 
 ### Return type
 
@@ -214,7 +220,7 @@ No authorization required
 
 <a name="getOrder"></a>
 # **getOrder**
-> Order getOrder()
+> Order getOrder(orderId, currencyPair)
 
 Get a single order
 
@@ -232,8 +238,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 SpotApi apiInstance = new SpotApi(client);
+String orderId = "12345"; // String | ID returned on order successfully being created
+String currencyPair = "BTC_USDT"; // String | Currency pair
 try {
-    Order result = apiInstance.getOrder();
+    Order result = apiInstance.getOrder(orderId, currencyPair);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SpotApi#getOrder");
@@ -242,7 +250,11 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| ID returned on order successfully being created |
+ **currencyPair** | **String**| Currency pair |
 
 ### Return type
 
