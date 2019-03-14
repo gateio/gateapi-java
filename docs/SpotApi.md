@@ -453,7 +453,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair | [optional]
+ **currencyPair** | **String**| Currency pair |
  **interval** | **String**| Price precision of order book. 0 means no aggregation is applied | [optional] [default to &quot;0&quot;]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
 

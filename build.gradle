@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'io.gate'
-version = '4.5.1'
+version = '4.5.2'
 
 buildscript {
     repositories {

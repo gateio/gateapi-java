@@ -5,29 +5,29 @@
     <artifactId>gate-api</artifactId>
     <packaging>jar</packaging>
     <name>gate-api</name>
-    <version>4.5.1</version>
+    <version>4.5.2</version>
     <url>https://github.com/openapitools/openapi-generator</url>
-    <description>OpenAPI Java</description>
+    <description>Java client for gateapi</description>
     <scm>
-        <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
-        <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
-        <url>https://github.com/openapitools/openapi-generator</url>
+        <connection>scm:git:https://github.com/gateio/gateapi-java.git</connection>
+        <developerConnection>scm:git:git@github.com:gateio/gateapi-java.git</developerConnection>
+        <url>https://github.com/gateio/gateapi-java.git</url>
     </scm>
 
     <licenses>
         <license>
             <name>Unlicense</name>
-            <url>http://unlicense.org</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <developers>
         <developer>
-            <name>OpenAPI</name>
-            <email>team@openapitools.org</email>
-            <organization>OpenAPI</organization>
-            <organizationUrl>http://openapitools.org</organizationUrl>
+            <name>GateIO</name>
+            <email>support@mail.gate.io</email>
+            <organization>GateIO</organization>
+            <organizationUrl>https://www.gate.io</organizationUrl>
         </developer>
     </developers>
 
