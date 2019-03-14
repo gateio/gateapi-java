@@ -43,7 +43,7 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
-String loanId = "loanId_example"; // String | Loan ID
+String loanId = "12345"; // String | Loan ID
 String currency = "BTC"; // String | Retrieved specified currency related data
 try {
     Loan result = apiInstance.cancelLoan(loanId, currency);
@@ -143,7 +143,7 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
-String loanId = "loanId_example"; // String | Loan ID
+String loanId = "12345"; // String | Loan ID
 String side = "lend"; // String | Lend or borrow
 try {
     Loan result = apiInstance.getLoan(loanId, side);
@@ -194,8 +194,8 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
-String loanRecordId = "loanRecordId_example"; // String | Loan record ID
-String loanId = "loanId_example"; // String | Loan ID
+String loanRecordId = "12345"; // String | Loan record ID
+String loanId = "12345"; // String | Loan ID
 try {
     LoanRecord result = apiInstance.getLoanRecord(loanRecordId, loanId);
     System.out.println(result);
@@ -340,8 +340,8 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
-String loanId = "loanId_example"; // String | Loan ID
-String status = "status_example"; // String | Loan record status
+String loanId = "12345"; // String | Loan ID
+String status = "loaned"; // String | Loan record status
 Integer page = 1; // Integer | Page number
 Integer limit = 100; // Integer | Maximum number of record returned in one list
 try {
@@ -395,7 +395,7 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
-String loanId = "loanId_example"; // String | Loan ID
+String loanId = "12345"; // String | Loan ID
 try {
     List<Repayment> result = apiInstance.listLoanRepayments(loanId);
     System.out.println(result);
@@ -643,7 +643,7 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
-String loanId = "loanId_example"; // String | Loan ID
+String loanId = "12345"; // String | Loan ID
 RepayRequest repayRequest = new RepayRequest(); // RepayRequest | 
 try {
     Loan result = apiInstance.repayLoan(loanId, repayRequest);
@@ -696,7 +696,7 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
-String loanId = "loanId_example"; // String | Loan ID
+String loanId = "12345"; // String | Loan ID
 LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
 try {
     Loan result = apiInstance.updateLoan(loanId, loanPatch);
@@ -749,7 +749,7 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 MarginApi apiInstance = new MarginApi(client);
-String loanRecordId = "loanRecordId_example"; // String | Loan record ID
+String loanRecordId = "12345"; // String | Loan record ID
 LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
 try {
     LoanRecord result = apiInstance.updateLoanRecord(loanRecordId, loanPatch);
