@@ -1017,7 +1017,7 @@ public class ApiClient {
         Map<String, String> headers = new HashMap<>();
         String ts = String.valueOf(System.currentTimeMillis() / 1000);
         String resourcePath = fullUrl;
-        int resourceIndex = fullUrl.indexOf("/api");
+        int resourceIndex = fullUrl.indexOf("/api/v4");
         if (resourceIndex > 0) {
             resourcePath = fullUrl.substring(resourceIndex);
         }
@@ -1089,7 +1089,7 @@ public class ApiClient {
             reqBody = serialize(body, contentType);
         }
 
-        if (this.key != null && !this.key.equals("")) {
+        if (authNames.length > 0) {
             Map<String, String> signHeaders = buildSignHeaders(method, url, reqBody);
             processHeaderParams(signHeaders, reqBuilder);
         }
