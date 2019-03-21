@@ -4,15 +4,15 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelOrder**](FuturesApi.md#cancelOrder) | **DELETE** /futures/orders/{order_id} | Cancel a single order
-[**cancelOrders**](FuturesApi.md#cancelOrders) | **DELETE** /futures/orders | Cancel all &#x60;open&#x60; orders matched
+[**cancelFuturesOrder**](FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/orders/{order_id} | Cancel a single order
+[**cancelFuturesOrders**](FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/orders | Cancel all &#x60;open&#x60; orders matched
 [**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/price_orders/{order_id} | Cancel a single order
 [**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/price_orders | Cancel all open orders
-[**createOrder**](FuturesApi.md#createOrder) | **POST** /futures/orders | Create a futures order
+[**createFuturesOrder**](FuturesApi.md#createFuturesOrder) | **POST** /futures/orders | Create a futures order
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/price_orders | Create a price-triggered order
 [**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/contracts/{contract} | Get a single contract
+[**getFuturesOrder**](FuturesApi.md#getFuturesOrder) | **GET** /futures/orders/{order_id} | Get a single order
 [**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/my_trades | List personal trading history
-[**getOrder**](FuturesApi.md#getOrder) | **GET** /futures/orders/{order_id} | Get a single order
 [**getPosition**](FuturesApi.md#getPosition) | **GET** /futures/positions/{contract} | Get single position
 [**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/price_orders/{order_id} | Get a single order
 [**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/account_book | Query account book
@@ -22,9 +22,9 @@ Method | HTTP request | Description
 [**listFuturesFundingRateHistory**](FuturesApi.md#listFuturesFundingRateHistory) | **GET** /futures/funding_rate | Funding rate history
 [**listFuturesInsuranceLedger**](FuturesApi.md#listFuturesInsuranceLedger) | **GET** /futures/insurance | Futures insurance balance history
 [**listFuturesOrderBook**](FuturesApi.md#listFuturesOrderBook) | **GET** /futures/order_book | Futures order book
+[**listFuturesOrders**](FuturesApi.md#listFuturesOrders) | **GET** /futures/orders | List futures orders
 [**listFuturesTickers**](FuturesApi.md#listFuturesTickers) | **GET** /futures/tickers | List futures tickers
 [**listFuturesTrades**](FuturesApi.md#listFuturesTrades) | **GET** /futures/trades | Futures trading history
-[**listOrders**](FuturesApi.md#listOrders) | **GET** /futures/orders | List futures orders
 [**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/position_close | List position close history
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions of a user
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/price_orders | List all auto orders
@@ -33,9 +33,9 @@ Method | HTTP request | Description
 [**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/positions/{contract}/risk_limit | Update position risk limit
 
 
-<a name="cancelOrder"></a>
-# **cancelOrder**
-> FuturesOrder cancelOrder(orderId)
+<a name="cancelFuturesOrder"></a>
+# **cancelFuturesOrder**
+> FuturesOrder cancelFuturesOrder(orderId)
 
 Cancel a single order
 
@@ -55,10 +55,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 FuturesApi apiInstance = new FuturesApi(client);
 String orderId = "12345"; // String | ID returned on order successfully being created
 try {
-    FuturesOrder result = apiInstance.cancelOrder(orderId);
+    FuturesOrder result = apiInstance.cancelFuturesOrder(orderId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#cancelOrder");
+    System.err.println("Exception when calling FuturesApi#cancelFuturesOrder");
     e.printStackTrace();
 }
 ```
@@ -82,9 +82,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cancelOrders"></a>
-# **cancelOrders**
-> List&lt;FuturesOrder&gt; cancelOrders(contract, side)
+<a name="cancelFuturesOrders"></a>
+# **cancelFuturesOrders**
+> List&lt;FuturesOrder&gt; cancelFuturesOrders(contract, side)
 
 Cancel all &#x60;open&#x60; orders matched
 
@@ -105,10 +105,10 @@ FuturesApi apiInstance = new FuturesApi(client);
 String contract = "BTC_USD"; // String | Futures contract
 String side = "ask"; // String | All bids or asks. Both included in not specified
 try {
-    List<FuturesOrder> result = apiInstance.cancelOrders(contract, side);
+    List<FuturesOrder> result = apiInstance.cancelFuturesOrders(contract, side);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#cancelOrders");
+    System.err.println("Exception when calling FuturesApi#cancelFuturesOrders");
     e.printStackTrace();
 }
 ```
@@ -231,9 +231,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="createOrder"></a>
-# **createOrder**
-> FuturesOrder createOrder(futuresOrder)
+<a name="createFuturesOrder"></a>
+# **createFuturesOrder**
+> FuturesOrder createFuturesOrder(futuresOrder)
 
 Create a futures order
 
@@ -253,10 +253,10 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 FuturesApi apiInstance = new FuturesApi(client);
 FuturesOrder futuresOrder = new FuturesOrder(); // FuturesOrder | 
 try {
-    FuturesOrder result = apiInstance.createOrder(futuresOrder);
+    FuturesOrder result = apiInstance.createFuturesOrder(futuresOrder);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#createOrder");
+    System.err.println("Exception when calling FuturesApi#createFuturesOrder");
     e.printStackTrace();
 }
 ```
@@ -375,6 +375,55 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getFuturesOrder"></a>
+# **getFuturesOrder**
+> FuturesOrder getFuturesOrder(orderId)
+
+Get a single order
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+String orderId = "12345"; // String | ID returned on order successfully being created
+try {
+    FuturesOrder result = apiInstance.getFuturesOrder(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#getFuturesOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| ID returned on order successfully being created |
+
+### Return type
+
+[**FuturesOrder**](FuturesOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getMyTrades"></a>
 # **getMyTrades**
 > List&lt;MyFuturesTrade&gt; getMyTrades(contract, order, limit, lastId)
@@ -420,55 +469,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;MyFuturesTrade&gt;**](MyFuturesTrade.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getOrder"></a>
-# **getOrder**
-> FuturesOrder getOrder(orderId)
-
-Get a single order
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
-
-import java.io.File;
-import java.util.*;
-
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String orderId = "12345"; // String | ID returned on order successfully being created
-try {
-    FuturesOrder result = apiInstance.getOrder(orderId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#getOrder");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **String**| ID returned on order successfully being created |
-
-### Return type
-
-[**FuturesOrder**](FuturesOrder.md)
 
 ### Authorization
 
@@ -921,6 +921,61 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="listFuturesOrders"></a>
+# **listFuturesOrders**
+> List&lt;FuturesOrder&gt; listFuturesOrders(contract, status, limit, lastId)
+
+List futures orders
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+String contract = "BTC_USD"; // String | Futures contract
+String status = "open"; // String | List orders based on status
+Integer limit = 100; // Integer | Maximum number of record returned in one list
+String lastId = "12345"; // String | Specify list staring point using the last record of `id` in previous list-query results
+try {
+    List<FuturesOrder> result = apiInstance.listFuturesOrders(contract, status, limit, lastId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#listFuturesOrders");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **String**| Futures contract |
+ **status** | **String**| List orders based on status | [enum: open, finished]
+ **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **lastId** | **String**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+
+### Return type
+
+[**List&lt;FuturesOrder&gt;**](FuturesOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="listFuturesTickers"></a>
 # **listFuturesTickers**
 > List&lt;FuturesTicker&gt; listFuturesTickers(contract)
@@ -1011,61 +1066,6 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="listOrders"></a>
-# **listOrders**
-> List&lt;FuturesOrder&gt; listOrders(contract, status, limit, lastId)
-
-List futures orders
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
-
-import java.io.File;
-import java.util.*;
-
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String contract = "BTC_USD"; // String | Futures contract
-String status = "open"; // String | List orders based on status
-Integer limit = 100; // Integer | Maximum number of record returned in one list
-String lastId = "12345"; // String | Specify list staring point using the last record of `id` in previous list-query results
-try {
-    List<FuturesOrder> result = apiInstance.listOrders(contract, status, limit, lastId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listOrders");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contract** | **String**| Futures contract |
- **status** | **String**| List orders based on status | [enum: open, finished]
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
- **lastId** | **String**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
-
-### Return type
-
-[**List&lt;FuturesOrder&gt;**](FuturesOrder.md)
-
-### Authorization
-
-Authentication with API key and secret is required
 
 ### HTTP request headers
 
