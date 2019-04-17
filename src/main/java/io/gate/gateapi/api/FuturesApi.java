@@ -78,7 +78,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call cancelFuturesOrderCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/orders/{order_id}"
@@ -201,7 +201,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call cancelFuturesOrdersCall(String contract, String side, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/orders";
@@ -333,7 +333,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call cancelPriceTriggeredOrderCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/price_orders/{order_id}"
@@ -455,7 +455,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call cancelPriceTriggeredOrderListCall(String contract, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/price_orders";
@@ -822,7 +822,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getFuturesContractCall(String contract, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/contracts/{contract}"
@@ -944,7 +944,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getFuturesOrderCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/orders/{order_id}"
@@ -1069,7 +1069,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getMyTradesCall(String contract, Integer order, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/my_trades";
@@ -1210,7 +1210,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getPositionCall(String contract, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/positions/{contract}"
@@ -1332,7 +1332,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getPriceTriggeredOrderCall(String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/price_orders/{order_id}"
@@ -1457,7 +1457,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesAccountBookCall(Integer limit, Integer from, Integer to, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/account_book";
@@ -1597,7 +1597,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesAccountsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/accounts";
@@ -1714,7 +1714,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesCandlesticksCall(String contract, BigDecimal from, BigDecimal to, Integer limit, String interval, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/candlesticks";
@@ -1866,7 +1866,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesContractsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/contracts";
@@ -1980,7 +1980,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesFundingRateHistoryCall(String contract, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/funding_rate";
@@ -2112,7 +2112,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesInsuranceLedgerCall(Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/insurance";
@@ -2234,7 +2234,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesOrderBookCall(String contract, String interval, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/order_book";
@@ -2376,7 +2376,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesOrdersCall(String contract, String status, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/orders";
@@ -2527,7 +2527,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesTickersCall(String contract, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/tickers";
@@ -2649,7 +2649,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFuturesTradesCall(String contract, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/trades";
@@ -2789,7 +2789,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listPositionCloseCall(String contract, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/position_close";
@@ -2915,7 +2915,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listPositionsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/positions";
@@ -3031,7 +3031,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listPriceTriggeredOrdersCall(String status, String contract, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/price_orders";
@@ -3178,7 +3178,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call updatePositionLeverageCall(String contract, String leverage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/positions/{contract}/leverage"
@@ -3313,7 +3313,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call updatePositionMarginCall(String contract, String change, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/positions/{contract}/margin"
@@ -3448,7 +3448,7 @@ public class FuturesApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call updatePositionRiskLimitCall(String contract, String riskLimit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/positions/{contract}/risk_limit"

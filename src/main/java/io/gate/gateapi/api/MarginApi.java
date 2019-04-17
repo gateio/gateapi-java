@@ -72,7 +72,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call cancelLoanCall(String loanId, String currency, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/loans/{loan_id}"
@@ -328,7 +328,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getLoanCall(String loanId, String side, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/loans/{loan_id}"
@@ -463,7 +463,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getLoanRecordCall(String loanRecordId, String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/loan_records/{loan_record_id}"
@@ -597,7 +597,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFundingAccountsCall(String currency, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/funding_accounts";
@@ -717,7 +717,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listFundingBookCall(String currency, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/funding_book";
@@ -845,7 +845,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listLoanRecordsCall(String loanId, String status, Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/loan_records";
@@ -991,7 +991,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listLoanRepaymentsCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/loans/{loan_id}/repayment"
@@ -1117,7 +1117,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listLoansCall(String status, String side, String currency, Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/loans";
@@ -1275,7 +1275,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listMarginAccountsCall(String currencyPair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/accounts";
@@ -1394,7 +1394,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listMarginCurrencyPairsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/currency_pairs";
@@ -1508,7 +1508,7 @@ public class MarginApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call mergeLoansCall(String currency, String ids, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/margin/merged_loans";
