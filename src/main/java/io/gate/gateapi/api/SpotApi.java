@@ -69,7 +69,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call cancelOrderCall(String orderId, String currencyPair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/orders/{order_id}"
@@ -205,7 +205,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call cancelOrdersCall(String currencyPair, String side, String account, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/orders";
@@ -465,7 +465,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getCurrencyPairCall(String currencyPair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/currency_pairs/{currency_pair}"
@@ -588,7 +588,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call getOrderCall(String orderId, String currencyPair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/orders/{order_id}"
@@ -724,7 +724,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listCandlesticksCall(String currencyPair, Integer limit, String interval, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/candlesticks";
@@ -862,7 +862,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listCurrencyPairsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/currency_pairs";
@@ -978,7 +978,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listMyTradesCall(String currencyPair, Integer limit, Integer page, String orderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/my_trades";
@@ -1126,7 +1126,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listOrderBookCall(String currencyPair, String interval, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/order_book";
@@ -1268,7 +1268,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listOrdersCall(String currencyPair, String status, Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/orders";
@@ -1419,7 +1419,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listSpotAccountsCall(String currency, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/accounts";
@@ -1539,7 +1539,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listTickersCall(String currencyPair, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/tickers";
@@ -1661,7 +1661,7 @@ public class SpotApi {
      * @throws ApiException If fail to serialize the request body object
      */
     public com.squareup.okhttp.Call listTradesCall(String currencyPair, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/spot/trades";
