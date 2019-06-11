@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**listFuturesOrders**](FuturesApi.md#listFuturesOrders) | **GET** /futures/orders | List futures orders
 [**listFuturesTickers**](FuturesApi.md#listFuturesTickers) | **GET** /futures/tickers | List futures tickers
 [**listFuturesTrades**](FuturesApi.md#listFuturesTrades) | **GET** /futures/trades | Futures trading history
+[**listLiquidates**](FuturesApi.md#listLiquidates) | **GET** /futures/liquidates | List liquidation history
 [**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/position_close | List position close history
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions of a user
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/price_orders | List all auto orders
@@ -600,7 +601,7 @@ FuturesApi apiInstance = new FuturesApi(client);
 Integer limit = 100; // Integer | Maximum number of record returned in one list
 Integer from = 1547706332; // Integer | Start timestamp
 Integer to = 1547706332; // Integer | End timestamp
-String type = "dnw"; // String | Changing Type  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding
+String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
 try {
     List<FuturesAccountBook> result = apiInstance.listFuturesAccountBook(limit, from, to, type);
     System.out.println(result);
@@ -617,7 +618,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
  **from** | **Integer**| Start timestamp | [optional]
  **to** | **Integer**| End timestamp | [optional]
- **type** | **String**| Changing Type  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding | [optional] [enum: dnw, pnl, fee, refr, fund]
+ **type** | **String**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional] [enum: dnw, pnl, fee, refr, fund, point_dnw, point_fee, point_refr]
 
 ### Return type
 
@@ -1066,6 +1067,59 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listLiquidates"></a>
+# **listLiquidates**
+> List&lt;FuturesLiquidate&gt; listLiquidates(contract, limit, at)
+
+List liquidation history
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+FuturesApi apiInstance = new FuturesApi(client);
+String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer at = 0; // Integer | Specify a liquidation timestamp
+try {
+    List<FuturesLiquidate> result = apiInstance.listLiquidates(contract, limit, at);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FuturesApi#listLiquidates");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contract** | **String**| Futures contract, return related data only if specified | [optional]
+ **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **at** | **Integer**| Specify a liquidation timestamp | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;FuturesLiquidate&gt;**](FuturesLiquidate.md)
+
+### Authorization
+
+Authentication with API key and secret is required
 
 ### HTTP request headers
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **status** | [**StatusEnum**](#StatusEnum) | Loan status  open - not fully loaned loaned - all loaned out for lending loan; loaned in for borrowing side finished - loan is finished, either being all repaid or cancelled by the lender auto_repaid - automatically repaid by the system |  [optional]
 **side** | [**SideEnum**](#SideEnum) | Loan side | 
 **currency** | **String** | Loan currency | 
-**rate** | **String** | Loan rate | 
+**rate** | **String** | Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set |  [optional]
 **amount** | **String** | Loan amount | 
 **days** | **Integer** | Loan days | 
 **autoRenew** | **Boolean** | Auto renew the loan on expiration |  [optional]
