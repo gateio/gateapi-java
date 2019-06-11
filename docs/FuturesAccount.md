@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **positionMargin** | **String** | Position margin |  [optional]
 **orderMargin** | **String** | Order margin of unfinished orders |  [optional]
 **available** | **String** | Available balance to transfer out or trade |  [optional]
+**point** | **String** | POINT amount |  [optional]
 
 
 

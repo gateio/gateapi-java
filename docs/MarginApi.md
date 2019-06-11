@@ -426,7 +426,7 @@ Authentication with API key and secret is required
 
 <a name="listLoans"></a>
 # **listLoans**
-> List&lt;Loan&gt; listLoans(status, side, currency, page, limit)
+> List&lt;Loan&gt; listLoans(status, side, currency, currencyPair, sortBy, reverseSort, page, limit)
 
 List all loans
 
@@ -447,10 +447,13 @@ MarginApi apiInstance = new MarginApi(client);
 String status = "open"; // String | Loan status
 String side = "lend"; // String | Lend or borrow
 String currency = "BTC"; // String | Retrieved specified currency related data
+String currencyPair = "BTC_USDT"; // String | Currency pair
+String sortBy = "rate"; // String | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
+Boolean reverseSort = true; // Boolean | Whether to sort in descending order. Default to `true`
 Integer page = 1; // Integer | Page number
 Integer limit = 100; // Integer | Maximum number of record returned in one list
 try {
-    List<Loan> result = apiInstance.listLoans(status, side, currency, page, limit);
+    List<Loan> result = apiInstance.listLoans(status, side, currency, currencyPair, sortBy, reverseSort, page, limit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarginApi#listLoans");
@@ -465,6 +468,9 @@ Name | Type | Description  | Notes
  **status** | **String**| Loan status | [enum: open, loaned, finished, auto_repaid]
  **side** | **String**| Lend or borrow | [enum: lend, borrow]
  **currency** | **String**| Retrieved specified currency related data | [optional]
+ **currencyPair** | **String**| Currency pair | [optional]
+ **sortBy** | **String**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional] [enum: create_time, rate]
+ **reverseSort** | **Boolean**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
 

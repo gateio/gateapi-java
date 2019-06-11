@@ -1,7 +1,7 @@
 # gate-api
 
 Gate API v4
-- API version: 4.6.1
+- API version: 4.7.2
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.gate</groupId>
   <artifactId>gate-api</artifactId>
-  <version>4.6.1</version>
+  <version>4.7.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:4.6.1"
+compile "io.gate:gate-api:4.7.2"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-4.6.1.jar`
+* `target/gate-api-4.7.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -126,6 +126,7 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listFuturesOrders**](docs/FuturesApi.md#listFuturesOrders) | **GET** /futures/orders | List futures orders
 *FuturesApi* | [**listFuturesTickers**](docs/FuturesApi.md#listFuturesTickers) | **GET** /futures/tickers | List futures tickers
 *FuturesApi* | [**listFuturesTrades**](docs/FuturesApi.md#listFuturesTrades) | **GET** /futures/trades | Futures trading history
+*FuturesApi* | [**listLiquidates**](docs/FuturesApi.md#listLiquidates) | **GET** /futures/liquidates | List liquidation history
 *FuturesApi* | [**listPositionClose**](docs/FuturesApi.md#listPositionClose) | **GET** /futures/position_close | List position close history
 *FuturesApi* | [**listPositions**](docs/FuturesApi.md#listPositions) | **GET** /futures/positions | List all positions of a user
 *FuturesApi* | [**listPriceTriggeredOrders**](docs/FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/price_orders | List all auto orders
@@ -156,10 +157,11 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
 *SpotApi* | [**listMyTrades**](docs/SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
 *SpotApi* | [**listOrderBook**](docs/SpotApi.md#listOrderBook) | **GET** /spot/order_book | Retrieve order book
-*SpotApi* | [**listOrders**](docs/SpotApi.md#listOrders) | **GET** /spot/orders | List futures orders
+*SpotApi* | [**listOrders**](docs/SpotApi.md#listOrders) | **GET** /spot/orders | List orders
 *SpotApi* | [**listSpotAccounts**](docs/SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot accounts
 *SpotApi* | [**listTickers**](docs/SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information
 *SpotApi* | [**listTrades**](docs/SpotApi.md#listTrades) | **GET** /spot/trades | Retrieve market trades
+*WalletApi* | [**transfer**](docs/WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between accounts
 
 
 ## Documentation for Models
@@ -173,6 +175,7 @@ Class | Method | HTTP request | Description
  - [FuturesAccountBook](docs/FuturesAccountBook.md)
  - [FuturesCandlestick](docs/FuturesCandlestick.md)
  - [FuturesInitialOrder](docs/FuturesInitialOrder.md)
+ - [FuturesLiquidate](docs/FuturesLiquidate.md)
  - [FuturesOrder](docs/FuturesOrder.md)
  - [FuturesOrderBook](docs/FuturesOrderBook.md)
  - [FuturesOrderBookItem](docs/FuturesOrderBookItem.md)
@@ -198,6 +201,7 @@ Class | Method | HTTP request | Description
  - [SpotAccount](docs/SpotAccount.md)
  - [Ticker](docs/Ticker.md)
  - [Trade](docs/Trade.md)
+ - [Transfer](docs/Transfer.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
 
 
