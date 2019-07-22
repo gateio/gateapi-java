@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Order ID |  [optional]
+**text** | **String** | User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 16 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  |  [optional]
 **createTime** | **String** | Order creation time |  [optional]
-**status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled- &#x60;closed&#x60;: filled- &#x60;cancelled&#x60;: cancelled |  [optional]
+**status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled |  [optional]
 **currencyPair** | **String** | Currency pair | 
 **type** | [**TypeEnum**](#TypeEnum) | Order type. limit - limit order |  [optional]
 **account** | [**AccountEnum**](#AccountEnum) | Account type. spot - use spot account; margin - use margin account |  [optional]
