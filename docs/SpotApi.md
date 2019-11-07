@@ -438,7 +438,7 @@ import java.util.*;
 
 SpotApi apiInstance = new SpotApi();
 String currencyPair = "BTC_USDT"; // String | Currency pair
-String interval = "\"0\""; // String | Price precision of order book. 0 means no aggregation is applied
+String interval = "\"0\""; // String | Order depth. 0 means no aggregation is applied. default to 0
 Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
 try {
     OrderBook result = apiInstance.listOrderBook(currencyPair, interval, limit);
@@ -454,7 +454,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **interval** | **String**| Price precision of order book. 0 means no aggregation is applied | [optional] [default to &quot;0&quot;]
+ **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &quot;0&quot;]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
 
 ### Return type
