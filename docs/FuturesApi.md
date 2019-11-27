@@ -1237,7 +1237,7 @@ Authentication with API key and secret is required
 
 <a name="listPositions"></a>
 # **listPositions**
-> List&lt;Position&gt; listPositions()
+> List&lt;Position&gt; listPositions(settle)
 
 List all positions of a user
 
@@ -1255,8 +1255,9 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
 FuturesApi apiInstance = new FuturesApi(client);
+String settle = "btc"; // String | Settle currency
 try {
-    List<Position> result = apiInstance.listPositions();
+    List<Position> result = apiInstance.listPositions(settle);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FuturesApi#listPositions");
@@ -1265,7 +1266,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
 
 ### Return type
 
