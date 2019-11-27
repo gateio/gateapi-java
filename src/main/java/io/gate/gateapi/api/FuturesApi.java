@@ -3275,16 +3275,18 @@ public class FuturesApi {
     }
     /**
      * Build call for listPositions
+     * @param settle Settle currency (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listPositionsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listPositionsCall(String settle, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/futures/{settle}/positions";
+        String localVarPath = "/futures/{settle}/positions"
+            .replaceAll("\\{" + "settle" + "\\}", apiClient.escapeString(settle.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3321,10 +3323,15 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listPositionsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listPositionsValidateBeforeCall(String settle, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listPositions(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = listPositionsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listPositionsCall(settle, progressListener, progressRequestListener);
         return call;
 
     }
@@ -3332,22 +3339,24 @@ public class FuturesApi {
     /**
      * List all positions of a user
      * 
+     * @param settle Settle currency (required)
      * @return List&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Position> listPositions() throws ApiException {
-        ApiResponse<List<Position>> resp = listPositionsWithHttpInfo();
+    public List<Position> listPositions(String settle) throws ApiException {
+        ApiResponse<List<Position>> resp = listPositionsWithHttpInfo(settle);
         return resp.getData();
     }
 
     /**
      * List all positions of a user
      * 
+     * @param settle Settle currency (required)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Position>> listPositionsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = listPositionsValidateBeforeCall(null, null);
+    public ApiResponse<List<Position>> listPositionsWithHttpInfo(String settle) throws ApiException {
+        com.squareup.okhttp.Call call = listPositionsValidateBeforeCall(settle, null, null);
         Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3355,11 +3364,12 @@ public class FuturesApi {
     /**
      * List all positions of a user (asynchronously)
      * 
+     * @param settle Settle currency (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listPositionsAsync(final ApiCallback<List<Position>> callback) throws ApiException {
+    public com.squareup.okhttp.Call listPositionsAsync(String settle, final ApiCallback<List<Position>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3380,7 +3390,7 @@ public class FuturesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listPositionsValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listPositionsValidateBeforeCall(settle, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
