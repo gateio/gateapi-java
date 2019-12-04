@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 [**cancelOrders**](SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
+[**createBatchOrders**](SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders
 [**createOrder**](SpotApi.md#createOrder) | **POST** /spot/orders | Create an order
 [**getCurrencyPair**](SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get detail of one single order
 [**getOrder**](SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
@@ -121,6 +122,57 @@ Authentication with API key and secret is required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="createBatchOrders"></a>
+# **createBatchOrders**
+> List&lt;BatchOrder&gt; createBatchOrders(order)
+
+Create a batch of orders
+
+Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, e.g. &#x60;account&#x60; must be identical for all orders 
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+SpotApi apiInstance = new SpotApi(client);
+List<Order> order = new ArrayList<>(); // List<Order> | 
+try {
+    List<BatchOrder> result = apiInstance.createBatchOrders(order);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SpotApi#createBatchOrders");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order** | [**List&lt;Order&gt;**](Order.md)|  |
+
+### Return type
+
+[**List&lt;BatchOrder&gt;**](BatchOrder.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="createOrder"></a>

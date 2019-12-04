@@ -53,6 +53,10 @@ public class CurrencyPair {
   @SerializedName(SERIALIZED_NAME_MIN_QUOTE_AMOUNT)
   private String minQuoteAmount;
 
+  public static final String SERIALIZED_NAME_AMOUNT_PRECISION = "amount_precision";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_PRECISION)
+  private Integer amountPrecision;
+
   public static final String SERIALIZED_NAME_PRECISION = "precision";
   @SerializedName(SERIALIZED_NAME_PRECISION)
   private Integer precision;
@@ -165,6 +169,24 @@ public class CurrencyPair {
     this.minQuoteAmount = minQuoteAmount;
   }
 
+  public CurrencyPair amountPrecision(Integer amountPrecision) {
+    this.amountPrecision = amountPrecision;
+    return this;
+  }
+
+   /**
+   * Amount scale
+   * @return amountPrecision
+  **/
+  @ApiModelProperty(value = "Amount scale")
+  public Integer getAmountPrecision() {
+    return amountPrecision;
+  }
+
+  public void setAmountPrecision(Integer amountPrecision) {
+    this.amountPrecision = amountPrecision;
+  }
+
   public CurrencyPair precision(Integer precision) {
     this.precision = precision;
     return this;
@@ -199,12 +221,13 @@ public class CurrencyPair {
         Objects.equals(this.fee, currencyPair.fee) &&
         Objects.equals(this.minBaseAmount, currencyPair.minBaseAmount) &&
         Objects.equals(this.minQuoteAmount, currencyPair.minQuoteAmount) &&
+        Objects.equals(this.amountPrecision, currencyPair.amountPrecision) &&
         Objects.equals(this.precision, currencyPair.precision);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, precision);
+    return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, amountPrecision, precision);
   }
 
 
@@ -219,6 +242,7 @@ public class CurrencyPair {
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    minBaseAmount: ").append(toIndentedString(minBaseAmount)).append("\n");
     sb.append("    minQuoteAmount: ").append(toIndentedString(minQuoteAmount)).append("\n");
+    sb.append("    amountPrecision: ").append(toIndentedString(amountPrecision)).append("\n");
     sb.append("    precision: ").append(toIndentedString(precision)).append("\n");
     sb.append("}");
     return sb.toString();

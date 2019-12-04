@@ -1,7 +1,7 @@
 # gate-api
 
 Gate API v4
-- API version: 4.8.1
+- API version: 4.8.2
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.gate</groupId>
   <artifactId>gate-api</artifactId>
-  <version>4.8.1</version>
+  <version>4.8.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:4.8.1"
+compile "io.gate:gate-api:4.8.2"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-4.8.1.jar`
+* `target/gate-api-4.8.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -164,6 +164,7 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 *SpotApi* | [**cancelOrder**](docs/SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 *SpotApi* | [**cancelOrders**](docs/SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
+*SpotApi* | [**createBatchOrders**](docs/SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders
 *SpotApi* | [**createOrder**](docs/SpotApi.md#createOrder) | **POST** /spot/orders | Create an order
 *SpotApi* | [**getCurrencyPair**](docs/SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get detail of one single order
 *SpotApi* | [**getOrder**](docs/SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
@@ -180,6 +181,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [BatchOrder](docs/BatchOrder.md)
  - [Contract](docs/Contract.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [FundingAccount](docs/FundingAccount.md)
