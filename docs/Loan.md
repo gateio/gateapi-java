@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **repaid** | **String** | Repaid amount |  [optional]
 **paidInterest** | **String** | Repaid interest |  [optional]
 **unpaidInterest** | **String** | Interest not repaid |  [optional]
+**feeRate** | **String** | Loan fee rate |  [optional]
+**origId** | **String** | Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not |  [optional]
 
 
 <a name="StatusEnum"></a>

@@ -26,6 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.gate.gateapi.models.BatchOrder;
 import io.gate.gateapi.models.CurrencyPair;
 import io.gate.gateapi.models.Order;
 import io.gate.gateapi.models.OrderBook;
@@ -331,6 +332,127 @@ public class SpotApi {
 
         com.squareup.okhttp.Call call = cancelOrdersValidateBeforeCall(currencyPair, side, account, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Order>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createBatchOrders
+     * @param order  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createBatchOrdersCall(List<Order> order, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = order;
+
+        // create path and map variables
+        String localVarPath = "/spot/batch_orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createBatchOrdersValidateBeforeCall(List<Order> order, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'order' is set
+        if (order == null) {
+            throw new ApiException("Missing the required parameter 'order' when calling createBatchOrders(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = createBatchOrdersCall(order, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create a batch of orders
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, e.g. &#x60;account&#x60; must be identical for all orders 
+     * @param order  (required)
+     * @return List&lt;BatchOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<BatchOrder> createBatchOrders(List<Order> order) throws ApiException {
+        ApiResponse<List<BatchOrder>> resp = createBatchOrdersWithHttpInfo(order);
+        return resp.getData();
+    }
+
+    /**
+     * Create a batch of orders
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, e.g. &#x60;account&#x60; must be identical for all orders 
+     * @param order  (required)
+     * @return ApiResponse&lt;List&lt;BatchOrder&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<BatchOrder>> createBatchOrdersWithHttpInfo(List<Order> order) throws ApiException {
+        com.squareup.okhttp.Call call = createBatchOrdersValidateBeforeCall(order, null, null);
+        Type localVarReturnType = new TypeToken<List<BatchOrder>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a batch of orders (asynchronously)
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, e.g. &#x60;account&#x60; must be identical for all orders 
+     * @param order  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createBatchOrdersAsync(List<Order> order, final ApiCallback<List<BatchOrder>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createBatchOrdersValidateBeforeCall(order, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<BatchOrder>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

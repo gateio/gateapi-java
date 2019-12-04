@@ -187,6 +187,14 @@ public class Loan {
   @SerializedName(SERIALIZED_NAME_UNPAID_INTEREST)
   private String unpaidInterest;
 
+  public static final String SERIALIZED_NAME_FEE_RATE = "fee_rate";
+  @SerializedName(SERIALIZED_NAME_FEE_RATE)
+  private String feeRate;
+
+  public static final String SERIALIZED_NAME_ORIG_ID = "orig_id";
+  @SerializedName(SERIALIZED_NAME_ORIG_ID)
+  private String origId;
+
    /**
    * Loan ID
    * @return id
@@ -385,6 +393,42 @@ public class Loan {
     return unpaidInterest;
   }
 
+  public Loan feeRate(String feeRate) {
+    this.feeRate = feeRate;
+    return this;
+  }
+
+   /**
+   * Loan fee rate
+   * @return feeRate
+  **/
+  @ApiModelProperty(value = "Loan fee rate")
+  public String getFeeRate() {
+    return feeRate;
+  }
+
+  public void setFeeRate(String feeRate) {
+    this.feeRate = feeRate;
+  }
+
+  public Loan origId(String origId) {
+    this.origId = origId;
+    return this;
+  }
+
+   /**
+   * Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not
+   * @return origId
+  **/
+  @ApiModelProperty(value = "Original loan ID if the loan is auto-renewed. Equal to `id` if not")
+  public String getOrigId() {
+    return origId;
+  }
+
+  public void setOrigId(String origId) {
+    this.origId = origId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -409,12 +453,14 @@ public class Loan {
         Objects.equals(this.left, loan.left) &&
         Objects.equals(this.repaid, loan.repaid) &&
         Objects.equals(this.paidInterest, loan.paidInterest) &&
-        Objects.equals(this.unpaidInterest, loan.unpaidInterest);
+        Objects.equals(this.unpaidInterest, loan.unpaidInterest) &&
+        Objects.equals(this.feeRate, loan.feeRate) &&
+        Objects.equals(this.origId, loan.origId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createTime, expireTime, status, side, currency, rate, amount, days, autoRenew, currencyPair, left, repaid, paidInterest, unpaidInterest);
+    return Objects.hash(id, createTime, expireTime, status, side, currency, rate, amount, days, autoRenew, currencyPair, left, repaid, paidInterest, unpaidInterest, feeRate, origId);
   }
 
 
@@ -438,6 +484,8 @@ public class Loan {
     sb.append("    repaid: ").append(toIndentedString(repaid)).append("\n");
     sb.append("    paidInterest: ").append(toIndentedString(paidInterest)).append("\n");
     sb.append("    unpaidInterest: ").append(toIndentedString(unpaidInterest)).append("\n");
+    sb.append("    feeRate: ").append(toIndentedString(feeRate)).append("\n");
+    sb.append("    origId: ").append(toIndentedString(origId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
