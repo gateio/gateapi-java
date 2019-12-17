@@ -1143,7 +1143,7 @@ public class FuturesApi {
      * @param contract Futures contract, return related data only if specified (optional)
      * @param order Futures order ID, return related data only if specified (optional)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1227,7 +1227,7 @@ public class FuturesApi {
      * @param contract Futures contract, return related data only if specified (optional)
      * @param order Futures order ID, return related data only if specified (optional)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @return List&lt;MyFuturesTrade&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1243,7 +1243,7 @@ public class FuturesApi {
      * @param contract Futures contract, return related data only if specified (optional)
      * @param order Futures order ID, return related data only if specified (optional)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @return ApiResponse&lt;List&lt;MyFuturesTrade&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1260,7 +1260,7 @@ public class FuturesApi {
      * @param contract Futures contract, return related data only if specified (optional)
      * @param order Futures order ID, return related data only if specified (optional)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2550,7 +2550,7 @@ public class FuturesApi {
      * @param contract Futures contract (required)
      * @param status List orders based on status (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2644,7 +2644,7 @@ public class FuturesApi {
      * @param contract Futures contract (required)
      * @param status List orders based on status (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @return List&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2660,7 +2660,7 @@ public class FuturesApi {
      * @param contract Futures contract (required)
      * @param status List orders based on status (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @return ApiResponse&lt;List&lt;FuturesOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2677,7 +2677,7 @@ public class FuturesApi {
      * @param contract Futures contract (required)
      * @param status List orders based on status (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2843,13 +2843,15 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)
+     * @param to Specify end time in Unix seconds, default to current time (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listFuturesTradesCall(String settle, String contract, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listFuturesTradesCall(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2868,6 +2870,14 @@ public class FuturesApi {
 
         if (lastId != null) {
             localVarQueryParams.addAll(apiClient.parameterToPair("last_id", lastId));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2903,7 +2913,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listFuturesTradesValidateBeforeCall(String settle, String contract, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listFuturesTradesValidateBeforeCall(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'settle' is set
         if (settle == null) {
@@ -2916,7 +2926,7 @@ public class FuturesApi {
         }
         
 
-        com.squareup.okhttp.Call call = listFuturesTradesCall(settle, contract, limit, lastId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listFuturesTradesCall(settle, contract, limit, lastId, from, to, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2927,12 +2937,14 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)
+     * @param to Specify end time in Unix seconds, default to current time (optional)
      * @return List&lt;FuturesTrade&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<FuturesTrade> listFuturesTrades(String settle, String contract, Integer limit, String lastId) throws ApiException {
-        ApiResponse<List<FuturesTrade>> resp = listFuturesTradesWithHttpInfo(settle, contract, limit, lastId);
+    public List<FuturesTrade> listFuturesTrades(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to) throws ApiException {
+        ApiResponse<List<FuturesTrade>> resp = listFuturesTradesWithHttpInfo(settle, contract, limit, lastId, from, to);
         return resp.getData();
     }
 
@@ -2942,12 +2954,14 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)
+     * @param to Specify end time in Unix seconds, default to current time (optional)
      * @return ApiResponse&lt;List&lt;FuturesTrade&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<FuturesTrade>> listFuturesTradesWithHttpInfo(String settle, String contract, Integer limit, String lastId) throws ApiException {
-        com.squareup.okhttp.Call call = listFuturesTradesValidateBeforeCall(settle, contract, limit, lastId, null, null);
+    public ApiResponse<List<FuturesTrade>> listFuturesTradesWithHttpInfo(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to) throws ApiException {
+        com.squareup.okhttp.Call call = listFuturesTradesValidateBeforeCall(settle, contract, limit, lastId, from, to, null, null);
         Type localVarReturnType = new TypeToken<List<FuturesTrade>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2958,12 +2972,14 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+     * @param from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)
+     * @param to Specify end time in Unix seconds, default to current time (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listFuturesTradesAsync(String settle, String contract, Integer limit, String lastId, final ApiCallback<List<FuturesTrade>> callback) throws ApiException {
+    public com.squareup.okhttp.Call listFuturesTradesAsync(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to, final ApiCallback<List<FuturesTrade>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2984,7 +3000,7 @@ public class FuturesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listFuturesTradesValidateBeforeCall(settle, contract, limit, lastId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listFuturesTradesValidateBeforeCall(settle, contract, limit, lastId, from, to, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<FuturesTrade>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

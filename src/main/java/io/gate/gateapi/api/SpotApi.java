@@ -1775,7 +1775,7 @@ public class SpotApi {
      * Build call for listTrades
      * @param currencyPair Currency pair (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1852,7 +1852,7 @@ public class SpotApi {
      * 
      * @param currencyPair Currency pair (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @return List&lt;Trade&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1866,7 +1866,7 @@ public class SpotApi {
      * 
      * @param currencyPair Currency pair (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @return ApiResponse&lt;List&lt;Trade&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1881,7 +1881,7 @@ public class SpotApi {
      * 
      * @param currencyPair Currency pair (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
-     * @param lastId Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results (optional)
+     * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

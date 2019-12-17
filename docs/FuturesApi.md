@@ -471,7 +471,7 @@ String settle = "btc"; // String | Settle currency
 String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
 Integer order = 12345; // Integer | Futures order ID, return related data only if specified
 Integer limit = 100; // Integer | Maximum number of record returned in one list
-String lastId = "12345"; // String | Specify list staring point using the last record of `id` in previous list-query results
+String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
 try {
     List<MyFuturesTrade> result = apiInstance.getMyTrades(settle, contract, order, limit, lastId);
     System.out.println(result);
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **order** | **Integer**| Futures order ID, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
- **lastId** | **String**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+ **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
 
 ### Return type
 
@@ -994,7 +994,7 @@ String settle = "btc"; // String | Settle currency
 String contract = "BTC_USD"; // String | Futures contract
 String status = "open"; // String | List orders based on status
 Integer limit = 100; // Integer | Maximum number of record returned in one list
-String lastId = "12345"; // String | Specify list staring point using the last record of `id` in previous list-query results
+String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
 try {
     List<FuturesOrder> result = apiInstance.listFuturesOrders(settle, contract, status, limit, lastId);
     System.out.println(result);
@@ -1012,7 +1012,7 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract |
  **status** | **String**| List orders based on status | [enum: open, finished]
  **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
- **lastId** | **String**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+ **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
 
 ### Return type
 
@@ -1077,7 +1077,7 @@ No authorization required
 
 <a name="listFuturesTrades"></a>
 # **listFuturesTrades**
-> List&lt;FuturesTrade&gt; listFuturesTrades(settle, contract, limit, lastId)
+> List&lt;FuturesTrade&gt; listFuturesTrades(settle, contract, limit, lastId, from, to)
 
 Futures trading history
 
@@ -1095,9 +1095,11 @@ FuturesApi apiInstance = new FuturesApi();
 String settle = "btc"; // String | Settle currency
 String contract = "BTC_USD"; // String | Futures contract
 Integer limit = 100; // Integer | Maximum number of record returned in one list
-String lastId = "12345"; // String | Specify list staring point using the last record of `id` in previous list-query results
+String lastId = "12345"; // String | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
+BigDecimal from = new BigDecimal(); // BigDecimal | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
+BigDecimal to = new BigDecimal(); // BigDecimal | Specify end time in Unix seconds, default to current time
 try {
-    List<FuturesTrade> result = apiInstance.listFuturesTrades(settle, contract, limit, lastId);
+    List<FuturesTrade> result = apiInstance.listFuturesTrades(settle, contract, limit, lastId, from, to);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FuturesApi#listFuturesTrades");
@@ -1112,7 +1114,9 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
- **lastId** | **String**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+ **lastId** | **String**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
+ **from** | **BigDecimal**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  | [optional]
+ **to** | **BigDecimal**| Specify end time in Unix seconds, default to current time | [optional]
 
 ### Return type
 

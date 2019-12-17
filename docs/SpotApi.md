@@ -693,7 +693,7 @@ import java.util.*;
 SpotApi apiInstance = new SpotApi();
 String currencyPair = "BTC_USDT"; // String | Currency pair
 Integer limit = 100; // Integer | Maximum number of record returned in one list
-String lastId = "12345"; // String | Specify list staring point using the last record of `id` in previous list-query results
+String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
 try {
     List<Trade> result = apiInstance.listTrades(currencyPair, limit, lastId);
     System.out.println(result);
@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
  **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
- **lastId** | **String**| Specify list staring point using the last record of &#x60;id&#x60; in previous list-query results | [optional]
+ **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
 
 ### Return type
 
