@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **message** | **String** | Detailed error message, empty string if order succeeds |  [optional]
 **id** | **String** | Order ID |  [optional]
 **createTime** | **String** | Order creation time |  [optional]
+**updateTime** | **String** | Order last modification time |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled |  [optional]
 **currencyPair** | **String** | Currency pair |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Order type. limit - limit order |  [optional]
@@ -20,6 +21,10 @@ Name | Type | Description | Notes
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Time in force |  [optional]
 **left** | **String** | Amount left to fill |  [optional]
 **fillPrice** | **String** | Fill price of the order |  [optional]
+**fee** | **String** | Fee deducted |  [optional]
+**feeCurrency** | **String** | Fee currency unit |  [optional]
+**pointFee** | **String** | Point used to deduct fee |  [optional]
+**gtFee** | **String** | GT used to deduct fee |  [optional]
 
 
 <a name="StatusEnum"></a>

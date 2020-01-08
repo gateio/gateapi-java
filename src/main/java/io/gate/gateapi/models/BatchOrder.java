@@ -53,6 +53,10 @@ public class BatchOrder {
   @SerializedName(SERIALIZED_NAME_CREATE_TIME)
   private String createTime;
 
+  public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
+  @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
+  private String updateTime;
+
   /**
    * Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled
    */
@@ -328,6 +332,22 @@ public class BatchOrder {
   @SerializedName(SERIALIZED_NAME_FILL_PRICE)
   private String fillPrice;
 
+  public static final String SERIALIZED_NAME_FEE = "fee";
+  @SerializedName(SERIALIZED_NAME_FEE)
+  private String fee;
+
+  public static final String SERIALIZED_NAME_FEE_CURRENCY = "fee_currency";
+  @SerializedName(SERIALIZED_NAME_FEE_CURRENCY)
+  private String feeCurrency;
+
+  public static final String SERIALIZED_NAME_POINT_FEE = "point_fee";
+  @SerializedName(SERIALIZED_NAME_POINT_FEE)
+  private String pointFee;
+
+  public static final String SERIALIZED_NAME_GT_FEE = "gt_fee";
+  @SerializedName(SERIALIZED_NAME_GT_FEE)
+  private String gtFee;
+
   public BatchOrder text(String text) {
     this.text = text;
     return this;
@@ -416,6 +436,15 @@ public class BatchOrder {
   @ApiModelProperty(value = "Order creation time")
   public String getCreateTime() {
     return createTime;
+  }
+
+   /**
+   * Order last modification time
+   * @return updateTime
+  **/
+  @ApiModelProperty(value = "Order last modification time")
+  public String getUpdateTime() {
+    return updateTime;
   }
 
    /**
@@ -571,6 +600,60 @@ public class BatchOrder {
     return fillPrice;
   }
 
+   /**
+   * Fee deducted
+   * @return fee
+  **/
+  @ApiModelProperty(value = "Fee deducted")
+  public String getFee() {
+    return fee;
+  }
+
+   /**
+   * Fee currency unit
+   * @return feeCurrency
+  **/
+  @ApiModelProperty(value = "Fee currency unit")
+  public String getFeeCurrency() {
+    return feeCurrency;
+  }
+
+  public BatchOrder pointFee(String pointFee) {
+    this.pointFee = pointFee;
+    return this;
+  }
+
+   /**
+   * Point used to deduct fee
+   * @return pointFee
+  **/
+  @ApiModelProperty(value = "Point used to deduct fee")
+  public String getPointFee() {
+    return pointFee;
+  }
+
+  public void setPointFee(String pointFee) {
+    this.pointFee = pointFee;
+  }
+
+  public BatchOrder gtFee(String gtFee) {
+    this.gtFee = gtFee;
+    return this;
+  }
+
+   /**
+   * GT used to deduct fee
+   * @return gtFee
+  **/
+  @ApiModelProperty(value = "GT used to deduct fee")
+  public String getGtFee() {
+    return gtFee;
+  }
+
+  public void setGtFee(String gtFee) {
+    this.gtFee = gtFee;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -587,6 +670,7 @@ public class BatchOrder {
         Objects.equals(this.message, batchOrder.message) &&
         Objects.equals(this.id, batchOrder.id) &&
         Objects.equals(this.createTime, batchOrder.createTime) &&
+        Objects.equals(this.updateTime, batchOrder.updateTime) &&
         Objects.equals(this.status, batchOrder.status) &&
         Objects.equals(this.currencyPair, batchOrder.currencyPair) &&
         Objects.equals(this.type, batchOrder.type) &&
@@ -596,12 +680,16 @@ public class BatchOrder {
         Objects.equals(this.price, batchOrder.price) &&
         Objects.equals(this.timeInForce, batchOrder.timeInForce) &&
         Objects.equals(this.left, batchOrder.left) &&
-        Objects.equals(this.fillPrice, batchOrder.fillPrice);
+        Objects.equals(this.fillPrice, batchOrder.fillPrice) &&
+        Objects.equals(this.fee, batchOrder.fee) &&
+        Objects.equals(this.feeCurrency, batchOrder.feeCurrency) &&
+        Objects.equals(this.pointFee, batchOrder.pointFee) &&
+        Objects.equals(this.gtFee, batchOrder.gtFee);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, succeeded, label, message, id, createTime, status, currencyPair, type, account, side, amount, price, timeInForce, left, fillPrice);
+    return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, left, fillPrice, fee, feeCurrency, pointFee, gtFee);
   }
 
 
@@ -616,6 +704,7 @@ public class BatchOrder {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -626,6 +715,10 @@ public class BatchOrder {
     sb.append("    timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
     sb.append("    left: ").append(toIndentedString(left)).append("\n");
     sb.append("    fillPrice: ").append(toIndentedString(fillPrice)).append("\n");
+    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
+    sb.append("    pointFee: ").append(toIndentedString(pointFee)).append("\n");
+    sb.append("    gtFee: ").append(toIndentedString(gtFee)).append("\n");
     sb.append("}");
     return sb.toString();
   }

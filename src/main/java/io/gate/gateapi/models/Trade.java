@@ -99,6 +99,22 @@ public class Trade {
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
   private String orderId;
 
+  public static final String SERIALIZED_NAME_FEE = "fee";
+  @SerializedName(SERIALIZED_NAME_FEE)
+  private String fee;
+
+  public static final String SERIALIZED_NAME_FEE_CURRENCY = "fee_currency";
+  @SerializedName(SERIALIZED_NAME_FEE_CURRENCY)
+  private String feeCurrency;
+
+  public static final String SERIALIZED_NAME_POINT_FEE = "point_fee";
+  @SerializedName(SERIALIZED_NAME_POINT_FEE)
+  private String pointFee;
+
+  public static final String SERIALIZED_NAME_GT_FEE = "gt_fee";
+  @SerializedName(SERIALIZED_NAME_GT_FEE)
+  private String gtFee;
+
   public Trade id(String id) {
     this.id = id;
     return this;
@@ -207,6 +223,78 @@ public class Trade {
     this.orderId = orderId;
   }
 
+  public Trade fee(String fee) {
+    this.fee = fee;
+    return this;
+  }
+
+   /**
+   * Fee deducted. No value in public endpoints
+   * @return fee
+  **/
+  @ApiModelProperty(value = "Fee deducted. No value in public endpoints")
+  public String getFee() {
+    return fee;
+  }
+
+  public void setFee(String fee) {
+    this.fee = fee;
+  }
+
+  public Trade feeCurrency(String feeCurrency) {
+    this.feeCurrency = feeCurrency;
+    return this;
+  }
+
+   /**
+   * Fee currency unit. No value in public endpoints
+   * @return feeCurrency
+  **/
+  @ApiModelProperty(value = "Fee currency unit. No value in public endpoints")
+  public String getFeeCurrency() {
+    return feeCurrency;
+  }
+
+  public void setFeeCurrency(String feeCurrency) {
+    this.feeCurrency = feeCurrency;
+  }
+
+  public Trade pointFee(String pointFee) {
+    this.pointFee = pointFee;
+    return this;
+  }
+
+   /**
+   * Point used to deduct fee
+   * @return pointFee
+  **/
+  @ApiModelProperty(value = "Point used to deduct fee")
+  public String getPointFee() {
+    return pointFee;
+  }
+
+  public void setPointFee(String pointFee) {
+    this.pointFee = pointFee;
+  }
+
+  public Trade gtFee(String gtFee) {
+    this.gtFee = gtFee;
+    return this;
+  }
+
+   /**
+   * GT used to deduct fee
+   * @return gtFee
+  **/
+  @ApiModelProperty(value = "GT used to deduct fee")
+  public String getGtFee() {
+    return gtFee;
+  }
+
+  public void setGtFee(String gtFee) {
+    this.gtFee = gtFee;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -222,12 +310,16 @@ public class Trade {
         Objects.equals(this.side, trade.side) &&
         Objects.equals(this.amount, trade.amount) &&
         Objects.equals(this.price, trade.price) &&
-        Objects.equals(this.orderId, trade.orderId);
+        Objects.equals(this.orderId, trade.orderId) &&
+        Objects.equals(this.fee, trade.fee) &&
+        Objects.equals(this.feeCurrency, trade.feeCurrency) &&
+        Objects.equals(this.pointFee, trade.pointFee) &&
+        Objects.equals(this.gtFee, trade.gtFee);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createTime, side, amount, price, orderId);
+    return Objects.hash(id, createTime, side, amount, price, orderId, fee, feeCurrency, pointFee, gtFee);
   }
 
 
@@ -242,6 +334,10 @@ public class Trade {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
+    sb.append("    pointFee: ").append(toIndentedString(pointFee)).append("\n");
+    sb.append("    gtFee: ").append(toIndentedString(gtFee)).append("\n");
     sb.append("}");
     return sb.toString();
   }
