@@ -312,6 +312,10 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
   private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
 
+  public static final String SERIALIZED_NAME_AUTO_BORROW = "auto_borrow";
+  @SerializedName(SERIALIZED_NAME_AUTO_BORROW)
+  private Boolean autoBorrow;
+
   public static final String SERIALIZED_NAME_LEFT = "left";
   @SerializedName(SERIALIZED_NAME_LEFT)
   private String left;
@@ -516,6 +520,24 @@ public class Order {
     this.timeInForce = timeInForce;
   }
 
+  public Order autoBorrow(Boolean autoBorrow) {
+    this.autoBorrow = autoBorrow;
+    return this;
+  }
+
+   /**
+   * Used in margin trading(e.g. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough.
+   * @return autoBorrow
+  **/
+  @ApiModelProperty(value = "Used in margin trading(e.g. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.")
+  public Boolean getAutoBorrow() {
+    return autoBorrow;
+  }
+
+  public void setAutoBorrow(Boolean autoBorrow) {
+    this.autoBorrow = autoBorrow;
+  }
+
    /**
    * Amount left to fill
    * @return left
@@ -552,11 +574,6 @@ public class Order {
     return feeCurrency;
   }
 
-  public Order pointFee(String pointFee) {
-    this.pointFee = pointFee;
-    return this;
-  }
-
    /**
    * Point used to deduct fee
    * @return pointFee
@@ -566,15 +583,6 @@ public class Order {
     return pointFee;
   }
 
-  public void setPointFee(String pointFee) {
-    this.pointFee = pointFee;
-  }
-
-  public Order gtFee(String gtFee) {
-    this.gtFee = gtFee;
-    return this;
-  }
-
    /**
    * GT used to deduct fee
    * @return gtFee
@@ -582,10 +590,6 @@ public class Order {
   @ApiModelProperty(value = "GT used to deduct fee")
   public String getGtFee() {
     return gtFee;
-  }
-
-  public void setGtFee(String gtFee) {
-    this.gtFee = gtFee;
   }
 
 
@@ -610,6 +614,7 @@ public class Order {
         Objects.equals(this.amount, order.amount) &&
         Objects.equals(this.price, order.price) &&
         Objects.equals(this.timeInForce, order.timeInForce) &&
+        Objects.equals(this.autoBorrow, order.autoBorrow) &&
         Objects.equals(this.left, order.left) &&
         Objects.equals(this.fillPrice, order.fillPrice) &&
         Objects.equals(this.fee, order.fee) &&
@@ -620,7 +625,7 @@ public class Order {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, text, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, left, fillPrice, fee, feeCurrency, pointFee, gtFee);
+    return Objects.hash(id, text, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, fee, feeCurrency, pointFee, gtFee);
   }
 
 
@@ -641,6 +646,7 @@ public class Order {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+    sb.append("    autoBorrow: ").append(toIndentedString(autoBorrow)).append("\n");
     sb.append("    left: ").append(toIndentedString(left)).append("\n");
     sb.append("    fillPrice: ").append(toIndentedString(fillPrice)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");

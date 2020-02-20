@@ -4,6 +4,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cancelBatchOrders**](SpotApi.md#cancelBatchOrders) | **POST** /spot/cancel_batch_orders | Cancel a batch of orders with an ID list
 [**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 [**cancelOrders**](SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
 [**createBatchOrders**](SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders
@@ -19,6 +20,57 @@ Method | HTTP request | Description
 [**listTickers**](SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information
 [**listTrades**](SpotApi.md#listTrades) | **GET** /spot/trades | Retrieve market trades
 
+
+<a name="cancelBatchOrders"></a>
+# **cancelBatchOrders**
+> List&lt;CancelOrderResult&gt; cancelBatchOrders(cancelOrder)
+
+Cancel a batch of orders with an ID list
+
+Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+SpotApi apiInstance = new SpotApi(client);
+List<CancelOrder> cancelOrder = new ArrayList<>(); // List<CancelOrder> | 
+try {
+    List<CancelOrderResult> result = apiInstance.cancelBatchOrders(cancelOrder);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SpotApi#cancelBatchOrders");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cancelOrder** | [**List&lt;CancelOrder&gt;**](CancelOrder.md)|  |
+
+### Return type
+
+[**List&lt;CancelOrderResult&gt;**](CancelOrderResult.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="cancelOrder"></a>
 # **cancelOrder**
