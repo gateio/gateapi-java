@@ -324,6 +324,10 @@ public class BatchOrder {
   @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
   private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
 
+  public static final String SERIALIZED_NAME_AUTO_BORROW = "auto_borrow";
+  @SerializedName(SERIALIZED_NAME_AUTO_BORROW)
+  private Boolean autoBorrow;
+
   public static final String SERIALIZED_NAME_LEFT = "left";
   @SerializedName(SERIALIZED_NAME_LEFT)
   private String left;
@@ -582,6 +586,24 @@ public class BatchOrder {
     this.timeInForce = timeInForce;
   }
 
+  public BatchOrder autoBorrow(Boolean autoBorrow) {
+    this.autoBorrow = autoBorrow;
+    return this;
+  }
+
+   /**
+   * Used in margin trading(e.g. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough.
+   * @return autoBorrow
+  **/
+  @ApiModelProperty(value = "Used in margin trading(e.g. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.")
+  public Boolean getAutoBorrow() {
+    return autoBorrow;
+  }
+
+  public void setAutoBorrow(Boolean autoBorrow) {
+    this.autoBorrow = autoBorrow;
+  }
+
    /**
    * Amount left to fill
    * @return left
@@ -618,11 +640,6 @@ public class BatchOrder {
     return feeCurrency;
   }
 
-  public BatchOrder pointFee(String pointFee) {
-    this.pointFee = pointFee;
-    return this;
-  }
-
    /**
    * Point used to deduct fee
    * @return pointFee
@@ -632,15 +649,6 @@ public class BatchOrder {
     return pointFee;
   }
 
-  public void setPointFee(String pointFee) {
-    this.pointFee = pointFee;
-  }
-
-  public BatchOrder gtFee(String gtFee) {
-    this.gtFee = gtFee;
-    return this;
-  }
-
    /**
    * GT used to deduct fee
    * @return gtFee
@@ -648,10 +656,6 @@ public class BatchOrder {
   @ApiModelProperty(value = "GT used to deduct fee")
   public String getGtFee() {
     return gtFee;
-  }
-
-  public void setGtFee(String gtFee) {
-    this.gtFee = gtFee;
   }
 
 
@@ -679,6 +683,7 @@ public class BatchOrder {
         Objects.equals(this.amount, batchOrder.amount) &&
         Objects.equals(this.price, batchOrder.price) &&
         Objects.equals(this.timeInForce, batchOrder.timeInForce) &&
+        Objects.equals(this.autoBorrow, batchOrder.autoBorrow) &&
         Objects.equals(this.left, batchOrder.left) &&
         Objects.equals(this.fillPrice, batchOrder.fillPrice) &&
         Objects.equals(this.fee, batchOrder.fee) &&
@@ -689,7 +694,7 @@ public class BatchOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, left, fillPrice, fee, feeCurrency, pointFee, gtFee);
+    return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, fee, feeCurrency, pointFee, gtFee);
   }
 
 
@@ -713,6 +718,7 @@ public class BatchOrder {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+    sb.append("    autoBorrow: ").append(toIndentedString(autoBorrow)).append("\n");
     sb.append("    left: ").append(toIndentedString(left)).append("\n");
     sb.append("    fillPrice: ").append(toIndentedString(fillPrice)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");

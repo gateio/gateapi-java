@@ -1,7 +1,7 @@
 # gate-api
 
 Gate API v4
-- API version: 4.9.1
+- API version: 4.10.0
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.gate</groupId>
   <artifactId>gate-api</artifactId>
-  <version>4.9.1</version>
+  <version>4.10.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:4.9.1"
+compile "io.gate:gate-api:4.10.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-4.9.1.jar`
+* `target/gate-api-4.10.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**repayLoan**](docs/MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan
 *MarginApi* | [**updateLoan**](docs/MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan
 *MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
+*SpotApi* | [**cancelBatchOrders**](docs/SpotApi.md#cancelBatchOrders) | **POST** /spot/cancel_batch_orders | Cancel a batch of orders with an ID list
 *SpotApi* | [**cancelOrder**](docs/SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 *SpotApi* | [**cancelOrders**](docs/SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
 *SpotApi* | [**createBatchOrders**](docs/SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders
@@ -182,6 +183,8 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [BatchOrder](docs/BatchOrder.md)
+ - [CancelOrder](docs/CancelOrder.md)
+ - [CancelOrderResult](docs/CancelOrderResult.md)
  - [Contract](docs/Contract.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [FundingAccount](docs/FundingAccount.md)
