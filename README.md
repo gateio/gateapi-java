@@ -1,7 +1,7 @@
 # gate-api
 
 Gate API v4
-- API version: 4.10.0
+- API version: 4.11.0
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.gate</groupId>
   <artifactId>gate-api</artifactId>
-  <version>4.10.0</version>
+  <version>4.11.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:4.10.0"
+compile "io.gate:gate-api:4.11.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-4.10.0.jar`
+* `target/gate-api-4.11.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
