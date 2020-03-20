@@ -262,13 +262,15 @@ public class Order {
   private String price;
 
   /**
-   * Time in force
+   * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only
    */
   @JsonAdapter(TimeInForceEnum.Adapter.class)
   public enum TimeInForceEnum {
     GTC("gtc"),
     
-    IOC("ioc");
+    IOC("ioc"),
+    
+    POC("poc");
 
     private String value;
 
@@ -339,6 +341,18 @@ public class Order {
   public static final String SERIALIZED_NAME_GT_FEE = "gt_fee";
   @SerializedName(SERIALIZED_NAME_GT_FEE)
   private String gtFee;
+
+  public static final String SERIALIZED_NAME_GT_DISCOUNT = "gt_discount";
+  @SerializedName(SERIALIZED_NAME_GT_DISCOUNT)
+  private Boolean gtDiscount;
+
+  public static final String SERIALIZED_NAME_REBATED_FEE = "rebated_fee";
+  @SerializedName(SERIALIZED_NAME_REBATED_FEE)
+  private String rebatedFee;
+
+  public static final String SERIALIZED_NAME_REBATED_FEE_CURRENCY = "rebated_fee_currency";
+  @SerializedName(SERIALIZED_NAME_REBATED_FEE_CURRENCY)
+  private String rebatedFeeCurrency;
 
    /**
    * Order ID
@@ -508,10 +522,10 @@ public class Order {
   }
 
    /**
-   * Time in force
+   * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only
    * @return timeInForce
   **/
-  @ApiModelProperty(value = "Time in force")
+  @ApiModelProperty(value = "Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only")
   public TimeInForceEnum getTimeInForce() {
     return timeInForce;
   }
@@ -592,6 +606,33 @@ public class Order {
     return gtFee;
   }
 
+   /**
+   * Whether GT fee discount is used
+   * @return gtDiscount
+  **/
+  @ApiModelProperty(value = "Whether GT fee discount is used")
+  public Boolean getGtDiscount() {
+    return gtDiscount;
+  }
+
+   /**
+   * Rebated fee
+   * @return rebatedFee
+  **/
+  @ApiModelProperty(value = "Rebated fee")
+  public String getRebatedFee() {
+    return rebatedFee;
+  }
+
+   /**
+   * Rebated fee currency unit
+   * @return rebatedFeeCurrency
+  **/
+  @ApiModelProperty(value = "Rebated fee currency unit")
+  public String getRebatedFeeCurrency() {
+    return rebatedFeeCurrency;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -620,12 +661,15 @@ public class Order {
         Objects.equals(this.fee, order.fee) &&
         Objects.equals(this.feeCurrency, order.feeCurrency) &&
         Objects.equals(this.pointFee, order.pointFee) &&
-        Objects.equals(this.gtFee, order.gtFee);
+        Objects.equals(this.gtFee, order.gtFee) &&
+        Objects.equals(this.gtDiscount, order.gtDiscount) &&
+        Objects.equals(this.rebatedFee, order.rebatedFee) &&
+        Objects.equals(this.rebatedFeeCurrency, order.rebatedFeeCurrency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, text, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, fee, feeCurrency, pointFee, gtFee);
+    return Objects.hash(id, text, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
   }
 
 
@@ -653,6 +697,9 @@ public class Order {
     sb.append("    feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
     sb.append("    pointFee: ").append(toIndentedString(pointFee)).append("\n");
     sb.append("    gtFee: ").append(toIndentedString(gtFee)).append("\n");
+    sb.append("    gtDiscount: ").append(toIndentedString(gtDiscount)).append("\n");
+    sb.append("    rebatedFee: ").append(toIndentedString(rebatedFee)).append("\n");
+    sb.append("    rebatedFeeCurrency: ").append(toIndentedString(rebatedFeeCurrency)).append("\n");
     sb.append("}");
     return sb.toString();
   }

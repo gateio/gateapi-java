@@ -274,13 +274,15 @@ public class BatchOrder {
   private String price;
 
   /**
-   * Time in force
+   * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only
    */
   @JsonAdapter(TimeInForceEnum.Adapter.class)
   public enum TimeInForceEnum {
     GTC("gtc"),
     
-    IOC("ioc");
+    IOC("ioc"),
+    
+    POC("poc");
 
     private String value;
 
@@ -351,6 +353,18 @@ public class BatchOrder {
   public static final String SERIALIZED_NAME_GT_FEE = "gt_fee";
   @SerializedName(SERIALIZED_NAME_GT_FEE)
   private String gtFee;
+
+  public static final String SERIALIZED_NAME_GT_DISCOUNT = "gt_discount";
+  @SerializedName(SERIALIZED_NAME_GT_DISCOUNT)
+  private Boolean gtDiscount;
+
+  public static final String SERIALIZED_NAME_REBATED_FEE = "rebated_fee";
+  @SerializedName(SERIALIZED_NAME_REBATED_FEE)
+  private String rebatedFee;
+
+  public static final String SERIALIZED_NAME_REBATED_FEE_CURRENCY = "rebated_fee_currency";
+  @SerializedName(SERIALIZED_NAME_REBATED_FEE_CURRENCY)
+  private String rebatedFeeCurrency;
 
   public BatchOrder text(String text) {
     this.text = text;
@@ -574,10 +588,10 @@ public class BatchOrder {
   }
 
    /**
-   * Time in force
+   * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only
    * @return timeInForce
   **/
-  @ApiModelProperty(value = "Time in force")
+  @ApiModelProperty(value = "Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only")
   public TimeInForceEnum getTimeInForce() {
     return timeInForce;
   }
@@ -658,6 +672,33 @@ public class BatchOrder {
     return gtFee;
   }
 
+   /**
+   * Whether GT fee discount is used
+   * @return gtDiscount
+  **/
+  @ApiModelProperty(value = "Whether GT fee discount is used")
+  public Boolean getGtDiscount() {
+    return gtDiscount;
+  }
+
+   /**
+   * Rebated fee
+   * @return rebatedFee
+  **/
+  @ApiModelProperty(value = "Rebated fee")
+  public String getRebatedFee() {
+    return rebatedFee;
+  }
+
+   /**
+   * Rebated fee currency unit
+   * @return rebatedFeeCurrency
+  **/
+  @ApiModelProperty(value = "Rebated fee currency unit")
+  public String getRebatedFeeCurrency() {
+    return rebatedFeeCurrency;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -689,12 +730,15 @@ public class BatchOrder {
         Objects.equals(this.fee, batchOrder.fee) &&
         Objects.equals(this.feeCurrency, batchOrder.feeCurrency) &&
         Objects.equals(this.pointFee, batchOrder.pointFee) &&
-        Objects.equals(this.gtFee, batchOrder.gtFee);
+        Objects.equals(this.gtFee, batchOrder.gtFee) &&
+        Objects.equals(this.gtDiscount, batchOrder.gtDiscount) &&
+        Objects.equals(this.rebatedFee, batchOrder.rebatedFee) &&
+        Objects.equals(this.rebatedFeeCurrency, batchOrder.rebatedFeeCurrency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, fee, feeCurrency, pointFee, gtFee);
+    return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
   }
 
 
@@ -725,6 +769,9 @@ public class BatchOrder {
     sb.append("    feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
     sb.append("    pointFee: ").append(toIndentedString(pointFee)).append("\n");
     sb.append("    gtFee: ").append(toIndentedString(gtFee)).append("\n");
+    sb.append("    gtDiscount: ").append(toIndentedString(gtDiscount)).append("\n");
+    sb.append("    rebatedFee: ").append(toIndentedString(rebatedFee)).append("\n");
+    sb.append("    rebatedFeeCurrency: ").append(toIndentedString(rebatedFeeCurrency)).append("\n");
     sb.append("}");
     return sb.toString();
   }

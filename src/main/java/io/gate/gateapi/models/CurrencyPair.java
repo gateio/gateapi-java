@@ -61,6 +61,61 @@ public class CurrencyPair {
   @SerializedName(SERIALIZED_NAME_PRECISION)
   private Integer precision;
 
+  /**
+   * How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold
+   */
+  @JsonAdapter(TradeStatusEnum.Adapter.class)
+  public enum TradeStatusEnum {
+    UNTRADABLE("untradable"),
+    
+    BUYABLE("buyable"),
+    
+    SELLABLE("sellable"),
+    
+    TRADABLE("tradable");
+
+    private String value;
+
+    TradeStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TradeStatusEnum fromValue(String text) {
+      for (TradeStatusEnum b : TradeStatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TradeStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TradeStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TradeStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TradeStatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TRADE_STATUS = "trade_status";
+  @SerializedName(SERIALIZED_NAME_TRADE_STATUS)
+  private TradeStatusEnum tradeStatus;
+
   public CurrencyPair id(String id) {
     this.id = id;
     return this;
@@ -205,6 +260,24 @@ public class CurrencyPair {
     this.precision = precision;
   }
 
+  public CurrencyPair tradeStatus(TradeStatusEnum tradeStatus) {
+    this.tradeStatus = tradeStatus;
+    return this;
+  }
+
+   /**
+   * How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold
+   * @return tradeStatus
+  **/
+  @ApiModelProperty(value = "How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold")
+  public TradeStatusEnum getTradeStatus() {
+    return tradeStatus;
+  }
+
+  public void setTradeStatus(TradeStatusEnum tradeStatus) {
+    this.tradeStatus = tradeStatus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -222,12 +295,13 @@ public class CurrencyPair {
         Objects.equals(this.minBaseAmount, currencyPair.minBaseAmount) &&
         Objects.equals(this.minQuoteAmount, currencyPair.minQuoteAmount) &&
         Objects.equals(this.amountPrecision, currencyPair.amountPrecision) &&
-        Objects.equals(this.precision, currencyPair.precision);
+        Objects.equals(this.precision, currencyPair.precision) &&
+        Objects.equals(this.tradeStatus, currencyPair.tradeStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, amountPrecision, precision);
+    return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, amountPrecision, precision, tradeStatus);
   }
 
 
@@ -244,6 +318,7 @@ public class CurrencyPair {
     sb.append("    minQuoteAmount: ").append(toIndentedString(minQuoteAmount)).append("\n");
     sb.append("    amountPrecision: ").append(toIndentedString(amountPrecision)).append("\n");
     sb.append("    precision: ").append(toIndentedString(precision)).append("\n");
+    sb.append("    tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **side** | [**SideEnum**](#SideEnum) | Order side |  [optional]
 **amount** | **String** | Trade amount |  [optional]
 **price** | **String** | Order price |  [optional]
-**timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Time in force |  [optional]
+**timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only |  [optional]
 **autoBorrow** | **Boolean** | Used in margin trading(e.g. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough. |  [optional]
 **left** | **String** | Amount left to fill |  [optional]
 **fillPrice** | **String** | Fill price of the order |  [optional]
@@ -26,6 +26,9 @@ Name | Type | Description | Notes
 **feeCurrency** | **String** | Fee currency unit |  [optional]
 **pointFee** | **String** | Point used to deduct fee |  [optional]
 **gtFee** | **String** | GT used to deduct fee |  [optional]
+**gtDiscount** | **Boolean** | Whether GT fee discount is used |  [optional]
+**rebatedFee** | **String** | Rebated fee |  [optional]
+**rebatedFeeCurrency** | **String** | Rebated fee currency unit |  [optional]
 
 
 <a name="StatusEnum"></a>
@@ -66,6 +69,7 @@ Name | Value
 ---- | -----
 GTC | &quot;gtc&quot;
 IOC | &quot;ioc&quot;
+POC | &quot;poc&quot;
 
 
 
