@@ -522,7 +522,7 @@ public class SpotApi {
 
     /**
      * Create a batch of orders
-     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, e.g. &#x60;account&#x60; must be identical for all orders 
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @return List&lt;BatchOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -534,7 +534,7 @@ public class SpotApi {
 
     /**
      * Create a batch of orders
-     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, e.g. &#x60;account&#x60; must be identical for all orders 
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @return ApiResponse&lt;List&lt;BatchOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -547,7 +547,7 @@ public class SpotApi {
 
     /**
      * Create a batch of orders (asynchronously)
-     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, e.g. &#x60;account&#x60; must be identical for all orders 
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

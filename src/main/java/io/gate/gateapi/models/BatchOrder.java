@@ -606,10 +606,10 @@ public class BatchOrder {
   }
 
    /**
-   * Used in margin trading(e.g. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough.
+   * Used in margin trading(i.e. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough.
    * @return autoBorrow
   **/
-  @ApiModelProperty(value = "Used in margin trading(e.g. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.")
+  @ApiModelProperty(value = "Used in margin trading(i.e. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.")
   public Boolean getAutoBorrow() {
     return autoBorrow;
   }
