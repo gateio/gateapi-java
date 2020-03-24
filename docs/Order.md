@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **amount** | **String** | Trade amount | 
 **price** | **String** | Order price | 
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only |  [optional]
-**autoBorrow** | **Boolean** | Used in margin trading(e.g. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough. |  [optional]
+**autoBorrow** | **Boolean** | Used in margin trading(i.e. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough. |  [optional]
 **left** | **String** | Amount left to fill |  [optional]
 **fillPrice** | **String** | Total filled in quote currency |  [optional]
 **fee** | **String** | Fee deducted |  [optional]
