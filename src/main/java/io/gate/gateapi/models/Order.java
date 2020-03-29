@@ -326,6 +326,10 @@ public class Order {
   @SerializedName(SERIALIZED_NAME_FILL_PRICE)
   private String fillPrice;
 
+  public static final String SERIALIZED_NAME_FILLED_TOTAL = "filled_total";
+  @SerializedName(SERIALIZED_NAME_FILLED_TOTAL)
+  private String filledTotal;
+
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private String fee;
@@ -562,12 +566,21 @@ public class Order {
   }
 
    /**
-   * Total filled in quote currency
+   * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
    * @return fillPrice
   **/
-  @ApiModelProperty(value = "Total filled in quote currency")
+  @ApiModelProperty(value = "Total filled in quote currency. Deprecated in favor of `filled_total`")
   public String getFillPrice() {
     return fillPrice;
+  }
+
+   /**
+   * Total filled in quote currency
+   * @return filledTotal
+  **/
+  @ApiModelProperty(value = "Total filled in quote currency")
+  public String getFilledTotal() {
+    return filledTotal;
   }
 
    /**
@@ -658,6 +671,7 @@ public class Order {
         Objects.equals(this.autoBorrow, order.autoBorrow) &&
         Objects.equals(this.left, order.left) &&
         Objects.equals(this.fillPrice, order.fillPrice) &&
+        Objects.equals(this.filledTotal, order.filledTotal) &&
         Objects.equals(this.fee, order.fee) &&
         Objects.equals(this.feeCurrency, order.feeCurrency) &&
         Objects.equals(this.pointFee, order.pointFee) &&
@@ -669,7 +683,7 @@ public class Order {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, text, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
+    return Objects.hash(id, text, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
   }
 
 
@@ -693,6 +707,7 @@ public class Order {
     sb.append("    autoBorrow: ").append(toIndentedString(autoBorrow)).append("\n");
     sb.append("    left: ").append(toIndentedString(left)).append("\n");
     sb.append("    fillPrice: ").append(toIndentedString(fillPrice)).append("\n");
+    sb.append("    filledTotal: ").append(toIndentedString(filledTotal)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
     sb.append("    pointFee: ").append(toIndentedString(pointFee)).append("\n");
