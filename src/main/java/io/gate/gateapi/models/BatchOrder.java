@@ -338,6 +338,10 @@ public class BatchOrder {
   @SerializedName(SERIALIZED_NAME_FILL_PRICE)
   private String fillPrice;
 
+  public static final String SERIALIZED_NAME_FILLED_TOTAL = "filled_total";
+  @SerializedName(SERIALIZED_NAME_FILLED_TOTAL)
+  private String filledTotal;
+
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private String fee;
@@ -628,12 +632,21 @@ public class BatchOrder {
   }
 
    /**
-   * Fill price of the order
+   * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
    * @return fillPrice
   **/
-  @ApiModelProperty(value = "Fill price of the order")
+  @ApiModelProperty(value = "Total filled in quote currency. Deprecated in favor of `filled_total`")
   public String getFillPrice() {
     return fillPrice;
+  }
+
+   /**
+   * Total filled in quote currency
+   * @return filledTotal
+  **/
+  @ApiModelProperty(value = "Total filled in quote currency")
+  public String getFilledTotal() {
+    return filledTotal;
   }
 
    /**
@@ -727,6 +740,7 @@ public class BatchOrder {
         Objects.equals(this.autoBorrow, batchOrder.autoBorrow) &&
         Objects.equals(this.left, batchOrder.left) &&
         Objects.equals(this.fillPrice, batchOrder.fillPrice) &&
+        Objects.equals(this.filledTotal, batchOrder.filledTotal) &&
         Objects.equals(this.fee, batchOrder.fee) &&
         Objects.equals(this.feeCurrency, batchOrder.feeCurrency) &&
         Objects.equals(this.pointFee, batchOrder.pointFee) &&
@@ -738,7 +752,7 @@ public class BatchOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
+    return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
   }
 
 
@@ -765,6 +779,7 @@ public class BatchOrder {
     sb.append("    autoBorrow: ").append(toIndentedString(autoBorrow)).append("\n");
     sb.append("    left: ").append(toIndentedString(left)).append("\n");
     sb.append("    fillPrice: ").append(toIndentedString(fillPrice)).append("\n");
+    sb.append("    filledTotal: ").append(toIndentedString(filledTotal)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
     sb.append("    pointFee: ").append(toIndentedString(pointFee)).append("\n");
