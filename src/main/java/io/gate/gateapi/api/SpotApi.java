@@ -960,14 +960,16 @@ public class SpotApi {
     /**
      * Build call for listCandlesticks
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param interval Interval time between data points (optional, default to 30m)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listCandlesticksCall(String currencyPair, Integer limit, String interval, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listCandlesticksCall(String currencyPair, Integer limit, Long from, Long to, String interval, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -981,6 +983,14 @@ public class SpotApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
         }
 
         if (interval != null) {
@@ -1020,7 +1030,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listCandlesticksValidateBeforeCall(String currencyPair, Integer limit, String interval, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listCandlesticksValidateBeforeCall(String currencyPair, Integer limit, Long from, Long to, String interval, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'currencyPair' is set
         if (currencyPair == null) {
@@ -1028,51 +1038,57 @@ public class SpotApi {
         }
         
 
-        com.squareup.okhttp.Call call = listCandlesticksCall(currencyPair, limit, interval, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listCandlesticksCall(currencyPair, limit, from, to, interval, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Market candlesticks
-     * Candlestick data will start from (current time - limit * interval), end at current time
+     * Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param interval Interval time between data points (optional, default to 30m)
      * @return List&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<List<String>> listCandlesticks(String currencyPair, Integer limit, String interval) throws ApiException {
-        ApiResponse<List<List<String>>> resp = listCandlesticksWithHttpInfo(currencyPair, limit, interval);
+    public List<List<String>> listCandlesticks(String currencyPair, Integer limit, Long from, Long to, String interval) throws ApiException {
+        ApiResponse<List<List<String>>> resp = listCandlesticksWithHttpInfo(currencyPair, limit, from, to, interval);
         return resp.getData();
     }
 
     /**
      * Market candlesticks
-     * Candlestick data will start from (current time - limit * interval), end at current time
+     * Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param interval Interval time between data points (optional, default to 30m)
      * @return ApiResponse&lt;List&lt;List&lt;String&gt;&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<List<String>>> listCandlesticksWithHttpInfo(String currencyPair, Integer limit, String interval) throws ApiException {
-        com.squareup.okhttp.Call call = listCandlesticksValidateBeforeCall(currencyPair, limit, interval, null, null);
+    public ApiResponse<List<List<String>>> listCandlesticksWithHttpInfo(String currencyPair, Integer limit, Long from, Long to, String interval) throws ApiException {
+        com.squareup.okhttp.Call call = listCandlesticksValidateBeforeCall(currencyPair, limit, from, to, interval, null, null);
         Type localVarReturnType = new TypeToken<List<List<String>>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Market candlesticks (asynchronously)
-     * Candlestick data will start from (current time - limit * interval), end at current time
+     * Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+     * @param from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
+     * @param to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param interval Interval time between data points (optional, default to 30m)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listCandlesticksAsync(String currencyPair, Integer limit, String interval, final ApiCallback<List<List<String>>> callback) throws ApiException {
+    public com.squareup.okhttp.Call listCandlesticksAsync(String currencyPair, Integer limit, Long from, Long to, String interval, final ApiCallback<List<List<String>>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1093,7 +1109,7 @@ public class SpotApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listCandlesticksValidateBeforeCall(currencyPair, limit, interval, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listCandlesticksValidateBeforeCall(currencyPair, limit, from, to, interval, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<List<String>>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

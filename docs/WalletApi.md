@@ -5,6 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between accounts
+[**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 
 
 <a name="transfer"></a>
@@ -43,6 +44,54 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **transfer** | [**Transfer**](Transfer.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="transferWithSubAccount"></a>
+# **transferWithSubAccount**
+> transferWithSubAccount(subAccountTransfer)
+
+Transfer between main and sub accounts
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+WalletApi apiInstance = new WalletApi(client);
+SubAccountTransfer subAccountTransfer = new SubAccountTransfer(); // SubAccountTransfer | 
+try {
+    apiInstance.transferWithSubAccount(subAccountTransfer);
+} catch (ApiException e) {
+    System.err.println("Exception when calling WalletApi#transferWithSubAccount");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subAccountTransfer** | [**SubAccountTransfer**](SubAccountTransfer.md)|  |
 
 ### Return type
 
