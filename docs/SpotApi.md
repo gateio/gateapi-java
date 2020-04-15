@@ -375,11 +375,11 @@ Authentication with API key and secret is required
 
 <a name="listCandlesticks"></a>
 # **listCandlesticks**
-> List&lt;List&lt;String&gt;&gt; listCandlesticks(currencyPair, limit, interval)
+> List&lt;List&lt;String&gt;&gt; listCandlesticks(currencyPair, limit, from, to, interval)
 
 Market candlesticks
 
-Candlestick data will start from (current time - limit * interval), end at current time
+Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
 
 ### Example
 
@@ -393,10 +393,12 @@ import java.util.*;
 
 SpotApi apiInstance = new SpotApi();
 String currencyPair = "BTC_USDT"; // String | Currency pair
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
+Long from = 1546905600; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
+Long to = 1546935600; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
 String interval = "30m"; // String | Interval time between data points
 try {
-    List<List<String>> result = apiInstance.listCandlesticks(currencyPair, limit, interval);
+    List<List<String>> result = apiInstance.listCandlesticks(currencyPair, limit, from, to, interval);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SpotApi#listCandlesticks");
@@ -409,7 +411,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
+ **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
+ **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
  **interval** | **String**| Interval time between data points | [optional] [default to 30m] [enum: 10s, 1m, 5m, 15m, 30m, 1h, 4h, 8h, 1d, 7d]
 
 ### Return type
