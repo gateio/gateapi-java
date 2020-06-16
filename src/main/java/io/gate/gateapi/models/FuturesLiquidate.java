@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -80,7 +78,6 @@ public class FuturesLiquidate {
    * Liquidation time
    * @return time
   **/
-  @ApiModelProperty(value = "Liquidation time")
   public Long getTime() {
     return time;
   }
@@ -89,7 +86,6 @@ public class FuturesLiquidate {
    * Futures contract
    * @return contract
   **/
-  @ApiModelProperty(value = "Futures contract")
   public String getContract() {
     return contract;
   }
@@ -98,7 +94,6 @@ public class FuturesLiquidate {
    * Position leverage
    * @return leverage
   **/
-  @ApiModelProperty(value = "Position leverage")
   public String getLeverage() {
     return leverage;
   }
@@ -107,7 +102,6 @@ public class FuturesLiquidate {
    * Position size
    * @return size
   **/
-  @ApiModelProperty(value = "Position size")
   public Long getSize() {
     return size;
   }
@@ -116,7 +110,6 @@ public class FuturesLiquidate {
    * Position margin
    * @return margin
   **/
-  @ApiModelProperty(value = "Position margin")
   public String getMargin() {
     return margin;
   }
@@ -125,7 +118,6 @@ public class FuturesLiquidate {
    * Average entry price
    * @return entryPrice
   **/
-  @ApiModelProperty(value = "Average entry price")
   public String getEntryPrice() {
     return entryPrice;
   }
@@ -134,7 +126,6 @@ public class FuturesLiquidate {
    * Liquidation price
    * @return liqPrice
   **/
-  @ApiModelProperty(value = "Liquidation price")
   public String getLiqPrice() {
     return liqPrice;
   }
@@ -143,7 +134,6 @@ public class FuturesLiquidate {
    * Mark price
    * @return markPrice
   **/
-  @ApiModelProperty(value = "Mark price")
   public String getMarkPrice() {
     return markPrice;
   }
@@ -152,7 +142,6 @@ public class FuturesLiquidate {
    * Liquidation order ID
    * @return orderId
   **/
-  @ApiModelProperty(value = "Liquidation order ID")
   public Long getOrderId() {
     return orderId;
   }
@@ -161,7 +150,6 @@ public class FuturesLiquidate {
    * Liquidation order price
    * @return orderPrice
   **/
-  @ApiModelProperty(value = "Liquidation order price")
   public String getOrderPrice() {
     return orderPrice;
   }
@@ -170,7 +158,6 @@ public class FuturesLiquidate {
    * Liquidation order average taker price
    * @return fillPrice
   **/
-  @ApiModelProperty(value = "Liquidation order average taker price")
   public String getFillPrice() {
     return fillPrice;
   }
@@ -179,7 +166,6 @@ public class FuturesLiquidate {
    * Liquidation order maker size
    * @return left
   **/
-  @ApiModelProperty(value = "Liquidation order maker size")
   public Long getLeft() {
     return left;
   }

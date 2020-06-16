@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -100,7 +98,6 @@ public class RepayRequest {
    * Currency pair
    * @return currencyPair
   **/
-  @ApiModelProperty(required = true, value = "Currency pair")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -118,7 +115,6 @@ public class RepayRequest {
    * Loan currency
    * @return currency
   **/
-  @ApiModelProperty(required = true, value = "Loan currency")
   public String getCurrency() {
     return currency;
   }
@@ -136,7 +132,6 @@ public class RepayRequest {
    * Repay mode. all - repay all; partial - repay only some portion
    * @return mode
   **/
-  @ApiModelProperty(required = true, value = "Repay mode. all - repay all; partial - repay only some portion")
   public ModeEnum getMode() {
     return mode;
   }
@@ -154,7 +149,6 @@ public class RepayRequest {
    * Repay amount. Required in &#x60;partial&#x60; mode
    * @return amount
   **/
-  @ApiModelProperty(value = "Repay amount. Required in `partial` mode")
   public String getAmount() {
     return amount;
   }

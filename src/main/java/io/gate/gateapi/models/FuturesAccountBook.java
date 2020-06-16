@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
@@ -117,7 +115,6 @@ public class FuturesAccountBook {
    * Change time
    * @return time
   **/
-  @ApiModelProperty(value = "Change time")
   public BigDecimal getTime() {
     return time;
   }
@@ -135,7 +132,6 @@ public class FuturesAccountBook {
    * Change amount
    * @return change
   **/
-  @ApiModelProperty(value = "Change amount")
   public String getChange() {
     return change;
   }
@@ -153,7 +149,6 @@ public class FuturesAccountBook {
    * Balance after change
    * @return balance
   **/
-  @ApiModelProperty(value = "Balance after change")
   public String getBalance() {
     return balance;
   }
@@ -171,7 +166,6 @@ public class FuturesAccountBook {
    * Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
    * @return type
   **/
-  @ApiModelProperty(value = "Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate")
   public TypeEnum getType() {
     return type;
   }
@@ -189,7 +183,6 @@ public class FuturesAccountBook {
    * Comment
    * @return text
   **/
-  @ApiModelProperty(value = "Comment")
   public String getText() {
     return text;
   }

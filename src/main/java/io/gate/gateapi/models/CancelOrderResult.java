@@ -19,14 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Order cancellation result
  */
-@ApiModel(description = "Order cancellation result")
 
 public class CancelOrderResult {
   public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -58,7 +55,6 @@ public class CancelOrderResult {
    * Order currency pair
    * @return currencyPair
   **/
-  @ApiModelProperty(value = "Order currency pair")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -76,7 +72,6 @@ public class CancelOrderResult {
    * Order ID
    * @return id
   **/
-  @ApiModelProperty(value = "Order ID")
   public String getId() {
     return id;
   }
@@ -94,7 +89,6 @@ public class CancelOrderResult {
    * Whether cancellation succeeded
    * @return succeeded
   **/
-  @ApiModelProperty(value = "Whether cancellation succeeded")
   public Boolean getSucceeded() {
     return succeeded;
   }
@@ -112,7 +106,6 @@ public class CancelOrderResult {
    * Error label when failed to cancel the order; emtpy if succeeded
    * @return label
   **/
-  @ApiModelProperty(value = "Error label when failed to cancel the order; emtpy if succeeded")
   public String getLabel() {
     return label;
   }
@@ -130,7 +123,6 @@ public class CancelOrderResult {
    * Error message when failed to cancel the order; empty if succeeded
    * @return message
   **/
-  @ApiModelProperty(value = "Error message when failed to cancel the order; empty if succeeded")
   public String getMessage() {
     return message;
   }

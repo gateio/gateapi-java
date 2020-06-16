@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -53,7 +51,6 @@ public class Repayment {
    * Loan record ID
    * @return id
   **/
-  @ApiModelProperty(value = "Loan record ID")
   public String getId() {
     return id;
   }
@@ -71,7 +68,6 @@ public class Repayment {
    * Repayment time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Repayment time")
   public String getCreateTime() {
     return createTime;
   }
@@ -89,7 +85,6 @@ public class Repayment {
    * Repaid principal
    * @return principal
   **/
-  @ApiModelProperty(value = "Repaid principal")
   public String getPrincipal() {
     return principal;
   }
@@ -107,7 +102,6 @@ public class Repayment {
    * Repaid interest
    * @return interest
   **/
-  @ApiModelProperty(value = "Repaid interest")
   public String getInterest() {
     return interest;
   }

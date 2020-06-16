@@ -20,14 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.PositionCloseOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Futures position details
  */
-@ApiModel(description = "Futures position details")
 
 public class Position {
   public static final String SERIALIZED_NAME_USER = "user";
@@ -118,7 +115,6 @@ public class Position {
    * User ID
    * @return user
   **/
-  @ApiModelProperty(value = "User ID")
   public Long getUser() {
     return user;
   }
@@ -127,7 +123,6 @@ public class Position {
    * Futures contract
    * @return contract
   **/
-  @ApiModelProperty(value = "Futures contract")
   public String getContract() {
     return contract;
   }
@@ -136,7 +131,6 @@ public class Position {
    * Position size
    * @return size
   **/
-  @ApiModelProperty(value = "Position size")
   public Long getSize() {
     return size;
   }
@@ -150,7 +144,6 @@ public class Position {
    * Position leverage. 0 means cross margin; positive number means isolated margin
    * @return leverage
   **/
-  @ApiModelProperty(value = "Position leverage. 0 means cross margin; positive number means isolated margin")
   public String getLeverage() {
     return leverage;
   }
@@ -168,7 +161,6 @@ public class Position {
    * Position risk limit
    * @return riskLimit
   **/
-  @ApiModelProperty(value = "Position risk limit")
   public String getRiskLimit() {
     return riskLimit;
   }
@@ -181,7 +173,6 @@ public class Position {
    * Maximum leverage under current risk limit
    * @return leverageMax
   **/
-  @ApiModelProperty(value = "Maximum leverage under current risk limit")
   public String getLeverageMax() {
     return leverageMax;
   }
@@ -190,7 +181,6 @@ public class Position {
    * Maintenance rate under current risk limit
    * @return maintenanceRate
   **/
-  @ApiModelProperty(value = "Maintenance rate under current risk limit")
   public String getMaintenanceRate() {
     return maintenanceRate;
   }
@@ -199,7 +189,6 @@ public class Position {
    * Position value calculated in settlement currency
    * @return value
   **/
-  @ApiModelProperty(value = "Position value calculated in settlement currency")
   public String getValue() {
     return value;
   }
@@ -213,7 +202,6 @@ public class Position {
    * Position margin
    * @return margin
   **/
-  @ApiModelProperty(value = "Position margin")
   public String getMargin() {
     return margin;
   }
@@ -226,7 +214,6 @@ public class Position {
    * Entry price
    * @return entryPrice
   **/
-  @ApiModelProperty(value = "Entry price")
   public String getEntryPrice() {
     return entryPrice;
   }
@@ -235,7 +222,6 @@ public class Position {
    * Liquidation price
    * @return liqPrice
   **/
-  @ApiModelProperty(value = "Liquidation price")
   public String getLiqPrice() {
     return liqPrice;
   }
@@ -244,7 +230,6 @@ public class Position {
    * Current mark price
    * @return markPrice
   **/
-  @ApiModelProperty(value = "Current mark price")
   public String getMarkPrice() {
     return markPrice;
   }
@@ -253,7 +238,6 @@ public class Position {
    * Unrealized PNL
    * @return unrealisedPnl
   **/
-  @ApiModelProperty(value = "Unrealized PNL")
   public String getUnrealisedPnl() {
     return unrealisedPnl;
   }
@@ -262,7 +246,6 @@ public class Position {
    * Realized PNL
    * @return realisedPnl
   **/
-  @ApiModelProperty(value = "Realized PNL")
   public String getRealisedPnl() {
     return realisedPnl;
   }
@@ -271,7 +254,6 @@ public class Position {
    * History realized PNL
    * @return historyPnl
   **/
-  @ApiModelProperty(value = "History realized PNL")
   public String getHistoryPnl() {
     return historyPnl;
   }
@@ -280,7 +262,6 @@ public class Position {
    * PNL of last position close
    * @return lastClosePnl
   **/
-  @ApiModelProperty(value = "PNL of last position close")
   public String getLastClosePnl() {
     return lastClosePnl;
   }
@@ -289,7 +270,6 @@ public class Position {
    * Realized POINT PNL
    * @return realisedPoint
   **/
-  @ApiModelProperty(value = "Realized POINT PNL")
   public String getRealisedPoint() {
     return realisedPoint;
   }
@@ -298,7 +278,6 @@ public class Position {
    * History realized POINT PNL
    * @return historyPoint
   **/
-  @ApiModelProperty(value = "History realized POINT PNL")
   public String getHistoryPoint() {
     return historyPoint;
   }
@@ -307,7 +286,6 @@ public class Position {
    * ADL ranking, range from 1 to 5
    * @return adlRanking
   **/
-  @ApiModelProperty(value = "ADL ranking, range from 1 to 5")
   public Integer getAdlRanking() {
     return adlRanking;
   }
@@ -316,7 +294,6 @@ public class Position {
    * Current open orders
    * @return pendingOrders
   **/
-  @ApiModelProperty(value = "Current open orders")
   public Integer getPendingOrders() {
     return pendingOrders;
   }
@@ -330,7 +307,6 @@ public class Position {
    * Get closeOrder
    * @return closeOrder
   **/
-  @ApiModelProperty(value = "")
   public PositionCloseOrder getCloseOrder() {
     return closeOrder;
   }

@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
@@ -100,7 +98,6 @@ public class PositionClose {
    * Position close time
    * @return time
   **/
-  @ApiModelProperty(value = "Position close time")
   public BigDecimal getTime() {
     return time;
   }
@@ -109,7 +106,6 @@ public class PositionClose {
    * Futures contract
    * @return contract
   **/
-  @ApiModelProperty(value = "Futures contract")
   public String getContract() {
     return contract;
   }
@@ -118,7 +114,6 @@ public class PositionClose {
    * Position side, long or short
    * @return side
   **/
-  @ApiModelProperty(value = "Position side, long or short")
   public SideEnum getSide() {
     return side;
   }
@@ -127,7 +122,6 @@ public class PositionClose {
    * PNL
    * @return pnl
   **/
-  @ApiModelProperty(value = "PNL")
   public String getPnl() {
     return pnl;
   }
@@ -136,7 +130,6 @@ public class PositionClose {
    * Text of close order
    * @return text
   **/
-  @ApiModelProperty(value = "Text of close order")
   public String getText() {
     return text;
   }

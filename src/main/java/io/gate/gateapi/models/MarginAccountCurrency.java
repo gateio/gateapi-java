@@ -19,14 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Account currency detail
  */
-@ApiModel(description = "Account currency detail")
 
 public class MarginAccountCurrency {
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -54,7 +51,6 @@ public class MarginAccountCurrency {
    * Currency name
    * @return currency
   **/
-  @ApiModelProperty(value = "Currency name")
   public String getCurrency() {
     return currency;
   }
@@ -72,7 +68,6 @@ public class MarginAccountCurrency {
    * Amount suitable for margin trading.
    * @return available
   **/
-  @ApiModelProperty(value = "Amount suitable for margin trading.")
   public String getAvailable() {
     return available;
   }
@@ -90,7 +85,6 @@ public class MarginAccountCurrency {
    * Locked amount, used in margin trading
    * @return locked
   **/
-  @ApiModelProperty(value = "Locked amount, used in margin trading")
   public String getLocked() {
     return locked;
   }
@@ -108,7 +102,6 @@ public class MarginAccountCurrency {
    * Borrowed amount
    * @return borrowed
   **/
-  @ApiModelProperty(value = "Borrowed amount")
   public String getBorrowed() {
     return borrowed;
   }

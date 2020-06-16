@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -65,7 +63,6 @@ public class MarginCurrencyPair {
    * Currency pair
    * @return id
   **/
-  @ApiModelProperty(value = "Currency pair")
   public String getId() {
     return id;
   }
@@ -83,7 +80,6 @@ public class MarginCurrencyPair {
    * Base currency
    * @return base
   **/
-  @ApiModelProperty(value = "Base currency")
   public String getBase() {
     return base;
   }
@@ -101,7 +97,6 @@ public class MarginCurrencyPair {
    * Quote currency
    * @return quote
   **/
-  @ApiModelProperty(value = "Quote currency")
   public String getQuote() {
     return quote;
   }
@@ -119,7 +114,6 @@ public class MarginCurrencyPair {
    * Leverage
    * @return leverage
   **/
-  @ApiModelProperty(value = "Leverage")
   public Integer getLeverage() {
     return leverage;
   }
@@ -137,7 +131,6 @@ public class MarginCurrencyPair {
    * Minimum base currency to loan, &#x60;null&#x60; means no limit
    * @return minBaseAmount
   **/
-  @ApiModelProperty(value = "Minimum base currency to loan, `null` means no limit")
   public String getMinBaseAmount() {
     return minBaseAmount;
   }
@@ -155,7 +148,6 @@ public class MarginCurrencyPair {
    * Minimum quote currency to loan, &#x60;null&#x60; means no limit
    * @return minQuoteAmount
   **/
-  @ApiModelProperty(value = "Minimum quote currency to loan, `null` means no limit")
   public String getMinQuoteAmount() {
     return minQuoteAmount;
   }
@@ -173,7 +165,6 @@ public class MarginCurrencyPair {
    * Maximum borrowable amount for quote currency. Base currency limit is calculated by quote maximum and market price. &#x60;null&#x60; means no limit
    * @return maxQuoteAmount
   **/
-  @ApiModelProperty(value = "Maximum borrowable amount for quote currency. Base currency limit is calculated by quote maximum and market price. `null` means no limit")
   public String getMaxQuoteAmount() {
     return maxQuoteAmount;
   }

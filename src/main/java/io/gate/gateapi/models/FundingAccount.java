@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -57,7 +55,6 @@ public class FundingAccount {
    * Currency name
    * @return currency
   **/
-  @ApiModelProperty(value = "Currency name")
   public String getCurrency() {
     return currency;
   }
@@ -75,7 +72,6 @@ public class FundingAccount {
    * Available assets to lend, which is identical to spot account &#x60;available&#x60;
    * @return available
   **/
-  @ApiModelProperty(value = "Available assets to lend, which is identical to spot account `available`")
   public String getAvailable() {
     return available;
   }
@@ -93,7 +89,6 @@ public class FundingAccount {
    * Locked amount. i.e. amount in &#x60;open&#x60; loans
    * @return locked
   **/
-  @ApiModelProperty(value = "Locked amount. i.e. amount in `open` loans")
   public String getLocked() {
     return locked;
   }
@@ -111,7 +106,6 @@ public class FundingAccount {
    * Amount that is loaned but not repaid
    * @return lent
   **/
-  @ApiModelProperty(value = "Amount that is loaned but not repaid")
   public String getLent() {
     return lent;
   }
@@ -129,7 +123,6 @@ public class FundingAccount {
    * Amount used for lending. total_lent &#x3D; lent + locked
    * @return totalLent
   **/
-  @ApiModelProperty(value = "Amount used for lending. total_lent = lent + locked")
   public String getTotalLent() {
     return totalLent;
   }

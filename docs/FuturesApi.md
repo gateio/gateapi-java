@@ -449,7 +449,7 @@ Authentication with API key and secret is required
 
 <a name="getMyTrades"></a>
 # **getMyTrades**
-> List&lt;MyFuturesTrade&gt; getMyTrades(settle, contract, order, limit, lastId)
+> List&lt;MyFuturesTrade&gt; getMyTrades(settle, contract, order, limit, offset, lastId, countTotal)
 
 List personal trading history
 
@@ -471,9 +471,11 @@ String settle = "btc"; // String | Settle currency
 String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
 Integer order = 12345; // Integer | Futures order ID, return related data only if specified
 Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer offset = 0; // Integer | List offset, starting from 0
 String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
+Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
 try {
-    List<MyFuturesTrade> result = apiInstance.getMyTrades(settle, contract, order, limit, lastId);
+    List<MyFuturesTrade> result = apiInstance.getMyTrades(settle, contract, order, limit, offset, lastId, countTotal);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FuturesApi#getMyTrades");
@@ -489,7 +491,9 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **order** | **Integer**| Futures order ID, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
+ **countTotal** | **Integer**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0] [enum: 0, 1]
 
 ### Return type
 
@@ -970,7 +974,7 @@ No authorization required
 
 <a name="listFuturesOrders"></a>
 # **listFuturesOrders**
-> List&lt;FuturesOrder&gt; listFuturesOrders(settle, contract, status, limit, lastId)
+> List&lt;FuturesOrder&gt; listFuturesOrders(settle, contract, status, limit, offset, lastId, countTotal)
 
 List futures orders
 
@@ -994,9 +998,11 @@ String settle = "btc"; // String | Settle currency
 String contract = "BTC_USD"; // String | Futures contract
 String status = "open"; // String | List orders based on status
 Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer offset = 0; // Integer | List offset, starting from 0
 String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
+Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
 try {
-    List<FuturesOrder> result = apiInstance.listFuturesOrders(settle, contract, status, limit, lastId);
+    List<FuturesOrder> result = apiInstance.listFuturesOrders(settle, contract, status, limit, offset, lastId, countTotal);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FuturesApi#listFuturesOrders");
@@ -1012,7 +1018,9 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract |
  **status** | **String**| List orders based on status | [enum: open, finished]
  **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
+ **countTotal** | **Integer**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0] [enum: 0, 1]
 
 ### Return type
 

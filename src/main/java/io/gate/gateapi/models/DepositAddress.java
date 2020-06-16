@@ -22,50 +22,50 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InsuranceRecord
+ * DepositAddress
  */
 
-public class InsuranceRecord {
-  public static final String SERIALIZED_NAME_T = "t";
-  @SerializedName(SERIALIZED_NAME_T)
-  private Long t;
+public class DepositAddress {
+  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  @SerializedName(SERIALIZED_NAME_CURRENCY)
+  private String currency;
 
-  public static final String SERIALIZED_NAME_B = "b";
-  @SerializedName(SERIALIZED_NAME_B)
-  private String b;
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private String address;
 
-  public InsuranceRecord t(Long t) {
-    this.t = t;
+  public DepositAddress currency(String currency) {
+    this.currency = currency;
     return this;
   }
 
    /**
-   * Unix timestamp in seconds
-   * @return t
+   * Currency detail
+   * @return currency
   **/
-  public Long getT() {
-    return t;
+  public String getCurrency() {
+    return currency;
   }
 
-  public void setT(Long t) {
-    this.t = t;
+  public void setCurrency(String currency) {
+    this.currency = currency;
   }
 
-  public InsuranceRecord b(String b) {
-    this.b = b;
+  public DepositAddress address(String address) {
+    this.address = address;
     return this;
   }
 
    /**
-   * Insurance balance
-   * @return b
+   * Deposit address
+   * @return address
   **/
-  public String getB() {
-    return b;
+  public String getAddress() {
+    return address;
   }
 
-  public void setB(String b) {
-    this.b = b;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
 
@@ -77,24 +77,24 @@ public class InsuranceRecord {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InsuranceRecord insuranceRecord = (InsuranceRecord) o;
-    return Objects.equals(this.t, insuranceRecord.t) &&
-        Objects.equals(this.b, insuranceRecord.b);
+    DepositAddress depositAddress = (DepositAddress) o;
+    return Objects.equals(this.currency, depositAddress.currency) &&
+        Objects.equals(this.address, depositAddress.address);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(t, b);
+    return Objects.hash(currency, address);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InsuranceRecord {\n");
+    sb.append("class DepositAddress {\n");
     
-    sb.append("    t: ").append(toIndentedString(t)).append("\n");
-    sb.append("    b: ").append(toIndentedString(b)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("}");
     return sb.toString();
   }

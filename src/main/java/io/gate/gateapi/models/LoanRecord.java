@@ -19,14 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Margin loaned record details
  */
-@ApiModel(description = "Margin loaned record details")
 
 public class LoanRecord {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -141,7 +138,6 @@ public class LoanRecord {
    * Loan record ID
    * @return id
   **/
-  @ApiModelProperty(value = "Loan record ID")
   public String getId() {
     return id;
   }
@@ -159,7 +155,6 @@ public class LoanRecord {
    * Loan ID the record belongs to
    * @return loanId
   **/
-  @ApiModelProperty(value = "Loan ID the record belongs to")
   public String getLoanId() {
     return loanId;
   }
@@ -177,7 +172,6 @@ public class LoanRecord {
    * Loan time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Loan time")
   public String getCreateTime() {
     return createTime;
   }
@@ -195,7 +189,6 @@ public class LoanRecord {
    * Expiration time
    * @return expireTime
   **/
-  @ApiModelProperty(value = "Expiration time")
   public String getExpireTime() {
     return expireTime;
   }
@@ -213,7 +206,6 @@ public class LoanRecord {
    * Loan record status
    * @return status
   **/
-  @ApiModelProperty(value = "Loan record status")
   public StatusEnum getStatus() {
     return status;
   }
@@ -231,7 +223,6 @@ public class LoanRecord {
    * Garbled user ID
    * @return borrowUserId
   **/
-  @ApiModelProperty(value = "Garbled user ID")
   public String getBorrowUserId() {
     return borrowUserId;
   }
@@ -249,7 +240,6 @@ public class LoanRecord {
    * Loan currency
    * @return currency
   **/
-  @ApiModelProperty(value = "Loan currency")
   public String getCurrency() {
     return currency;
   }
@@ -267,7 +257,6 @@ public class LoanRecord {
    * Loan rate
    * @return rate
   **/
-  @ApiModelProperty(value = "Loan rate")
   public String getRate() {
     return rate;
   }
@@ -285,7 +274,6 @@ public class LoanRecord {
    * Loan amount
    * @return amount
   **/
-  @ApiModelProperty(value = "Loan amount")
   public String getAmount() {
     return amount;
   }
@@ -303,7 +291,6 @@ public class LoanRecord {
    * Loan days
    * @return days
   **/
-  @ApiModelProperty(value = "Loan days")
   public Integer getDays() {
     return days;
   }
@@ -321,7 +308,6 @@ public class LoanRecord {
    * Whether the record will auto renew on expiration
    * @return autoRenew
   **/
-  @ApiModelProperty(value = "Whether the record will auto renew on expiration")
   public Boolean getAutoRenew() {
     return autoRenew;
   }
@@ -339,7 +325,6 @@ public class LoanRecord {
    * Repaid amount
    * @return repaid
   **/
-  @ApiModelProperty(value = "Repaid amount")
   public String getRepaid() {
     return repaid;
   }
@@ -352,7 +337,6 @@ public class LoanRecord {
    * Repaid interest
    * @return paidInterest
   **/
-  @ApiModelProperty(value = "Repaid interest")
   public String getPaidInterest() {
     return paidInterest;
   }
@@ -361,7 +345,6 @@ public class LoanRecord {
    * Interest not repaid
    * @return unpaidInterest
   **/
-  @ApiModelProperty(value = "Interest not repaid")
   public String getUnpaidInterest() {
     return unpaidInterest;
   }

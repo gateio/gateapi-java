@@ -19,14 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Current close order if any, or &#x60;null&#x60;
  */
-@ApiModel(description = "Current close order if any, or `null`")
 
 public class PositionCloseOrder {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -50,7 +47,6 @@ public class PositionCloseOrder {
    * Close order ID
    * @return id
   **/
-  @ApiModelProperty(value = "Close order ID")
   public Long getId() {
     return id;
   }
@@ -68,7 +64,6 @@ public class PositionCloseOrder {
    * Close order price
    * @return price
   **/
-  @ApiModelProperty(value = "Close order price")
   public String getPrice() {
     return price;
   }
@@ -86,7 +81,6 @@ public class PositionCloseOrder {
    * Is the close order from liquidation
    * @return isLiq
   **/
-  @ApiModelProperty(value = "Is the close order from liquidation")
   public Boolean getIsLiq() {
     return isLiq;
   }

@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -73,7 +71,6 @@ public class Ticker {
    * Currency pair
    * @return currencyPair
   **/
-  @ApiModelProperty(value = "Currency pair")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -91,7 +88,6 @@ public class Ticker {
    * Last trading price
    * @return last
   **/
-  @ApiModelProperty(value = "Last trading price")
   public String getLast() {
     return last;
   }
@@ -109,7 +105,6 @@ public class Ticker {
    * Lowest ask
    * @return lowestAsk
   **/
-  @ApiModelProperty(value = "Lowest ask")
   public String getLowestAsk() {
     return lowestAsk;
   }
@@ -127,7 +122,6 @@ public class Ticker {
    * Highest bid
    * @return highestBid
   **/
-  @ApiModelProperty(value = "Highest bid")
   public String getHighestBid() {
     return highestBid;
   }
@@ -145,7 +139,6 @@ public class Ticker {
    * Change percentage.
    * @return changePercentage
   **/
-  @ApiModelProperty(value = "Change percentage.")
   public String getChangePercentage() {
     return changePercentage;
   }
@@ -163,7 +156,6 @@ public class Ticker {
    * Base currency trade volume
    * @return baseVolume
   **/
-  @ApiModelProperty(value = "Base currency trade volume")
   public String getBaseVolume() {
     return baseVolume;
   }
@@ -181,7 +173,6 @@ public class Ticker {
    * Quote currency trade volume
    * @return quoteVolume
   **/
-  @ApiModelProperty(value = "Quote currency trade volume")
   public String getQuoteVolume() {
     return quoteVolume;
   }
@@ -199,7 +190,6 @@ public class Ticker {
    * Highest price in 24h
    * @return high24h
   **/
-  @ApiModelProperty(value = "Highest price in 24h")
   public String getHigh24h() {
     return high24h;
   }
@@ -217,7 +207,6 @@ public class Ticker {
    * Lowest price in 24h
    * @return low24h
   **/
-  @ApiModelProperty(value = "Lowest price in 24h")
   public String getLow24h() {
     return low24h;
   }

@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -175,7 +173,6 @@ public class Trade {
    * Trade ID
    * @return id
   **/
-  @ApiModelProperty(value = "Trade ID")
   public String getId() {
     return id;
   }
@@ -193,7 +190,6 @@ public class Trade {
    * Trading time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Trading time")
   public String getCreateTime() {
     return createTime;
   }
@@ -211,7 +207,6 @@ public class Trade {
    * Order side
    * @return side
   **/
-  @ApiModelProperty(value = "Order side")
   public SideEnum getSide() {
     return side;
   }
@@ -229,7 +224,6 @@ public class Trade {
    * Trade role
    * @return role
   **/
-  @ApiModelProperty(value = "Trade role")
   public RoleEnum getRole() {
     return role;
   }
@@ -247,7 +241,6 @@ public class Trade {
    * Trade amount
    * @return amount
   **/
-  @ApiModelProperty(value = "Trade amount")
   public String getAmount() {
     return amount;
   }
@@ -265,7 +258,6 @@ public class Trade {
    * Order price
    * @return price
   **/
-  @ApiModelProperty(value = "Order price")
   public String getPrice() {
     return price;
   }
@@ -283,7 +275,6 @@ public class Trade {
    * Related order ID. No value in public endpoints
    * @return orderId
   **/
-  @ApiModelProperty(value = "Related order ID. No value in public endpoints")
   public String getOrderId() {
     return orderId;
   }
@@ -301,7 +292,6 @@ public class Trade {
    * Fee deducted. No value in public endpoints
    * @return fee
   **/
-  @ApiModelProperty(value = "Fee deducted. No value in public endpoints")
   public String getFee() {
     return fee;
   }
@@ -319,7 +309,6 @@ public class Trade {
    * Fee currency unit. No value in public endpoints
    * @return feeCurrency
   **/
-  @ApiModelProperty(value = "Fee currency unit. No value in public endpoints")
   public String getFeeCurrency() {
     return feeCurrency;
   }
@@ -337,7 +326,6 @@ public class Trade {
    * Point used to deduct fee
    * @return pointFee
   **/
-  @ApiModelProperty(value = "Point used to deduct fee")
   public String getPointFee() {
     return pointFee;
   }
@@ -355,7 +343,6 @@ public class Trade {
    * GT used to deduct fee
    * @return gtFee
   **/
-  @ApiModelProperty(value = "GT used to deduct fee")
   public String getGtFee() {
     return gtFee;
   }

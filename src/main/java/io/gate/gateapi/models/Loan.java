@@ -19,14 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Margin loan details
  */
-@ApiModel(description = "Margin loan details")
 
 public class Loan {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -199,7 +196,6 @@ public class Loan {
    * Loan ID
    * @return id
   **/
-  @ApiModelProperty(value = "Loan ID")
   public String getId() {
     return id;
   }
@@ -208,7 +204,6 @@ public class Loan {
    * Creation time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Creation time")
   public String getCreateTime() {
     return createTime;
   }
@@ -217,7 +212,6 @@ public class Loan {
    * Repay time of the loan. No value will be returned for lending loan
    * @return expireTime
   **/
-  @ApiModelProperty(value = "Repay time of the loan. No value will be returned for lending loan")
   public String getExpireTime() {
     return expireTime;
   }
@@ -226,7 +220,6 @@ public class Loan {
    * Loan status  open - not fully loaned loaned - all loaned out for lending loan; loaned in for borrowing side finished - loan is finished, either being all repaid or cancelled by the lender auto_repaid - automatically repaid by the system
    * @return status
   **/
-  @ApiModelProperty(value = "Loan status  open - not fully loaned loaned - all loaned out for lending loan; loaned in for borrowing side finished - loan is finished, either being all repaid or cancelled by the lender auto_repaid - automatically repaid by the system")
   public StatusEnum getStatus() {
     return status;
   }
@@ -240,7 +233,6 @@ public class Loan {
    * Loan side
    * @return side
   **/
-  @ApiModelProperty(required = true, value = "Loan side")
   public SideEnum getSide() {
     return side;
   }
@@ -258,7 +250,6 @@ public class Loan {
    * Loan currency
    * @return currency
   **/
-  @ApiModelProperty(required = true, value = "Loan currency")
   public String getCurrency() {
     return currency;
   }
@@ -276,7 +267,6 @@ public class Loan {
    * Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set
    * @return rate
   **/
-  @ApiModelProperty(value = "Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set")
   public String getRate() {
     return rate;
   }
@@ -294,7 +284,6 @@ public class Loan {
    * Loan amount
    * @return amount
   **/
-  @ApiModelProperty(required = true, value = "Loan amount")
   public String getAmount() {
     return amount;
   }
@@ -312,7 +301,6 @@ public class Loan {
    * Loan days
    * @return days
   **/
-  @ApiModelProperty(required = true, value = "Loan days")
   public Integer getDays() {
     return days;
   }
@@ -330,7 +318,6 @@ public class Loan {
    * Auto renew the loan on expiration
    * @return autoRenew
   **/
-  @ApiModelProperty(value = "Auto renew the loan on expiration")
   public Boolean getAutoRenew() {
     return autoRenew;
   }
@@ -348,7 +335,6 @@ public class Loan {
    * Currency pair. Required for borrowing side
    * @return currencyPair
   **/
-  @ApiModelProperty(value = "Currency pair. Required for borrowing side")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -361,7 +347,6 @@ public class Loan {
    * Amount not lending out
    * @return left
   **/
-  @ApiModelProperty(value = "Amount not lending out")
   public String getLeft() {
     return left;
   }
@@ -370,7 +355,6 @@ public class Loan {
    * Repaid amount
    * @return repaid
   **/
-  @ApiModelProperty(value = "Repaid amount")
   public String getRepaid() {
     return repaid;
   }
@@ -379,7 +363,6 @@ public class Loan {
    * Repaid interest
    * @return paidInterest
   **/
-  @ApiModelProperty(value = "Repaid interest")
   public String getPaidInterest() {
     return paidInterest;
   }
@@ -388,7 +371,6 @@ public class Loan {
    * Interest not repaid
    * @return unpaidInterest
   **/
-  @ApiModelProperty(value = "Interest not repaid")
   public String getUnpaidInterest() {
     return unpaidInterest;
   }
@@ -402,7 +384,6 @@ public class Loan {
    * Loan fee rate
    * @return feeRate
   **/
-  @ApiModelProperty(value = "Loan fee rate")
   public String getFeeRate() {
     return feeRate;
   }
@@ -420,7 +401,6 @@ public class Loan {
    * Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not
    * @return origId
   **/
-  @ApiModelProperty(value = "Original loan ID if the loan is auto-renewed. Equal to `id` if not")
   public String getOrigId() {
     return origId;
   }

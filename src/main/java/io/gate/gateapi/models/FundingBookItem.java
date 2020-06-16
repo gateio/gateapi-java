@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -49,7 +47,6 @@ public class FundingBookItem {
    * Loan rate
    * @return rate
   **/
-  @ApiModelProperty(value = "Loan rate")
   public String getRate() {
     return rate;
   }
@@ -67,7 +64,6 @@ public class FundingBookItem {
    * Borrowable amount
    * @return amount
   **/
-  @ApiModelProperty(value = "Borrowable amount")
   public String getAmount() {
     return amount;
   }
@@ -85,7 +81,6 @@ public class FundingBookItem {
    * How long the loan should be repaid
    * @return days
   **/
-  @ApiModelProperty(value = "How long the loan should be repaid")
   public Integer getDays() {
     return days;
   }

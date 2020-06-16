@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -100,7 +98,6 @@ public class SubAccountTransfer {
    * Transfer currency name
    * @return currency
   **/
-  @ApiModelProperty(required = true, value = "Transfer currency name")
   public String getCurrency() {
     return currency;
   }
@@ -118,7 +115,6 @@ public class SubAccountTransfer {
    * Sub account user ID
    * @return subAccount
   **/
-  @ApiModelProperty(required = true, value = "Sub account user ID")
   public String getSubAccount() {
     return subAccount;
   }
@@ -136,7 +132,6 @@ public class SubAccountTransfer {
    * Transfer direction. to - transfer into sub account; from - transfer out from sub account
    * @return direction
   **/
-  @ApiModelProperty(required = true, value = "Transfer direction. to - transfer into sub account; from - transfer out from sub account")
   public DirectionEnum getDirection() {
     return direction;
   }
@@ -154,7 +149,6 @@ public class SubAccountTransfer {
    * Transfer amount
    * @return amount
   **/
-  @ApiModelProperty(required = true, value = "Transfer amount")
   public String getAmount() {
     return amount;
   }

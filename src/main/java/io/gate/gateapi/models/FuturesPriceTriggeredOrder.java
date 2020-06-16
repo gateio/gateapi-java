@@ -21,15 +21,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.FuturesInitialOrder;
 import io.gate.gateapi.models.FuturesPriceTrigger;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
  * Futures order details
  */
-@ApiModel(description = "Futures order details")
 
 public class FuturesPriceTriggeredOrder {
   public static final String SERIALIZED_NAME_INITIAL = "initial";
@@ -179,7 +176,6 @@ public class FuturesPriceTriggeredOrder {
    * Get initial
    * @return initial
   **/
-  @ApiModelProperty(required = true, value = "")
   public FuturesInitialOrder getInitial() {
     return initial;
   }
@@ -197,7 +193,6 @@ public class FuturesPriceTriggeredOrder {
    * Get trigger
    * @return trigger
   **/
-  @ApiModelProperty(required = true, value = "")
   public FuturesPriceTrigger getTrigger() {
     return trigger;
   }
@@ -210,7 +205,6 @@ public class FuturesPriceTriggeredOrder {
    * Auto order ID
    * @return id
   **/
-  @ApiModelProperty(value = "Auto order ID")
   public Long getId() {
     return id;
   }
@@ -219,7 +213,6 @@ public class FuturesPriceTriggeredOrder {
    * User ID
    * @return user
   **/
-  @ApiModelProperty(value = "User ID")
   public Integer getUser() {
     return user;
   }
@@ -228,7 +221,6 @@ public class FuturesPriceTriggeredOrder {
    * Creation time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Creation time")
   public BigDecimal getCreateTime() {
     return createTime;
   }
@@ -237,7 +229,6 @@ public class FuturesPriceTriggeredOrder {
    * Finished time
    * @return finishTime
   **/
-  @ApiModelProperty(value = "Finished time")
   public BigDecimal getFinishTime() {
     return finishTime;
   }
@@ -246,7 +237,6 @@ public class FuturesPriceTriggeredOrder {
    * ID of the newly created order on condition triggered
    * @return tradeId
   **/
-  @ApiModelProperty(value = "ID of the newly created order on condition triggered")
   public Long getTradeId() {
     return tradeId;
   }
@@ -255,7 +245,6 @@ public class FuturesPriceTriggeredOrder {
    * Order status.
    * @return status
   **/
-  @ApiModelProperty(value = "Order status.")
   public StatusEnum getStatus() {
     return status;
   }
@@ -264,7 +253,6 @@ public class FuturesPriceTriggeredOrder {
    * How order is finished
    * @return finishAs
   **/
-  @ApiModelProperty(value = "How order is finished")
   public FinishAsEnum getFinishAs() {
     return finishAs;
   }
@@ -273,7 +261,6 @@ public class FuturesPriceTriggeredOrder {
    * Extra messages of how order is finished
    * @return reason
   **/
-  @ApiModelProperty(value = "Extra messages of how order is finished")
   public String getReason() {
     return reason;
   }
