@@ -26,6 +26,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.gate.gateapi.models.DepositAddress;
+import io.gate.gateapi.models.LedgerRecord;
 import io.gate.gateapi.models.SubAccountTransfer;
 import io.gate.gateapi.models.Transfer;
 
@@ -54,6 +56,435 @@ public class WalletApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for getDepositAddress
+     * @param currency Currency name (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getDepositAddressCall(String currency, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/deposit_address";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDepositAddressValidateBeforeCall(String currency, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling getDepositAddress(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getDepositAddressCall(currency, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Generate currency deposit address
+     * 
+     * @param currency Currency name (required)
+     * @return DepositAddress
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DepositAddress getDepositAddress(String currency) throws ApiException {
+        ApiResponse<DepositAddress> resp = getDepositAddressWithHttpInfo(currency);
+        return resp.getData();
+    }
+
+    /**
+     * Generate currency deposit address
+     * 
+     * @param currency Currency name (required)
+     * @return ApiResponse&lt;DepositAddress&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DepositAddress> getDepositAddressWithHttpInfo(String currency) throws ApiException {
+        com.squareup.okhttp.Call call = getDepositAddressValidateBeforeCall(currency, null, null);
+        Type localVarReturnType = new TypeToken<DepositAddress>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Generate currency deposit address (asynchronously)
+     * 
+     * @param currency Currency name (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getDepositAddressAsync(String currency, final ApiCallback<DepositAddress> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDepositAddressValidateBeforeCall(currency, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DepositAddress>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listDeposits
+     * @param currency Filter by currency. Return all currency records if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listDepositsCall(String currency, Long from, Long to, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/deposits";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("currency", currency));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listDepositsValidateBeforeCall(String currency, Long from, Long to, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = listDepositsCall(currency, from, to, limit, offset, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve deposit records. Time range cannot exceed 30 days
+     * 
+     * @param currency Filter by currency. Return all currency records if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @return List&lt;LedgerRecord&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<LedgerRecord> listDeposits(String currency, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        ApiResponse<List<LedgerRecord>> resp = listDepositsWithHttpInfo(currency, from, to, limit, offset);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve deposit records. Time range cannot exceed 30 days
+     * 
+     * @param currency Filter by currency. Return all currency records if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @return ApiResponse&lt;List&lt;LedgerRecord&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<LedgerRecord>> listDepositsWithHttpInfo(String currency, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        com.squareup.okhttp.Call call = listDepositsValidateBeforeCall(currency, from, to, limit, offset, null, null);
+        Type localVarReturnType = new TypeToken<List<LedgerRecord>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve deposit records. Time range cannot exceed 30 days (asynchronously)
+     * 
+     * @param currency Filter by currency. Return all currency records if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listDepositsAsync(String currency, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<LedgerRecord>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listDepositsValidateBeforeCall(currency, from, to, limit, offset, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<LedgerRecord>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listWithdrawals
+     * @param currency Filter by currency. Return all currency records if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listWithdrawalsCall(String currency, Long from, Long to, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/withdrawals";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("currency", currency));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listWithdrawalsValidateBeforeCall(String currency, Long from, Long to, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = listWithdrawalsCall(currency, from, to, limit, offset, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     * 
+     * @param currency Filter by currency. Return all currency records if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @return List&lt;LedgerRecord&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<LedgerRecord> listWithdrawals(String currency, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        ApiResponse<List<LedgerRecord>> resp = listWithdrawalsWithHttpInfo(currency, from, to, limit, offset);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve withdrawal records. Time range cannot exceed 30 days
+     * 
+     * @param currency Filter by currency. Return all currency records if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @return ApiResponse&lt;List&lt;LedgerRecord&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<LedgerRecord>> listWithdrawalsWithHttpInfo(String currency, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        com.squareup.okhttp.Call call = listWithdrawalsValidateBeforeCall(currency, from, to, limit, offset, null, null);
+        Type localVarReturnType = new TypeToken<List<LedgerRecord>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve withdrawal records. Time range cannot exceed 30 days (asynchronously)
+     * 
+     * @param currency Filter by currency. Return all currency records if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listWithdrawalsAsync(String currency, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<LedgerRecord>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listWithdrawalsValidateBeforeCall(currency, from, to, limit, offset, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<LedgerRecord>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for transfer
      * @param transfer  (required)
@@ -118,7 +549,7 @@ public class WalletApi {
 
     /**
      * Transfer between accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures
      * @param transfer  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -128,7 +559,7 @@ public class WalletApi {
 
     /**
      * Transfer between accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures
      * @param transfer  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -140,7 +571,7 @@ public class WalletApi {
 
     /**
      * Transfer between accounts (asynchronously)
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures
      * @param transfer  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

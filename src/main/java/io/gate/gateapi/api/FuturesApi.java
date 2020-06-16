@@ -1143,13 +1143,15 @@ public class FuturesApi {
      * @param contract Futures contract, return related data only if specified (optional)
      * @param order Futures order ID, return related data only if specified (optional)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param countTotal Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getMyTradesCall(String settle, String contract, Integer order, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getMyTradesCall(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1170,8 +1172,16 @@ public class FuturesApi {
             localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         }
 
+        if (offset != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        }
+
         if (lastId != null) {
             localVarQueryParams.addAll(apiClient.parameterToPair("last_id", lastId));
+        }
+
+        if (countTotal != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("count_total", countTotal));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1207,7 +1217,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getMyTradesValidateBeforeCall(String settle, String contract, Integer order, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMyTradesValidateBeforeCall(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'settle' is set
         if (settle == null) {
@@ -1215,7 +1225,7 @@ public class FuturesApi {
         }
         
 
-        com.squareup.okhttp.Call call = getMyTradesCall(settle, contract, order, limit, lastId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getMyTradesCall(settle, contract, order, limit, offset, lastId, countTotal, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1227,12 +1237,14 @@ public class FuturesApi {
      * @param contract Futures contract, return related data only if specified (optional)
      * @param order Futures order ID, return related data only if specified (optional)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param countTotal Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      * @return List&lt;MyFuturesTrade&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<MyFuturesTrade> getMyTrades(String settle, String contract, Integer order, Integer limit, String lastId) throws ApiException {
-        ApiResponse<List<MyFuturesTrade>> resp = getMyTradesWithHttpInfo(settle, contract, order, limit, lastId);
+    public List<MyFuturesTrade> getMyTrades(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal) throws ApiException {
+        ApiResponse<List<MyFuturesTrade>> resp = getMyTradesWithHttpInfo(settle, contract, order, limit, offset, lastId, countTotal);
         return resp.getData();
     }
 
@@ -1243,12 +1255,14 @@ public class FuturesApi {
      * @param contract Futures contract, return related data only if specified (optional)
      * @param order Futures order ID, return related data only if specified (optional)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param countTotal Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      * @return ApiResponse&lt;List&lt;MyFuturesTrade&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<MyFuturesTrade>> getMyTradesWithHttpInfo(String settle, String contract, Integer order, Integer limit, String lastId) throws ApiException {
-        com.squareup.okhttp.Call call = getMyTradesValidateBeforeCall(settle, contract, order, limit, lastId, null, null);
+    public ApiResponse<List<MyFuturesTrade>> getMyTradesWithHttpInfo(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal) throws ApiException {
+        com.squareup.okhttp.Call call = getMyTradesValidateBeforeCall(settle, contract, order, limit, offset, lastId, countTotal, null, null);
         Type localVarReturnType = new TypeToken<List<MyFuturesTrade>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1260,12 +1274,14 @@ public class FuturesApi {
      * @param contract Futures contract, return related data only if specified (optional)
      * @param order Futures order ID, return related data only if specified (optional)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param countTotal Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getMyTradesAsync(String settle, String contract, Integer order, Integer limit, String lastId, final ApiCallback<List<MyFuturesTrade>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMyTradesAsync(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal, final ApiCallback<List<MyFuturesTrade>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1286,7 +1302,7 @@ public class FuturesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getMyTradesValidateBeforeCall(settle, contract, order, limit, lastId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getMyTradesValidateBeforeCall(settle, contract, order, limit, offset, lastId, countTotal, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<MyFuturesTrade>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2550,13 +2566,15 @@ public class FuturesApi {
      * @param contract Futures contract (required)
      * @param status List orders based on status (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param countTotal Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listFuturesOrdersCall(String settle, String contract, String status, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listFuturesOrdersCall(String settle, String contract, String status, Integer limit, Integer offset, String lastId, Integer countTotal, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2577,8 +2595,16 @@ public class FuturesApi {
             localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         }
 
+        if (offset != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        }
+
         if (lastId != null) {
             localVarQueryParams.addAll(apiClient.parameterToPair("last_id", lastId));
+        }
+
+        if (countTotal != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("count_total", countTotal));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2614,7 +2640,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listFuturesOrdersValidateBeforeCall(String settle, String contract, String status, Integer limit, String lastId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listFuturesOrdersValidateBeforeCall(String settle, String contract, String status, Integer limit, Integer offset, String lastId, Integer countTotal, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'settle' is set
         if (settle == null) {
@@ -2632,7 +2658,7 @@ public class FuturesApi {
         }
         
 
-        com.squareup.okhttp.Call call = listFuturesOrdersCall(settle, contract, status, limit, lastId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listFuturesOrdersCall(settle, contract, status, limit, offset, lastId, countTotal, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2644,12 +2670,14 @@ public class FuturesApi {
      * @param contract Futures contract (required)
      * @param status List orders based on status (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param countTotal Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      * @return List&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<FuturesOrder> listFuturesOrders(String settle, String contract, String status, Integer limit, String lastId) throws ApiException {
-        ApiResponse<List<FuturesOrder>> resp = listFuturesOrdersWithHttpInfo(settle, contract, status, limit, lastId);
+    public List<FuturesOrder> listFuturesOrders(String settle, String contract, String status, Integer limit, Integer offset, String lastId, Integer countTotal) throws ApiException {
+        ApiResponse<List<FuturesOrder>> resp = listFuturesOrdersWithHttpInfo(settle, contract, status, limit, offset, lastId, countTotal);
         return resp.getData();
     }
 
@@ -2660,12 +2688,14 @@ public class FuturesApi {
      * @param contract Futures contract (required)
      * @param status List orders based on status (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param countTotal Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      * @return ApiResponse&lt;List&lt;FuturesOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<FuturesOrder>> listFuturesOrdersWithHttpInfo(String settle, String contract, String status, Integer limit, String lastId) throws ApiException {
-        com.squareup.okhttp.Call call = listFuturesOrdersValidateBeforeCall(settle, contract, status, limit, lastId, null, null);
+    public ApiResponse<List<FuturesOrder>> listFuturesOrdersWithHttpInfo(String settle, String contract, String status, Integer limit, Integer offset, String lastId, Integer countTotal) throws ApiException {
+        com.squareup.okhttp.Call call = listFuturesOrdersValidateBeforeCall(settle, contract, status, limit, offset, lastId, countTotal, null, null);
         Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2677,12 +2707,14 @@ public class FuturesApi {
      * @param contract Futures contract (required)
      * @param status List orders based on status (required)
      * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+     * @param countTotal Whether to return total number matched. Default to 0(no return) (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listFuturesOrdersAsync(String settle, String contract, String status, Integer limit, String lastId, final ApiCallback<List<FuturesOrder>> callback) throws ApiException {
+    public com.squareup.okhttp.Call listFuturesOrdersAsync(String settle, String contract, String status, Integer limit, Integer offset, String lastId, Integer countTotal, final ApiCallback<List<FuturesOrder>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2703,7 +2735,7 @@ public class FuturesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listFuturesOrdersValidateBeforeCall(settle, contract, status, limit, lastId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listFuturesOrdersValidateBeforeCall(settle, contract, status, limit, offset, lastId, countTotal, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

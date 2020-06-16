@@ -274,7 +274,7 @@ public class BatchOrder {
   private String price;
 
   /**
-   * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only
+   * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
    */
   @JsonAdapter(TimeInForceEnum.Adapter.class)
   public enum TimeInForceEnum {
@@ -592,10 +592,10 @@ public class BatchOrder {
   }
 
    /**
-   * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only
+   * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
    * @return timeInForce
   **/
-  @ApiModelProperty(value = "Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce only")
+  @ApiModelProperty(value = "Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee")
   public TimeInForceEnum getTimeInForce() {
     return timeInForce;
   }

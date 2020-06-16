@@ -33,13 +33,15 @@ public class Transfer {
   private String currency;
 
   /**
-   * Account transferred from. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account
+   * Account transferred from. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
    */
   @JsonAdapter(FromEnum.Adapter.class)
   public enum FromEnum {
     SPOT("spot"),
     
-    MARGIN("margin");
+    MARGIN("margin"),
+    
+    FUTURES("futures");
 
     private String value;
 
@@ -84,13 +86,15 @@ public class Transfer {
   private FromEnum from;
 
   /**
-   * Account transferred to. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account
+   * Account transferred to. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
    */
   @JsonAdapter(ToEnum.Adapter.class)
   public enum ToEnum {
     SPOT("spot"),
     
-    MARGIN("margin");
+    MARGIN("margin"),
+    
+    FUTURES("futures");
 
     private String value;
 
@@ -142,16 +146,20 @@ public class Transfer {
   @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
   private String currencyPair;
 
+  public static final String SERIALIZED_NAME_SETTLE = "settle";
+  @SerializedName(SERIALIZED_NAME_SETTLE)
+  private String settle;
+
   public Transfer currency(String currency) {
     this.currency = currency;
     return this;
   }
 
    /**
-   * Transfer currency name
+   * Transfer currency. For futures account, &#x60;currency&#x60; can be set to &#x60;POINT&#x60; or settle currency
    * @return currency
   **/
-  @ApiModelProperty(required = true, value = "Transfer currency name")
+  @ApiModelProperty(required = true, value = "Transfer currency. For futures account, `currency` can be set to `POINT` or settle currency")
   public String getCurrency() {
     return currency;
   }
@@ -166,10 +174,10 @@ public class Transfer {
   }
 
    /**
-   * Account transferred from. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account
+   * Account transferred from. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
    * @return from
   **/
-  @ApiModelProperty(required = true, value = "Account transferred from. `spot` - spot account. `margin` - margin account")
+  @ApiModelProperty(required = true, value = "Account transferred from. `spot` - spot account. `margin` - margin account, `futures` - futures account")
   public FromEnum getFrom() {
     return from;
   }
@@ -184,10 +192,10 @@ public class Transfer {
   }
 
    /**
-   * Account transferred to. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account
+   * Account transferred to. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
    * @return to
   **/
-  @ApiModelProperty(required = true, value = "Account transferred to. `spot` - spot account. `margin` - margin account")
+  @ApiModelProperty(required = true, value = "Account transferred to. `spot` - spot account. `margin` - margin account, `futures` - futures account")
   public ToEnum getTo() {
     return to;
   }
@@ -220,16 +228,34 @@ public class Transfer {
   }
 
    /**
-   * Required if transfer from or to margin account
+   * Margin currency pair. Required if transfer from or to margin account
    * @return currencyPair
   **/
-  @ApiModelProperty(required = true, value = "Required if transfer from or to margin account")
+  @ApiModelProperty(value = "Margin currency pair. Required if transfer from or to margin account")
   public String getCurrencyPair() {
     return currencyPair;
   }
 
   public void setCurrencyPair(String currencyPair) {
     this.currencyPair = currencyPair;
+  }
+
+  public Transfer settle(String settle) {
+    this.settle = settle;
+    return this;
+  }
+
+   /**
+   * Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;
+   * @return settle
+  **/
+  @ApiModelProperty(value = "Futures settle currency. Required if `currency` is `POINT`")
+  public String getSettle() {
+    return settle;
+  }
+
+  public void setSettle(String settle) {
+    this.settle = settle;
   }
 
 
@@ -246,12 +272,13 @@ public class Transfer {
         Objects.equals(this.from, transfer.from) &&
         Objects.equals(this.to, transfer.to) &&
         Objects.equals(this.amount, transfer.amount) &&
-        Objects.equals(this.currencyPair, transfer.currencyPair);
+        Objects.equals(this.currencyPair, transfer.currencyPair) &&
+        Objects.equals(this.settle, transfer.settle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, from, to, amount, currencyPair);
+    return Objects.hash(currency, from, to, amount, currencyPair, settle);
   }
 
 
@@ -265,6 +292,7 @@ public class Transfer {
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
+    sb.append("    settle: ").append(toIndentedString(settle)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -236,6 +236,10 @@ public class Contract {
   @SerializedName(SERIALIZED_NAME_CONFIG_CHANGE_TIME)
   private BigDecimal configChangeTime;
 
+  public static final String SERIALIZED_NAME_IN_DELISTING = "in_delisting";
+  @SerializedName(SERIALIZED_NAME_IN_DELISTING)
+  private Boolean inDelisting;
+
   public Contract name(String name) {
     this.name = name;
     return this;
@@ -740,6 +744,24 @@ public class Contract {
     this.configChangeTime = configChangeTime;
   }
 
+  public Contract inDelisting(Boolean inDelisting) {
+    this.inDelisting = inDelisting;
+    return this;
+  }
+
+   /**
+   * Contract is delisting
+   * @return inDelisting
+  **/
+  @ApiModelProperty(value = "Contract is delisting")
+  public Boolean getInDelisting() {
+    return inDelisting;
+  }
+
+  public void setInDelisting(Boolean inDelisting) {
+    this.inDelisting = inDelisting;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -777,12 +799,13 @@ public class Contract {
         Objects.equals(this.tradeId, contract.tradeId) &&
         Objects.equals(this.tradeSize, contract.tradeSize) &&
         Objects.equals(this.positionSize, contract.positionSize) &&
-        Objects.equals(this.configChangeTime, contract.configChangeTime);
+        Objects.equals(this.configChangeTime, contract.configChangeTime) &&
+        Objects.equals(this.inDelisting, contract.inDelisting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime);
+    return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting);
   }
 
 
@@ -819,6 +842,7 @@ public class Contract {
     sb.append("    tradeSize: ").append(toIndentedString(tradeSize)).append("\n");
     sb.append("    positionSize: ").append(toIndentedString(positionSize)).append("\n");
     sb.append("    configChangeTime: ").append(toIndentedString(configChangeTime)).append("\n");
+    sb.append("    inDelisting: ").append(toIndentedString(inDelisting)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,7 +1,7 @@
 # gate-api
 
 Gate API v4
-- API version: 4.12.0
+- API version: 4.13.0
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.gate</groupId>
   <artifactId>gate-api</artifactId>
-  <version>4.12.0</version>
+  <version>4.13.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:4.12.0"
+compile "io.gate:gate-api:4.13.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-4.12.0.jar`
+* `target/gate-api-4.13.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -177,8 +177,12 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**listSpotAccounts**](docs/SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot accounts
 *SpotApi* | [**listTickers**](docs/SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information
 *SpotApi* | [**listTrades**](docs/SpotApi.md#listTrades) | **GET** /spot/trades | Retrieve market trades
+*WalletApi* | [**getDepositAddress**](docs/WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
+*WalletApi* | [**listDeposits**](docs/WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records. Time range cannot exceed 30 days
+*WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records. Time range cannot exceed 30 days
 *WalletApi* | [**transfer**](docs/WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between accounts
 *WalletApi* | [**transferWithSubAccount**](docs/WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
+*WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
 
 
 ## Documentation for Models
@@ -188,6 +192,7 @@ Class | Method | HTTP request | Description
  - [CancelOrderResult](docs/CancelOrderResult.md)
  - [Contract](docs/Contract.md)
  - [CurrencyPair](docs/CurrencyPair.md)
+ - [DepositAddress](docs/DepositAddress.md)
  - [FundingAccount](docs/FundingAccount.md)
  - [FundingBookItem](docs/FundingBookItem.md)
  - [FundingRateRecord](docs/FundingRateRecord.md)
@@ -204,6 +209,7 @@ Class | Method | HTTP request | Description
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
+ - [LedgerRecord](docs/LedgerRecord.md)
  - [Loan](docs/Loan.md)
  - [LoanPatch](docs/LoanPatch.md)
  - [LoanRecord](docs/LoanRecord.md)
