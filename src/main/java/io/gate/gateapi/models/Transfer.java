@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -159,7 +157,6 @@ public class Transfer {
    * Transfer currency. For futures account, &#x60;currency&#x60; can be set to &#x60;POINT&#x60; or settle currency
    * @return currency
   **/
-  @ApiModelProperty(required = true, value = "Transfer currency. For futures account, `currency` can be set to `POINT` or settle currency")
   public String getCurrency() {
     return currency;
   }
@@ -177,7 +174,6 @@ public class Transfer {
    * Account transferred from. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
    * @return from
   **/
-  @ApiModelProperty(required = true, value = "Account transferred from. `spot` - spot account. `margin` - margin account, `futures` - futures account")
   public FromEnum getFrom() {
     return from;
   }
@@ -195,7 +191,6 @@ public class Transfer {
    * Account transferred to. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
    * @return to
   **/
-  @ApiModelProperty(required = true, value = "Account transferred to. `spot` - spot account. `margin` - margin account, `futures` - futures account")
   public ToEnum getTo() {
     return to;
   }
@@ -213,7 +208,6 @@ public class Transfer {
    * Transfer amount
    * @return amount
   **/
-  @ApiModelProperty(required = true, value = "Transfer amount")
   public String getAmount() {
     return amount;
   }
@@ -231,7 +225,6 @@ public class Transfer {
    * Margin currency pair. Required if transfer from or to margin account
    * @return currencyPair
   **/
-  @ApiModelProperty(value = "Margin currency pair. Required if transfer from or to margin account")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -249,7 +242,6 @@ public class Transfer {
    * Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;
    * @return settle
   **/
-  @ApiModelProperty(value = "Futures settle currency. Required if `currency` is `POINT`")
   public String getSettle() {
     return settle;
   }

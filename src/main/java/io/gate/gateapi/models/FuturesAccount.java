@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -65,7 +63,6 @@ public class FuturesAccount {
    * Total assets, total &#x3D; position_margin + order_margin + available
    * @return total
   **/
-  @ApiModelProperty(value = "Total assets, total = position_margin + order_margin + available")
   public String getTotal() {
     return total;
   }
@@ -83,7 +80,6 @@ public class FuturesAccount {
    * Unrealized PNL
    * @return unrealisedPnl
   **/
-  @ApiModelProperty(value = "Unrealized PNL")
   public String getUnrealisedPnl() {
     return unrealisedPnl;
   }
@@ -101,7 +97,6 @@ public class FuturesAccount {
    * Position margin
    * @return positionMargin
   **/
-  @ApiModelProperty(value = "Position margin")
   public String getPositionMargin() {
     return positionMargin;
   }
@@ -119,7 +114,6 @@ public class FuturesAccount {
    * Order margin of unfinished orders
    * @return orderMargin
   **/
-  @ApiModelProperty(value = "Order margin of unfinished orders")
   public String getOrderMargin() {
     return orderMargin;
   }
@@ -137,7 +131,6 @@ public class FuturesAccount {
    * Available balance to transfer out or trade
    * @return available
   **/
-  @ApiModelProperty(value = "Available balance to transfer out or trade")
   public String getAvailable() {
     return available;
   }
@@ -155,7 +148,6 @@ public class FuturesAccount {
    * POINT amount
    * @return point
   **/
-  @ApiModelProperty(value = "POINT amount")
   public String getPoint() {
     return point;
   }
@@ -173,7 +165,6 @@ public class FuturesAccount {
    * Settle currency
    * @return currency
   **/
-  @ApiModelProperty(value = "Settle currency")
   public String getCurrency() {
     return currency;
   }

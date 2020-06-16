@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -105,7 +103,6 @@ public class FuturesTicker {
    * Futures contract
    * @return contract
   **/
-  @ApiModelProperty(value = "Futures contract")
   public String getContract() {
     return contract;
   }
@@ -123,7 +120,6 @@ public class FuturesTicker {
    * Last trading price
    * @return last
   **/
-  @ApiModelProperty(value = "Last trading price")
   public String getLast() {
     return last;
   }
@@ -141,7 +137,6 @@ public class FuturesTicker {
    * Change percentage.
    * @return changePercentage
   **/
-  @ApiModelProperty(value = "Change percentage.")
   public String getChangePercentage() {
     return changePercentage;
   }
@@ -159,7 +154,6 @@ public class FuturesTicker {
    * Contract total size
    * @return totalSize
   **/
-  @ApiModelProperty(value = "Contract total size")
   public String getTotalSize() {
     return totalSize;
   }
@@ -177,7 +171,6 @@ public class FuturesTicker {
    * Lowest trading price in recent 24h
    * @return low24h
   **/
-  @ApiModelProperty(value = "Lowest trading price in recent 24h")
   public String getLow24h() {
     return low24h;
   }
@@ -195,7 +188,6 @@ public class FuturesTicker {
    * Highest trading price in recent 24h
    * @return high24h
   **/
-  @ApiModelProperty(value = "Highest trading price in recent 24h")
   public String getHigh24h() {
     return high24h;
   }
@@ -213,7 +205,6 @@ public class FuturesTicker {
    * Trade size in recent 24h
    * @return volume24h
   **/
-  @ApiModelProperty(value = "Trade size in recent 24h")
   public String getVolume24h() {
     return volume24h;
   }
@@ -231,7 +222,6 @@ public class FuturesTicker {
    * Trade volumes in recent 24h in BTC(deprecated, use &#x60;volume_24h_base&#x60;, &#x60;volume_24h_quote&#x60;, &#x60;volume_24h_settle&#x60; instead)
    * @return volume24hBtc
   **/
-  @ApiModelProperty(value = "Trade volumes in recent 24h in BTC(deprecated, use `volume_24h_base`, `volume_24h_quote`, `volume_24h_settle` instead)")
   public String getVolume24hBtc() {
     return volume24hBtc;
   }
@@ -249,7 +239,6 @@ public class FuturesTicker {
    * Trade volumes in recent 24h in USD(deprecated, use &#x60;volume_24h_base&#x60;, &#x60;volume_24h_quote&#x60;, &#x60;volume_24h_settle&#x60; instead)
    * @return volume24hUsd
   **/
-  @ApiModelProperty(value = "Trade volumes in recent 24h in USD(deprecated, use `volume_24h_base`, `volume_24h_quote`, `volume_24h_settle` instead)")
   public String getVolume24hUsd() {
     return volume24hUsd;
   }
@@ -267,7 +256,6 @@ public class FuturesTicker {
    * Trade volume in recent 24h, in base currency
    * @return volume24hBase
   **/
-  @ApiModelProperty(value = "Trade volume in recent 24h, in base currency")
   public String getVolume24hBase() {
     return volume24hBase;
   }
@@ -285,7 +273,6 @@ public class FuturesTicker {
    * Trade volume in recent 24h, in quote currency
    * @return volume24hQuote
   **/
-  @ApiModelProperty(value = "Trade volume in recent 24h, in quote currency")
   public String getVolume24hQuote() {
     return volume24hQuote;
   }
@@ -303,7 +290,6 @@ public class FuturesTicker {
    * Trade volume in recent 24h, in settle currency
    * @return volume24hSettle
   **/
-  @ApiModelProperty(value = "Trade volume in recent 24h, in settle currency")
   public String getVolume24hSettle() {
     return volume24hSettle;
   }
@@ -321,7 +307,6 @@ public class FuturesTicker {
    * Recent mark price
    * @return markPrice
   **/
-  @ApiModelProperty(value = "Recent mark price")
   public String getMarkPrice() {
     return markPrice;
   }
@@ -339,7 +324,6 @@ public class FuturesTicker {
    * Funding rate
    * @return fundingRate
   **/
-  @ApiModelProperty(value = "Funding rate")
   public String getFundingRate() {
     return fundingRate;
   }
@@ -357,7 +341,6 @@ public class FuturesTicker {
    * Indicative Funding rate in next period
    * @return fundingRateIndicative
   **/
-  @ApiModelProperty(value = "Indicative Funding rate in next period")
   public String getFundingRateIndicative() {
     return fundingRateIndicative;
   }
@@ -375,7 +358,6 @@ public class FuturesTicker {
    * Index price
    * @return indexPrice
   **/
-  @ApiModelProperty(value = "Index price")
   public String getIndexPrice() {
     return indexPrice;
   }
@@ -393,7 +375,6 @@ public class FuturesTicker {
    * Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types
    * @return quantoBaseRate
   **/
-  @ApiModelProperty(value = "Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types")
   public String getQuantoBaseRate() {
     return quantoBaseRate;
   }

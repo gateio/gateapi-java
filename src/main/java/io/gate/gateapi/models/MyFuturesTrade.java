@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
@@ -113,7 +111,6 @@ public class MyFuturesTrade {
    * Trade ID
    * @return id
   **/
-  @ApiModelProperty(value = "Trade ID")
   public Long getId() {
     return id;
   }
@@ -131,7 +128,6 @@ public class MyFuturesTrade {
    * Trading time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Trading time")
   public BigDecimal getCreateTime() {
     return createTime;
   }
@@ -149,7 +145,6 @@ public class MyFuturesTrade {
    * Futures contract
    * @return contract
   **/
-  @ApiModelProperty(value = "Futures contract")
   public String getContract() {
     return contract;
   }
@@ -167,7 +162,6 @@ public class MyFuturesTrade {
    * Order ID related
    * @return orderId
   **/
-  @ApiModelProperty(value = "Order ID related")
   public String getOrderId() {
     return orderId;
   }
@@ -185,7 +179,6 @@ public class MyFuturesTrade {
    * Trading size
    * @return size
   **/
-  @ApiModelProperty(value = "Trading size")
   public Long getSize() {
     return size;
   }
@@ -203,7 +196,6 @@ public class MyFuturesTrade {
    * Trading price
    * @return price
   **/
-  @ApiModelProperty(value = "Trading price")
   public String getPrice() {
     return price;
   }
@@ -221,7 +213,6 @@ public class MyFuturesTrade {
    * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
    * @return role
   **/
-  @ApiModelProperty(value = "Trade role. Available values are `taker` and `maker`")
   public RoleEnum getRole() {
     return role;
   }

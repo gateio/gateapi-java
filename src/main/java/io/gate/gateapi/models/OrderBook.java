@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +50,6 @@ public class OrderBook {
    * Asks order depth
    * @return asks
   **/
-  @ApiModelProperty(required = true, value = "Asks order depth")
   public List<List<String>> getAsks() {
     return asks;
   }
@@ -75,7 +72,6 @@ public class OrderBook {
    * Bids order depth
    * @return bids
   **/
-  @ApiModelProperty(required = true, value = "Bids order depth")
   public List<List<String>> getBids() {
     return bids;
   }

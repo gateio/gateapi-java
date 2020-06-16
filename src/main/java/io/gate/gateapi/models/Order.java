@@ -19,14 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Spot order details
  */
-@ApiModel(description = "Spot order details")
 
 public class Order {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -362,7 +359,6 @@ public class Order {
    * Order ID
    * @return id
   **/
-  @ApiModelProperty(value = "Order ID")
   public String getId() {
     return id;
   }
@@ -376,7 +372,6 @@ public class Order {
    * User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 16 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) 
    * @return text
   **/
-  @ApiModelProperty(value = "User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 16 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) ")
   public String getText() {
     return text;
   }
@@ -389,7 +384,6 @@ public class Order {
    * Order creation time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Order creation time")
   public String getCreateTime() {
     return createTime;
   }
@@ -398,7 +392,6 @@ public class Order {
    * Order last modification time
    * @return updateTime
   **/
-  @ApiModelProperty(value = "Order last modification time")
   public String getUpdateTime() {
     return updateTime;
   }
@@ -407,7 +400,6 @@ public class Order {
    * Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled
    * @return status
   **/
-  @ApiModelProperty(value = "Order status  - `open`: to be filled - `closed`: filled - `cancelled`: cancelled")
   public StatusEnum getStatus() {
     return status;
   }
@@ -421,7 +413,6 @@ public class Order {
    * Currency pair
    * @return currencyPair
   **/
-  @ApiModelProperty(required = true, value = "Currency pair")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -439,7 +430,6 @@ public class Order {
    * Order type. limit - limit order
    * @return type
   **/
-  @ApiModelProperty(value = "Order type. limit - limit order")
   public TypeEnum getType() {
     return type;
   }
@@ -457,7 +447,6 @@ public class Order {
    * Account type. spot - use spot account; margin - use margin account
    * @return account
   **/
-  @ApiModelProperty(value = "Account type. spot - use spot account; margin - use margin account")
   public AccountEnum getAccount() {
     return account;
   }
@@ -475,7 +464,6 @@ public class Order {
    * Order side
    * @return side
   **/
-  @ApiModelProperty(required = true, value = "Order side")
   public SideEnum getSide() {
     return side;
   }
@@ -493,7 +481,6 @@ public class Order {
    * Trade amount
    * @return amount
   **/
-  @ApiModelProperty(required = true, value = "Trade amount")
   public String getAmount() {
     return amount;
   }
@@ -511,7 +498,6 @@ public class Order {
    * Order price
    * @return price
   **/
-  @ApiModelProperty(required = true, value = "Order price")
   public String getPrice() {
     return price;
   }
@@ -529,7 +515,6 @@ public class Order {
    * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
    * @return timeInForce
   **/
-  @ApiModelProperty(value = "Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee")
   public TimeInForceEnum getTimeInForce() {
     return timeInForce;
   }
@@ -547,7 +532,6 @@ public class Order {
    * Used in margin trading(i.e. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough.
    * @return autoBorrow
   **/
-  @ApiModelProperty(value = "Used in margin trading(i.e. `account` is `margin`) to allow automatic loan of insufficient part if balance is not enough.")
   public Boolean getAutoBorrow() {
     return autoBorrow;
   }
@@ -560,7 +544,6 @@ public class Order {
    * Amount left to fill
    * @return left
   **/
-  @ApiModelProperty(value = "Amount left to fill")
   public String getLeft() {
     return left;
   }
@@ -569,7 +552,6 @@ public class Order {
    * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
    * @return fillPrice
   **/
-  @ApiModelProperty(value = "Total filled in quote currency. Deprecated in favor of `filled_total`")
   public String getFillPrice() {
     return fillPrice;
   }
@@ -578,7 +560,6 @@ public class Order {
    * Total filled in quote currency
    * @return filledTotal
   **/
-  @ApiModelProperty(value = "Total filled in quote currency")
   public String getFilledTotal() {
     return filledTotal;
   }
@@ -587,7 +568,6 @@ public class Order {
    * Fee deducted
    * @return fee
   **/
-  @ApiModelProperty(value = "Fee deducted")
   public String getFee() {
     return fee;
   }
@@ -596,7 +576,6 @@ public class Order {
    * Fee currency unit
    * @return feeCurrency
   **/
-  @ApiModelProperty(value = "Fee currency unit")
   public String getFeeCurrency() {
     return feeCurrency;
   }
@@ -605,7 +584,6 @@ public class Order {
    * Point used to deduct fee
    * @return pointFee
   **/
-  @ApiModelProperty(value = "Point used to deduct fee")
   public String getPointFee() {
     return pointFee;
   }
@@ -614,7 +592,6 @@ public class Order {
    * GT used to deduct fee
    * @return gtFee
   **/
-  @ApiModelProperty(value = "GT used to deduct fee")
   public String getGtFee() {
     return gtFee;
   }
@@ -623,7 +600,6 @@ public class Order {
    * Whether GT fee discount is used
    * @return gtDiscount
   **/
-  @ApiModelProperty(value = "Whether GT fee discount is used")
   public Boolean getGtDiscount() {
     return gtDiscount;
   }
@@ -632,7 +608,6 @@ public class Order {
    * Rebated fee
    * @return rebatedFee
   **/
-  @ApiModelProperty(value = "Rebated fee")
   public String getRebatedFee() {
     return rebatedFee;
   }
@@ -641,7 +616,6 @@ public class Order {
    * Rebated fee currency unit
    * @return rebatedFeeCurrency
   **/
-  @ApiModelProperty(value = "Rebated fee currency unit")
   public String getRebatedFeeCurrency() {
     return rebatedFeeCurrency;
   }

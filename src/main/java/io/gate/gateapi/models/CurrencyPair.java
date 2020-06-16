@@ -19,14 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Spot currency pair
  */
-@ApiModel(description = "Spot currency pair")
 
 public class CurrencyPair {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -125,7 +122,6 @@ public class CurrencyPair {
    * Currency pair
    * @return id
   **/
-  @ApiModelProperty(value = "Currency pair")
   public String getId() {
     return id;
   }
@@ -143,7 +139,6 @@ public class CurrencyPair {
    * Base currency
    * @return base
   **/
-  @ApiModelProperty(value = "Base currency")
   public String getBase() {
     return base;
   }
@@ -161,7 +156,6 @@ public class CurrencyPair {
    * Quote currency
    * @return quote
   **/
-  @ApiModelProperty(value = "Quote currency")
   public String getQuote() {
     return quote;
   }
@@ -179,7 +173,6 @@ public class CurrencyPair {
    * Trading fee
    * @return fee
   **/
-  @ApiModelProperty(value = "Trading fee")
   public String getFee() {
     return fee;
   }
@@ -197,7 +190,6 @@ public class CurrencyPair {
    * Minimum amount of base currency to trade, &#x60;null&#x60; means no limit
    * @return minBaseAmount
   **/
-  @ApiModelProperty(value = "Minimum amount of base currency to trade, `null` means no limit")
   public String getMinBaseAmount() {
     return minBaseAmount;
   }
@@ -215,7 +207,6 @@ public class CurrencyPair {
    * Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit
    * @return minQuoteAmount
   **/
-  @ApiModelProperty(value = "Minimum amount of quote currency to trade, `null` means no limit")
   public String getMinQuoteAmount() {
     return minQuoteAmount;
   }
@@ -233,7 +224,6 @@ public class CurrencyPair {
    * Amount scale
    * @return amountPrecision
   **/
-  @ApiModelProperty(value = "Amount scale")
   public Integer getAmountPrecision() {
     return amountPrecision;
   }
@@ -251,7 +241,6 @@ public class CurrencyPair {
    * Price scale
    * @return precision
   **/
-  @ApiModelProperty(value = "Price scale")
   public Integer getPrecision() {
     return precision;
   }
@@ -269,7 +258,6 @@ public class CurrencyPair {
    * How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold
    * @return tradeStatus
   **/
-  @ApiModelProperty(value = "How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold")
   public TradeStatusEnum getTradeStatus() {
     return tradeStatus;
   }

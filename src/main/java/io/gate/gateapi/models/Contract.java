@@ -19,15 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
  * Futures contract details
  */
-@ApiModel(description = "Futures contract details")
 
 public class Contract {
   public static final String SERIALIZED_NAME_NAME = "name";
@@ -249,7 +246,6 @@ public class Contract {
    * Futures contract name
    * @return name
   **/
-  @ApiModelProperty(value = "Futures contract name")
   public String getName() {
     return name;
   }
@@ -267,7 +263,6 @@ public class Contract {
    * Futures contract type
    * @return type
   **/
-  @ApiModelProperty(value = "Futures contract type")
   public TypeEnum getType() {
     return type;
   }
@@ -285,7 +280,6 @@ public class Contract {
    * Multiplier used in converting from invoicing to settlement currency in quanto futures
    * @return quantoMultiplier
   **/
-  @ApiModelProperty(value = "Multiplier used in converting from invoicing to settlement currency in quanto futures")
   public String getQuantoMultiplier() {
     return quantoMultiplier;
   }
@@ -303,7 +297,6 @@ public class Contract {
    * Minimum leverage
    * @return leverageMin
   **/
-  @ApiModelProperty(value = "Minimum leverage")
   public String getLeverageMin() {
     return leverageMin;
   }
@@ -321,7 +314,6 @@ public class Contract {
    * Maximum leverage
    * @return leverageMax
   **/
-  @ApiModelProperty(value = "Maximum leverage")
   public String getLeverageMax() {
     return leverageMax;
   }
@@ -339,7 +331,6 @@ public class Contract {
    * Maintenance rate of margin
    * @return maintenanceRate
   **/
-  @ApiModelProperty(value = "Maintenance rate of margin")
   public String getMaintenanceRate() {
     return maintenanceRate;
   }
@@ -357,7 +348,6 @@ public class Contract {
    * Mark price type, internal - based on internal trading, index - based on external index price
    * @return markType
   **/
-  @ApiModelProperty(value = "Mark price type, internal - based on internal trading, index - based on external index price")
   public MarkTypeEnum getMarkType() {
     return markType;
   }
@@ -375,7 +365,6 @@ public class Contract {
    * Current mark price
    * @return markPrice
   **/
-  @ApiModelProperty(value = "Current mark price")
   public String getMarkPrice() {
     return markPrice;
   }
@@ -393,7 +382,6 @@ public class Contract {
    * Current index price
    * @return indexPrice
   **/
-  @ApiModelProperty(value = "Current index price")
   public String getIndexPrice() {
     return indexPrice;
   }
@@ -411,7 +399,6 @@ public class Contract {
    * Last trading price
    * @return lastPrice
   **/
-  @ApiModelProperty(value = "Last trading price")
   public String getLastPrice() {
     return lastPrice;
   }
@@ -429,7 +416,6 @@ public class Contract {
    * Maker fee rate, where negative means rebate
    * @return makerFeeRate
   **/
-  @ApiModelProperty(value = "Maker fee rate, where negative means rebate")
   public String getMakerFeeRate() {
     return makerFeeRate;
   }
@@ -447,7 +433,6 @@ public class Contract {
    * Taker fee rate
    * @return takerFeeRate
   **/
-  @ApiModelProperty(value = "Taker fee rate")
   public String getTakerFeeRate() {
     return takerFeeRate;
   }
@@ -465,7 +450,6 @@ public class Contract {
    * Minimum order price increment
    * @return orderPriceRound
   **/
-  @ApiModelProperty(value = "Minimum order price increment")
   public String getOrderPriceRound() {
     return orderPriceRound;
   }
@@ -483,7 +467,6 @@ public class Contract {
    * Minimum mark price increment
    * @return markPriceRound
   **/
-  @ApiModelProperty(value = "Minimum mark price increment")
   public String getMarkPriceRound() {
     return markPriceRound;
   }
@@ -501,7 +484,6 @@ public class Contract {
    * Current funding rate
    * @return fundingRate
   **/
-  @ApiModelProperty(value = "Current funding rate")
   public String getFundingRate() {
     return fundingRate;
   }
@@ -519,7 +501,6 @@ public class Contract {
    * Funding application interval, unit in seconds
    * @return fundingInterval
   **/
-  @ApiModelProperty(value = "Funding application interval, unit in seconds")
   public Integer getFundingInterval() {
     return fundingInterval;
   }
@@ -537,7 +518,6 @@ public class Contract {
    * Next funding time
    * @return fundingNextApply
   **/
-  @ApiModelProperty(value = "Next funding time")
   public BigDecimal getFundingNextApply() {
     return fundingNextApply;
   }
@@ -555,7 +535,6 @@ public class Contract {
    * Risk limit base
    * @return riskLimitBase
   **/
-  @ApiModelProperty(value = "Risk limit base")
   public String getRiskLimitBase() {
     return riskLimitBase;
   }
@@ -573,7 +552,6 @@ public class Contract {
    * Step of adjusting risk limit
    * @return riskLimitStep
   **/
-  @ApiModelProperty(value = "Step of adjusting risk limit")
   public String getRiskLimitStep() {
     return riskLimitStep;
   }
@@ -591,7 +569,6 @@ public class Contract {
    * Maximum risk limit the contract allowed
    * @return riskLimitMax
   **/
-  @ApiModelProperty(value = "Maximum risk limit the contract allowed")
   public String getRiskLimitMax() {
     return riskLimitMax;
   }
@@ -609,7 +586,6 @@ public class Contract {
    * Minimum order size the contract allowed
    * @return orderSizeMin
   **/
-  @ApiModelProperty(value = "Minimum order size the contract allowed")
   public Long getOrderSizeMin() {
     return orderSizeMin;
   }
@@ -627,7 +603,6 @@ public class Contract {
    * Maximum order size the contract allowed
    * @return orderSizeMax
   **/
-  @ApiModelProperty(value = "Maximum order size the contract allowed")
   public Long getOrderSizeMax() {
     return orderSizeMax;
   }
@@ -645,7 +620,6 @@ public class Contract {
    * deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate
    * @return orderPriceDeviate
   **/
-  @ApiModelProperty(value = "deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) <= mark_price * order_price_deviate")
   public String getOrderPriceDeviate() {
     return orderPriceDeviate;
   }
@@ -663,7 +637,6 @@ public class Contract {
    * Current orderbook ID
    * @return orderbookId
   **/
-  @ApiModelProperty(value = "Current orderbook ID")
   public Long getOrderbookId() {
     return orderbookId;
   }
@@ -681,7 +654,6 @@ public class Contract {
    * Current trade ID
    * @return tradeId
   **/
-  @ApiModelProperty(value = "Current trade ID")
   public Long getTradeId() {
     return tradeId;
   }
@@ -699,7 +671,6 @@ public class Contract {
    * Historical accumulation trade size
    * @return tradeSize
   **/
-  @ApiModelProperty(value = "Historical accumulation trade size")
   public Long getTradeSize() {
     return tradeSize;
   }
@@ -717,7 +688,6 @@ public class Contract {
    * Current total long position size
    * @return positionSize
   **/
-  @ApiModelProperty(value = "Current total long position size")
   public Long getPositionSize() {
     return positionSize;
   }
@@ -735,7 +705,6 @@ public class Contract {
    * Configuration&#39;s last changed time
    * @return configChangeTime
   **/
-  @ApiModelProperty(value = "Configuration's last changed time")
   public BigDecimal getConfigChangeTime() {
     return configChangeTime;
   }
@@ -753,7 +722,6 @@ public class Contract {
    * Contract is delisting
    * @return inDelisting
   **/
-  @ApiModelProperty(value = "Contract is delisting")
   public Boolean getInDelisting() {
     return inDelisting;
   }

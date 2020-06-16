@@ -20,14 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.MarginAccountCurrency;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Margin account detail. &#x60;base&#x60; refers to base currency, while &#x60;quotes to quote currency
  */
-@ApiModel(description = "Margin account detail. `base` refers to base currency, while `quotes to quote currency")
 
 public class MarginAccount {
   public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -51,7 +48,6 @@ public class MarginAccount {
    * Currency pair
    * @return currencyPair
   **/
-  @ApiModelProperty(value = "Currency pair")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -69,7 +65,6 @@ public class MarginAccount {
    * Get base
    * @return base
   **/
-  @ApiModelProperty(value = "")
   public MarginAccountCurrency getBase() {
     return base;
   }
@@ -87,7 +82,6 @@ public class MarginAccount {
    * Get quote
    * @return quote
   **/
-  @ApiModelProperty(value = "")
   public MarginAccountCurrency getQuote() {
     return quote;
   }

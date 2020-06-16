@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -45,7 +43,6 @@ public class FundingRateRecord {
    * Unix timestamp in seconds
    * @return t
   **/
-  @ApiModelProperty(value = "Unix timestamp in seconds")
   public Long getT() {
     return t;
   }
@@ -63,7 +60,6 @@ public class FundingRateRecord {
    * Funding rate
    * @return r
   **/
-  @ApiModelProperty(value = "Funding rate")
   public String getR() {
     return r;
   }

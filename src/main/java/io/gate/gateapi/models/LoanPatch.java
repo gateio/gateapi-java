@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -104,7 +102,6 @@ public class LoanPatch {
    * Loan currency
    * @return currency
   **/
-  @ApiModelProperty(required = true, value = "Loan currency")
   public String getCurrency() {
     return currency;
   }
@@ -122,7 +119,6 @@ public class LoanPatch {
    * Loan side. Possible values are &#x60;lend&#x60; and &#x60;borrow&#x60;. For &#x60;LoanRecord&#x60; patching, only &#x60;lend&#x60; is supported
    * @return side
   **/
-  @ApiModelProperty(required = true, value = "Loan side. Possible values are `lend` and `borrow`. For `LoanRecord` patching, only `lend` is supported")
   public SideEnum getSide() {
     return side;
   }
@@ -140,7 +136,6 @@ public class LoanPatch {
    * Auto renew
    * @return autoRenew
   **/
-  @ApiModelProperty(required = true, value = "Auto renew")
   public Boolean getAutoRenew() {
     return autoRenew;
   }
@@ -158,7 +153,6 @@ public class LoanPatch {
    * Currency pair. Required for borrowing side
    * @return currencyPair
   **/
-  @ApiModelProperty(value = "Currency pair. Required for borrowing side")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -176,7 +170,6 @@ public class LoanPatch {
    * Loan ID. Required for &#x60;LoanRecord&#x60; patching
    * @return loanId
   **/
-  @ApiModelProperty(value = "Loan ID. Required for `LoanRecord` patching")
   public String getLoanId() {
     return loanId;
   }

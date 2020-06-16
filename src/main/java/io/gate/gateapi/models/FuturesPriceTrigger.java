@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -200,7 +198,6 @@ public class FuturesPriceTrigger {
    * How the order will be triggered   - &#x60;0&#x60;: by price, which means order will be triggered on price condition satisfied  - &#x60;1&#x60;: by price gap, which means order will be triggered on gap of recent two prices of specified &#x60;price_type&#x60; satisfied.  Only &#x60;0&#x60; is supported currently
    * @return strategyType
   **/
-  @ApiModelProperty(value = "How the order will be triggered   - `0`: by price, which means order will be triggered on price condition satisfied  - `1`: by price gap, which means order will be triggered on gap of recent two prices of specified `price_type` satisfied.  Only `0` is supported currently")
   public StrategyTypeEnum getStrategyType() {
     return strategyType;
   }
@@ -218,7 +215,6 @@ public class FuturesPriceTrigger {
    * Price type. 0 - latest deal price, 1 - mark price, 2 - index price
    * @return priceType
   **/
-  @ApiModelProperty(value = "Price type. 0 - latest deal price, 1 - mark price, 2 - index price")
   public PriceTypeEnum getPriceType() {
     return priceType;
   }
@@ -236,7 +232,6 @@ public class FuturesPriceTrigger {
    * Value of price on price triggered, or price gap on price gap triggered
    * @return price
   **/
-  @ApiModelProperty(value = "Value of price on price triggered, or price gap on price gap triggered")
   public String getPrice() {
     return price;
   }
@@ -254,7 +249,6 @@ public class FuturesPriceTrigger {
    * Trigger condition type  - &#x60;1&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &gt;&#x3D; &#x60;price&#x60; - &#x60;2&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &lt;&#x3D; &#x60;price&#x60;
    * @return rule
   **/
-  @ApiModelProperty(value = "Trigger condition type  - `1`: calculated price based on `strategy_type` and `price_type` >= `price` - `2`: calculated price based on `strategy_type` and `price_type` <= `price`")
   public RuleEnum getRule() {
     return rule;
   }
@@ -272,7 +266,6 @@ public class FuturesPriceTrigger {
    * How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out
    * @return expiration
   **/
-  @ApiModelProperty(value = "How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out")
   public Integer getExpiration() {
     return expiration;
   }

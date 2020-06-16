@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
@@ -58,7 +56,6 @@ public class FuturesTrade {
    * Trade ID
    * @return id
   **/
-  @ApiModelProperty(value = "Trade ID")
   public Long getId() {
     return id;
   }
@@ -76,7 +73,6 @@ public class FuturesTrade {
    * Trading time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Trading time")
   public BigDecimal getCreateTime() {
     return createTime;
   }
@@ -94,7 +90,6 @@ public class FuturesTrade {
    * Futures contract
    * @return contract
   **/
-  @ApiModelProperty(value = "Futures contract")
   public String getContract() {
     return contract;
   }
@@ -112,7 +107,6 @@ public class FuturesTrade {
    * Trading size
    * @return size
   **/
-  @ApiModelProperty(value = "Trading size")
   public Long getSize() {
     return size;
   }
@@ -130,7 +124,6 @@ public class FuturesTrade {
    * Trading price
    * @return price
   **/
-  @ApiModelProperty(value = "Trading price")
   public String getPrice() {
     return price;
   }

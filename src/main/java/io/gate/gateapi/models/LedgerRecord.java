@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -117,7 +115,6 @@ public class LedgerRecord {
    * Record ID
    * @return id
   **/
-  @ApiModelProperty(value = "Record ID")
   public String getId() {
     return id;
   }
@@ -126,7 +123,6 @@ public class LedgerRecord {
    * Hash record of the withdrawal
    * @return txid
   **/
-  @ApiModelProperty(value = "Hash record of the withdrawal")
   public String getTxid() {
     return txid;
   }
@@ -135,7 +131,6 @@ public class LedgerRecord {
    * Record time
    * @return timestamp
   **/
-  @ApiModelProperty(value = "Record time")
   public String getTimestamp() {
     return timestamp;
   }
@@ -149,7 +144,6 @@ public class LedgerRecord {
    * Trade amount
    * @return amount
   **/
-  @ApiModelProperty(required = true, value = "Trade amount")
   public String getAmount() {
     return amount;
   }
@@ -167,7 +161,6 @@ public class LedgerRecord {
    * Record currency
    * @return currency
   **/
-  @ApiModelProperty(required = true, value = "Record currency")
   public String getCurrency() {
     return currency;
   }
@@ -185,7 +178,6 @@ public class LedgerRecord {
    * Withdrawal address. Required for withdrawals
    * @return address
   **/
-  @ApiModelProperty(value = "Withdrawal address. Required for withdrawals")
   public String getAddress() {
     return address;
   }
@@ -203,7 +195,6 @@ public class LedgerRecord {
    * Extra withdrawal memo
    * @return memo
   **/
-  @ApiModelProperty(value = "Extra withdrawal memo")
   public String getMemo() {
     return memo;
   }
@@ -216,7 +207,6 @@ public class LedgerRecord {
    * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation
    * @return status
   **/
-  @ApiModelProperty(value = "Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation")
   public StatusEnum getStatus() {
     return status;
   }

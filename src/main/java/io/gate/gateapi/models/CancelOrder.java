@@ -19,14 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
  * Info of order to be cancelled
  */
-@ApiModel(description = "Info of order to be cancelled")
 
 public class CancelOrder {
   public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -46,7 +43,6 @@ public class CancelOrder {
    * Order currency pair
    * @return currencyPair
   **/
-  @ApiModelProperty(required = true, value = "Order currency pair")
   public String getCurrencyPair() {
     return currencyPair;
   }
@@ -64,7 +60,6 @@ public class CancelOrder {
    * Order ID
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "Order ID")
   public String getId() {
     return id;
   }

@@ -19,15 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
  * Futures order details
  */
-@ApiModel(description = "Futures order details")
 
 public class FuturesOrder {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -273,7 +270,6 @@ public class FuturesOrder {
    * Futures order ID
    * @return id
   **/
-  @ApiModelProperty(value = "Futures order ID")
   public Long getId() {
     return id;
   }
@@ -282,7 +278,6 @@ public class FuturesOrder {
    * User ID
    * @return user
   **/
-  @ApiModelProperty(value = "User ID")
   public Integer getUser() {
     return user;
   }
@@ -291,7 +286,6 @@ public class FuturesOrder {
    * Order creation time
    * @return createTime
   **/
-  @ApiModelProperty(value = "Order creation time")
   public BigDecimal getCreateTime() {
     return createTime;
   }
@@ -300,7 +294,6 @@ public class FuturesOrder {
    * Order finished time. Not returned if order is open
    * @return finishTime
   **/
-  @ApiModelProperty(value = "Order finished time. Not returned if order is open")
   public BigDecimal getFinishTime() {
     return finishTime;
   }
@@ -309,7 +302,6 @@ public class FuturesOrder {
    * How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set
    * @return finishAs
   **/
-  @ApiModelProperty(value = "How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is `IOC`, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while `reduce-only` set")
   public FinishAsEnum getFinishAs() {
     return finishAs;
   }
@@ -318,7 +310,6 @@ public class FuturesOrder {
    * Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished
    * @return status
   **/
-  @ApiModelProperty(value = "Order status  - `open`: waiting to be traded - `finished`: finished")
   public StatusEnum getStatus() {
     return status;
   }
@@ -332,7 +323,6 @@ public class FuturesOrder {
    * Futures contract
    * @return contract
   **/
-  @ApiModelProperty(required = true, value = "Futures contract")
   public String getContract() {
     return contract;
   }
@@ -350,7 +340,6 @@ public class FuturesOrder {
    * Order size. Specify positive number to make a bid, and negative number to ask
    * @return size
   **/
-  @ApiModelProperty(value = "Order size. Specify positive number to make a bid, and negative number to ask")
   public Long getSize() {
     return size;
   }
@@ -368,7 +357,6 @@ public class FuturesOrder {
    * Display size for iceberg order. 0 for non-iceberg. Note that you would pay the taker fee for the hidden size
    * @return iceberg
   **/
-  @ApiModelProperty(value = "Display size for iceberg order. 0 for non-iceberg. Note that you would pay the taker fee for the hidden size")
   public Long getIceberg() {
     return iceberg;
   }
@@ -386,7 +374,6 @@ public class FuturesOrder {
    * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;
    * @return price
   **/
-  @ApiModelProperty(value = "Order price. 0 for market order with `tif` set as `ioc`")
   public String getPrice() {
     return price;
   }
@@ -404,7 +391,6 @@ public class FuturesOrder {
    * Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0
    * @return close
   **/
-  @ApiModelProperty(value = "Set as `true` to close the position, with `size` set to 0")
   public Boolean getClose() {
     return close;
   }
@@ -417,7 +403,6 @@ public class FuturesOrder {
    * Is the order to close position
    * @return isClose
   **/
-  @ApiModelProperty(value = "Is the order to close position")
   public Boolean getIsClose() {
     return isClose;
   }
@@ -431,7 +416,6 @@ public class FuturesOrder {
    * Set as &#x60;true&#x60; to be reduce-only order
    * @return reduceOnly
   **/
-  @ApiModelProperty(value = "Set as `true` to be reduce-only order")
   public Boolean getReduceOnly() {
     return reduceOnly;
   }
@@ -444,7 +428,6 @@ public class FuturesOrder {
    * Is the order reduce-only
    * @return isReduceOnly
   **/
-  @ApiModelProperty(value = "Is the order reduce-only")
   public Boolean getIsReduceOnly() {
     return isReduceOnly;
   }
@@ -453,7 +436,6 @@ public class FuturesOrder {
    * Is the order for liquidation
    * @return isLiq
   **/
-  @ApiModelProperty(value = "Is the order for liquidation")
   public Boolean getIsLiq() {
     return isLiq;
   }
@@ -467,7 +449,6 @@ public class FuturesOrder {
    * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
    * @return tif
   **/
-  @ApiModelProperty(value = "Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only")
   public TifEnum getTif() {
     return tif;
   }
@@ -480,7 +461,6 @@ public class FuturesOrder {
    * Size left to be traded
    * @return left
   **/
-  @ApiModelProperty(value = "Size left to be traded")
   public Long getLeft() {
     return left;
   }
@@ -489,7 +469,6 @@ public class FuturesOrder {
    * Fill price of the order
    * @return fillPrice
   **/
-  @ApiModelProperty(value = "Fill price of the order")
   public String getFillPrice() {
     return fillPrice;
   }
@@ -503,7 +482,6 @@ public class FuturesOrder {
    * User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 16 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance 
    * @return text
   **/
-  @ApiModelProperty(value = "User defined information. If not empty, must follow the rules below:  1. prefixed with `t-` 2. no longer than 16 bytes without `t-` prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance ")
   public String getText() {
     return text;
   }
@@ -516,7 +494,6 @@ public class FuturesOrder {
    * Taker fee
    * @return tkfr
   **/
-  @ApiModelProperty(value = "Taker fee")
   public String getTkfr() {
     return tkfr;
   }
@@ -525,7 +502,6 @@ public class FuturesOrder {
    * Maker fee
    * @return mkfr
   **/
-  @ApiModelProperty(value = "Maker fee")
   public String getMkfr() {
     return mkfr;
   }
@@ -534,7 +510,6 @@ public class FuturesOrder {
    * Reference user ID
    * @return refu
   **/
-  @ApiModelProperty(value = "Reference user ID")
   public Integer getRefu() {
     return refu;
   }

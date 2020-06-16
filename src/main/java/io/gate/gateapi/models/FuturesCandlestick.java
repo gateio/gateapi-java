@@ -19,15 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
  * data point in every timestamp
  */
-@ApiModel(description = "data point in every timestamp")
 
 public class FuturesCandlestick {
   public static final String SERIALIZED_NAME_T = "t";
@@ -63,7 +60,6 @@ public class FuturesCandlestick {
    * Unix timestamp in seconds
    * @return t
   **/
-  @ApiModelProperty(value = "Unix timestamp in seconds")
   public BigDecimal getT() {
     return t;
   }
@@ -81,7 +77,6 @@ public class FuturesCandlestick {
    * size volume. Only returned if &#x60;contract&#x60; is not prefixed
    * @return v
   **/
-  @ApiModelProperty(value = "size volume. Only returned if `contract` is not prefixed")
   public Long getV() {
     return v;
   }
@@ -99,7 +94,6 @@ public class FuturesCandlestick {
    * Close price
    * @return c
   **/
-  @ApiModelProperty(value = "Close price")
   public String getC() {
     return c;
   }
@@ -117,7 +111,6 @@ public class FuturesCandlestick {
    * Highest price
    * @return h
   **/
-  @ApiModelProperty(value = "Highest price")
   public String getH() {
     return h;
   }
@@ -135,7 +128,6 @@ public class FuturesCandlestick {
    * Lowest price
    * @return l
   **/
-  @ApiModelProperty(value = "Lowest price")
   public String getL() {
     return l;
   }
@@ -153,7 +145,6 @@ public class FuturesCandlestick {
    * Open price
    * @return o
   **/
-  @ApiModelProperty(value = "Open price")
   public String getO() {
     return o;
   }

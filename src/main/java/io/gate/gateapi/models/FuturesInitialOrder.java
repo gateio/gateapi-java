@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
@@ -169,7 +167,6 @@ public class FuturesInitialOrder {
    * Futures contract
    * @return contract
   **/
-  @ApiModelProperty(required = true, value = "Futures contract")
   public String getContract() {
     return contract;
   }
@@ -187,7 +184,6 @@ public class FuturesInitialOrder {
    * Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position
    * @return size
   **/
-  @ApiModelProperty(value = "Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position")
   public Long getSize() {
     return size;
   }
@@ -205,7 +201,6 @@ public class FuturesInitialOrder {
    * Order price. Set to 0 to use market price
    * @return price
   **/
-  @ApiModelProperty(required = true, value = "Order price. Set to 0 to use market price")
   public String getPrice() {
     return price;
   }
@@ -223,7 +218,6 @@ public class FuturesInitialOrder {
    * Set to true if trying to close the position
    * @return close
   **/
-  @ApiModelProperty(value = "Set to true if trying to close the position")
   public Boolean getClose() {
     return close;
   }
@@ -241,7 +235,6 @@ public class FuturesInitialOrder {
    * Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
    * @return tif
   **/
-  @ApiModelProperty(value = "Time in force. If using market price, only `ioc` is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled")
   public TifEnum getTif() {
     return tif;
   }
@@ -259,7 +252,6 @@ public class FuturesInitialOrder {
    * How the order is created. Possible values are: web, api and app
    * @return text
   **/
-  @ApiModelProperty(value = "How the order is created. Possible values are: web, api and app")
   public TextEnum getText() {
     return text;
   }
@@ -277,7 +269,6 @@ public class FuturesInitialOrder {
    * Set to true to create an reduce-only order
    * @return reduceOnly
   **/
-  @ApiModelProperty(value = "Set to true to create an reduce-only order")
   public Boolean getReduceOnly() {
     return reduceOnly;
   }
@@ -290,7 +281,6 @@ public class FuturesInitialOrder {
    * Is the order reduce-only
    * @return isReduceOnly
   **/
-  @ApiModelProperty(value = "Is the order reduce-only")
   public Boolean getIsReduceOnly() {
     return isReduceOnly;
   }
@@ -299,7 +289,6 @@ public class FuturesInitialOrder {
    * Is the order to close position
    * @return isClose
   **/
-  @ApiModelProperty(value = "Is the order to close position")
   public Boolean getIsClose() {
     return isClose;
   }
