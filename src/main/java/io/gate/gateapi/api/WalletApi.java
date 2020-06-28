@@ -263,8 +263,8 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve deposit records. Time range cannot exceed 30 days
-     * 
+     * Retrieve deposit records
+     * Record time range cannot exceed 30 days
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
@@ -279,8 +279,8 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve deposit records. Time range cannot exceed 30 days
-     * 
+     * Retrieve deposit records
+     * Record time range cannot exceed 30 days
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
@@ -296,8 +296,8 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve deposit records. Time range cannot exceed 30 days (asynchronously)
-     * 
+     * Retrieve deposit records (asynchronously)
+     * Record time range cannot exceed 30 days
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
@@ -330,6 +330,158 @@ public class WalletApi {
 
         com.squareup.okhttp.Call call = listDepositsValidateBeforeCall(currency, from, to, limit, offset, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<LedgerRecord>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listSubAccountTransfers
+     * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listSubAccountTransfersCall(String subUid, Long from, Long to, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/sub_account_transfers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (subUid != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("sub_uid", subUid));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listSubAccountTransfersValidateBeforeCall(String subUid, Long from, Long to, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = listSubAccountTransfersCall(subUid, from, to, limit, offset, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Transfer records between main and sub accounts
+     * Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
+     * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @return List&lt;SubAccountTransfer&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SubAccountTransfer> listSubAccountTransfers(String subUid, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        ApiResponse<List<SubAccountTransfer>> resp = listSubAccountTransfersWithHttpInfo(subUid, from, to, limit, offset);
+        return resp.getData();
+    }
+
+    /**
+     * Transfer records between main and sub accounts
+     * Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
+     * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @return ApiResponse&lt;List&lt;SubAccountTransfer&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SubAccountTransfer>> listSubAccountTransfersWithHttpInfo(String subUid, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        com.squareup.okhttp.Call call = listSubAccountTransfersValidateBeforeCall(subUid, from, to, limit, offset, null, null);
+        Type localVarReturnType = new TypeToken<List<SubAccountTransfer>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Transfer records between main and sub accounts (asynchronously)
+     * Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
+     * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+     * @param from Time range beginning, default to 7 days before current time (optional)
+     * @param to Time range ending, default to current time (optional)
+     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param offset List offset, starting from 0 (optional, default to 0)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listSubAccountTransfersAsync(String subUid, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<SubAccountTransfer>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listSubAccountTransfersValidateBeforeCall(subUid, from, to, limit, offset, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SubAccountTransfer>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -415,8 +567,8 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve withdrawal records. Time range cannot exceed 30 days
-     * 
+     * Retrieve withdrawal records
+     * Record time range cannot exceed 30 days
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
@@ -431,8 +583,8 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve withdrawal records. Time range cannot exceed 30 days
-     * 
+     * Retrieve withdrawal records
+     * Record time range cannot exceed 30 days
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
@@ -448,8 +600,8 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve withdrawal records. Time range cannot exceed 30 days (asynchronously)
-     * 
+     * Retrieve withdrawal records (asynchronously)
+     * Record time range cannot exceed 30 days
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)

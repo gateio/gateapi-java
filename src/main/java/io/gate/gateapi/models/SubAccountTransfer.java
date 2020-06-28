@@ -89,6 +89,18 @@ public class SubAccountTransfer {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
 
+  public static final String SERIALIZED_NAME_UID = "uid";
+  @SerializedName(SERIALIZED_NAME_UID)
+  private String uid;
+
+  public static final String SERIALIZED_NAME_TIMEST = "timest";
+  @SerializedName(SERIALIZED_NAME_TIMEST)
+  private String timest;
+
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  private String source;
+
   public SubAccountTransfer currency(String currency) {
     this.currency = currency;
     return this;
@@ -157,6 +169,30 @@ public class SubAccountTransfer {
     this.amount = amount;
   }
 
+   /**
+   * Main account user ID
+   * @return uid
+  **/
+  public String getUid() {
+    return uid;
+  }
+
+   /**
+   * Transfer timestamp
+   * @return timest
+  **/
+  public String getTimest() {
+    return timest;
+  }
+
+   /**
+   * Where the operation is initiated from
+   * @return source
+  **/
+  public String getSource() {
+    return source;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,12 +206,15 @@ public class SubAccountTransfer {
     return Objects.equals(this.currency, subAccountTransfer.currency) &&
         Objects.equals(this.subAccount, subAccountTransfer.subAccount) &&
         Objects.equals(this.direction, subAccountTransfer.direction) &&
-        Objects.equals(this.amount, subAccountTransfer.amount);
+        Objects.equals(this.amount, subAccountTransfer.amount) &&
+        Objects.equals(this.uid, subAccountTransfer.uid) &&
+        Objects.equals(this.timest, subAccountTransfer.timest) &&
+        Objects.equals(this.source, subAccountTransfer.source);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, subAccount, direction, amount);
+    return Objects.hash(currency, subAccount, direction, amount, uid, timest, source);
   }
 
 
@@ -188,6 +227,9 @@ public class SubAccountTransfer {
     sb.append("    subAccount: ").append(toIndentedString(subAccount)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
+    sb.append("    timest: ").append(toIndentedString(timest)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();
   }
