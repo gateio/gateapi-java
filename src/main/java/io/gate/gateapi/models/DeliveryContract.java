@@ -26,10 +26,69 @@ import java.math.BigDecimal;
  * Futures contract details
  */
 
-public class Contract {
+public class DeliveryContract {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_UNDERLING = "underling";
+  @SerializedName(SERIALIZED_NAME_UNDERLING)
+  private String underling;
+
+  /**
+   * Cycle type, e.g. WEEKLY, QUARTERLY
+   */
+  @JsonAdapter(CycleEnum.Adapter.class)
+  public enum CycleEnum {
+    WEEKLY("WEEKLY"),
+    
+    BI_WEEKLY("BI-WEEKLY"),
+    
+    QUARTERLY("QUARTERLY"),
+    
+    BI_QUARTERLY("BI-QUARTERLY");
+
+    private String value;
+
+    CycleEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CycleEnum fromValue(String text) {
+      for (CycleEnum b : CycleEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<CycleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CycleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CycleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return CycleEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_CYCLE = "cycle";
+  @SerializedName(SERIALIZED_NAME_CYCLE)
+  private CycleEnum cycle;
 
   /**
    * Futures contract type
@@ -177,17 +236,33 @@ public class Contract {
   @SerializedName(SERIALIZED_NAME_MARK_PRICE_ROUND)
   private String markPriceRound;
 
-  public static final String SERIALIZED_NAME_FUNDING_RATE = "funding_rate";
-  @SerializedName(SERIALIZED_NAME_FUNDING_RATE)
-  private String fundingRate;
+  public static final String SERIALIZED_NAME_BASIS_RATE = "basis_rate";
+  @SerializedName(SERIALIZED_NAME_BASIS_RATE)
+  private String basisRate;
 
-  public static final String SERIALIZED_NAME_FUNDING_INTERVAL = "funding_interval";
-  @SerializedName(SERIALIZED_NAME_FUNDING_INTERVAL)
-  private Integer fundingInterval;
+  public static final String SERIALIZED_NAME_BASIS_VALUE = "basis_value";
+  @SerializedName(SERIALIZED_NAME_BASIS_VALUE)
+  private String basisValue;
 
-  public static final String SERIALIZED_NAME_FUNDING_NEXT_APPLY = "funding_next_apply";
-  @SerializedName(SERIALIZED_NAME_FUNDING_NEXT_APPLY)
-  private BigDecimal fundingNextApply;
+  public static final String SERIALIZED_NAME_BASIS_IMPACT_VALUE = "basis_impact_value";
+  @SerializedName(SERIALIZED_NAME_BASIS_IMPACT_VALUE)
+  private String basisImpactValue;
+
+  public static final String SERIALIZED_NAME_SETTLE_PRICE = "settle_price";
+  @SerializedName(SERIALIZED_NAME_SETTLE_PRICE)
+  private String settlePrice;
+
+  public static final String SERIALIZED_NAME_SETTLE_PRICE_INTERVAL = "settle_price_interval";
+  @SerializedName(SERIALIZED_NAME_SETTLE_PRICE_INTERVAL)
+  private Integer settlePriceInterval;
+
+  public static final String SERIALIZED_NAME_SETTLE_PRICE_DURATION = "settle_price_duration";
+  @SerializedName(SERIALIZED_NAME_SETTLE_PRICE_DURATION)
+  private Integer settlePriceDuration;
+
+  public static final String SERIALIZED_NAME_EXPIRE_TIME = "expire_time";
+  @SerializedName(SERIALIZED_NAME_EXPIRE_TIME)
+  private Long expireTime;
 
   public static final String SERIALIZED_NAME_RISK_LIMIT_BASE = "risk_limit_base";
   @SerializedName(SERIALIZED_NAME_RISK_LIMIT_BASE)
@@ -245,7 +320,7 @@ public class Contract {
   @SerializedName(SERIALIZED_NAME_IN_DELISTING)
   private Boolean inDelisting;
 
-  public Contract name(String name) {
+  public DeliveryContract name(String name) {
     this.name = name;
     return this;
   }
@@ -262,7 +337,41 @@ public class Contract {
     this.name = name;
   }
 
-  public Contract type(TypeEnum type) {
+  public DeliveryContract underling(String underling) {
+    this.underling = underling;
+    return this;
+  }
+
+   /**
+   * Underlying
+   * @return underling
+  **/
+  public String getUnderling() {
+    return underling;
+  }
+
+  public void setUnderling(String underling) {
+    this.underling = underling;
+  }
+
+  public DeliveryContract cycle(CycleEnum cycle) {
+    this.cycle = cycle;
+    return this;
+  }
+
+   /**
+   * Cycle type, e.g. WEEKLY, QUARTERLY
+   * @return cycle
+  **/
+  public CycleEnum getCycle() {
+    return cycle;
+  }
+
+  public void setCycle(CycleEnum cycle) {
+    this.cycle = cycle;
+  }
+
+  public DeliveryContract type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -279,7 +388,7 @@ public class Contract {
     this.type = type;
   }
 
-  public Contract quantoMultiplier(String quantoMultiplier) {
+  public DeliveryContract quantoMultiplier(String quantoMultiplier) {
     this.quantoMultiplier = quantoMultiplier;
     return this;
   }
@@ -296,7 +405,7 @@ public class Contract {
     this.quantoMultiplier = quantoMultiplier;
   }
 
-  public Contract leverageMin(String leverageMin) {
+  public DeliveryContract leverageMin(String leverageMin) {
     this.leverageMin = leverageMin;
     return this;
   }
@@ -313,7 +422,7 @@ public class Contract {
     this.leverageMin = leverageMin;
   }
 
-  public Contract leverageMax(String leverageMax) {
+  public DeliveryContract leverageMax(String leverageMax) {
     this.leverageMax = leverageMax;
     return this;
   }
@@ -330,7 +439,7 @@ public class Contract {
     this.leverageMax = leverageMax;
   }
 
-  public Contract maintenanceRate(String maintenanceRate) {
+  public DeliveryContract maintenanceRate(String maintenanceRate) {
     this.maintenanceRate = maintenanceRate;
     return this;
   }
@@ -347,7 +456,7 @@ public class Contract {
     this.maintenanceRate = maintenanceRate;
   }
 
-  public Contract markType(MarkTypeEnum markType) {
+  public DeliveryContract markType(MarkTypeEnum markType) {
     this.markType = markType;
     return this;
   }
@@ -364,7 +473,7 @@ public class Contract {
     this.markType = markType;
   }
 
-  public Contract markPrice(String markPrice) {
+  public DeliveryContract markPrice(String markPrice) {
     this.markPrice = markPrice;
     return this;
   }
@@ -381,7 +490,7 @@ public class Contract {
     this.markPrice = markPrice;
   }
 
-  public Contract indexPrice(String indexPrice) {
+  public DeliveryContract indexPrice(String indexPrice) {
     this.indexPrice = indexPrice;
     return this;
   }
@@ -398,7 +507,7 @@ public class Contract {
     this.indexPrice = indexPrice;
   }
 
-  public Contract lastPrice(String lastPrice) {
+  public DeliveryContract lastPrice(String lastPrice) {
     this.lastPrice = lastPrice;
     return this;
   }
@@ -415,7 +524,7 @@ public class Contract {
     this.lastPrice = lastPrice;
   }
 
-  public Contract makerFeeRate(String makerFeeRate) {
+  public DeliveryContract makerFeeRate(String makerFeeRate) {
     this.makerFeeRate = makerFeeRate;
     return this;
   }
@@ -432,7 +541,7 @@ public class Contract {
     this.makerFeeRate = makerFeeRate;
   }
 
-  public Contract takerFeeRate(String takerFeeRate) {
+  public DeliveryContract takerFeeRate(String takerFeeRate) {
     this.takerFeeRate = takerFeeRate;
     return this;
   }
@@ -449,7 +558,7 @@ public class Contract {
     this.takerFeeRate = takerFeeRate;
   }
 
-  public Contract orderPriceRound(String orderPriceRound) {
+  public DeliveryContract orderPriceRound(String orderPriceRound) {
     this.orderPriceRound = orderPriceRound;
     return this;
   }
@@ -466,7 +575,7 @@ public class Contract {
     this.orderPriceRound = orderPriceRound;
   }
 
-  public Contract markPriceRound(String markPriceRound) {
+  public DeliveryContract markPriceRound(String markPriceRound) {
     this.markPriceRound = markPriceRound;
     return this;
   }
@@ -483,58 +592,126 @@ public class Contract {
     this.markPriceRound = markPriceRound;
   }
 
-  public Contract fundingRate(String fundingRate) {
-    this.fundingRate = fundingRate;
+  public DeliveryContract basisRate(String basisRate) {
+    this.basisRate = basisRate;
     return this;
   }
 
    /**
-   * Current funding rate
-   * @return fundingRate
+   * Fair basis rate
+   * @return basisRate
   **/
-  public String getFundingRate() {
-    return fundingRate;
+  public String getBasisRate() {
+    return basisRate;
   }
 
-  public void setFundingRate(String fundingRate) {
-    this.fundingRate = fundingRate;
+  public void setBasisRate(String basisRate) {
+    this.basisRate = basisRate;
   }
 
-  public Contract fundingInterval(Integer fundingInterval) {
-    this.fundingInterval = fundingInterval;
+  public DeliveryContract basisValue(String basisValue) {
+    this.basisValue = basisValue;
     return this;
   }
 
    /**
-   * Funding application interval, unit in seconds
-   * @return fundingInterval
+   * Fair basis value
+   * @return basisValue
   **/
-  public Integer getFundingInterval() {
-    return fundingInterval;
+  public String getBasisValue() {
+    return basisValue;
   }
 
-  public void setFundingInterval(Integer fundingInterval) {
-    this.fundingInterval = fundingInterval;
+  public void setBasisValue(String basisValue) {
+    this.basisValue = basisValue;
   }
 
-  public Contract fundingNextApply(BigDecimal fundingNextApply) {
-    this.fundingNextApply = fundingNextApply;
+  public DeliveryContract basisImpactValue(String basisImpactValue) {
+    this.basisImpactValue = basisImpactValue;
     return this;
   }
 
    /**
-   * Next funding time
-   * @return fundingNextApply
+   * Funding used for calculating impact bid, ask price
+   * @return basisImpactValue
   **/
-  public BigDecimal getFundingNextApply() {
-    return fundingNextApply;
+  public String getBasisImpactValue() {
+    return basisImpactValue;
   }
 
-  public void setFundingNextApply(BigDecimal fundingNextApply) {
-    this.fundingNextApply = fundingNextApply;
+  public void setBasisImpactValue(String basisImpactValue) {
+    this.basisImpactValue = basisImpactValue;
   }
 
-  public Contract riskLimitBase(String riskLimitBase) {
+  public DeliveryContract settlePrice(String settlePrice) {
+    this.settlePrice = settlePrice;
+    return this;
+  }
+
+   /**
+   * Settle price
+   * @return settlePrice
+  **/
+  public String getSettlePrice() {
+    return settlePrice;
+  }
+
+  public void setSettlePrice(String settlePrice) {
+    this.settlePrice = settlePrice;
+  }
+
+  public DeliveryContract settlePriceInterval(Integer settlePriceInterval) {
+    this.settlePriceInterval = settlePriceInterval;
+    return this;
+  }
+
+   /**
+   * Settle price update interval
+   * @return settlePriceInterval
+  **/
+  public Integer getSettlePriceInterval() {
+    return settlePriceInterval;
+  }
+
+  public void setSettlePriceInterval(Integer settlePriceInterval) {
+    this.settlePriceInterval = settlePriceInterval;
+  }
+
+  public DeliveryContract settlePriceDuration(Integer settlePriceDuration) {
+    this.settlePriceDuration = settlePriceDuration;
+    return this;
+  }
+
+   /**
+   * Settle price update duration in seconds
+   * @return settlePriceDuration
+  **/
+  public Integer getSettlePriceDuration() {
+    return settlePriceDuration;
+  }
+
+  public void setSettlePriceDuration(Integer settlePriceDuration) {
+    this.settlePriceDuration = settlePriceDuration;
+  }
+
+  public DeliveryContract expireTime(Long expireTime) {
+    this.expireTime = expireTime;
+    return this;
+  }
+
+   /**
+   * Contract expiry timestamp
+   * @return expireTime
+  **/
+  public Long getExpireTime() {
+    return expireTime;
+  }
+
+  public void setExpireTime(Long expireTime) {
+    this.expireTime = expireTime;
+  }
+
+  public DeliveryContract riskLimitBase(String riskLimitBase) {
     this.riskLimitBase = riskLimitBase;
     return this;
   }
@@ -551,7 +728,7 @@ public class Contract {
     this.riskLimitBase = riskLimitBase;
   }
 
-  public Contract riskLimitStep(String riskLimitStep) {
+  public DeliveryContract riskLimitStep(String riskLimitStep) {
     this.riskLimitStep = riskLimitStep;
     return this;
   }
@@ -568,7 +745,7 @@ public class Contract {
     this.riskLimitStep = riskLimitStep;
   }
 
-  public Contract riskLimitMax(String riskLimitMax) {
+  public DeliveryContract riskLimitMax(String riskLimitMax) {
     this.riskLimitMax = riskLimitMax;
     return this;
   }
@@ -585,7 +762,7 @@ public class Contract {
     this.riskLimitMax = riskLimitMax;
   }
 
-  public Contract orderSizeMin(Long orderSizeMin) {
+  public DeliveryContract orderSizeMin(Long orderSizeMin) {
     this.orderSizeMin = orderSizeMin;
     return this;
   }
@@ -602,7 +779,7 @@ public class Contract {
     this.orderSizeMin = orderSizeMin;
   }
 
-  public Contract orderSizeMax(Long orderSizeMax) {
+  public DeliveryContract orderSizeMax(Long orderSizeMax) {
     this.orderSizeMax = orderSizeMax;
     return this;
   }
@@ -619,7 +796,7 @@ public class Contract {
     this.orderSizeMax = orderSizeMax;
   }
 
-  public Contract orderPriceDeviate(String orderPriceDeviate) {
+  public DeliveryContract orderPriceDeviate(String orderPriceDeviate) {
     this.orderPriceDeviate = orderPriceDeviate;
     return this;
   }
@@ -636,7 +813,7 @@ public class Contract {
     this.orderPriceDeviate = orderPriceDeviate;
   }
 
-  public Contract refDiscountRate(String refDiscountRate) {
+  public DeliveryContract refDiscountRate(String refDiscountRate) {
     this.refDiscountRate = refDiscountRate;
     return this;
   }
@@ -653,7 +830,7 @@ public class Contract {
     this.refDiscountRate = refDiscountRate;
   }
 
-  public Contract refRebateRate(String refRebateRate) {
+  public DeliveryContract refRebateRate(String refRebateRate) {
     this.refRebateRate = refRebateRate;
     return this;
   }
@@ -670,7 +847,7 @@ public class Contract {
     this.refRebateRate = refRebateRate;
   }
 
-  public Contract orderbookId(Long orderbookId) {
+  public DeliveryContract orderbookId(Long orderbookId) {
     this.orderbookId = orderbookId;
     return this;
   }
@@ -687,7 +864,7 @@ public class Contract {
     this.orderbookId = orderbookId;
   }
 
-  public Contract tradeId(Long tradeId) {
+  public DeliveryContract tradeId(Long tradeId) {
     this.tradeId = tradeId;
     return this;
   }
@@ -704,7 +881,7 @@ public class Contract {
     this.tradeId = tradeId;
   }
 
-  public Contract tradeSize(Long tradeSize) {
+  public DeliveryContract tradeSize(Long tradeSize) {
     this.tradeSize = tradeSize;
     return this;
   }
@@ -721,7 +898,7 @@ public class Contract {
     this.tradeSize = tradeSize;
   }
 
-  public Contract positionSize(Long positionSize) {
+  public DeliveryContract positionSize(Long positionSize) {
     this.positionSize = positionSize;
     return this;
   }
@@ -738,7 +915,7 @@ public class Contract {
     this.positionSize = positionSize;
   }
 
-  public Contract configChangeTime(BigDecimal configChangeTime) {
+  public DeliveryContract configChangeTime(BigDecimal configChangeTime) {
     this.configChangeTime = configChangeTime;
     return this;
   }
@@ -755,7 +932,7 @@ public class Contract {
     this.configChangeTime = configChangeTime;
   }
 
-  public Contract inDelisting(Boolean inDelisting) {
+  public DeliveryContract inDelisting(Boolean inDelisting) {
     this.inDelisting = inDelisting;
     return this;
   }
@@ -781,52 +958,60 @@ public class Contract {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Contract contract = (Contract) o;
-    return Objects.equals(this.name, contract.name) &&
-        Objects.equals(this.type, contract.type) &&
-        Objects.equals(this.quantoMultiplier, contract.quantoMultiplier) &&
-        Objects.equals(this.leverageMin, contract.leverageMin) &&
-        Objects.equals(this.leverageMax, contract.leverageMax) &&
-        Objects.equals(this.maintenanceRate, contract.maintenanceRate) &&
-        Objects.equals(this.markType, contract.markType) &&
-        Objects.equals(this.markPrice, contract.markPrice) &&
-        Objects.equals(this.indexPrice, contract.indexPrice) &&
-        Objects.equals(this.lastPrice, contract.lastPrice) &&
-        Objects.equals(this.makerFeeRate, contract.makerFeeRate) &&
-        Objects.equals(this.takerFeeRate, contract.takerFeeRate) &&
-        Objects.equals(this.orderPriceRound, contract.orderPriceRound) &&
-        Objects.equals(this.markPriceRound, contract.markPriceRound) &&
-        Objects.equals(this.fundingRate, contract.fundingRate) &&
-        Objects.equals(this.fundingInterval, contract.fundingInterval) &&
-        Objects.equals(this.fundingNextApply, contract.fundingNextApply) &&
-        Objects.equals(this.riskLimitBase, contract.riskLimitBase) &&
-        Objects.equals(this.riskLimitStep, contract.riskLimitStep) &&
-        Objects.equals(this.riskLimitMax, contract.riskLimitMax) &&
-        Objects.equals(this.orderSizeMin, contract.orderSizeMin) &&
-        Objects.equals(this.orderSizeMax, contract.orderSizeMax) &&
-        Objects.equals(this.orderPriceDeviate, contract.orderPriceDeviate) &&
-        Objects.equals(this.refDiscountRate, contract.refDiscountRate) &&
-        Objects.equals(this.refRebateRate, contract.refRebateRate) &&
-        Objects.equals(this.orderbookId, contract.orderbookId) &&
-        Objects.equals(this.tradeId, contract.tradeId) &&
-        Objects.equals(this.tradeSize, contract.tradeSize) &&
-        Objects.equals(this.positionSize, contract.positionSize) &&
-        Objects.equals(this.configChangeTime, contract.configChangeTime) &&
-        Objects.equals(this.inDelisting, contract.inDelisting);
+    DeliveryContract deliveryContract = (DeliveryContract) o;
+    return Objects.equals(this.name, deliveryContract.name) &&
+        Objects.equals(this.underling, deliveryContract.underling) &&
+        Objects.equals(this.cycle, deliveryContract.cycle) &&
+        Objects.equals(this.type, deliveryContract.type) &&
+        Objects.equals(this.quantoMultiplier, deliveryContract.quantoMultiplier) &&
+        Objects.equals(this.leverageMin, deliveryContract.leverageMin) &&
+        Objects.equals(this.leverageMax, deliveryContract.leverageMax) &&
+        Objects.equals(this.maintenanceRate, deliveryContract.maintenanceRate) &&
+        Objects.equals(this.markType, deliveryContract.markType) &&
+        Objects.equals(this.markPrice, deliveryContract.markPrice) &&
+        Objects.equals(this.indexPrice, deliveryContract.indexPrice) &&
+        Objects.equals(this.lastPrice, deliveryContract.lastPrice) &&
+        Objects.equals(this.makerFeeRate, deliveryContract.makerFeeRate) &&
+        Objects.equals(this.takerFeeRate, deliveryContract.takerFeeRate) &&
+        Objects.equals(this.orderPriceRound, deliveryContract.orderPriceRound) &&
+        Objects.equals(this.markPriceRound, deliveryContract.markPriceRound) &&
+        Objects.equals(this.basisRate, deliveryContract.basisRate) &&
+        Objects.equals(this.basisValue, deliveryContract.basisValue) &&
+        Objects.equals(this.basisImpactValue, deliveryContract.basisImpactValue) &&
+        Objects.equals(this.settlePrice, deliveryContract.settlePrice) &&
+        Objects.equals(this.settlePriceInterval, deliveryContract.settlePriceInterval) &&
+        Objects.equals(this.settlePriceDuration, deliveryContract.settlePriceDuration) &&
+        Objects.equals(this.expireTime, deliveryContract.expireTime) &&
+        Objects.equals(this.riskLimitBase, deliveryContract.riskLimitBase) &&
+        Objects.equals(this.riskLimitStep, deliveryContract.riskLimitStep) &&
+        Objects.equals(this.riskLimitMax, deliveryContract.riskLimitMax) &&
+        Objects.equals(this.orderSizeMin, deliveryContract.orderSizeMin) &&
+        Objects.equals(this.orderSizeMax, deliveryContract.orderSizeMax) &&
+        Objects.equals(this.orderPriceDeviate, deliveryContract.orderPriceDeviate) &&
+        Objects.equals(this.refDiscountRate, deliveryContract.refDiscountRate) &&
+        Objects.equals(this.refRebateRate, deliveryContract.refRebateRate) &&
+        Objects.equals(this.orderbookId, deliveryContract.orderbookId) &&
+        Objects.equals(this.tradeId, deliveryContract.tradeId) &&
+        Objects.equals(this.tradeSize, deliveryContract.tradeSize) &&
+        Objects.equals(this.positionSize, deliveryContract.positionSize) &&
+        Objects.equals(this.configChangeTime, deliveryContract.configChangeTime) &&
+        Objects.equals(this.inDelisting, deliveryContract.inDelisting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting);
+    return Objects.hash(name, underling, cycle, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, basisRate, basisValue, basisImpactValue, settlePrice, settlePriceInterval, settlePriceDuration, expireTime, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Contract {\n");
+    sb.append("class DeliveryContract {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    underling: ").append(toIndentedString(underling)).append("\n");
+    sb.append("    cycle: ").append(toIndentedString(cycle)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    quantoMultiplier: ").append(toIndentedString(quantoMultiplier)).append("\n");
     sb.append("    leverageMin: ").append(toIndentedString(leverageMin)).append("\n");
@@ -840,9 +1025,13 @@ public class Contract {
     sb.append("    takerFeeRate: ").append(toIndentedString(takerFeeRate)).append("\n");
     sb.append("    orderPriceRound: ").append(toIndentedString(orderPriceRound)).append("\n");
     sb.append("    markPriceRound: ").append(toIndentedString(markPriceRound)).append("\n");
-    sb.append("    fundingRate: ").append(toIndentedString(fundingRate)).append("\n");
-    sb.append("    fundingInterval: ").append(toIndentedString(fundingInterval)).append("\n");
-    sb.append("    fundingNextApply: ").append(toIndentedString(fundingNextApply)).append("\n");
+    sb.append("    basisRate: ").append(toIndentedString(basisRate)).append("\n");
+    sb.append("    basisValue: ").append(toIndentedString(basisValue)).append("\n");
+    sb.append("    basisImpactValue: ").append(toIndentedString(basisImpactValue)).append("\n");
+    sb.append("    settlePrice: ").append(toIndentedString(settlePrice)).append("\n");
+    sb.append("    settlePriceInterval: ").append(toIndentedString(settlePriceInterval)).append("\n");
+    sb.append("    settlePriceDuration: ").append(toIndentedString(settlePriceDuration)).append("\n");
+    sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    riskLimitBase: ").append(toIndentedString(riskLimitBase)).append("\n");
     sb.append("    riskLimitStep: ").append(toIndentedString(riskLimitStep)).append("\n");
     sb.append("    riskLimitMax: ").append(toIndentedString(riskLimitMax)).append("\n");

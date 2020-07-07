@@ -105,7 +105,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -232,7 +232,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -375,7 +375,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -502,7 +502,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -623,7 +623,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -872,7 +872,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1229,7 +1229,7 @@ public class SpotApi {
     /**
      * Build call for listMyTrades
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param page Page number (optional, default to 1)
      * @param orderId List all trades of specified order (optional)
      * @param progressListener Progress listener
@@ -1289,7 +1289,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1311,7 +1311,7 @@ public class SpotApi {
      * List personal trading history
      * 
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param page Page number (optional, default to 1)
      * @param orderId List all trades of specified order (optional)
      * @return List&lt;Trade&gt;
@@ -1326,7 +1326,7 @@ public class SpotApi {
      * List personal trading history
      * 
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param page Page number (optional, default to 1)
      * @param orderId List all trades of specified order (optional)
      * @return ApiResponse&lt;List&lt;Trade&gt;&gt;
@@ -1342,7 +1342,7 @@ public class SpotApi {
      * List personal trading history (asynchronously)
      * 
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param page Page number (optional, default to 1)
      * @param orderId List all trades of specified order (optional)
      * @param callback The callback to be executed when the API call finishes
@@ -1521,7 +1521,7 @@ public class SpotApi {
      * @param currencyPair Currency pair (required)
      * @param status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  (required)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1579,7 +1579,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1608,7 +1608,7 @@ public class SpotApi {
      * @param currencyPair Currency pair (required)
      * @param status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  (required)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @return List&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1623,7 +1623,7 @@ public class SpotApi {
      * @param currencyPair Currency pair (required)
      * @param status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  (required)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @return ApiResponse&lt;List&lt;Order&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1639,7 +1639,7 @@ public class SpotApi {
      * @param currencyPair Currency pair (required)
      * @param status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  (required)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1718,7 +1718,7 @@ public class SpotApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1913,7 +1913,7 @@ public class SpotApi {
     /**
      * Build call for listTrades
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -1990,7 +1990,7 @@ public class SpotApi {
      * Retrieve market trades
      * 
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @return List&lt;Trade&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2004,7 +2004,7 @@ public class SpotApi {
      * Retrieve market trades
      * 
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @return ApiResponse&lt;List&lt;Trade&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2019,7 +2019,7 @@ public class SpotApi {
      * Retrieve market trades (asynchronously)
      * 
      * @param currencyPair Currency pair (required)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

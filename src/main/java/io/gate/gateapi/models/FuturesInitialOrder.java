@@ -93,58 +93,9 @@ public class FuturesInitialOrder {
   @SerializedName(SERIALIZED_NAME_TIF)
   private TifEnum tif = TifEnum.GTC;
 
-  /**
-   * How the order is created. Possible values are: web, api and app
-   */
-  @JsonAdapter(TextEnum.Adapter.class)
-  public enum TextEnum {
-    WEB("web"),
-    
-    API("api"),
-    
-    APP("app");
-
-    private String value;
-
-    TextEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TextEnum fromValue(String text) {
-      for (TextEnum b : TextEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + text + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TextEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TextEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TextEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TextEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
-  private TextEnum text;
+  private String text;
 
   public static final String SERIALIZED_NAME_REDUCE_ONLY = "reduce_only";
   @SerializedName(SERIALIZED_NAME_REDUCE_ONLY)
@@ -243,7 +194,7 @@ public class FuturesInitialOrder {
     this.tif = tif;
   }
 
-  public FuturesInitialOrder text(TextEnum text) {
+  public FuturesInitialOrder text(String text) {
     this.text = text;
     return this;
   }
@@ -252,11 +203,11 @@ public class FuturesInitialOrder {
    * How the order is created. Possible values are: web, api and app
    * @return text
   **/
-  public TextEnum getText() {
+  public String getText() {
     return text;
   }
 
-  public void setText(TextEnum text) {
+  public void setText(String text) {
     this.text = text;
   }
 

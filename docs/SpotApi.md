@@ -492,7 +492,7 @@ ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // apiClient.setBasePath("https://some-other-host");
 SpotApi apiInstance = new SpotApi(client);
 String currencyPair = "BTC_USDT"; // String | Currency pair
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 Integer page = 1; // Integer | Page number
 String orderId = "12345"; // String | List all trades of specified order
 try {
@@ -509,7 +509,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **orderId** | **String**| List all trades of specified order | [optional]
 
@@ -601,7 +601,7 @@ SpotApi apiInstance = new SpotApi(client);
 String currencyPair = "BTC_USDT"; // String | Currency pair
 String status = "open"; // String | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
 Integer page = 1; // Integer | Page number
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 try {
     List<Order> result = apiInstance.listOrders(currencyPair, status, page, limit);
     System.out.println(result);
@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **String**| Currency pair |
  **status** | **String**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | [enum: open, finished]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
 
@@ -748,7 +748,7 @@ import java.util.*;
 
 SpotApi apiInstance = new SpotApi();
 String currencyPair = "BTC_USDT"; // String | Currency pair
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
 try {
     List<Trade> result = apiInstance.listTrades(currencyPair, limit, lastId);
@@ -764,7 +764,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
 
 ### Return type

@@ -97,7 +97,7 @@ public class WithdrawalApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

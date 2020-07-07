@@ -86,7 +86,7 @@ WalletApi apiInstance = new WalletApi(client);
 String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
 Long from = null; // Long | Time range beginning, default to 7 days before current time
 Long to = null; // Long | Time range ending, default to current time
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 Integer offset = 0; // Integer | List offset, starting from 0
 try {
     List<LedgerRecord> result = apiInstance.listDeposits(currency, from, to, limit, offset);
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
  **currency** | **String**| Filter by currency. Return all currency records if not specified | [optional]
  **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -145,7 +145,7 @@ WalletApi apiInstance = new WalletApi(client);
 String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
 Long from = null; // Long | Time range beginning, default to 7 days before current time
 Long to = null; // Long | Time range ending, default to current time
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 Integer offset = 0; // Integer | List offset, starting from 0
 try {
     List<SubAccountTransfer> result = apiInstance.listSubAccountTransfers(subUid, from, to, limit, offset);
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
  **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
  **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -204,7 +204,7 @@ WalletApi apiInstance = new WalletApi(client);
 String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
 Long from = null; // Long | Time range beginning, default to 7 days before current time
 Long to = null; // Long | Time range ending, default to current time
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 Integer offset = 0; // Integer | List offset, starting from 0
 try {
     List<LedgerRecord> result = apiInstance.listWithdrawals(currency, from, to, limit, offset);
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
  **currency** | **String**| Filter by currency. Return all currency records if not specified | [optional]
  **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -244,7 +244,7 @@ Authentication with API key and secret is required
 
 Transfer between accounts
 
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures
+Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 2. spot - delivery
 
 ### Example
 

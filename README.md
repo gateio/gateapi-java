@@ -1,7 +1,7 @@
 # gate-api
 
 Gate API v4
-- API version: 4.13.1
+- API version: 4.14.0
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.gate</groupId>
   <artifactId>gate-api</artifactId>
-  <version>4.13.1</version>
+  <version>4.14.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:4.13.1"
+compile "io.gate:gate-api:4.14.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-4.13.1.jar`
+* `target/gate-api-4.14.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -87,22 +87,22 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
 
-public class FuturesApiExample {
+public class DeliveryApiExample {
 
     public static void main(String[] args) {
         ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
         // uncomment the next line if testing the API with other host
         // apiClient.setBasePath("https://some-other-host");
-        FuturesApi apiInstance = new FuturesApi(client);
-        String settle = "btc"; // String | Settle currency
+        DeliveryApi apiInstance = new DeliveryApi(client);
+        String settle = "usdt"; // String | Settle currency
         String orderId = "12345"; // String | ID returned on order successfully being created
         try {
-            FuturesOrder result = apiInstance.cancelFuturesOrder(settle, orderId);
+            FuturesOrder result = apiInstance.cancelDeliveryOrder(settle, orderId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println(e.getResponseBody());
@@ -119,6 +119,34 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DeliveryApi* | [**cancelDeliveryOrder**](docs/DeliveryApi.md#cancelDeliveryOrder) | **DELETE** /delivery/{settle}/orders/{order_id} | Cancel a single order
+*DeliveryApi* | [**cancelDeliveryOrders**](docs/DeliveryApi.md#cancelDeliveryOrders) | **DELETE** /delivery/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
+*DeliveryApi* | [**cancelPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | Cancel a single order
+*DeliveryApi* | [**cancelPriceTriggeredDeliveryOrderList**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
+*DeliveryApi* | [**createDeliveryOrder**](docs/DeliveryApi.md#createDeliveryOrder) | **POST** /delivery/{settle}/orders | Create a futures order
+*DeliveryApi* | [**createPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#createPriceTriggeredDeliveryOrder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
+*DeliveryApi* | [**getDeliveryContract**](docs/DeliveryApi.md#getDeliveryContract) | **GET** /delivery/{settle}/contracts/{contract} | Get a single contract
+*DeliveryApi* | [**getDeliveryOrder**](docs/DeliveryApi.md#getDeliveryOrder) | **GET** /delivery/{settle}/orders/{order_id} | Get a single order
+*DeliveryApi* | [**getDeliveryPosition**](docs/DeliveryApi.md#getDeliveryPosition) | **GET** /delivery/{settle}/positions/{contract} | Get single position
+*DeliveryApi* | [**getMyDeliveryTrades**](docs/DeliveryApi.md#getMyDeliveryTrades) | **GET** /delivery/{settle}/my_trades | List personal trading history
+*DeliveryApi* | [**getPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a single order
+*DeliveryApi* | [**listDeliveryAccountBook**](docs/DeliveryApi.md#listDeliveryAccountBook) | **GET** /delivery/{settle}/account_book | Query account book
+*DeliveryApi* | [**listDeliveryAccounts**](docs/DeliveryApi.md#listDeliveryAccounts) | **GET** /delivery/{settle}/accounts | Query futures account
+*DeliveryApi* | [**listDeliveryCandlesticks**](docs/DeliveryApi.md#listDeliveryCandlesticks) | **GET** /delivery/{settle}/candlesticks | Get futures candlesticks
+*DeliveryApi* | [**listDeliveryContracts**](docs/DeliveryApi.md#listDeliveryContracts) | **GET** /delivery/{settle}/contracts | List all futures contracts
+*DeliveryApi* | [**listDeliveryInsuranceLedger**](docs/DeliveryApi.md#listDeliveryInsuranceLedger) | **GET** /delivery/{settle}/insurance | Futures insurance balance history
+*DeliveryApi* | [**listDeliveryLiquidates**](docs/DeliveryApi.md#listDeliveryLiquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history
+*DeliveryApi* | [**listDeliveryOrderBook**](docs/DeliveryApi.md#listDeliveryOrderBook) | **GET** /delivery/{settle}/order_book | Futures order book
+*DeliveryApi* | [**listDeliveryOrders**](docs/DeliveryApi.md#listDeliveryOrders) | **GET** /delivery/{settle}/orders | List futures orders
+*DeliveryApi* | [**listDeliveryPositionClose**](docs/DeliveryApi.md#listDeliveryPositionClose) | **GET** /delivery/{settle}/position_close | List position close history
+*DeliveryApi* | [**listDeliveryPositions**](docs/DeliveryApi.md#listDeliveryPositions) | **GET** /delivery/{settle}/positions | List all positions of a user
+*DeliveryApi* | [**listDeliverySettlements**](docs/DeliveryApi.md#listDeliverySettlements) | **GET** /delivery/{settle}/settlements | List settlement history
+*DeliveryApi* | [**listDeliveryTickers**](docs/DeliveryApi.md#listDeliveryTickers) | **GET** /delivery/{settle}/tickers | List futures tickers
+*DeliveryApi* | [**listDeliveryTrades**](docs/DeliveryApi.md#listDeliveryTrades) | **GET** /delivery/{settle}/trades | Futures trading history
+*DeliveryApi* | [**listPriceTriggeredDeliveryOrders**](docs/DeliveryApi.md#listPriceTriggeredDeliveryOrders) | **GET** /delivery/{settle}/price_orders | List all auto orders
+*DeliveryApi* | [**updateDeliveryPositionLeverage**](docs/DeliveryApi.md#updateDeliveryPositionLeverage) | **POST** /delivery/{settle}/positions/{contract}/leverage | Update position leverage
+*DeliveryApi* | [**updateDeliveryPositionMargin**](docs/DeliveryApi.md#updateDeliveryPositionMargin) | **POST** /delivery/{settle}/positions/{contract}/margin | Update position margin
+*DeliveryApi* | [**updateDeliveryPositionRiskLimit**](docs/DeliveryApi.md#updateDeliveryPositionRiskLimit) | **POST** /delivery/{settle}/positions/{contract}/risk_limit | Update position risk limit
 *FuturesApi* | [**cancelFuturesOrder**](docs/FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
 *FuturesApi* | [**cancelFuturesOrders**](docs/FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
 *FuturesApi* | [**cancelPriceTriggeredOrder**](docs/FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel a single order
@@ -193,6 +221,8 @@ Class | Method | HTTP request | Description
  - [CancelOrderResult](docs/CancelOrderResult.md)
  - [Contract](docs/Contract.md)
  - [CurrencyPair](docs/CurrencyPair.md)
+ - [DeliveryContract](docs/DeliveryContract.md)
+ - [DeliverySettlement](docs/DeliverySettlement.md)
  - [DepositAddress](docs/DepositAddress.md)
  - [FundingAccount](docs/FundingAccount.md)
  - [FundingBookItem](docs/FundingBookItem.md)
@@ -209,6 +239,7 @@ Class | Method | HTTP request | Description
  - [FuturesPriceTriggeredOrder](docs/FuturesPriceTriggeredOrder.md)
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
+ - [GateErrorResponse](docs/GateErrorResponse.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [Loan](docs/Loan.md)

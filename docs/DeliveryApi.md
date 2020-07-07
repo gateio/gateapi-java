@@ -1,42 +1,42 @@
-# FuturesApi
+# DeliveryApi
 
 All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelFuturesOrder**](FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
-[**cancelFuturesOrders**](FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
-[**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel a single order
-[**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
-[**createFuturesOrder**](FuturesApi.md#createFuturesOrder) | **POST** /futures/{settle}/orders | Create a futures order
-[**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
-[**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Get a single contract
-[**getFuturesOrder**](FuturesApi.md#getFuturesOrder) | **GET** /futures/{settle}/orders/{order_id} | Get a single order
-[**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/{settle}/my_trades | List personal trading history
-[**getPosition**](FuturesApi.md#getPosition) | **GET** /futures/{settle}/positions/{contract} | Get single position
-[**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Get a single order
-[**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/{settle}/account_book | Query account book
-[**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/{settle}/accounts | Query futures account
-[**listFuturesCandlesticks**](FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/{settle}/candlesticks | Get futures candlesticks
-[**listFuturesContracts**](FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | List all futures contracts
-[**listFuturesFundingRateHistory**](FuturesApi.md#listFuturesFundingRateHistory) | **GET** /futures/{settle}/funding_rate | Funding rate history
-[**listFuturesInsuranceLedger**](FuturesApi.md#listFuturesInsuranceLedger) | **GET** /futures/{settle}/insurance | Futures insurance balance history
-[**listFuturesOrderBook**](FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Futures order book
-[**listFuturesOrders**](FuturesApi.md#listFuturesOrders) | **GET** /futures/{settle}/orders | List futures orders
-[**listFuturesTickers**](FuturesApi.md#listFuturesTickers) | **GET** /futures/{settle}/tickers | List futures tickers
-[**listFuturesTrades**](FuturesApi.md#listFuturesTrades) | **GET** /futures/{settle}/trades | Futures trading history
-[**listLiquidates**](FuturesApi.md#listLiquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
-[**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/{settle}/position_close | List position close history
-[**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/{settle}/positions | List all positions of a user
-[**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
-[**updatePositionLeverage**](FuturesApi.md#updatePositionLeverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage
-[**updatePositionMargin**](FuturesApi.md#updatePositionMargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin
-[**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit
+[**cancelDeliveryOrder**](DeliveryApi.md#cancelDeliveryOrder) | **DELETE** /delivery/{settle}/orders/{order_id} | Cancel a single order
+[**cancelDeliveryOrders**](DeliveryApi.md#cancelDeliveryOrders) | **DELETE** /delivery/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
+[**cancelPriceTriggeredDeliveryOrder**](DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | Cancel a single order
+[**cancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
+[**createDeliveryOrder**](DeliveryApi.md#createDeliveryOrder) | **POST** /delivery/{settle}/orders | Create a futures order
+[**createPriceTriggeredDeliveryOrder**](DeliveryApi.md#createPriceTriggeredDeliveryOrder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
+[**getDeliveryContract**](DeliveryApi.md#getDeliveryContract) | **GET** /delivery/{settle}/contracts/{contract} | Get a single contract
+[**getDeliveryOrder**](DeliveryApi.md#getDeliveryOrder) | **GET** /delivery/{settle}/orders/{order_id} | Get a single order
+[**getDeliveryPosition**](DeliveryApi.md#getDeliveryPosition) | **GET** /delivery/{settle}/positions/{contract} | Get single position
+[**getMyDeliveryTrades**](DeliveryApi.md#getMyDeliveryTrades) | **GET** /delivery/{settle}/my_trades | List personal trading history
+[**getPriceTriggeredDeliveryOrder**](DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a single order
+[**listDeliveryAccountBook**](DeliveryApi.md#listDeliveryAccountBook) | **GET** /delivery/{settle}/account_book | Query account book
+[**listDeliveryAccounts**](DeliveryApi.md#listDeliveryAccounts) | **GET** /delivery/{settle}/accounts | Query futures account
+[**listDeliveryCandlesticks**](DeliveryApi.md#listDeliveryCandlesticks) | **GET** /delivery/{settle}/candlesticks | Get futures candlesticks
+[**listDeliveryContracts**](DeliveryApi.md#listDeliveryContracts) | **GET** /delivery/{settle}/contracts | List all futures contracts
+[**listDeliveryInsuranceLedger**](DeliveryApi.md#listDeliveryInsuranceLedger) | **GET** /delivery/{settle}/insurance | Futures insurance balance history
+[**listDeliveryLiquidates**](DeliveryApi.md#listDeliveryLiquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history
+[**listDeliveryOrderBook**](DeliveryApi.md#listDeliveryOrderBook) | **GET** /delivery/{settle}/order_book | Futures order book
+[**listDeliveryOrders**](DeliveryApi.md#listDeliveryOrders) | **GET** /delivery/{settle}/orders | List futures orders
+[**listDeliveryPositionClose**](DeliveryApi.md#listDeliveryPositionClose) | **GET** /delivery/{settle}/position_close | List position close history
+[**listDeliveryPositions**](DeliveryApi.md#listDeliveryPositions) | **GET** /delivery/{settle}/positions | List all positions of a user
+[**listDeliverySettlements**](DeliveryApi.md#listDeliverySettlements) | **GET** /delivery/{settle}/settlements | List settlement history
+[**listDeliveryTickers**](DeliveryApi.md#listDeliveryTickers) | **GET** /delivery/{settle}/tickers | List futures tickers
+[**listDeliveryTrades**](DeliveryApi.md#listDeliveryTrades) | **GET** /delivery/{settle}/trades | Futures trading history
+[**listPriceTriggeredDeliveryOrders**](DeliveryApi.md#listPriceTriggeredDeliveryOrders) | **GET** /delivery/{settle}/price_orders | List all auto orders
+[**updateDeliveryPositionLeverage**](DeliveryApi.md#updateDeliveryPositionLeverage) | **POST** /delivery/{settle}/positions/{contract}/leverage | Update position leverage
+[**updateDeliveryPositionMargin**](DeliveryApi.md#updateDeliveryPositionMargin) | **POST** /delivery/{settle}/positions/{contract}/margin | Update position margin
+[**updateDeliveryPositionRiskLimit**](DeliveryApi.md#updateDeliveryPositionRiskLimit) | **POST** /delivery/{settle}/positions/{contract}/risk_limit | Update position risk limit
 
 
-<a name="cancelFuturesOrder"></a>
-# **cancelFuturesOrder**
-> FuturesOrder cancelFuturesOrder(settle, orderId)
+<a name="cancelDeliveryOrder"></a>
+# **cancelDeliveryOrder**
+> FuturesOrder cancelDeliveryOrder(settle, orderId)
 
 Cancel a single order
 
@@ -45,7 +45,7 @@ Cancel a single order
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -53,14 +53,14 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 String orderId = "12345"; // String | ID returned on order successfully being created
 try {
-    FuturesOrder result = apiInstance.cancelFuturesOrder(settle, orderId);
+    FuturesOrder result = apiInstance.cancelDeliveryOrder(settle, orderId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#cancelFuturesOrder");
+    System.err.println("Exception when calling DeliveryApi#cancelDeliveryOrder");
     e.printStackTrace();
 }
 ```
@@ -69,7 +69,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **orderId** | **String**| ID returned on order successfully being created |
 
 ### Return type
@@ -85,9 +85,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cancelFuturesOrders"></a>
-# **cancelFuturesOrders**
-> List&lt;FuturesOrder&gt; cancelFuturesOrders(settle, contract, side)
+<a name="cancelDeliveryOrders"></a>
+# **cancelDeliveryOrders**
+> List&lt;FuturesOrder&gt; cancelDeliveryOrders(settle, contract, side)
 
 Cancel all &#x60;open&#x60; orders matched
 
@@ -98,7 +98,7 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -106,15 +106,15 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 String side = "ask"; // String | All bids or asks. Both included in not specified
 try {
-    List<FuturesOrder> result = apiInstance.cancelFuturesOrders(settle, contract, side);
+    List<FuturesOrder> result = apiInstance.cancelDeliveryOrders(settle, contract, side);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#cancelFuturesOrders");
+    System.err.println("Exception when calling DeliveryApi#cancelDeliveryOrders");
     e.printStackTrace();
 }
 ```
@@ -123,7 +123,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
  **side** | **String**| All bids or asks. Both included in not specified | [optional] [enum: ask, bid]
 
@@ -140,9 +140,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cancelPriceTriggeredOrder"></a>
-# **cancelPriceTriggeredOrder**
-> FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(settle, orderId)
+<a name="cancelPriceTriggeredDeliveryOrder"></a>
+# **cancelPriceTriggeredDeliveryOrder**
+> FuturesPriceTriggeredOrder cancelPriceTriggeredDeliveryOrder(settle, orderId)
 
 Cancel a single order
 
@@ -151,7 +151,7 @@ Cancel a single order
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -159,14 +159,14 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 String orderId = "orderId_example"; // String | ID returned on order successfully being created
 try {
-    FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredOrder(settle, orderId);
+    FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredDeliveryOrder(settle, orderId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#cancelPriceTriggeredOrder");
+    System.err.println("Exception when calling DeliveryApi#cancelPriceTriggeredDeliveryOrder");
     e.printStackTrace();
 }
 ```
@@ -175,7 +175,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **orderId** | **String**| ID returned on order successfully being created |
 
 ### Return type
@@ -191,9 +191,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cancelPriceTriggeredOrderList"></a>
-# **cancelPriceTriggeredOrderList**
-> List&lt;FuturesPriceTriggeredOrder&gt; cancelPriceTriggeredOrderList(settle, contract)
+<a name="cancelPriceTriggeredDeliveryOrderList"></a>
+# **cancelPriceTriggeredDeliveryOrderList**
+> List&lt;FuturesPriceTriggeredOrder&gt; cancelPriceTriggeredDeliveryOrderList(settle, contract)
 
 Cancel all open orders
 
@@ -202,7 +202,7 @@ Cancel all open orders
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -210,14 +210,14 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 String contract = "BTC_USD"; // String | Futures contract
 try {
-    List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredOrderList(settle, contract);
+    List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredDeliveryOrderList(settle, contract);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#cancelPriceTriggeredOrderList");
+    System.err.println("Exception when calling DeliveryApi#cancelPriceTriggeredDeliveryOrderList");
     e.printStackTrace();
 }
 ```
@@ -226,7 +226,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -242,9 +242,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="createFuturesOrder"></a>
-# **createFuturesOrder**
-> FuturesOrder createFuturesOrder(settle, futuresOrder)
+<a name="createDeliveryOrder"></a>
+# **createDeliveryOrder**
+> FuturesOrder createDeliveryOrder(settle, futuresOrder)
 
 Create a futures order
 
@@ -255,7 +255,7 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -263,14 +263,14 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 FuturesOrder futuresOrder = new FuturesOrder(); // FuturesOrder | 
 try {
-    FuturesOrder result = apiInstance.createFuturesOrder(settle, futuresOrder);
+    FuturesOrder result = apiInstance.createDeliveryOrder(settle, futuresOrder);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#createFuturesOrder");
+    System.err.println("Exception when calling DeliveryApi#createDeliveryOrder");
     e.printStackTrace();
 }
 ```
@@ -279,7 +279,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  |
 
 ### Return type
@@ -295,9 +295,9 @@ Authentication with API key and secret is required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="createPriceTriggeredOrder"></a>
-# **createPriceTriggeredOrder**
-> TriggerOrderResponse createPriceTriggeredOrder(settle, futuresPriceTriggeredOrder)
+<a name="createPriceTriggeredDeliveryOrder"></a>
+# **createPriceTriggeredDeliveryOrder**
+> TriggerOrderResponse createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder)
 
 Create a price-triggered order
 
@@ -306,7 +306,7 @@ Create a price-triggered order
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -314,14 +314,14 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 FuturesPriceTriggeredOrder futuresPriceTriggeredOrder = new FuturesPriceTriggeredOrder(); // FuturesPriceTriggeredOrder | 
 try {
-    TriggerOrderResponse result = apiInstance.createPriceTriggeredOrder(settle, futuresPriceTriggeredOrder);
+    TriggerOrderResponse result = apiInstance.createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#createPriceTriggeredOrder");
+    System.err.println("Exception when calling DeliveryApi#createPriceTriggeredDeliveryOrder");
     e.printStackTrace();
 }
 ```
@@ -330,7 +330,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **futuresPriceTriggeredOrder** | [**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)|  |
 
 ### Return type
@@ -346,9 +346,9 @@ Authentication with API key and secret is required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getFuturesContract"></a>
-# **getFuturesContract**
-> Contract getFuturesContract(settle, contract)
+<a name="getDeliveryContract"></a>
+# **getDeliveryContract**
+> DeliveryContract getDeliveryContract(settle, contract)
 
 Get a single contract
 
@@ -357,19 +357,19 @@ Get a single contract
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
 
-FuturesApi apiInstance = new FuturesApi();
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi();
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 try {
-    Contract result = apiInstance.getFuturesContract(settle, contract);
+    DeliveryContract result = apiInstance.getDeliveryContract(settle, contract);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#getFuturesContract");
+    System.err.println("Exception when calling DeliveryApi#getDeliveryContract");
     e.printStackTrace();
 }
 ```
@@ -378,12 +378,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
 
 ### Return type
 
-[**Contract**](Contract.md)
+[**DeliveryContract**](DeliveryContract.md)
 
 ### Authorization
 
@@ -394,9 +394,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getFuturesOrder"></a>
-# **getFuturesOrder**
-> FuturesOrder getFuturesOrder(settle, orderId)
+<a name="getDeliveryOrder"></a>
+# **getDeliveryOrder**
+> FuturesOrder getDeliveryOrder(settle, orderId)
 
 Get a single order
 
@@ -407,7 +407,7 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -415,14 +415,14 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 String orderId = "12345"; // String | ID returned on order successfully being created
 try {
-    FuturesOrder result = apiInstance.getFuturesOrder(settle, orderId);
+    FuturesOrder result = apiInstance.getDeliveryOrder(settle, orderId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#getFuturesOrder");
+    System.err.println("Exception when calling DeliveryApi#getDeliveryOrder");
     e.printStackTrace();
 }
 ```
@@ -431,7 +431,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **orderId** | **String**| ID returned on order successfully being created |
 
 ### Return type
@@ -447,18 +447,18 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getMyTrades"></a>
-# **getMyTrades**
-> List&lt;MyFuturesTrade&gt; getMyTrades(settle, contract, order, limit, offset, lastId, countTotal)
+<a name="getDeliveryPosition"></a>
+# **getDeliveryPosition**
+> Position getDeliveryPosition(settle, contract)
 
-List personal trading history
+Get single position
 
 ### Example
 
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -466,19 +466,14 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
-Integer order = 12345; // Integer | Futures order ID, return related data only if specified
-Integer limit = 100; // Integer | Maximum number of records returned in one list
-Integer offset = 0; // Integer | List offset, starting from 0
-String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
-Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 try {
-    List<MyFuturesTrade> result = apiInstance.getMyTrades(settle, contract, order, limit, offset, lastId, countTotal);
+    Position result = apiInstance.getDeliveryPosition(settle, contract);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#getMyTrades");
+    System.err.println("Exception when calling DeliveryApi#getDeliveryPosition");
     e.printStackTrace();
 }
 ```
@@ -487,8 +482,64 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
- **contract** | **String**| Futures contract, return related data only if specified | [optional]
+ **settle** | **String**| Settle currency | [enum: usdt]
+ **contract** | **String**| Futures contract |
+
+### Return type
+
+[**Position**](Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMyDeliveryTrades"></a>
+# **getMyDeliveryTrades**
+> List&lt;MyFuturesTrade&gt; getMyDeliveryTrades(settle, contract, order, limit, offset, lastId, countTotal)
+
+List personal trading history
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.DeliveryApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
+Integer order = 12345; // Integer | Futures order ID, return related data only if specified
+Integer limit = 100; // Integer | Maximum number of records returned in one list
+Integer offset = 0; // Integer | List offset, starting from 0
+String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
+Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
+try {
+    List<MyFuturesTrade> result = apiInstance.getMyDeliveryTrades(settle, contract, order, limit, offset, lastId, countTotal);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DeliveryApi#getMyDeliveryTrades");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: usdt]
+ **contract** | **String**| Futures contract | [optional]
  **order** | **Integer**| Futures order ID, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -508,60 +559,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getPosition"></a>
-# **getPosition**
-> Position getPosition(settle, contract)
-
-Get single position
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
-
-import java.io.File;
-import java.util.*;
-
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
-try {
-    Position result = apiInstance.getPosition(settle, contract);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#getPosition");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
- **contract** | **String**| Futures contract |
-
-### Return type
-
-[**Position**](Position.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="getPriceTriggeredOrder"></a>
-# **getPriceTriggeredOrder**
-> FuturesPriceTriggeredOrder getPriceTriggeredOrder(settle, orderId)
+<a name="getPriceTriggeredDeliveryOrder"></a>
+# **getPriceTriggeredDeliveryOrder**
+> FuturesPriceTriggeredOrder getPriceTriggeredDeliveryOrder(settle, orderId)
 
 Get a single order
 
@@ -570,7 +570,7 @@ Get a single order
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -578,14 +578,14 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 String orderId = "orderId_example"; // String | ID returned on order successfully being created
 try {
-    FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredOrder(settle, orderId);
+    FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredDeliveryOrder(settle, orderId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#getPriceTriggeredOrder");
+    System.err.println("Exception when calling DeliveryApi#getPriceTriggeredDeliveryOrder");
     e.printStackTrace();
 }
 ```
@@ -594,7 +594,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **orderId** | **String**| ID returned on order successfully being created |
 
 ### Return type
@@ -610,9 +610,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesAccountBook"></a>
-# **listFuturesAccountBook**
-> List&lt;FuturesAccountBook&gt; listFuturesAccountBook(settle, limit, from, to, type)
+<a name="listDeliveryAccountBook"></a>
+# **listDeliveryAccountBook**
+> List&lt;FuturesAccountBook&gt; listDeliveryAccountBook(settle, limit, from, to, type)
 
 Query account book
 
@@ -621,7 +621,7 @@ Query account book
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -629,17 +629,17 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 Integer limit = 100; // Integer | Maximum number of records returned in one list
 Integer from = 1547706332; // Integer | Start timestamp
 Integer to = 1547706332; // Integer | End timestamp
 String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
 try {
-    List<FuturesAccountBook> result = apiInstance.listFuturesAccountBook(settle, limit, from, to, type);
+    List<FuturesAccountBook> result = apiInstance.listDeliveryAccountBook(settle, limit, from, to, type);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesAccountBook");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryAccountBook");
     e.printStackTrace();
 }
 ```
@@ -648,7 +648,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **from** | **Integer**| Start timestamp | [optional]
  **to** | **Integer**| End timestamp | [optional]
@@ -667,9 +667,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesAccounts"></a>
-# **listFuturesAccounts**
-> FuturesAccount listFuturesAccounts(settle)
+<a name="listDeliveryAccounts"></a>
+# **listDeliveryAccounts**
+> FuturesAccount listDeliveryAccounts(settle)
 
 Query futures account
 
@@ -678,7 +678,7 @@ Query futures account
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -686,13 +686,13 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 try {
-    FuturesAccount result = apiInstance.listFuturesAccounts(settle);
+    FuturesAccount result = apiInstance.listDeliveryAccounts(settle);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesAccounts");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryAccounts");
     e.printStackTrace();
 }
 ```
@@ -701,7 +701,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
 
 ### Return type
 
@@ -716,9 +716,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesCandlesticks"></a>
-# **listFuturesCandlesticks**
-> List&lt;FuturesCandlestick&gt; listFuturesCandlesticks(settle, contract, from, to, limit, interval)
+<a name="listDeliveryCandlesticks"></a>
+# **listDeliveryCandlesticks**
+> List&lt;FuturesCandlestick&gt; listDeliveryCandlesticks(settle, contract, from, to, limit, interval)
 
 Get futures candlesticks
 
@@ -729,23 +729,23 @@ Return specified contract candlesticks. If prefix &#x60;contract&#x60; with &#x6
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
 
-FuturesApi apiInstance = new FuturesApi();
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi();
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 BigDecimal from = new BigDecimal(); // BigDecimal | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
 BigDecimal to = new BigDecimal(); // BigDecimal | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
 Integer limit = 100; // Integer | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
 String interval = "5m"; // String | Interval time between data points
 try {
-    List<FuturesCandlestick> result = apiInstance.listFuturesCandlesticks(settle, contract, from, to, limit, interval);
+    List<FuturesCandlestick> result = apiInstance.listDeliveryCandlesticks(settle, contract, from, to, limit, interval);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesCandlesticks");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryCandlesticks");
     e.printStackTrace();
 }
 ```
@@ -754,7 +754,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
  **from** | **BigDecimal**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **BigDecimal**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
@@ -774,9 +774,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesContracts"></a>
-# **listFuturesContracts**
-> List&lt;Contract&gt; listFuturesContracts(settle)
+<a name="listDeliveryContracts"></a>
+# **listDeliveryContracts**
+> List&lt;DeliveryContract&gt; listDeliveryContracts(settle)
 
 List all futures contracts
 
@@ -785,18 +785,18 @@ List all futures contracts
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
 
-FuturesApi apiInstance = new FuturesApi();
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi();
+String settle = "usdt"; // String | Settle currency
 try {
-    List<Contract> result = apiInstance.listFuturesContracts(settle);
+    List<DeliveryContract> result = apiInstance.listDeliveryContracts(settle);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesContracts");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryContracts");
     e.printStackTrace();
 }
 ```
@@ -805,11 +805,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
 
 ### Return type
 
-[**List&lt;Contract&gt;**](Contract.md)
+[**List&lt;DeliveryContract&gt;**](DeliveryContract.md)
 
 ### Authorization
 
@@ -820,59 +820,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesFundingRateHistory"></a>
-# **listFuturesFundingRateHistory**
-> List&lt;FundingRateRecord&gt; listFuturesFundingRateHistory(settle, contract, limit)
-
-Funding rate history
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
-
-import java.io.File;
-import java.util.*;
-
-FuturesApi apiInstance = new FuturesApi();
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
-Integer limit = 100; // Integer | Maximum number of records returned in one list
-try {
-    List<FundingRateRecord> result = apiInstance.listFuturesFundingRateHistory(settle, contract, limit);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesFundingRateHistory");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
- **contract** | **String**| Futures contract |
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
-
-### Return type
-
-[**List&lt;FundingRateRecord&gt;**](FundingRateRecord.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="listFuturesInsuranceLedger"></a>
-# **listFuturesInsuranceLedger**
-> List&lt;InsuranceRecord&gt; listFuturesInsuranceLedger(settle, limit)
+<a name="listDeliveryInsuranceLedger"></a>
+# **listDeliveryInsuranceLedger**
+> List&lt;InsuranceRecord&gt; listDeliveryInsuranceLedger(settle, limit)
 
 Futures insurance balance history
 
@@ -881,19 +831,19 @@ Futures insurance balance history
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
 
-FuturesApi apiInstance = new FuturesApi();
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi();
+String settle = "usdt"; // String | Settle currency
 Integer limit = 100; // Integer | Maximum number of records returned in one list
 try {
-    List<InsuranceRecord> result = apiInstance.listFuturesInsuranceLedger(settle, limit);
+    List<InsuranceRecord> result = apiInstance.listDeliveryInsuranceLedger(settle, limit);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesInsuranceLedger");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryInsuranceLedger");
     e.printStackTrace();
 }
 ```
@@ -902,7 +852,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
@@ -918,9 +868,64 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesOrderBook"></a>
-# **listFuturesOrderBook**
-> FuturesOrderBook listFuturesOrderBook(settle, contract, interval, limit)
+<a name="listDeliveryLiquidates"></a>
+# **listDeliveryLiquidates**
+> List&lt;FuturesLiquidate&gt; listDeliveryLiquidates(settle, contract, limit, at)
+
+List liquidation history
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.DeliveryApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
+Integer limit = 100; // Integer | Maximum number of records returned in one list
+Integer at = 0; // Integer | Specify a liquidation timestamp
+try {
+    List<FuturesLiquidate> result = apiInstance.listDeliveryLiquidates(settle, contract, limit, at);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DeliveryApi#listDeliveryLiquidates");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: usdt]
+ **contract** | **String**| Futures contract | [optional]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **at** | **Integer**| Specify a liquidation timestamp | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;FuturesLiquidate&gt;**](FuturesLiquidate.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listDeliveryOrderBook"></a>
+# **listDeliveryOrderBook**
+> FuturesOrderBook listDeliveryOrderBook(settle, contract, interval, limit)
 
 Futures order book
 
@@ -931,21 +936,21 @@ Bids will be sorted by price from high to low, while asks sorted reversely
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
 
-FuturesApi apiInstance = new FuturesApi();
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi();
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
 Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
 try {
-    FuturesOrderBook result = apiInstance.listFuturesOrderBook(settle, contract, interval, limit);
+    FuturesOrderBook result = apiInstance.listDeliveryOrderBook(settle, contract, interval, limit);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesOrderBook");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryOrderBook");
     e.printStackTrace();
 }
 ```
@@ -954,7 +959,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
  **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
@@ -972,9 +977,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesOrders"></a>
-# **listFuturesOrders**
-> List&lt;FuturesOrder&gt; listFuturesOrders(settle, contract, status, limit, offset, lastId, countTotal)
+<a name="listDeliveryOrders"></a>
+# **listDeliveryOrders**
+> List&lt;FuturesOrder&gt; listDeliveryOrders(settle, status, contract, limit, offset, lastId, countTotal)
 
 List futures orders
 
@@ -985,7 +990,7 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -993,19 +998,19 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 String status = "open"; // String | List orders based on status
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 Integer limit = 100; // Integer | Maximum number of records returned in one list
 Integer offset = 0; // Integer | List offset, starting from 0
 String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
 Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
 try {
-    List<FuturesOrder> result = apiInstance.listFuturesOrders(settle, contract, status, limit, offset, lastId, countTotal);
+    List<FuturesOrder> result = apiInstance.listDeliveryOrders(settle, status, contract, limit, offset, lastId, countTotal);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesOrders");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryOrders");
     e.printStackTrace();
 }
 ```
@@ -1014,9 +1019,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
- **contract** | **String**| Futures contract |
+ **settle** | **String**| Settle currency | [enum: usdt]
  **status** | **String**| List orders based on status | [enum: open, finished]
+ **contract** | **String**| Futures contract | [optional]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
@@ -1035,30 +1040,34 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesTickers"></a>
-# **listFuturesTickers**
-> List&lt;FuturesTicker&gt; listFuturesTickers(settle, contract)
+<a name="listDeliveryPositionClose"></a>
+# **listDeliveryPositionClose**
+> List&lt;PositionClose&gt; listDeliveryPositionClose(settle, contract, limit)
 
-List futures tickers
+List position close history
 
 ### Example
 
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
 
-FuturesApi apiInstance = new FuturesApi();
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 try {
-    List<FuturesTicker> result = apiInstance.listFuturesTickers(settle, contract);
+    List<PositionClose> result = apiInstance.listDeliveryPositionClose(settle, contract, limit);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesTickers");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryPositionClose");
     e.printStackTrace();
 }
 ```
@@ -1067,8 +1076,161 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
- **contract** | **String**| Futures contract, return related data only if specified | [optional]
+ **settle** | **String**| Settle currency | [enum: usdt]
+ **contract** | **String**| Futures contract | [optional]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+
+### Return type
+
+[**List&lt;PositionClose&gt;**](PositionClose.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listDeliveryPositions"></a>
+# **listDeliveryPositions**
+> List&lt;Position&gt; listDeliveryPositions(settle)
+
+List all positions of a user
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.DeliveryApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+try {
+    List<Position> result = apiInstance.listDeliveryPositions(settle);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DeliveryApi#listDeliveryPositions");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: usdt]
+
+### Return type
+
+[**List&lt;Position&gt;**](Position.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listDeliverySettlements"></a>
+# **listDeliverySettlements**
+> List&lt;DeliverySettlement&gt; listDeliverySettlements(settle, contract, limit, at)
+
+List settlement history
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.DeliveryApi;
+
+import java.io.File;
+import java.util.*;
+
+ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
+// uncomment the next line if testing the API with other host
+// apiClient.setBasePath("https://some-other-host");
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
+Integer limit = 100; // Integer | Maximum number of records returned in one list
+Integer at = 0; // Integer | Specify a settlement timestamp
+try {
+    List<DeliverySettlement> result = apiInstance.listDeliverySettlements(settle, contract, limit, at);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DeliveryApi#listDeliverySettlements");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: usdt]
+ **contract** | **String**| Futures contract | [optional]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **at** | **Integer**| Specify a settlement timestamp | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;DeliverySettlement&gt;**](DeliverySettlement.md)
+
+### Authorization
+
+Authentication with API key and secret is required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listDeliveryTickers"></a>
+# **listDeliveryTickers**
+> List&lt;FuturesTicker&gt; listDeliveryTickers(settle, contract)
+
+List futures tickers
+
+### Example
+
+```java
+import io.gate.gateapi.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.DeliveryApi;
+
+import java.io.File;
+import java.util.*;
+
+DeliveryApi apiInstance = new DeliveryApi();
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
+try {
+    List<FuturesTicker> result = apiInstance.listDeliveryTickers(settle, contract);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DeliveryApi#listDeliveryTickers");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: usdt]
+ **contract** | **String**| Futures contract | [optional]
 
 ### Return type
 
@@ -1083,9 +1245,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listFuturesTrades"></a>
-# **listFuturesTrades**
-> List&lt;FuturesTrade&gt; listFuturesTrades(settle, contract, limit, lastId, from, to)
+<a name="listDeliveryTrades"></a>
+# **listDeliveryTrades**
+> List&lt;FuturesTrade&gt; listDeliveryTrades(settle, contract, limit, lastId, from, to)
 
 Futures trading history
 
@@ -1094,23 +1256,23 @@ Futures trading history
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
 
-FuturesApi apiInstance = new FuturesApi();
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi();
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 Integer limit = 100; // Integer | Maximum number of records returned in one list
 String lastId = "12345"; // String | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
 BigDecimal from = new BigDecimal(); // BigDecimal | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
 BigDecimal to = new BigDecimal(); // BigDecimal | Specify end time in Unix seconds, default to current time
 try {
-    List<FuturesTrade> result = apiInstance.listFuturesTrades(settle, contract, limit, lastId, from, to);
+    List<FuturesTrade> result = apiInstance.listDeliveryTrades(settle, contract, limit, lastId, from, to);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listFuturesTrades");
+    System.err.println("Exception when calling DeliveryApi#listDeliveryTrades");
     e.printStackTrace();
 }
 ```
@@ -1119,7 +1281,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **lastId** | **String**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
@@ -1139,166 +1301,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listLiquidates"></a>
-# **listLiquidates**
-> List&lt;FuturesLiquidate&gt; listLiquidates(settle, contract, limit, at)
-
-List liquidation history
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
-
-import java.io.File;
-import java.util.*;
-
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
-Integer limit = 100; // Integer | Maximum number of records returned in one list
-Integer at = 0; // Integer | Specify a liquidation timestamp
-try {
-    List<FuturesLiquidate> result = apiInstance.listLiquidates(settle, contract, limit, at);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listLiquidates");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
- **contract** | **String**| Futures contract, return related data only if specified | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
- **at** | **Integer**| Specify a liquidation timestamp | [optional] [default to 0]
-
-### Return type
-
-[**List&lt;FuturesLiquidate&gt;**](FuturesLiquidate.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="listPositionClose"></a>
-# **listPositionClose**
-> List&lt;PositionClose&gt; listPositionClose(settle, contract, limit)
-
-List position close history
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
-
-import java.io.File;
-import java.util.*;
-
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
-Integer limit = 100; // Integer | Maximum number of records returned in one list
-try {
-    List<PositionClose> result = apiInstance.listPositionClose(settle, contract, limit);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listPositionClose");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
- **contract** | **String**| Futures contract, return related data only if specified | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
-
-### Return type
-
-[**List&lt;PositionClose&gt;**](PositionClose.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="listPositions"></a>
-# **listPositions**
-> List&lt;Position&gt; listPositions(settle)
-
-List all positions of a user
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
-
-import java.io.File;
-import java.util.*;
-
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-try {
-    List<Position> result = apiInstance.listPositions(settle);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listPositions");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
-
-### Return type
-
-[**List&lt;Position&gt;**](Position.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="listPriceTriggeredOrders"></a>
-# **listPriceTriggeredOrders**
-> List&lt;FuturesPriceTriggeredOrder&gt; listPriceTriggeredOrders(settle, status, contract, limit, offset)
+<a name="listPriceTriggeredDeliveryOrders"></a>
+# **listPriceTriggeredDeliveryOrders**
+> List&lt;FuturesPriceTriggeredOrder&gt; listPriceTriggeredDeliveryOrders(settle, status, contract, limit, offset)
 
 List all auto orders
 
@@ -1307,7 +1312,7 @@ List all auto orders
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -1315,17 +1320,17 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
 String status = "status_example"; // String | List orders based on status
 String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
 Integer limit = 100; // Integer | Maximum number of records returned in one list
 Integer offset = 0; // Integer | List offset, starting from 0
 try {
-    List<FuturesPriceTriggeredOrder> result = apiInstance.listPriceTriggeredOrders(settle, status, contract, limit, offset);
+    List<FuturesPriceTriggeredOrder> result = apiInstance.listPriceTriggeredDeliveryOrders(settle, status, contract, limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#listPriceTriggeredOrders");
+    System.err.println("Exception when calling DeliveryApi#listPriceTriggeredDeliveryOrders");
     e.printStackTrace();
 }
 ```
@@ -1334,7 +1339,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **status** | **String**| List orders based on status | [enum: open, finished]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
@@ -1353,9 +1358,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="updatePositionLeverage"></a>
-# **updatePositionLeverage**
-> Position updatePositionLeverage(settle, contract, leverage)
+<a name="updateDeliveryPositionLeverage"></a>
+# **updateDeliveryPositionLeverage**
+> Position updateDeliveryPositionLeverage(settle, contract, leverage)
 
 Update position leverage
 
@@ -1364,7 +1369,7 @@ Update position leverage
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -1372,15 +1377,15 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 String leverage = "10"; // String | New position leverage
 try {
-    Position result = apiInstance.updatePositionLeverage(settle, contract, leverage);
+    Position result = apiInstance.updateDeliveryPositionLeverage(settle, contract, leverage);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#updatePositionLeverage");
+    System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionLeverage");
     e.printStackTrace();
 }
 ```
@@ -1389,7 +1394,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| New position leverage |
 
@@ -1406,9 +1411,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="updatePositionMargin"></a>
-# **updatePositionMargin**
-> Position updatePositionMargin(settle, contract, change)
+<a name="updateDeliveryPositionMargin"></a>
+# **updateDeliveryPositionMargin**
+> Position updateDeliveryPositionMargin(settle, contract, change)
 
 Update position margin
 
@@ -1417,7 +1422,7 @@ Update position margin
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -1425,15 +1430,15 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 String change = "0.01"; // String | Margin change. Use positive number to increase margin, negative number otherwise.
 try {
-    Position result = apiInstance.updatePositionMargin(settle, contract, change);
+    Position result = apiInstance.updateDeliveryPositionMargin(settle, contract, change);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#updatePositionMargin");
+    System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionMargin");
     e.printStackTrace();
 }
 ```
@@ -1442,7 +1447,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
  **change** | **String**| Margin change. Use positive number to increase margin, negative number otherwise. |
 
@@ -1459,9 +1464,9 @@ Authentication with API key and secret is required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="updatePositionRiskLimit"></a>
-# **updatePositionRiskLimit**
-> Position updatePositionRiskLimit(settle, contract, riskLimit)
+<a name="updateDeliveryPositionRiskLimit"></a>
+# **updateDeliveryPositionRiskLimit**
+> Position updateDeliveryPositionRiskLimit(settle, contract, riskLimit)
 
 Update position risk limit
 
@@ -1470,7 +1475,7 @@ Update position risk limit
 ```java
 import io.gate.gateapi.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
+import io.gate.gateapi.api.DeliveryApi;
 
 import java.io.File;
 import java.util.*;
@@ -1478,15 +1483,15 @@ import java.util.*;
 ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
 // uncomment the next line if testing the API with other host
 // apiClient.setBasePath("https://some-other-host");
-FuturesApi apiInstance = new FuturesApi(client);
-String settle = "btc"; // String | Settle currency
-String contract = "BTC_USD"; // String | Futures contract
+DeliveryApi apiInstance = new DeliveryApi(client);
+String settle = "usdt"; // String | Settle currency
+String contract = "BTC_USDT_WEEKLY_20200703"; // String | Futures contract
 String riskLimit = "10"; // String | New position risk limit
 try {
-    Position result = apiInstance.updatePositionRiskLimit(settle, contract, riskLimit);
+    Position result = apiInstance.updateDeliveryPositionRiskLimit(settle, contract, riskLimit);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FuturesApi#updatePositionRiskLimit");
+    System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionRiskLimit");
     e.printStackTrace();
 }
 ```
@@ -1495,7 +1500,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
  **riskLimit** | **String**| New position risk limit |
 

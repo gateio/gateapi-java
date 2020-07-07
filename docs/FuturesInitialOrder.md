@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **price** | **String** | Order price. Set to 0 to use market price | 
 **close** | **Boolean** | Set to true if trying to close the position |  [optional]
 **tif** | [**TifEnum**](#TifEnum) | Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled |  [optional]
-**text** | [**TextEnum**](#TextEnum) | How the order is created. Possible values are: web, api and app |  [optional]
+**text** | **String** | How the order is created. Possible values are: web, api and app |  [optional]
 **reduceOnly** | **Boolean** | Set to true to create an reduce-only order |  [optional]
 **isReduceOnly** | **Boolean** | Is the order reduce-only |  [optional]
 **isClose** | **Boolean** | Is the order to close position |  [optional]
@@ -21,15 +21,6 @@ Name | Value
 ---- | -----
 GTC | &quot;gtc&quot;
 IOC | &quot;ioc&quot;
-
-
-<a name="TextEnum"></a>
-## Enum: TextEnum
-Name | Value
----- | -----
-WEB | &quot;web&quot;
-API | &quot;api&quot;
-APP | &quot;app&quot;
 
 
 
