@@ -104,7 +104,7 @@ public class WalletApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -186,7 +186,7 @@ public class WalletApi {
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -249,7 +249,7 @@ public class WalletApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -268,7 +268,7 @@ public class WalletApi {
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @return List&lt;LedgerRecord&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -284,7 +284,7 @@ public class WalletApi {
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @return ApiResponse&lt;List&lt;LedgerRecord&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -301,7 +301,7 @@ public class WalletApi {
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -338,7 +338,7 @@ public class WalletApi {
      * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -401,7 +401,7 @@ public class WalletApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -420,7 +420,7 @@ public class WalletApi {
      * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @return List&lt;SubAccountTransfer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -436,7 +436,7 @@ public class WalletApi {
      * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @return ApiResponse&lt;List&lt;SubAccountTransfer&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -453,7 +453,7 @@ public class WalletApi {
      * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -490,7 +490,7 @@ public class WalletApi {
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -553,7 +553,7 @@ public class WalletApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -572,7 +572,7 @@ public class WalletApi {
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @return List&lt;LedgerRecord&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -588,7 +588,7 @@ public class WalletApi {
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @return ApiResponse&lt;List&lt;LedgerRecord&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -605,7 +605,7 @@ public class WalletApi {
      * @param currency Filter by currency. Return all currency records if not specified (optional)
      * @param from Time range beginning, default to 7 days before current time (optional)
      * @param to Time range ending, default to current time (optional)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param offset List offset, starting from 0 (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -681,7 +681,7 @@ public class WalletApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -701,7 +701,7 @@ public class WalletApi {
 
     /**
      * Transfer between accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 2. spot - delivery
      * @param transfer  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -711,7 +711,7 @@ public class WalletApi {
 
     /**
      * Transfer between accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 2. spot - delivery
      * @param transfer  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -723,7 +723,7 @@ public class WalletApi {
 
     /**
      * Transfer between accounts (asynchronously)
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 2. spot - delivery
      * @param transfer  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -798,7 +798,7 @@ public class WalletApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

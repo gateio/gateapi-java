@@ -111,7 +111,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -240,7 +240,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -367,7 +367,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -502,7 +502,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -635,7 +635,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -837,7 +837,7 @@ public class MarginApi {
      * @param loanId Loan ID (required)
      * @param status Loan record status (optional)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -895,7 +895,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -919,7 +919,7 @@ public class MarginApi {
      * @param loanId Loan ID (required)
      * @param status Loan record status (optional)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @return List&lt;LoanRecord&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -934,7 +934,7 @@ public class MarginApi {
      * @param loanId Loan ID (required)
      * @param status Loan record status (optional)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @return ApiResponse&lt;List&lt;LoanRecord&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -950,7 +950,7 @@ public class MarginApi {
      * @param loanId Loan ID (required)
      * @param status Loan record status (optional)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1026,7 +1026,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1112,7 +1112,7 @@ public class MarginApi {
      * @param sortBy Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param reverseSort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1186,7 +1186,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1219,7 +1219,7 @@ public class MarginApi {
      * @param sortBy Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param reverseSort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @return List&lt;Loan&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1238,7 +1238,7 @@ public class MarginApi {
      * @param sortBy Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param reverseSort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @return ApiResponse&lt;List&lt;Loan&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1258,7 +1258,7 @@ public class MarginApi {
      * @param sortBy Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)
      * @param reverseSort Whether to sort in descending order. Default to &#x60;true&#x60; (optional)
      * @param page Page number (optional, default to 1)
-     * @param limit Maximum number of record returned in one list (optional, default to 100)
+     * @param limit Maximum number of records returned in one list (optional, default to 100)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1337,7 +1337,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1574,7 +1574,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1705,7 +1705,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1836,7 +1836,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1967,7 +1967,7 @@ public class MarginApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api_key", "api_sign", "api_timestamp" };
+        String[] localVarAuthNames = new String[] { "apiv4" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

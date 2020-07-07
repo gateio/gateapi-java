@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Transfer
+ * Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account
  */
 
 public class Transfer {
@@ -31,7 +31,7 @@ public class Transfer {
   private String currency;
 
   /**
-   * Account transferred from. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
+   * Account transferred from
    */
   @JsonAdapter(FromEnum.Adapter.class)
   public enum FromEnum {
@@ -39,7 +39,9 @@ public class Transfer {
     
     MARGIN("margin"),
     
-    FUTURES("futures");
+    FUTURES("futures"),
+    
+    DELIVERY("delivery");
 
     private String value;
 
@@ -84,7 +86,7 @@ public class Transfer {
   private FromEnum from;
 
   /**
-   * Account transferred to. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
+   * Account transferred to
    */
   @JsonAdapter(ToEnum.Adapter.class)
   public enum ToEnum {
@@ -92,7 +94,9 @@ public class Transfer {
     
     MARGIN("margin"),
     
-    FUTURES("futures");
+    FUTURES("futures"),
+    
+    DELIVERY("delivery");
 
     private String value;
 
@@ -171,7 +175,7 @@ public class Transfer {
   }
 
    /**
-   * Account transferred from. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
+   * Account transferred from
    * @return from
   **/
   public FromEnum getFrom() {
@@ -188,7 +192,7 @@ public class Transfer {
   }
 
    /**
-   * Account transferred to. &#x60;spot&#x60; - spot account. &#x60;margin&#x60; - margin account, &#x60;futures&#x60; - futures account
+   * Account transferred to
    * @return to
   **/
   public ToEnum getTo() {

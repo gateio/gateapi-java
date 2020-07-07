@@ -343,7 +343,7 @@ MarginApi apiInstance = new MarginApi(client);
 String loanId = "12345"; // String | Loan ID
 String status = "loaned"; // String | Loan record status
 Integer page = 1; // Integer | Page number
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 try {
     List<LoanRecord> result = apiInstance.listLoanRecords(loanId, status, page, limit);
     System.out.println(result);
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
  **loanId** | **String**| Loan ID |
  **status** | **String**| Loan record status | [optional] [enum: loaned, finished]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
 
@@ -451,7 +451,7 @@ String currencyPair = "BTC_USDT"; // String | Currency pair
 String sortBy = "rate"; // String | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
 Boolean reverseSort = true; // Boolean | Whether to sort in descending order. Default to `true`
 Integer page = 1; // Integer | Page number
-Integer limit = 100; // Integer | Maximum number of record returned in one list
+Integer limit = 100; // Integer | Maximum number of records returned in one list
 try {
     List<Loan> result = apiInstance.listLoans(status, side, currency, currencyPair, sortBy, reverseSort, page, limit);
     System.out.println(result);
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
  **sortBy** | **String**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional] [enum: create_time, rate]
  **reverseSort** | **Boolean**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of record returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
 
