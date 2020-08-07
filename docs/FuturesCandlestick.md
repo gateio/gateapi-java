@@ -1,7 +1,10 @@
 
 # FuturesCandlestick
 
+data point in every timestamp
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **t** | [**BigDecimal**](BigDecimal.md) | Unix timestamp in seconds |  [optional]
@@ -10,6 +13,4 @@ Name | Type | Description | Notes
 **h** | **String** | Highest price |  [optional]
 **l** | **String** | Lowest price |  [optional]
 **o** | **String** | Open price |  [optional]
-
-
 

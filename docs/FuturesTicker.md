@@ -2,6 +2,7 @@
 # FuturesTicker
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contract** | **String** | Futures contract |  [optional]
@@ -21,6 +22,4 @@ Name | Type | Description | Notes
 **fundingRateIndicative** | **String** | Indicative Funding rate in next period |  [optional]
 **indexPrice** | **String** | Index price |  [optional]
 **quantoBaseRate** | **String** | Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types |  [optional]
-
-
 

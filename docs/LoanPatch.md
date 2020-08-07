@@ -2,6 +2,7 @@
 # LoanPatch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **String** | Loan currency | 
@@ -10,13 +11,10 @@ Name | Type | Description | Notes
 **currencyPair** | **String** | Currency pair. Required for borrowing side |  [optional]
 **loanId** | **String** | Loan ID. Required for &#x60;LoanRecord&#x60; patching |  [optional]
 
-
-<a name="SideEnum"></a>
 ## Enum: SideEnum
+
 Name | Value
 ---- | -----
 LEND | &quot;lend&quot;
 BORROW | &quot;borrow&quot;
-
-
 

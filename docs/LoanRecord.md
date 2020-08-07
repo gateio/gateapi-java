@@ -1,7 +1,10 @@
 
 # LoanRecord
 
+Margin loaned record details
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Loan record ID |  [optional]
@@ -16,16 +19,13 @@ Name | Type | Description | Notes
 **days** | **Integer** | Loan days |  [optional]
 **autoRenew** | **Boolean** | Whether the record will auto renew on expiration |  [optional]
 **repaid** | **String** | Repaid amount |  [optional]
-**paidInterest** | **String** | Repaid interest |  [optional]
-**unpaidInterest** | **String** | Interest not repaid |  [optional]
+**paidInterest** | **String** | Repaid interest |  [optional] [readonly]
+**unpaidInterest** | **String** | Interest not repaid |  [optional] [readonly]
 
-
-<a name="StatusEnum"></a>
 ## Enum: StatusEnum
+
 Name | Value
 ---- | -----
 LOANED | &quot;loaned&quot;
 FINISHED | &quot;finished&quot;
-
-
 

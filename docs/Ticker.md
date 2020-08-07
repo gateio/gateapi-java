@@ -2,6 +2,7 @@
 # Ticker
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currencyPair** | **String** | Currency pair |  [optional]
@@ -13,6 +14,4 @@ Name | Type | Description | Notes
 **quoteVolume** | **String** | Quote currency trade volume |  [optional]
 **high24h** | **String** | Highest price in 24h |  [optional]
 **low24h** | **String** | Lowest price in 24h |  [optional]
-
-
 
