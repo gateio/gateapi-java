@@ -1,11 +1,14 @@
 
 # DeliveryContract
 
+Futures contract details
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Futures contract |  [optional]
-**underling** | **String** | Underlying |  [optional]
+**underlying** | **String** | Underlying |  [optional]
 **cycle** | [**CycleEnum**](#CycleEnum) | Cycle type, e.g. WEEKLY, QUARTERLY |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Futures contract type |  [optional]
 **quantoMultiplier** | **String** | Multiplier used in converting from invoicing to settlement currency in quanto futures |  [optional]
@@ -42,9 +45,8 @@ Name | Type | Description | Notes
 **configChangeTime** | [**BigDecimal**](BigDecimal.md) | Configuration&#39;s last changed time |  [optional]
 **inDelisting** | **Boolean** | Contract is delisting |  [optional]
 
-
-<a name="CycleEnum"></a>
 ## Enum: CycleEnum
+
 Name | Value
 ---- | -----
 WEEKLY | &quot;WEEKLY&quot;
@@ -52,21 +54,17 @@ BI_WEEKLY | &quot;BI-WEEKLY&quot;
 QUARTERLY | &quot;QUARTERLY&quot;
 BI_QUARTERLY | &quot;BI-QUARTERLY&quot;
 
-
-<a name="TypeEnum"></a>
 ## Enum: TypeEnum
+
 Name | Value
 ---- | -----
 INVERSE | &quot;inverse&quot;
 DIRECT | &quot;direct&quot;
 
-
-<a name="MarkTypeEnum"></a>
 ## Enum: MarkTypeEnum
+
 Name | Value
 ---- | -----
 INTERNAL | &quot;internal&quot;
 INDEX | &quot;index&quot;
-
-
 

@@ -16,24 +16,35 @@ Withdraw
 ### Example
 
 ```java
-import io.gate.gateapi.*;
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.WithdrawalApi;
 
-import java.io.File;
-import java.util.*;
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-WithdrawalApi apiInstance = new WithdrawalApi(client);
-LedgerRecord ledgerRecord = new LedgerRecord(); // LedgerRecord | 
-try {
-    LedgerRecord result = apiInstance.withdraw(ledgerRecord);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WithdrawalApi#withdraw");
-    e.printStackTrace();
+        WithdrawalApi apiInstance = new WithdrawalApi(defaultClient);
+        LedgerRecord ledgerRecord = new LedgerRecord(); // LedgerRecord | 
+        try {
+            LedgerRecord result = apiInstance.withdraw(ledgerRecord);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WithdrawalApi#withdraw");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -49,10 +60,15 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-Authentication with API key and secret is required
+[apiv4](../README.md#apiv4)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Withdraw request is accepted. Refer to withdrawal records for status |  -  |
 

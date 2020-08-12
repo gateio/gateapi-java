@@ -1,7 +1,10 @@
 
 # Contract
 
+Futures contract details
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Futures contract |  [optional]
@@ -36,21 +39,17 @@ Name | Type | Description | Notes
 **configChangeTime** | [**BigDecimal**](BigDecimal.md) | Configuration&#39;s last changed time |  [optional]
 **inDelisting** | **Boolean** | Contract is delisting |  [optional]
 
-
-<a name="TypeEnum"></a>
 ## Enum: TypeEnum
+
 Name | Value
 ---- | -----
 INVERSE | &quot;inverse&quot;
 DIRECT | &quot;direct&quot;
 
-
-<a name="MarkTypeEnum"></a>
 ## Enum: MarkTypeEnum
+
 Name | Value
 ---- | -----
 INTERNAL | &quot;internal&quot;
 INDEX | &quot;index&quot;
-
-
 

@@ -5,10 +5,10 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getDepositAddress**](WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
-[**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records
-[**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Transfer records between main and sub accounts
 [**listWithdrawals**](WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
-[**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between accounts
+[**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records
+[**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
+[**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Transfer records between main and sub accounts
 [**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 
 
@@ -21,24 +21,35 @@ Generate currency deposit address
 ### Example
 
 ```java
-import io.gate.gateapi.*;
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.WalletApi;
 
-import java.io.File;
-import java.util.*;
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-WalletApi apiInstance = new WalletApi(client);
-String currency = "currency_example"; // String | Currency name
-try {
-    DepositAddress result = apiInstance.getDepositAddress(currency);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WalletApi#getDepositAddress");
-    e.printStackTrace();
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String currency = "currency_example"; // String | Currency name
+        try {
+            DepositAddress result = apiInstance.getDepositAddress(currency);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#getDepositAddress");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -54,46 +65,68 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-Authentication with API key and secret is required
+[apiv4](../README.md#apiv4)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listDeposits"></a>
-# **listDeposits**
-> List&lt;LedgerRecord&gt; listDeposits(currency, from, to, limit, offset)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Address successfully generated |  -  |
 
-Retrieve deposit records
+<a name="listWithdrawals"></a>
+# **listWithdrawals**
+> List&lt;LedgerRecord&gt; listWithdrawals().currency(currency).from(from).to(to).limit(limit).offset(offset).execute();
+
+Retrieve withdrawal records
 
 Record time range cannot exceed 30 days
 
 ### Example
 
 ```java
-import io.gate.gateapi.*;
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.WalletApi;
 
-import java.io.File;
-import java.util.*;
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-WalletApi apiInstance = new WalletApi(client);
-String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
-Long from = null; // Long | Time range beginning, default to 7 days before current time
-Long to = null; // Long | Time range ending, default to current time
-Integer limit = 100; // Integer | Maximum number of records returned in one list
-Integer offset = 0; // Integer | List offset, starting from 0
-try {
-    List<LedgerRecord> result = apiInstance.listDeposits(currency, from, to, limit, offset);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WalletApi#listDeposits");
-    e.printStackTrace();
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
+        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 56L; // Long | Time range ending, default to current time
+        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        try {
+            List<LedgerRecord> result = apiInstance.listWithdrawals()
+                        .currency(currency)
+                        .from(from)
+                        .to(to)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listWithdrawals");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -113,16 +146,168 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-Authentication with API key and secret is required
+[apiv4](../README.md#apiv4)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="listDeposits"></a>
+# **listDeposits**
+> List&lt;LedgerRecord&gt; listDeposits().currency(currency).from(from).to(to).limit(limit).offset(offset).execute();
+
+Retrieve deposit records
+
+Record time range cannot exceed 30 days
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
+        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 56L; // Long | Time range ending, default to current time
+        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        try {
+            List<LedgerRecord> result = apiInstance.listDeposits()
+                        .currency(currency)
+                        .from(from)
+                        .to(to)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listDeposits");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Filter by currency. Return all currency records if not specified | [optional]
+ **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
+ **to** | **Long**| Time range ending, default to current time | [optional]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;LedgerRecord&gt;**](LedgerRecord.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="transfer"></a>
+# **transfer**
+> transfer(transfer)
+
+Transfer between trading accounts
+
+Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        Transfer transfer = new Transfer(); // Transfer | 
+        try {
+            apiInstance.transfer(transfer);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#transfer");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transfer** | [**Transfer**](Transfer.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Balance transferred |  -  |
+
 <a name="listSubAccountTransfers"></a>
 # **listSubAccountTransfers**
-> List&lt;SubAccountTransfer&gt; listSubAccountTransfers(subUid, from, to, limit, offset)
+> List&lt;SubAccountTransfer&gt; listSubAccountTransfers().subUid(subUid).from(from).to(to).limit(limit).offset(offset).execute();
 
 Transfer records between main and sub accounts
 
@@ -131,28 +316,45 @@ Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-1
 ### Example
 
 ```java
-import io.gate.gateapi.*;
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.WalletApi;
 
-import java.io.File;
-import java.util.*;
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-WalletApi apiInstance = new WalletApi(client);
-String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
-Long from = null; // Long | Time range beginning, default to 7 days before current time
-Long to = null; // Long | Time range ending, default to current time
-Integer limit = 100; // Integer | Maximum number of records returned in one list
-Integer offset = 0; // Integer | List offset, starting from 0
-try {
-    List<SubAccountTransfer> result = apiInstance.listSubAccountTransfers(subUid, from, to, limit, offset);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WalletApi#listSubAccountTransfers");
-    e.printStackTrace();
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 56L; // Long | Time range ending, default to current time
+        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        try {
+            List<SubAccountTransfer> result = apiInstance.listSubAccountTransfers()
+                        .subUid(subUid)
+                        .from(from)
+                        .to(to)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listSubAccountTransfers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -172,121 +374,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-Authentication with API key and secret is required
+[apiv4](../README.md#apiv4)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="listWithdrawals"></a>
-# **listWithdrawals**
-> List&lt;LedgerRecord&gt; listWithdrawals(currency, from, to, limit, offset)
-
-Retrieve withdrawal records
-
-Record time range cannot exceed 30 days
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.WalletApi;
-
-import java.io.File;
-import java.util.*;
-
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-WalletApi apiInstance = new WalletApi(client);
-String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
-Long from = null; // Long | Time range beginning, default to 7 days before current time
-Long to = null; // Long | Time range ending, default to current time
-Integer limit = 100; // Integer | Maximum number of records returned in one list
-Integer offset = 0; // Integer | List offset, starting from 0
-try {
-    List<LedgerRecord> result = apiInstance.listWithdrawals(currency, from, to, limit, offset);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WalletApi#listWithdrawals");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **String**| Filter by currency. Return all currency records if not specified | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
- **to** | **Long**| Time range ending, default to current time | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
-
-### Return type
-
-[**List&lt;LedgerRecord&gt;**](LedgerRecord.md)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="transfer"></a>
-# **transfer**
-> transfer(transfer)
-
-Transfer between accounts
-
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 2. spot - delivery
-
-### Example
-
-```java
-import io.gate.gateapi.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.WalletApi;
-
-import java.io.File;
-import java.util.*;
-
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-WalletApi apiInstance = new WalletApi(client);
-Transfer transfer = new Transfer(); // Transfer | 
-try {
-    apiInstance.transfer(transfer);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WalletApi#transfer");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transfer** | [**Transfer**](Transfer.md)|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-Authentication with API key and secret is required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
 
 <a name="transferWithSubAccount"></a>
 # **transferWithSubAccount**
@@ -297,23 +395,34 @@ Transfer between main and sub accounts
 ### Example
 
 ```java
-import io.gate.gateapi.*;
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.WalletApi;
 
-import java.io.File;
-import java.util.*;
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-ApiClient client = new ApiClient("YOUR_API_KEY", "YOUR_API_SECRET");
-// uncomment the next line if testing the API with other host
-// apiClient.setBasePath("https://some-other-host");
-WalletApi apiInstance = new WalletApi(client);
-SubAccountTransfer subAccountTransfer = new SubAccountTransfer(); // SubAccountTransfer | 
-try {
-    apiInstance.transferWithSubAccount(subAccountTransfer);
-} catch (ApiException e) {
-    System.err.println("Exception when calling WalletApi#transferWithSubAccount");
-    e.printStackTrace();
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        SubAccountTransfer subAccountTransfer = new SubAccountTransfer(); // SubAccountTransfer | 
+        try {
+            apiInstance.transferWithSubAccount(subAccountTransfer);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#transferWithSubAccount");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
@@ -329,10 +438,15 @@ null (empty response body)
 
 ### Authorization
 
-Authentication with API key and secret is required
+[apiv4](../README.md#apiv4)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Balance transferred |  -  |
 
