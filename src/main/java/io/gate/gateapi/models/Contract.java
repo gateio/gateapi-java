@@ -242,6 +242,10 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_IN_DELISTING)
     private Boolean inDelisting;
 
+    public static final String SERIALIZED_NAME_ORDERS_LIMIT = "orders_limit";
+    @SerializedName(SERIALIZED_NAME_ORDERS_LIMIT)
+    private Integer ordersLimit;
+
 
     public Contract name(String name) {
         
@@ -862,6 +866,26 @@ public class Contract {
     public void setInDelisting(Boolean inDelisting) {
         this.inDelisting = inDelisting;
     }
+
+    public Contract ordersLimit(Integer ordersLimit) {
+        
+        this.ordersLimit = ordersLimit;
+        return this;
+    }
+
+     /**
+     * Maximum number of open orders
+     * @return ordersLimit
+    **/
+    @javax.annotation.Nullable
+    public Integer getOrdersLimit() {
+        return ordersLimit;
+    }
+
+
+    public void setOrdersLimit(Integer ordersLimit) {
+        this.ordersLimit = ordersLimit;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -901,12 +925,13 @@ public class Contract {
                 Objects.equals(this.tradeSize, contract.tradeSize) &&
                 Objects.equals(this.positionSize, contract.positionSize) &&
                 Objects.equals(this.configChangeTime, contract.configChangeTime) &&
-                Objects.equals(this.inDelisting, contract.inDelisting);
+                Objects.equals(this.inDelisting, contract.inDelisting) &&
+                Objects.equals(this.ordersLimit, contract.ordersLimit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit);
     }
 
 
@@ -945,6 +970,7 @@ public class Contract {
         sb.append("      positionSize: ").append(toIndentedString(positionSize)).append("\n");
         sb.append("      configChangeTime: ").append(toIndentedString(configChangeTime)).append("\n");
         sb.append("      inDelisting: ").append(toIndentedString(inDelisting)).append("\n");
+        sb.append("      ordersLimit: ").append(toIndentedString(ordersLimit)).append("\n");
         sb.append("}");
         return sb.toString();
     }

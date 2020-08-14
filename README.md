@@ -101,6 +101,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
@@ -114,10 +115,12 @@ public class Example {
         try {
             List<DeliveryContract> result = apiInstance.listDeliveryContracts(settle);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryContracts");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }

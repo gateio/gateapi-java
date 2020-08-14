@@ -317,6 +317,10 @@ public class DeliveryContract {
     @SerializedName(SERIALIZED_NAME_IN_DELISTING)
     private Boolean inDelisting;
 
+    public static final String SERIALIZED_NAME_ORDERS_LIMIT = "orders_limit";
+    @SerializedName(SERIALIZED_NAME_ORDERS_LIMIT)
+    private Integer ordersLimit;
+
 
     public DeliveryContract name(String name) {
         
@@ -1057,6 +1061,26 @@ public class DeliveryContract {
     public void setInDelisting(Boolean inDelisting) {
         this.inDelisting = inDelisting;
     }
+
+    public DeliveryContract ordersLimit(Integer ordersLimit) {
+        
+        this.ordersLimit = ordersLimit;
+        return this;
+    }
+
+     /**
+     * Maximum number of open orders
+     * @return ordersLimit
+    **/
+    @javax.annotation.Nullable
+    public Integer getOrdersLimit() {
+        return ordersLimit;
+    }
+
+
+    public void setOrdersLimit(Integer ordersLimit) {
+        this.ordersLimit = ordersLimit;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1102,12 +1126,13 @@ public class DeliveryContract {
                 Objects.equals(this.tradeSize, deliveryContract.tradeSize) &&
                 Objects.equals(this.positionSize, deliveryContract.positionSize) &&
                 Objects.equals(this.configChangeTime, deliveryContract.configChangeTime) &&
-                Objects.equals(this.inDelisting, deliveryContract.inDelisting);
+                Objects.equals(this.inDelisting, deliveryContract.inDelisting) &&
+                Objects.equals(this.ordersLimit, deliveryContract.ordersLimit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, underlying, cycle, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, basisRate, basisValue, basisImpactValue, settlePrice, settlePriceInterval, settlePriceDuration, expireTime, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting);
+        return Objects.hash(name, underlying, cycle, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, basisRate, basisValue, basisImpactValue, settlePrice, settlePriceInterval, settlePriceDuration, expireTime, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit);
     }
 
 
@@ -1152,6 +1177,7 @@ public class DeliveryContract {
         sb.append("      positionSize: ").append(toIndentedString(positionSize)).append("\n");
         sb.append("      configChangeTime: ").append(toIndentedString(configChangeTime)).append("\n");
         sb.append("      inDelisting: ").append(toIndentedString(inDelisting)).append("\n");
+        sb.append("      ordersLimit: ").append(toIndentedString(ordersLimit)).append("\n");
         sb.append("}");
         return sb.toString();
     }

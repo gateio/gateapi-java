@@ -353,7 +353,6 @@ public class FuturesOrder {
      * Order size. Specify positive number to make a bid, and negative number to ask
      * @return size
     **/
-    @javax.annotation.Nullable
     public Long getSize() {
         return size;
     }
