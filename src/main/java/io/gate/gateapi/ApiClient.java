@@ -10,6 +10,7 @@
 
 package io.gate.gateapi;
 
+import com.google.gson.JsonParseException;
 import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
@@ -112,7 +113,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/5.15.2/java");
+        setUserAgent("OpenAPI-Generator/5.15.3/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -989,6 +990,12 @@ public class ApiClient {
                     respBody = response.body().string();
                 } catch (IOException e) {
                     throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
+                }
+                try {
+                    GateApiException exp = json.deserialize(respBody, GateApiException.class);
+                    throw new GateApiException(exp, response.message(), response.code(), response.headers().toMultimap(), respBody);
+                } catch (JsonParseException e) {
+                    // use original body
                 }
             }
             throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
