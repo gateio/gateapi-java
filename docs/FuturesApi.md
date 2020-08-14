@@ -1451,7 +1451,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
         String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
-        Integer order = 12345; // Integer | Futures order ID, return related data only if specified
+        Long order = 12345L; // Long | Futures order ID, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
         String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
@@ -1483,7 +1483,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
- **order** | **Integer**| Futures order ID, return related data only if specified | [optional]
+ **order** | **Long**| Futures order ID, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]

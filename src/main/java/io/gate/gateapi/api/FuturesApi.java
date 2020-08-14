@@ -2980,7 +2980,7 @@ public class FuturesApi {
         return localVarCall;
     }
 
-    private okhttp3.Call getMyTradesCall(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMyTradesCall(String settle, String contract, Long order, Integer limit, Integer offset, String lastId, Integer countTotal, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3035,7 +3035,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyTradesValidateBeforeCall(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMyTradesValidateBeforeCall(String settle, String contract, Long order, Integer limit, Integer offset, String lastId, Integer countTotal, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling getMyTrades(Async)");
@@ -3046,13 +3046,13 @@ public class FuturesApi {
     }
 
 
-    private ApiResponse<List<MyFuturesTrade>> getMyTradesWithHttpInfo(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal) throws ApiException {
+    private ApiResponse<List<MyFuturesTrade>> getMyTradesWithHttpInfo(String settle, String contract, Long order, Integer limit, Integer offset, String lastId, Integer countTotal) throws ApiException {
         okhttp3.Call localVarCall = getMyTradesValidateBeforeCall(settle, contract, order, limit, offset, lastId, countTotal, null);
         Type localVarReturnType = new TypeToken<List<MyFuturesTrade>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getMyTradesAsync(String settle, String contract, Integer order, Integer limit, Integer offset, String lastId, Integer countTotal, final ApiCallback<List<MyFuturesTrade>> _callback) throws ApiException {
+    private okhttp3.Call getMyTradesAsync(String settle, String contract, Long order, Integer limit, Integer offset, String lastId, Integer countTotal, final ApiCallback<List<MyFuturesTrade>> _callback) throws ApiException {
         okhttp3.Call localVarCall = getMyTradesValidateBeforeCall(settle, contract, order, limit, offset, lastId, countTotal, _callback);
         Type localVarReturnType = new TypeToken<List<MyFuturesTrade>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -3062,7 +3062,7 @@ public class FuturesApi {
     public class APIgetMyTradesRequest {
         private final String settle;
         private String contract;
-        private Integer order;
+        private Long order;
         private Integer limit;
         private Integer offset;
         private String lastId;
@@ -3087,7 +3087,7 @@ public class FuturesApi {
          * @param order Futures order ID, return related data only if specified (optional)
          * @return APIgetMyTradesRequest
          */
-        public APIgetMyTradesRequest order(Integer order) {
+        public APIgetMyTradesRequest order(Long order) {
             this.order = order;
             return this;
         }

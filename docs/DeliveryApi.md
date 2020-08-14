@@ -1385,7 +1385,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer order = 12345; // Integer | Futures order ID, return related data only if specified
+        Long order = 12345L; // Long | Futures order ID, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
         String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
@@ -1417,7 +1417,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract | [optional]
- **order** | **Integer**| Futures order ID, return related data only if specified | [optional]
+ **order** | **Long**| Futures order ID, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
