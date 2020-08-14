@@ -993,12 +993,15 @@ public class ApiClient {
                 }
                 try {
                     GateApiException exp = json.deserialize(respBody, GateApiException.class);
-                    throw new GateApiException(exp, response.message(), response.code(), response.headers().toMultimap(), respBody);
+                    if (exp.getErrorLabel() != null && !"".equals(exp.getErrorLabel())) {
+                        throw new GateApiException(exp, response.message(), response.code(), response.headers().toMultimap(), respBody);
+                    }
                 } catch (JsonParseException e) {
                     // use original body
                 }
             }
-            throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
+            String message = response.message() + (respBody != null ? (", " + respBody) : "");
+            throw new ApiException(message, response.code(), response.headers().toMultimap(), respBody);
         }
     }
 

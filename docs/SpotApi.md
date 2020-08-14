@@ -36,6 +36,7 @@ List all currency pairs supported
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
 
@@ -48,10 +49,12 @@ public class Example {
         try {
             List<CurrencyPair> result = apiInstance.listCurrencyPairs();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listCurrencyPairs");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -93,6 +96,7 @@ Get detail of one single order
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
 
@@ -106,10 +110,12 @@ public class Example {
         try {
             CurrencyPair result = apiInstance.getCurrencyPair(currencyPair);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#getCurrencyPair");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -156,6 +162,7 @@ Return only related data if &#x60;currency_pair&#x60; is specified; otherwise re
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
 
@@ -171,10 +178,12 @@ public class Example {
                         .currencyPair(currencyPair)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listTickers");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -221,6 +230,7 @@ Order book will be sorted by price from high to low on bids; reversed on asks
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
 
@@ -239,10 +249,12 @@ public class Example {
                         .limit(limit)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listOrderBook");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -289,6 +301,7 @@ Retrieve market trades
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
 
@@ -307,10 +320,12 @@ public class Example {
                         .lastId(lastId)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listTrades");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -359,6 +374,7 @@ Maximum of 1000 points are returned in one query. Be sure not to exceed the limi
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
 
@@ -381,10 +397,12 @@ public class Example {
                         .interval(interval)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listCandlesticks");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -433,6 +451,7 @@ Query user trading fee rates
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -452,10 +471,12 @@ public class Example {
                         .currencyPair(currencyPair)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#getFee");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -500,6 +521,7 @@ List spot accounts
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -519,10 +541,12 @@ public class Example {
                         .currency(currency)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listSpotAccounts");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -569,6 +593,7 @@ Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -586,10 +611,12 @@ public class Example {
         try {
             List<BatchOrder> result = apiInstance.createBatchOrders(order);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#createBatchOrders");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -636,6 +663,7 @@ List open orders in all currency pairs.  Note that pagination parameters affect 
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -657,10 +685,12 @@ public class Example {
                         .limit(limit)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listAllOpenOrders");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -706,6 +736,7 @@ List orders
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -729,10 +760,12 @@ public class Example {
                         .limit(limit)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listOrders");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -780,6 +813,7 @@ Create an order
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -797,10 +831,12 @@ public class Example {
         try {
             Order result = apiInstance.createOrder(order);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#createOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -845,6 +881,7 @@ Cancel all &#x60;open&#x60; orders in specified currency pair
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -864,10 +901,12 @@ public class Example {
         try {
             List<Order> result = apiInstance.cancelOrders(currencyPair, side, account);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#cancelOrders");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -916,6 +955,7 @@ Multiple currency pairs can be specified, but maximum 20 orders are allowed per 
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -933,10 +973,12 @@ public class Example {
         try {
             List<CancelOrderResult> result = apiInstance.cancelBatchOrders(cancelOrder);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#cancelBatchOrders");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -981,6 +1023,7 @@ Get a single order
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -999,10 +1042,12 @@ public class Example {
         try {
             Order result = apiInstance.getOrder(orderId, currencyPair);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#getOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1048,6 +1093,7 @@ Cancel a single order
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -1066,10 +1112,12 @@ public class Example {
         try {
             Order result = apiInstance.cancelOrder(orderId, currencyPair);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#cancelOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1115,6 +1163,7 @@ List personal trading history
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
@@ -1139,10 +1188,12 @@ public class Example {
                         .orderId(orderId)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listMyTrades");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }

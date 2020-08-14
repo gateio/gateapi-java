@@ -47,6 +47,7 @@ List all futures contracts
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
@@ -60,10 +61,12 @@ public class Example {
         try {
             List<DeliveryContract> result = apiInstance.listDeliveryContracts(settle);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryContracts");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -108,6 +111,7 @@ Get a single contract
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
@@ -122,10 +126,12 @@ public class Example {
         try {
             DeliveryContract result = apiInstance.getDeliveryContract(settle, contract);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#getDeliveryContract");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -173,6 +179,7 @@ Bids will be sorted by price from high to low, while asks sorted reversely
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
@@ -192,10 +199,12 @@ public class Example {
                         .limit(limit)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryOrderBook");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -243,6 +252,7 @@ Futures trading history
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
@@ -266,10 +276,12 @@ public class Example {
                         .to(to)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryTrades");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -321,6 +333,7 @@ Return specified contract candlesticks. If prefix &#x60;contract&#x60; with &#x6
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
@@ -344,10 +357,12 @@ public class Example {
                         .interval(interval)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryCandlesticks");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -397,6 +412,7 @@ List futures tickers
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
@@ -413,10 +429,12 @@ public class Example {
                         .contract(contract)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryTickers");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -462,6 +480,7 @@ Futures insurance balance history
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
@@ -478,10 +497,12 @@ public class Example {
                         .limit(limit)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryInsuranceLedger");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -527,6 +548,7 @@ Query futures account
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -544,10 +566,12 @@ public class Example {
         try {
             FuturesAccount result = apiInstance.listDeliveryAccounts(settle);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryAccounts");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -592,6 +616,7 @@ Query account book
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -618,10 +643,12 @@ public class Example {
                         .type(type)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryAccountBook");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -670,6 +697,7 @@ List all positions of a user
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -687,10 +715,12 @@ public class Example {
         try {
             List<Position> result = apiInstance.listDeliveryPositions(settle);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryPositions");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -735,6 +765,7 @@ Get single position
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -753,10 +784,12 @@ public class Example {
         try {
             Position result = apiInstance.getDeliveryPosition(settle, contract);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#getDeliveryPosition");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -802,6 +835,7 @@ Update position margin
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -821,10 +855,12 @@ public class Example {
         try {
             Position result = apiInstance.updateDeliveryPositionMargin(settle, contract, change);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionMargin");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -871,6 +907,7 @@ Update position leverage
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -890,10 +927,12 @@ public class Example {
         try {
             Position result = apiInstance.updateDeliveryPositionLeverage(settle, contract, leverage);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionLeverage");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -940,6 +979,7 @@ Update position risk limit
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -959,10 +999,12 @@ public class Example {
         try {
             Position result = apiInstance.updateDeliveryPositionRiskLimit(settle, contract, riskLimit);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionRiskLimit");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1011,6 +1053,7 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1040,10 +1083,12 @@ public class Example {
                         .countTotal(countTotal)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryOrders");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1096,6 +1141,7 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1114,10 +1160,12 @@ public class Example {
         try {
             FuturesOrder result = apiInstance.createDeliveryOrder(settle, futuresOrder);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#createDeliveryOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1165,6 +1213,7 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1184,10 +1233,12 @@ public class Example {
         try {
             List<FuturesOrder> result = apiInstance.cancelDeliveryOrders(settle, contract, side);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#cancelDeliveryOrders");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1236,6 +1287,7 @@ Zero-fill order cannot be retrieved 60 seconds after cancellation
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1254,10 +1306,12 @@ public class Example {
         try {
             FuturesOrder result = apiInstance.getDeliveryOrder(settle, orderId);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#getDeliveryOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1303,6 +1357,7 @@ Cancel a single order
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1321,10 +1376,12 @@ public class Example {
         try {
             FuturesOrder result = apiInstance.cancelDeliveryOrder(settle, orderId);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#cancelDeliveryOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1370,6 +1427,7 @@ List personal trading history
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1400,10 +1458,12 @@ public class Example {
                         .countTotal(countTotal)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#getMyDeliveryTrades");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1454,6 +1514,7 @@ List position close history
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1476,10 +1537,12 @@ public class Example {
                         .limit(limit)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryPositionClose");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1526,6 +1589,7 @@ List liquidation history
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1550,10 +1614,12 @@ public class Example {
                         .at(at)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliveryLiquidates");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1601,6 +1667,7 @@ List settlement history
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1625,10 +1692,12 @@ public class Example {
                         .at(at)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listDeliverySettlements");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1676,6 +1745,7 @@ List all auto orders
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1701,10 +1771,12 @@ public class Example {
                         .offset(offset)
                         .execute();
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#listPriceTriggeredDeliveryOrders");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1753,6 +1825,7 @@ Create a price-triggered order
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1771,10 +1844,12 @@ public class Example {
         try {
             TriggerOrderResponse result = apiInstance.createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#createPriceTriggeredDeliveryOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1820,6 +1895,7 @@ Cancel all open orders
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1838,10 +1914,12 @@ public class Example {
         try {
             List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredDeliveryOrderList(settle, contract);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#cancelPriceTriggeredDeliveryOrderList");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1887,6 +1965,7 @@ Get a single order
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1905,10 +1984,12 @@ public class Example {
         try {
             FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredDeliveryOrder(settle, orderId);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#getPriceTriggeredDeliveryOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
@@ -1954,6 +2035,7 @@ Cancel a single order
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
@@ -1972,10 +2054,12 @@ public class Example {
         try {
             FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredDeliveryOrder(settle, orderId);
             System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryApi#cancelPriceTriggeredDeliveryOrder");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
