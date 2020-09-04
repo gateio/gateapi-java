@@ -24,6 +24,7 @@ import io.gate.gateapi.models.DepositAddress;
 import io.gate.gateapi.models.LedgerRecord;
 import io.gate.gateapi.models.SubAccountTransfer;
 import io.gate.gateapi.models.Transfer;
+import io.gate.gateapi.models.WithdrawStatus;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -974,6 +975,149 @@ public class WalletApi {
         okhttp3.Call localVarCall = transferWithSubAccountValidateBeforeCall(subAccountTransfer, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
+    }
+
+    private okhttp3.Call listWithdrawStatusCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/withdraw_status";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listWithdrawStatusValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listWithdrawStatusCall(currency, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<WithdrawStatus>> listWithdrawStatusWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = listWithdrawStatusValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<List<WithdrawStatus>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listWithdrawStatusAsync(String currency, final ApiCallback<List<WithdrawStatus>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listWithdrawStatusValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<List<WithdrawStatus>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistWithdrawStatusRequest {
+        private String currency;
+
+        private APIlistWithdrawStatusRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency Retrieved specified currency related data (optional)
+         * @return APIlistWithdrawStatusRequest
+         */
+        public APIlistWithdrawStatusRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Build call for listWithdrawStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listWithdrawStatusCall(currency, _callback);
+        }
+
+        /**
+         * Execute listWithdrawStatus request
+         * @return List&lt;WithdrawStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<WithdrawStatus> execute() throws ApiException {
+            ApiResponse<List<WithdrawStatus>> localVarResp = listWithdrawStatusWithHttpInfo(currency);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listWithdrawStatus request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;WithdrawStatus&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<WithdrawStatus>> executeWithHttpInfo() throws ApiException {
+            return listWithdrawStatusWithHttpInfo(currency);
+        }
+
+        /**
+         * Execute listWithdrawStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<WithdrawStatus>> _callback) throws ApiException {
+            return listWithdrawStatusAsync(currency, _callback);
+        }
+    }
+
+    /**
+     * Retrieve withdrawal status
+     * 
+     * @return APIlistWithdrawStatusRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistWithdrawStatusRequest listWithdrawStatus() {
+        return new APIlistWithdrawStatusRequest();
     }
 
 }

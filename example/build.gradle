@@ -1,0 +1,28 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    implementation 'io.gate:gate-api:5.15.3'
+    implementation 'commons-cli:commons-cli:1.4'
+}
+
+group = 'io.gate.apidemo'
+version = '1.0-SNAPSHOT'
+description = 'gateapi-demo'
+sourceCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainClassName = 'io.gate.apidemo.Application'
+}

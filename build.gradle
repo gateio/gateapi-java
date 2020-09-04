@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'io.gate'
-version = '5.15.3'
+version = '5.15.4'
 
 buildscript {
     repositories {
@@ -103,8 +103,8 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.14.7'
     compile 'com.google.code.gson:gson:2.8.6'
     compile 'io.gsonfire:gson-fire:1.8.4'
+    compile 'commons-codec:commons-codec:1.14'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
-    compile group: 'org.apache.commons', name: 'commons-codec', version: '1.14'
     testCompile 'junit:junit:4.13'
 }
 

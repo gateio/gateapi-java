@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.15.3
-- SDK version: 5.15.3
+- API version: 4.15.4
+- SDK version: 5.15.4
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -65,7 +65,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>5.15.3</version>
+    <version>5.15.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -75,7 +75,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:5.15.3"
+compile "io.gate:gate-api:5.15.4"
 ```
 
 ### Others
@@ -88,7 +88,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-5.15.3.jar`
+* `target/gate-api-5.15.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -128,6 +128,7 @@ public class Example {
 }
 ```
 
+For a more complete API usage example, refer to the demo application in [example](example) directory
 
 ## Documentation for API Endpoints
 
@@ -230,6 +231,7 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**transfer**](docs/WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
 *WalletApi* | [**listSubAccountTransfers**](docs/WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Transfer records between main and sub accounts
 *WalletApi* | [**transferWithSubAccount**](docs/WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
+*WalletApi* | [**listWithdrawStatus**](docs/WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
 
 
@@ -283,6 +285,7 @@ Class | Method | HTTP request | Description
  - [TradeFee](docs/TradeFee.md)
  - [Transfer](docs/Transfer.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
+ - [WithdrawStatus](docs/WithdrawStatus.md)
 
 
 ## Documentation for Authorization
