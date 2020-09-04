@@ -51,6 +51,10 @@ public class TradeFee {
     @SerializedName(SERIALIZED_NAME_LOAN_FEE)
     private String loanFee;
 
+    public static final String SERIALIZED_NAME_POINT_TYPE = "point_type";
+    @SerializedName(SERIALIZED_NAME_POINT_TYPE)
+    private String pointType;
+
 
     public TradeFee userId(Long userId) {
         
@@ -191,6 +195,26 @@ public class TradeFee {
     public void setLoanFee(String loanFee) {
         this.loanFee = loanFee;
     }
+
+    public TradeFee pointType(String pointType) {
+        
+        this.pointType = pointType;
+        return this;
+    }
+
+     /**
+     * Point type. 0 - Initial version. 1 - new version since 202009
+     * @return pointType
+    **/
+    @javax.annotation.Nullable
+    public String getPointType() {
+        return pointType;
+    }
+
+
+    public void setPointType(String pointType) {
+        this.pointType = pointType;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -206,12 +230,13 @@ public class TradeFee {
                 Objects.equals(this.gtDiscount, tradeFee.gtDiscount) &&
                 Objects.equals(this.gtTakerFee, tradeFee.gtTakerFee) &&
                 Objects.equals(this.gtMakerFee, tradeFee.gtMakerFee) &&
-                Objects.equals(this.loanFee, tradeFee.loanFee);
+                Objects.equals(this.loanFee, tradeFee.loanFee) &&
+                Objects.equals(this.pointType, tradeFee.pointType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee);
+        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType);
     }
 
 
@@ -226,6 +251,7 @@ public class TradeFee {
         sb.append("      gtTakerFee: ").append(toIndentedString(gtTakerFee)).append("\n");
         sb.append("      gtMakerFee: ").append(toIndentedString(gtMakerFee)).append("\n");
         sb.append("      loanFee: ").append(toIndentedString(loanFee)).append("\n");
+        sb.append("      pointType: ").append(toIndentedString(pointType)).append("\n");
         sb.append("}");
         return sb.toString();
     }
