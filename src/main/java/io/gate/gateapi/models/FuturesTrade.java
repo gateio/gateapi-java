@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * FuturesTrade
@@ -30,7 +29,7 @@ public class FuturesTrade {
 
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private BigDecimal createTime;
+    private Double createTime;
 
     public static final String SERIALIZED_NAME_CONTRACT = "contract";
     @SerializedName(SERIALIZED_NAME_CONTRACT)
@@ -65,7 +64,7 @@ public class FuturesTrade {
         this.id = id;
     }
 
-    public FuturesTrade createTime(BigDecimal createTime) {
+    public FuturesTrade createTime(Double createTime) {
         
         this.createTime = createTime;
         return this;
@@ -76,12 +75,12 @@ public class FuturesTrade {
      * @return createTime
     **/
     @javax.annotation.Nullable
-    public BigDecimal getCreateTime() {
+    public Double getCreateTime() {
         return createTime;
     }
 
 
-    public void setCreateTime(BigDecimal createTime) {
+    public void setCreateTime(Double createTime) {
         this.createTime = createTime;
     }
 

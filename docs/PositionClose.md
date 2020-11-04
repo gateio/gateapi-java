@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**time** | [**BigDecimal**](BigDecimal.md) | Position close time |  [optional] [readonly]
+**time** | **Double** | Position close time |  [optional] [readonly]
 **contract** | **String** | Futures contract |  [optional] [readonly]
 **side** | [**SideEnum**](#SideEnum) | Position side, long or short |  [optional] [readonly]
 **pnl** | **String** | PNL |  [optional] [readonly]

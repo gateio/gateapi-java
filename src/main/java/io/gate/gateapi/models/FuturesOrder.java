@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * Futures order details
@@ -34,11 +33,11 @@ public class FuturesOrder {
 
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private BigDecimal createTime;
+    private Double createTime;
 
     public static final String SERIALIZED_NAME_FINISH_TIME = "finish_time";
     @SerializedName(SERIALIZED_NAME_FINISH_TIME)
-    private BigDecimal finishTime;
+    private Double finishTime;
 
     /**
      * How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set
@@ -289,7 +288,7 @@ public class FuturesOrder {
      * @return createTime
     **/
     @javax.annotation.Nullable
-    public BigDecimal getCreateTime() {
+    public Double getCreateTime() {
         return createTime;
     }
 
@@ -299,7 +298,7 @@ public class FuturesOrder {
      * @return finishTime
     **/
     @javax.annotation.Nullable
-    public BigDecimal getFinishTime() {
+    public Double getFinishTime() {
         return finishTime;
     }
 

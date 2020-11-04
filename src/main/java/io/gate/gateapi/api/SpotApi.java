@@ -406,7 +406,7 @@ public class SpotApi {
         return new APIlistTickersRequest();
     }
 
-    private okhttp3.Call listOrderBookCall(String currencyPair, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listOrderBookCall(String currencyPair, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -424,6 +424,10 @@ public class SpotApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (withId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("with_id", withId));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -448,25 +452,25 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listOrderBookValidateBeforeCall(String currencyPair, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listOrderBookValidateBeforeCall(String currencyPair, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currencyPair' is set
         if (currencyPair == null) {
             throw new ApiException("Missing the required parameter 'currencyPair' when calling listOrderBook(Async)");
         }
 
-        okhttp3.Call localVarCall = listOrderBookCall(currencyPair, interval, limit, _callback);
+        okhttp3.Call localVarCall = listOrderBookCall(currencyPair, interval, limit, withId, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<OrderBook> listOrderBookWithHttpInfo(String currencyPair, String interval, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listOrderBookValidateBeforeCall(currencyPair, interval, limit, null);
+    private ApiResponse<OrderBook> listOrderBookWithHttpInfo(String currencyPair, String interval, Integer limit, Boolean withId) throws ApiException {
+        okhttp3.Call localVarCall = listOrderBookValidateBeforeCall(currencyPair, interval, limit, withId, null);
         Type localVarReturnType = new TypeToken<OrderBook>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listOrderBookAsync(String currencyPair, String interval, Integer limit, final ApiCallback<OrderBook> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listOrderBookValidateBeforeCall(currencyPair, interval, limit, _callback);
+    private okhttp3.Call listOrderBookAsync(String currencyPair, String interval, Integer limit, Boolean withId, final ApiCallback<OrderBook> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listOrderBookValidateBeforeCall(currencyPair, interval, limit, withId, _callback);
         Type localVarReturnType = new TypeToken<OrderBook>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -476,6 +480,7 @@ public class SpotApi {
         private final String currencyPair;
         private String interval;
         private Integer limit;
+        private Boolean withId;
 
         private APIlistOrderBookRequest(String currencyPair) {
             this.currencyPair = currencyPair;
@@ -502,6 +507,16 @@ public class SpotApi {
         }
 
         /**
+         * Set withId
+         * @param withId Return order book ID (optional, default to false)
+         * @return APIlistOrderBookRequest
+         */
+        public APIlistOrderBookRequest withId(Boolean withId) {
+            this.withId = withId;
+            return this;
+        }
+
+        /**
          * Build call for listOrderBook
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -513,7 +528,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listOrderBookCall(currencyPair, interval, limit, _callback);
+            return listOrderBookCall(currencyPair, interval, limit, withId, _callback);
         }
 
         /**
@@ -527,7 +542,7 @@ public class SpotApi {
          </table>
          */
         public OrderBook execute() throws ApiException {
-            ApiResponse<OrderBook> localVarResp = listOrderBookWithHttpInfo(currencyPair, interval, limit);
+            ApiResponse<OrderBook> localVarResp = listOrderBookWithHttpInfo(currencyPair, interval, limit, withId);
             return localVarResp.getData();
         }
 
@@ -542,7 +557,7 @@ public class SpotApi {
          </table>
          */
         public ApiResponse<OrderBook> executeWithHttpInfo() throws ApiException {
-            return listOrderBookWithHttpInfo(currencyPair, interval, limit);
+            return listOrderBookWithHttpInfo(currencyPair, interval, limit, withId);
         }
 
         /**
@@ -557,7 +572,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<OrderBook> _callback) throws ApiException {
-            return listOrderBookAsync(currencyPair, interval, limit, _callback);
+            return listOrderBookAsync(currencyPair, interval, limit, withId, _callback);
         }
     }
 

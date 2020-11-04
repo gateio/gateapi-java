@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**time** | [**BigDecimal**](BigDecimal.md) | Change time |  [optional]
+**time** | **Double** | Change time |  [optional]
 **change** | **String** | Change amount |  [optional]
 **balance** | **String** | Balance after change |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate |  [optional]

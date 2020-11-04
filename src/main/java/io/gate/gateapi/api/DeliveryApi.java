@@ -20,7 +20,6 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import java.math.BigDecimal;
 import io.gate.gateapi.models.DeliveryContract;
 import io.gate.gateapi.models.DeliverySettlement;
 import io.gate.gateapi.models.FuturesAccount;
@@ -468,7 +467,7 @@ public class DeliveryApi {
         return new APIlistDeliveryOrderBookRequest(settle, contract);
     }
 
-    private okhttp3.Call listDeliveryTradesCall(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeliveryTradesCall(String settle, String contract, Integer limit, String lastId, Long from, Long to, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -519,7 +518,7 @@ public class DeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDeliveryTradesValidateBeforeCall(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeliveryTradesValidateBeforeCall(String settle, String contract, Integer limit, String lastId, Long from, Long to, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listDeliveryTrades(Async)");
@@ -535,13 +534,13 @@ public class DeliveryApi {
     }
 
 
-    private ApiResponse<List<FuturesTrade>> listDeliveryTradesWithHttpInfo(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to) throws ApiException {
+    private ApiResponse<List<FuturesTrade>> listDeliveryTradesWithHttpInfo(String settle, String contract, Integer limit, String lastId, Long from, Long to) throws ApiException {
         okhttp3.Call localVarCall = listDeliveryTradesValidateBeforeCall(settle, contract, limit, lastId, from, to, null);
         Type localVarReturnType = new TypeToken<List<FuturesTrade>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listDeliveryTradesAsync(String settle, String contract, Integer limit, String lastId, BigDecimal from, BigDecimal to, final ApiCallback<List<FuturesTrade>> _callback) throws ApiException {
+    private okhttp3.Call listDeliveryTradesAsync(String settle, String contract, Integer limit, String lastId, Long from, Long to, final ApiCallback<List<FuturesTrade>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listDeliveryTradesValidateBeforeCall(settle, contract, limit, lastId, from, to, _callback);
         Type localVarReturnType = new TypeToken<List<FuturesTrade>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -553,8 +552,8 @@ public class DeliveryApi {
         private final String contract;
         private Integer limit;
         private String lastId;
-        private BigDecimal from;
-        private BigDecimal to;
+        private Long from;
+        private Long to;
 
         private APIlistDeliveryTradesRequest(String settle, String contract) {
             this.settle = settle;
@@ -586,7 +585,7 @@ public class DeliveryApi {
          * @param from Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)
          * @return APIlistDeliveryTradesRequest
          */
-        public APIlistDeliveryTradesRequest from(BigDecimal from) {
+        public APIlistDeliveryTradesRequest from(Long from) {
             this.from = from;
             return this;
         }
@@ -596,7 +595,7 @@ public class DeliveryApi {
          * @param to Specify end time in Unix seconds, default to current time (optional)
          * @return APIlistDeliveryTradesRequest
          */
-        public APIlistDeliveryTradesRequest to(BigDecimal to) {
+        public APIlistDeliveryTradesRequest to(Long to) {
             this.to = to;
             return this;
         }
@@ -677,7 +676,7 @@ public class DeliveryApi {
         return new APIlistDeliveryTradesRequest(settle, contract);
     }
 
-    private okhttp3.Call listDeliveryCandlesticksCall(String settle, String contract, BigDecimal from, BigDecimal to, Integer limit, String interval, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeliveryCandlesticksCall(String settle, String contract, Long from, Long to, Integer limit, String interval, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -728,7 +727,7 @@ public class DeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDeliveryCandlesticksValidateBeforeCall(String settle, String contract, BigDecimal from, BigDecimal to, Integer limit, String interval, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeliveryCandlesticksValidateBeforeCall(String settle, String contract, Long from, Long to, Integer limit, String interval, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listDeliveryCandlesticks(Async)");
@@ -744,13 +743,13 @@ public class DeliveryApi {
     }
 
 
-    private ApiResponse<List<FuturesCandlestick>> listDeliveryCandlesticksWithHttpInfo(String settle, String contract, BigDecimal from, BigDecimal to, Integer limit, String interval) throws ApiException {
+    private ApiResponse<List<FuturesCandlestick>> listDeliveryCandlesticksWithHttpInfo(String settle, String contract, Long from, Long to, Integer limit, String interval) throws ApiException {
         okhttp3.Call localVarCall = listDeliveryCandlesticksValidateBeforeCall(settle, contract, from, to, limit, interval, null);
         Type localVarReturnType = new TypeToken<List<FuturesCandlestick>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listDeliveryCandlesticksAsync(String settle, String contract, BigDecimal from, BigDecimal to, Integer limit, String interval, final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
+    private okhttp3.Call listDeliveryCandlesticksAsync(String settle, String contract, Long from, Long to, Integer limit, String interval, final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listDeliveryCandlesticksValidateBeforeCall(settle, contract, from, to, limit, interval, _callback);
         Type localVarReturnType = new TypeToken<List<FuturesCandlestick>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -760,8 +759,8 @@ public class DeliveryApi {
     public class APIlistDeliveryCandlesticksRequest {
         private final String settle;
         private final String contract;
-        private BigDecimal from;
-        private BigDecimal to;
+        private Long from;
+        private Long to;
         private Integer limit;
         private String interval;
 
@@ -775,7 +774,7 @@ public class DeliveryApi {
          * @param from Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
          * @return APIlistDeliveryCandlesticksRequest
          */
-        public APIlistDeliveryCandlesticksRequest from(BigDecimal from) {
+        public APIlistDeliveryCandlesticksRequest from(Long from) {
             this.from = from;
             return this;
         }
@@ -785,7 +784,7 @@ public class DeliveryApi {
          * @param to End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
          * @return APIlistDeliveryCandlesticksRequest
          */
-        public APIlistDeliveryCandlesticksRequest to(BigDecimal to) {
+        public APIlistDeliveryCandlesticksRequest to(Long to) {
             this.to = to;
             return this;
         }

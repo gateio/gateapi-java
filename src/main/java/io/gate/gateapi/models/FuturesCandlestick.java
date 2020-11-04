@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * data point in every timestamp
@@ -26,7 +25,7 @@ import java.math.BigDecimal;
 public class FuturesCandlestick {
     public static final String SERIALIZED_NAME_T = "t";
     @SerializedName(SERIALIZED_NAME_T)
-    private BigDecimal t;
+    private Double t;
 
     public static final String SERIALIZED_NAME_V = "v";
     @SerializedName(SERIALIZED_NAME_V)
@@ -49,7 +48,7 @@ public class FuturesCandlestick {
     private String o;
 
 
-    public FuturesCandlestick t(BigDecimal t) {
+    public FuturesCandlestick t(Double t) {
         
         this.t = t;
         return this;
@@ -60,12 +59,12 @@ public class FuturesCandlestick {
      * @return t
     **/
     @javax.annotation.Nullable
-    public BigDecimal getT() {
+    public Double getT() {
         return t;
     }
 
 
-    public void setT(BigDecimal t) {
+    public void setT(Double t) {
         this.t = t;
     }
 

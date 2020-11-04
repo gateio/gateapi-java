@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * FuturesAccountBook
@@ -26,7 +25,7 @@ import java.math.BigDecimal;
 public class FuturesAccountBook {
     public static final String SERIALIZED_NAME_TIME = "time";
     @SerializedName(SERIALIZED_NAME_TIME)
-    private BigDecimal time;
+    private Double time;
 
     public static final String SERIALIZED_NAME_CHANGE = "change";
     @SerializedName(SERIALIZED_NAME_CHANGE)
@@ -104,7 +103,7 @@ public class FuturesAccountBook {
     private String text;
 
 
-    public FuturesAccountBook time(BigDecimal time) {
+    public FuturesAccountBook time(Double time) {
         
         this.time = time;
         return this;
@@ -115,12 +114,12 @@ public class FuturesAccountBook {
      * @return time
     **/
     @javax.annotation.Nullable
-    public BigDecimal getTime() {
+    public Double getTime() {
         return time;
     }
 
 
-    public void setTime(BigDecimal time) {
+    public void setTime(Double time) {
         this.time = time;
     }
 

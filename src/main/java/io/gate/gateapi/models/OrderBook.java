@@ -25,6 +25,10 @@ import java.util.List;
  * OrderBook
  */
 public class OrderBook {
+    public static final String SERIALIZED_NAME_ID = "id";
+    @SerializedName(SERIALIZED_NAME_ID)
+    private Long id;
+
     public static final String SERIALIZED_NAME_ASKS = "asks";
     @SerializedName(SERIALIZED_NAME_ASKS)
     private List<List<String>> asks = new ArrayList<>();
@@ -33,6 +37,26 @@ public class OrderBook {
     @SerializedName(SERIALIZED_NAME_BIDS)
     private List<List<String>> bids = new ArrayList<>();
 
+
+    public OrderBook id(Long id) {
+        
+        this.id = id;
+        return this;
+    }
+
+     /**
+     * Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;
+     * @return id
+    **/
+    @javax.annotation.Nullable
+    public Long getId() {
+        return id;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public OrderBook asks(List<List<String>> asks) {
         
@@ -90,13 +114,14 @@ public class OrderBook {
             return false;
         }
         OrderBook orderBook = (OrderBook) o;
-        return Objects.equals(this.asks, orderBook.asks) &&
+        return Objects.equals(this.id, orderBook.id) &&
+                Objects.equals(this.asks, orderBook.asks) &&
                 Objects.equals(this.bids, orderBook.bids);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(asks, bids);
+        return Objects.hash(id, asks, bids);
     }
 
 
@@ -104,6 +129,7 @@ public class OrderBook {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OrderBook {\n");
+        sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      asks: ").append(toIndentedString(asks)).append("\n");
         sb.append("      bids: ").append(toIndentedString(bids)).append("\n");
         sb.append("}");

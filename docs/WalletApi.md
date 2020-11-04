@@ -111,8 +111,8 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
-        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 56L; // Long | Time range ending, default to current time
+        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 1602123600L; // Long | Time range ending, default to current time
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
@@ -195,8 +195,8 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
-        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 56L; // Long | Time range ending, default to current time
+        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 1602123600L; // Long | Time range ending, default to current time
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
@@ -348,8 +348,8 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
-        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 56L; // Long | Time range ending, default to current time
+        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 1602123600L; // Long | Time range ending, default to current time
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * Futures contract details
@@ -311,7 +310,7 @@ public class DeliveryContract {
 
     public static final String SERIALIZED_NAME_CONFIG_CHANGE_TIME = "config_change_time";
     @SerializedName(SERIALIZED_NAME_CONFIG_CHANGE_TIME)
-    private BigDecimal configChangeTime;
+    private Double configChangeTime;
 
     public static final String SERIALIZED_NAME_IN_DELISTING = "in_delisting";
     @SerializedName(SERIALIZED_NAME_IN_DELISTING)
@@ -1022,7 +1021,7 @@ public class DeliveryContract {
         this.positionSize = positionSize;
     }
 
-    public DeliveryContract configChangeTime(BigDecimal configChangeTime) {
+    public DeliveryContract configChangeTime(Double configChangeTime) {
         
         this.configChangeTime = configChangeTime;
         return this;
@@ -1033,12 +1032,12 @@ public class DeliveryContract {
      * @return configChangeTime
     **/
     @javax.annotation.Nullable
-    public BigDecimal getConfigChangeTime() {
+    public Double getConfigChangeTime() {
         return configChangeTime;
     }
 
 
-    public void setConfigChangeTime(BigDecimal configChangeTime) {
+    public void setConfigChangeTime(Double configChangeTime) {
         this.configChangeTime = configChangeTime;
     }
 

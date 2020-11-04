@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Long** | Futures order ID |  [optional] [readonly]
 **user** | **Integer** | User ID |  [optional] [readonly]
-**createTime** | [**BigDecimal**](BigDecimal.md) | Order creation time |  [optional] [readonly]
-**finishTime** | [**BigDecimal**](BigDecimal.md) | Order finished time. Not returned if order is open |  [optional] [readonly]
+**createTime** | **Double** | Order creation time |  [optional] [readonly]
+**finishTime** | **Double** | Order finished time. Not returned if order is open |  [optional] [readonly]
 **finishAs** | [**FinishAsEnum**](#FinishAsEnum) | How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set |  [optional] [readonly]
 **status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished |  [optional] [readonly]
 **contract** | **String** | Futures contract | 

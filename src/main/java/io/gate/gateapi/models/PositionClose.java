@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * PositionClose
@@ -26,7 +25,7 @@ import java.math.BigDecimal;
 public class PositionClose {
     public static final String SERIALIZED_NAME_TIME = "time";
     @SerializedName(SERIALIZED_NAME_TIME)
-    private BigDecimal time;
+    private Double time;
 
     public static final String SERIALIZED_NAME_CONTRACT = "contract";
     @SerializedName(SERIALIZED_NAME_CONTRACT)
@@ -97,7 +96,7 @@ public class PositionClose {
      * @return time
     **/
     @javax.annotation.Nullable
-    public BigDecimal getTime() {
+    public Double getTime() {
         return time;
     }
 

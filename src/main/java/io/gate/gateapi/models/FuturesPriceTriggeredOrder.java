@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.FuturesInitialOrder;
 import io.gate.gateapi.models.FuturesPriceTrigger;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * Futures order details
@@ -44,11 +43,11 @@ public class FuturesPriceTriggeredOrder {
 
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private BigDecimal createTime;
+    private Double createTime;
 
     public static final String SERIALIZED_NAME_FINISH_TIME = "finish_time";
     @SerializedName(SERIALIZED_NAME_FINISH_TIME)
-    private BigDecimal finishTime;
+    private Double finishTime;
 
     public static final String SERIALIZED_NAME_TRADE_ID = "trade_id";
     @SerializedName(SERIALIZED_NAME_TRADE_ID)
@@ -228,7 +227,7 @@ public class FuturesPriceTriggeredOrder {
      * @return createTime
     **/
     @javax.annotation.Nullable
-    public BigDecimal getCreateTime() {
+    public Double getCreateTime() {
         return createTime;
     }
 
@@ -238,7 +237,7 @@ public class FuturesPriceTriggeredOrder {
      * @return finishTime
     **/
     @javax.annotation.Nullable
-    public BigDecimal getFinishTime() {
+    public Double getFinishTime() {
         return finishTime;
     }
 

@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * Futures contract details
@@ -184,7 +183,7 @@ public class Contract {
 
     public static final String SERIALIZED_NAME_FUNDING_NEXT_APPLY = "funding_next_apply";
     @SerializedName(SERIALIZED_NAME_FUNDING_NEXT_APPLY)
-    private BigDecimal fundingNextApply;
+    private Double fundingNextApply;
 
     public static final String SERIALIZED_NAME_RISK_LIMIT_BASE = "risk_limit_base";
     @SerializedName(SERIALIZED_NAME_RISK_LIMIT_BASE)
@@ -236,7 +235,7 @@ public class Contract {
 
     public static final String SERIALIZED_NAME_CONFIG_CHANGE_TIME = "config_change_time";
     @SerializedName(SERIALIZED_NAME_CONFIG_CHANGE_TIME)
-    private BigDecimal configChangeTime;
+    private Double configChangeTime;
 
     public static final String SERIALIZED_NAME_IN_DELISTING = "in_delisting";
     @SerializedName(SERIALIZED_NAME_IN_DELISTING)
@@ -567,7 +566,7 @@ public class Contract {
         this.fundingInterval = fundingInterval;
     }
 
-    public Contract fundingNextApply(BigDecimal fundingNextApply) {
+    public Contract fundingNextApply(Double fundingNextApply) {
         
         this.fundingNextApply = fundingNextApply;
         return this;
@@ -578,12 +577,12 @@ public class Contract {
      * @return fundingNextApply
     **/
     @javax.annotation.Nullable
-    public BigDecimal getFundingNextApply() {
+    public Double getFundingNextApply() {
         return fundingNextApply;
     }
 
 
-    public void setFundingNextApply(BigDecimal fundingNextApply) {
+    public void setFundingNextApply(Double fundingNextApply) {
         this.fundingNextApply = fundingNextApply;
     }
 
@@ -827,7 +826,7 @@ public class Contract {
         this.positionSize = positionSize;
     }
 
-    public Contract configChangeTime(BigDecimal configChangeTime) {
+    public Contract configChangeTime(Double configChangeTime) {
         
         this.configChangeTime = configChangeTime;
         return this;
@@ -838,12 +837,12 @@ public class Contract {
      * @return configChangeTime
     **/
     @javax.annotation.Nullable
-    public BigDecimal getConfigChangeTime() {
+    public Double getConfigChangeTime() {
         return configChangeTime;
     }
 
 
-    public void setConfigChangeTime(BigDecimal configChangeTime) {
+    public void setConfigChangeTime(Double configChangeTime) {
         this.configChangeTime = configChangeTime;
     }
 

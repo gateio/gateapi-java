@@ -21,6 +21,7 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.Contract;
+import io.gate.gateapi.models.ContractStat;
 import io.gate.gateapi.models.FundingRateRecord;
 import io.gate.gateapi.models.FuturesAccount;
 import io.gate.gateapi.models.FuturesAccountBook;
@@ -1351,6 +1352,185 @@ public class FuturesApi {
      */
     public APIlistFuturesInsuranceLedgerRequest listFuturesInsuranceLedger(String settle) {
         return new APIlistFuturesInsuranceLedgerRequest(settle);
+    }
+
+    private okhttp3.Call listContractStatsCall(String settle, String contract, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/contract_stats"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (interval != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("interval", interval));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listContractStatsValidateBeforeCall(String settle, String contract, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listContractStats(Async)");
+        }
+
+        // verify the required parameter 'contract' is set
+        if (contract == null) {
+            throw new ApiException("Missing the required parameter 'contract' when calling listContractStats(Async)");
+        }
+
+        okhttp3.Call localVarCall = listContractStatsCall(settle, contract, interval, limit, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<ContractStat>> listContractStatsWithHttpInfo(String settle, String contract, String interval, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listContractStatsValidateBeforeCall(settle, contract, interval, limit, null);
+        Type localVarReturnType = new TypeToken<List<ContractStat>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listContractStatsAsync(String settle, String contract, String interval, Integer limit, final ApiCallback<List<ContractStat>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listContractStatsValidateBeforeCall(settle, contract, interval, limit, _callback);
+        Type localVarReturnType = new TypeToken<List<ContractStat>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistContractStatsRequest {
+        private final String settle;
+        private final String contract;
+        private String interval;
+        private Integer limit;
+
+        private APIlistContractStatsRequest(String settle, String contract) {
+            this.settle = settle;
+            this.contract = contract;
+        }
+
+        /**
+         * Set interval
+         * @param interval  (optional, default to 5m)
+         * @return APIlistContractStatsRequest
+         */
+        public APIlistContractStatsRequest interval(String interval) {
+            this.interval = interval;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional, default to 30)
+         * @return APIlistContractStatsRequest
+         */
+        public APIlistContractStatsRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listContractStats
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listContractStatsCall(settle, contract, interval, limit, _callback);
+        }
+
+        /**
+         * Execute listContractStats request
+         * @return List&lt;ContractStat&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<ContractStat> execute() throws ApiException {
+            ApiResponse<List<ContractStat>> localVarResp = listContractStatsWithHttpInfo(settle, contract, interval, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listContractStats request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ContractStat&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<ContractStat>> executeWithHttpInfo() throws ApiException {
+            return listContractStatsWithHttpInfo(settle, contract, interval, limit);
+        }
+
+        /**
+         * Execute listContractStats request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ContractStat>> _callback) throws ApiException {
+            return listContractStatsAsync(settle, contract, interval, limit, _callback);
+        }
+    }
+
+    /**
+     * Futures stats
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @return APIlistContractStatsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistContractStatsRequest listContractStats(String settle, String contract) {
+        return new APIlistContractStatsRequest(settle, contract);
     }
 
     /**

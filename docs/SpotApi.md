@@ -217,7 +217,7 @@ No authorization required
 
 <a name="listOrderBook"></a>
 # **listOrderBook**
-> OrderBook listOrderBook(currencyPair).interval(interval).limit(limit).execute();
+> OrderBook listOrderBook(currencyPair).interval(interval).limit(limit).withId(withId).execute();
 
 Retrieve order book
 
@@ -243,10 +243,12 @@ public class Example {
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String interval = "\"0\""; // String | Order depth. 0 means no aggregation is applied. default to 0
         Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
+        Boolean withId = false; // Boolean | Return order book ID
         try {
             OrderBook result = apiInstance.listOrderBook(currencyPair)
                         .interval(interval)
                         .limit(limit)
+                        .withId(withId)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -269,6 +271,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **String**| Currency pair |
  **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &quot;0&quot;]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **withId** | **Boolean**| Return order book ID | [optional] [default to false]
 
 ### Return type
 
