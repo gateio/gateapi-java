@@ -108,6 +108,59 @@ public class Position {
     @SerializedName(SERIALIZED_NAME_CLOSE_ORDER)
     private PositionCloseOrder closeOrder;
 
+    /**
+     * Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
+     */
+    @JsonAdapter(DualModeEnum.Adapter.class)
+    public enum DualModeEnum {
+        SINGLE("single"),
+        
+        DUAL_LONG("dual_long"),
+        
+        DUAL_SHORT("dual_short");
+
+        private String value;
+
+        DualModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static DualModeEnum fromValue(String value) {
+            for (DualModeEnum b : DualModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<DualModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DualModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DualModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return DualModeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_DUAL_MODE = "dual_mode";
+    @SerializedName(SERIALIZED_NAME_DUAL_MODE)
+    private DualModeEnum dualMode;
+
 
      /**
      * User ID
@@ -358,6 +411,26 @@ public class Position {
     public void setCloseOrder(PositionCloseOrder closeOrder) {
         this.closeOrder = closeOrder;
     }
+
+    public Position dualMode(DualModeEnum dualMode) {
+        
+        this.dualMode = dualMode;
+        return this;
+    }
+
+     /**
+     * Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
+     * @return dualMode
+    **/
+    @javax.annotation.Nullable
+    public DualModeEnum getDualMode() {
+        return dualMode;
+    }
+
+
+    public void setDualMode(DualModeEnum dualMode) {
+        this.dualMode = dualMode;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -387,12 +460,13 @@ public class Position {
                 Objects.equals(this.historyPoint, position.historyPoint) &&
                 Objects.equals(this.adlRanking, position.adlRanking) &&
                 Objects.equals(this.pendingOrders, position.pendingOrders) &&
-                Objects.equals(this.closeOrder, position.closeOrder);
+                Objects.equals(this.closeOrder, position.closeOrder) &&
+                Objects.equals(this.dualMode, position.dualMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder);
+        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, dualMode);
     }
 
 
@@ -421,6 +495,7 @@ public class Position {
         sb.append("      adlRanking: ").append(toIndentedString(adlRanking)).append("\n");
         sb.append("      pendingOrders: ").append(toIndentedString(pendingOrders)).append("\n");
         sb.append("      closeOrder: ").append(toIndentedString(closeOrder)).append("\n");
+        sb.append("      dualMode: ").append(toIndentedString(dualMode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

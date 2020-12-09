@@ -1354,7 +1354,7 @@ public class FuturesApi {
         return new APIlistFuturesInsuranceLedgerRequest(settle);
     }
 
-    private okhttp3.Call listContractStatsCall(String settle, String contract, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listContractStatsCall(String settle, String contract, Long from, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1365,6 +1365,10 @@ public class FuturesApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (contract != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
         }
 
         if (interval != null) {
@@ -1397,7 +1401,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listContractStatsValidateBeforeCall(String settle, String contract, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listContractStatsValidateBeforeCall(String settle, String contract, Long from, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listContractStats(Async)");
@@ -1408,19 +1412,19 @@ public class FuturesApi {
             throw new ApiException("Missing the required parameter 'contract' when calling listContractStats(Async)");
         }
 
-        okhttp3.Call localVarCall = listContractStatsCall(settle, contract, interval, limit, _callback);
+        okhttp3.Call localVarCall = listContractStatsCall(settle, contract, from, interval, limit, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<ContractStat>> listContractStatsWithHttpInfo(String settle, String contract, String interval, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listContractStatsValidateBeforeCall(settle, contract, interval, limit, null);
+    private ApiResponse<List<ContractStat>> listContractStatsWithHttpInfo(String settle, String contract, Long from, String interval, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listContractStatsValidateBeforeCall(settle, contract, from, interval, limit, null);
         Type localVarReturnType = new TypeToken<List<ContractStat>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listContractStatsAsync(String settle, String contract, String interval, Integer limit, final ApiCallback<List<ContractStat>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listContractStatsValidateBeforeCall(settle, contract, interval, limit, _callback);
+    private okhttp3.Call listContractStatsAsync(String settle, String contract, Long from, String interval, Integer limit, final ApiCallback<List<ContractStat>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listContractStatsValidateBeforeCall(settle, contract, from, interval, limit, _callback);
         Type localVarReturnType = new TypeToken<List<ContractStat>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1429,12 +1433,23 @@ public class FuturesApi {
     public class APIlistContractStatsRequest {
         private final String settle;
         private final String contract;
+        private Long from;
         private String interval;
         private Integer limit;
 
         private APIlistContractStatsRequest(String settle, String contract) {
             this.settle = settle;
             this.contract = contract;
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIlistContractStatsRequest
+         */
+        public APIlistContractStatsRequest from(Long from) {
+            this.from = from;
+            return this;
         }
 
         /**
@@ -1469,7 +1484,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listContractStatsCall(settle, contract, interval, limit, _callback);
+            return listContractStatsCall(settle, contract, from, interval, limit, _callback);
         }
 
         /**
@@ -1483,7 +1498,7 @@ public class FuturesApi {
          </table>
          */
         public List<ContractStat> execute() throws ApiException {
-            ApiResponse<List<ContractStat>> localVarResp = listContractStatsWithHttpInfo(settle, contract, interval, limit);
+            ApiResponse<List<ContractStat>> localVarResp = listContractStatsWithHttpInfo(settle, contract, from, interval, limit);
             return localVarResp.getData();
         }
 
@@ -1498,7 +1513,7 @@ public class FuturesApi {
          </table>
          */
         public ApiResponse<List<ContractStat>> executeWithHttpInfo() throws ApiException {
-            return listContractStatsWithHttpInfo(settle, contract, interval, limit);
+            return listContractStatsWithHttpInfo(settle, contract, from, interval, limit);
         }
 
         /**
@@ -1513,7 +1528,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<ContractStat>> _callback) throws ApiException {
-            return listContractStatsAsync(settle, contract, interval, limit, _callback);
+            return listContractStatsAsync(settle, contract, from, interval, limit, _callback);
         }
     }
 
@@ -1531,6 +1546,203 @@ public class FuturesApi {
      */
     public APIlistContractStatsRequest listContractStats(String settle, String contract) {
         return new APIlistContractStatsRequest(settle, contract);
+    }
+
+    private okhttp3.Call listLiquidatedOrdersCall(String settle, String contract, Long from, Long to, Integer limit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/liq_orders"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listLiquidatedOrdersValidateBeforeCall(String settle, String contract, Long from, Long to, Integer limit, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listLiquidatedOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = listLiquidatedOrdersCall(settle, contract, from, to, limit, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<FuturesLiquidate>> listLiquidatedOrdersWithHttpInfo(String settle, String contract, Long from, Long to, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listLiquidatedOrdersValidateBeforeCall(settle, contract, from, to, limit, null);
+        Type localVarReturnType = new TypeToken<List<FuturesLiquidate>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listLiquidatedOrdersAsync(String settle, String contract, Long from, Long to, Integer limit, final ApiCallback<List<FuturesLiquidate>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listLiquidatedOrdersValidateBeforeCall(settle, contract, from, to, limit, _callback);
+        Type localVarReturnType = new TypeToken<List<FuturesLiquidate>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistLiquidatedOrdersRequest {
+        private final String settle;
+        private String contract;
+        private Long from;
+        private Long to;
+        private Integer limit;
+
+        private APIlistLiquidatedOrdersRequest(String settle) {
+            this.settle = settle;
+        }
+
+        /**
+         * Set contract
+         * @param contract Futures contract, return related data only if specified (optional)
+         * @return APIlistLiquidatedOrdersRequest
+         */
+        public APIlistLiquidatedOrdersRequest contract(String contract) {
+            this.contract = contract;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIlistLiquidatedOrdersRequest
+         */
+        public APIlistLiquidatedOrdersRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIlistLiquidatedOrdersRequest
+         */
+        public APIlistLiquidatedOrdersRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @return APIlistLiquidatedOrdersRequest
+         */
+        public APIlistLiquidatedOrdersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listLiquidatedOrders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listLiquidatedOrdersCall(settle, contract, from, to, limit, _callback);
+        }
+
+        /**
+         * Execute listLiquidatedOrders request
+         * @return List&lt;FuturesLiquidate&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<FuturesLiquidate> execute() throws ApiException {
+            ApiResponse<List<FuturesLiquidate>> localVarResp = listLiquidatedOrdersWithHttpInfo(settle, contract, from, to, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listLiquidatedOrders request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;FuturesLiquidate&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<FuturesLiquidate>> executeWithHttpInfo() throws ApiException {
+            return listLiquidatedOrdersWithHttpInfo(settle, contract, from, to, limit);
+        }
+
+        /**
+         * Execute listLiquidatedOrders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesLiquidate>> _callback) throws ApiException {
+            return listLiquidatedOrdersAsync(settle, contract, from, to, limit, _callback);
+        }
+    }
+
+    /**
+     * Retrieve liquidation history
+     * Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+     * @param settle Settle currency (required)
+     * @return APIlistLiquidatedOrdersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistLiquidatedOrdersRequest listLiquidatedOrders(String settle) {
+        return new APIlistLiquidatedOrdersRequest(settle);
     }
 
     /**
@@ -2453,6 +2665,638 @@ public class FuturesApi {
     public okhttp3.Call updatePositionRiskLimitAsync(String settle, String contract, String riskLimit, final ApiCallback<Position> _callback) throws ApiException {
         okhttp3.Call localVarCall = updatePositionRiskLimitValidateBeforeCall(settle, contract, riskLimit, _callback);
         Type localVarReturnType = new TypeToken<Position>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for setDualMode
+     * @param settle Settle currency (required)
+     * @param dualMode Whether to enable dual mode (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setDualModeCall(String settle, Boolean dualMode, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/dual_mode"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (dualMode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dual_mode", dualMode));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setDualModeValidateBeforeCall(String settle, Boolean dualMode, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling setDualMode(Async)");
+        }
+
+        // verify the required parameter 'dualMode' is set
+        if (dualMode == null) {
+            throw new ApiException("Missing the required parameter 'dualMode' when calling setDualMode(Async)");
+        }
+
+        okhttp3.Call localVarCall = setDualModeCall(settle, dualMode, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Enable or disable dual mode
+     * Before setting dual mode, make sure all positions are closed and no orders are open
+     * @param settle Settle currency (required)
+     * @param dualMode Whether to enable dual mode (required)
+     * @return FuturesAccount
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+     </table>
+     */
+    public FuturesAccount setDualMode(String settle, Boolean dualMode) throws ApiException {
+        ApiResponse<FuturesAccount> localVarResp = setDualModeWithHttpInfo(settle, dualMode);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Enable or disable dual mode
+     * Before setting dual mode, make sure all positions are closed and no orders are open
+     * @param settle Settle currency (required)
+     * @param dualMode Whether to enable dual mode (required)
+     * @return ApiResponse&lt;FuturesAccount&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FuturesAccount> setDualModeWithHttpInfo(String settle, Boolean dualMode) throws ApiException {
+        okhttp3.Call localVarCall = setDualModeValidateBeforeCall(settle, dualMode, null);
+        Type localVarReturnType = new TypeToken<FuturesAccount>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Enable or disable dual mode (asynchronously)
+     * Before setting dual mode, make sure all positions are closed and no orders are open
+     * @param settle Settle currency (required)
+     * @param dualMode Whether to enable dual mode (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setDualModeAsync(String settle, Boolean dualMode, final ApiCallback<FuturesAccount> _callback) throws ApiException {
+        okhttp3.Call localVarCall = setDualModeValidateBeforeCall(settle, dualMode, _callback);
+        Type localVarReturnType = new TypeToken<FuturesAccount>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getDualModePosition
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getDualModePositionCall(String settle, String contract, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/dual_comp/positions/{contract}"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
+            .replaceAll("\\{" + "contract" + "\\}", localVarApiClient.escapeString(contract));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getDualModePositionValidateBeforeCall(String settle, String contract, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling getDualModePosition(Async)");
+        }
+
+        // verify the required parameter 'contract' is set
+        if (contract == null) {
+            throw new ApiException("Missing the required parameter 'contract' when calling getDualModePosition(Async)");
+        }
+
+        okhttp3.Call localVarCall = getDualModePositionCall(settle, contract, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Retrieve position detail in dual mode
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @return List&lt;Position&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Position> getDualModePosition(String settle, String contract) throws ApiException {
+        ApiResponse<List<Position>> localVarResp = getDualModePositionWithHttpInfo(settle, contract);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve position detail in dual mode
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @return ApiResponse&lt;List&lt;Position&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Position>> getDualModePositionWithHttpInfo(String settle, String contract) throws ApiException {
+        okhttp3.Call localVarCall = getDualModePositionValidateBeforeCall(settle, contract, null);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve position detail in dual mode (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getDualModePositionAsync(String settle, String contract, final ApiCallback<List<Position>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getDualModePositionValidateBeforeCall(settle, contract, _callback);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateDualModePositionMargin
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param change Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDualModePositionMarginCall(String settle, String contract, String change, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/dual_comp/positions/{contract}/margin"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
+            .replaceAll("\\{" + "contract" + "\\}", localVarApiClient.escapeString(contract));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (change != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("change", change));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateDualModePositionMarginValidateBeforeCall(String settle, String contract, String change, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling updateDualModePositionMargin(Async)");
+        }
+
+        // verify the required parameter 'contract' is set
+        if (contract == null) {
+            throw new ApiException("Missing the required parameter 'contract' when calling updateDualModePositionMargin(Async)");
+        }
+
+        // verify the required parameter 'change' is set
+        if (change == null) {
+            throw new ApiException("Missing the required parameter 'change' when calling updateDualModePositionMargin(Async)");
+        }
+
+        okhttp3.Call localVarCall = updateDualModePositionMarginCall(settle, contract, change, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Update position margin in dual mode
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param change Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @return List&lt;Position&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Position> updateDualModePositionMargin(String settle, String contract, String change) throws ApiException {
+        ApiResponse<List<Position>> localVarResp = updateDualModePositionMarginWithHttpInfo(settle, contract, change);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update position margin in dual mode
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param change Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @return ApiResponse&lt;List&lt;Position&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Position>> updateDualModePositionMarginWithHttpInfo(String settle, String contract, String change) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionMarginValidateBeforeCall(settle, contract, change, null);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update position margin in dual mode (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param change Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDualModePositionMarginAsync(String settle, String contract, String change, final ApiCallback<List<Position>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionMarginValidateBeforeCall(settle, contract, change, _callback);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateDualModePositionLeverage
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param leverage New position leverage (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDualModePositionLeverageCall(String settle, String contract, String leverage, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/dual_comp/positions/{contract}/leverage"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
+            .replaceAll("\\{" + "contract" + "\\}", localVarApiClient.escapeString(contract));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (leverage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("leverage", leverage));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateDualModePositionLeverageValidateBeforeCall(String settle, String contract, String leverage, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling updateDualModePositionLeverage(Async)");
+        }
+
+        // verify the required parameter 'contract' is set
+        if (contract == null) {
+            throw new ApiException("Missing the required parameter 'contract' when calling updateDualModePositionLeverage(Async)");
+        }
+
+        // verify the required parameter 'leverage' is set
+        if (leverage == null) {
+            throw new ApiException("Missing the required parameter 'leverage' when calling updateDualModePositionLeverage(Async)");
+        }
+
+        okhttp3.Call localVarCall = updateDualModePositionLeverageCall(settle, contract, leverage, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Update position leverage in dual mode
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param leverage New position leverage (required)
+     * @return List&lt;Position&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Position> updateDualModePositionLeverage(String settle, String contract, String leverage) throws ApiException {
+        ApiResponse<List<Position>> localVarResp = updateDualModePositionLeverageWithHttpInfo(settle, contract, leverage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update position leverage in dual mode
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param leverage New position leverage (required)
+     * @return ApiResponse&lt;List&lt;Position&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Position>> updateDualModePositionLeverageWithHttpInfo(String settle, String contract, String leverage) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionLeverageValidateBeforeCall(settle, contract, leverage, null);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update position leverage in dual mode (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param leverage New position leverage (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDualModePositionLeverageAsync(String settle, String contract, String leverage, final ApiCallback<List<Position>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionLeverageValidateBeforeCall(settle, contract, leverage, _callback);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateDualModePositionRiskLimit
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param riskLimit New position risk limit (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDualModePositionRiskLimitCall(String settle, String contract, String riskLimit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/dual_comp/positions/{contract}/risk_limit"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
+            .replaceAll("\\{" + "contract" + "\\}", localVarApiClient.escapeString(contract));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (riskLimit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("risk_limit", riskLimit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateDualModePositionRiskLimitValidateBeforeCall(String settle, String contract, String riskLimit, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling updateDualModePositionRiskLimit(Async)");
+        }
+
+        // verify the required parameter 'contract' is set
+        if (contract == null) {
+            throw new ApiException("Missing the required parameter 'contract' when calling updateDualModePositionRiskLimit(Async)");
+        }
+
+        // verify the required parameter 'riskLimit' is set
+        if (riskLimit == null) {
+            throw new ApiException("Missing the required parameter 'riskLimit' when calling updateDualModePositionRiskLimit(Async)");
+        }
+
+        okhttp3.Call localVarCall = updateDualModePositionRiskLimitCall(settle, contract, riskLimit, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Update position risk limit in dual mode
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param riskLimit New position risk limit (required)
+     * @return List&lt;Position&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Position> updateDualModePositionRiskLimit(String settle, String contract, String riskLimit) throws ApiException {
+        ApiResponse<List<Position>> localVarResp = updateDualModePositionRiskLimitWithHttpInfo(settle, contract, riskLimit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update position risk limit in dual mode
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param riskLimit New position risk limit (required)
+     * @return ApiResponse&lt;List&lt;Position&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Position>> updateDualModePositionRiskLimitWithHttpInfo(String settle, String contract, String riskLimit) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionRiskLimitValidateBeforeCall(settle, contract, riskLimit, null);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update position risk limit in dual mode (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param riskLimit New position risk limit (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDualModePositionRiskLimitAsync(String settle, String contract, String riskLimit, final ApiCallback<List<Position>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionRiskLimitValidateBeforeCall(settle, contract, riskLimit, _callback);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

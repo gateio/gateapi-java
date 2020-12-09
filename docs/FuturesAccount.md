@@ -12,4 +12,5 @@ Name | Type | Description | Notes
 **available** | **String** | Available balance to transfer out or trade |  [optional]
 **point** | **String** | POINT amount |  [optional]
 **currency** | **String** | Settle currency |  [optional]
+**inDualMode** | **Boolean** | Whether dual mode is enabled |  [optional]
 

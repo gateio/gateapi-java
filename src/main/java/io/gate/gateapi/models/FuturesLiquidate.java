@@ -93,7 +93,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Position leverage
+     * Position leverage. Not returned in public endpoints.
      * @return leverage
     **/
     @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Position margin
+     * Position margin. Not returned in public endpoints.
      * @return margin
     **/
     @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Average entry price
+     * Average entry price. Not returned in public endpoints.
      * @return entryPrice
     **/
     @javax.annotation.Nullable
@@ -133,7 +133,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Liquidation price
+     * Liquidation price. Not returned in public endpoints.
      * @return liqPrice
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Mark price
+     * Mark price. Not returned in public endpoints.
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -153,7 +153,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Liquidation order ID
+     * Liquidation order ID. Not returned in public endpoints.
      * @return orderId
     **/
     @javax.annotation.Nullable

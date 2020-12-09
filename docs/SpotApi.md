@@ -293,7 +293,7 @@ No authorization required
 
 <a name="listTrades"></a>
 # **listTrades**
-> List&lt;Trade&gt; listTrades(currencyPair).limit(limit).lastId(lastId).execute();
+> List&lt;Trade&gt; listTrades(currencyPair).limit(limit).lastId(lastId).reverse(reverse).execute();
 
 Retrieve market trades
 
@@ -317,10 +317,12 @@ public class Example {
         String currencyPair = "BTC_USDT"; // String | Currency pair
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
+        Boolean reverse = false; // Boolean | Whether to retrieve records whose IDs are smaller than `last_id`'s. Default to larger ones.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified.
         try {
             List<Trade> result = apiInstance.listTrades(currencyPair)
                         .limit(limit)
                         .lastId(lastId)
+                        .reverse(reverse)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -343,6 +345,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **String**| Currency pair |
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
+ **reverse** | **Boolean**| Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
 
 ### Return type
 
@@ -587,7 +590,7 @@ Name | Type | Description  | Notes
 
 Create a batch of orders
 
-Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
 
 ### Example
 

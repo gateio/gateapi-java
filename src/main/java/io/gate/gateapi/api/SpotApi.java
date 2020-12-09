@@ -591,7 +591,7 @@ public class SpotApi {
         return new APIlistOrderBookRequest(currencyPair);
     }
 
-    private okhttp3.Call listTradesCall(String currencyPair, Integer limit, String lastId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTradesCall(String currencyPair, Integer limit, String lastId, Boolean reverse, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -609,6 +609,10 @@ public class SpotApi {
 
         if (lastId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("last_id", lastId));
+        }
+
+        if (reverse != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reverse", reverse));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -633,25 +637,25 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTradesValidateBeforeCall(String currencyPair, Integer limit, String lastId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTradesValidateBeforeCall(String currencyPair, Integer limit, String lastId, Boolean reverse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currencyPair' is set
         if (currencyPair == null) {
             throw new ApiException("Missing the required parameter 'currencyPair' when calling listTrades(Async)");
         }
 
-        okhttp3.Call localVarCall = listTradesCall(currencyPair, limit, lastId, _callback);
+        okhttp3.Call localVarCall = listTradesCall(currencyPair, limit, lastId, reverse, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<Trade>> listTradesWithHttpInfo(String currencyPair, Integer limit, String lastId) throws ApiException {
-        okhttp3.Call localVarCall = listTradesValidateBeforeCall(currencyPair, limit, lastId, null);
+    private ApiResponse<List<Trade>> listTradesWithHttpInfo(String currencyPair, Integer limit, String lastId, Boolean reverse) throws ApiException {
+        okhttp3.Call localVarCall = listTradesValidateBeforeCall(currencyPair, limit, lastId, reverse, null);
         Type localVarReturnType = new TypeToken<List<Trade>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listTradesAsync(String currencyPair, Integer limit, String lastId, final ApiCallback<List<Trade>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listTradesValidateBeforeCall(currencyPair, limit, lastId, _callback);
+    private okhttp3.Call listTradesAsync(String currencyPair, Integer limit, String lastId, Boolean reverse, final ApiCallback<List<Trade>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listTradesValidateBeforeCall(currencyPair, limit, lastId, reverse, _callback);
         Type localVarReturnType = new TypeToken<List<Trade>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -661,6 +665,7 @@ public class SpotApi {
         private final String currencyPair;
         private Integer limit;
         private String lastId;
+        private Boolean reverse;
 
         private APIlistTradesRequest(String currencyPair) {
             this.currencyPair = currencyPair;
@@ -687,6 +692,16 @@ public class SpotApi {
         }
 
         /**
+         * Set reverse
+         * @param reverse Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+         * @return APIlistTradesRequest
+         */
+        public APIlistTradesRequest reverse(Boolean reverse) {
+            this.reverse = reverse;
+            return this;
+        }
+
+        /**
          * Build call for listTrades
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -698,7 +713,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listTradesCall(currencyPair, limit, lastId, _callback);
+            return listTradesCall(currencyPair, limit, lastId, reverse, _callback);
         }
 
         /**
@@ -712,7 +727,7 @@ public class SpotApi {
          </table>
          */
         public List<Trade> execute() throws ApiException {
-            ApiResponse<List<Trade>> localVarResp = listTradesWithHttpInfo(currencyPair, limit, lastId);
+            ApiResponse<List<Trade>> localVarResp = listTradesWithHttpInfo(currencyPair, limit, lastId, reverse);
             return localVarResp.getData();
         }
 
@@ -727,7 +742,7 @@ public class SpotApi {
          </table>
          */
         public ApiResponse<List<Trade>> executeWithHttpInfo() throws ApiException {
-            return listTradesWithHttpInfo(currencyPair, limit, lastId);
+            return listTradesWithHttpInfo(currencyPair, limit, lastId, reverse);
         }
 
         /**
@@ -742,7 +757,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Trade>> _callback) throws ApiException {
-            return listTradesAsync(currencyPair, limit, lastId, _callback);
+            return listTradesAsync(currencyPair, limit, lastId, reverse, _callback);
         }
     }
 
@@ -1301,7 +1316,7 @@ public class SpotApi {
 
     /**
      * Create a batch of orders
-     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @return List&lt;BatchOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1318,7 +1333,7 @@ public class SpotApi {
 
     /**
      * Create a batch of orders
-     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @return ApiResponse&lt;List&lt;BatchOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1336,7 +1351,7 @@ public class SpotApi {
 
     /**
      * Create a batch of orders (asynchronously)
-     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+     * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

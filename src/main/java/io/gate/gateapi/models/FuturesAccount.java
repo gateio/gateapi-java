@@ -51,6 +51,10 @@ public class FuturesAccount {
     @SerializedName(SERIALIZED_NAME_CURRENCY)
     private String currency;
 
+    public static final String SERIALIZED_NAME_IN_DUAL_MODE = "in_dual_mode";
+    @SerializedName(SERIALIZED_NAME_IN_DUAL_MODE)
+    private Boolean inDualMode;
+
 
     public FuturesAccount total(String total) {
         
@@ -191,6 +195,26 @@ public class FuturesAccount {
     public void setCurrency(String currency) {
         this.currency = currency;
     }
+
+    public FuturesAccount inDualMode(Boolean inDualMode) {
+        
+        this.inDualMode = inDualMode;
+        return this;
+    }
+
+     /**
+     * Whether dual mode is enabled
+     * @return inDualMode
+    **/
+    @javax.annotation.Nullable
+    public Boolean getInDualMode() {
+        return inDualMode;
+    }
+
+
+    public void setInDualMode(Boolean inDualMode) {
+        this.inDualMode = inDualMode;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -206,12 +230,13 @@ public class FuturesAccount {
                 Objects.equals(this.orderMargin, futuresAccount.orderMargin) &&
                 Objects.equals(this.available, futuresAccount.available) &&
                 Objects.equals(this.point, futuresAccount.point) &&
-                Objects.equals(this.currency, futuresAccount.currency);
+                Objects.equals(this.currency, futuresAccount.currency) &&
+                Objects.equals(this.inDualMode, futuresAccount.inDualMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency);
+        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode);
     }
 
 
@@ -226,6 +251,7 @@ public class FuturesAccount {
         sb.append("      available: ").append(toIndentedString(available)).append("\n");
         sb.append("      point: ").append(toIndentedString(point)).append("\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("      inDualMode: ").append(toIndentedString(inDualMode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
