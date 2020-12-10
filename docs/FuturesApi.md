@@ -197,7 +197,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
         Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
         try {
@@ -270,7 +270,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         String lastId = "12345"; // String | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
         Long from = 1546905600L; // Long | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
@@ -351,7 +351,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
         Integer limit = 100; // Integer | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
@@ -430,7 +430,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         try {
             List<FuturesTicker> result = apiInstance.listFuturesTickers(settle)
                         .contract(contract)
@@ -498,7 +498,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         try {
             List<FundingRateRecord> result = apiInstance.listFuturesFundingRateHistory(settle, contract)
@@ -636,7 +636,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1604561000L; // Long | Start timestamp
         String interval = "5m"; // String | 
         Integer limit = 30; // Integer | 
@@ -714,7 +714,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Long from = 1547706332L; // Long | Start timestamp
         Long to = 1547706332L; // Long | End timestamp
         Integer limit = 100; // Integer | Maximum number of records returned in one list
@@ -1658,7 +1658,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         String status = "open"; // String | List orders based on status
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -1817,7 +1817,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         String side = "ask"; // String | All bids or asks. Both included in not specified
         try {
             List<FuturesOrder> result = apiInstance.cancelFuturesOrders(settle, contract, side);
@@ -2031,7 +2031,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Long order = 12345L; // Long | Futures order ID, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -2118,7 +2118,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         try {
             List<PositionClose> result = apiInstance.listPositionClose(settle)
@@ -2193,7 +2193,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer at = 0; // Integer | Specify a liquidation timestamp
         try {
@@ -2272,7 +2272,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
         String status = "status_example"; // String | List orders based on status
-        String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
@@ -2421,7 +2421,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "btc"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         try {
             List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredOrderList(settle, contract);
             System.out.println(result);

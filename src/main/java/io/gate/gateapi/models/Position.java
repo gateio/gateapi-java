@@ -111,8 +111,8 @@ public class Position {
     /**
      * Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
      */
-    @JsonAdapter(DualModeEnum.Adapter.class)
-    public enum DualModeEnum {
+    @JsonAdapter(ModeEnum.Adapter.class)
+    public enum ModeEnum {
         SINGLE("single"),
         
         DUAL_LONG("dual_long"),
@@ -121,7 +121,7 @@ public class Position {
 
         private String value;
 
-        DualModeEnum(String value) {
+        ModeEnum(String value) {
             this.value = value;
         }
 
@@ -134,8 +134,8 @@ public class Position {
             return String.valueOf(value);
         }
 
-        public static DualModeEnum fromValue(String value) {
-            for (DualModeEnum b : DualModeEnum.values()) {
+        public static ModeEnum fromValue(String value) {
+            for (ModeEnum b : ModeEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -143,23 +143,23 @@ public class Position {
             throw new IllegalArgumentException("Unexpected value '" + value + "'");
         }
 
-        public static class Adapter extends TypeAdapter<DualModeEnum> {
+        public static class Adapter extends TypeAdapter<ModeEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final DualModeEnum enumeration) throws IOException {
+            public void write(final JsonWriter jsonWriter, final ModeEnum enumeration) throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public DualModeEnum read(final JsonReader jsonReader) throws IOException {
+            public ModeEnum read(final JsonReader jsonReader) throws IOException {
                 String value =  jsonReader.nextString();
-                return DualModeEnum.fromValue(value);
+                return ModeEnum.fromValue(value);
             }
         }
     }
 
-    public static final String SERIALIZED_NAME_DUAL_MODE = "dual_mode";
-    @SerializedName(SERIALIZED_NAME_DUAL_MODE)
-    private DualModeEnum dualMode;
+    public static final String SERIALIZED_NAME_MODE = "mode";
+    @SerializedName(SERIALIZED_NAME_MODE)
+    private ModeEnum mode;
 
 
      /**
@@ -412,24 +412,24 @@ public class Position {
         this.closeOrder = closeOrder;
     }
 
-    public Position dualMode(DualModeEnum dualMode) {
+    public Position mode(ModeEnum mode) {
         
-        this.dualMode = dualMode;
+        this.mode = mode;
         return this;
     }
 
      /**
      * Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
-     * @return dualMode
+     * @return mode
     **/
     @javax.annotation.Nullable
-    public DualModeEnum getDualMode() {
-        return dualMode;
+    public ModeEnum getMode() {
+        return mode;
     }
 
 
-    public void setDualMode(DualModeEnum dualMode) {
-        this.dualMode = dualMode;
+    public void setMode(ModeEnum mode) {
+        this.mode = mode;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -461,12 +461,12 @@ public class Position {
                 Objects.equals(this.adlRanking, position.adlRanking) &&
                 Objects.equals(this.pendingOrders, position.pendingOrders) &&
                 Objects.equals(this.closeOrder, position.closeOrder) &&
-                Objects.equals(this.dualMode, position.dualMode);
+                Objects.equals(this.mode, position.mode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, dualMode);
+        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode);
     }
 
 
@@ -495,7 +495,7 @@ public class Position {
         sb.append("      adlRanking: ").append(toIndentedString(adlRanking)).append("\n");
         sb.append("      pendingOrders: ").append(toIndentedString(pendingOrders)).append("\n");
         sb.append("      closeOrder: ").append(toIndentedString(closeOrder)).append("\n");
-        sb.append("      dualMode: ").append(toIndentedString(dualMode)).append("\n");
+        sb.append("      mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

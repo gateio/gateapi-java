@@ -1761,7 +1761,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String status = "status_example"; // String | List orders based on status
-        String contract = "BTC_USD"; // String | Futures contract, return related data only if specified
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
@@ -1910,7 +1910,7 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USD"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract
         try {
             List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredDeliveryOrderList(settle, contract);
             System.out.println(result);
