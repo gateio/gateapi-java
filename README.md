@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.16.1
-- SDK version: 5.16.1
+- API version: 4.17.0
+- SDK version: 5.17.0
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -65,7 +65,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>5.16.1</version>
+    <version>5.17.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -75,7 +75,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:5.16.1"
+compile "io.gate:gate-api:5.17.0"
 ```
 
 ### Others
@@ -88,7 +88,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-5.16.1.jar`
+* `target/gate-api-5.17.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -240,6 +240,7 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**listSubAccountTransfers**](docs/WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Transfer records between main and sub accounts
 *WalletApi* | [**transferWithSubAccount**](docs/WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 *WalletApi* | [**listWithdrawStatus**](docs/WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
+*WalletApi* | [**listSubAccountBalances**](docs/WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
 
 
@@ -288,6 +289,7 @@ Class | Method | HTTP request | Description
  - [RepayRequest](docs/RepayRequest.md)
  - [Repayment](docs/Repayment.md)
  - [SpotAccount](docs/SpotAccount.md)
+ - [SubAccountBalance](docs/SubAccountBalance.md)
  - [SubAccountTransfer](docs/SubAccountTransfer.md)
  - [Ticker](docs/Ticker.md)
  - [Trade](docs/Trade.md)
