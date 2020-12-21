@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.17.0
-- SDK version: 5.17.0
+- API version: 4.18.0
+- SDK version: 5.18.0
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -65,7 +65,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>5.17.0</version>
+    <version>5.18.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -75,7 +75,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:5.17.0"
+compile "io.gate:gate-api:5.18.0"
 ```
 
 ### Others
@@ -88,7 +88,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-5.17.0.jar`
+* `target/gate-api-5.18.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -216,6 +216,8 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**listLoanRecords**](docs/MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of specified loan
 *MarginApi* | [**getLoanRecord**](docs/MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
 *MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
+*SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; detail
+*SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get detail of one particular currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
 *SpotApi* | [**getCurrencyPair**](docs/SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get detail of one single order
 *SpotApi* | [**listTickers**](docs/SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information
@@ -251,6 +253,7 @@ Class | Method | HTTP request | Description
  - [CancelOrderResult](docs/CancelOrderResult.md)
  - [Contract](docs/Contract.md)
  - [ContractStat](docs/ContractStat.md)
+ - [Currency](docs/Currency.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [DeliveryContract](docs/DeliveryContract.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)

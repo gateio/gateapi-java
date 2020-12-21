@@ -40,13 +40,41 @@ public class ContractStat {
     @SerializedName(SERIALIZED_NAME_LONG_LIQ_SIZE)
     private Long longLiqSize;
 
+    public static final String SERIALIZED_NAME_LONG_LIQ_AMOUNT = "long_liq_amount";
+    @SerializedName(SERIALIZED_NAME_LONG_LIQ_AMOUNT)
+    private BigDecimal longLiqAmount;
+
+    public static final String SERIALIZED_NAME_LONG_LIQ_USD = "long_liq_usd";
+    @SerializedName(SERIALIZED_NAME_LONG_LIQ_USD)
+    private BigDecimal longLiqUsd;
+
     public static final String SERIALIZED_NAME_SHORT_LIQ_SIZE = "short_liq_size";
     @SerializedName(SERIALIZED_NAME_SHORT_LIQ_SIZE)
     private Long shortLiqSize;
 
+    public static final String SERIALIZED_NAME_SHORT_LIQ_AMOUNT = "short_liq_amount";
+    @SerializedName(SERIALIZED_NAME_SHORT_LIQ_AMOUNT)
+    private BigDecimal shortLiqAmount;
+
+    public static final String SERIALIZED_NAME_SHORT_LIQ_USD = "short_liq_usd";
+    @SerializedName(SERIALIZED_NAME_SHORT_LIQ_USD)
+    private BigDecimal shortLiqUsd;
+
     public static final String SERIALIZED_NAME_OPEN_INTEREST = "open_interest";
     @SerializedName(SERIALIZED_NAME_OPEN_INTEREST)
     private Long openInterest;
+
+    public static final String SERIALIZED_NAME_OPEN_INTEREST_USD = "open_interest_usd";
+    @SerializedName(SERIALIZED_NAME_OPEN_INTEREST_USD)
+    private BigDecimal openInterestUsd;
+
+    public static final String SERIALIZED_NAME_TOP_LSR_ACCOUNT = "top_lsr_account";
+    @SerializedName(SERIALIZED_NAME_TOP_LSR_ACCOUNT)
+    private String topLsrAccount;
+
+    public static final String SERIALIZED_NAME_TOP_LSR_SIZE = "top_lsr_size";
+    @SerializedName(SERIALIZED_NAME_TOP_LSR_SIZE)
+    private String topLsrSize;
 
 
     public ContractStat time(Long time) {
@@ -129,6 +157,46 @@ public class ContractStat {
         this.longLiqSize = longLiqSize;
     }
 
+    public ContractStat longLiqAmount(BigDecimal longLiqAmount) {
+        
+        this.longLiqAmount = longLiqAmount;
+        return this;
+    }
+
+     /**
+     * Long liquidation amount(base currency)
+     * @return longLiqAmount
+    **/
+    @javax.annotation.Nullable
+    public BigDecimal getLongLiqAmount() {
+        return longLiqAmount;
+    }
+
+
+    public void setLongLiqAmount(BigDecimal longLiqAmount) {
+        this.longLiqAmount = longLiqAmount;
+    }
+
+    public ContractStat longLiqUsd(BigDecimal longLiqUsd) {
+        
+        this.longLiqUsd = longLiqUsd;
+        return this;
+    }
+
+     /**
+     * Long liquidation volume(quote currency)
+     * @return longLiqUsd
+    **/
+    @javax.annotation.Nullable
+    public BigDecimal getLongLiqUsd() {
+        return longLiqUsd;
+    }
+
+
+    public void setLongLiqUsd(BigDecimal longLiqUsd) {
+        this.longLiqUsd = longLiqUsd;
+    }
+
     public ContractStat shortLiqSize(Long shortLiqSize) {
         
         this.shortLiqSize = shortLiqSize;
@@ -149,6 +217,46 @@ public class ContractStat {
         this.shortLiqSize = shortLiqSize;
     }
 
+    public ContractStat shortLiqAmount(BigDecimal shortLiqAmount) {
+        
+        this.shortLiqAmount = shortLiqAmount;
+        return this;
+    }
+
+     /**
+     * Short liquidation amount(base currency)
+     * @return shortLiqAmount
+    **/
+    @javax.annotation.Nullable
+    public BigDecimal getShortLiqAmount() {
+        return shortLiqAmount;
+    }
+
+
+    public void setShortLiqAmount(BigDecimal shortLiqAmount) {
+        this.shortLiqAmount = shortLiqAmount;
+    }
+
+    public ContractStat shortLiqUsd(BigDecimal shortLiqUsd) {
+        
+        this.shortLiqUsd = shortLiqUsd;
+        return this;
+    }
+
+     /**
+     * Short liquidation volume(quote currency)
+     * @return shortLiqUsd
+    **/
+    @javax.annotation.Nullable
+    public BigDecimal getShortLiqUsd() {
+        return shortLiqUsd;
+    }
+
+
+    public void setShortLiqUsd(BigDecimal shortLiqUsd) {
+        this.shortLiqUsd = shortLiqUsd;
+    }
+
     public ContractStat openInterest(Long openInterest) {
         
         this.openInterest = openInterest;
@@ -156,7 +264,7 @@ public class ContractStat {
     }
 
      /**
-     * Open interest
+     * Open interest size
      * @return openInterest
     **/
     @javax.annotation.Nullable
@@ -167,6 +275,66 @@ public class ContractStat {
 
     public void setOpenInterest(Long openInterest) {
         this.openInterest = openInterest;
+    }
+
+    public ContractStat openInterestUsd(BigDecimal openInterestUsd) {
+        
+        this.openInterestUsd = openInterestUsd;
+        return this;
+    }
+
+     /**
+     * Open interest volume(quote currency)
+     * @return openInterestUsd
+    **/
+    @javax.annotation.Nullable
+    public BigDecimal getOpenInterestUsd() {
+        return openInterestUsd;
+    }
+
+
+    public void setOpenInterestUsd(BigDecimal openInterestUsd) {
+        this.openInterestUsd = openInterestUsd;
+    }
+
+    public ContractStat topLsrAccount(String topLsrAccount) {
+        
+        this.topLsrAccount = topLsrAccount;
+        return this;
+    }
+
+     /**
+     * Top trader long/short account ratio
+     * @return topLsrAccount
+    **/
+    @javax.annotation.Nullable
+    public String getTopLsrAccount() {
+        return topLsrAccount;
+    }
+
+
+    public void setTopLsrAccount(String topLsrAccount) {
+        this.topLsrAccount = topLsrAccount;
+    }
+
+    public ContractStat topLsrSize(String topLsrSize) {
+        
+        this.topLsrSize = topLsrSize;
+        return this;
+    }
+
+     /**
+     * Top trader long/short position ratio
+     * @return topLsrSize
+    **/
+    @javax.annotation.Nullable
+    public String getTopLsrSize() {
+        return topLsrSize;
+    }
+
+
+    public void setTopLsrSize(String topLsrSize) {
+        this.topLsrSize = topLsrSize;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -181,13 +349,20 @@ public class ContractStat {
                 Objects.equals(this.lsrTaker, contractStat.lsrTaker) &&
                 Objects.equals(this.lsrAccount, contractStat.lsrAccount) &&
                 Objects.equals(this.longLiqSize, contractStat.longLiqSize) &&
+                Objects.equals(this.longLiqAmount, contractStat.longLiqAmount) &&
+                Objects.equals(this.longLiqUsd, contractStat.longLiqUsd) &&
                 Objects.equals(this.shortLiqSize, contractStat.shortLiqSize) &&
-                Objects.equals(this.openInterest, contractStat.openInterest);
+                Objects.equals(this.shortLiqAmount, contractStat.shortLiqAmount) &&
+                Objects.equals(this.shortLiqUsd, contractStat.shortLiqUsd) &&
+                Objects.equals(this.openInterest, contractStat.openInterest) &&
+                Objects.equals(this.openInterestUsd, contractStat.openInterestUsd) &&
+                Objects.equals(this.topLsrAccount, contractStat.topLsrAccount) &&
+                Objects.equals(this.topLsrSize, contractStat.topLsrSize);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, lsrTaker, lsrAccount, longLiqSize, shortLiqSize, openInterest);
+        return Objects.hash(time, lsrTaker, lsrAccount, longLiqSize, longLiqAmount, longLiqUsd, shortLiqSize, shortLiqAmount, shortLiqUsd, openInterest, openInterestUsd, topLsrAccount, topLsrSize);
     }
 
 
@@ -199,8 +374,15 @@ public class ContractStat {
         sb.append("      lsrTaker: ").append(toIndentedString(lsrTaker)).append("\n");
         sb.append("      lsrAccount: ").append(toIndentedString(lsrAccount)).append("\n");
         sb.append("      longLiqSize: ").append(toIndentedString(longLiqSize)).append("\n");
+        sb.append("      longLiqAmount: ").append(toIndentedString(longLiqAmount)).append("\n");
+        sb.append("      longLiqUsd: ").append(toIndentedString(longLiqUsd)).append("\n");
         sb.append("      shortLiqSize: ").append(toIndentedString(shortLiqSize)).append("\n");
+        sb.append("      shortLiqAmount: ").append(toIndentedString(shortLiqAmount)).append("\n");
+        sb.append("      shortLiqUsd: ").append(toIndentedString(shortLiqUsd)).append("\n");
         sb.append("      openInterest: ").append(toIndentedString(openInterest)).append("\n");
+        sb.append("      openInterestUsd: ").append(toIndentedString(openInterestUsd)).append("\n");
+        sb.append("      topLsrAccount: ").append(toIndentedString(topLsrAccount)).append("\n");
+        sb.append("      topLsrSize: ").append(toIndentedString(topLsrSize)).append("\n");
         sb.append("}");
         return sb.toString();
     }
