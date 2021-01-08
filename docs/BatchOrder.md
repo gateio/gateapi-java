@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **amount** | **String** | Trade amount |  [optional]
 **price** | **String** | Order price |  [optional]
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee |  [optional]
+**iceberg** | **String** | Amount to display for the iceberg order. Null or 0 for normal orders |  [optional]
 **autoBorrow** | **Boolean** | Used in margin trading(i.e. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough. |  [optional]
 **left** | **String** | Amount left to fill |  [optional] [readonly]
 **fillPrice** | **String** | Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60; |  [optional] [readonly]

@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **shortLiqUsd** | [**BigDecimal**](BigDecimal.md) | Short liquidation volume(quote currency) |  [optional]
 **openInterest** | **Long** | Open interest size |  [optional]
 **openInterestUsd** | [**BigDecimal**](BigDecimal.md) | Open interest volume(quote currency) |  [optional]
-**topLsrAccount** | **String** | Top trader long/short account ratio |  [optional]
-**topLsrSize** | **String** | Top trader long/short position ratio |  [optional]
+**topLsrAccount** | [**BigDecimal**](BigDecimal.md) | Top trader long/short account ratio |  [optional]
+**topLsrSize** | [**BigDecimal**](BigDecimal.md) | Top trader long/short position ratio |  [optional]
 

@@ -70,11 +70,11 @@ public class ContractStat {
 
     public static final String SERIALIZED_NAME_TOP_LSR_ACCOUNT = "top_lsr_account";
     @SerializedName(SERIALIZED_NAME_TOP_LSR_ACCOUNT)
-    private String topLsrAccount;
+    private BigDecimal topLsrAccount;
 
     public static final String SERIALIZED_NAME_TOP_LSR_SIZE = "top_lsr_size";
     @SerializedName(SERIALIZED_NAME_TOP_LSR_SIZE)
-    private String topLsrSize;
+    private BigDecimal topLsrSize;
 
 
     public ContractStat time(Long time) {
@@ -297,7 +297,7 @@ public class ContractStat {
         this.openInterestUsd = openInterestUsd;
     }
 
-    public ContractStat topLsrAccount(String topLsrAccount) {
+    public ContractStat topLsrAccount(BigDecimal topLsrAccount) {
         
         this.topLsrAccount = topLsrAccount;
         return this;
@@ -308,16 +308,16 @@ public class ContractStat {
      * @return topLsrAccount
     **/
     @javax.annotation.Nullable
-    public String getTopLsrAccount() {
+    public BigDecimal getTopLsrAccount() {
         return topLsrAccount;
     }
 
 
-    public void setTopLsrAccount(String topLsrAccount) {
+    public void setTopLsrAccount(BigDecimal topLsrAccount) {
         this.topLsrAccount = topLsrAccount;
     }
 
-    public ContractStat topLsrSize(String topLsrSize) {
+    public ContractStat topLsrSize(BigDecimal topLsrSize) {
         
         this.topLsrSize = topLsrSize;
         return this;
@@ -328,12 +328,12 @@ public class ContractStat {
      * @return topLsrSize
     **/
     @javax.annotation.Nullable
-    public String getTopLsrSize() {
+    public BigDecimal getTopLsrSize() {
         return topLsrSize;
     }
 
 
-    public void setTopLsrSize(String topLsrSize) {
+    public void setTopLsrSize(BigDecimal topLsrSize) {
         this.topLsrSize = topLsrSize;
     }
     @Override

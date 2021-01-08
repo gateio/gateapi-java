@@ -320,6 +320,10 @@ public class BatchOrder {
     @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
     private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
 
+    public static final String SERIALIZED_NAME_ICEBERG = "iceberg";
+    @SerializedName(SERIALIZED_NAME_ICEBERG)
+    private String iceberg;
+
     public static final String SERIALIZED_NAME_AUTO_BORROW = "auto_borrow";
     @SerializedName(SERIALIZED_NAME_AUTO_BORROW)
     private Boolean autoBorrow;
@@ -625,6 +629,26 @@ public class BatchOrder {
         this.timeInForce = timeInForce;
     }
 
+    public BatchOrder iceberg(String iceberg) {
+        
+        this.iceberg = iceberg;
+        return this;
+    }
+
+     /**
+     * Amount to display for the iceberg order. Null or 0 for normal orders
+     * @return iceberg
+    **/
+    @javax.annotation.Nullable
+    public String getIceberg() {
+        return iceberg;
+    }
+
+
+    public void setIceberg(String iceberg) {
+        this.iceberg = iceberg;
+    }
+
     public BatchOrder autoBorrow(Boolean autoBorrow) {
         
         this.autoBorrow = autoBorrow;
@@ -768,6 +792,7 @@ public class BatchOrder {
                 Objects.equals(this.amount, batchOrder.amount) &&
                 Objects.equals(this.price, batchOrder.price) &&
                 Objects.equals(this.timeInForce, batchOrder.timeInForce) &&
+                Objects.equals(this.iceberg, batchOrder.iceberg) &&
                 Objects.equals(this.autoBorrow, batchOrder.autoBorrow) &&
                 Objects.equals(this.left, batchOrder.left) &&
                 Objects.equals(this.fillPrice, batchOrder.fillPrice) &&
@@ -783,7 +808,7 @@ public class BatchOrder {
 
     @Override
     public int hashCode() {
-        return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
+        return Objects.hash(text, succeeded, label, message, id, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
     }
 
 
@@ -806,6 +831,7 @@ public class BatchOrder {
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+        sb.append("      iceberg: ").append(toIndentedString(iceberg)).append("\n");
         sb.append("      autoBorrow: ").append(toIndentedString(autoBorrow)).append("\n");
         sb.append("      left: ").append(toIndentedString(left)).append("\n");
         sb.append("      fillPrice: ").append(toIndentedString(fillPrice)).append("\n");

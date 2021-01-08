@@ -308,6 +308,10 @@ public class Order {
     @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
     private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
 
+    public static final String SERIALIZED_NAME_ICEBERG = "iceberg";
+    @SerializedName(SERIALIZED_NAME_ICEBERG)
+    private String iceberg;
+
     public static final String SERIALIZED_NAME_AUTO_BORROW = "auto_borrow";
     @SerializedName(SERIALIZED_NAME_AUTO_BORROW)
     private Boolean autoBorrow;
@@ -549,6 +553,26 @@ public class Order {
         this.timeInForce = timeInForce;
     }
 
+    public Order iceberg(String iceberg) {
+        
+        this.iceberg = iceberg;
+        return this;
+    }
+
+     /**
+     * Amount to display for the iceberg order. Null or 0 for normal orders
+     * @return iceberg
+    **/
+    @javax.annotation.Nullable
+    public String getIceberg() {
+        return iceberg;
+    }
+
+
+    public void setIceberg(String iceberg) {
+        this.iceberg = iceberg;
+    }
+
     public Order autoBorrow(Boolean autoBorrow) {
         
         this.autoBorrow = autoBorrow;
@@ -689,6 +713,7 @@ public class Order {
                 Objects.equals(this.amount, order.amount) &&
                 Objects.equals(this.price, order.price) &&
                 Objects.equals(this.timeInForce, order.timeInForce) &&
+                Objects.equals(this.iceberg, order.iceberg) &&
                 Objects.equals(this.autoBorrow, order.autoBorrow) &&
                 Objects.equals(this.left, order.left) &&
                 Objects.equals(this.fillPrice, order.fillPrice) &&
@@ -704,7 +729,7 @@ public class Order {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, autoBorrow, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
+        return Objects.hash(id, text, createTime, updateTime, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
     }
 
 
@@ -724,6 +749,7 @@ public class Order {
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+        sb.append("      iceberg: ").append(toIndentedString(iceberg)).append("\n");
         sb.append("      autoBorrow: ").append(toIndentedString(autoBorrow)).append("\n");
         sb.append("      left: ").append(toIndentedString(left)).append("\n");
         sb.append("      fillPrice: ").append(toIndentedString(fillPrice)).append("\n");
