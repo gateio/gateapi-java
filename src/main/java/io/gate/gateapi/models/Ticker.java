@@ -59,6 +59,22 @@ public class Ticker {
     @SerializedName(SERIALIZED_NAME_LOW24H)
     private String low24h;
 
+    public static final String SERIALIZED_NAME_ETF_NET_VALUE = "etf_net_value";
+    @SerializedName(SERIALIZED_NAME_ETF_NET_VALUE)
+    private String etfNetValue;
+
+    public static final String SERIALIZED_NAME_ETF_PRE_NET_VALUE = "etf_pre_net_value";
+    @SerializedName(SERIALIZED_NAME_ETF_PRE_NET_VALUE)
+    private String etfPreNetValue;
+
+    public static final String SERIALIZED_NAME_ETF_PRE_TIMESTAMP = "etf_pre_timestamp";
+    @SerializedName(SERIALIZED_NAME_ETF_PRE_TIMESTAMP)
+    private Long etfPreTimestamp;
+
+    public static final String SERIALIZED_NAME_ETF_LEVERAGE = "etf_leverage";
+    @SerializedName(SERIALIZED_NAME_ETF_LEVERAGE)
+    private String etfLeverage;
+
 
     public Ticker currencyPair(String currencyPair) {
         
@@ -239,6 +255,86 @@ public class Ticker {
     public void setLow24h(String low24h) {
         this.low24h = low24h;
     }
+
+    public Ticker etfNetValue(String etfNetValue) {
+        
+        this.etfNetValue = etfNetValue;
+        return this;
+    }
+
+     /**
+     * ETF net value
+     * @return etfNetValue
+    **/
+    @javax.annotation.Nullable
+    public String getEtfNetValue() {
+        return etfNetValue;
+    }
+
+
+    public void setEtfNetValue(String etfNetValue) {
+        this.etfNetValue = etfNetValue;
+    }
+
+    public Ticker etfPreNetValue(String etfPreNetValue) {
+        
+        this.etfPreNetValue = etfPreNetValue;
+        return this;
+    }
+
+     /**
+     * ETF previous net value at re-balancing time
+     * @return etfPreNetValue
+    **/
+    @javax.annotation.Nullable
+    public String getEtfPreNetValue() {
+        return etfPreNetValue;
+    }
+
+
+    public void setEtfPreNetValue(String etfPreNetValue) {
+        this.etfPreNetValue = etfPreNetValue;
+    }
+
+    public Ticker etfPreTimestamp(Long etfPreTimestamp) {
+        
+        this.etfPreTimestamp = etfPreTimestamp;
+        return this;
+    }
+
+     /**
+     * ETF previous re-balancing time
+     * @return etfPreTimestamp
+    **/
+    @javax.annotation.Nullable
+    public Long getEtfPreTimestamp() {
+        return etfPreTimestamp;
+    }
+
+
+    public void setEtfPreTimestamp(Long etfPreTimestamp) {
+        this.etfPreTimestamp = etfPreTimestamp;
+    }
+
+    public Ticker etfLeverage(String etfLeverage) {
+        
+        this.etfLeverage = etfLeverage;
+        return this;
+    }
+
+     /**
+     * ETF current leverage
+     * @return etfLeverage
+    **/
+    @javax.annotation.Nullable
+    public String getEtfLeverage() {
+        return etfLeverage;
+    }
+
+
+    public void setEtfLeverage(String etfLeverage) {
+        this.etfLeverage = etfLeverage;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -256,12 +352,16 @@ public class Ticker {
                 Objects.equals(this.baseVolume, ticker.baseVolume) &&
                 Objects.equals(this.quoteVolume, ticker.quoteVolume) &&
                 Objects.equals(this.high24h, ticker.high24h) &&
-                Objects.equals(this.low24h, ticker.low24h);
+                Objects.equals(this.low24h, ticker.low24h) &&
+                Objects.equals(this.etfNetValue, ticker.etfNetValue) &&
+                Objects.equals(this.etfPreNetValue, ticker.etfPreNetValue) &&
+                Objects.equals(this.etfPreTimestamp, ticker.etfPreTimestamp) &&
+                Objects.equals(this.etfLeverage, ticker.etfLeverage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, last, lowestAsk, highestBid, changePercentage, baseVolume, quoteVolume, high24h, low24h);
+        return Objects.hash(currencyPair, last, lowestAsk, highestBid, changePercentage, baseVolume, quoteVolume, high24h, low24h, etfNetValue, etfPreNetValue, etfPreTimestamp, etfLeverage);
     }
 
 
@@ -278,6 +378,10 @@ public class Ticker {
         sb.append("      quoteVolume: ").append(toIndentedString(quoteVolume)).append("\n");
         sb.append("      high24h: ").append(toIndentedString(high24h)).append("\n");
         sb.append("      low24h: ").append(toIndentedString(low24h)).append("\n");
+        sb.append("      etfNetValue: ").append(toIndentedString(etfNetValue)).append("\n");
+        sb.append("      etfPreNetValue: ").append(toIndentedString(etfPreNetValue)).append("\n");
+        sb.append("      etfPreTimestamp: ").append(toIndentedString(etfPreTimestamp)).append("\n");
+        sb.append("      etfLeverage: ").append(toIndentedString(etfLeverage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

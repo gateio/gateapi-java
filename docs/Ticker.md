@@ -14,4 +14,8 @@ Name | Type | Description | Notes
 **quoteVolume** | **String** | Quote currency trade volume |  [optional]
 **high24h** | **String** | Highest price in 24h |  [optional]
 **low24h** | **String** | Lowest price in 24h |  [optional]
+**etfNetValue** | **String** | ETF net value |  [optional]
+**etfPreNetValue** | **String** | ETF previous net value at re-balancing time |  [optional]
+**etfPreTimestamp** | **Long** | ETF previous re-balancing time |  [optional]
+**etfLeverage** | **String** | ETF current leverage |  [optional]
 
