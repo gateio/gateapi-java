@@ -31,6 +31,10 @@ public class Trade {
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private String createTime;
 
+    public static final String SERIALIZED_NAME_CREATE_TIME_MS = "create_time_ms";
+    @SerializedName(SERIALIZED_NAME_CREATE_TIME_MS)
+    private String createTimeMs;
+
     /**
      * Order side
      */
@@ -200,6 +204,26 @@ public class Trade {
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+    public Trade createTimeMs(String createTimeMs) {
+        
+        this.createTimeMs = createTimeMs;
+        return this;
+    }
+
+     /**
+     * Trading time, with millisecond precision
+     * @return createTimeMs
+    **/
+    @javax.annotation.Nullable
+    public String getCreateTimeMs() {
+        return createTimeMs;
+    }
+
+
+    public void setCreateTimeMs(String createTimeMs) {
+        this.createTimeMs = createTimeMs;
     }
 
     public Trade side(SideEnum side) {
@@ -392,6 +416,7 @@ public class Trade {
         Trade trade = (Trade) o;
         return Objects.equals(this.id, trade.id) &&
                 Objects.equals(this.createTime, trade.createTime) &&
+                Objects.equals(this.createTimeMs, trade.createTimeMs) &&
                 Objects.equals(this.side, trade.side) &&
                 Objects.equals(this.role, trade.role) &&
                 Objects.equals(this.amount, trade.amount) &&
@@ -405,7 +430,7 @@ public class Trade {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, side, role, amount, price, orderId, fee, feeCurrency, pointFee, gtFee);
+        return Objects.hash(id, createTime, createTimeMs, side, role, amount, price, orderId, fee, feeCurrency, pointFee, gtFee);
     }
 
 
@@ -415,6 +440,7 @@ public class Trade {
         sb.append("class Trade {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("      createTimeMs: ").append(toIndentedString(createTimeMs)).append("\n");
         sb.append("      side: ").append(toIndentedString(side)).append("\n");
         sb.append("      role: ").append(toIndentedString(role)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");

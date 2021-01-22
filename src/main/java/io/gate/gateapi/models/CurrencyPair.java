@@ -110,6 +110,22 @@ public class CurrencyPair {
     @SerializedName(SERIALIZED_NAME_TRADE_STATUS)
     private TradeStatusEnum tradeStatus;
 
+    public static final String SERIALIZED_NAME_ETF_NET_VALUE = "etf_net_value";
+    @SerializedName(SERIALIZED_NAME_ETF_NET_VALUE)
+    private String etfNetValue;
+
+    public static final String SERIALIZED_NAME_ETF_PRE_NET_VALUE = "etf_pre_net_value";
+    @SerializedName(SERIALIZED_NAME_ETF_PRE_NET_VALUE)
+    private String etfPreNetValue;
+
+    public static final String SERIALIZED_NAME_ETF_PRE_TIMESTAMP = "etf_pre_timestamp";
+    @SerializedName(SERIALIZED_NAME_ETF_PRE_TIMESTAMP)
+    private Long etfPreTimestamp;
+
+    public static final String SERIALIZED_NAME_ETF_LEVERAGE = "etf_leverage";
+    @SerializedName(SERIALIZED_NAME_ETF_LEVERAGE)
+    private String etfLeverage;
+
 
     public CurrencyPair id(String id) {
         
@@ -290,6 +306,86 @@ public class CurrencyPair {
     public void setTradeStatus(TradeStatusEnum tradeStatus) {
         this.tradeStatus = tradeStatus;
     }
+
+    public CurrencyPair etfNetValue(String etfNetValue) {
+        
+        this.etfNetValue = etfNetValue;
+        return this;
+    }
+
+     /**
+     * ETF net value
+     * @return etfNetValue
+    **/
+    @javax.annotation.Nullable
+    public String getEtfNetValue() {
+        return etfNetValue;
+    }
+
+
+    public void setEtfNetValue(String etfNetValue) {
+        this.etfNetValue = etfNetValue;
+    }
+
+    public CurrencyPair etfPreNetValue(String etfPreNetValue) {
+        
+        this.etfPreNetValue = etfPreNetValue;
+        return this;
+    }
+
+     /**
+     * ETF previous net value at re-balancing time
+     * @return etfPreNetValue
+    **/
+    @javax.annotation.Nullable
+    public String getEtfPreNetValue() {
+        return etfPreNetValue;
+    }
+
+
+    public void setEtfPreNetValue(String etfPreNetValue) {
+        this.etfPreNetValue = etfPreNetValue;
+    }
+
+    public CurrencyPair etfPreTimestamp(Long etfPreTimestamp) {
+        
+        this.etfPreTimestamp = etfPreTimestamp;
+        return this;
+    }
+
+     /**
+     * ETF previous re-balancing time
+     * @return etfPreTimestamp
+    **/
+    @javax.annotation.Nullable
+    public Long getEtfPreTimestamp() {
+        return etfPreTimestamp;
+    }
+
+
+    public void setEtfPreTimestamp(Long etfPreTimestamp) {
+        this.etfPreTimestamp = etfPreTimestamp;
+    }
+
+    public CurrencyPair etfLeverage(String etfLeverage) {
+        
+        this.etfLeverage = etfLeverage;
+        return this;
+    }
+
+     /**
+     * ETF current leverage
+     * @return etfLeverage
+    **/
+    @javax.annotation.Nullable
+    public String getEtfLeverage() {
+        return etfLeverage;
+    }
+
+
+    public void setEtfLeverage(String etfLeverage) {
+        this.etfLeverage = etfLeverage;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -307,12 +403,16 @@ public class CurrencyPair {
                 Objects.equals(this.minQuoteAmount, currencyPair.minQuoteAmount) &&
                 Objects.equals(this.amountPrecision, currencyPair.amountPrecision) &&
                 Objects.equals(this.precision, currencyPair.precision) &&
-                Objects.equals(this.tradeStatus, currencyPair.tradeStatus);
+                Objects.equals(this.tradeStatus, currencyPair.tradeStatus) &&
+                Objects.equals(this.etfNetValue, currencyPair.etfNetValue) &&
+                Objects.equals(this.etfPreNetValue, currencyPair.etfPreNetValue) &&
+                Objects.equals(this.etfPreTimestamp, currencyPair.etfPreTimestamp) &&
+                Objects.equals(this.etfLeverage, currencyPair.etfLeverage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, amountPrecision, precision, tradeStatus);
+        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, amountPrecision, precision, tradeStatus, etfNetValue, etfPreNetValue, etfPreTimestamp, etfLeverage);
     }
 
 
@@ -329,6 +429,10 @@ public class CurrencyPair {
         sb.append("      amountPrecision: ").append(toIndentedString(amountPrecision)).append("\n");
         sb.append("      precision: ").append(toIndentedString(precision)).append("\n");
         sb.append("      tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
+        sb.append("      etfNetValue: ").append(toIndentedString(etfNetValue)).append("\n");
+        sb.append("      etfPreNetValue: ").append(toIndentedString(etfPreNetValue)).append("\n");
+        sb.append("      etfPreTimestamp: ").append(toIndentedString(etfPreTimestamp)).append("\n");
+        sb.append("      etfLeverage: ").append(toIndentedString(etfLeverage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

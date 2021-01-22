@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Trade ID |  [optional]
 **createTime** | **String** | Trading time |  [optional]
+**createTimeMs** | **String** | Trading time, with millisecond precision |  [optional]
 **side** | [**SideEnum**](#SideEnum) | Order side |  [optional]
 **role** | [**RoleEnum**](#RoleEnum) | Trade role |  [optional]
 **amount** | **String** | Trade amount |  [optional]
