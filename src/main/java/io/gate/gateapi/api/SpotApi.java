@@ -1216,6 +1216,7 @@ public class SpotApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFeeValidateBeforeCall(String currencyPair, final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = getFeeCall(currencyPair, _callback);
@@ -1262,7 +1263,9 @@ public class SpotApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
             return getFeeCall(currencyPair, _callback);
         }
@@ -1276,7 +1279,9 @@ public class SpotApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public TradeFee execute() throws ApiException {
             ApiResponse<TradeFee> localVarResp = getFeeWithHttpInfo(currencyPair);
             return localVarResp.getData();
@@ -1291,7 +1296,9 @@ public class SpotApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public ApiResponse<TradeFee> executeWithHttpInfo() throws ApiException {
             return getFeeWithHttpInfo(currencyPair);
         }
@@ -1306,7 +1313,9 @@ public class SpotApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call executeAsync(final ApiCallback<TradeFee> _callback) throws ApiException {
             return getFeeAsync(currencyPair, _callback);
         }
@@ -1314,14 +1323,16 @@ public class SpotApi {
 
     /**
      * Query user trading fee rates
-     * 
+     * This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
      * @return APIgetFeeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public APIgetFeeRequest getFee() {
         return new APIgetFeeRequest();
     }

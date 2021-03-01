@@ -173,7 +173,7 @@ No authorization required
 
 <a name="listFuturesOrderBook"></a>
 # **listFuturesOrderBook**
-> FuturesOrderBook listFuturesOrderBook(settle, contract).interval(interval).limit(limit).execute();
+> FuturesOrderBook listFuturesOrderBook(settle, contract).interval(interval).limit(limit).withId(withId).execute();
 
 Futures order book
 
@@ -200,10 +200,12 @@ public class Example {
         String contract = "BTC_USDT"; // String | Futures contract
         String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
         Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
+        Boolean withId = false; // Boolean | Whether order book update ID would be returned. This ID increments by 1 on every order book update
         try {
             FuturesOrderBook result = apiInstance.listFuturesOrderBook(settle, contract)
                         .interval(interval)
                         .limit(limit)
+                        .withId(withId)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -227,6 +229,7 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract |
  **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **withId** | **Boolean**| Whether order book update ID would be returned. This ID increments by 1 on every order book update | [optional] [default to false]
 
 ### Return type
 
@@ -2092,7 +2095,7 @@ Name | Type | Description  | Notes
 
 <a name="listPositionClose"></a>
 # **listPositionClose**
-> List&lt;PositionClose&gt; listPositionClose(settle).contract(contract).limit(limit).execute();
+> List&lt;PositionClose&gt; listPositionClose(settle).contract(contract).limit(limit).offset(offset).execute();
 
 List position close history
 
@@ -2120,10 +2123,12 @@ public class Example {
         String settle = "btc"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer offset = 0; // Integer | List offset, starting from 0
         try {
             List<PositionClose> result = apiInstance.listPositionClose(settle)
                         .contract(contract)
                         .limit(limit)
+                        .offset(offset)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -2146,6 +2151,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [default to btc] [enum: btc, usdt]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 

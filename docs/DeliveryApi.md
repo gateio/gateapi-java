@@ -166,7 +166,7 @@ No authorization required
 
 <a name="listDeliveryOrderBook"></a>
 # **listDeliveryOrderBook**
-> FuturesOrderBook listDeliveryOrderBook(settle, contract).interval(interval).limit(limit).execute();
+> FuturesOrderBook listDeliveryOrderBook(settle, contract).interval(interval).limit(limit).withId(withId).execute();
 
 Futures order book
 
@@ -193,10 +193,12 @@ public class Example {
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
         Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
+        Boolean withId = false; // Boolean | Whether order book update ID would be returned. This ID increments by 1 on every order book update
         try {
             FuturesOrderBook result = apiInstance.listDeliveryOrderBook(settle, contract)
                         .interval(interval)
                         .limit(limit)
+                        .withId(withId)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -220,6 +222,7 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract |
  **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **withId** | **Boolean**| Whether order book update ID would be returned. This ID increments by 1 on every order book update | [optional] [default to false]
 
 ### Return type
 

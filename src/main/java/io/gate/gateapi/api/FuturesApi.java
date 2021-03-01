@@ -289,7 +289,7 @@ public class FuturesApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listFuturesOrderBookCall(String settle, String contract, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listFuturesOrderBookCall(String settle, String contract, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -308,6 +308,10 @@ public class FuturesApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (withId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("with_id", withId));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -332,7 +336,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listFuturesOrderBookValidateBeforeCall(String settle, String contract, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listFuturesOrderBookValidateBeforeCall(String settle, String contract, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listFuturesOrderBook(Async)");
@@ -343,19 +347,19 @@ public class FuturesApi {
             throw new ApiException("Missing the required parameter 'contract' when calling listFuturesOrderBook(Async)");
         }
 
-        okhttp3.Call localVarCall = listFuturesOrderBookCall(settle, contract, interval, limit, _callback);
+        okhttp3.Call localVarCall = listFuturesOrderBookCall(settle, contract, interval, limit, withId, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<FuturesOrderBook> listFuturesOrderBookWithHttpInfo(String settle, String contract, String interval, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listFuturesOrderBookValidateBeforeCall(settle, contract, interval, limit, null);
+    private ApiResponse<FuturesOrderBook> listFuturesOrderBookWithHttpInfo(String settle, String contract, String interval, Integer limit, Boolean withId) throws ApiException {
+        okhttp3.Call localVarCall = listFuturesOrderBookValidateBeforeCall(settle, contract, interval, limit, withId, null);
         Type localVarReturnType = new TypeToken<FuturesOrderBook>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listFuturesOrderBookAsync(String settle, String contract, String interval, Integer limit, final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listFuturesOrderBookValidateBeforeCall(settle, contract, interval, limit, _callback);
+    private okhttp3.Call listFuturesOrderBookAsync(String settle, String contract, String interval, Integer limit, Boolean withId, final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listFuturesOrderBookValidateBeforeCall(settle, contract, interval, limit, withId, _callback);
         Type localVarReturnType = new TypeToken<FuturesOrderBook>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -366,6 +370,7 @@ public class FuturesApi {
         private final String contract;
         private String interval;
         private Integer limit;
+        private Boolean withId;
 
         private APIlistFuturesOrderBookRequest(String settle, String contract) {
             this.settle = settle;
@@ -393,6 +398,16 @@ public class FuturesApi {
         }
 
         /**
+         * Set withId
+         * @param withId Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
+         * @return APIlistFuturesOrderBookRequest
+         */
+        public APIlistFuturesOrderBookRequest withId(Boolean withId) {
+            this.withId = withId;
+            return this;
+        }
+
+        /**
          * Build call for listFuturesOrderBook
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -404,7 +419,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listFuturesOrderBookCall(settle, contract, interval, limit, _callback);
+            return listFuturesOrderBookCall(settle, contract, interval, limit, withId, _callback);
         }
 
         /**
@@ -418,7 +433,7 @@ public class FuturesApi {
          </table>
          */
         public FuturesOrderBook execute() throws ApiException {
-            ApiResponse<FuturesOrderBook> localVarResp = listFuturesOrderBookWithHttpInfo(settle, contract, interval, limit);
+            ApiResponse<FuturesOrderBook> localVarResp = listFuturesOrderBookWithHttpInfo(settle, contract, interval, limit, withId);
             return localVarResp.getData();
         }
 
@@ -433,7 +448,7 @@ public class FuturesApi {
          </table>
          */
         public ApiResponse<FuturesOrderBook> executeWithHttpInfo() throws ApiException {
-            return listFuturesOrderBookWithHttpInfo(settle, contract, interval, limit);
+            return listFuturesOrderBookWithHttpInfo(settle, contract, interval, limit, withId);
         }
 
         /**
@@ -448,7 +463,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
-            return listFuturesOrderBookAsync(settle, contract, interval, limit, _callback);
+            return listFuturesOrderBookAsync(settle, contract, interval, limit, withId, _callback);
         }
     }
 
@@ -4231,7 +4246,7 @@ public class FuturesApi {
         return new APIgetMyTradesRequest(settle);
     }
 
-    private okhttp3.Call listPositionCloseCall(String settle, String contract, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPositionCloseCall(String settle, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4246,6 +4261,10 @@ public class FuturesApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4270,25 +4289,25 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPositionCloseValidateBeforeCall(String settle, String contract, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPositionCloseValidateBeforeCall(String settle, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listPositionClose(Async)");
         }
 
-        okhttp3.Call localVarCall = listPositionCloseCall(settle, contract, limit, _callback);
+        okhttp3.Call localVarCall = listPositionCloseCall(settle, contract, limit, offset, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<PositionClose>> listPositionCloseWithHttpInfo(String settle, String contract, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listPositionCloseValidateBeforeCall(settle, contract, limit, null);
+    private ApiResponse<List<PositionClose>> listPositionCloseWithHttpInfo(String settle, String contract, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listPositionCloseValidateBeforeCall(settle, contract, limit, offset, null);
         Type localVarReturnType = new TypeToken<List<PositionClose>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listPositionCloseAsync(String settle, String contract, Integer limit, final ApiCallback<List<PositionClose>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listPositionCloseValidateBeforeCall(settle, contract, limit, _callback);
+    private okhttp3.Call listPositionCloseAsync(String settle, String contract, Integer limit, Integer offset, final ApiCallback<List<PositionClose>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listPositionCloseValidateBeforeCall(settle, contract, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<List<PositionClose>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4298,6 +4317,7 @@ public class FuturesApi {
         private final String settle;
         private String contract;
         private Integer limit;
+        private Integer offset;
 
         private APIlistPositionCloseRequest(String settle) {
             this.settle = settle;
@@ -4324,6 +4344,16 @@ public class FuturesApi {
         }
 
         /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistPositionCloseRequest
+         */
+        public APIlistPositionCloseRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
          * Build call for listPositionClose
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -4335,7 +4365,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listPositionCloseCall(settle, contract, limit, _callback);
+            return listPositionCloseCall(settle, contract, limit, offset, _callback);
         }
 
         /**
@@ -4349,7 +4379,7 @@ public class FuturesApi {
          </table>
          */
         public List<PositionClose> execute() throws ApiException {
-            ApiResponse<List<PositionClose>> localVarResp = listPositionCloseWithHttpInfo(settle, contract, limit);
+            ApiResponse<List<PositionClose>> localVarResp = listPositionCloseWithHttpInfo(settle, contract, limit, offset);
             return localVarResp.getData();
         }
 
@@ -4364,7 +4394,7 @@ public class FuturesApi {
          </table>
          */
         public ApiResponse<List<PositionClose>> executeWithHttpInfo() throws ApiException {
-            return listPositionCloseWithHttpInfo(settle, contract, limit);
+            return listPositionCloseWithHttpInfo(settle, contract, limit, offset);
         }
 
         /**
@@ -4379,7 +4409,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<PositionClose>> _callback) throws ApiException {
-            return listPositionCloseAsync(settle, contract, limit, _callback);
+            return listPositionCloseAsync(settle, contract, limit, offset, _callback);
         }
     }
 

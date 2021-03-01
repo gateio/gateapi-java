@@ -288,7 +288,7 @@ public class DeliveryApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listDeliveryOrderBookCall(String settle, String contract, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeliveryOrderBookCall(String settle, String contract, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -307,6 +307,10 @@ public class DeliveryApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (withId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("with_id", withId));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -331,7 +335,7 @@ public class DeliveryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDeliveryOrderBookValidateBeforeCall(String settle, String contract, String interval, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeliveryOrderBookValidateBeforeCall(String settle, String contract, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listDeliveryOrderBook(Async)");
@@ -342,19 +346,19 @@ public class DeliveryApi {
             throw new ApiException("Missing the required parameter 'contract' when calling listDeliveryOrderBook(Async)");
         }
 
-        okhttp3.Call localVarCall = listDeliveryOrderBookCall(settle, contract, interval, limit, _callback);
+        okhttp3.Call localVarCall = listDeliveryOrderBookCall(settle, contract, interval, limit, withId, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<FuturesOrderBook> listDeliveryOrderBookWithHttpInfo(String settle, String contract, String interval, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listDeliveryOrderBookValidateBeforeCall(settle, contract, interval, limit, null);
+    private ApiResponse<FuturesOrderBook> listDeliveryOrderBookWithHttpInfo(String settle, String contract, String interval, Integer limit, Boolean withId) throws ApiException {
+        okhttp3.Call localVarCall = listDeliveryOrderBookValidateBeforeCall(settle, contract, interval, limit, withId, null);
         Type localVarReturnType = new TypeToken<FuturesOrderBook>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listDeliveryOrderBookAsync(String settle, String contract, String interval, Integer limit, final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listDeliveryOrderBookValidateBeforeCall(settle, contract, interval, limit, _callback);
+    private okhttp3.Call listDeliveryOrderBookAsync(String settle, String contract, String interval, Integer limit, Boolean withId, final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listDeliveryOrderBookValidateBeforeCall(settle, contract, interval, limit, withId, _callback);
         Type localVarReturnType = new TypeToken<FuturesOrderBook>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -365,6 +369,7 @@ public class DeliveryApi {
         private final String contract;
         private String interval;
         private Integer limit;
+        private Boolean withId;
 
         private APIlistDeliveryOrderBookRequest(String settle, String contract) {
             this.settle = settle;
@@ -392,6 +397,16 @@ public class DeliveryApi {
         }
 
         /**
+         * Set withId
+         * @param withId Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
+         * @return APIlistDeliveryOrderBookRequest
+         */
+        public APIlistDeliveryOrderBookRequest withId(Boolean withId) {
+            this.withId = withId;
+            return this;
+        }
+
+        /**
          * Build call for listDeliveryOrderBook
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -403,7 +418,7 @@ public class DeliveryApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listDeliveryOrderBookCall(settle, contract, interval, limit, _callback);
+            return listDeliveryOrderBookCall(settle, contract, interval, limit, withId, _callback);
         }
 
         /**
@@ -417,7 +432,7 @@ public class DeliveryApi {
          </table>
          */
         public FuturesOrderBook execute() throws ApiException {
-            ApiResponse<FuturesOrderBook> localVarResp = listDeliveryOrderBookWithHttpInfo(settle, contract, interval, limit);
+            ApiResponse<FuturesOrderBook> localVarResp = listDeliveryOrderBookWithHttpInfo(settle, contract, interval, limit, withId);
             return localVarResp.getData();
         }
 
@@ -432,7 +447,7 @@ public class DeliveryApi {
          </table>
          */
         public ApiResponse<FuturesOrderBook> executeWithHttpInfo() throws ApiException {
-            return listDeliveryOrderBookWithHttpInfo(settle, contract, interval, limit);
+            return listDeliveryOrderBookWithHttpInfo(settle, contract, interval, limit, withId);
         }
 
         /**
@@ -447,7 +462,7 @@ public class DeliveryApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
-            return listDeliveryOrderBookAsync(settle, contract, interval, limit, _callback);
+            return listDeliveryOrderBookAsync(settle, contract, interval, limit, withId, _callback);
         }
     }
 

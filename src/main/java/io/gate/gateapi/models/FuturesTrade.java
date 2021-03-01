@@ -31,6 +31,10 @@ public class FuturesTrade {
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private Double createTime;
 
+    public static final String SERIALIZED_NAME_CREATE_TIME_MS = "create_time_ms";
+    @SerializedName(SERIALIZED_NAME_CREATE_TIME_MS)
+    private Double createTimeMs;
+
     public static final String SERIALIZED_NAME_CONTRACT = "contract";
     @SerializedName(SERIALIZED_NAME_CONTRACT)
     private String contract;
@@ -82,6 +86,26 @@ public class FuturesTrade {
 
     public void setCreateTime(Double createTime) {
         this.createTime = createTime;
+    }
+
+    public FuturesTrade createTimeMs(Double createTimeMs) {
+        
+        this.createTimeMs = createTimeMs;
+        return this;
+    }
+
+     /**
+     * Trading time, with milliseconds set to 3 decimal places.
+     * @return createTimeMs
+    **/
+    @javax.annotation.Nullable
+    public Double getCreateTimeMs() {
+        return createTimeMs;
+    }
+
+
+    public void setCreateTimeMs(Double createTimeMs) {
+        this.createTimeMs = createTimeMs;
     }
 
     public FuturesTrade contract(String contract) {
@@ -154,6 +178,7 @@ public class FuturesTrade {
         FuturesTrade futuresTrade = (FuturesTrade) o;
         return Objects.equals(this.id, futuresTrade.id) &&
                 Objects.equals(this.createTime, futuresTrade.createTime) &&
+                Objects.equals(this.createTimeMs, futuresTrade.createTimeMs) &&
                 Objects.equals(this.contract, futuresTrade.contract) &&
                 Objects.equals(this.size, futuresTrade.size) &&
                 Objects.equals(this.price, futuresTrade.price);
@@ -161,7 +186,7 @@ public class FuturesTrade {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, contract, size, price);
+        return Objects.hash(id, createTime, createTimeMs, contract, size, price);
     }
 
 
@@ -171,6 +196,7 @@ public class FuturesTrade {
         sb.append("class FuturesTrade {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("      createTimeMs: ").append(toIndentedString(createTimeMs)).append("\n");
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");

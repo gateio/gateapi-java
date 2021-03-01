@@ -108,6 +108,10 @@ public class LedgerRecord {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private StatusEnum status;
 
+    public static final String SERIALIZED_NAME_CHAIN = "chain";
+    @SerializedName(SERIALIZED_NAME_CHAIN)
+    private String chain;
+
 
      /**
      * Record ID
@@ -130,7 +134,7 @@ public class LedgerRecord {
 
 
      /**
-     * Record time
+     * Operation time
      * @return timestamp
     **/
     @javax.annotation.Nullable
@@ -146,7 +150,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Trade amount
+     * Currency amount
      * @return amount
     **/
     public String getAmount() {
@@ -165,7 +169,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Record currency
+     * Currency name
      * @return currency
     **/
     public String getCurrency() {
@@ -226,6 +230,26 @@ public class LedgerRecord {
         return status;
     }
 
+
+    public LedgerRecord chain(String chain) {
+        
+        this.chain = chain;
+        return this;
+    }
+
+     /**
+     * Name of the chain used in withdrawals
+     * @return chain
+    **/
+    @javax.annotation.Nullable
+    public String getChain() {
+        return chain;
+    }
+
+
+    public void setChain(String chain) {
+        this.chain = chain;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -242,12 +266,13 @@ public class LedgerRecord {
                 Objects.equals(this.currency, ledgerRecord.currency) &&
                 Objects.equals(this.address, ledgerRecord.address) &&
                 Objects.equals(this.memo, ledgerRecord.memo) &&
-                Objects.equals(this.status, ledgerRecord.status);
+                Objects.equals(this.status, ledgerRecord.status) &&
+                Objects.equals(this.chain, ledgerRecord.chain);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, txid, timestamp, amount, currency, address, memo, status);
+        return Objects.hash(id, txid, timestamp, amount, currency, address, memo, status, chain);
     }
 
 
@@ -263,6 +288,7 @@ public class LedgerRecord {
         sb.append("      address: ").append(toIndentedString(address)).append("\n");
         sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      chain: ").append(toIndentedString(chain)).append("\n");
         sb.append("}");
         return sb.toString();
     }

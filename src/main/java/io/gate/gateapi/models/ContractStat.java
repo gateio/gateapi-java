@@ -42,11 +42,11 @@ public class ContractStat {
 
     public static final String SERIALIZED_NAME_LONG_LIQ_AMOUNT = "long_liq_amount";
     @SerializedName(SERIALIZED_NAME_LONG_LIQ_AMOUNT)
-    private BigDecimal longLiqAmount;
+    private Double longLiqAmount;
 
     public static final String SERIALIZED_NAME_LONG_LIQ_USD = "long_liq_usd";
     @SerializedName(SERIALIZED_NAME_LONG_LIQ_USD)
-    private BigDecimal longLiqUsd;
+    private Double longLiqUsd;
 
     public static final String SERIALIZED_NAME_SHORT_LIQ_SIZE = "short_liq_size";
     @SerializedName(SERIALIZED_NAME_SHORT_LIQ_SIZE)
@@ -54,11 +54,11 @@ public class ContractStat {
 
     public static final String SERIALIZED_NAME_SHORT_LIQ_AMOUNT = "short_liq_amount";
     @SerializedName(SERIALIZED_NAME_SHORT_LIQ_AMOUNT)
-    private BigDecimal shortLiqAmount;
+    private Double shortLiqAmount;
 
     public static final String SERIALIZED_NAME_SHORT_LIQ_USD = "short_liq_usd";
     @SerializedName(SERIALIZED_NAME_SHORT_LIQ_USD)
-    private BigDecimal shortLiqUsd;
+    private Double shortLiqUsd;
 
     public static final String SERIALIZED_NAME_OPEN_INTEREST = "open_interest";
     @SerializedName(SERIALIZED_NAME_OPEN_INTEREST)
@@ -66,15 +66,15 @@ public class ContractStat {
 
     public static final String SERIALIZED_NAME_OPEN_INTEREST_USD = "open_interest_usd";
     @SerializedName(SERIALIZED_NAME_OPEN_INTEREST_USD)
-    private BigDecimal openInterestUsd;
+    private Double openInterestUsd;
 
     public static final String SERIALIZED_NAME_TOP_LSR_ACCOUNT = "top_lsr_account";
     @SerializedName(SERIALIZED_NAME_TOP_LSR_ACCOUNT)
-    private BigDecimal topLsrAccount;
+    private Double topLsrAccount;
 
     public static final String SERIALIZED_NAME_TOP_LSR_SIZE = "top_lsr_size";
     @SerializedName(SERIALIZED_NAME_TOP_LSR_SIZE)
-    private BigDecimal topLsrSize;
+    private Double topLsrSize;
 
 
     public ContractStat time(Long time) {
@@ -157,7 +157,7 @@ public class ContractStat {
         this.longLiqSize = longLiqSize;
     }
 
-    public ContractStat longLiqAmount(BigDecimal longLiqAmount) {
+    public ContractStat longLiqAmount(Double longLiqAmount) {
         
         this.longLiqAmount = longLiqAmount;
         return this;
@@ -168,16 +168,16 @@ public class ContractStat {
      * @return longLiqAmount
     **/
     @javax.annotation.Nullable
-    public BigDecimal getLongLiqAmount() {
+    public Double getLongLiqAmount() {
         return longLiqAmount;
     }
 
 
-    public void setLongLiqAmount(BigDecimal longLiqAmount) {
+    public void setLongLiqAmount(Double longLiqAmount) {
         this.longLiqAmount = longLiqAmount;
     }
 
-    public ContractStat longLiqUsd(BigDecimal longLiqUsd) {
+    public ContractStat longLiqUsd(Double longLiqUsd) {
         
         this.longLiqUsd = longLiqUsd;
         return this;
@@ -188,12 +188,12 @@ public class ContractStat {
      * @return longLiqUsd
     **/
     @javax.annotation.Nullable
-    public BigDecimal getLongLiqUsd() {
+    public Double getLongLiqUsd() {
         return longLiqUsd;
     }
 
 
-    public void setLongLiqUsd(BigDecimal longLiqUsd) {
+    public void setLongLiqUsd(Double longLiqUsd) {
         this.longLiqUsd = longLiqUsd;
     }
 
@@ -217,7 +217,7 @@ public class ContractStat {
         this.shortLiqSize = shortLiqSize;
     }
 
-    public ContractStat shortLiqAmount(BigDecimal shortLiqAmount) {
+    public ContractStat shortLiqAmount(Double shortLiqAmount) {
         
         this.shortLiqAmount = shortLiqAmount;
         return this;
@@ -228,16 +228,16 @@ public class ContractStat {
      * @return shortLiqAmount
     **/
     @javax.annotation.Nullable
-    public BigDecimal getShortLiqAmount() {
+    public Double getShortLiqAmount() {
         return shortLiqAmount;
     }
 
 
-    public void setShortLiqAmount(BigDecimal shortLiqAmount) {
+    public void setShortLiqAmount(Double shortLiqAmount) {
         this.shortLiqAmount = shortLiqAmount;
     }
 
-    public ContractStat shortLiqUsd(BigDecimal shortLiqUsd) {
+    public ContractStat shortLiqUsd(Double shortLiqUsd) {
         
         this.shortLiqUsd = shortLiqUsd;
         return this;
@@ -248,12 +248,12 @@ public class ContractStat {
      * @return shortLiqUsd
     **/
     @javax.annotation.Nullable
-    public BigDecimal getShortLiqUsd() {
+    public Double getShortLiqUsd() {
         return shortLiqUsd;
     }
 
 
-    public void setShortLiqUsd(BigDecimal shortLiqUsd) {
+    public void setShortLiqUsd(Double shortLiqUsd) {
         this.shortLiqUsd = shortLiqUsd;
     }
 
@@ -277,7 +277,7 @@ public class ContractStat {
         this.openInterest = openInterest;
     }
 
-    public ContractStat openInterestUsd(BigDecimal openInterestUsd) {
+    public ContractStat openInterestUsd(Double openInterestUsd) {
         
         this.openInterestUsd = openInterestUsd;
         return this;
@@ -288,16 +288,16 @@ public class ContractStat {
      * @return openInterestUsd
     **/
     @javax.annotation.Nullable
-    public BigDecimal getOpenInterestUsd() {
+    public Double getOpenInterestUsd() {
         return openInterestUsd;
     }
 
 
-    public void setOpenInterestUsd(BigDecimal openInterestUsd) {
+    public void setOpenInterestUsd(Double openInterestUsd) {
         this.openInterestUsd = openInterestUsd;
     }
 
-    public ContractStat topLsrAccount(BigDecimal topLsrAccount) {
+    public ContractStat topLsrAccount(Double topLsrAccount) {
         
         this.topLsrAccount = topLsrAccount;
         return this;
@@ -308,16 +308,16 @@ public class ContractStat {
      * @return topLsrAccount
     **/
     @javax.annotation.Nullable
-    public BigDecimal getTopLsrAccount() {
+    public Double getTopLsrAccount() {
         return topLsrAccount;
     }
 
 
-    public void setTopLsrAccount(BigDecimal topLsrAccount) {
+    public void setTopLsrAccount(Double topLsrAccount) {
         this.topLsrAccount = topLsrAccount;
     }
 
-    public ContractStat topLsrSize(BigDecimal topLsrSize) {
+    public ContractStat topLsrSize(Double topLsrSize) {
         
         this.topLsrSize = topLsrSize;
         return this;
@@ -328,12 +328,12 @@ public class ContractStat {
      * @return topLsrSize
     **/
     @javax.annotation.Nullable
-    public BigDecimal getTopLsrSize() {
+    public Double getTopLsrSize() {
         return topLsrSize;
     }
 
 
-    public void setTopLsrSize(BigDecimal topLsrSize) {
+    public void setTopLsrSize(Double topLsrSize) {
         this.topLsrSize = topLsrSize;
     }
     @Override

@@ -26,6 +26,10 @@ import java.util.List;
  * FuturesOrderBook
  */
 public class FuturesOrderBook {
+    public static final String SERIALIZED_NAME_ID = "id";
+    @SerializedName(SERIALIZED_NAME_ID)
+    private Long id;
+
     public static final String SERIALIZED_NAME_ASKS = "asks";
     @SerializedName(SERIALIZED_NAME_ASKS)
     private List<FuturesOrderBookItem> asks = new ArrayList<>();
@@ -34,6 +38,26 @@ public class FuturesOrderBook {
     @SerializedName(SERIALIZED_NAME_BIDS)
     private List<FuturesOrderBookItem> bids = new ArrayList<>();
 
+
+    public FuturesOrderBook id(Long id) {
+        
+        this.id = id;
+        return this;
+    }
+
+     /**
+     * Order Book ID. Increase by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response
+     * @return id
+    **/
+    @javax.annotation.Nullable
+    public Long getId() {
+        return id;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public FuturesOrderBook asks(List<FuturesOrderBookItem> asks) {
         
@@ -91,13 +115,14 @@ public class FuturesOrderBook {
             return false;
         }
         FuturesOrderBook futuresOrderBook = (FuturesOrderBook) o;
-        return Objects.equals(this.asks, futuresOrderBook.asks) &&
+        return Objects.equals(this.id, futuresOrderBook.id) &&
+                Objects.equals(this.asks, futuresOrderBook.asks) &&
                 Objects.equals(this.bids, futuresOrderBook.bids);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(asks, bids);
+        return Objects.hash(id, asks, bids);
     }
 
 
@@ -105,6 +130,7 @@ public class FuturesOrderBook {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class FuturesOrderBook {\n");
+        sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      asks: ").append(toIndentedString(asks)).append("\n");
         sb.append("      bids: ").append(toIndentedString(bids)).append("\n");
         sb.append("}");

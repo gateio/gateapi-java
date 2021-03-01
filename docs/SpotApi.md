@@ -576,6 +576,8 @@ No authorization required
 
 Query user trading fee rates
 
+This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
+
 ### Example
 
 ```java

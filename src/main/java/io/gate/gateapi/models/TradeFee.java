@@ -55,6 +55,14 @@ public class TradeFee {
     @SerializedName(SERIALIZED_NAME_POINT_TYPE)
     private String pointType;
 
+    public static final String SERIALIZED_NAME_FUTURES_TAKER_FEE = "futures_taker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURES_TAKER_FEE)
+    private String futuresTakerFee;
+
+    public static final String SERIALIZED_NAME_FUTURES_MAKER_FEE = "futures_maker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURES_MAKER_FEE)
+    private String futuresMakerFee;
+
 
     public TradeFee userId(Long userId) {
         
@@ -215,6 +223,46 @@ public class TradeFee {
     public void setPointType(String pointType) {
         this.pointType = pointType;
     }
+
+    public TradeFee futuresTakerFee(String futuresTakerFee) {
+        
+        this.futuresTakerFee = futuresTakerFee;
+        return this;
+    }
+
+     /**
+     * Futures trading taker fee
+     * @return futuresTakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getFuturesTakerFee() {
+        return futuresTakerFee;
+    }
+
+
+    public void setFuturesTakerFee(String futuresTakerFee) {
+        this.futuresTakerFee = futuresTakerFee;
+    }
+
+    public TradeFee futuresMakerFee(String futuresMakerFee) {
+        
+        this.futuresMakerFee = futuresMakerFee;
+        return this;
+    }
+
+     /**
+     * Future trading maker fee
+     * @return futuresMakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getFuturesMakerFee() {
+        return futuresMakerFee;
+    }
+
+
+    public void setFuturesMakerFee(String futuresMakerFee) {
+        this.futuresMakerFee = futuresMakerFee;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -231,12 +279,14 @@ public class TradeFee {
                 Objects.equals(this.gtTakerFee, tradeFee.gtTakerFee) &&
                 Objects.equals(this.gtMakerFee, tradeFee.gtMakerFee) &&
                 Objects.equals(this.loanFee, tradeFee.loanFee) &&
-                Objects.equals(this.pointType, tradeFee.pointType);
+                Objects.equals(this.pointType, tradeFee.pointType) &&
+                Objects.equals(this.futuresTakerFee, tradeFee.futuresTakerFee) &&
+                Objects.equals(this.futuresMakerFee, tradeFee.futuresMakerFee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType);
+        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, futuresTakerFee, futuresMakerFee);
     }
 
 
@@ -252,6 +302,8 @@ public class TradeFee {
         sb.append("      gtMakerFee: ").append(toIndentedString(gtMakerFee)).append("\n");
         sb.append("      loanFee: ").append(toIndentedString(loanFee)).append("\n");
         sb.append("      pointType: ").append(toIndentedString(pointType)).append("\n");
+        sb.append("      futuresTakerFee: ").append(toIndentedString(futuresTakerFee)).append("\n");
+        sb.append("      futuresMakerFee: ").append(toIndentedString(futuresMakerFee)).append("\n");
         sb.append("}");
         return sb.toString();
     }
