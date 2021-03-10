@@ -2,8 +2,10 @@
 
 Gate API v4
 
-- API version: 4.19.2
-- SDK version: 5.19.2
+- API version: 4.19.4
+- SDK version: 5.19.4
+
+Welcome to Gate.io API
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -65,7 +67,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>5.19.2</version>
+    <version>5.19.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -75,7 +77,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:5.19.2"
+compile "io.gate:gate-api:5.19.4"
 ```
 
 ### Others
@@ -88,7 +90,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-5.19.2.jar`
+* `target/gate-api-5.19.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -216,6 +218,8 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**listLoanRecords**](docs/MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of specified loan
 *MarginApi* | [**getLoanRecord**](docs/MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
 *MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
+*MarginApi* | [**getAutoRepayStatus**](docs/MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
+*MarginApi* | [**setAutoRepay**](docs/MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; detail
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get detail of one particular currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
@@ -249,6 +253,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AutoRepaySetting](docs/AutoRepaySetting.md)
  - [BatchOrder](docs/BatchOrder.md)
  - [CancelOrder](docs/CancelOrder.md)
  - [CancelOrderResult](docs/CancelOrderResult.md)
@@ -283,6 +288,7 @@ Class | Method | HTTP request | Description
  - [MarginAccountBook](docs/MarginAccountBook.md)
  - [MarginAccountCurrency](docs/MarginAccountCurrency.md)
  - [MarginCurrencyPair](docs/MarginCurrencyPair.md)
+ - [MultiChainAddressItem](docs/MultiChainAddressItem.md)
  - [MyFuturesTrade](docs/MyFuturesTrade.md)
  - [OpenOrders](docs/OpenOrders.md)
  - [Order](docs/Order.md)

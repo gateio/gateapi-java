@@ -42,7 +42,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String currency = "currency_example"; // String | Currency name
+        String currency = "USDT"; // String | Currency name
         try {
             DepositAddress result = apiInstance.getDepositAddress(currency);
             System.out.println(result);
@@ -409,6 +409,8 @@ Name | Type | Description  | Notes
 > transferWithSubAccount(subAccountTransfer)
 
 Transfer between main and sub accounts
+
+Support transferring with sub user&#39;s spot or futures account. Note that only main user&#39;s spot account is used no matter which sub user&#39;s account is operated.
 
 ### Example
 

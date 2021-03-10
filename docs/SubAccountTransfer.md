@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **uid** | **String** | Main account user ID |  [optional] [readonly]
 **timest** | **String** | Transfer timestamp |  [optional] [readonly]
 **source** | **String** | Where the operation is initiated from |  [optional] [readonly]
+**subAccountType** | [**SubAccountTypeEnum**](#SubAccountTypeEnum) | Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account |  [optional]
 
 ## Enum: DirectionEnum
 
@@ -19,4 +20,11 @@ Name | Value
 ---- | -----
 TO | &quot;to&quot;
 FROM | &quot;from&quot;
+
+## Enum: SubAccountTypeEnum
+
+Name | Value
+---- | -----
+SPOT | &quot;spot&quot;
+FUTURES | &quot;futures&quot;
 
