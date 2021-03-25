@@ -29,9 +29,11 @@ import io.gate.gateapi.models.OpenOrders;
 import io.gate.gateapi.models.Order;
 import io.gate.gateapi.models.OrderBook;
 import io.gate.gateapi.models.SpotAccount;
+import io.gate.gateapi.models.SpotPriceTriggeredOrder;
 import io.gate.gateapi.models.Ticker;
 import io.gate.gateapi.models.Trade;
 import io.gate.gateapi.models.TradeFee;
+import io.gate.gateapi.models.TriggerOrderResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -2270,7 +2272,7 @@ public class SpotApi {
 
     /**
      * Build call for getOrder
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2334,7 +2336,7 @@ public class SpotApi {
     /**
      * Get a single order
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2352,7 +2354,7 @@ public class SpotApi {
     /**
      * Get a single order
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2371,7 +2373,7 @@ public class SpotApi {
     /**
      * Get a single order (asynchronously)
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2391,7 +2393,7 @@ public class SpotApi {
 
     /**
      * Build call for cancelOrder
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2455,7 +2457,7 @@ public class SpotApi {
     /**
      * Cancel a single order
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2473,7 +2475,7 @@ public class SpotApi {
     /**
      * Cancel a single order
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2492,7 +2494,7 @@ public class SpotApi {
     /**
      * Cancel a single order (asynchronously)
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2693,6 +2695,643 @@ public class SpotApi {
      */
     public APIlistMyTradesRequest listMyTrades(String currencyPair) {
         return new APIlistMyTradesRequest(currencyPair);
+    }
+
+    private okhttp3.Call listSpotPriceTriggeredOrdersCall(String status, String market, String account, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/price_orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
+        if (account != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("account", account));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpotPriceTriggeredOrdersValidateBeforeCall(String status, String market, String account, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'status' is set
+        if (status == null) {
+            throw new ApiException("Missing the required parameter 'status' when calling listSpotPriceTriggeredOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = listSpotPriceTriggeredOrdersCall(status, market, account, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<SpotPriceTriggeredOrder>> listSpotPriceTriggeredOrdersWithHttpInfo(String status, String market, String account, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listSpotPriceTriggeredOrdersValidateBeforeCall(status, market, account, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<SpotPriceTriggeredOrder>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listSpotPriceTriggeredOrdersAsync(String status, String market, String account, Integer limit, Integer offset, final ApiCallback<List<SpotPriceTriggeredOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSpotPriceTriggeredOrdersValidateBeforeCall(status, market, account, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<SpotPriceTriggeredOrder>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSpotPriceTriggeredOrdersRequest {
+        private final String status;
+        private String market;
+        private String account;
+        private Integer limit;
+        private Integer offset;
+
+        private APIlistSpotPriceTriggeredOrdersRequest(String status) {
+            this.status = status;
+        }
+
+        /**
+         * Set market
+         * @param market 交易市场 (optional)
+         * @return APIlistSpotPriceTriggeredOrdersRequest
+         */
+        public APIlistSpotPriceTriggeredOrdersRequest market(String market) {
+            this.market = market;
+            return this;
+        }
+
+        /**
+         * Set account
+         * @param account Trading account (optional)
+         * @return APIlistSpotPriceTriggeredOrdersRequest
+         */
+        public APIlistSpotPriceTriggeredOrdersRequest account(String account) {
+            this.account = account;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @return APIlistSpotPriceTriggeredOrdersRequest
+         */
+        public APIlistSpotPriceTriggeredOrdersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistSpotPriceTriggeredOrdersRequest
+         */
+        public APIlistSpotPriceTriggeredOrdersRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listSpotPriceTriggeredOrders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSpotPriceTriggeredOrdersCall(status, market, account, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listSpotPriceTriggeredOrders request
+         * @return List&lt;SpotPriceTriggeredOrder&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<SpotPriceTriggeredOrder> execute() throws ApiException {
+            ApiResponse<List<SpotPriceTriggeredOrder>> localVarResp = listSpotPriceTriggeredOrdersWithHttpInfo(status, market, account, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSpotPriceTriggeredOrders request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;SpotPriceTriggeredOrder&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<SpotPriceTriggeredOrder>> executeWithHttpInfo() throws ApiException {
+            return listSpotPriceTriggeredOrdersWithHttpInfo(status, market, account, limit, offset);
+        }
+
+        /**
+         * Execute listSpotPriceTriggeredOrders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<SpotPriceTriggeredOrder>> _callback) throws ApiException {
+            return listSpotPriceTriggeredOrdersAsync(status, market, account, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * Retrieve running auto order list
+     * 
+     * @param status List orders based on status (required)
+     * @return APIlistSpotPriceTriggeredOrdersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistSpotPriceTriggeredOrdersRequest listSpotPriceTriggeredOrders(String status) {
+        return new APIlistSpotPriceTriggeredOrdersRequest(status);
+    }
+
+    /**
+     * Build call for createSpotPriceTriggeredOrder
+     * @param spotPriceTriggeredOrder  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSpotPriceTriggeredOrderCall(SpotPriceTriggeredOrder spotPriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = spotPriceTriggeredOrder;
+
+        // create path and map variables
+        String localVarPath = "/spot/price_orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSpotPriceTriggeredOrderValidateBeforeCall(SpotPriceTriggeredOrder spotPriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'spotPriceTriggeredOrder' is set
+        if (spotPriceTriggeredOrder == null) {
+            throw new ApiException("Missing the required parameter 'spotPriceTriggeredOrder' when calling createSpotPriceTriggeredOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = createSpotPriceTriggeredOrderCall(spotPriceTriggeredOrder, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create a price-triggered order
+     * 
+     * @param spotPriceTriggeredOrder  (required)
+     * @return TriggerOrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+     </table>
+     */
+    public TriggerOrderResponse createSpotPriceTriggeredOrder(SpotPriceTriggeredOrder spotPriceTriggeredOrder) throws ApiException {
+        ApiResponse<TriggerOrderResponse> localVarResp = createSpotPriceTriggeredOrderWithHttpInfo(spotPriceTriggeredOrder);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a price-triggered order
+     * 
+     * @param spotPriceTriggeredOrder  (required)
+     * @return ApiResponse&lt;TriggerOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TriggerOrderResponse> createSpotPriceTriggeredOrderWithHttpInfo(SpotPriceTriggeredOrder spotPriceTriggeredOrder) throws ApiException {
+        okhttp3.Call localVarCall = createSpotPriceTriggeredOrderValidateBeforeCall(spotPriceTriggeredOrder, null);
+        Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a price-triggered order (asynchronously)
+     * 
+     * @param spotPriceTriggeredOrder  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSpotPriceTriggeredOrderAsync(SpotPriceTriggeredOrder spotPriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createSpotPriceTriggeredOrderValidateBeforeCall(spotPriceTriggeredOrder, _callback);
+        Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for cancelSpotPriceTriggeredOrderList
+     * @param market 交易市场 (optional)
+     * @param account Trading account (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSpotPriceTriggeredOrderListCall(String market, String account, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/price_orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (market != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("market", market));
+        }
+
+        if (account != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("account", account));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelSpotPriceTriggeredOrderListValidateBeforeCall(String market, String account, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPriceTriggeredOrderListCall(market, account, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Cancel all open orders
+     * 
+     * @param market 交易市场 (optional)
+     * @param account Trading account (optional)
+     * @return List&lt;SpotPriceTriggeredOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<SpotPriceTriggeredOrder> cancelSpotPriceTriggeredOrderList(String market, String account) throws ApiException {
+        ApiResponse<List<SpotPriceTriggeredOrder>> localVarResp = cancelSpotPriceTriggeredOrderListWithHttpInfo(market, account);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel all open orders
+     * 
+     * @param market 交易市场 (optional)
+     * @param account Trading account (optional)
+     * @return ApiResponse&lt;List&lt;SpotPriceTriggeredOrder&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<SpotPriceTriggeredOrder>> cancelSpotPriceTriggeredOrderListWithHttpInfo(String market, String account) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPriceTriggeredOrderListValidateBeforeCall(market, account, null);
+        Type localVarReturnType = new TypeToken<List<SpotPriceTriggeredOrder>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel all open orders (asynchronously)
+     * 
+     * @param market 交易市场 (optional)
+     * @param account Trading account (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSpotPriceTriggeredOrderListAsync(String market, String account, final ApiCallback<List<SpotPriceTriggeredOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPriceTriggeredOrderListValidateBeforeCall(market, account, _callback);
+        Type localVarReturnType = new TypeToken<List<SpotPriceTriggeredOrder>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getSpotPriceTriggeredOrder
+     * @param orderId ID returned on order successfully being created (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSpotPriceTriggeredOrderCall(String orderId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/price_orders/{order_id}"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSpotPriceTriggeredOrderValidateBeforeCall(String orderId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getSpotPriceTriggeredOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = getSpotPriceTriggeredOrderCall(orderId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get a single order
+     * 
+     * @param orderId ID returned on order successfully being created (required)
+     * @return SpotPriceTriggeredOrder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpotPriceTriggeredOrder getSpotPriceTriggeredOrder(String orderId) throws ApiException {
+        ApiResponse<SpotPriceTriggeredOrder> localVarResp = getSpotPriceTriggeredOrderWithHttpInfo(orderId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a single order
+     * 
+     * @param orderId ID returned on order successfully being created (required)
+     * @return ApiResponse&lt;SpotPriceTriggeredOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpotPriceTriggeredOrder> getSpotPriceTriggeredOrderWithHttpInfo(String orderId) throws ApiException {
+        okhttp3.Call localVarCall = getSpotPriceTriggeredOrderValidateBeforeCall(orderId, null);
+        Type localVarReturnType = new TypeToken<SpotPriceTriggeredOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a single order (asynchronously)
+     * 
+     * @param orderId ID returned on order successfully being created (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSpotPriceTriggeredOrderAsync(String orderId, final ApiCallback<SpotPriceTriggeredOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getSpotPriceTriggeredOrderValidateBeforeCall(orderId, _callback);
+        Type localVarReturnType = new TypeToken<SpotPriceTriggeredOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for cancelSpotPriceTriggeredOrder
+     * @param orderId ID returned on order successfully being created (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSpotPriceTriggeredOrderCall(String orderId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/price_orders/{order_id}"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelSpotPriceTriggeredOrderValidateBeforeCall(String orderId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling cancelSpotPriceTriggeredOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = cancelSpotPriceTriggeredOrderCall(orderId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Cancel a single order
+     * 
+     * @param orderId ID returned on order successfully being created (required)
+     * @return SpotPriceTriggeredOrder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpotPriceTriggeredOrder cancelSpotPriceTriggeredOrder(String orderId) throws ApiException {
+        ApiResponse<SpotPriceTriggeredOrder> localVarResp = cancelSpotPriceTriggeredOrderWithHttpInfo(orderId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel a single order
+     * 
+     * @param orderId ID returned on order successfully being created (required)
+     * @return ApiResponse&lt;SpotPriceTriggeredOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpotPriceTriggeredOrder> cancelSpotPriceTriggeredOrderWithHttpInfo(String orderId) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPriceTriggeredOrderValidateBeforeCall(orderId, null);
+        Type localVarReturnType = new TypeToken<SpotPriceTriggeredOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel a single order (asynchronously)
+     * 
+     * @param orderId ID returned on order successfully being created (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSpotPriceTriggeredOrderAsync(String orderId, final ApiCallback<SpotPriceTriggeredOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPriceTriggeredOrderValidateBeforeCall(orderId, _callback);
+        Type localVarReturnType = new TypeToken<SpotPriceTriggeredOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
 }

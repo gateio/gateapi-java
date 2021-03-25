@@ -3786,7 +3786,7 @@ public class FuturesApi {
     /**
      * Build call for getFuturesOrder
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3847,7 +3847,7 @@ public class FuturesApi {
      * Get a single order
      * Zero-fill order cannot be retrieved 60 seconds after cancellation
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3865,7 +3865,7 @@ public class FuturesApi {
      * Get a single order
      * Zero-fill order cannot be retrieved 60 seconds after cancellation
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3884,7 +3884,7 @@ public class FuturesApi {
      * Get a single order (asynchronously)
      * Zero-fill order cannot be retrieved 60 seconds after cancellation
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3904,7 +3904,7 @@ public class FuturesApi {
     /**
      * Build call for cancelFuturesOrder
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3965,7 +3965,7 @@ public class FuturesApi {
      * Cancel a single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3983,7 +3983,7 @@ public class FuturesApi {
      * Cancel a single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4002,7 +4002,7 @@ public class FuturesApi {
      * Cancel a single order (asynchronously)
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

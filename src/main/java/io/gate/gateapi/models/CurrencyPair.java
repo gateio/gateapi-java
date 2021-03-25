@@ -110,6 +110,14 @@ public class CurrencyPair {
     @SerializedName(SERIALIZED_NAME_TRADE_STATUS)
     private TradeStatusEnum tradeStatus;
 
+    public static final String SERIALIZED_NAME_SELL_START = "sell_start";
+    @SerializedName(SERIALIZED_NAME_SELL_START)
+    private Long sellStart;
+
+    public static final String SERIALIZED_NAME_BUY_START = "buy_start";
+    @SerializedName(SERIALIZED_NAME_BUY_START)
+    private Long buyStart;
+
 
     public CurrencyPair id(String id) {
         
@@ -290,6 +298,46 @@ public class CurrencyPair {
     public void setTradeStatus(TradeStatusEnum tradeStatus) {
         this.tradeStatus = tradeStatus;
     }
+
+    public CurrencyPair sellStart(Long sellStart) {
+        
+        this.sellStart = sellStart;
+        return this;
+    }
+
+     /**
+     * 允许卖出时间，秒级 Unix 时间戳
+     * @return sellStart
+    **/
+    @javax.annotation.Nullable
+    public Long getSellStart() {
+        return sellStart;
+    }
+
+
+    public void setSellStart(Long sellStart) {
+        this.sellStart = sellStart;
+    }
+
+    public CurrencyPair buyStart(Long buyStart) {
+        
+        this.buyStart = buyStart;
+        return this;
+    }
+
+     /**
+     * 允许买入时间，秒级 Unix 时间戳
+     * @return buyStart
+    **/
+    @javax.annotation.Nullable
+    public Long getBuyStart() {
+        return buyStart;
+    }
+
+
+    public void setBuyStart(Long buyStart) {
+        this.buyStart = buyStart;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -307,12 +355,14 @@ public class CurrencyPair {
                 Objects.equals(this.minQuoteAmount, currencyPair.minQuoteAmount) &&
                 Objects.equals(this.amountPrecision, currencyPair.amountPrecision) &&
                 Objects.equals(this.precision, currencyPair.precision) &&
-                Objects.equals(this.tradeStatus, currencyPair.tradeStatus);
+                Objects.equals(this.tradeStatus, currencyPair.tradeStatus) &&
+                Objects.equals(this.sellStart, currencyPair.sellStart) &&
+                Objects.equals(this.buyStart, currencyPair.buyStart);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, amountPrecision, precision, tradeStatus);
+        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart);
     }
 
 
@@ -329,6 +379,8 @@ public class CurrencyPair {
         sb.append("      amountPrecision: ").append(toIndentedString(amountPrecision)).append("\n");
         sb.append("      precision: ").append(toIndentedString(precision)).append("\n");
         sb.append("      tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
+        sb.append("      sellStart: ").append(toIndentedString(sellStart)).append("\n");
+        sb.append("      buyStart: ").append(toIndentedString(buyStart)).append("\n");
         sb.append("}");
         return sb.toString();
     }

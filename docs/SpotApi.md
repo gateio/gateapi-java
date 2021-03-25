@@ -23,6 +23,11 @@ Method | HTTP request | Description
 [**getOrder**](SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
 [**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 [**listMyTrades**](SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
+[**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
+[**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
+[**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
+[**getSpotPriceTriggeredOrder**](SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a single order
+[**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel a single order
 
 
 <a name="listCurrencies"></a>
@@ -1171,7 +1176,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String orderId = "12345"; // String | ID returned on order successfully being created
+        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             Order result = apiInstance.getOrder(orderId, currencyPair);
@@ -1193,7 +1198,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| ID returned on order successfully being created |
+ **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
 
 ### Return type
@@ -1241,7 +1246,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String orderId = "12345"; // String | ID returned on order successfully being created
+        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             Order result = apiInstance.cancelOrder(orderId, currencyPair);
@@ -1263,7 +1268,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| ID returned on order successfully being created |
+ **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
 
 ### Return type
@@ -1361,4 +1366,359 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List retrieved |  -  |
+
+<a name="listSpotPriceTriggeredOrders"></a>
+# **listSpotPriceTriggeredOrders**
+> List&lt;SpotPriceTriggeredOrder&gt; listSpotPriceTriggeredOrders(status).market(market).account(account).limit(limit).offset(offset).execute();
+
+Retrieve running auto order list
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        String status = "status_example"; // String | List orders based on status
+        String market = "BTC_USDT"; // String | 交易市场
+        String account = "account_example"; // String | Trading account
+        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        try {
+            List<SpotPriceTriggeredOrder> result = apiInstance.listSpotPriceTriggeredOrders(status)
+                        .market(market)
+                        .account(account)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#listSpotPriceTriggeredOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **String**| List orders based on status | [enum: open, finished]
+ **market** | **String**| 交易市场 | [optional]
+ **account** | **String**| Trading account | [optional] [enum: normal, margin]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;SpotPriceTriggeredOrder&gt;**](SpotPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="createSpotPriceTriggeredOrder"></a>
+# **createSpotPriceTriggeredOrder**
+> TriggerOrderResponse createSpotPriceTriggeredOrder(spotPriceTriggeredOrder)
+
+Create a price-triggered order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        SpotPriceTriggeredOrder spotPriceTriggeredOrder = new SpotPriceTriggeredOrder(); // SpotPriceTriggeredOrder | 
+        try {
+            TriggerOrderResponse result = apiInstance.createSpotPriceTriggeredOrder(spotPriceTriggeredOrder);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#createSpotPriceTriggeredOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **spotPriceTriggeredOrder** | [**SpotPriceTriggeredOrder**](SpotPriceTriggeredOrder.md)|  |
+
+### Return type
+
+[**TriggerOrderResponse**](TriggerOrderResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Order created |  -  |
+
+<a name="cancelSpotPriceTriggeredOrderList"></a>
+# **cancelSpotPriceTriggeredOrderList**
+> List&lt;SpotPriceTriggeredOrder&gt; cancelSpotPriceTriggeredOrderList(market, account)
+
+Cancel all open orders
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        String market = "BTC_USDT"; // String | 交易市场
+        String account = "account_example"; // String | Trading account
+        try {
+            List<SpotPriceTriggeredOrder> result = apiInstance.cancelSpotPriceTriggeredOrderList(market, account);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#cancelSpotPriceTriggeredOrderList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **market** | **String**| 交易市场 | [optional]
+ **account** | **String**| Trading account | [optional] [enum: normal, margin]
+
+### Return type
+
+[**List&lt;SpotPriceTriggeredOrder&gt;**](SpotPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Batch cancellation request accepted. Query order status by listing orders |  -  |
+
+<a name="getSpotPriceTriggeredOrder"></a>
+# **getSpotPriceTriggeredOrder**
+> SpotPriceTriggeredOrder getSpotPriceTriggeredOrder(orderId)
+
+Get a single order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        String orderId = "orderId_example"; // String | ID returned on order successfully being created
+        try {
+            SpotPriceTriggeredOrder result = apiInstance.getSpotPriceTriggeredOrder(orderId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#getSpotPriceTriggeredOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| ID returned on order successfully being created |
+
+### Return type
+
+[**SpotPriceTriggeredOrder**](SpotPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Auto order detail |  -  |
+
+<a name="cancelSpotPriceTriggeredOrder"></a>
+# **cancelSpotPriceTriggeredOrder**
+> SpotPriceTriggeredOrder cancelSpotPriceTriggeredOrder(orderId)
+
+Cancel a single order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        String orderId = "orderId_example"; // String | ID returned on order successfully being created
+        try {
+            SpotPriceTriggeredOrder result = apiInstance.cancelSpotPriceTriggeredOrder(orderId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#cancelSpotPriceTriggeredOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| ID returned on order successfully being created |
+
+### Return type
+
+[**SpotPriceTriggeredOrder**](SpotPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Auto order detail |  -  |
 

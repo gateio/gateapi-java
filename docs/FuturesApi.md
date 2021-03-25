@@ -1894,7 +1894,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String orderId = "12345"; // String | ID returned on order successfully being created
+        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
         try {
             FuturesOrder result = apiInstance.getFuturesOrder(settle, orderId);
             System.out.println(result);
@@ -1916,7 +1916,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **String**| ID returned on order successfully being created |
+ **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
 
 ### Return type
 
@@ -1964,7 +1964,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String orderId = "12345"; // String | ID returned on order successfully being created
+        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
         try {
             FuturesOrder result = apiInstance.cancelFuturesOrder(settle, orderId);
             System.out.println(result);
@@ -1986,7 +1986,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **String**| ID returned on order successfully being created |
+ **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
 
 ### Return type
 

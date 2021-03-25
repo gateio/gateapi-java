@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.19.4
-- SDK version: 5.19.4
+- API version: 4.20.0
+- SDK version: 5.20.0
 
 Welcome to Gate.io API
 
@@ -67,7 +67,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>5.19.4</version>
+    <version>5.20.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:5.19.4"
+compile "io.gate:gate-api:5.20.0"
 ```
 
 ### Others
@@ -90,7 +90,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-5.19.4.jar`
+* `target/gate-api-5.20.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -239,6 +239,11 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**getOrder**](docs/SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
 *SpotApi* | [**cancelOrder**](docs/SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 *SpotApi* | [**listMyTrades**](docs/SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
+*SpotApi* | [**listSpotPriceTriggeredOrders**](docs/SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
+*SpotApi* | [**createSpotPriceTriggeredOrder**](docs/SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
+*SpotApi* | [**cancelSpotPriceTriggeredOrderList**](docs/SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
+*SpotApi* | [**getSpotPriceTriggeredOrder**](docs/SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a single order
+*SpotApi* | [**cancelSpotPriceTriggeredOrder**](docs/SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel a single order
 *WalletApi* | [**getDepositAddress**](docs/WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
 *WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
 *WalletApi* | [**listDeposits**](docs/WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records
@@ -299,6 +304,9 @@ Class | Method | HTTP request | Description
  - [RepayRequest](docs/RepayRequest.md)
  - [Repayment](docs/Repayment.md)
  - [SpotAccount](docs/SpotAccount.md)
+ - [SpotPricePutOrder](docs/SpotPricePutOrder.md)
+ - [SpotPriceTrigger](docs/SpotPriceTrigger.md)
+ - [SpotPriceTriggeredOrder](docs/SpotPriceTriggeredOrder.md)
  - [SubAccountBalance](docs/SubAccountBalance.md)
  - [SubAccountTransfer](docs/SubAccountTransfer.md)
  - [Ticker](docs/Ticker.md)
