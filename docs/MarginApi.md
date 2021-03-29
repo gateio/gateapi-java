@@ -1330,7 +1330,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String status = "true"; // String | New auto repayment status. `on` - enabled, `off` - disabled
+        String status = "on"; // String | New auto repayment status. `on` - enabled, `off` - disabled
         try {
             AutoRepaySetting result = apiInstance.setAutoRepay(status);
             System.out.println(result);

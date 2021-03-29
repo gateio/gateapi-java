@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 
 Name | Value
 ---- | -----
-TRUE | &quot;true&quot;
-FALSE | &quot;false&quot;
+ON | &quot;on&quot;
+OFF | &quot;off&quot;
 

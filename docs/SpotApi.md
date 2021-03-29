@@ -1395,7 +1395,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String status = "status_example"; // String | List orders based on status
-        String market = "BTC_USDT"; // String | 交易市场
+        String market = "BTC_USDT"; // String | Currency pair
         String account = "account_example"; // String | Trading account
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -1425,7 +1425,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **String**| List orders based on status | [enum: open, finished]
- **market** | **String**| 交易市场 | [optional]
+ **market** | **String**| Currency pair | [optional]
  **account** | **String**| Trading account | [optional] [enum: normal, margin]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -1543,7 +1543,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String market = "BTC_USDT"; // String | 交易市场
+        String market = "BTC_USDT"; // String | Currency pair
         String account = "account_example"; // String | Trading account
         try {
             List<SpotPriceTriggeredOrder> result = apiInstance.cancelSpotPriceTriggeredOrderList(market, account);
@@ -1565,7 +1565,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **market** | **String**| 交易市场 | [optional]
+ **market** | **String**| Currency pair | [optional]
  **account** | **String**| Trading account | [optional] [enum: normal, margin]
 
 ### Return type

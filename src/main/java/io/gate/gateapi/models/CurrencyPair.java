@@ -306,7 +306,7 @@ public class CurrencyPair {
     }
 
      /**
-     * 允许卖出时间，秒级 Unix 时间戳
+     * Sell start unix timestamp in seconds
      * @return sellStart
     **/
     @javax.annotation.Nullable
@@ -326,7 +326,7 @@ public class CurrencyPair {
     }
 
      /**
-     * 允许买入时间，秒级 Unix 时间戳
+     * Buy start unix timestamp in seconds
      * @return buyStart
     **/
     @javax.annotation.Nullable

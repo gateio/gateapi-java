@@ -28,9 +28,9 @@ public class AutoRepaySetting {
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
-        TRUE("true"),
+        ON("on"),
         
-        FALSE("false");
+        OFF("off");
 
         private String value;
 

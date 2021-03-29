@@ -2784,7 +2784,7 @@ public class SpotApi {
 
         /**
          * Set market
-         * @param market 交易市场 (optional)
+         * @param market Currency pair (optional)
          * @return APIlistSpotPriceTriggeredOrdersRequest
          */
         public APIlistSpotPriceTriggeredOrdersRequest market(String market) {
@@ -3006,7 +3006,7 @@ public class SpotApi {
 
     /**
      * Build call for cancelSpotPriceTriggeredOrderList
-     * @param market 交易市场 (optional)
+     * @param market Currency pair (optional)
      * @param account Trading account (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3063,7 +3063,7 @@ public class SpotApi {
     /**
      * Cancel all open orders
      * 
-     * @param market 交易市场 (optional)
+     * @param market Currency pair (optional)
      * @param account Trading account (optional)
      * @return List&lt;SpotPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3081,7 +3081,7 @@ public class SpotApi {
     /**
      * Cancel all open orders
      * 
-     * @param market 交易市场 (optional)
+     * @param market Currency pair (optional)
      * @param account Trading account (optional)
      * @return ApiResponse&lt;List&lt;SpotPriceTriggeredOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3100,7 +3100,7 @@ public class SpotApi {
     /**
      * Cancel all open orders (asynchronously)
      * 
-     * @param market 交易市场 (optional)
+     * @param market Currency pair (optional)
      * @param account Trading account (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
