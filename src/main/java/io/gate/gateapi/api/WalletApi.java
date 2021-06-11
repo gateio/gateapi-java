@@ -624,7 +624,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
      * @param transfer  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -639,7 +639,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
      * @param transfer  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -656,7 +656,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts (asynchronously)
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
      * @param transfer  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

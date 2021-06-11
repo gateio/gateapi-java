@@ -161,6 +161,10 @@ public class Position {
     @SerializedName(SERIALIZED_NAME_MODE)
     private ModeEnum mode;
 
+    public static final String SERIALIZED_NAME_CROSS_LEVERAGE_LIMIT = "cross_leverage_limit";
+    @SerializedName(SERIALIZED_NAME_CROSS_LEVERAGE_LIMIT)
+    private String crossLeverageLimit;
+
 
      /**
      * User ID
@@ -431,6 +435,26 @@ public class Position {
     public void setMode(ModeEnum mode) {
         this.mode = mode;
     }
+
+    public Position crossLeverageLimit(String crossLeverageLimit) {
+        
+        this.crossLeverageLimit = crossLeverageLimit;
+        return this;
+    }
+
+     /**
+     * Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)
+     * @return crossLeverageLimit
+    **/
+    @javax.annotation.Nullable
+    public String getCrossLeverageLimit() {
+        return crossLeverageLimit;
+    }
+
+
+    public void setCrossLeverageLimit(String crossLeverageLimit) {
+        this.crossLeverageLimit = crossLeverageLimit;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -461,12 +485,13 @@ public class Position {
                 Objects.equals(this.adlRanking, position.adlRanking) &&
                 Objects.equals(this.pendingOrders, position.pendingOrders) &&
                 Objects.equals(this.closeOrder, position.closeOrder) &&
-                Objects.equals(this.mode, position.mode);
+                Objects.equals(this.mode, position.mode) &&
+                Objects.equals(this.crossLeverageLimit, position.crossLeverageLimit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode);
+        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit);
     }
 
 
@@ -496,6 +521,7 @@ public class Position {
         sb.append("      pendingOrders: ").append(toIndentedString(pendingOrders)).append("\n");
         sb.append("      closeOrder: ").append(toIndentedString(closeOrder)).append("\n");
         sb.append("      mode: ").append(toIndentedString(mode)).append("\n");
+        sb.append("      crossLeverageLimit: ").append(toIndentedString(crossLeverageLimit)).append("\n");
         sb.append("}");
         return sb.toString();
     }

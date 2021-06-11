@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Futures contract |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Futures contract type |  [optional]
-**quantoMultiplier** | **String** | Multiplier used in converting from invoicing to settlement currency in quanto futures |  [optional]
+**quantoMultiplier** | **String** | Multiplier used in converting from invoicing to settlement currency |  [optional]
 **leverageMin** | **String** | Minimum leverage |  [optional]
 **leverageMax** | **String** | Maximum leverage |  [optional]
 **maintenanceRate** | **String** | Maintenance rate of margin |  [optional]

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **user** | **Integer** | User ID |  [optional] [readonly]
 **createTime** | **Double** | Order creation time |  [optional] [readonly]
 **finishTime** | **Double** | Order finished time. Not returned if order is open |  [optional] [readonly]
-**finishAs** | [**FinishAsEnum**](#FinishAsEnum) | How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set |  [optional] [readonly]
+**finishAs** | [**FinishAsEnum**](#FinishAsEnum) | How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close  |  [optional] [readonly]
 **status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished |  [optional] [readonly]
 **contract** | **String** | Futures contract | 
 **size** | **Long** | Order size. Specify positive number to make a bid, and negative number to ask | 
@@ -40,6 +40,8 @@ LIQUIDATED | &quot;liquidated&quot;
 IOC | &quot;ioc&quot;
 AUTO_DELEVERAGED | &quot;auto_deleveraged&quot;
 REDUCE_ONLY | &quot;reduce_only&quot;
+POSITION_CLOSED | &quot;position_closed&quot;
+REDUCE_OUT | &quot;reduce_out&quot;
 
 ## Enum: StatusEnum
 

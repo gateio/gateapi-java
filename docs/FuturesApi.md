@@ -1131,7 +1131,7 @@ Name | Type | Description  | Notes
 
 <a name="updatePositionLeverage"></a>
 # **updatePositionLeverage**
-> Position updatePositionLeverage(settle, contract, leverage)
+> Position updatePositionLeverage(settle, contract, leverage, crossLeverageLimit)
 
 Update position leverage
 
@@ -1159,8 +1159,9 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         String leverage = "10"; // String | New position leverage
+        String crossLeverageLimit = "10"; // String | Cross margin leverage(valid only when `leverage` is 0)
         try {
-            Position result = apiInstance.updatePositionLeverage(settle, contract, leverage);
+            Position result = apiInstance.updatePositionLeverage(settle, contract, leverage, crossLeverageLimit);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1182,6 +1183,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| New position leverage |
+ **crossLeverageLimit** | **String**| Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) | [optional]
 
 ### Return type
 
@@ -1417,7 +1419,7 @@ Name | Type | Description  | Notes
 
 <a name="updateDualModePositionMargin"></a>
 # **updateDualModePositionMargin**
-> List&lt;Position&gt; updateDualModePositionMargin(settle, contract, change)
+> List&lt;Position&gt; updateDualModePositionMargin(settle, contract, change, dualSide)
 
 Update position margin in dual mode
 
@@ -1445,8 +1447,9 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         String change = "0.01"; // String | Margin change. Use positive number to increase margin, negative number otherwise.
+        String dualSide = "dual_long"; // String | Long or short position
         try {
-            List<Position> result = apiInstance.updateDualModePositionMargin(settle, contract, change);
+            List<Position> result = apiInstance.updateDualModePositionMargin(settle, contract, change, dualSide);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1468,6 +1471,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **change** | **String**| Margin change. Use positive number to increase margin, negative number otherwise. |
+ **dualSide** | **String**| Long or short position | [enum: dual_long, dual_short]
 
 ### Return type
 

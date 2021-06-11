@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.20.1
-- SDK version: 5.20.1
+- API version: 4.21.2
+- SDK version: 6.21.2
 
 Welcome to Gate.io API
 
@@ -67,7 +67,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>5.20.1</version>
+    <version>6.21.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:5.20.1"
+compile "io.gate:gate-api:6.21.2"
 ```
 
 ### Others
@@ -90,7 +90,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-5.20.1.jar`
+* `target/gate-api-6.21.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -220,6 +220,14 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 *MarginApi* | [**getAutoRepayStatus**](docs/MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 *MarginApi* | [**setAutoRepay**](docs/MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
+*MarginApi* | [**listCrossMarginCurrencies**](docs/MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
+*MarginApi* | [**getCrossMarginCurrency**](docs/MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
+*MarginApi* | [**getCrossMarginAccount**](docs/MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
+*MarginApi* | [**listCrossMarginLoans**](docs/MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history
+*MarginApi* | [**createCrossMarginLoan**](docs/MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
+*MarginApi* | [**getCrossMarginLoan**](docs/MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
+*MarginApi* | [**listCrossMarginRepayments**](docs/MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
+*MarginApi* | [**repayCrossMarginLoan**](docs/MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Repay cross margin loan
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; detail
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get detail of one particular currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
@@ -254,6 +262,7 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**listSubAccountBalances**](docs/WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 *WalletApi* | [**getTradeFee**](docs/WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
+*WithdrawalApi* | [**cancelWithdrawal**](docs/WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID
 
 
 ## Documentation for Models
@@ -264,6 +273,12 @@ Class | Method | HTTP request | Description
  - [CancelOrderResult](docs/CancelOrderResult.md)
  - [Contract](docs/Contract.md)
  - [ContractStat](docs/ContractStat.md)
+ - [CrossMarginAccount](docs/CrossMarginAccount.md)
+ - [CrossMarginBalance](docs/CrossMarginBalance.md)
+ - [CrossMarginCurrency](docs/CrossMarginCurrency.md)
+ - [CrossMarginLoan](docs/CrossMarginLoan.md)
+ - [CrossMarginRepayRequest](docs/CrossMarginRepayRequest.md)
+ - [CrossMarginRepayment](docs/CrossMarginRepayment.md)
  - [Currency](docs/Currency.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [DeliveryContract](docs/DeliveryContract.md)

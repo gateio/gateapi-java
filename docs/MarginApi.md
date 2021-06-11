@@ -23,6 +23,14 @@ Method | HTTP request | Description
 [**updateLoanRecord**](MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 [**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
+[**listCrossMarginCurrencies**](MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
+[**getCrossMarginCurrency**](MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
+[**getCrossMarginAccount**](MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
+[**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history
+[**createCrossMarginLoan**](MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
+[**getCrossMarginLoan**](MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
+[**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
+[**repayCrossMarginLoan**](MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Repay cross margin loan
 
 
 <a name="listMarginCurrencyPairs"></a>
@@ -1370,4 +1378,565 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Current auto repayment setting |  -  |
+
+<a name="listCrossMarginCurrencies"></a>
+# **listCrossMarginCurrencies**
+> List&lt;CrossMarginCurrency&gt; listCrossMarginCurrencies()
+
+Currencies supported by cross margin.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        try {
+            List<CrossMarginCurrency> result = apiInstance.listCrossMarginCurrencies();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listCrossMarginCurrencies");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;CrossMarginCurrency&gt;**](CrossMarginCurrency.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="getCrossMarginCurrency"></a>
+# **getCrossMarginCurrency**
+> CrossMarginCurrency getCrossMarginCurrency(currency)
+
+Retrieve detail of one single currency supported by cross margin
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Currency name
+        try {
+            CrossMarginCurrency result = apiInstance.getCrossMarginCurrency(currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginCurrency");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Currency name |
+
+### Return type
+
+[**CrossMarginCurrency**](CrossMarginCurrency.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="getCrossMarginAccount"></a>
+# **getCrossMarginAccount**
+> CrossMarginAccount getCrossMarginAccount()
+
+Retrieve cross margin account
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        try {
+            CrossMarginAccount result = apiInstance.getCrossMarginAccount();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginAccount");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CrossMarginAccount**](CrossMarginAccount.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="listCrossMarginLoans"></a>
+# **listCrossMarginLoans**
+> List&lt;CrossMarginLoan&gt; listCrossMarginLoans(status).currency(currency).limit(limit).offset(offset).reverse(reverse).execute();
+
+List cross margin borrow history
+
+Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        Integer status = 56; // Integer | Filter by status. Supported values are 2 and 3.
+        String currency = "currency_example"; // String | Filter by currency
+        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
+        try {
+            List<CrossMarginLoan> result = apiInstance.listCrossMarginLoans(status)
+                        .currency(currency)
+                        .limit(limit)
+                        .offset(offset)
+                        .reverse(reverse)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listCrossMarginLoans");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **Integer**| Filter by status. Supported values are 2 and 3. |
+ **currency** | **String**| Filter by currency | [optional]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **reverse** | **Boolean**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
+
+### Return type
+
+[**List&lt;CrossMarginLoan&gt;**](CrossMarginLoan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="createCrossMarginLoan"></a>
+# **createCrossMarginLoan**
+> CrossMarginLoan createCrossMarginLoan(crossMarginLoan)
+
+Create a cross margin borrow loan
+
+Borrow amount cannot be less than currency minimum borrow amount
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        CrossMarginLoan crossMarginLoan = new CrossMarginLoan(); // CrossMarginLoan | 
+        try {
+            CrossMarginLoan result = apiInstance.createCrossMarginLoan(crossMarginLoan);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#createCrossMarginLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **crossMarginLoan** | [**CrossMarginLoan**](CrossMarginLoan.md)|  |
+
+### Return type
+
+[**CrossMarginLoan**](CrossMarginLoan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully borrowed |  -  |
+
+<a name="getCrossMarginLoan"></a>
+# **getCrossMarginLoan**
+> CrossMarginLoan getCrossMarginLoan(loanId)
+
+Retrieve single borrow loan detail
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Borrow loan ID
+        try {
+            CrossMarginLoan result = apiInstance.getCrossMarginLoan(loanId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Borrow loan ID |
+
+### Return type
+
+[**CrossMarginLoan**](CrossMarginLoan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="listCrossMarginRepayments"></a>
+# **listCrossMarginRepayments**
+> List&lt;CrossMarginRepayment&gt; listCrossMarginRepayments().currency(currency).loanId(loanId).limit(limit).offset(offset).reverse(reverse).execute();
+
+Retrieve cross margin repayments
+
+Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | 
+        String loanId = "12345"; // String | 
+        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
+        try {
+            List<CrossMarginRepayment> result = apiInstance.listCrossMarginRepayments()
+                        .currency(currency)
+                        .loanId(loanId)
+                        .limit(limit)
+                        .offset(offset)
+                        .reverse(reverse)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listCrossMarginRepayments");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**|  | [optional]
+ **loanId** | **String**|  | [optional]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **reverse** | **Boolean**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
+
+### Return type
+
+[**List&lt;CrossMarginRepayment&gt;**](CrossMarginRepayment.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="repayCrossMarginLoan"></a>
+# **repayCrossMarginLoan**
+> List&lt;CrossMarginLoan&gt; repayCrossMarginLoan(crossMarginRepayRequest)
+
+Repay cross margin loan
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        CrossMarginRepayRequest crossMarginRepayRequest = new CrossMarginRepayRequest(); // CrossMarginRepayRequest | 
+        try {
+            List<CrossMarginLoan> result = apiInstance.repayCrossMarginLoan(crossMarginRepayRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#repayCrossMarginLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **crossMarginRepayRequest** | [**CrossMarginRepayRequest**](CrossMarginRepayRequest.md)|  |
+
+### Return type
+
+[**List&lt;CrossMarginLoan&gt;**](CrossMarginLoan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Loan repaid |  -  |
 

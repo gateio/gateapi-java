@@ -2427,6 +2427,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2436,7 +2437,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePositionLeverageCall(String settle, String contract, String leverage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePositionLeverageCall(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2448,6 +2449,10 @@ public class FuturesApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (leverage != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("leverage", leverage));
+        }
+
+        if (crossLeverageLimit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cross_leverage_limit", crossLeverageLimit));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2472,7 +2477,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePositionLeverageValidateBeforeCall(String settle, String contract, String leverage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updatePositionLeverageValidateBeforeCall(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling updatePositionLeverage(Async)");
@@ -2488,7 +2493,7 @@ public class FuturesApi {
             throw new ApiException("Missing the required parameter 'leverage' when calling updatePositionLeverage(Async)");
         }
 
-        okhttp3.Call localVarCall = updatePositionLeverageCall(settle, contract, leverage, _callback);
+        okhttp3.Call localVarCall = updatePositionLeverageCall(settle, contract, leverage, crossLeverageLimit, _callback);
         return localVarCall;
     }
 
@@ -2498,6 +2503,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      * @return Position
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2506,8 +2512,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
      </table>
      */
-    public Position updatePositionLeverage(String settle, String contract, String leverage) throws ApiException {
-        ApiResponse<Position> localVarResp = updatePositionLeverageWithHttpInfo(settle, contract, leverage);
+    public Position updatePositionLeverage(String settle, String contract, String leverage, String crossLeverageLimit) throws ApiException {
+        ApiResponse<Position> localVarResp = updatePositionLeverageWithHttpInfo(settle, contract, leverage, crossLeverageLimit);
         return localVarResp.getData();
     }
 
@@ -2517,6 +2523,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      * @return ApiResponse&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2525,8 +2532,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Position> updatePositionLeverageWithHttpInfo(String settle, String contract, String leverage) throws ApiException {
-        okhttp3.Call localVarCall = updatePositionLeverageValidateBeforeCall(settle, contract, leverage, null);
+    public ApiResponse<Position> updatePositionLeverageWithHttpInfo(String settle, String contract, String leverage, String crossLeverageLimit) throws ApiException {
+        okhttp3.Call localVarCall = updatePositionLeverageValidateBeforeCall(settle, contract, leverage, crossLeverageLimit, null);
         Type localVarReturnType = new TypeToken<Position>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2537,6 +2544,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2546,8 +2554,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePositionLeverageAsync(String settle, String contract, String leverage, final ApiCallback<Position> _callback) throws ApiException {
-        okhttp3.Call localVarCall = updatePositionLeverageValidateBeforeCall(settle, contract, leverage, _callback);
+    public okhttp3.Call updatePositionLeverageAsync(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback<Position> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updatePositionLeverageValidateBeforeCall(settle, contract, leverage, crossLeverageLimit, _callback);
         Type localVarReturnType = new TypeToken<Position>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2928,6 +2936,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param dualSide Long or short position (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2937,7 +2946,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDualModePositionMarginCall(String settle, String contract, String change, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateDualModePositionMarginCall(String settle, String contract, String change, String dualSide, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2949,6 +2958,10 @@ public class FuturesApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (change != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("change", change));
+        }
+
+        if (dualSide != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dual_side", dualSide));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2973,7 +2986,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateDualModePositionMarginValidateBeforeCall(String settle, String contract, String change, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateDualModePositionMarginValidateBeforeCall(String settle, String contract, String change, String dualSide, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling updateDualModePositionMargin(Async)");
@@ -2989,7 +3002,12 @@ public class FuturesApi {
             throw new ApiException("Missing the required parameter 'change' when calling updateDualModePositionMargin(Async)");
         }
 
-        okhttp3.Call localVarCall = updateDualModePositionMarginCall(settle, contract, change, _callback);
+        // verify the required parameter 'dualSide' is set
+        if (dualSide == null) {
+            throw new ApiException("Missing the required parameter 'dualSide' when calling updateDualModePositionMargin(Async)");
+        }
+
+        okhttp3.Call localVarCall = updateDualModePositionMarginCall(settle, contract, change, dualSide, _callback);
         return localVarCall;
     }
 
@@ -2999,6 +3017,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param dualSide Long or short position (required)
      * @return List&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3007,8 +3026,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public List<Position> updateDualModePositionMargin(String settle, String contract, String change) throws ApiException {
-        ApiResponse<List<Position>> localVarResp = updateDualModePositionMarginWithHttpInfo(settle, contract, change);
+    public List<Position> updateDualModePositionMargin(String settle, String contract, String change, String dualSide) throws ApiException {
+        ApiResponse<List<Position>> localVarResp = updateDualModePositionMarginWithHttpInfo(settle, contract, change, dualSide);
         return localVarResp.getData();
     }
 
@@ -3018,6 +3037,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param dualSide Long or short position (required)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3026,8 +3046,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Position>> updateDualModePositionMarginWithHttpInfo(String settle, String contract, String change) throws ApiException {
-        okhttp3.Call localVarCall = updateDualModePositionMarginValidateBeforeCall(settle, contract, change, null);
+    public ApiResponse<List<Position>> updateDualModePositionMarginWithHttpInfo(String settle, String contract, String change, String dualSide) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionMarginValidateBeforeCall(settle, contract, change, dualSide, null);
         Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3038,6 +3058,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change. Use positive number to increase margin, negative number otherwise. (required)
+     * @param dualSide Long or short position (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3047,8 +3068,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDualModePositionMarginAsync(String settle, String contract, String change, final ApiCallback<List<Position>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = updateDualModePositionMarginValidateBeforeCall(settle, contract, change, _callback);
+    public okhttp3.Call updateDualModePositionMarginAsync(String settle, String contract, String change, String dualSide, final ApiCallback<List<Position>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionMarginValidateBeforeCall(settle, contract, change, dualSide, _callback);
         Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

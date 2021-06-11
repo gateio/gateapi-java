@@ -1,7 +1,7 @@
 
 # Transfer
 
-Accounts available to transfer:  - `spot`: spot account - `margin`: margin account - `futures`: perpetual futures account - `delivery`: delivery futures account
+Accounts available to transfer:  - `spot`: spot account - `margin`: margin account - `futures`: perpetual futures account - `delivery`: delivery futures account - `cross_margin`: cross margin account
 
 ## Properties
 
@@ -22,6 +22,7 @@ SPOT | &quot;spot&quot;
 MARGIN | &quot;margin&quot;
 FUTURES | &quot;futures&quot;
 DELIVERY | &quot;delivery&quot;
+CROSS_MARGIN | &quot;cross_margin&quot;
 
 ## Enum: ToEnum
 
@@ -31,4 +32,5 @@ SPOT | &quot;spot&quot;
 MARGIN | &quot;margin&quot;
 FUTURES | &quot;futures&quot;
 DELIVERY | &quot;delivery&quot;
+CROSS_MARGIN | &quot;cross_margin&quot;
 

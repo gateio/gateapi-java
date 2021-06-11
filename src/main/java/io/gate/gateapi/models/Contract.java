@@ -293,7 +293,7 @@ public class Contract {
     }
 
      /**
-     * Multiplier used in converting from invoicing to settlement currency in quanto futures
+     * Multiplier used in converting from invoicing to settlement currency
      * @return quantoMultiplier
     **/
     @javax.annotation.Nullable

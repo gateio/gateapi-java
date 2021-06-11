@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **pendingOrders** | **Integer** | Current open orders |  [optional] [readonly]
 **closeOrder** | [**PositionCloseOrder**](PositionCloseOrder.md) |  |  [optional]
 **mode** | [**ModeEnum**](#ModeEnum) | Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode |  [optional]
+**crossLeverageLimit** | **String** | Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) |  [optional]
 
 ## Enum: ModeEnum
 

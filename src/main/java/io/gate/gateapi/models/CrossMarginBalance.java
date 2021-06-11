@@ -20,20 +20,16 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Account currency detail
+ * CrossMarginBalance
  */
-public class MarginAccountCurrency {
-    public static final String SERIALIZED_NAME_CURRENCY = "currency";
-    @SerializedName(SERIALIZED_NAME_CURRENCY)
-    private String currency;
-
+public class CrossMarginBalance {
     public static final String SERIALIZED_NAME_AVAILABLE = "available";
     @SerializedName(SERIALIZED_NAME_AVAILABLE)
     private String available;
 
-    public static final String SERIALIZED_NAME_LOCKED = "locked";
-    @SerializedName(SERIALIZED_NAME_LOCKED)
-    private String locked;
+    public static final String SERIALIZED_NAME_FREEZE = "freeze";
+    @SerializedName(SERIALIZED_NAME_FREEZE)
+    private String freeze;
 
     public static final String SERIALIZED_NAME_BORROWED = "borrowed";
     @SerializedName(SERIALIZED_NAME_BORROWED)
@@ -44,34 +40,14 @@ public class MarginAccountCurrency {
     private String interest;
 
 
-    public MarginAccountCurrency currency(String currency) {
-        
-        this.currency = currency;
-        return this;
-    }
-
-     /**
-     * Currency name
-     * @return currency
-    **/
-    @javax.annotation.Nullable
-    public String getCurrency() {
-        return currency;
-    }
-
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public MarginAccountCurrency available(String available) {
+    public CrossMarginBalance available(String available) {
         
         this.available = available;
         return this;
     }
 
      /**
-     * Amount suitable for margin trading.
+     * Available amount
      * @return available
     **/
     @javax.annotation.Nullable
@@ -84,27 +60,27 @@ public class MarginAccountCurrency {
         this.available = available;
     }
 
-    public MarginAccountCurrency locked(String locked) {
+    public CrossMarginBalance freeze(String freeze) {
         
-        this.locked = locked;
+        this.freeze = freeze;
         return this;
     }
 
      /**
-     * Locked amount, used in margin trading
-     * @return locked
+     * Locked amount
+     * @return freeze
     **/
     @javax.annotation.Nullable
-    public String getLocked() {
-        return locked;
+    public String getFreeze() {
+        return freeze;
     }
 
 
-    public void setLocked(String locked) {
-        this.locked = locked;
+    public void setFreeze(String freeze) {
+        this.freeze = freeze;
     }
 
-    public MarginAccountCurrency borrowed(String borrowed) {
+    public CrossMarginBalance borrowed(String borrowed) {
         
         this.borrowed = borrowed;
         return this;
@@ -124,7 +100,7 @@ public class MarginAccountCurrency {
         this.borrowed = borrowed;
     }
 
-    public MarginAccountCurrency interest(String interest) {
+    public CrossMarginBalance interest(String interest) {
         
         this.interest = interest;
         return this;
@@ -151,27 +127,25 @@ public class MarginAccountCurrency {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        MarginAccountCurrency marginAccountCurrency = (MarginAccountCurrency) o;
-        return Objects.equals(this.currency, marginAccountCurrency.currency) &&
-                Objects.equals(this.available, marginAccountCurrency.available) &&
-                Objects.equals(this.locked, marginAccountCurrency.locked) &&
-                Objects.equals(this.borrowed, marginAccountCurrency.borrowed) &&
-                Objects.equals(this.interest, marginAccountCurrency.interest);
+        CrossMarginBalance crossMarginBalance = (CrossMarginBalance) o;
+        return Objects.equals(this.available, crossMarginBalance.available) &&
+                Objects.equals(this.freeze, crossMarginBalance.freeze) &&
+                Objects.equals(this.borrowed, crossMarginBalance.borrowed) &&
+                Objects.equals(this.interest, crossMarginBalance.interest);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, available, locked, borrowed, interest);
+        return Objects.hash(available, freeze, borrowed, interest);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MarginAccountCurrency {\n");
-        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("class CrossMarginBalance {\n");
         sb.append("      available: ").append(toIndentedString(available)).append("\n");
-        sb.append("      locked: ").append(toIndentedString(locked)).append("\n");
+        sb.append("      freeze: ").append(toIndentedString(freeze)).append("\n");
         sb.append("      borrowed: ").append(toIndentedString(borrowed)).append("\n");
         sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
         sb.append("}");

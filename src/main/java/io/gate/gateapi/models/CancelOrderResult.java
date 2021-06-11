@@ -43,6 +43,10 @@ public class CancelOrderResult {
     @SerializedName(SERIALIZED_NAME_MESSAGE)
     private String message;
 
+    public static final String SERIALIZED_NAME_ACCOUNT = "account";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT)
+    private String account;
+
 
     public CancelOrderResult currencyPair(String currencyPair) {
         
@@ -143,6 +147,26 @@ public class CancelOrderResult {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public CancelOrderResult account(String account) {
+        
+        this.account = account;
+        return this;
+    }
+
+     /**
+     * Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;
+     * @return account
+    **/
+    @javax.annotation.Nullable
+    public String getAccount() {
+        return account;
+    }
+
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -156,12 +180,13 @@ public class CancelOrderResult {
                 Objects.equals(this.id, cancelOrderResult.id) &&
                 Objects.equals(this.succeeded, cancelOrderResult.succeeded) &&
                 Objects.equals(this.label, cancelOrderResult.label) &&
-                Objects.equals(this.message, cancelOrderResult.message);
+                Objects.equals(this.message, cancelOrderResult.message) &&
+                Objects.equals(this.account, cancelOrderResult.account);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, id, succeeded, label, message);
+        return Objects.hash(currencyPair, id, succeeded, label, message, account);
     }
 
 
@@ -174,6 +199,7 @@ public class CancelOrderResult {
         sb.append("      succeeded: ").append(toIndentedString(succeeded)).append("\n");
         sb.append("      label: ").append(toIndentedString(label)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      account: ").append(toIndentedString(account)).append("\n");
         sb.append("}");
         return sb.toString();
     }

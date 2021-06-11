@@ -21,6 +21,11 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.AutoRepaySetting;
+import io.gate.gateapi.models.CrossMarginAccount;
+import io.gate.gateapi.models.CrossMarginCurrency;
+import io.gate.gateapi.models.CrossMarginLoan;
+import io.gate.gateapi.models.CrossMarginRepayRequest;
+import io.gate.gateapi.models.CrossMarginRepayment;
 import io.gate.gateapi.models.FundingAccount;
 import io.gate.gateapi.models.FundingBookItem;
 import io.gate.gateapi.models.Loan;
@@ -2563,6 +2568,1035 @@ public class MarginApi {
     public okhttp3.Call setAutoRepayAsync(String status, final ApiCallback<AutoRepaySetting> _callback) throws ApiException {
         okhttp3.Call localVarCall = setAutoRepayValidateBeforeCall(status, _callback);
         Type localVarReturnType = new TypeToken<AutoRepaySetting>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listCrossMarginCurrencies
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCrossMarginCurrenciesCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/currencies";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCrossMarginCurrenciesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginCurrenciesCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Currencies supported by cross margin.
+     * 
+     * @return List&lt;CrossMarginCurrency&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<CrossMarginCurrency> listCrossMarginCurrencies() throws ApiException {
+        ApiResponse<List<CrossMarginCurrency>> localVarResp = listCrossMarginCurrenciesWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Currencies supported by cross margin.
+     * 
+     * @return ApiResponse&lt;List&lt;CrossMarginCurrency&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<CrossMarginCurrency>> listCrossMarginCurrenciesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginCurrenciesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<CrossMarginCurrency>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Currencies supported by cross margin. (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCrossMarginCurrenciesAsync(final ApiCallback<List<CrossMarginCurrency>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginCurrenciesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<CrossMarginCurrency>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getCrossMarginCurrency
+     * @param currency Currency name (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginCurrencyCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/currencies/{currency}"
+            .replaceAll("\\{" + "currency" + "\\}", localVarApiClient.escapeString(currency));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCrossMarginCurrencyValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling getCrossMarginCurrency(Async)");
+        }
+
+        okhttp3.Call localVarCall = getCrossMarginCurrencyCall(currency, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Retrieve detail of one single currency supported by cross margin
+     * 
+     * @param currency Currency name (required)
+     * @return CrossMarginCurrency
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossMarginCurrency getCrossMarginCurrency(String currency) throws ApiException {
+        ApiResponse<CrossMarginCurrency> localVarResp = getCrossMarginCurrencyWithHttpInfo(currency);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve detail of one single currency supported by cross margin
+     * 
+     * @param currency Currency name (required)
+     * @return ApiResponse&lt;CrossMarginCurrency&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossMarginCurrency> getCrossMarginCurrencyWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginCurrencyValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<CrossMarginCurrency>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve detail of one single currency supported by cross margin (asynchronously)
+     * 
+     * @param currency Currency name (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginCurrencyAsync(String currency, final ApiCallback<CrossMarginCurrency> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginCurrencyValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<CrossMarginCurrency>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getCrossMarginAccount
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginAccountCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/accounts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCrossMarginAccountValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginAccountCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Retrieve cross margin account
+     * 
+     * @return CrossMarginAccount
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossMarginAccount getCrossMarginAccount() throws ApiException {
+        ApiResponse<CrossMarginAccount> localVarResp = getCrossMarginAccountWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve cross margin account
+     * 
+     * @return ApiResponse&lt;CrossMarginAccount&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossMarginAccount> getCrossMarginAccountWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginAccountValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<CrossMarginAccount>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve cross margin account (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginAccountAsync(final ApiCallback<CrossMarginAccount> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginAccountValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<CrossMarginAccount>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listCrossMarginLoansCall(Integer status, String currency, Integer limit, Integer offset, Boolean reverse, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/loans";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (reverse != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reverse", reverse));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCrossMarginLoansValidateBeforeCall(Integer status, String currency, Integer limit, Integer offset, Boolean reverse, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'status' is set
+        if (status == null) {
+            throw new ApiException("Missing the required parameter 'status' when calling listCrossMarginLoans(Async)");
+        }
+
+        okhttp3.Call localVarCall = listCrossMarginLoansCall(status, currency, limit, offset, reverse, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<CrossMarginLoan>> listCrossMarginLoansWithHttpInfo(Integer status, String currency, Integer limit, Integer offset, Boolean reverse) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginLoansValidateBeforeCall(status, currency, limit, offset, reverse, null);
+        Type localVarReturnType = new TypeToken<List<CrossMarginLoan>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCrossMarginLoansAsync(Integer status, String currency, Integer limit, Integer offset, Boolean reverse, final ApiCallback<List<CrossMarginLoan>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginLoansValidateBeforeCall(status, currency, limit, offset, reverse, _callback);
+        Type localVarReturnType = new TypeToken<List<CrossMarginLoan>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCrossMarginLoansRequest {
+        private final Integer status;
+        private String currency;
+        private Integer limit;
+        private Integer offset;
+        private Boolean reverse;
+
+        private APIlistCrossMarginLoansRequest(Integer status) {
+            this.status = status;
+        }
+
+        /**
+         * Set currency
+         * @param currency Filter by currency (optional)
+         * @return APIlistCrossMarginLoansRequest
+         */
+        public APIlistCrossMarginLoansRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @return APIlistCrossMarginLoansRequest
+         */
+        public APIlistCrossMarginLoansRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistCrossMarginLoansRequest
+         */
+        public APIlistCrossMarginLoansRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set reverse
+         * @param reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+         * @return APIlistCrossMarginLoansRequest
+         */
+        public APIlistCrossMarginLoansRequest reverse(Boolean reverse) {
+            this.reverse = reverse;
+            return this;
+        }
+
+        /**
+         * Build call for listCrossMarginLoans
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCrossMarginLoansCall(status, currency, limit, offset, reverse, _callback);
+        }
+
+        /**
+         * Execute listCrossMarginLoans request
+         * @return List&lt;CrossMarginLoan&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<CrossMarginLoan> execute() throws ApiException {
+            ApiResponse<List<CrossMarginLoan>> localVarResp = listCrossMarginLoansWithHttpInfo(status, currency, limit, offset, reverse);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCrossMarginLoans request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CrossMarginLoan&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<CrossMarginLoan>> executeWithHttpInfo() throws ApiException {
+            return listCrossMarginLoansWithHttpInfo(status, currency, limit, offset, reverse);
+        }
+
+        /**
+         * Execute listCrossMarginLoans request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CrossMarginLoan>> _callback) throws ApiException {
+            return listCrossMarginLoansAsync(status, currency, limit, offset, reverse, _callback);
+        }
+    }
+
+    /**
+     * List cross margin borrow history
+     * Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+     * @param status Filter by status. Supported values are 2 and 3. (required)
+     * @return APIlistCrossMarginLoansRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistCrossMarginLoansRequest listCrossMarginLoans(Integer status) {
+        return new APIlistCrossMarginLoansRequest(status);
+    }
+
+    /**
+     * Build call for createCrossMarginLoan
+     * @param crossMarginLoan  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully borrowed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCrossMarginLoanCall(CrossMarginLoan crossMarginLoan, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = crossMarginLoan;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/loans";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createCrossMarginLoanValidateBeforeCall(CrossMarginLoan crossMarginLoan, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'crossMarginLoan' is set
+        if (crossMarginLoan == null) {
+            throw new ApiException("Missing the required parameter 'crossMarginLoan' when calling createCrossMarginLoan(Async)");
+        }
+
+        okhttp3.Call localVarCall = createCrossMarginLoanCall(crossMarginLoan, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create a cross margin borrow loan
+     * Borrow amount cannot be less than currency minimum borrow amount
+     * @param crossMarginLoan  (required)
+     * @return CrossMarginLoan
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully borrowed </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossMarginLoan createCrossMarginLoan(CrossMarginLoan crossMarginLoan) throws ApiException {
+        ApiResponse<CrossMarginLoan> localVarResp = createCrossMarginLoanWithHttpInfo(crossMarginLoan);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a cross margin borrow loan
+     * Borrow amount cannot be less than currency minimum borrow amount
+     * @param crossMarginLoan  (required)
+     * @return ApiResponse&lt;CrossMarginLoan&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully borrowed </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossMarginLoan> createCrossMarginLoanWithHttpInfo(CrossMarginLoan crossMarginLoan) throws ApiException {
+        okhttp3.Call localVarCall = createCrossMarginLoanValidateBeforeCall(crossMarginLoan, null);
+        Type localVarReturnType = new TypeToken<CrossMarginLoan>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a cross margin borrow loan (asynchronously)
+     * Borrow amount cannot be less than currency minimum borrow amount
+     * @param crossMarginLoan  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully borrowed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCrossMarginLoanAsync(CrossMarginLoan crossMarginLoan, final ApiCallback<CrossMarginLoan> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createCrossMarginLoanValidateBeforeCall(crossMarginLoan, _callback);
+        Type localVarReturnType = new TypeToken<CrossMarginLoan>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getCrossMarginLoan
+     * @param loanId Borrow loan ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginLoanCall(String loanId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/loans/{loan_id}"
+            .replaceAll("\\{" + "loan_id" + "\\}", localVarApiClient.escapeString(loanId));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCrossMarginLoanValidateBeforeCall(String loanId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'loanId' is set
+        if (loanId == null) {
+            throw new ApiException("Missing the required parameter 'loanId' when calling getCrossMarginLoan(Async)");
+        }
+
+        okhttp3.Call localVarCall = getCrossMarginLoanCall(loanId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Retrieve single borrow loan detail
+     * 
+     * @param loanId Borrow loan ID (required)
+     * @return CrossMarginLoan
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossMarginLoan getCrossMarginLoan(String loanId) throws ApiException {
+        ApiResponse<CrossMarginLoan> localVarResp = getCrossMarginLoanWithHttpInfo(loanId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve single borrow loan detail
+     * 
+     * @param loanId Borrow loan ID (required)
+     * @return ApiResponse&lt;CrossMarginLoan&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossMarginLoan> getCrossMarginLoanWithHttpInfo(String loanId) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginLoanValidateBeforeCall(loanId, null);
+        Type localVarReturnType = new TypeToken<CrossMarginLoan>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve single borrow loan detail (asynchronously)
+     * 
+     * @param loanId Borrow loan ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginLoanAsync(String loanId, final ApiCallback<CrossMarginLoan> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginLoanValidateBeforeCall(loanId, _callback);
+        Type localVarReturnType = new TypeToken<CrossMarginLoan>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listCrossMarginRepaymentsCall(String currency, String loanId, Integer limit, Integer offset, Boolean reverse, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/repayments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (loanId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("loan_id", loanId));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (reverse != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reverse", reverse));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCrossMarginRepaymentsValidateBeforeCall(String currency, String loanId, Integer limit, Integer offset, Boolean reverse, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginRepaymentsCall(currency, loanId, limit, offset, reverse, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<CrossMarginRepayment>> listCrossMarginRepaymentsWithHttpInfo(String currency, String loanId, Integer limit, Integer offset, Boolean reverse) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginRepaymentsValidateBeforeCall(currency, loanId, limit, offset, reverse, null);
+        Type localVarReturnType = new TypeToken<List<CrossMarginRepayment>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCrossMarginRepaymentsAsync(String currency, String loanId, Integer limit, Integer offset, Boolean reverse, final ApiCallback<List<CrossMarginRepayment>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginRepaymentsValidateBeforeCall(currency, loanId, limit, offset, reverse, _callback);
+        Type localVarReturnType = new TypeToken<List<CrossMarginRepayment>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCrossMarginRepaymentsRequest {
+        private String currency;
+        private String loanId;
+        private Integer limit;
+        private Integer offset;
+        private Boolean reverse;
+
+        private APIlistCrossMarginRepaymentsRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency  (optional)
+         * @return APIlistCrossMarginRepaymentsRequest
+         */
+        public APIlistCrossMarginRepaymentsRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set loanId
+         * @param loanId  (optional)
+         * @return APIlistCrossMarginRepaymentsRequest
+         */
+        public APIlistCrossMarginRepaymentsRequest loanId(String loanId) {
+            this.loanId = loanId;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @return APIlistCrossMarginRepaymentsRequest
+         */
+        public APIlistCrossMarginRepaymentsRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistCrossMarginRepaymentsRequest
+         */
+        public APIlistCrossMarginRepaymentsRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set reverse
+         * @param reverse Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)
+         * @return APIlistCrossMarginRepaymentsRequest
+         */
+        public APIlistCrossMarginRepaymentsRequest reverse(Boolean reverse) {
+            this.reverse = reverse;
+            return this;
+        }
+
+        /**
+         * Build call for listCrossMarginRepayments
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCrossMarginRepaymentsCall(currency, loanId, limit, offset, reverse, _callback);
+        }
+
+        /**
+         * Execute listCrossMarginRepayments request
+         * @return List&lt;CrossMarginRepayment&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<CrossMarginRepayment> execute() throws ApiException {
+            ApiResponse<List<CrossMarginRepayment>> localVarResp = listCrossMarginRepaymentsWithHttpInfo(currency, loanId, limit, offset, reverse);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCrossMarginRepayments request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CrossMarginRepayment&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<CrossMarginRepayment>> executeWithHttpInfo() throws ApiException {
+            return listCrossMarginRepaymentsWithHttpInfo(currency, loanId, limit, offset, reverse);
+        }
+
+        /**
+         * Execute listCrossMarginRepayments request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CrossMarginRepayment>> _callback) throws ApiException {
+            return listCrossMarginRepaymentsAsync(currency, loanId, limit, offset, reverse, _callback);
+        }
+    }
+
+    /**
+     * Retrieve cross margin repayments
+     * Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+     * @return APIlistCrossMarginRepaymentsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistCrossMarginRepaymentsRequest listCrossMarginRepayments() {
+        return new APIlistCrossMarginRepaymentsRequest();
+    }
+
+    /**
+     * Build call for repayCrossMarginLoan
+     * @param crossMarginRepayRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Loan repaid </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call repayCrossMarginLoanCall(CrossMarginRepayRequest crossMarginRepayRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = crossMarginRepayRequest;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/repayments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call repayCrossMarginLoanValidateBeforeCall(CrossMarginRepayRequest crossMarginRepayRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'crossMarginRepayRequest' is set
+        if (crossMarginRepayRequest == null) {
+            throw new ApiException("Missing the required parameter 'crossMarginRepayRequest' when calling repayCrossMarginLoan(Async)");
+        }
+
+        okhttp3.Call localVarCall = repayCrossMarginLoanCall(crossMarginRepayRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Repay cross margin loan
+     * 
+     * @param crossMarginRepayRequest  (required)
+     * @return List&lt;CrossMarginLoan&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Loan repaid </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<CrossMarginLoan> repayCrossMarginLoan(CrossMarginRepayRequest crossMarginRepayRequest) throws ApiException {
+        ApiResponse<List<CrossMarginLoan>> localVarResp = repayCrossMarginLoanWithHttpInfo(crossMarginRepayRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Repay cross margin loan
+     * 
+     * @param crossMarginRepayRequest  (required)
+     * @return ApiResponse&lt;List&lt;CrossMarginLoan&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Loan repaid </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<CrossMarginLoan>> repayCrossMarginLoanWithHttpInfo(CrossMarginRepayRequest crossMarginRepayRequest) throws ApiException {
+        okhttp3.Call localVarCall = repayCrossMarginLoanValidateBeforeCall(crossMarginRepayRequest, null);
+        Type localVarReturnType = new TypeToken<List<CrossMarginLoan>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Repay cross margin loan (asynchronously)
+     * 
+     * @param crossMarginRepayRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Loan repaid </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call repayCrossMarginLoanAsync(CrossMarginRepayRequest crossMarginRepayRequest, final ApiCallback<List<CrossMarginLoan>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = repayCrossMarginLoanValidateBeforeCall(crossMarginRepayRequest, _callback);
+        Type localVarReturnType = new TypeToken<List<CrossMarginLoan>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

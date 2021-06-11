@@ -11,4 +11,5 @@ Name | Type | Description | Notes
 **available** | **String** | Amount suitable for margin trading. |  [optional]
 **locked** | **String** | Locked amount, used in margin trading |  [optional]
 **borrowed** | **String** | Borrowed amount |  [optional]
+**interest** | **String** | Interests unpaid |  [optional]
 

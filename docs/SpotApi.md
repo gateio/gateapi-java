@@ -789,11 +789,11 @@ Name | Type | Description  | Notes
 
 <a name="listAllOpenOrders"></a>
 # **listAllOpenOrders**
-> List&lt;OpenOrders&gt; listAllOpenOrders().page(page).limit(limit).execute();
+> List&lt;OpenOrders&gt; listAllOpenOrders().page(page).limit(limit).account(account).execute();
 
 List all open orders
 
-List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned
+List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
 
 ### Example
 
@@ -818,10 +818,12 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records returned in one page in each currency pair
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
         try {
             List<OpenOrders> result = apiInstance.listAllOpenOrders()
                         .page(page)
                         .limit(limit)
+                        .account(account)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -843,6 +845,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records returned in one page in each currency pair | [optional] [default to 100]
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
 
 ### Return type
 
@@ -864,9 +867,11 @@ Name | Type | Description  | Notes
 
 <a name="listOrders"></a>
 # **listOrders**
-> List&lt;Order&gt; listOrders(currencyPair, status).page(page).limit(limit).execute();
+> List&lt;Order&gt; listOrders(currencyPair, status).page(page).limit(limit).account(account).execute();
 
 List orders
+
+Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
 
 ### Example
 
@@ -893,10 +898,12 @@ public class Example {
         String status = "open"; // String | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records returned. If `status` is `open`, maximum of `limit` is 100
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
         try {
             List<Order> result = apiInstance.listOrders(currencyPair, status)
                         .page(page)
                         .limit(limit)
+                        .account(account)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -920,6 +927,7 @@ Name | Type | Description  | Notes
  **status** | **String**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | [enum: open, finished]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
 
 ### Return type
 
@@ -944,6 +952,8 @@ Name | Type | Description  | Notes
 > Order createOrder(order)
 
 Create an order
+
+You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
 
 ### Example
 
@@ -1013,6 +1023,8 @@ Name | Type | Description  | Notes
 
 Cancel all &#x60;open&#x60; orders in specified currency pair
 
+If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+
 ### Example
 
 ```java
@@ -1059,7 +1071,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
  **side** | **String**| All bids or asks. Both included in not specified | [optional] [enum: buy, sell]
- **account** | **String**| Specify account type. Default to all account types being included | [optional] [enum: spot, margin]
+ **account** | **String**| Specify account type. Default to all account types being included | [optional] [enum: spot, margin, cross_margin]
 
 ### Return type
 
@@ -1151,9 +1163,11 @@ Name | Type | Description  | Notes
 
 <a name="getOrder"></a>
 # **getOrder**
-> Order getOrder(orderId, currencyPair)
+> Order getOrder(orderId, currencyPair).account(account).execute();
 
 Get a single order
+
+Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
 
 ### Example
 
@@ -1178,8 +1192,11 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
         try {
-            Order result = apiInstance.getOrder(orderId, currencyPair);
+            Order result = apiInstance.getOrder(orderId, currencyPair)
+                        .account(account)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1200,6 +1217,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
 
 ### Return type
 
@@ -1221,9 +1239,11 @@ Name | Type | Description  | Notes
 
 <a name="cancelOrder"></a>
 # **cancelOrder**
-> Order cancelOrder(orderId, currencyPair)
+> Order cancelOrder(orderId, currencyPair, account)
 
 Cancel a single order
+
+Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
 
 ### Example
 
@@ -1248,8 +1268,9 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
         try {
-            Order result = apiInstance.cancelOrder(orderId, currencyPair);
+            Order result = apiInstance.cancelOrder(orderId, currencyPair, account);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1270,6 +1291,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
 
 ### Return type
 
@@ -1291,9 +1313,11 @@ Name | Type | Description  | Notes
 
 <a name="listMyTrades"></a>
 # **listMyTrades**
-> List&lt;Trade&gt; listMyTrades(currencyPair).limit(limit).page(page).orderId(orderId).execute();
+> List&lt;Trade&gt; listMyTrades(currencyPair).limit(limit).page(page).orderId(orderId).account(account).execute();
 
 List personal trading history
+
+Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
 
 ### Example
 
@@ -1320,11 +1344,13 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer page = 1; // Integer | Page number
         String orderId = "12345"; // String | List all trades of specified order
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
         try {
             List<Trade> result = apiInstance.listMyTrades(currencyPair)
                         .limit(limit)
                         .page(page)
                         .orderId(orderId)
+                        .account(account)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -1348,6 +1374,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **orderId** | **String**| List all trades of specified order | [optional]
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
 
 ### Return type
 

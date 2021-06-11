@@ -31,6 +31,10 @@ public class CancelOrder {
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
 
+    public static final String SERIALIZED_NAME_ACCOUNT = "account";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT)
+    private String account;
+
 
     public CancelOrder currencyPair(String currencyPair) {
         
@@ -69,6 +73,26 @@ public class CancelOrder {
     public void setId(String id) {
         this.id = id;
     }
+
+    public CancelOrder account(String account) {
+        
+        this.account = account;
+        return this;
+    }
+
+     /**
+     * If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;
+     * @return account
+    **/
+    @javax.annotation.Nullable
+    public String getAccount() {
+        return account;
+    }
+
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -79,12 +103,13 @@ public class CancelOrder {
         }
         CancelOrder cancelOrder = (CancelOrder) o;
         return Objects.equals(this.currencyPair, cancelOrder.currencyPair) &&
-                Objects.equals(this.id, cancelOrder.id);
+                Objects.equals(this.id, cancelOrder.id) &&
+                Objects.equals(this.account, cancelOrder.account);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, id);
+        return Objects.hash(currencyPair, id, account);
     }
 
 
@@ -94,6 +119,7 @@ public class CancelOrder {
         sb.append("class CancelOrder {\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      account: ").append(toIndentedString(account)).append("\n");
         sb.append("}");
         return sb.toString();
     }
