@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**listCrossMarginCurrencies**](MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 [**getCrossMarginCurrency**](MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 [**getCrossMarginAccount**](MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
+[**listCrossMarginAccountBook**](MarginApi.md#listCrossMarginAccountBook) | **GET** /margin/cross/account_book | Retrieve cross margin account change history
 [**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history
 [**createCrossMarginLoan**](MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
 [**getCrossMarginLoan**](MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
@@ -297,7 +298,7 @@ Name | Type | Description  | Notes
 
 List margin account balance change history
 
-Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+Only transferals from and to margin account are provided for now. Time range allows 30 days at most
 
 ### Example
 
@@ -1566,6 +1567,93 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
+
+<a name="listCrossMarginAccountBook"></a>
+# **listCrossMarginAccountBook**
+> List&lt;CrossMarginAccountBook&gt; listCrossMarginAccountBook().currency(currency).from(from).to(to).page(page).limit(limit).type(type).execute();
+
+Retrieve cross margin account change history
+
+Record time range cannot exceed 30 days
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "currency_example"; // String | Filter by currency
+        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 56L; // Long | Time range ending, default to current time
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        String type = "borrow"; // String | Filter by account change type. All types are returned if not specified.
+        try {
+            List<CrossMarginAccountBook> result = apiInstance.listCrossMarginAccountBook()
+                        .currency(currency)
+                        .from(from)
+                        .to(to)
+                        .page(page)
+                        .limit(limit)
+                        .type(type)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listCrossMarginAccountBook");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Filter by currency | [optional]
+ **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
+ **to** | **Long**| Time range ending, default to current time | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **type** | **String**| Filter by account change type. All types are returned if not specified. | [optional]
+
+### Return type
+
+[**List&lt;CrossMarginAccountBook&gt;**](CrossMarginAccountBook.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
 
 <a name="listCrossMarginLoans"></a>
 # **listCrossMarginLoans**

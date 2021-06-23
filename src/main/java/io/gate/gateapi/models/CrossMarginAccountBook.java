@@ -20,28 +20,20 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * MarginAccountBook
+ * CrossMarginAccountBook
  */
-public class MarginAccountBook {
+public class CrossMarginAccountBook {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
 
     public static final String SERIALIZED_NAME_TIME = "time";
     @SerializedName(SERIALIZED_NAME_TIME)
-    private String time;
-
-    public static final String SERIALIZED_NAME_TIME_MS = "time_ms";
-    @SerializedName(SERIALIZED_NAME_TIME_MS)
-    private Long timeMs;
+    private Long time;
 
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
     @SerializedName(SERIALIZED_NAME_CURRENCY)
     private String currency;
-
-    public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
-    @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
-    private String currencyPair;
 
     public static final String SERIALIZED_NAME_CHANGE = "change";
     @SerializedName(SERIALIZED_NAME_CHANGE)
@@ -51,8 +43,73 @@ public class MarginAccountBook {
     @SerializedName(SERIALIZED_NAME_BALANCE)
     private String balance;
 
+    /**
+     * Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        IN("in"),
+        
+        OUT("out"),
+        
+        REPAY("repay"),
+        
+        BORROW("borrow"),
+        
+        NEW_ORDER("new_order"),
+        
+        ORDER_FILL("order_fill"),
+        
+        REFERRAL_FEE("referral_fee"),
+        
+        ORDER_FEE("order_fee"),
+        
+        UNKNOWN("unknown");
 
-    public MarginAccountBook id(String id) {
+        private String value;
+
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private TypeEnum type;
+
+
+    public CrossMarginAccountBook id(String id) {
         
         this.id = id;
         return this;
@@ -72,47 +129,27 @@ public class MarginAccountBook {
         this.id = id;
     }
 
-    public MarginAccountBook time(String time) {
+    public CrossMarginAccountBook time(Long time) {
         
         this.time = time;
-        return this;
-    }
-
-     /**
-     * Balance changed timestamp
-     * @return time
-    **/
-    @javax.annotation.Nullable
-    public String getTime() {
-        return time;
-    }
-
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public MarginAccountBook timeMs(Long timeMs) {
-        
-        this.timeMs = timeMs;
         return this;
     }
 
      /**
      * Account changed timestamp in milliseconds
-     * @return timeMs
+     * @return time
     **/
     @javax.annotation.Nullable
-    public Long getTimeMs() {
-        return timeMs;
+    public Long getTime() {
+        return time;
     }
 
 
-    public void setTimeMs(Long timeMs) {
-        this.timeMs = timeMs;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
-    public MarginAccountBook currency(String currency) {
+    public CrossMarginAccountBook currency(String currency) {
         
         this.currency = currency;
         return this;
@@ -132,27 +169,7 @@ public class MarginAccountBook {
         this.currency = currency;
     }
 
-    public MarginAccountBook currencyPair(String currencyPair) {
-        
-        this.currencyPair = currencyPair;
-        return this;
-    }
-
-     /**
-     * Account currency pair
-     * @return currencyPair
-    **/
-    @javax.annotation.Nullable
-    public String getCurrencyPair() {
-        return currencyPair;
-    }
-
-
-    public void setCurrencyPair(String currencyPair) {
-        this.currencyPair = currencyPair;
-    }
-
-    public MarginAccountBook change(String change) {
+    public CrossMarginAccountBook change(String change) {
         
         this.change = change;
         return this;
@@ -172,7 +189,7 @@ public class MarginAccountBook {
         this.change = change;
     }
 
-    public MarginAccountBook balance(String balance) {
+    public CrossMarginAccountBook balance(String balance) {
         
         this.balance = balance;
         return this;
@@ -191,6 +208,26 @@ public class MarginAccountBook {
     public void setBalance(String balance) {
         this.balance = balance;
     }
+
+    public CrossMarginAccountBook type(TypeEnum type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public TypeEnum getType() {
+        return type;
+    }
+
+
+    public void setType(TypeEnum type) {
+        this.type = type;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -199,33 +236,31 @@ public class MarginAccountBook {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        MarginAccountBook marginAccountBook = (MarginAccountBook) o;
-        return Objects.equals(this.id, marginAccountBook.id) &&
-                Objects.equals(this.time, marginAccountBook.time) &&
-                Objects.equals(this.timeMs, marginAccountBook.timeMs) &&
-                Objects.equals(this.currency, marginAccountBook.currency) &&
-                Objects.equals(this.currencyPair, marginAccountBook.currencyPair) &&
-                Objects.equals(this.change, marginAccountBook.change) &&
-                Objects.equals(this.balance, marginAccountBook.balance);
+        CrossMarginAccountBook crossMarginAccountBook = (CrossMarginAccountBook) o;
+        return Objects.equals(this.id, crossMarginAccountBook.id) &&
+                Objects.equals(this.time, crossMarginAccountBook.time) &&
+                Objects.equals(this.currency, crossMarginAccountBook.currency) &&
+                Objects.equals(this.change, crossMarginAccountBook.change) &&
+                Objects.equals(this.balance, crossMarginAccountBook.balance) &&
+                Objects.equals(this.type, crossMarginAccountBook.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, time, timeMs, currency, currencyPair, change, balance);
+        return Objects.hash(id, time, currency, change, balance, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MarginAccountBook {\n");
+        sb.append("class CrossMarginAccountBook {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      time: ").append(toIndentedString(time)).append("\n");
-        sb.append("      timeMs: ").append(toIndentedString(timeMs)).append("\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      change: ").append(toIndentedString(change)).append("\n");
         sb.append("      balance: ").append(toIndentedString(balance)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

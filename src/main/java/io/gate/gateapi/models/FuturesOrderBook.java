@@ -30,6 +30,14 @@ public class FuturesOrderBook {
     @SerializedName(SERIALIZED_NAME_ID)
     private Long id;
 
+    public static final String SERIALIZED_NAME_CURRENT = "current";
+    @SerializedName(SERIALIZED_NAME_CURRENT)
+    private Double current;
+
+    public static final String SERIALIZED_NAME_UPDATE = "update";
+    @SerializedName(SERIALIZED_NAME_UPDATE)
+    private Double update;
+
     public static final String SERIALIZED_NAME_ASKS = "asks";
     @SerializedName(SERIALIZED_NAME_ASKS)
     private List<FuturesOrderBookItem> asks = new ArrayList<>();
@@ -57,6 +65,46 @@ public class FuturesOrderBook {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public FuturesOrderBook current(Double current) {
+        
+        this.current = current;
+        return this;
+    }
+
+     /**
+     * Response data generation timestamp
+     * @return current
+    **/
+    @javax.annotation.Nullable
+    public Double getCurrent() {
+        return current;
+    }
+
+
+    public void setCurrent(Double current) {
+        this.current = current;
+    }
+
+    public FuturesOrderBook update(Double update) {
+        
+        this.update = update;
+        return this;
+    }
+
+     /**
+     * Order book changed timestamp
+     * @return update
+    **/
+    @javax.annotation.Nullable
+    public Double getUpdate() {
+        return update;
+    }
+
+
+    public void setUpdate(Double update) {
+        this.update = update;
     }
 
     public FuturesOrderBook asks(List<FuturesOrderBookItem> asks) {
@@ -116,13 +164,15 @@ public class FuturesOrderBook {
         }
         FuturesOrderBook futuresOrderBook = (FuturesOrderBook) o;
         return Objects.equals(this.id, futuresOrderBook.id) &&
+                Objects.equals(this.current, futuresOrderBook.current) &&
+                Objects.equals(this.update, futuresOrderBook.update) &&
                 Objects.equals(this.asks, futuresOrderBook.asks) &&
                 Objects.equals(this.bids, futuresOrderBook.bids);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, asks, bids);
+        return Objects.hash(id, current, update, asks, bids);
     }
 
 
@@ -131,6 +181,8 @@ public class FuturesOrderBook {
         StringBuilder sb = new StringBuilder();
         sb.append("class FuturesOrderBook {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      current: ").append(toIndentedString(current)).append("\n");
+        sb.append("      update: ").append(toIndentedString(update)).append("\n");
         sb.append("      asks: ").append(toIndentedString(asks)).append("\n");
         sb.append("      bids: ").append(toIndentedString(bids)).append("\n");
         sb.append("}");

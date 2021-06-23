@@ -22,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.AutoRepaySetting;
 import io.gate.gateapi.models.CrossMarginAccount;
+import io.gate.gateapi.models.CrossMarginAccountBook;
 import io.gate.gateapi.models.CrossMarginCurrency;
 import io.gate.gateapi.models.CrossMarginLoan;
 import io.gate.gateapi.models.CrossMarginRepayRequest;
@@ -728,7 +729,7 @@ public class MarginApi {
 
     /**
      * List margin account balance change history
-     * Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+     * Only transferals from and to margin account are provided for now. Time range allows 30 days at most
      * @return APIlistMarginAccountBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2874,6 +2875,224 @@ public class MarginApi {
         Type localVarReturnType = new TypeToken<CrossMarginAccount>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    private okhttp3.Call listCrossMarginAccountBookCall(String currency, Long from, Long to, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/account_book";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCrossMarginAccountBookValidateBeforeCall(String currency, Long from, Long to, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginAccountBookCall(currency, from, to, page, limit, type, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<CrossMarginAccountBook>> listCrossMarginAccountBookWithHttpInfo(String currency, Long from, Long to, Integer page, Integer limit, String type) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginAccountBookValidateBeforeCall(currency, from, to, page, limit, type, null);
+        Type localVarReturnType = new TypeToken<List<CrossMarginAccountBook>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCrossMarginAccountBookAsync(String currency, Long from, Long to, Integer page, Integer limit, String type, final ApiCallback<List<CrossMarginAccountBook>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossMarginAccountBookValidateBeforeCall(currency, from, to, page, limit, type, _callback);
+        Type localVarReturnType = new TypeToken<List<CrossMarginAccountBook>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCrossMarginAccountBookRequest {
+        private String currency;
+        private Long from;
+        private Long to;
+        private Integer page;
+        private Integer limit;
+        private String type;
+
+        private APIlistCrossMarginAccountBookRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency Filter by currency (optional)
+         * @return APIlistCrossMarginAccountBookRequest
+         */
+        public APIlistCrossMarginAccountBookRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @return APIlistCrossMarginAccountBookRequest
+         */
+        public APIlistCrossMarginAccountBookRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Time range ending, default to current time (optional)
+         * @return APIlistCrossMarginAccountBookRequest
+         */
+        public APIlistCrossMarginAccountBookRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistCrossMarginAccountBookRequest
+         */
+        public APIlistCrossMarginAccountBookRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @return APIlistCrossMarginAccountBookRequest
+         */
+        public APIlistCrossMarginAccountBookRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type Filter by account change type. All types are returned if not specified. (optional)
+         * @return APIlistCrossMarginAccountBookRequest
+         */
+        public APIlistCrossMarginAccountBookRequest type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Build call for listCrossMarginAccountBook
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCrossMarginAccountBookCall(currency, from, to, page, limit, type, _callback);
+        }
+
+        /**
+         * Execute listCrossMarginAccountBook request
+         * @return List&lt;CrossMarginAccountBook&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<CrossMarginAccountBook> execute() throws ApiException {
+            ApiResponse<List<CrossMarginAccountBook>> localVarResp = listCrossMarginAccountBookWithHttpInfo(currency, from, to, page, limit, type);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCrossMarginAccountBook request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CrossMarginAccountBook&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<CrossMarginAccountBook>> executeWithHttpInfo() throws ApiException {
+            return listCrossMarginAccountBookWithHttpInfo(currency, from, to, page, limit, type);
+        }
+
+        /**
+         * Execute listCrossMarginAccountBook request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CrossMarginAccountBook>> _callback) throws ApiException {
+            return listCrossMarginAccountBookAsync(currency, from, to, page, limit, type, _callback);
+        }
+    }
+
+    /**
+     * Retrieve cross margin account change history
+     * Record time range cannot exceed 30 days
+     * @return APIlistCrossMarginAccountBookRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistCrossMarginAccountBookRequest listCrossMarginAccountBook() {
+        return new APIlistCrossMarginAccountBookRequest();
     }
 
     private okhttp3.Call listCrossMarginLoansCall(Integer status, String currency, Integer limit, Integer offset, Boolean reverse, final ApiCallback _callback) throws ApiException {

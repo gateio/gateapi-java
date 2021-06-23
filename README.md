@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.21.2
-- SDK version: 6.21.2
+- API version: 4.21.4
+- SDK version: 6.21.4
 
 Welcome to Gate.io API
 
@@ -67,7 +67,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.21.2</version>
+    <version>6.21.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.21.2"
+compile "io.gate:gate-api:6.21.4"
 ```
 
 ### Others
@@ -90,7 +90,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.21.2.jar`
+* `target/gate-api-6.21.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -223,6 +223,7 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**listCrossMarginCurrencies**](docs/MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 *MarginApi* | [**getCrossMarginCurrency**](docs/MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 *MarginApi* | [**getCrossMarginAccount**](docs/MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
+*MarginApi* | [**listCrossMarginAccountBook**](docs/MarginApi.md#listCrossMarginAccountBook) | **GET** /margin/cross/account_book | Retrieve cross margin account change history
 *MarginApi* | [**listCrossMarginLoans**](docs/MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history
 *MarginApi* | [**createCrossMarginLoan**](docs/MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
 *MarginApi* | [**getCrossMarginLoan**](docs/MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
@@ -274,6 +275,7 @@ Class | Method | HTTP request | Description
  - [Contract](docs/Contract.md)
  - [ContractStat](docs/ContractStat.md)
  - [CrossMarginAccount](docs/CrossMarginAccount.md)
+ - [CrossMarginAccountBook](docs/CrossMarginAccountBook.md)
  - [CrossMarginBalance](docs/CrossMarginBalance.md)
  - [CrossMarginCurrency](docs/CrossMarginCurrency.md)
  - [CrossMarginLoan](docs/CrossMarginLoan.md)

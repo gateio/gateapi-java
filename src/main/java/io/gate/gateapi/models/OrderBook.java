@@ -29,6 +29,14 @@ public class OrderBook {
     @SerializedName(SERIALIZED_NAME_ID)
     private Long id;
 
+    public static final String SERIALIZED_NAME_CURRENT = "current";
+    @SerializedName(SERIALIZED_NAME_CURRENT)
+    private Long current;
+
+    public static final String SERIALIZED_NAME_UPDATE = "update";
+    @SerializedName(SERIALIZED_NAME_UPDATE)
+    private Long update;
+
     public static final String SERIALIZED_NAME_ASKS = "asks";
     @SerializedName(SERIALIZED_NAME_ASKS)
     private List<List<String>> asks = new ArrayList<>();
@@ -56,6 +64,46 @@ public class OrderBook {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public OrderBook current(Long current) {
+        
+        this.current = current;
+        return this;
+    }
+
+     /**
+     * Response data generation timestamp in milliseconds
+     * @return current
+    **/
+    @javax.annotation.Nullable
+    public Long getCurrent() {
+        return current;
+    }
+
+
+    public void setCurrent(Long current) {
+        this.current = current;
+    }
+
+    public OrderBook update(Long update) {
+        
+        this.update = update;
+        return this;
+    }
+
+     /**
+     * Order book changed timestamp in milliseconds
+     * @return update
+    **/
+    @javax.annotation.Nullable
+    public Long getUpdate() {
+        return update;
+    }
+
+
+    public void setUpdate(Long update) {
+        this.update = update;
     }
 
     public OrderBook asks(List<List<String>> asks) {
@@ -115,13 +163,15 @@ public class OrderBook {
         }
         OrderBook orderBook = (OrderBook) o;
         return Objects.equals(this.id, orderBook.id) &&
+                Objects.equals(this.current, orderBook.current) &&
+                Objects.equals(this.update, orderBook.update) &&
                 Objects.equals(this.asks, orderBook.asks) &&
                 Objects.equals(this.bids, orderBook.bids);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, asks, bids);
+        return Objects.hash(id, current, update, asks, bids);
     }
 
 
@@ -130,6 +180,8 @@ public class OrderBook {
         StringBuilder sb = new StringBuilder();
         sb.append("class OrderBook {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      current: ").append(toIndentedString(current)).append("\n");
+        sb.append("      update: ").append(toIndentedString(update)).append("\n");
         sb.append("      asks: ").append(toIndentedString(asks)).append("\n");
         sb.append("      bids: ").append(toIndentedString(bids)).append("\n");
         sb.append("}");

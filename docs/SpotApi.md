@@ -1163,7 +1163,7 @@ Name | Type | Description  | Notes
 
 <a name="getOrder"></a>
 # **getOrder**
-> Order getOrder(orderId, currencyPair).account(account).execute();
+> Order getOrder(orderId, currencyPair, account)
 
 Get a single order
 
@@ -1194,9 +1194,7 @@ public class Example {
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
         try {
-            Order result = apiInstance.getOrder(orderId, currencyPair)
-                        .account(account)
-                        .execute();
+            Order result = apiInstance.getOrder(orderId, currencyPair, account);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
