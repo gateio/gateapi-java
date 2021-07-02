@@ -894,7 +894,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair
+        String currencyPair = "BTC_USDT"; // String | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
         String status = "open"; // String | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records returned. If `status` is `open`, maximum of `limit` is 100
@@ -923,7 +923,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair |
+ **currencyPair** | **String**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
  **status** | **String**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | [enum: open, finished]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
@@ -1338,10 +1338,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair
+        String currencyPair = "BTC_USDT"; // String | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer page = 1; // Integer | Page number
-        String orderId = "12345"; // String | List all trades of specified order
+        String orderId = "12345"; // String | Filter trades with specified order ID. `currency_pair` is also required if this field is present
         String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
         try {
             List<Trade> result = apiInstance.listMyTrades(currencyPair)
@@ -1368,10 +1368,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair |
+ **currencyPair** | **String**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **orderId** | **String**| List all trades of specified order | [optional]
+ **orderId** | **String**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
  **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
 
 ### Return type

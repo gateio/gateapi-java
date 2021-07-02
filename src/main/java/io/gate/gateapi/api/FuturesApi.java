@@ -4267,7 +4267,7 @@ public class FuturesApi {
         return new APIgetMyTradesRequest(settle);
     }
 
-    private okhttp3.Call listPositionCloseCall(String settle, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPositionCloseCall(String settle, String contract, Integer limit, Integer offset, Long from, Long to, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4286,6 +4286,14 @@ public class FuturesApi {
 
         if (offset != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4310,25 +4318,25 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPositionCloseValidateBeforeCall(String settle, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPositionCloseValidateBeforeCall(String settle, String contract, Integer limit, Integer offset, Long from, Long to, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listPositionClose(Async)");
         }
 
-        okhttp3.Call localVarCall = listPositionCloseCall(settle, contract, limit, offset, _callback);
+        okhttp3.Call localVarCall = listPositionCloseCall(settle, contract, limit, offset, from, to, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<PositionClose>> listPositionCloseWithHttpInfo(String settle, String contract, Integer limit, Integer offset) throws ApiException {
-        okhttp3.Call localVarCall = listPositionCloseValidateBeforeCall(settle, contract, limit, offset, null);
+    private ApiResponse<List<PositionClose>> listPositionCloseWithHttpInfo(String settle, String contract, Integer limit, Integer offset, Long from, Long to) throws ApiException {
+        okhttp3.Call localVarCall = listPositionCloseValidateBeforeCall(settle, contract, limit, offset, from, to, null);
         Type localVarReturnType = new TypeToken<List<PositionClose>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listPositionCloseAsync(String settle, String contract, Integer limit, Integer offset, final ApiCallback<List<PositionClose>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listPositionCloseValidateBeforeCall(settle, contract, limit, offset, _callback);
+    private okhttp3.Call listPositionCloseAsync(String settle, String contract, Integer limit, Integer offset, Long from, Long to, final ApiCallback<List<PositionClose>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listPositionCloseValidateBeforeCall(settle, contract, limit, offset, from, to, _callback);
         Type localVarReturnType = new TypeToken<List<PositionClose>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4339,6 +4347,8 @@ public class FuturesApi {
         private String contract;
         private Integer limit;
         private Integer offset;
+        private Long from;
+        private Long to;
 
         private APIlistPositionCloseRequest(String settle) {
             this.settle = settle;
@@ -4375,6 +4385,26 @@ public class FuturesApi {
         }
 
         /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIlistPositionCloseRequest
+         */
+        public APIlistPositionCloseRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIlistPositionCloseRequest
+         */
+        public APIlistPositionCloseRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
          * Build call for listPositionClose
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -4386,7 +4416,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listPositionCloseCall(settle, contract, limit, offset, _callback);
+            return listPositionCloseCall(settle, contract, limit, offset, from, to, _callback);
         }
 
         /**
@@ -4400,7 +4430,7 @@ public class FuturesApi {
          </table>
          */
         public List<PositionClose> execute() throws ApiException {
-            ApiResponse<List<PositionClose>> localVarResp = listPositionCloseWithHttpInfo(settle, contract, limit, offset);
+            ApiResponse<List<PositionClose>> localVarResp = listPositionCloseWithHttpInfo(settle, contract, limit, offset, from, to);
             return localVarResp.getData();
         }
 
@@ -4415,7 +4445,7 @@ public class FuturesApi {
          </table>
          */
         public ApiResponse<List<PositionClose>> executeWithHttpInfo() throws ApiException {
-            return listPositionCloseWithHttpInfo(settle, contract, limit, offset);
+            return listPositionCloseWithHttpInfo(settle, contract, limit, offset, from, to);
         }
 
         /**
@@ -4430,7 +4460,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<PositionClose>> _callback) throws ApiException {
-            return listPositionCloseAsync(settle, contract, limit, offset, _callback);
+            return listPositionCloseAsync(settle, contract, limit, offset, from, to, _callback);
         }
     }
 

@@ -15,4 +15,5 @@ Name | Type | Description | Notes
 **withdrawAmountMini** | **String** | Minimum withdrawal amount |  [optional]
 **withdrawDayLimitRemain** | **String** | Daily withdrawal amount left |  [optional]
 **withdrawEachtimeLimit** | **String** | Maximum amount for each withdrawal |  [optional]
+**withdrawFixOnChains** | **Map&lt;String, String&gt;** | Fixed withdrawal fee on multiple chains |  [optional]
 

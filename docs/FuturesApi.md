@@ -2099,7 +2099,7 @@ Name | Type | Description  | Notes
 
 <a name="listPositionClose"></a>
 # **listPositionClose**
-> List&lt;PositionClose&gt; listPositionClose(settle).contract(contract).limit(limit).offset(offset).execute();
+> List&lt;PositionClose&gt; listPositionClose(settle).contract(contract).limit(limit).offset(offset).from(from).to(to).execute();
 
 List position close history
 
@@ -2128,11 +2128,15 @@ public class Example {
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in one list
         Integer offset = 0; // Integer | List offset, starting from 0
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
         try {
             List<PositionClose> result = apiInstance.listPositionClose(settle)
                         .contract(contract)
                         .limit(limit)
                         .offset(offset)
+                        .from(from)
+                        .to(to)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -2156,6 +2160,8 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **Long**| Start timestamp | [optional]
+ **to** | **Long**| End timestamp | [optional]
 
 ### Return type
 

@@ -1946,7 +1946,7 @@ public class SpotApi {
     /**
      * List orders
      * Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  (required)
      * @return APIlistOrdersRequest
      * @http.response.details
@@ -2665,7 +2665,7 @@ public class SpotApi {
 
         /**
          * Set orderId
-         * @param orderId List all trades of specified order (optional)
+         * @param orderId Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest orderId(String orderId) {
@@ -2746,7 +2746,7 @@ public class SpotApi {
     /**
      * List personal trading history
      * Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @return APIlistMyTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">

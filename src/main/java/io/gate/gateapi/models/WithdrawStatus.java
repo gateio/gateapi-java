@@ -18,6 +18,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * WithdrawStatus
@@ -62,6 +65,10 @@ public class WithdrawStatus {
     public static final String SERIALIZED_NAME_WITHDRAW_EACHTIME_LIMIT = "withdraw_eachtime_limit";
     @SerializedName(SERIALIZED_NAME_WITHDRAW_EACHTIME_LIMIT)
     private String withdrawEachtimeLimit;
+
+    public static final String SERIALIZED_NAME_WITHDRAW_FIX_ON_CHAINS = "withdraw_fix_on_chains";
+    @SerializedName(SERIALIZED_NAME_WITHDRAW_FIX_ON_CHAINS)
+    private Map<String, String> withdrawFixOnChains = null;
 
 
     public WithdrawStatus currency(String currency) {
@@ -263,6 +270,34 @@ public class WithdrawStatus {
     public void setWithdrawEachtimeLimit(String withdrawEachtimeLimit) {
         this.withdrawEachtimeLimit = withdrawEachtimeLimit;
     }
+
+    public WithdrawStatus withdrawFixOnChains(Map<String, String> withdrawFixOnChains) {
+        
+        this.withdrawFixOnChains = withdrawFixOnChains;
+        return this;
+    }
+
+    public WithdrawStatus putWithdrawFixOnChainsItem(String key, String withdrawFixOnChainsItem) {
+        if (this.withdrawFixOnChains == null) {
+            this.withdrawFixOnChains = new HashMap<>();
+        }
+        this.withdrawFixOnChains.put(key, withdrawFixOnChainsItem);
+        return this;
+    }
+
+     /**
+     * Fixed withdrawal fee on multiple chains
+     * @return withdrawFixOnChains
+    **/
+    @javax.annotation.Nullable
+    public Map<String, String> getWithdrawFixOnChains() {
+        return withdrawFixOnChains;
+    }
+
+
+    public void setWithdrawFixOnChains(Map<String, String> withdrawFixOnChains) {
+        this.withdrawFixOnChains = withdrawFixOnChains;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -281,12 +316,13 @@ public class WithdrawStatus {
                 Objects.equals(this.withdrawDayLimit, withdrawStatus.withdrawDayLimit) &&
                 Objects.equals(this.withdrawAmountMini, withdrawStatus.withdrawAmountMini) &&
                 Objects.equals(this.withdrawDayLimitRemain, withdrawStatus.withdrawDayLimitRemain) &&
-                Objects.equals(this.withdrawEachtimeLimit, withdrawStatus.withdrawEachtimeLimit);
+                Objects.equals(this.withdrawEachtimeLimit, withdrawStatus.withdrawEachtimeLimit) &&
+                Objects.equals(this.withdrawFixOnChains, withdrawStatus.withdrawFixOnChains);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, name, nameCn, deposit, withdrawPercent, withdrawFix, withdrawDayLimit, withdrawAmountMini, withdrawDayLimitRemain, withdrawEachtimeLimit);
+        return Objects.hash(currency, name, nameCn, deposit, withdrawPercent, withdrawFix, withdrawDayLimit, withdrawAmountMini, withdrawDayLimitRemain, withdrawEachtimeLimit, withdrawFixOnChains);
     }
 
 
@@ -304,6 +340,7 @@ public class WithdrawStatus {
         sb.append("      withdrawAmountMini: ").append(toIndentedString(withdrawAmountMini)).append("\n");
         sb.append("      withdrawDayLimitRemain: ").append(toIndentedString(withdrawDayLimitRemain)).append("\n");
         sb.append("      withdrawEachtimeLimit: ").append(toIndentedString(withdrawEachtimeLimit)).append("\n");
+        sb.append("      withdrawFixOnChains: ").append(toIndentedString(withdrawFixOnChains)).append("\n");
         sb.append("}");
         return sb.toString();
     }

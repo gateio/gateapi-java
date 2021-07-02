@@ -27,6 +27,7 @@ import io.gate.gateapi.models.CrossMarginCurrency;
 import io.gate.gateapi.models.CrossMarginLoan;
 import io.gate.gateapi.models.CrossMarginRepayRequest;
 import io.gate.gateapi.models.CrossMarginRepayment;
+import io.gate.gateapi.models.CrossMarginTransferable;
 import io.gate.gateapi.models.FundingAccount;
 import io.gate.gateapi.models.FundingBookItem;
 import io.gate.gateapi.models.Loan;
@@ -35,6 +36,7 @@ import io.gate.gateapi.models.LoanRecord;
 import io.gate.gateapi.models.MarginAccount;
 import io.gate.gateapi.models.MarginAccountBook;
 import io.gate.gateapi.models.MarginCurrencyPair;
+import io.gate.gateapi.models.MarginTransferable;
 import io.gate.gateapi.models.RepayRequest;
 import io.gate.gateapi.models.Repayment;
 
@@ -2573,6 +2575,161 @@ public class MarginApi {
         return localVarCall;
     }
 
+    private okhttp3.Call getMarginTransferableCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/transferable";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (currencyPair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMarginTransferableValidateBeforeCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling getMarginTransferable(Async)");
+        }
+
+        okhttp3.Call localVarCall = getMarginTransferableCall(currency, currencyPair, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<MarginTransferable> getMarginTransferableWithHttpInfo(String currency, String currencyPair) throws ApiException {
+        okhttp3.Call localVarCall = getMarginTransferableValidateBeforeCall(currency, currencyPair, null);
+        Type localVarReturnType = new TypeToken<MarginTransferable>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getMarginTransferableAsync(String currency, String currencyPair, final ApiCallback<MarginTransferable> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getMarginTransferableValidateBeforeCall(currency, currencyPair, _callback);
+        Type localVarReturnType = new TypeToken<MarginTransferable>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetMarginTransferableRequest {
+        private final String currency;
+        private String currencyPair;
+
+        private APIgetMarginTransferableRequest(String currency) {
+            this.currency = currency;
+        }
+
+        /**
+         * Set currencyPair
+         * @param currencyPair Currency pair (optional)
+         * @return APIgetMarginTransferableRequest
+         */
+        public APIgetMarginTransferableRequest currencyPair(String currencyPair) {
+            this.currencyPair = currencyPair;
+            return this;
+        }
+
+        /**
+         * Build call for getMarginTransferable
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getMarginTransferableCall(currency, currencyPair, _callback);
+        }
+
+        /**
+         * Execute getMarginTransferable request
+         * @return MarginTransferable
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public MarginTransferable execute() throws ApiException {
+            ApiResponse<MarginTransferable> localVarResp = getMarginTransferableWithHttpInfo(currency, currencyPair);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getMarginTransferable request with HTTP info returned
+         * @return ApiResponse&lt;MarginTransferable&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<MarginTransferable> executeWithHttpInfo() throws ApiException {
+            return getMarginTransferableWithHttpInfo(currency, currencyPair);
+        }
+
+        /**
+         * Execute getMarginTransferable request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<MarginTransferable> _callback) throws ApiException {
+            return getMarginTransferableAsync(currency, currencyPair, _callback);
+        }
+    }
+
+    /**
+     * Max transferable amount for specified margin currency
+     * 
+     * @param currency Retrieved specified currency related data (required)
+     * @return APIgetMarginTransferableRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetMarginTransferableRequest getMarginTransferable(String currency) {
+        return new APIgetMarginTransferableRequest(currency);
+    }
+
     /**
      * Build call for listCrossMarginCurrencies
      * @param _callback Callback for upload/download progress
@@ -3816,6 +3973,117 @@ public class MarginApi {
     public okhttp3.Call repayCrossMarginLoanAsync(CrossMarginRepayRequest crossMarginRepayRequest, final ApiCallback<List<CrossMarginLoan>> _callback) throws ApiException {
         okhttp3.Call localVarCall = repayCrossMarginLoanValidateBeforeCall(crossMarginRepayRequest, _callback);
         Type localVarReturnType = new TypeToken<List<CrossMarginLoan>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getCrossMarginTransferable
+     * @param currency Retrieved specified currency related data (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginTransferableCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/transferable";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCrossMarginTransferableValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling getCrossMarginTransferable(Async)");
+        }
+
+        okhttp3.Call localVarCall = getCrossMarginTransferableCall(currency, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Max transferable amount for specified cross margin currency
+     * 
+     * @param currency Retrieved specified currency related data (required)
+     * @return CrossMarginTransferable
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossMarginTransferable getCrossMarginTransferable(String currency) throws ApiException {
+        ApiResponse<CrossMarginTransferable> localVarResp = getCrossMarginTransferableWithHttpInfo(currency);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Max transferable amount for specified cross margin currency
+     * 
+     * @param currency Retrieved specified currency related data (required)
+     * @return ApiResponse&lt;CrossMarginTransferable&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossMarginTransferable> getCrossMarginTransferableWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginTransferableValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<CrossMarginTransferable>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Max transferable amount for specified cross margin currency (asynchronously)
+     * 
+     * @param currency Retrieved specified currency related data (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginTransferableAsync(String currency, final ApiCallback<CrossMarginTransferable> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginTransferableValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<CrossMarginTransferable>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

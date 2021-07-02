@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.21.4
-- SDK version: 6.21.4
+- API version: 4.21.5
+- SDK version: 6.21.5
 
 Welcome to Gate.io API
 
@@ -67,7 +67,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.21.4</version>
+    <version>6.21.5</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.21.4"
+compile "io.gate:gate-api:6.21.5"
 ```
 
 ### Others
@@ -90,7 +90,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.21.4.jar`
+* `target/gate-api-6.21.5.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -220,6 +220,7 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 *MarginApi* | [**getAutoRepayStatus**](docs/MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 *MarginApi* | [**setAutoRepay**](docs/MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
+*MarginApi* | [**getMarginTransferable**](docs/MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Max transferable amount for specified margin currency
 *MarginApi* | [**listCrossMarginCurrencies**](docs/MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 *MarginApi* | [**getCrossMarginCurrency**](docs/MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 *MarginApi* | [**getCrossMarginAccount**](docs/MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -229,6 +230,7 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**getCrossMarginLoan**](docs/MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
 *MarginApi* | [**listCrossMarginRepayments**](docs/MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
 *MarginApi* | [**repayCrossMarginLoan**](docs/MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Repay cross margin loan
+*MarginApi* | [**getCrossMarginTransferable**](docs/MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Max transferable amount for specified cross margin currency
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; detail
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get detail of one particular currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
@@ -281,6 +283,7 @@ Class | Method | HTTP request | Description
  - [CrossMarginLoan](docs/CrossMarginLoan.md)
  - [CrossMarginRepayRequest](docs/CrossMarginRepayRequest.md)
  - [CrossMarginRepayment](docs/CrossMarginRepayment.md)
+ - [CrossMarginTransferable](docs/CrossMarginTransferable.md)
  - [Currency](docs/Currency.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [DeliveryContract](docs/DeliveryContract.md)
@@ -310,6 +313,7 @@ Class | Method | HTTP request | Description
  - [MarginAccountBook](docs/MarginAccountBook.md)
  - [MarginAccountCurrency](docs/MarginAccountCurrency.md)
  - [MarginCurrencyPair](docs/MarginCurrencyPair.md)
+ - [MarginTransferable](docs/MarginTransferable.md)
  - [MultiChainAddressItem](docs/MultiChainAddressItem.md)
  - [MyFuturesTrade](docs/MyFuturesTrade.md)
  - [OpenOrders](docs/OpenOrders.md)
