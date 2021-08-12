@@ -34,9 +34,9 @@ public class DepositAddress {
     @SerializedName(SERIALIZED_NAME_ADDRESS)
     private String address;
 
-    public static final String SERIALIZED_NAME_MULTICHAIN_ADDRESS = "multichain_address";
-    @SerializedName(SERIALIZED_NAME_MULTICHAIN_ADDRESS)
-    private List<MultiChainAddressItem> multichainAddress = null;
+    public static final String SERIALIZED_NAME_MULTICHAIN_ADDRESSES = "multichain_addresses";
+    @SerializedName(SERIALIZED_NAME_MULTICHAIN_ADDRESSES)
+    private List<MultiChainAddressItem> multichainAddresses = null;
 
 
     public DepositAddress currency(String currency) {
@@ -77,32 +77,32 @@ public class DepositAddress {
         this.address = address;
     }
 
-    public DepositAddress multichainAddress(List<MultiChainAddressItem> multichainAddress) {
+    public DepositAddress multichainAddresses(List<MultiChainAddressItem> multichainAddresses) {
         
-        this.multichainAddress = multichainAddress;
+        this.multichainAddresses = multichainAddresses;
         return this;
     }
 
-    public DepositAddress addMultichainAddressItem(MultiChainAddressItem multichainAddressItem) {
-        if (this.multichainAddress == null) {
-            this.multichainAddress = new ArrayList<>();
+    public DepositAddress addMultichainAddressesItem(MultiChainAddressItem multichainAddressesItem) {
+        if (this.multichainAddresses == null) {
+            this.multichainAddresses = new ArrayList<>();
         }
-        this.multichainAddress.add(multichainAddressItem);
+        this.multichainAddresses.add(multichainAddressesItem);
         return this;
     }
 
      /**
-     * Get multichainAddress
-     * @return multichainAddress
+     * Get multichainAddresses
+     * @return multichainAddresses
     **/
     @javax.annotation.Nullable
-    public List<MultiChainAddressItem> getMultichainAddress() {
-        return multichainAddress;
+    public List<MultiChainAddressItem> getMultichainAddresses() {
+        return multichainAddresses;
     }
 
 
-    public void setMultichainAddress(List<MultiChainAddressItem> multichainAddress) {
-        this.multichainAddress = multichainAddress;
+    public void setMultichainAddresses(List<MultiChainAddressItem> multichainAddresses) {
+        this.multichainAddresses = multichainAddresses;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -115,12 +115,12 @@ public class DepositAddress {
         DepositAddress depositAddress = (DepositAddress) o;
         return Objects.equals(this.currency, depositAddress.currency) &&
                 Objects.equals(this.address, depositAddress.address) &&
-                Objects.equals(this.multichainAddress, depositAddress.multichainAddress);
+                Objects.equals(this.multichainAddresses, depositAddress.multichainAddresses);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, address, multichainAddress);
+        return Objects.hash(currency, address, multichainAddresses);
     }
 
 
@@ -130,7 +130,7 @@ public class DepositAddress {
         sb.append("class DepositAddress {\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      address: ").append(toIndentedString(address)).append("\n");
-        sb.append("      multichainAddress: ").append(toIndentedString(multichainAddress)).append("\n");
+        sb.append("      multichainAddresses: ").append(toIndentedString(multichainAddresses)).append("\n");
         sb.append("}");
         return sb.toString();
     }
