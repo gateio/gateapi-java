@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **tradeId** | **Long** | ID of the newly created order on condition triggered |  [optional] [readonly]
 **status** | [**StatusEnum**](#StatusEnum) | Order status. |  [optional] [readonly]
 **finishAs** | [**FinishAsEnum**](#FinishAsEnum) | How order is finished |  [optional] [readonly]
-**reason** | **String** | Extra messages of how order is finished |  [optional] [readonly]
+**reason** | **String** | Additional remarks on how the order was finished |  [optional] [readonly]
 
 ## Enum: StatusEnum
 

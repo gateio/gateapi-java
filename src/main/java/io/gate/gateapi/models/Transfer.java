@@ -28,7 +28,7 @@ public class Transfer {
     private String currency;
 
     /**
-     * Account transferred from
+     * Account to transfer from
      */
     @JsonAdapter(FromEnum.Adapter.class)
     public enum FromEnum {
@@ -85,7 +85,7 @@ public class Transfer {
     private FromEnum from;
 
     /**
-     * Account transferred to
+     * Account to transfer to
      */
     @JsonAdapter(ToEnum.Adapter.class)
     public enum ToEnum {
@@ -180,7 +180,7 @@ public class Transfer {
     }
 
      /**
-     * Account transferred from
+     * Account to transfer from
      * @return from
     **/
     public FromEnum getFrom() {
@@ -199,7 +199,7 @@ public class Transfer {
     }
 
      /**
-     * Account transferred to
+     * Account to transfer to
      * @return to
     **/
     public ToEnum getTo() {

@@ -155,7 +155,7 @@ public class LoanPatch {
     }
 
      /**
-     * Currency pair. Required for borrowing side
+     * Currency pair. Required if borrowing
      * @return currencyPair
     **/
     @javax.annotation.Nullable

@@ -21,5 +21,5 @@ Name | Type | Description | Notes
 **fundingRate** | **String** | Funding rate |  [optional]
 **fundingRateIndicative** | **String** | Indicative Funding rate in next period |  [optional]
 **indexPrice** | **String** | Index price |  [optional]
-**quantoBaseRate** | **String** | Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types |  [optional]
+**quantoBaseRate** | **String** | Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types |  [optional]
 

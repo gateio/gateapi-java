@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **orderId** | **String** | Related order ID. No value in public endpoints |  [optional]
 **fee** | **String** | Fee deducted. No value in public endpoints |  [optional]
 **feeCurrency** | **String** | Fee currency unit. No value in public endpoints |  [optional]
-**pointFee** | **String** | Point used to deduct fee |  [optional]
+**pointFee** | **String** | Points used to deduct fee |  [optional]
 **gtFee** | **String** | GT used to deduct fee |  [optional]
 
 ## Enum: SideEnum

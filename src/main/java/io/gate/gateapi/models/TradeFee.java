@@ -131,7 +131,7 @@ public class TradeFee {
     }
 
      /**
-     * Is GT deduction is enabled
+     * If GT deduction is enabled
      * @return gtDiscount
     **/
     @javax.annotation.Nullable

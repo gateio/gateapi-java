@@ -18,12 +18,13 @@ Method | HTTP request | Description
 [**updateLoan**](MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan
 [**listLoanRepayments**](MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records
 [**repayLoan**](MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan
-[**listLoanRecords**](MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of specified loan
+[**listLoanRecords**](MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of a specific loan
 [**getLoanRecord**](MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
 [**updateLoanRecord**](MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 [**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
-[**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Max transferable amount for specified margin currency
+[**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
+[**getMarginBorrowable**](MarginApi.md#getMarginBorrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency
 [**listCrossMarginCurrencies**](MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 [**getCrossMarginCurrency**](MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 [**getCrossMarginAccount**](MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -33,7 +34,8 @@ Method | HTTP request | Description
 [**getCrossMarginLoan**](MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
 [**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
 [**repayCrossMarginLoan**](MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Repay cross margin loan
-[**getCrossMarginTransferable**](MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Max transferable amount for specified cross margin currency
+[**getCrossMarginTransferable**](MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
+[**getCrossMarginBorrowable**](MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
 
 
 <a name="listMarginCurrencyPairs"></a>
@@ -183,7 +185,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieved specified currency related data
+        String currency = "BTC"; // String | Retrieve data of the specified currency
         try {
             List<FundingBookItem> result = apiInstance.listFundingBook(currency);
             System.out.println(result);
@@ -204,7 +206,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieved specified currency related data |
+ **currency** | **String**| Retrieve data of the specified currency |
 
 ### Return type
 
@@ -328,7 +330,7 @@ public class Example {
         Long from = 56L; // Long | Time range beginning, default to 7 days before current time
         Long to = 56L; // Long | Time range ending, default to current time
         Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
             List<MarginAccountBook> result = apiInstance.listMarginAccountBook()
                         .currency(currency)
@@ -361,7 +363,7 @@ Name | Type | Description  | Notes
  **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -408,7 +410,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieved specified currency related data
+        String currency = "BTC"; // String | Retrieve data of the specified currency
         try {
             List<FundingAccount> result = apiInstance.listFundingAccounts()
                         .currency(currency)
@@ -431,7 +433,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieved specified currency related data | [optional]
+ **currency** | **String**| Retrieve data of the specified currency | [optional]
 
 ### Return type
 
@@ -480,12 +482,12 @@ public class Example {
         MarginApi apiInstance = new MarginApi(defaultClient);
         String status = "open"; // String | Loan status
         String side = "lend"; // String | Lend or borrow
-        String currency = "BTC"; // String | Retrieved specified currency related data
+        String currency = "BTC"; // String | Retrieve data of the specified currency
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String sortBy = "rate"; // String | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
         Boolean reverseSort = false; // Boolean | Whether to sort in descending order. Default to `true`
         Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
             List<Loan> result = apiInstance.listLoans(status, side)
                         .currency(currency)
@@ -515,12 +517,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **String**| Loan status | [enum: open, loaned, finished, auto_repaid]
  **side** | **String**| Lend or borrow | [enum: lend, borrow]
- **currency** | **String**| Retrieved specified currency related data | [optional]
+ **currency** | **String**| Retrieve data of the specified currency | [optional]
  **currencyPair** | **String**| Currency pair | [optional]
  **sortBy** | **String**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional] [enum: create_time, rate]
  **reverseSort** | **Boolean**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -635,8 +637,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieved specified currency related data
-        String ids = "123,234,345"; // String | Lending loan ID list separated by `,`. Maximum of 20 IDs are allowed in one request
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String ids = "123,234,345"; // String | A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request
         try {
             Loan result = apiInstance.mergeLoans(currency, ids);
             System.out.println(result);
@@ -657,8 +659,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieved specified currency related data |
- **ids** | **String**| Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request |
+ **currency** | **String**| Retrieve data of the specified currency |
+ **ids** | **String**| A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request |
 
 ### Return type
 
@@ -754,7 +756,7 @@ Name | Type | Description  | Notes
 
 Cancel lending loan
 
-Only lending loans can be cancelled
+Only lent loans can be cancelled
 
 ### Example
 
@@ -778,7 +780,7 @@ public class Example {
 
         MarginApi apiInstance = new MarginApi(defaultClient);
         String loanId = "12345"; // String | Loan ID
-        String currency = "BTC"; // String | Retrieved specified currency related data
+        String currency = "BTC"; // String | Retrieve data of the specified currency
         try {
             Loan result = apiInstance.cancelLoan(loanId, currency);
             System.out.println(result);
@@ -800,7 +802,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | **String**| Loan ID |
- **currency** | **String**| Retrieved specified currency related data |
+ **currency** | **String**| Retrieve data of the specified currency |
 
 ### Return type
 
@@ -1034,7 +1036,7 @@ Name | Type | Description  | Notes
 # **listLoanRecords**
 > List&lt;LoanRecord&gt; listLoanRecords(loanId).status(status).page(page).limit(limit).execute();
 
-List repayment records of specified loan
+List repayment records of a specific loan
 
 ### Example
 
@@ -1060,7 +1062,7 @@ public class Example {
         String loanId = "12345"; // String | Loan ID
         String status = "loaned"; // String | Loan record status
         Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
             List<LoanRecord> result = apiInstance.listLoanRecords(loanId)
                         .status(status)
@@ -1088,7 +1090,7 @@ Name | Type | Description  | Notes
  **loanId** | **String**| Loan ID |
  **status** | **String**| Loan record status | [optional] [enum: loaned, finished]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -1386,7 +1388,7 @@ Name | Type | Description  | Notes
 # **getMarginTransferable**
 > MarginTransferable getMarginTransferable(currency).currencyPair(currencyPair).execute();
 
-Max transferable amount for specified margin currency
+Get the max transferable amount for a specific margin currency
 
 ### Example
 
@@ -1409,7 +1411,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieved specified currency related data
+        String currency = "BTC"; // String | Retrieve data of the specified currency
         String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             MarginTransferable result = apiInstance.getMarginTransferable(currency)
@@ -1433,12 +1435,84 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieved specified currency related data |
+ **currency** | **String**| Retrieve data of the specified currency |
  **currencyPair** | **String**| Currency pair | [optional]
 
 ### Return type
 
 [**MarginTransferable**](MarginTransferable.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="getMarginBorrowable"></a>
+# **getMarginBorrowable**
+> MarginBorrowable getMarginBorrowable(currency).currencyPair(currencyPair).execute();
+
+Get the max borrowable amount for a specific margin currency
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        try {
+            MarginBorrowable result = apiInstance.getMarginBorrowable(currency)
+                        .currencyPair(currencyPair)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getMarginBorrowable");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Retrieve data of the specified currency |
+ **currencyPair** | **String**| Currency pair | [optional]
+
+### Return type
+
+[**MarginBorrowable**](MarginBorrowable.md)
 
 ### Authorization
 
@@ -1675,8 +1749,8 @@ public class Example {
         Long from = 56L; // Long | Time range beginning, default to 7 days before current time
         Long to = 56L; // Long | Time range ending, default to current time
         Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
-        String type = "borrow"; // String | Filter by account change type. All types are returned if not specified.
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        String type = "borrow"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
         try {
             List<CrossMarginAccountBook> result = apiInstance.listCrossMarginAccountBook()
                         .currency(currency)
@@ -1708,8 +1782,8 @@ Name | Type | Description  | Notes
  **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
- **type** | **String**| Filter by account change type. All types are returned if not specified. | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **type** | **String**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
 
 ### Return type
 
@@ -1760,7 +1834,7 @@ public class Example {
         MarginApi apiInstance = new MarginApi(defaultClient);
         Integer status = 56; // Integer | Filter by status. Supported values are 2 and 3.
         String currency = "currency_example"; // String | Filter by currency
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
         try {
@@ -1790,7 +1864,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **Integer**| Filter by status. Supported values are 2 and 3. |
  **currency** | **String**| Filter by currency | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **Boolean**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
@@ -1981,7 +2055,7 @@ public class Example {
         MarginApi apiInstance = new MarginApi(defaultClient);
         String currency = "BTC"; // String | 
         String loanId = "12345"; // String | 
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
         try {
@@ -2012,7 +2086,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**|  | [optional]
  **loanId** | **String**|  | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **Boolean**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
@@ -2106,7 +2180,7 @@ Name | Type | Description  | Notes
 # **getCrossMarginTransferable**
 > CrossMarginTransferable getCrossMarginTransferable(currency)
 
-Max transferable amount for specified cross margin currency
+Get the max transferable amount for a specific cross margin currency
 
 ### Example
 
@@ -2129,7 +2203,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieved specified currency related data
+        String currency = "BTC"; // String | Retrieve data of the specified currency
         try {
             CrossMarginTransferable result = apiInstance.getCrossMarginTransferable(currency);
             System.out.println(result);
@@ -2150,11 +2224,79 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieved specified currency related data |
+ **currency** | **String**| Retrieve data of the specified currency |
 
 ### Return type
 
 [**CrossMarginTransferable**](CrossMarginTransferable.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="getCrossMarginBorrowable"></a>
+# **getCrossMarginBorrowable**
+> CrossMarginBorrowable getCrossMarginBorrowable(currency)
+
+Get the max borrowable amount for a specific cross margin currency
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            CrossMarginBorrowable result = apiInstance.getCrossMarginBorrowable(currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginBorrowable");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Retrieve data of the specified currency |
+
+### Return type
+
+[**CrossMarginBorrowable**](CrossMarginBorrowable.md)
 
 ### Authorization
 

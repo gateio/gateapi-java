@@ -78,7 +78,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
 
 ### Return type
 
@@ -143,7 +143,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -193,7 +193,7 @@ public class Example {
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
         Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
-        Boolean withId = false; // Boolean | Whether order book update ID would be returned. This ID increments by 1 on every order book update
+        Boolean withId = false; // Boolean | Whether the order book update ID will be returned. This ID increases by 1 on every order book update
         try {
             FuturesOrderBook result = apiInstance.listDeliveryOrderBook(settle, contract)
                         .interval(interval)
@@ -218,11 +218,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
- **withId** | **Boolean**| Whether order book update ID would be returned. This ID increments by 1 on every order book update | [optional] [default to false]
+ **withId** | **Boolean**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
 
 ### Return type
 
@@ -267,8 +267,8 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
-        String lastId = "12345"; // String | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        String lastId = "12345"; // String | Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use `from` and `to` instead to limit time range
         Long from = 1546905600L; // Long | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
         Long to = 1546935600L; // Long | Specify end time in Unix seconds, default to current time
         try {
@@ -296,10 +296,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
- **lastId** | **String**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **lastId** | **String**| Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
  **from** | **Long**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  | [optional]
  **to** | **Long**| Specify end time in Unix seconds, default to current time | [optional]
 
@@ -350,7 +350,7 @@ public class Example {
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
-        Integer limit = 100; // Integer | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
+        Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
         String interval = "5m"; // String | Interval time between data points
         try {
             List<FuturesCandlestick> result = apiInstance.listDeliveryCandlesticks(settle, contract)
@@ -377,11 +377,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
- **limit** | **Integer**| Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
+ **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **interval** | **String**| Interval time between data points | [optional] [default to 5m] [enum: 10s, 1m, 5m, 15m, 30m, 1h, 4h, 8h, 1d, 7d]
 
 ### Return type
@@ -449,7 +449,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract | [optional]
 
 ### Return type
@@ -494,7 +494,7 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
             List<InsuranceRecord> result = apiInstance.listDeliveryInsuranceLedger(settle)
                         .limit(limit)
@@ -517,8 +517,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -586,7 +586,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
 
 ### Return type
 
@@ -634,7 +634,7 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Long from = 1547706332L; // Long | Start timestamp
         Long to = 1547706332L; // Long | End timestamp
         String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
@@ -663,8 +663,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **from** | **Long**| Start timestamp | [optional]
  **to** | **Long**| End timestamp | [optional]
  **type** | **String**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional] [enum: dnw, pnl, fee, refr, fund, point_dnw, point_fee, point_refr]
@@ -735,7 +735,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
 
 ### Return type
 
@@ -804,7 +804,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -875,7 +875,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **change** | **String**| Margin change. Use positive number to increase margin, negative number otherwise. |
 
@@ -947,7 +947,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| New position leverage |
 
@@ -1019,7 +1019,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **riskLimit** | **String**| New position risk limit |
 
@@ -1047,7 +1047,7 @@ Name | Type | Description  | Notes
 
 List futures orders
 
-Zero-fill order cannot be retrieved 60 seconds after cancellation
+Zero-fill order cannot be retrieved for 60 seconds after cancellation
 
 ### Example
 
@@ -1071,9 +1071,9 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String status = "open"; // String | List orders based on status
+        String status = "open"; // String | Only list the orders with this status
         String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
         Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
@@ -1103,10 +1103,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
- **status** | **String**| List orders based on status | [enum: open, finished]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **status** | **String**| Only list the orders with this status | [enum: open, finished]
  **contract** | **String**| Futures contract | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
  **countTotal** | **Integer**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0] [enum: 0, 1]
@@ -1127,7 +1127,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  |
+**200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  |
 
 <a name="createDeliveryOrder"></a>
 # **createDeliveryOrder**
@@ -1135,7 +1135,7 @@ Name | Type | Description  | Notes
 
 Create a futures order
 
-Zero-fill order cannot be retrieved 60 seconds after cancellation
+Zero-fill order cannot be retrieved for 60 seconds after cancellation
 
 ### Example
 
@@ -1180,7 +1180,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  |
 
 ### Return type
@@ -1207,7 +1207,7 @@ Name | Type | Description  | Notes
 
 Cancel all &#x60;open&#x60; orders matched
 
-Zero-fill order cannot be retrieved 60 seconds after cancellation
+Zero-fill order cannot be retrieved for 60 seconds after cancellation
 
 ### Example
 
@@ -1232,7 +1232,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
-        String side = "ask"; // String | All bids or asks. Both included in not specified
+        String side = "ask"; // String | All bids or asks. Both included if not specified
         try {
             List<FuturesOrder> result = apiInstance.cancelDeliveryOrders(settle, contract, side);
             System.out.println(result);
@@ -1253,9 +1253,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
- **side** | **String**| All bids or asks. Both included in not specified | [optional] [enum: ask, bid]
+ **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: ask, bid]
 
 ### Return type
 
@@ -1281,7 +1281,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Zero-fill order cannot be retrieved 60 seconds after cancellation
+Zero-fill order cannot be retrieved for 60 seconds after cancellation
 
 ### Example
 
@@ -1305,7 +1305,7 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String orderId = "12345"; // String | ID returned on order successfully being created
+        String orderId = "12345"; // String | Retrieve the data of the order with the specified ID
         try {
             FuturesOrder result = apiInstance.getDeliveryOrder(settle, orderId);
             System.out.println(result);
@@ -1326,8 +1326,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
- **orderId** | **String**| ID returned on order successfully being created |
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **orderId** | **String**| Retrieve the data of the order with the specified ID |
 
 ### Return type
 
@@ -1375,7 +1375,7 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String orderId = "12345"; // String | ID returned on order successfully being created
+        String orderId = "12345"; // String | Retrieve the data of the order with the specified ID
         try {
             FuturesOrder result = apiInstance.cancelDeliveryOrder(settle, orderId);
             System.out.println(result);
@@ -1396,8 +1396,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
- **orderId** | **String**| ID returned on order successfully being created |
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **orderId** | **String**| Retrieve the data of the order with the specified ID |
 
 ### Return type
 
@@ -1447,7 +1447,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         Long order = 12345L; // Long | Futures order ID, return related data only if specified
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
         Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
@@ -1478,10 +1478,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract | [optional]
  **order** | **Long**| Futures order ID, return related data only if specified | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
  **countTotal** | **Integer**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0] [enum: 0, 1]
@@ -1502,7 +1502,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  |
+**200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  |
 
 <a name="listDeliveryPositionClose"></a>
 # **listDeliveryPositionClose**
@@ -1533,7 +1533,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
             List<PositionClose> result = apiInstance.listDeliveryPositionClose(settle)
                         .contract(contract)
@@ -1557,9 +1557,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -1608,7 +1608,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer at = 0; // Integer | Specify a liquidation timestamp
         try {
             List<FuturesLiquidate> result = apiInstance.listDeliveryLiquidates(settle)
@@ -1634,9 +1634,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **at** | **Integer**| Specify a liquidation timestamp | [optional] [default to 0]
 
 ### Return type
@@ -1686,7 +1686,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer at = 0; // Integer | Specify a settlement timestamp
         try {
             List<DeliverySettlement> result = apiInstance.listDeliverySettlements(settle)
@@ -1712,9 +1712,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **at** | **Integer**| Specify a settlement timestamp | [optional] [default to 0]
 
 ### Return type
@@ -1763,9 +1763,9 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String status = "status_example"; // String | List orders based on status
+        String status = "status_example"; // String | Only list the orders with this status
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
             List<FuturesPriceTriggeredOrder> result = apiInstance.listPriceTriggeredDeliveryOrders(settle, status)
@@ -1792,9 +1792,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: usdt]
- **status** | **String**| List orders based on status | [enum: open, finished]
+ **status** | **String**| Only list the orders with this status | [enum: open, finished]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -1983,7 +1983,7 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String orderId = "orderId_example"; // String | ID returned on order successfully being created
+        String orderId = "orderId_example"; // String | Retrieve the data of the order with the specified ID
         try {
             FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredDeliveryOrder(settle, orderId);
             System.out.println(result);
@@ -2005,7 +2005,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: usdt]
- **orderId** | **String**| ID returned on order successfully being created |
+ **orderId** | **String**| Retrieve the data of the order with the specified ID |
 
 ### Return type
 
@@ -2053,7 +2053,7 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String orderId = "orderId_example"; // String | ID returned on order successfully being created
+        String orderId = "orderId_example"; // String | Retrieve the data of the order with the specified ID
         try {
             FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredDeliveryOrder(settle, orderId);
             System.out.println(result);
@@ -2075,7 +2075,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: usdt]
- **orderId** | **String**| ID returned on order successfully being created |
+ **orderId** | **String**| Retrieve the data of the order with the specified ID |
 
 ### Return type
 

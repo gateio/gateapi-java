@@ -52,7 +52,7 @@ public class LedgerRecord {
     private String memo;
 
     /**
-     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation
+     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -208,7 +208,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Extra withdrawal memo
+     * Additional remarks with regards to the withdrawal
      * @return memo
     **/
     @javax.annotation.Nullable
@@ -222,7 +222,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation
+     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation
      * @return status
     **/
     @javax.annotation.Nullable

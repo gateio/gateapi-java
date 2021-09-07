@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import io.gate.gateapi.models.AutoRepaySetting;
 import io.gate.gateapi.models.CrossMarginAccount;
 import io.gate.gateapi.models.CrossMarginAccountBook;
+import io.gate.gateapi.models.CrossMarginBorrowable;
 import io.gate.gateapi.models.CrossMarginCurrency;
 import io.gate.gateapi.models.CrossMarginLoan;
 import io.gate.gateapi.models.CrossMarginRepayRequest;
@@ -35,6 +36,7 @@ import io.gate.gateapi.models.LoanPatch;
 import io.gate.gateapi.models.LoanRecord;
 import io.gate.gateapi.models.MarginAccount;
 import io.gate.gateapi.models.MarginAccountBook;
+import io.gate.gateapi.models.MarginBorrowable;
 import io.gate.gateapi.models.MarginCurrencyPair;
 import io.gate.gateapi.models.MarginTransferable;
 import io.gate.gateapi.models.RepayRequest;
@@ -273,7 +275,7 @@ public class MarginApi {
 
     /**
      * Build call for listFundingBook
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -330,7 +332,7 @@ public class MarginApi {
     /**
      * Order book of lending loans
      * 
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @return List&lt;FundingBookItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -347,7 +349,7 @@ public class MarginApi {
     /**
      * Order book of lending loans
      * 
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @return ApiResponse&lt;List&lt;FundingBookItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -365,7 +367,7 @@ public class MarginApi {
     /**
      * Order book of lending loans (asynchronously)
      * 
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -661,7 +663,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistMarginAccountBookRequest
          */
         public APIlistMarginAccountBookRequest limit(Integer limit) {
@@ -804,7 +806,7 @@ public class MarginApi {
 
         /**
          * Set currency
-         * @param currency Retrieved specified currency related data (optional)
+         * @param currency Retrieve data of the specified currency (optional)
          * @return APIlistFundingAccountsRequest
          */
         public APIlistFundingAccountsRequest currency(String currency) {
@@ -994,7 +996,7 @@ public class MarginApi {
 
         /**
          * Set currency
-         * @param currency Retrieved specified currency related data (optional)
+         * @param currency Retrieve data of the specified currency (optional)
          * @return APIlistLoansRequest
          */
         public APIlistLoansRequest currency(String currency) {
@@ -1044,7 +1046,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistLoansRequest
          */
         public APIlistLoansRequest limit(Integer limit) {
@@ -1237,8 +1239,8 @@ public class MarginApi {
 
     /**
      * Build call for mergeLoans
-     * @param currency Retrieved specified currency related data (required)
-     * @param ids Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param currency Retrieve data of the specified currency (required)
+     * @param ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1304,8 +1306,8 @@ public class MarginApi {
     /**
      * Merge multiple lending loans
      * 
-     * @param currency Retrieved specified currency related data (required)
-     * @param ids Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param currency Retrieve data of the specified currency (required)
+     * @param ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      * @return Loan
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1322,8 +1324,8 @@ public class MarginApi {
     /**
      * Merge multiple lending loans
      * 
-     * @param currency Retrieved specified currency related data (required)
-     * @param ids Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param currency Retrieve data of the specified currency (required)
+     * @param ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      * @return ApiResponse&lt;Loan&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1341,8 +1343,8 @@ public class MarginApi {
     /**
      * Merge multiple lending loans (asynchronously)
      * 
-     * @param currency Retrieved specified currency related data (required)
-     * @param ids Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request (required)
+     * @param currency Retrieve data of the specified currency (required)
+     * @param ids A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1483,7 +1485,7 @@ public class MarginApi {
     /**
      * Build call for cancelLoan
      * @param loanId Loan ID (required)
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1545,9 +1547,9 @@ public class MarginApi {
 
     /**
      * Cancel lending loan
-     * Only lending loans can be cancelled
+     * Only lent loans can be cancelled
      * @param loanId Loan ID (required)
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @return Loan
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1563,9 +1565,9 @@ public class MarginApi {
 
     /**
      * Cancel lending loan
-     * Only lending loans can be cancelled
+     * Only lent loans can be cancelled
      * @param loanId Loan ID (required)
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @return ApiResponse&lt;Loan&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1582,9 +1584,9 @@ public class MarginApi {
 
     /**
      * Cancel lending loan (asynchronously)
-     * Only lending loans can be cancelled
+     * Only lent loans can be cancelled
      * @param loanId Loan ID (required)
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2045,7 +2047,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistLoanRecordsRequest
          */
         public APIlistLoanRecordsRequest limit(Integer limit) {
@@ -2114,7 +2116,7 @@ public class MarginApi {
     }
 
     /**
-     * List repayment records of specified loan
+     * List repayment records of a specific loan
      * 
      * @param loanId Loan ID (required)
      * @return APIlistLoanRecordsRequest
@@ -2716,9 +2718,9 @@ public class MarginApi {
     }
 
     /**
-     * Max transferable amount for specified margin currency
+     * Get the max transferable amount for a specific margin currency
      * 
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @return APIgetMarginTransferableRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2728,6 +2730,161 @@ public class MarginApi {
      */
     public APIgetMarginTransferableRequest getMarginTransferable(String currency) {
         return new APIgetMarginTransferableRequest(currency);
+    }
+
+    private okhttp3.Call getMarginBorrowableCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/borrowable";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (currencyPair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMarginBorrowableValidateBeforeCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling getMarginBorrowable(Async)");
+        }
+
+        okhttp3.Call localVarCall = getMarginBorrowableCall(currency, currencyPair, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<MarginBorrowable> getMarginBorrowableWithHttpInfo(String currency, String currencyPair) throws ApiException {
+        okhttp3.Call localVarCall = getMarginBorrowableValidateBeforeCall(currency, currencyPair, null);
+        Type localVarReturnType = new TypeToken<MarginBorrowable>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getMarginBorrowableAsync(String currency, String currencyPair, final ApiCallback<MarginBorrowable> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getMarginBorrowableValidateBeforeCall(currency, currencyPair, _callback);
+        Type localVarReturnType = new TypeToken<MarginBorrowable>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetMarginBorrowableRequest {
+        private final String currency;
+        private String currencyPair;
+
+        private APIgetMarginBorrowableRequest(String currency) {
+            this.currency = currency;
+        }
+
+        /**
+         * Set currencyPair
+         * @param currencyPair Currency pair (optional)
+         * @return APIgetMarginBorrowableRequest
+         */
+        public APIgetMarginBorrowableRequest currencyPair(String currencyPair) {
+            this.currencyPair = currencyPair;
+            return this;
+        }
+
+        /**
+         * Build call for getMarginBorrowable
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getMarginBorrowableCall(currency, currencyPair, _callback);
+        }
+
+        /**
+         * Execute getMarginBorrowable request
+         * @return MarginBorrowable
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public MarginBorrowable execute() throws ApiException {
+            ApiResponse<MarginBorrowable> localVarResp = getMarginBorrowableWithHttpInfo(currency, currencyPair);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getMarginBorrowable request with HTTP info returned
+         * @return ApiResponse&lt;MarginBorrowable&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<MarginBorrowable> executeWithHttpInfo() throws ApiException {
+            return getMarginBorrowableWithHttpInfo(currency, currencyPair);
+        }
+
+        /**
+         * Execute getMarginBorrowable request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<MarginBorrowable> _callback) throws ApiException {
+            return getMarginBorrowableAsync(currency, currencyPair, _callback);
+        }
+    }
+
+    /**
+     * Get the max borrowable amount for a specific margin currency
+     * 
+     * @param currency Retrieve data of the specified currency (required)
+     * @return APIgetMarginBorrowableRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetMarginBorrowableRequest getMarginBorrowable(String currency) {
+        return new APIgetMarginBorrowableRequest(currency);
     }
 
     /**
@@ -3160,7 +3317,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistCrossMarginAccountBookRequest
          */
         public APIlistCrossMarginAccountBookRequest limit(Integer limit) {
@@ -3170,7 +3327,7 @@ public class MarginApi {
 
         /**
          * Set type
-         * @param type Filter by account change type. All types are returned if not specified. (optional)
+         * @param type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
          * @return APIlistCrossMarginAccountBookRequest
          */
         public APIlistCrossMarginAccountBookRequest type(String type) {
@@ -3349,7 +3506,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistCrossMarginLoansRequest
          */
         public APIlistCrossMarginLoansRequest limit(Integer limit) {
@@ -3768,7 +3925,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistCrossMarginRepaymentsRequest
          */
         public APIlistCrossMarginRepaymentsRequest limit(Integer limit) {
@@ -3979,7 +4136,7 @@ public class MarginApi {
 
     /**
      * Build call for getCrossMarginTransferable
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4034,9 +4191,9 @@ public class MarginApi {
     }
 
     /**
-     * Max transferable amount for specified cross margin currency
+     * Get the max transferable amount for a specific cross margin currency
      * 
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @return CrossMarginTransferable
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4051,9 +4208,9 @@ public class MarginApi {
     }
 
     /**
-     * Max transferable amount for specified cross margin currency
+     * Get the max transferable amount for a specific cross margin currency
      * 
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @return ApiResponse&lt;CrossMarginTransferable&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4069,9 +4226,9 @@ public class MarginApi {
     }
 
     /**
-     * Max transferable amount for specified cross margin currency (asynchronously)
+     * Get the max transferable amount for a specific cross margin currency (asynchronously)
      * 
-     * @param currency Retrieved specified currency related data (required)
+     * @param currency Retrieve data of the specified currency (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4084,6 +4241,117 @@ public class MarginApi {
     public okhttp3.Call getCrossMarginTransferableAsync(String currency, final ApiCallback<CrossMarginTransferable> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginTransferableValidateBeforeCall(currency, _callback);
         Type localVarReturnType = new TypeToken<CrossMarginTransferable>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getCrossMarginBorrowable
+     * @param currency Retrieve data of the specified currency (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginBorrowableCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/borrowable";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCrossMarginBorrowableValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling getCrossMarginBorrowable(Async)");
+        }
+
+        okhttp3.Call localVarCall = getCrossMarginBorrowableCall(currency, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get the max borrowable amount for a specific cross margin currency
+     * 
+     * @param currency Retrieve data of the specified currency (required)
+     * @return CrossMarginBorrowable
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossMarginBorrowable getCrossMarginBorrowable(String currency) throws ApiException {
+        ApiResponse<CrossMarginBorrowable> localVarResp = getCrossMarginBorrowableWithHttpInfo(currency);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the max borrowable amount for a specific cross margin currency
+     * 
+     * @param currency Retrieve data of the specified currency (required)
+     * @return ApiResponse&lt;CrossMarginBorrowable&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossMarginBorrowable> getCrossMarginBorrowableWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginBorrowableValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<CrossMarginBorrowable>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the max borrowable amount for a specific cross margin currency (asynchronously)
+     * 
+     * @param currency Retrieve data of the specified currency (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginBorrowableAsync(String currency, final ApiCallback<CrossMarginBorrowable> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginBorrowableValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<CrossMarginBorrowable>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

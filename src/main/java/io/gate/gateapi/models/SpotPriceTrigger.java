@@ -128,7 +128,7 @@ public class SpotPriceTrigger {
     }
 
      /**
-     * How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out
+     * How long (in seconds) to wait for the condition to be triggered before cancelling the order.
      * @return expiration
     **/
     public Integer getExpiration() {

@@ -20,50 +20,70 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * FundingBookItem
+ * MarginBorrowable
  */
-public class FundingBookItem {
-    public static final String SERIALIZED_NAME_RATE = "rate";
-    @SerializedName(SERIALIZED_NAME_RATE)
-    private String rate;
+public class MarginBorrowable {
+    public static final String SERIALIZED_NAME_CURRENCY = "currency";
+    @SerializedName(SERIALIZED_NAME_CURRENCY)
+    private String currency;
+
+    public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
+    @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
+    private String currencyPair;
 
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
     @SerializedName(SERIALIZED_NAME_AMOUNT)
     private String amount;
 
-    public static final String SERIALIZED_NAME_DAYS = "days";
-    @SerializedName(SERIALIZED_NAME_DAYS)
-    private Integer days;
 
-
-    public FundingBookItem rate(String rate) {
+    public MarginBorrowable currency(String currency) {
         
-        this.rate = rate;
+        this.currency = currency;
         return this;
     }
 
      /**
-     * Loan rate
-     * @return rate
+     * Currency detail
+     * @return currency
     **/
     @javax.annotation.Nullable
-    public String getRate() {
-        return rate;
+    public String getCurrency() {
+        return currency;
     }
 
 
-    public void setRate(String rate) {
-        this.rate = rate;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public FundingBookItem amount(String amount) {
+    public MarginBorrowable currencyPair(String currencyPair) {
+        
+        this.currencyPair = currencyPair;
+        return this;
+    }
+
+     /**
+     * Currency pair
+     * @return currencyPair
+    **/
+    @javax.annotation.Nullable
+    public String getCurrencyPair() {
+        return currencyPair;
+    }
+
+
+    public void setCurrencyPair(String currencyPair) {
+        this.currencyPair = currencyPair;
+    }
+
+    public MarginBorrowable amount(String amount) {
         
         this.amount = amount;
         return this;
     }
 
      /**
-     * Borrowable amount
+     * Max borrowable amount
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -75,26 +95,6 @@ public class FundingBookItem {
     public void setAmount(String amount) {
         this.amount = amount;
     }
-
-    public FundingBookItem days(Integer days) {
-        
-        this.days = days;
-        return this;
-    }
-
-     /**
-     * The number of days till the loan repayment&#39;s dateline
-     * @return days
-    **/
-    @javax.annotation.Nullable
-    public Integer getDays() {
-        return days;
-    }
-
-
-    public void setDays(Integer days) {
-        this.days = days;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -103,25 +103,25 @@ public class FundingBookItem {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        FundingBookItem fundingBookItem = (FundingBookItem) o;
-        return Objects.equals(this.rate, fundingBookItem.rate) &&
-                Objects.equals(this.amount, fundingBookItem.amount) &&
-                Objects.equals(this.days, fundingBookItem.days);
+        MarginBorrowable marginBorrowable = (MarginBorrowable) o;
+        return Objects.equals(this.currency, marginBorrowable.currency) &&
+                Objects.equals(this.currencyPair, marginBorrowable.currencyPair) &&
+                Objects.equals(this.amount, marginBorrowable.amount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rate, amount, days);
+        return Objects.hash(currency, currencyPair, amount);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FundingBookItem {\n");
-        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
+        sb.append("class MarginBorrowable {\n");
+        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("      days: ").append(toIndentedString(days)).append("\n");
         sb.append("}");
         return sb.toString();
     }

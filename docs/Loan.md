@@ -15,15 +15,16 @@ Name | Type | Description | Notes
 **currency** | **String** | Loan currency | 
 **rate** | **String** | Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set |  [optional]
 **amount** | **String** | Loan amount | 
-**days** | **Integer** | Loan days | 
-**autoRenew** | **Boolean** | Auto renew the loan on expiration |  [optional]
-**currencyPair** | **String** | Currency pair. Required for borrowing side |  [optional]
-**left** | **String** | Amount not lending out |  [optional] [readonly]
+**days** | **Integer** | Loan days. Only 10 is supported for now |  [optional]
+**autoRenew** | **Boolean** | Whether to auto renew the loan upon expiration |  [optional]
+**currencyPair** | **String** | Currency pair. Required if borrowing |  [optional]
+**left** | **String** | Amount not lent out yet |  [optional] [readonly]
 **repaid** | **String** | Repaid amount |  [optional] [readonly]
 **paidInterest** | **String** | Repaid interest |  [optional] [readonly]
-**unpaidInterest** | **String** | Interest not repaid |  [optional] [readonly]
+**unpaidInterest** | **String** | Outstanding interest yet to be paid |  [optional] [readonly]
 **feeRate** | **String** | Loan fee rate |  [optional]
-**origId** | **String** | Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not |  [optional]
+**origId** | **String** | Original loan ID of the loan if auto-renewed, otherwise equals to id |  [optional]
+**text** | **String** | User defined custom ID |  [optional]
 
 ## Enum: StatusEnum
 

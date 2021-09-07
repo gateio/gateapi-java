@@ -4,10 +4,10 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listCurrencies**](SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; detail
-[**getCurrency**](SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get detail of one particular currency
+[**listCurrencies**](SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; details
+[**getCurrency**](SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency
 [**listCurrencyPairs**](SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
-[**getCurrencyPair**](SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get detail of one single order
+[**getCurrencyPair**](SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get details of a specifc order
 [**listTickers**](SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information
 [**listOrderBook**](SpotApi.md#listOrderBook) | **GET** /spot/order_book | Retrieve order book
 [**listTrades**](SpotApi.md#listTrades) | **GET** /spot/trades | Retrieve market trades
@@ -34,7 +34,7 @@ Method | HTTP request | Description
 # **listCurrencies**
 > List&lt;Currency&gt; listCurrencies()
 
-List all currencies&#39; detail
+List all currencies&#39; details
 
 ### Example
 
@@ -94,7 +94,7 @@ No authorization required
 # **getCurrency**
 > Currency getCurrency(currency)
 
-Get detail of one particular currency
+Get details of a specific currency
 
 ### Example
 
@@ -218,7 +218,7 @@ No authorization required
 # **getCurrencyPair**
 > CurrencyPair getCurrencyPair(currencyPair)
 
-Get detail of one single order
+Get details of a specifc order
 
 ### Example
 
@@ -352,7 +352,7 @@ No authorization required
 
 Retrieve order book
 
-Order book will be sorted by price from high to low on bids; reversed on asks
+Order book will be sorted by price from high to low on bids; low to high on asks
 
 ### Example
 
@@ -446,9 +446,9 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Currency pair
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
-        Boolean reverse = false; // Boolean | Whether to retrieve records whose IDs are smaller than `last_id`'s. Default to larger ones.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified.
+        Boolean reverse = false; // Boolean | Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified.
         try {
             List<Trade> result = apiInstance.listTrades(currencyPair)
                         .limit(limit)
@@ -474,9 +474,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
- **reverse** | **Boolean**| Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
+ **reverse** | **Boolean**| Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
 
 ### Return type
 
@@ -502,7 +502,7 @@ No authorization required
 
 Market candlesticks
 
-Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
 
 ### Example
 
@@ -522,7 +522,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Currency pair
-        Integer limit = 100; // Integer | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
+        Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
         String interval = "30m"; // String | Interval time between data points
@@ -552,7 +552,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **limit** | **Integer**| Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
+ **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
  **interval** | **String**| Interval time between data points | [optional] [default to 30m] [enum: 10s, 1m, 5m, 15m, 30m, 1h, 4h, 8h, 1d, 7d]
@@ -674,7 +674,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String currency = "BTC"; // String | Retrieved specified currency related data
+        String currency = "BTC"; // String | Retrieve data of the specified currency
         try {
             List<SpotAccount> result = apiInstance.listSpotAccounts()
                         .currency(currency)
@@ -697,7 +697,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieved specified currency related data | [optional]
+ **currency** | **String**| Retrieve data of the specified currency | [optional]
 
 ### Return type
 
@@ -867,11 +867,11 @@ Name | Type | Description  | Notes
 
 <a name="listOrders"></a>
 # **listOrders**
-> List&lt;Order&gt; listOrders(currencyPair, status).page(page).limit(limit).account(account).execute();
+> List&lt;Order&gt; listOrders(currencyPair, status).page(page).limit(limit).account(account).from(from).to(to).side(side).execute();
 
 List orders
 
-Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
 
 ### Example
 
@@ -897,13 +897,19 @@ public class Example {
         String currencyPair = "BTC_USDT"; // String | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
         String status = "open"; // String | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
         Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records returned. If `status` is `open`, maximum of `limit` is 100
+        Integer limit = 100; // Integer | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100
         String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 56L; // Long | Time range ending, default to current time
+        String side = "sell"; // String | All bids or asks. Both included if not specified
         try {
             List<Order> result = apiInstance.listOrders(currencyPair, status)
                         .page(page)
                         .limit(limit)
                         .account(account)
+                        .from(from)
+                        .to(to)
+                        .side(side)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -926,8 +932,11 @@ Name | Type | Description  | Notes
  **currencyPair** | **String**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
  **status** | **String**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | [enum: open, finished]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
  **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
+ **to** | **Long**| Time range ending, default to current time | [optional]
+ **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: buy, sell]
 
 ### Return type
 
@@ -953,7 +962,7 @@ Name | Type | Description  | Notes
 
 Create an order
 
-You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
 
 ### Example
 
@@ -1047,7 +1056,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Currency pair
-        String side = "sell"; // String | All bids or asks. Both included in not specified
+        String side = "sell"; // String | All bids or asks. Both included if not specified
         String account = "spot"; // String | Specify account type. Default to all account types being included
         try {
             List<Order> result = apiInstance.cancelOrders(currencyPair, side, account);
@@ -1070,7 +1079,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **side** | **String**| All bids or asks. Both included in not specified | [optional] [enum: buy, sell]
+ **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: buy, sell]
  **account** | **String**| Specify account type. Default to all account types being included | [optional] [enum: spot, margin, cross_margin]
 
 ### Return type
@@ -1311,11 +1320,11 @@ Name | Type | Description  | Notes
 
 <a name="listMyTrades"></a>
 # **listMyTrades**
-> List&lt;Trade&gt; listMyTrades(currencyPair).limit(limit).page(page).orderId(orderId).account(account).execute();
+> List&lt;Trade&gt; listMyTrades(currencyPair).limit(limit).page(page).orderId(orderId).account(account).from(from).to(to).execute();
 
 List personal trading history
 
-Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
 
 ### Example
 
@@ -1339,16 +1348,20 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer page = 1; // Integer | Page number
         String orderId = "12345"; // String | Filter trades with specified order ID. `currency_pair` is also required if this field is present
         String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
+        Long to = 56L; // Long | Time range ending, default to current time
         try {
             List<Trade> result = apiInstance.listMyTrades(currencyPair)
                         .limit(limit)
                         .page(page)
                         .orderId(orderId)
                         .account(account)
+                        .from(from)
+                        .to(to)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -1369,10 +1382,12 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **orderId** | **String**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
  **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
+ **to** | **Long**| Time range ending, default to current time | [optional]
 
 ### Return type
 
@@ -1419,10 +1434,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String status = "status_example"; // String | List orders based on status
+        String status = "status_example"; // String | Only list the orders with this status
         String market = "BTC_USDT"; // String | Currency pair
         String account = "account_example"; // String | Trading account
-        Integer limit = 100; // Integer | Maximum number of records returned in one list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
             List<SpotPriceTriggeredOrder> result = apiInstance.listSpotPriceTriggeredOrders(status)
@@ -1449,10 +1464,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| List orders based on status | [enum: open, finished]
+ **status** | **String**| Only list the orders with this status | [enum: open, finished]
  **market** | **String**| Currency pair | [optional]
  **account** | **String**| Trading account | [optional] [enum: normal, margin]
- **limit** | **Integer**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -1638,7 +1653,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String orderId = "orderId_example"; // String | ID returned on order successfully being created
+        String orderId = "orderId_example"; // String | Retrieve the data of the order with the specified ID
         try {
             SpotPriceTriggeredOrder result = apiInstance.getSpotPriceTriggeredOrder(orderId);
             System.out.println(result);
@@ -1659,7 +1674,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| ID returned on order successfully being created |
+ **orderId** | **String**| Retrieve the data of the order with the specified ID |
 
 ### Return type
 
@@ -1706,7 +1721,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String orderId = "orderId_example"; // String | ID returned on order successfully being created
+        String orderId = "orderId_example"; // String | Retrieve the data of the order with the specified ID
         try {
             SpotPriceTriggeredOrder result = apiInstance.cancelSpotPriceTriggeredOrder(orderId);
             System.out.println(result);
@@ -1727,7 +1742,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| ID returned on order successfully being created |
+ **orderId** | **String**| Retrieve the data of the order with the specified ID |
 
 ### Return type
 

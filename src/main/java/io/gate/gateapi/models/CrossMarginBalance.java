@@ -107,7 +107,7 @@ public class CrossMarginBalance {
     }
 
      /**
-     * Interests unpaid
+     * Unpaid interests
      * @return interest
     **/
     @javax.annotation.Nullable

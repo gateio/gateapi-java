@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **status** | [**StatusEnum**](#StatusEnum) | Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete |  [optional] [readonly]
 **repaid** | **String** | Repaid amount |  [optional] [readonly]
 **repaidInterest** | **String** | Repaid interest |  [optional] [readonly]
-**unpaidInterest** | **String** | Interest not repaid |  [optional] [readonly]
+**unpaidInterest** | **String** | Outstanding interest yet to be paid |  [optional] [readonly]
 
 ## Enum: StatusEnum
 

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Account currency detail
+ * Account currency details
  */
 public class MarginAccountCurrency {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -131,7 +131,7 @@ public class MarginAccountCurrency {
     }
 
      /**
-     * Interests unpaid
+     * Unpaid interests
      * @return interest
     **/
     @javax.annotation.Nullable

@@ -28,6 +28,14 @@ public class MarginAccount {
     @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
     private String currencyPair;
 
+    public static final String SERIALIZED_NAME_LOCKED = "locked";
+    @SerializedName(SERIALIZED_NAME_LOCKED)
+    private Boolean locked;
+
+    public static final String SERIALIZED_NAME_RISK = "risk";
+    @SerializedName(SERIALIZED_NAME_RISK)
+    private String risk;
+
     public static final String SERIALIZED_NAME_BASE = "base";
     @SerializedName(SERIALIZED_NAME_BASE)
     private MarginAccountCurrency base;
@@ -55,6 +63,46 @@ public class MarginAccount {
 
     public void setCurrencyPair(String currencyPair) {
         this.currencyPair = currencyPair;
+    }
+
+    public MarginAccount locked(Boolean locked) {
+        
+        this.locked = locked;
+        return this;
+    }
+
+     /**
+     * Whether account is locked
+     * @return locked
+    **/
+    @javax.annotation.Nullable
+    public Boolean getLocked() {
+        return locked;
+    }
+
+
+    public void setLocked(Boolean locked) {
+        this.locked = locked;
+    }
+
+    public MarginAccount risk(String risk) {
+        
+        this.risk = risk;
+        return this;
+    }
+
+     /**
+     * Current risk rate of margin account
+     * @return risk
+    **/
+    @javax.annotation.Nullable
+    public String getRisk() {
+        return risk;
+    }
+
+
+    public void setRisk(String risk) {
+        this.risk = risk;
     }
 
     public MarginAccount base(MarginAccountCurrency base) {
@@ -106,13 +154,15 @@ public class MarginAccount {
         }
         MarginAccount marginAccount = (MarginAccount) o;
         return Objects.equals(this.currencyPair, marginAccount.currencyPair) &&
+                Objects.equals(this.locked, marginAccount.locked) &&
+                Objects.equals(this.risk, marginAccount.risk) &&
                 Objects.equals(this.base, marginAccount.base) &&
                 Objects.equals(this.quote, marginAccount.quote);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, base, quote);
+        return Objects.hash(currencyPair, locked, risk, base, quote);
     }
 
 
@@ -121,6 +171,8 @@ public class MarginAccount {
         StringBuilder sb = new StringBuilder();
         sb.append("class MarginAccount {\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
+        sb.append("      locked: ").append(toIndentedString(locked)).append("\n");
+        sb.append("      risk: ").append(toIndentedString(risk)).append("\n");
         sb.append("      base: ").append(toIndentedString(base)).append("\n");
         sb.append("      quote: ").append(toIndentedString(quote)).append("\n");
         sb.append("}");

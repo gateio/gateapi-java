@@ -24,6 +24,7 @@ import io.gate.gateapi.models.DepositAddress;
 import io.gate.gateapi.models.LedgerRecord;
 import io.gate.gateapi.models.SubAccountBalance;
 import io.gate.gateapi.models.SubAccountTransfer;
+import io.gate.gateapi.models.TotalBalance;
 import io.gate.gateapi.models.TradeFee;
 import io.gate.gateapi.models.Transfer;
 import io.gate.gateapi.models.WithdrawStatus;
@@ -275,7 +276,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistWithdrawalsRequest
          */
         public APIlistWithdrawalsRequest limit(Integer limit) {
@@ -478,7 +479,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistDepositsRequest
          */
         public APIlistDepositsRequest limit(Integer limit) {
@@ -784,7 +785,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistSubAccountTransfersRequest
          */
         public APIlistSubAccountTransfersRequest limit(Integer limit) {
@@ -863,7 +864,7 @@ public class WalletApi {
     }
 
     /**
-     * Transfer records between main and sub accounts
+     * Retrieve transfer records between main and sub accounts
      * Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
      * @return APIlistSubAccountTransfersRequest
      * @http.response.details
@@ -1040,7 +1041,7 @@ public class WalletApi {
 
         /**
          * Set currency
-         * @param currency Retrieved specified currency related data (optional)
+         * @param currency Retrieve data of the specified currency (optional)
          * @return APIlistWithdrawStatusRequest
          */
         public APIlistWithdrawStatusRequest currency(String currency) {
@@ -1265,18 +1266,7 @@ public class WalletApi {
         return new APIlistSubAccountBalancesRequest();
     }
 
-    /**
-     * Build call for getTradeFee
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getTradeFeeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTradeFeeCall(String currencyPair, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1284,6 +1274,10 @@ public class WalletApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencyPair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -1306,61 +1300,256 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTradeFeeValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = getTradeFeeCall(_callback);
+    private okhttp3.Call getTradeFeeValidateBeforeCall(String currencyPair, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTradeFeeCall(currencyPair, _callback);
         return localVarCall;
     }
 
-    /**
-     * Retrieve personal trading fee
-     * 
-     * @return TradeFee
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public TradeFee getTradeFee() throws ApiException {
-        ApiResponse<TradeFee> localVarResp = getTradeFeeWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * Retrieve personal trading fee
-     * 
-     * @return ApiResponse&lt;TradeFee&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<TradeFee> getTradeFeeWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getTradeFeeValidateBeforeCall(null);
+    private ApiResponse<TradeFee> getTradeFeeWithHttpInfo(String currencyPair) throws ApiException {
+        okhttp3.Call localVarCall = getTradeFeeValidateBeforeCall(currencyPair, null);
         Type localVarReturnType = new TypeToken<TradeFee>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call getTradeFeeAsync(String currencyPair, final ApiCallback<TradeFee> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTradeFeeValidateBeforeCall(currencyPair, _callback);
+        Type localVarReturnType = new TypeToken<TradeFee>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetTradeFeeRequest {
+        private String currencyPair;
+
+        private APIgetTradeFeeRequest() {
+        }
+
+        /**
+         * Set currencyPair
+         * @param currencyPair Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)
+         * @return APIgetTradeFeeRequest
+         */
+        public APIgetTradeFeeRequest currencyPair(String currencyPair) {
+            this.currencyPair = currencyPair;
+            return this;
+        }
+
+        /**
+         * Build call for getTradeFee
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getTradeFeeCall(currencyPair, _callback);
+        }
+
+        /**
+         * Execute getTradeFee request
+         * @return TradeFee
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public TradeFee execute() throws ApiException {
+            ApiResponse<TradeFee> localVarResp = getTradeFeeWithHttpInfo(currencyPair);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getTradeFee request with HTTP info returned
+         * @return ApiResponse&lt;TradeFee&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<TradeFee> executeWithHttpInfo() throws ApiException {
+            return getTradeFeeWithHttpInfo(currencyPair);
+        }
+
+        /**
+         * Execute getTradeFee request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<TradeFee> _callback) throws ApiException {
+            return getTradeFeeAsync(currencyPair, _callback);
+        }
+    }
+
     /**
-     * Retrieve personal trading fee (asynchronously)
+     * Retrieve personal trading fee
      * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIgetTradeFeeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTradeFeeAsync(final ApiCallback<TradeFee> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getTradeFeeValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<TradeFee>(){}.getType();
+    public APIgetTradeFeeRequest getTradeFee() {
+        return new APIgetTradeFeeRequest();
+    }
+
+    private okhttp3.Call getTotalBalanceCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/total_balance";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTotalBalanceValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTotalBalanceCall(currency, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<TotalBalance> getTotalBalanceWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = getTotalBalanceValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<TotalBalance>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getTotalBalanceAsync(String currency, final ApiCallback<TotalBalance> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTotalBalanceValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<TotalBalance>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetTotalBalanceRequest {
+        private String currency;
+
+        private APIgetTotalBalanceRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)
+         * @return APIgetTotalBalanceRequest
+         */
+        public APIgetTotalBalanceRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Build call for getTotalBalance
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getTotalBalanceCall(currency, _callback);
+        }
+
+        /**
+         * Execute getTotalBalance request
+         * @return TotalBalance
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+         </table>
+         */
+        public TotalBalance execute() throws ApiException {
+            ApiResponse<TotalBalance> localVarResp = getTotalBalanceWithHttpInfo(currency);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getTotalBalance request with HTTP info returned
+         * @return ApiResponse&lt;TotalBalance&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<TotalBalance> executeWithHttpInfo() throws ApiException {
+            return getTotalBalanceWithHttpInfo(currency);
+        }
+
+        /**
+         * Execute getTotalBalance request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<TotalBalance> _callback) throws ApiException {
+            return getTotalBalanceAsync(currency, _callback);
+        }
+    }
+
+    /**
+     * Retrieve user&#39;s total balances
+     * 
+     * @return APIgetTotalBalanceRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetTotalBalanceRequest getTotalBalance() {
+        return new APIgetTotalBalanceRequest();
     }
 
 }

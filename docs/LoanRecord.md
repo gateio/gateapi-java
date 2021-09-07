@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **autoRenew** | **Boolean** | Whether the record will auto renew on expiration |  [optional]
 **repaid** | **String** | Repaid amount |  [optional]
 **paidInterest** | **String** | Repaid interest |  [optional] [readonly]
-**unpaidInterest** | **String** | Interest not repaid |  [optional] [readonly]
+**unpaidInterest** | **String** | Outstanding interest yet to be paid |  [optional] [readonly]
 
 ## Enum: StatusEnum
 

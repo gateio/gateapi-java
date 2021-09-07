@@ -99,7 +99,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * Account changed timestamp in milliseconds
+     * The timestamp of the change (in milliseconds)
      * @return timeMs
     **/
     @javax.annotation.Nullable

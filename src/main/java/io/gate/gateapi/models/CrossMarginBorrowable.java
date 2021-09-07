@@ -20,50 +20,46 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * FundingBookItem
+ * CrossMarginBorrowable
  */
-public class FundingBookItem {
-    public static final String SERIALIZED_NAME_RATE = "rate";
-    @SerializedName(SERIALIZED_NAME_RATE)
-    private String rate;
+public class CrossMarginBorrowable {
+    public static final String SERIALIZED_NAME_CURRENCY = "currency";
+    @SerializedName(SERIALIZED_NAME_CURRENCY)
+    private String currency;
 
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
     @SerializedName(SERIALIZED_NAME_AMOUNT)
     private String amount;
 
-    public static final String SERIALIZED_NAME_DAYS = "days";
-    @SerializedName(SERIALIZED_NAME_DAYS)
-    private Integer days;
 
-
-    public FundingBookItem rate(String rate) {
+    public CrossMarginBorrowable currency(String currency) {
         
-        this.rate = rate;
+        this.currency = currency;
         return this;
     }
 
      /**
-     * Loan rate
-     * @return rate
+     * Currency detail
+     * @return currency
     **/
     @javax.annotation.Nullable
-    public String getRate() {
-        return rate;
+    public String getCurrency() {
+        return currency;
     }
 
 
-    public void setRate(String rate) {
-        this.rate = rate;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public FundingBookItem amount(String amount) {
+    public CrossMarginBorrowable amount(String amount) {
         
         this.amount = amount;
         return this;
     }
 
      /**
-     * Borrowable amount
+     * Max borrowable amount
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -75,26 +71,6 @@ public class FundingBookItem {
     public void setAmount(String amount) {
         this.amount = amount;
     }
-
-    public FundingBookItem days(Integer days) {
-        
-        this.days = days;
-        return this;
-    }
-
-     /**
-     * The number of days till the loan repayment&#39;s dateline
-     * @return days
-    **/
-    @javax.annotation.Nullable
-    public Integer getDays() {
-        return days;
-    }
-
-
-    public void setDays(Integer days) {
-        this.days = days;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -103,25 +79,23 @@ public class FundingBookItem {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        FundingBookItem fundingBookItem = (FundingBookItem) o;
-        return Objects.equals(this.rate, fundingBookItem.rate) &&
-                Objects.equals(this.amount, fundingBookItem.amount) &&
-                Objects.equals(this.days, fundingBookItem.days);
+        CrossMarginBorrowable crossMarginBorrowable = (CrossMarginBorrowable) o;
+        return Objects.equals(this.currency, crossMarginBorrowable.currency) &&
+                Objects.equals(this.amount, crossMarginBorrowable.amount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rate, amount, days);
+        return Objects.hash(currency, amount);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FundingBookItem {\n");
-        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
+        sb.append("class CrossMarginBorrowable {\n");
+        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("      days: ").append(toIndentedString(days)).append("\n");
         sb.append("}");
         return sb.toString();
     }

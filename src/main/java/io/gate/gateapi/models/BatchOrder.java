@@ -410,7 +410,7 @@ public class BatchOrder {
     }
 
      /**
-     * Whether order succeeds
+     * Whether the batch of orders succeeded
      * @return succeeded
     **/
     @javax.annotation.Nullable
@@ -430,7 +430,7 @@ public class BatchOrder {
     }
 
      /**
-     * Error label, empty string if order succeeds
+     * Error label, if any, otherwise an empty string
      * @return label
     **/
     @javax.annotation.Nullable
@@ -450,7 +450,7 @@ public class BatchOrder {
     }
 
      /**
-     * Detailed error message, empty string if order succeeds
+     * Detailed error message, if any, otherwise an empty string
      * @return message
     **/
     @javax.annotation.Nullable
@@ -474,7 +474,7 @@ public class BatchOrder {
 
 
      /**
-     * Order creation time
+     * Creation time of order
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -484,7 +484,7 @@ public class BatchOrder {
 
 
      /**
-     * Order last modification time
+     * Last modification time of order
      * @return updateTime
     **/
     @javax.annotation.Nullable
@@ -494,7 +494,7 @@ public class BatchOrder {
 
 
      /**
-     * Order creation time in milliseconds
+     * Creation time of order (in milliseconds)
      * @return createTimeMs
     **/
     @javax.annotation.Nullable
@@ -504,7 +504,7 @@ public class BatchOrder {
 
 
      /**
-     * Order last modification time in milliseconds
+     * Last modification time of order (in milliseconds)
      * @return updateTimeMs
     **/
     @javax.annotation.Nullable
@@ -670,7 +670,7 @@ public class BatchOrder {
     }
 
      /**
-     * Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the amount totally
+     * Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely
      * @return iceberg
     **/
     @javax.annotation.Nullable
@@ -774,7 +774,7 @@ public class BatchOrder {
 
 
      /**
-     * Point used to deduct fee
+     * Points used to deduct fee
      * @return pointFee
     **/
     @javax.annotation.Nullable

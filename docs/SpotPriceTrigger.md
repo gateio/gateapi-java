@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **price** | **String** | Trigger price | 
 **rule** | [**RuleEnum**](#RuleEnum) | Price trigger condition  - &gt;&#x3D;: triggered when market price larger than or equal to &#x60;price&#x60; field - &lt;&#x3D;: triggered when market price less than or equal to &#x60;price&#x60; field  | 
-**expiration** | **Integer** | How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out | 
+**expiration** | **Integer** | How long (in seconds) to wait for the condition to be triggered before cancelling the order. | 
 
 ## Enum: RuleEnum
 

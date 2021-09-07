@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.21.6
-- SDK version: 6.21.6
+- API version: 4.22.1
+- SDK version: 6.22.1
 
 Welcome to Gate.io API
 
@@ -67,7 +67,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.21.6</version>
+    <version>6.22.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.21.6"
+compile "io.gate:gate-api:6.22.1"
 ```
 
 ### Others
@@ -90,7 +90,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.21.6.jar`
+* `target/gate-api-6.22.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -215,12 +215,13 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**updateLoan**](docs/MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan
 *MarginApi* | [**listLoanRepayments**](docs/MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records
 *MarginApi* | [**repayLoan**](docs/MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan
-*MarginApi* | [**listLoanRecords**](docs/MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of specified loan
+*MarginApi* | [**listLoanRecords**](docs/MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of a specific loan
 *MarginApi* | [**getLoanRecord**](docs/MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
 *MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 *MarginApi* | [**getAutoRepayStatus**](docs/MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 *MarginApi* | [**setAutoRepay**](docs/MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
-*MarginApi* | [**getMarginTransferable**](docs/MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Max transferable amount for specified margin currency
+*MarginApi* | [**getMarginTransferable**](docs/MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
+*MarginApi* | [**getMarginBorrowable**](docs/MarginApi.md#getMarginBorrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency
 *MarginApi* | [**listCrossMarginCurrencies**](docs/MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 *MarginApi* | [**getCrossMarginCurrency**](docs/MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 *MarginApi* | [**getCrossMarginAccount**](docs/MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -230,11 +231,12 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**getCrossMarginLoan**](docs/MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
 *MarginApi* | [**listCrossMarginRepayments**](docs/MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
 *MarginApi* | [**repayCrossMarginLoan**](docs/MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Repay cross margin loan
-*MarginApi* | [**getCrossMarginTransferable**](docs/MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Max transferable amount for specified cross margin currency
-*SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; detail
-*SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get detail of one particular currency
+*MarginApi* | [**getCrossMarginTransferable**](docs/MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
+*MarginApi* | [**getCrossMarginBorrowable**](docs/MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
+*SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; details
+*SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
-*SpotApi* | [**getCurrencyPair**](docs/SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get detail of one single order
+*SpotApi* | [**getCurrencyPair**](docs/SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get details of a specifc order
 *SpotApi* | [**listTickers**](docs/SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information
 *SpotApi* | [**listOrderBook**](docs/SpotApi.md#listOrderBook) | **GET** /spot/order_book | Retrieve order book
 *SpotApi* | [**listTrades**](docs/SpotApi.md#listTrades) | **GET** /spot/trades | Retrieve market trades
@@ -259,17 +261,19 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
 *WalletApi* | [**listDeposits**](docs/WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records
 *WalletApi* | [**transfer**](docs/WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
-*WalletApi* | [**listSubAccountTransfers**](docs/WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Transfer records between main and sub accounts
+*WalletApi* | [**listSubAccountTransfers**](docs/WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
 *WalletApi* | [**transferWithSubAccount**](docs/WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 *WalletApi* | [**listWithdrawStatus**](docs/WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 *WalletApi* | [**listSubAccountBalances**](docs/WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 *WalletApi* | [**getTradeFee**](docs/WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
+*WalletApi* | [**getTotalBalance**](docs/WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
 *WithdrawalApi* | [**cancelWithdrawal**](docs/WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID
 
 
 ## Documentation for Models
 
+ - [AccountBalance](docs/AccountBalance.md)
  - [AutoRepaySetting](docs/AutoRepaySetting.md)
  - [BatchOrder](docs/BatchOrder.md)
  - [CancelOrder](docs/CancelOrder.md)
@@ -279,6 +283,7 @@ Class | Method | HTTP request | Description
  - [CrossMarginAccount](docs/CrossMarginAccount.md)
  - [CrossMarginAccountBook](docs/CrossMarginAccountBook.md)
  - [CrossMarginBalance](docs/CrossMarginBalance.md)
+ - [CrossMarginBorrowable](docs/CrossMarginBorrowable.md)
  - [CrossMarginCurrency](docs/CrossMarginCurrency.md)
  - [CrossMarginLoan](docs/CrossMarginLoan.md)
  - [CrossMarginRepayRequest](docs/CrossMarginRepayRequest.md)
@@ -312,6 +317,7 @@ Class | Method | HTTP request | Description
  - [MarginAccount](docs/MarginAccount.md)
  - [MarginAccountBook](docs/MarginAccountBook.md)
  - [MarginAccountCurrency](docs/MarginAccountCurrency.md)
+ - [MarginBorrowable](docs/MarginBorrowable.md)
  - [MarginCurrencyPair](docs/MarginCurrencyPair.md)
  - [MarginTransferable](docs/MarginTransferable.md)
  - [MultiChainAddressItem](docs/MultiChainAddressItem.md)
@@ -331,6 +337,7 @@ Class | Method | HTTP request | Description
  - [SubAccountBalance](docs/SubAccountBalance.md)
  - [SubAccountTransfer](docs/SubAccountTransfer.md)
  - [Ticker](docs/Ticker.md)
+ - [TotalBalance](docs/TotalBalance.md)
  - [Trade](docs/Trade.md)
  - [TradeFee](docs/TradeFee.md)
  - [Transfer](docs/Transfer.md)

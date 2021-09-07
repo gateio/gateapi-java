@@ -378,7 +378,7 @@ public class LoanRecord {
 
 
      /**
-     * Interest not repaid
+     * Outstanding interest yet to be paid
      * @return unpaidInterest
     **/
     @javax.annotation.Nullable

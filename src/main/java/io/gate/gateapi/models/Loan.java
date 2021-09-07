@@ -189,6 +189,10 @@ public class Loan {
     @SerializedName(SERIALIZED_NAME_ORIG_ID)
     private String origId;
 
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
 
      /**
      * Loan ID
@@ -314,9 +318,10 @@ public class Loan {
     }
 
      /**
-     * Loan days
+     * Loan days. Only 10 is supported for now
      * @return days
     **/
+    @javax.annotation.Nullable
     public Integer getDays() {
         return days;
     }
@@ -333,7 +338,7 @@ public class Loan {
     }
 
      /**
-     * Auto renew the loan on expiration
+     * Whether to auto renew the loan upon expiration
      * @return autoRenew
     **/
     @javax.annotation.Nullable
@@ -353,7 +358,7 @@ public class Loan {
     }
 
      /**
-     * Currency pair. Required for borrowing side
+     * Currency pair. Required if borrowing
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -367,7 +372,7 @@ public class Loan {
     }
 
      /**
-     * Amount not lending out
+     * Amount not lent out yet
      * @return left
     **/
     @javax.annotation.Nullable
@@ -397,7 +402,7 @@ public class Loan {
 
 
      /**
-     * Interest not repaid
+     * Outstanding interest yet to be paid
      * @return unpaidInterest
     **/
     @javax.annotation.Nullable
@@ -433,7 +438,7 @@ public class Loan {
     }
 
      /**
-     * Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not
+     * Original loan ID of the loan if auto-renewed, otherwise equals to id
      * @return origId
     **/
     @javax.annotation.Nullable
@@ -444,6 +449,26 @@ public class Loan {
 
     public void setOrigId(String origId) {
         this.origId = origId;
+    }
+
+    public Loan text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * User defined custom ID
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -470,12 +495,13 @@ public class Loan {
                 Objects.equals(this.paidInterest, loan.paidInterest) &&
                 Objects.equals(this.unpaidInterest, loan.unpaidInterest) &&
                 Objects.equals(this.feeRate, loan.feeRate) &&
-                Objects.equals(this.origId, loan.origId);
+                Objects.equals(this.origId, loan.origId) &&
+                Objects.equals(this.text, loan.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, expireTime, status, side, currency, rate, amount, days, autoRenew, currencyPair, left, repaid, paidInterest, unpaidInterest, feeRate, origId);
+        return Objects.hash(id, createTime, expireTime, status, side, currency, rate, amount, days, autoRenew, currencyPair, left, repaid, paidInterest, unpaidInterest, feeRate, origId, text);
     }
 
 
@@ -500,6 +526,7 @@ public class Loan {
         sb.append("      unpaidInterest: ").append(toIndentedString(unpaidInterest)).append("\n");
         sb.append("      feeRate: ").append(toIndentedString(feeRate)).append("\n");
         sb.append("      origId: ").append(toIndentedString(origId)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

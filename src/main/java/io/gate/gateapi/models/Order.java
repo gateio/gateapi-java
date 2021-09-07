@@ -402,7 +402,7 @@ public class Order {
     }
 
      /**
-     * Order creation time
+     * Creation time of order
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -412,7 +412,7 @@ public class Order {
 
 
      /**
-     * Order last modification time
+     * Last modification time of order
      * @return updateTime
     **/
     @javax.annotation.Nullable
@@ -422,7 +422,7 @@ public class Order {
 
 
      /**
-     * Order creation time in milliseconds
+     * Creation time of order (in milliseconds)
      * @return createTimeMs
     **/
     @javax.annotation.Nullable
@@ -432,7 +432,7 @@ public class Order {
 
 
      /**
-     * Order last modification time in milliseconds
+     * Last modification time of order (in milliseconds)
      * @return updateTimeMs
     **/
     @javax.annotation.Nullable
@@ -594,7 +594,7 @@ public class Order {
     }
 
      /**
-     * Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the amount totally
+     * Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely
      * @return iceberg
     **/
     @javax.annotation.Nullable
@@ -698,7 +698,7 @@ public class Order {
 
 
      /**
-     * Point used to deduct fee
+     * Points used to deduct fee
      * @return pointFee
     **/
     @javax.annotation.Nullable

@@ -232,7 +232,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Set to true to create an reduce-only order
+     * Set to true to create a reduce-only order
      * @return reduceOnly
     **/
     @javax.annotation.Nullable

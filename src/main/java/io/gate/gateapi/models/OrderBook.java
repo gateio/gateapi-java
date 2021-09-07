@@ -73,7 +73,7 @@ public class OrderBook {
     }
 
      /**
-     * Response data generation timestamp in milliseconds
+     * The timestamp of the response data being generated (in milliseconds)
      * @return current
     **/
     @javax.annotation.Nullable
@@ -93,7 +93,7 @@ public class OrderBook {
     }
 
      /**
-     * Order book changed timestamp in milliseconds
+     * The timestamp of when the orderbook last changed (in milliseconds)
      * @return update
     **/
     @javax.annotation.Nullable

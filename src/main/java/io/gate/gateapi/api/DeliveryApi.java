@@ -398,7 +398,7 @@ public class DeliveryApi {
 
         /**
          * Set withId
-         * @param withId Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)
+         * @param withId Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)
          * @return APIlistDeliveryOrderBookRequest
          */
         public APIlistDeliveryOrderBookRequest withId(Boolean withId) {
@@ -577,7 +577,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistDeliveryTradesRequest
          */
         public APIlistDeliveryTradesRequest limit(Integer limit) {
@@ -587,7 +587,7 @@ public class DeliveryApi {
 
         /**
          * Set lastId
-         * @param lastId Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
+         * @param lastId Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)
          * @return APIlistDeliveryTradesRequest
          */
         public APIlistDeliveryTradesRequest lastId(String lastId) {
@@ -806,7 +806,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+         * @param limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
          * @return APIlistDeliveryCandlesticksRequest
          */
         public APIlistDeliveryCandlesticksRequest limit(Integer limit) {
@@ -1121,7 +1121,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistDeliveryInsuranceLedgerRequest
          */
         public APIlistDeliveryInsuranceLedgerRequest limit(Integer limit) {
@@ -1396,7 +1396,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistDeliveryAccountBookRequest
          */
         public APIlistDeliveryAccountBookRequest limit(Integer limit) {
@@ -2238,7 +2238,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistDeliveryOrdersRequest
          */
         public APIlistDeliveryOrdersRequest limit(Integer limit) {
@@ -2284,7 +2284,7 @@ public class DeliveryApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2298,7 +2298,7 @@ public class DeliveryApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
          </table>
          */
         public List<FuturesOrder> execute() throws ApiException {
@@ -2313,7 +2313,7 @@ public class DeliveryApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesOrder>> executeWithHttpInfo() throws ApiException {
@@ -2328,7 +2328,7 @@ public class DeliveryApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
@@ -2338,14 +2338,14 @@ public class DeliveryApi {
 
     /**
      * List futures orders
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
-     * @param status List orders based on status (required)
+     * @param status Only list the orders with this status (required)
      * @return APIlistDeliveryOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
      </table>
      */
     public APIlistDeliveryOrdersRequest listDeliveryOrders(String settle, String status) {
@@ -2413,7 +2413,7 @@ public class DeliveryApi {
 
     /**
      * Create a futures order
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @return FuturesOrder
@@ -2431,7 +2431,7 @@ public class DeliveryApi {
 
     /**
      * Create a futures order
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -2450,7 +2450,7 @@ public class DeliveryApi {
 
     /**
      * Create a futures order (asynchronously)
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2473,7 +2473,7 @@ public class DeliveryApi {
      * Build call for cancelDeliveryOrders
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @param side All bids or asks. Both included in not specified (optional)
+     * @param side All bids or asks. Both included if not specified (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2539,10 +2539,10 @@ public class DeliveryApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @param side All bids or asks. Both included in not specified (optional)
+     * @param side All bids or asks. Both included if not specified (optional)
      * @return List&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2558,10 +2558,10 @@ public class DeliveryApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @param side All bids or asks. Both included in not specified (optional)
+     * @param side All bids or asks. Both included if not specified (optional)
      * @return ApiResponse&lt;List&lt;FuturesOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2578,10 +2578,10 @@ public class DeliveryApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched (asynchronously)
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @param side All bids or asks. Both included in not specified (optional)
+     * @param side All bids or asks. Both included if not specified (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2601,7 +2601,7 @@ public class DeliveryApi {
     /**
      * Build call for getDeliveryOrder
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2660,9 +2660,9 @@ public class DeliveryApi {
 
     /**
      * Get a single order
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2678,9 +2678,9 @@ public class DeliveryApi {
 
     /**
      * Get a single order
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2697,9 +2697,9 @@ public class DeliveryApi {
 
     /**
      * Get a single order (asynchronously)
-     * Zero-fill order cannot be retrieved 60 seconds after cancellation
+     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2719,7 +2719,7 @@ public class DeliveryApi {
     /**
      * Build call for cancelDeliveryOrder
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2780,7 +2780,7 @@ public class DeliveryApi {
      * Cancel a single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2798,7 +2798,7 @@ public class DeliveryApi {
      * Cancel a single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2817,7 +2817,7 @@ public class DeliveryApi {
      * Cancel a single order (asynchronously)
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2948,7 +2948,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIgetMyDeliveryTradesRequest
          */
         public APIgetMyDeliveryTradesRequest limit(Integer limit) {
@@ -2994,7 +2994,7 @@ public class DeliveryApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3008,7 +3008,7 @@ public class DeliveryApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
          </table>
          */
         public List<MyFuturesTrade> execute() throws ApiException {
@@ -3023,7 +3023,7 @@ public class DeliveryApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
          </table>
          */
         public ApiResponse<List<MyFuturesTrade>> executeWithHttpInfo() throws ApiException {
@@ -3038,7 +3038,7 @@ public class DeliveryApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MyFuturesTrade>> _callback) throws ApiException {
@@ -3054,7 +3054,7 @@ public class DeliveryApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned on &#x60;count_total&#x60; set to 1 <br>  </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  </td></tr>
      </table>
      */
     public APIgetMyDeliveryTradesRequest getMyDeliveryTrades(String settle) {
@@ -3145,7 +3145,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistDeliveryPositionCloseRequest
          */
         public APIlistDeliveryPositionCloseRequest limit(Integer limit) {
@@ -3317,7 +3317,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistDeliveryLiquidatesRequest
          */
         public APIlistDeliveryLiquidatesRequest limit(Integer limit) {
@@ -3499,7 +3499,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistDeliverySettlementsRequest
          */
         public APIlistDeliverySettlementsRequest limit(Integer limit) {
@@ -3692,7 +3692,7 @@ public class DeliveryApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistPriceTriggeredDeliveryOrdersRequest
          */
         public APIlistPriceTriggeredDeliveryOrdersRequest limit(Integer limit) {
@@ -3774,7 +3774,7 @@ public class DeliveryApi {
      * List all auto orders
      * 
      * @param settle Settle currency (required)
-     * @param status List orders based on status (required)
+     * @param status Only list the orders with this status (required)
      * @return APIlistPriceTriggeredDeliveryOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4027,7 +4027,7 @@ public class DeliveryApi {
     /**
      * Build call for getPriceTriggeredDeliveryOrder
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4088,7 +4088,7 @@ public class DeliveryApi {
      * Get a single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return FuturesPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4106,7 +4106,7 @@ public class DeliveryApi {
      * Get a single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return ApiResponse&lt;FuturesPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4125,7 +4125,7 @@ public class DeliveryApi {
      * Get a single order (asynchronously)
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4145,7 +4145,7 @@ public class DeliveryApi {
     /**
      * Build call for cancelPriceTriggeredDeliveryOrder
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4206,7 +4206,7 @@ public class DeliveryApi {
      * Cancel a single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return FuturesPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4224,7 +4224,7 @@ public class DeliveryApi {
      * Cancel a single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return ApiResponse&lt;FuturesPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4243,7 +4243,7 @@ public class DeliveryApi {
      * Cancel a single order (asynchronously)
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **lastClosePnl** | **String** | PNL of last position close |  [optional] [readonly]
 **realisedPoint** | **String** | Realized POINT PNL |  [optional] [readonly]
 **historyPoint** | **String** | History realized POINT PNL |  [optional] [readonly]
-**adlRanking** | **Integer** | ADL ranking, range from 1 to 5 |  [optional] [readonly]
+**adlRanking** | **Integer** | ADL ranking, ranging from 1 to 5 |  [optional] [readonly]
 **pendingOrders** | **Integer** | Current open orders |  [optional] [readonly]
 **closeOrder** | [**PositionCloseOrder**](PositionCloseOrder.md) |  |  [optional]
 **mode** | [**ModeEnum**](#ModeEnum) | Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode |  [optional]

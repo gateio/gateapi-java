@@ -397,7 +397,7 @@ public class Trade {
     }
 
      /**
-     * Point used to deduct fee
+     * Points used to deduct fee
      * @return pointFee
     **/
     @javax.annotation.Nullable

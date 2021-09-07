@@ -184,7 +184,7 @@ public class SpotPriceTriggeredOrder {
 
 
      /**
-     * Extra messages of how order is finished
+     * Additional remarks on how the order was finished
      * @return reason
     **/
     @javax.annotation.Nullable

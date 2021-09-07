@@ -24,7 +24,7 @@ import java.io.IOException;
  */
 public class FuturesPriceTrigger {
     /**
-     * How the order will be triggered   - &#x60;0&#x60;: by price, which means order will be triggered on price condition satisfied  - &#x60;1&#x60;: by price gap, which means order will be triggered on gap of recent two prices of specified &#x60;price_type&#x60; satisfied.  Only &#x60;0&#x60; is supported currently
+     * How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently
      */
     @JsonAdapter(StrategyTypeEnum.Adapter.class)
     public enum StrategyTypeEnum {
@@ -194,7 +194,7 @@ public class FuturesPriceTrigger {
     }
 
      /**
-     * How the order will be triggered   - &#x60;0&#x60;: by price, which means order will be triggered on price condition satisfied  - &#x60;1&#x60;: by price gap, which means order will be triggered on gap of recent two prices of specified &#x60;price_type&#x60; satisfied.  Only &#x60;0&#x60; is supported currently
+     * How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently
      * @return strategyType
     **/
     @javax.annotation.Nullable
@@ -274,7 +274,7 @@ public class FuturesPriceTrigger {
     }
 
      /**
-     * How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out
+     * How long (in seconds) to wait for the condition to be triggered before cancelling the order.
      * @return expiration
     **/
     @javax.annotation.Nullable

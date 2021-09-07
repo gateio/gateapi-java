@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **amount** | **String** | Currency amount | 
 **currency** | **String** | Currency name | 
 **address** | **String** | Withdrawal address. Required for withdrawals |  [optional]
-**memo** | **String** | Extra withdrawal memo |  [optional]
-**status** | [**StatusEnum**](#StatusEnum) | Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation |  [optional] [readonly]
+**memo** | **String** | Additional remarks with regards to the withdrawal |  [optional]
+**status** | [**StatusEnum**](#StatusEnum) | Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation |  [optional] [readonly]
 **chain** | **String** | Name of the chain used in withdrawals |  [optional]
 
 ## Enum: StatusEnum

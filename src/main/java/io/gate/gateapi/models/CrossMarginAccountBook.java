@@ -136,7 +136,7 @@ public class CrossMarginAccountBook {
     }
 
      /**
-     * Account changed timestamp in milliseconds
+     * The timestamp of the change (in milliseconds)
      * @return time
     **/
     @javax.annotation.Nullable

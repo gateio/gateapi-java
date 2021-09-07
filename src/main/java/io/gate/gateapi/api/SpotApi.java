@@ -107,7 +107,7 @@ public class SpotApi {
     }
 
     /**
-     * List all currencies&#39; detail
+     * List all currencies&#39; details
      * 
      * @return List&lt;Currency&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -123,7 +123,7 @@ public class SpotApi {
     }
 
     /**
-     * List all currencies&#39; detail
+     * List all currencies&#39; details
      * 
      * @return ApiResponse&lt;List&lt;Currency&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -140,7 +140,7 @@ public class SpotApi {
     }
 
     /**
-     * List all currencies&#39; detail (asynchronously)
+     * List all currencies&#39; details (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -212,7 +212,7 @@ public class SpotApi {
     }
 
     /**
-     * Get detail of one particular currency
+     * Get details of a specific currency
      * 
      * @param currency Currency name (required)
      * @return Currency
@@ -229,7 +229,7 @@ public class SpotApi {
     }
 
     /**
-     * Get detail of one particular currency
+     * Get details of a specific currency
      * 
      * @param currency Currency name (required)
      * @return ApiResponse&lt;Currency&gt;
@@ -247,7 +247,7 @@ public class SpotApi {
     }
 
     /**
-     * Get detail of one particular currency (asynchronously)
+     * Get details of a specific currency (asynchronously)
      * 
      * @param currency Currency name (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -418,7 +418,7 @@ public class SpotApi {
     }
 
     /**
-     * Get detail of one single order
+     * Get details of a specifc order
      * 
      * @param currencyPair Currency pair (required)
      * @return CurrencyPair
@@ -435,7 +435,7 @@ public class SpotApi {
     }
 
     /**
-     * Get detail of one single order
+     * Get details of a specifc order
      * 
      * @param currencyPair Currency pair (required)
      * @return ApiResponse&lt;CurrencyPair&gt;
@@ -453,7 +453,7 @@ public class SpotApi {
     }
 
     /**
-     * Get detail of one single order (asynchronously)
+     * Get details of a specifc order (asynchronously)
      * 
      * @param currencyPair Currency pair (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -787,7 +787,7 @@ public class SpotApi {
 
     /**
      * Retrieve order book
-     * Order book will be sorted by price from high to low on bids; reversed on asks
+     * Order book will be sorted by price from high to low on bids; low to high on asks
      * @param currencyPair Currency pair (required)
      * @return APIlistOrderBookRequest
      * @http.response.details
@@ -882,7 +882,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest limit(Integer limit) {
@@ -902,7 +902,7 @@ public class SpotApi {
 
         /**
          * Set reverse
-         * @param reverse Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+         * @param reverse Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest reverse(Boolean reverse) {
@@ -1072,7 +1072,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
+         * @param limit Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
          * @return APIlistCandlesticksRequest
          */
         public APIlistCandlesticksRequest limit(Integer limit) {
@@ -1172,7 +1172,7 @@ public class SpotApi {
 
     /**
      * Market candlesticks
-     * Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+     * Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
      * @param currencyPair Currency pair (required)
      * @return APIlistCandlesticksRequest
      * @http.response.details
@@ -1400,7 +1400,7 @@ public class SpotApi {
 
         /**
          * Set currency
-         * @param currency Retrieved specified currency related data (optional)
+         * @param currency Retrieve data of the specified currency (optional)
          * @return APIlistSpotAccountsRequest
          */
         public APIlistSpotAccountsRequest currency(String currency) {
@@ -1762,7 +1762,7 @@ public class SpotApi {
         return new APIlistAllOpenOrdersRequest();
     }
 
-    private okhttp3.Call listOrdersCall(String currencyPair, String status, Integer page, Integer limit, String account, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listOrdersCall(String currencyPair, String status, Integer page, Integer limit, String account, Long from, Long to, String side, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1790,6 +1790,18 @@ public class SpotApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("account", account));
         }
 
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (side != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("side", side));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -1812,7 +1824,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listOrdersValidateBeforeCall(String currencyPair, String status, Integer page, Integer limit, String account, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listOrdersValidateBeforeCall(String currencyPair, String status, Integer page, Integer limit, String account, Long from, Long to, String side, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currencyPair' is set
         if (currencyPair == null) {
             throw new ApiException("Missing the required parameter 'currencyPair' when calling listOrders(Async)");
@@ -1823,19 +1835,19 @@ public class SpotApi {
             throw new ApiException("Missing the required parameter 'status' when calling listOrders(Async)");
         }
 
-        okhttp3.Call localVarCall = listOrdersCall(currencyPair, status, page, limit, account, _callback);
+        okhttp3.Call localVarCall = listOrdersCall(currencyPair, status, page, limit, account, from, to, side, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<Order>> listOrdersWithHttpInfo(String currencyPair, String status, Integer page, Integer limit, String account) throws ApiException {
-        okhttp3.Call localVarCall = listOrdersValidateBeforeCall(currencyPair, status, page, limit, account, null);
+    private ApiResponse<List<Order>> listOrdersWithHttpInfo(String currencyPair, String status, Integer page, Integer limit, String account, Long from, Long to, String side) throws ApiException {
+        okhttp3.Call localVarCall = listOrdersValidateBeforeCall(currencyPair, status, page, limit, account, from, to, side, null);
         Type localVarReturnType = new TypeToken<List<Order>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listOrdersAsync(String currencyPair, String status, Integer page, Integer limit, String account, final ApiCallback<List<Order>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listOrdersValidateBeforeCall(currencyPair, status, page, limit, account, _callback);
+    private okhttp3.Call listOrdersAsync(String currencyPair, String status, Integer page, Integer limit, String account, Long from, Long to, String side, final ApiCallback<List<Order>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listOrdersValidateBeforeCall(currencyPair, status, page, limit, account, from, to, side, _callback);
         Type localVarReturnType = new TypeToken<List<Order>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1847,6 +1859,9 @@ public class SpotApi {
         private Integer page;
         private Integer limit;
         private String account;
+        private Long from;
+        private Long to;
+        private String side;
 
         private APIlistOrdersRequest(String currencyPair, String status) {
             this.currencyPair = currencyPair;
@@ -1865,7 +1880,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
+         * @param limit Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)
          * @return APIlistOrdersRequest
          */
         public APIlistOrdersRequest limit(Integer limit) {
@@ -1884,6 +1899,36 @@ public class SpotApi {
         }
 
         /**
+         * Set from
+         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @return APIlistOrdersRequest
+         */
+        public APIlistOrdersRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Time range ending, default to current time (optional)
+         * @return APIlistOrdersRequest
+         */
+        public APIlistOrdersRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set side
+         * @param side All bids or asks. Both included if not specified (optional)
+         * @return APIlistOrdersRequest
+         */
+        public APIlistOrdersRequest side(String side) {
+            this.side = side;
+            return this;
+        }
+
+        /**
          * Build call for listOrders
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -1895,7 +1940,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listOrdersCall(currencyPair, status, page, limit, account, _callback);
+            return listOrdersCall(currencyPair, status, page, limit, account, from, to, side, _callback);
         }
 
         /**
@@ -1909,7 +1954,7 @@ public class SpotApi {
          </table>
          */
         public List<Order> execute() throws ApiException {
-            ApiResponse<List<Order>> localVarResp = listOrdersWithHttpInfo(currencyPair, status, page, limit, account);
+            ApiResponse<List<Order>> localVarResp = listOrdersWithHttpInfo(currencyPair, status, page, limit, account, from, to, side);
             return localVarResp.getData();
         }
 
@@ -1924,7 +1969,7 @@ public class SpotApi {
          </table>
          */
         public ApiResponse<List<Order>> executeWithHttpInfo() throws ApiException {
-            return listOrdersWithHttpInfo(currencyPair, status, page, limit, account);
+            return listOrdersWithHttpInfo(currencyPair, status, page, limit, account, from, to, side);
         }
 
         /**
@@ -1939,13 +1984,13 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Order>> _callback) throws ApiException {
-            return listOrdersAsync(currencyPair, status, page, limit, account, _callback);
+            return listOrdersAsync(currencyPair, status, page, limit, account, from, to, side, _callback);
         }
     }
 
     /**
      * List orders
-     * Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+     * Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
      * @param currencyPair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  (required)
      * @return APIlistOrdersRequest
@@ -2013,7 +2058,7 @@ public class SpotApi {
 
     /**
      * Create an order
-     * You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+     * You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
      * @param order  (required)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2030,7 +2075,7 @@ public class SpotApi {
 
     /**
      * Create an order
-     * You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+     * You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
      * @param order  (required)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2048,7 +2093,7 @@ public class SpotApi {
 
     /**
      * Create an order (asynchronously)
-     * You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+     * You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
      * @param order  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2069,7 +2114,7 @@ public class SpotApi {
     /**
      * Build call for cancelOrders
      * @param currencyPair Currency pair (required)
-     * @param side All bids or asks. Both included in not specified (optional)
+     * @param side All bids or asks. Both included if not specified (optional)
      * @param account Specify account type. Default to all account types being included (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2136,7 +2181,7 @@ public class SpotApi {
      * Cancel all &#x60;open&#x60; orders in specified currency pair
      * If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
      * @param currencyPair Currency pair (required)
-     * @param side All bids or asks. Both included in not specified (optional)
+     * @param side All bids or asks. Both included if not specified (optional)
      * @param account Specify account type. Default to all account types being included (optional)
      * @return List&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2155,7 +2200,7 @@ public class SpotApi {
      * Cancel all &#x60;open&#x60; orders in specified currency pair
      * If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
      * @param currencyPair Currency pair (required)
-     * @param side All bids or asks. Both included in not specified (optional)
+     * @param side All bids or asks. Both included if not specified (optional)
      * @param account Specify account type. Default to all account types being included (optional)
      * @return ApiResponse&lt;List&lt;Order&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2175,7 +2220,7 @@ public class SpotApi {
      * Cancel all &#x60;open&#x60; orders in specified currency pair (asynchronously)
      * If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
      * @param currencyPair Currency pair (required)
-     * @param side All bids or asks. Both included in not specified (optional)
+     * @param side All bids or asks. Both included if not specified (optional)
      * @param account Specify account type. Default to all account types being included (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2558,7 +2603,7 @@ public class SpotApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listMyTradesCall(String currencyPair, Integer limit, Integer page, String orderId, String account, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMyTradesCall(String currencyPair, Integer limit, Integer page, String orderId, String account, Long from, Long to, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2586,6 +2631,14 @@ public class SpotApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("account", account));
         }
 
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -2608,25 +2661,25 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMyTradesValidateBeforeCall(String currencyPair, Integer limit, Integer page, String orderId, String account, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMyTradesValidateBeforeCall(String currencyPair, Integer limit, Integer page, String orderId, String account, Long from, Long to, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currencyPair' is set
         if (currencyPair == null) {
             throw new ApiException("Missing the required parameter 'currencyPair' when calling listMyTrades(Async)");
         }
 
-        okhttp3.Call localVarCall = listMyTradesCall(currencyPair, limit, page, orderId, account, _callback);
+        okhttp3.Call localVarCall = listMyTradesCall(currencyPair, limit, page, orderId, account, from, to, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<Trade>> listMyTradesWithHttpInfo(String currencyPair, Integer limit, Integer page, String orderId, String account) throws ApiException {
-        okhttp3.Call localVarCall = listMyTradesValidateBeforeCall(currencyPair, limit, page, orderId, account, null);
+    private ApiResponse<List<Trade>> listMyTradesWithHttpInfo(String currencyPair, Integer limit, Integer page, String orderId, String account, Long from, Long to) throws ApiException {
+        okhttp3.Call localVarCall = listMyTradesValidateBeforeCall(currencyPair, limit, page, orderId, account, from, to, null);
         Type localVarReturnType = new TypeToken<List<Trade>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listMyTradesAsync(String currencyPair, Integer limit, Integer page, String orderId, String account, final ApiCallback<List<Trade>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listMyTradesValidateBeforeCall(currencyPair, limit, page, orderId, account, _callback);
+    private okhttp3.Call listMyTradesAsync(String currencyPair, Integer limit, Integer page, String orderId, String account, Long from, Long to, final ApiCallback<List<Trade>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listMyTradesValidateBeforeCall(currencyPair, limit, page, orderId, account, from, to, _callback);
         Type localVarReturnType = new TypeToken<List<Trade>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2638,6 +2691,8 @@ public class SpotApi {
         private Integer page;
         private String orderId;
         private String account;
+        private Long from;
+        private Long to;
 
         private APIlistMyTradesRequest(String currencyPair) {
             this.currencyPair = currencyPair;
@@ -2645,7 +2700,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest limit(Integer limit) {
@@ -2684,6 +2739,26 @@ public class SpotApi {
         }
 
         /**
+         * Set from
+         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @return APIlistMyTradesRequest
+         */
+        public APIlistMyTradesRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Time range ending, default to current time (optional)
+         * @return APIlistMyTradesRequest
+         */
+        public APIlistMyTradesRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
          * Build call for listMyTrades
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -2695,7 +2770,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listMyTradesCall(currencyPair, limit, page, orderId, account, _callback);
+            return listMyTradesCall(currencyPair, limit, page, orderId, account, from, to, _callback);
         }
 
         /**
@@ -2709,7 +2784,7 @@ public class SpotApi {
          </table>
          */
         public List<Trade> execute() throws ApiException {
-            ApiResponse<List<Trade>> localVarResp = listMyTradesWithHttpInfo(currencyPair, limit, page, orderId, account);
+            ApiResponse<List<Trade>> localVarResp = listMyTradesWithHttpInfo(currencyPair, limit, page, orderId, account, from, to);
             return localVarResp.getData();
         }
 
@@ -2724,7 +2799,7 @@ public class SpotApi {
          </table>
          */
         public ApiResponse<List<Trade>> executeWithHttpInfo() throws ApiException {
-            return listMyTradesWithHttpInfo(currencyPair, limit, page, orderId, account);
+            return listMyTradesWithHttpInfo(currencyPair, limit, page, orderId, account, from, to);
         }
 
         /**
@@ -2739,13 +2814,13 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Trade>> _callback) throws ApiException {
-            return listMyTradesAsync(currencyPair, limit, page, orderId, account, _callback);
+            return listMyTradesAsync(currencyPair, limit, page, orderId, account, from, to, _callback);
         }
     }
 
     /**
      * List personal trading history
-     * Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+     * Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
      * @param currencyPair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @return APIlistMyTradesRequest
      * @http.response.details
@@ -2865,7 +2940,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistSpotPriceTriggeredOrdersRequest
          */
         public APIlistSpotPriceTriggeredOrdersRequest limit(Integer limit) {
@@ -2946,7 +3021,7 @@ public class SpotApi {
     /**
      * Retrieve running auto order list
      * 
-     * @param status List orders based on status (required)
+     * @param status Only list the orders with this status (required)
      * @return APIlistSpotPriceTriggeredOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3181,7 +3256,7 @@ public class SpotApi {
 
     /**
      * Build call for getSpotPriceTriggeredOrder
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3235,7 +3310,7 @@ public class SpotApi {
     /**
      * Get a single order
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return SpotPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3252,7 +3327,7 @@ public class SpotApi {
     /**
      * Get a single order
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return ApiResponse&lt;SpotPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3270,7 +3345,7 @@ public class SpotApi {
     /**
      * Get a single order (asynchronously)
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3289,7 +3364,7 @@ public class SpotApi {
 
     /**
      * Build call for cancelSpotPriceTriggeredOrder
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3343,7 +3418,7 @@ public class SpotApi {
     /**
      * Cancel a single order
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return SpotPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3360,7 +3435,7 @@ public class SpotApi {
     /**
      * Cancel a single order
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return ApiResponse&lt;SpotPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3378,7 +3453,7 @@ public class SpotApi {
     /**
      * Cancel a single order (asynchronously)
      * 
-     * @param orderId ID returned on order successfully being created (required)
+     * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

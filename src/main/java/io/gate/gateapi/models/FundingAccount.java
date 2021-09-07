@@ -111,7 +111,7 @@ public class FundingAccount {
     }
 
      /**
-     * Amount that is loaned but not repaid
+     * Outstanding loan amount yet to be repaid
      * @return lent
     **/
     @javax.annotation.Nullable

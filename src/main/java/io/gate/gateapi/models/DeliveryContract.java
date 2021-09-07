@@ -988,7 +988,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Historical accumulation trade size
+     * Historical accumulated trade size
      * @return tradeSize
     **/
     @javax.annotation.Nullable
@@ -1028,7 +1028,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Configuration&#39;s last changed time
+     * Last changed time of configuration
      * @return configChangeTime
     **/
     @javax.annotation.Nullable
