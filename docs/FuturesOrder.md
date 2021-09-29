@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **tkfr** | **String** | Taker fee |  [optional] [readonly]
 **mkfr** | **String** | Maker fee |  [optional] [readonly]
 **refu** | **Integer** | Reference user ID |  [optional] [readonly]
+**autoSize** | [**AutoSizeEnum**](#AutoSizeEnum) | Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0 |  [optional]
 
 ## Enum: FinishAsEnum
 
@@ -57,4 +58,11 @@ Name | Value
 GTC | &quot;gtc&quot;
 IOC | &quot;ioc&quot;
 POC | &quot;poc&quot;
+
+## Enum: AutoSizeEnum
+
+Name | Value
+---- | -----
+LONG | &quot;close_long&quot;
+SHORT | &quot;close_short&quot;
 

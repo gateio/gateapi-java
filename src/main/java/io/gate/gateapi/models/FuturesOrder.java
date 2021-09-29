@@ -266,6 +266,57 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_REFU)
     private Integer refu;
 
+    /**
+     * Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
+     */
+    @JsonAdapter(AutoSizeEnum.Adapter.class)
+    public enum AutoSizeEnum {
+        LONG("close_long"),
+        
+        SHORT("close_short");
+
+        private String value;
+
+        AutoSizeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AutoSizeEnum fromValue(String value) {
+            for (AutoSizeEnum b : AutoSizeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<AutoSizeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AutoSizeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AutoSizeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return AutoSizeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_AUTO_SIZE = "auto_size";
+    @SerializedName(SERIALIZED_NAME_AUTO_SIZE)
+    private AutoSizeEnum autoSize;
+
 
      /**
      * Futures order ID
@@ -564,6 +615,26 @@ public class FuturesOrder {
         return refu;
     }
 
+
+    public FuturesOrder autoSize(AutoSizeEnum autoSize) {
+        
+        this.autoSize = autoSize;
+        return this;
+    }
+
+     /**
+     * Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
+     * @return autoSize
+    **/
+    @javax.annotation.Nullable
+    public AutoSizeEnum getAutoSize() {
+        return autoSize;
+    }
+
+
+    public void setAutoSize(AutoSizeEnum autoSize) {
+        this.autoSize = autoSize;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -594,12 +665,13 @@ public class FuturesOrder {
                 Objects.equals(this.text, futuresOrder.text) &&
                 Objects.equals(this.tkfr, futuresOrder.tkfr) &&
                 Objects.equals(this.mkfr, futuresOrder.mkfr) &&
-                Objects.equals(this.refu, futuresOrder.refu);
+                Objects.equals(this.refu, futuresOrder.refu) &&
+                Objects.equals(this.autoSize, futuresOrder.autoSize);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu);
+        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize);
     }
 
 
@@ -629,6 +701,7 @@ public class FuturesOrder {
         sb.append("      tkfr: ").append(toIndentedString(tkfr)).append("\n");
         sb.append("      mkfr: ").append(toIndentedString(mkfr)).append("\n");
         sb.append("      refu: ").append(toIndentedString(refu)).append("\n");
+        sb.append("      autoSize: ").append(toIndentedString(autoSize)).append("\n");
         sb.append("}");
         return sb.toString();
     }
