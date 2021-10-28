@@ -327,8 +327,8 @@ public class Example {
         MarginApi apiInstance = new MarginApi(defaultClient);
         String currency = "currency_example"; // String | List records related to specified currency only. If specified, `currency_pair` is also required.
         String currencyPair = "currencyPair_example"; // String | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided
-        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 56L; // Long | Time range ending, default to current time
+        Long from = 1627706330L; // Long | Start timestamp of the query
+        Long to = 1635329650L; // Long | Time range ending, default to current time
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**| List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. | [optional]
  **currencyPair** | **String**| List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
+ **from** | **Long**| Start timestamp of the query | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -1746,8 +1746,8 @@ public class Example {
 
         MarginApi apiInstance = new MarginApi(defaultClient);
         String currency = "currency_example"; // String | Filter by currency
-        Long from = 56L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 56L; // Long | Time range ending, default to current time
+        Long from = 1627706330L; // Long | Start timestamp of the query
+        Long to = 1635329650L; // Long | Time range ending, default to current time
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         String type = "borrow"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
@@ -1779,7 +1779,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**| Filter by currency | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
+ **from** | **Long**| Start timestamp of the query | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]

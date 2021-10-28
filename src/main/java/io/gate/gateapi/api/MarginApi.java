@@ -633,7 +633,7 @@ public class MarginApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Start timestamp of the query (optional)
          * @return APIlistMarginAccountBookRequest
          */
         public APIlistMarginAccountBookRequest from(Long from) {
@@ -3287,7 +3287,7 @@ public class MarginApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Start timestamp of the query (optional)
          * @return APIlistCrossMarginAccountBookRequest
          */
         public APIlistCrossMarginAccountBookRequest from(Long from) {

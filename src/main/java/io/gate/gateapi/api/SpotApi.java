@@ -800,7 +800,7 @@ public class SpotApi {
         return new APIlistOrderBookRequest(currencyPair);
     }
 
-    private okhttp3.Call listTradesCall(String currencyPair, Integer limit, String lastId, Boolean reverse, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTradesCall(String currencyPair, Integer limit, String lastId, Boolean reverse, Long from, Long to, Integer page, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -822,6 +822,18 @@ public class SpotApi {
 
         if (reverse != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("reverse", reverse));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -846,25 +858,25 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTradesValidateBeforeCall(String currencyPair, Integer limit, String lastId, Boolean reverse, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTradesValidateBeforeCall(String currencyPair, Integer limit, String lastId, Boolean reverse, Long from, Long to, Integer page, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currencyPair' is set
         if (currencyPair == null) {
             throw new ApiException("Missing the required parameter 'currencyPair' when calling listTrades(Async)");
         }
 
-        okhttp3.Call localVarCall = listTradesCall(currencyPair, limit, lastId, reverse, _callback);
+        okhttp3.Call localVarCall = listTradesCall(currencyPair, limit, lastId, reverse, from, to, page, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<Trade>> listTradesWithHttpInfo(String currencyPair, Integer limit, String lastId, Boolean reverse) throws ApiException {
-        okhttp3.Call localVarCall = listTradesValidateBeforeCall(currencyPair, limit, lastId, reverse, null);
+    private ApiResponse<List<Trade>> listTradesWithHttpInfo(String currencyPair, Integer limit, String lastId, Boolean reverse, Long from, Long to, Integer page) throws ApiException {
+        okhttp3.Call localVarCall = listTradesValidateBeforeCall(currencyPair, limit, lastId, reverse, from, to, page, null);
         Type localVarReturnType = new TypeToken<List<Trade>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listTradesAsync(String currencyPair, Integer limit, String lastId, Boolean reverse, final ApiCallback<List<Trade>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listTradesValidateBeforeCall(currencyPair, limit, lastId, reverse, _callback);
+    private okhttp3.Call listTradesAsync(String currencyPair, Integer limit, String lastId, Boolean reverse, Long from, Long to, Integer page, final ApiCallback<List<Trade>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listTradesValidateBeforeCall(currencyPair, limit, lastId, reverse, from, to, page, _callback);
         Type localVarReturnType = new TypeToken<List<Trade>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -875,6 +887,9 @@ public class SpotApi {
         private Integer limit;
         private String lastId;
         private Boolean reverse;
+        private Long from;
+        private Long to;
+        private Integer page;
 
         private APIlistTradesRequest(String currencyPair) {
             this.currencyPair = currencyPair;
@@ -911,6 +926,36 @@ public class SpotApi {
         }
 
         /**
+         * Set from
+         * @param from Start timestamp of the query (optional)
+         * @return APIlistTradesRequest
+         */
+        public APIlistTradesRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Time range ending, default to current time (optional)
+         * @return APIlistTradesRequest
+         */
+        public APIlistTradesRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistTradesRequest
+         */
+        public APIlistTradesRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
          * Build call for listTrades
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -922,7 +967,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listTradesCall(currencyPair, limit, lastId, reverse, _callback);
+            return listTradesCall(currencyPair, limit, lastId, reverse, from, to, page, _callback);
         }
 
         /**
@@ -936,7 +981,7 @@ public class SpotApi {
          </table>
          */
         public List<Trade> execute() throws ApiException {
-            ApiResponse<List<Trade>> localVarResp = listTradesWithHttpInfo(currencyPair, limit, lastId, reverse);
+            ApiResponse<List<Trade>> localVarResp = listTradesWithHttpInfo(currencyPair, limit, lastId, reverse, from, to, page);
             return localVarResp.getData();
         }
 
@@ -951,7 +996,7 @@ public class SpotApi {
          </table>
          */
         public ApiResponse<List<Trade>> executeWithHttpInfo() throws ApiException {
-            return listTradesWithHttpInfo(currencyPair, limit, lastId, reverse);
+            return listTradesWithHttpInfo(currencyPair, limit, lastId, reverse, from, to, page);
         }
 
         /**
@@ -966,13 +1011,13 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Trade>> _callback) throws ApiException {
-            return listTradesAsync(currencyPair, limit, lastId, reverse, _callback);
+            return listTradesAsync(currencyPair, limit, lastId, reverse, from, to, page, _callback);
         }
     }
 
     /**
      * Retrieve market trades
-     * 
+     * You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
      * @param currencyPair Currency pair (required)
      * @return APIlistTradesRequest
      * @http.response.details
@@ -1900,7 +1945,7 @@ public class SpotApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Start timestamp of the query (optional)
          * @return APIlistOrdersRequest
          */
         public APIlistOrdersRequest from(Long from) {
@@ -2740,7 +2785,7 @@ public class SpotApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Start timestamp of the query (optional)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest from(Long from) {
