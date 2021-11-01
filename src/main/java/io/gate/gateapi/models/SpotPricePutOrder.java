@@ -135,7 +135,7 @@ public class SpotPricePutOrder {
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    private AccountEnum account;
+    private AccountEnum account = AccountEnum.NORMAL;
 
     /**
      * time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only 
@@ -186,7 +186,7 @@ public class SpotPricePutOrder {
 
     public static final String SERIALIZED_NAME_TIME_IN_FORCE = "time_in_force";
     @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
-    private TimeInForceEnum timeInForce;
+    private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
 
 
     public SpotPricePutOrder type(String type) {

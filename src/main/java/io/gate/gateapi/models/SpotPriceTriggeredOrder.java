@@ -47,11 +47,11 @@ public class SpotPriceTriggeredOrder {
 
     public static final String SERIALIZED_NAME_CTIME = "ctime";
     @SerializedName(SERIALIZED_NAME_CTIME)
-    private Double ctime;
+    private Long ctime;
 
     public static final String SERIALIZED_NAME_FTIME = "ftime";
     @SerializedName(SERIALIZED_NAME_FTIME)
-    private Double ftime;
+    private Long ftime;
 
     public static final String SERIALIZED_NAME_FIRED_ORDER_ID = "fired_order_id";
     @SerializedName(SERIALIZED_NAME_FIRED_ORDER_ID)
@@ -148,7 +148,7 @@ public class SpotPriceTriggeredOrder {
      * @return ctime
     **/
     @javax.annotation.Nullable
-    public Double getCtime() {
+    public Long getCtime() {
         return ctime;
     }
 
@@ -158,7 +158,7 @@ public class SpotPriceTriggeredOrder {
      * @return ftime
     **/
     @javax.annotation.Nullable
-    public Double getFtime() {
+    public Long getFtime() {
         return ftime;
     }
 

@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.22.3
-- SDK version: 6.22.3
+- API version: 4.22.4
+- SDK version: 6.22.4
 
 Welcome to Gate.io API
 
@@ -67,7 +67,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.22.3</version>
+    <version>6.22.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.22.3"
+compile "io.gate:gate-api:6.22.4"
 ```
 
 ### Others
@@ -90,7 +90,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.22.3.jar`
+* `target/gate-api-6.22.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
