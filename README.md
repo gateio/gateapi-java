@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.22.4
-- SDK version: 6.22.4
+- API version: 4.23.0
+- SDK version: 6.23.0
 
 Welcome to Gate.io API
 
@@ -67,7 +67,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.22.4</version>
+    <version>6.23.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.22.4"
+compile "io.gate:gate-api:6.23.0"
 ```
 
 ### Others
@@ -90,7 +90,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.22.4.jar`
+* `target/gate-api-6.23.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -233,6 +233,29 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**repayCrossMarginLoan**](docs/MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Repay cross margin loan
 *MarginApi* | [**getCrossMarginTransferable**](docs/MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
 *MarginApi* | [**getCrossMarginBorrowable**](docs/MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
+*OptionsApi* | [**listOptionsUnderlyings**](docs/OptionsApi.md#listOptionsUnderlyings) | **GET** /options/underlyings | List all underlyings
+*OptionsApi* | [**listOptionsExpirations**](docs/OptionsApi.md#listOptionsExpirations) | **GET** /options/expirations | List all expiration times
+*OptionsApi* | [**listOptionsContracts**](docs/OptionsApi.md#listOptionsContracts) | **GET** /options/contracts | List all the contracts with specified underlying and expiration time
+*OptionsApi* | [**getOptionsContract**](docs/OptionsApi.md#getOptionsContract) | **GET** /options/contracts/{contract} | Query specified contract detail
+*OptionsApi* | [**listOptionsSettlements**](docs/OptionsApi.md#listOptionsSettlements) | **GET** /options/settlements | List settlement history
+*OptionsApi* | [**getOptionsSettlement**](docs/OptionsApi.md#getOptionsSettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement
+*OptionsApi* | [**listOptionsOrderBook**](docs/OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Futures order book
+*OptionsApi* | [**listOptionsTickers**](docs/OptionsApi.md#listOptionsTickers) | **GET** /options/tickers | List tickers of options contracts
+*OptionsApi* | [**listOptionsUnderlyingTickers**](docs/OptionsApi.md#listOptionsUnderlyingTickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker
+*OptionsApi* | [**listOptionsCandlesticks**](docs/OptionsApi.md#listOptionsCandlesticks) | **GET** /options/candlesticks | Get futures candlesticks
+*OptionsApi* | [**listOptionsUnderlyingCandlesticks**](docs/OptionsApi.md#listOptionsUnderlyingCandlesticks) | **GET** /options/underlying/candlesticks | Mark price candlesticks of an underlying
+*OptionsApi* | [**listOptionsTrades**](docs/OptionsApi.md#listOptionsTrades) | **GET** /options/trades | Options trade history
+*OptionsApi* | [**listOptionsAccount**](docs/OptionsApi.md#listOptionsAccount) | **GET** /options/accounts | List options account
+*OptionsApi* | [**listOptionsAccountBook**](docs/OptionsApi.md#listOptionsAccountBook) | **GET** /options/account_book | List account changing history
+*OptionsApi* | [**listOptionsPositions**](docs/OptionsApi.md#listOptionsPositions) | **GET** /options/positions | List user&#39;s positions of specified underlying
+*OptionsApi* | [**getOptionsPosition**](docs/OptionsApi.md#getOptionsPosition) | **GET** /options/positions/{contract} | Get specified contract position
+*OptionsApi* | [**listOptionsPositionClose**](docs/OptionsApi.md#listOptionsPositionClose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying
+*OptionsApi* | [**listOptionsOrders**](docs/OptionsApi.md#listOptionsOrders) | **GET** /options/orders | List futures orders
+*OptionsApi* | [**createOptionsOrder**](docs/OptionsApi.md#createOptionsOrder) | **POST** /options/orders | Create an options order
+*OptionsApi* | [**cancelOptionsOrders**](docs/OptionsApi.md#cancelOptionsOrders) | **DELETE** /options/orders | Cancel all &#x60;open&#x60; orders matched
+*OptionsApi* | [**getOptionsOrder**](docs/OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Get a single order
+*OptionsApi* | [**cancelOptionsOrder**](docs/OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel a single order
+*OptionsApi* | [**listMyOptionsTrades**](docs/OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | List personal trading history
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; details
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
@@ -257,6 +280,7 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**cancelSpotPriceTriggeredOrderList**](docs/SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
 *SpotApi* | [**getSpotPriceTriggeredOrder**](docs/SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a single order
 *SpotApi* | [**cancelSpotPriceTriggeredOrder**](docs/SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel a single order
+*WalletApi* | [**listCurrencyChains**](docs/WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | List chains supported for specified currency
 *WalletApi* | [**getDepositAddress**](docs/WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
 *WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
 *WalletApi* | [**listDeposits**](docs/WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records
@@ -290,6 +314,7 @@ Class | Method | HTTP request | Description
  - [CrossMarginRepayment](docs/CrossMarginRepayment.md)
  - [CrossMarginTransferable](docs/CrossMarginTransferable.md)
  - [Currency](docs/Currency.md)
+ - [CurrencyChain](docs/CurrencyChain.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [DeliveryContract](docs/DeliveryContract.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)
@@ -323,6 +348,17 @@ Class | Method | HTTP request | Description
  - [MultiChainAddressItem](docs/MultiChainAddressItem.md)
  - [MyFuturesTrade](docs/MyFuturesTrade.md)
  - [OpenOrders](docs/OpenOrders.md)
+ - [OptionsAccount](docs/OptionsAccount.md)
+ - [OptionsAccountBook](docs/OptionsAccountBook.md)
+ - [OptionsContract](docs/OptionsContract.md)
+ - [OptionsMyTrade](docs/OptionsMyTrade.md)
+ - [OptionsOrder](docs/OptionsOrder.md)
+ - [OptionsPosition](docs/OptionsPosition.md)
+ - [OptionsPositionClose](docs/OptionsPositionClose.md)
+ - [OptionsSettlement](docs/OptionsSettlement.md)
+ - [OptionsTicker](docs/OptionsTicker.md)
+ - [OptionsUnderlying](docs/OptionsUnderlying.md)
+ - [OptionsUnderlyingTicker](docs/OptionsUnderlyingTicker.md)
  - [Order](docs/Order.md)
  - [OrderBook](docs/OrderBook.md)
  - [Position](docs/Position.md)

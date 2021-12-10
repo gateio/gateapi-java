@@ -20,6 +20,7 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.CurrencyChain;
 import io.gate.gateapi.models.DepositAddress;
 import io.gate.gateapi.models.LedgerRecord;
 import io.gate.gateapi.models.SubAccountBalance;
@@ -52,6 +53,117 @@ public class WalletApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
+    }
+
+    /**
+     * Build call for listCurrencyChains
+     * @param currency Currency name (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCurrencyChainsCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/currency_chains";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCurrencyChainsValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling listCurrencyChains(Async)");
+        }
+
+        okhttp3.Call localVarCall = listCurrencyChainsCall(currency, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * List chains supported for specified currency
+     * 
+     * @param currency Currency name (required)
+     * @return List&lt;CurrencyChain&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<CurrencyChain> listCurrencyChains(String currency) throws ApiException {
+        ApiResponse<List<CurrencyChain>> localVarResp = listCurrencyChainsWithHttpInfo(currency);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List chains supported for specified currency
+     * 
+     * @param currency Currency name (required)
+     * @return ApiResponse&lt;List&lt;CurrencyChain&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<CurrencyChain>> listCurrencyChainsWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = listCurrencyChainsValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<List<CurrencyChain>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List chains supported for specified currency (asynchronously)
+     * 
+     * @param currency Currency name (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCurrencyChainsAsync(String currency, final ApiCallback<List<CurrencyChain>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCurrencyChainsValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<List<CurrencyChain>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**
@@ -625,7 +737,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
      * @param transfer  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -640,7 +752,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
      * @param transfer  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -657,7 +769,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts (asynchronously)
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
      * @param transfer  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1540,7 +1652,7 @@ public class WalletApi {
 
     /**
      * Retrieve user&#39;s total balances
-     * 
+     * This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
      * @return APIgetTotalBalanceRequest
      * @http.response.details
      <table summary="Response Details" border="1">

@@ -52,7 +52,7 @@ public class LedgerRecord {
     private String memo;
 
     /**
-     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail
+     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -68,7 +68,15 @@ public class LedgerRecord {
         
         EXTPEND("EXTPEND"),
         
-        FAIL("FAIL");
+        FAIL("FAIL"),
+        
+        INVALID("INVALID"),
+        
+        VERIFY("VERIFY"),
+        
+        PROCES("PROCES"),
+        
+        PEND("PEND");
 
         private String value;
 
@@ -226,7 +234,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail
+     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
      * @return status
     **/
     @javax.annotation.Nullable

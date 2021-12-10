@@ -29,7 +29,7 @@ class SpotTest {
         SpotApi spotApi = new SpotApi(client);
         CurrencyPair pair = spotApi.getCurrencyPair(currencyPair);
         System.out.println("testing against currency pair: " + currencyPair);
-        String minAmount = pair.getMinQuoteAmount();
+        String minAmount = pair.getMinBaseAmount();
 
         // get last price
         List<Ticker> tickers = spotApi.listTickers().currencyPair(currencyPair).execute();
