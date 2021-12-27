@@ -266,7 +266,7 @@ public class Order {
     private String price;
 
     /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
+     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
      */
     @JsonAdapter(TimeInForceEnum.Adapter.class)
     public enum TimeInForceEnum {
@@ -274,7 +274,9 @@ public class Order {
         
         IOC("ioc"),
         
-        POC("poc");
+        POC("poc"),
+        
+        FOK("fok");
 
         private String value;
 
@@ -574,7 +576,7 @@ public class Order {
     }
 
      /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
+     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
      * @return timeInForce
     **/
     @javax.annotation.Nullable
