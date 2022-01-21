@@ -47,6 +47,10 @@ public class Currency {
     @SerializedName(SERIALIZED_NAME_TRADE_DISABLED)
     private Boolean tradeDisabled;
 
+    public static final String SERIALIZED_NAME_FIXED_RATE = "fixed_rate";
+    @SerializedName(SERIALIZED_NAME_FIXED_RATE)
+    private String fixedRate;
+
 
     public Currency currency(String currency) {
         
@@ -167,6 +171,26 @@ public class Currency {
     public void setTradeDisabled(Boolean tradeDisabled) {
         this.tradeDisabled = tradeDisabled;
     }
+
+    public Currency fixedRate(String fixedRate) {
+        
+        this.fixedRate = fixedRate;
+        return this;
+    }
+
+     /**
+     * Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies
+     * @return fixedRate
+    **/
+    @javax.annotation.Nullable
+    public String getFixedRate() {
+        return fixedRate;
+    }
+
+
+    public void setFixedRate(String fixedRate) {
+        this.fixedRate = fixedRate;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -181,12 +205,13 @@ public class Currency {
                 Objects.equals(this.withdrawDisabled, currency.withdrawDisabled) &&
                 Objects.equals(this.withdrawDelayed, currency.withdrawDelayed) &&
                 Objects.equals(this.depositDisabled, currency.depositDisabled) &&
-                Objects.equals(this.tradeDisabled, currency.tradeDisabled);
+                Objects.equals(this.tradeDisabled, currency.tradeDisabled) &&
+                Objects.equals(this.fixedRate, currency.fixedRate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled);
+        return Objects.hash(currency, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate);
     }
 
 
@@ -200,6 +225,7 @@ public class Currency {
         sb.append("      withdrawDelayed: ").append(toIndentedString(withdrawDelayed)).append("\n");
         sb.append("      depositDisabled: ").append(toIndentedString(depositDisabled)).append("\n");
         sb.append("      tradeDisabled: ").append(toIndentedString(tradeDisabled)).append("\n");
+        sb.append("      fixedRate: ").append(toIndentedString(fixedRate)).append("\n");
         sb.append("}");
         return sb.toString();
     }

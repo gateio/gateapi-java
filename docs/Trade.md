@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **createTimeMs** | **String** | Trading time, with millisecond precision |  [optional]
 **currencyPair** | **String** | Currency pair |  [optional]
 **side** | [**SideEnum**](#SideEnum) | Order side |  [optional]
-**role** | [**RoleEnum**](#RoleEnum) | Trade role |  [optional]
+**role** | [**RoleEnum**](#RoleEnum) | Trade role. No value in public endpoints |  [optional]
 **amount** | **String** | Trade amount |  [optional]
 **price** | **String** | Order price |  [optional]
 **orderId** | **String** | Related order ID. No value in public endpoints |  [optional]
 **fee** | **String** | Fee deducted. No value in public endpoints |  [optional]
 **feeCurrency** | **String** | Fee currency unit. No value in public endpoints |  [optional]
-**pointFee** | **String** | Points used to deduct fee |  [optional]
-**gtFee** | **String** | GT used to deduct fee |  [optional]
+**pointFee** | **String** | Points used to deduct fee. No value in public endpoints |  [optional]
+**gtFee** | **String** | GT used to deduct fee. No value in public endpoints |  [optional]
 
 ## Enum: SideEnum
 

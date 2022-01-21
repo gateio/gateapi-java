@@ -91,7 +91,7 @@ public class Trade {
     private SideEnum side;
 
     /**
-     * Trade role
+     * Trade role. No value in public endpoints
      */
     @JsonAdapter(RoleEnum.Adapter.class)
     public enum RoleEnum {
@@ -277,7 +277,7 @@ public class Trade {
     }
 
      /**
-     * Trade role
+     * Trade role. No value in public endpoints
      * @return role
     **/
     @javax.annotation.Nullable
@@ -397,7 +397,7 @@ public class Trade {
     }
 
      /**
-     * Points used to deduct fee
+     * Points used to deduct fee. No value in public endpoints
      * @return pointFee
     **/
     @javax.annotation.Nullable
@@ -417,7 +417,7 @@ public class Trade {
     }
 
      /**
-     * GT used to deduct fee
+     * GT used to deduct fee. No value in public endpoints
      * @return gtFee
     **/
     @javax.annotation.Nullable

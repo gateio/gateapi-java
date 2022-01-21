@@ -11,4 +11,5 @@ Name | Type | Description | Notes
 **withdrawDelayed** | **Boolean** | Whether currency&#39;s withdrawal is delayed |  [optional]
 **depositDisabled** | **Boolean** | Whether currency&#39;s deposit is disabled |  [optional]
 **tradeDisabled** | **Boolean** | Whether currency&#39;s trading is disabled |  [optional]
+**fixedRate** | **String** | Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies |  [optional]
 

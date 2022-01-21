@@ -124,6 +124,10 @@ public class LedgerRecord {
     @SerializedName(SERIALIZED_NAME_CHAIN)
     private String chain;
 
+    public static final String SERIALIZED_NAME_FEE = "fee";
+    @SerializedName(SERIALIZED_NAME_FEE)
+    private String fee;
+
 
      /**
      * Record ID
@@ -262,6 +266,26 @@ public class LedgerRecord {
     public void setChain(String chain) {
         this.chain = chain;
     }
+
+    public LedgerRecord fee(String fee) {
+        
+        this.fee = fee;
+        return this;
+    }
+
+     /**
+     * Fee
+     * @return fee
+    **/
+    @javax.annotation.Nullable
+    public String getFee() {
+        return fee;
+    }
+
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -279,12 +303,13 @@ public class LedgerRecord {
                 Objects.equals(this.address, ledgerRecord.address) &&
                 Objects.equals(this.memo, ledgerRecord.memo) &&
                 Objects.equals(this.status, ledgerRecord.status) &&
-                Objects.equals(this.chain, ledgerRecord.chain);
+                Objects.equals(this.chain, ledgerRecord.chain) &&
+                Objects.equals(this.fee, ledgerRecord.fee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, txid, timestamp, amount, currency, address, memo, status, chain);
+        return Objects.hash(id, txid, timestamp, amount, currency, address, memo, status, chain, fee);
     }
 
 
@@ -301,6 +326,7 @@ public class LedgerRecord {
         sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      chain: ").append(toIndentedString(chain)).append("\n");
+        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("}");
         return sb.toString();
     }
