@@ -123,7 +123,7 @@ public class Ticker {
     }
 
      /**
-     * Lowest ask
+     * Recent lowest ask
      * @return lowestAsk
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class Ticker {
     }
 
      /**
-     * Highest bid
+     * Recent highest bid
      * @return highestBid
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class Ticker {
     }
 
      /**
-     * Change percentage.
+     * Change percentage in the last 24h
      * @return changePercentage
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class Ticker {
     }
 
      /**
-     * Base currency trade volume
+     * Base currency trade volume in the last 24h
      * @return baseVolume
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class Ticker {
     }
 
      /**
-     * Quote currency trade volume
+     * Quote currency trade volume in the last 24h
      * @return quoteVolume
     **/
     @javax.annotation.Nullable

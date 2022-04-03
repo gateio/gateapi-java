@@ -817,7 +817,7 @@ public class FuturesApi {
 
         /**
          * Set interval
-         * @param interval Interval time between data points (optional, default to 5m)
+         * @param interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)
          * @return APIlistFuturesCandlesticksRequest
          */
         public APIlistFuturesCandlesticksRequest interval(String interval) {
@@ -3080,6 +3080,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3089,7 +3090,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDualModePositionLeverageCall(String settle, String contract, String leverage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateDualModePositionLeverageCall(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3101,6 +3102,10 @@ public class FuturesApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (leverage != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("leverage", leverage));
+        }
+
+        if (crossLeverageLimit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cross_leverage_limit", crossLeverageLimit));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -3125,7 +3130,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateDualModePositionLeverageValidateBeforeCall(String settle, String contract, String leverage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateDualModePositionLeverageValidateBeforeCall(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling updateDualModePositionLeverage(Async)");
@@ -3141,7 +3146,7 @@ public class FuturesApi {
             throw new ApiException("Missing the required parameter 'leverage' when calling updateDualModePositionLeverage(Async)");
         }
 
-        okhttp3.Call localVarCall = updateDualModePositionLeverageCall(settle, contract, leverage, _callback);
+        okhttp3.Call localVarCall = updateDualModePositionLeverageCall(settle, contract, leverage, crossLeverageLimit, _callback);
         return localVarCall;
     }
 
@@ -3151,6 +3156,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      * @return List&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3159,8 +3165,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public List<Position> updateDualModePositionLeverage(String settle, String contract, String leverage) throws ApiException {
-        ApiResponse<List<Position>> localVarResp = updateDualModePositionLeverageWithHttpInfo(settle, contract, leverage);
+    public List<Position> updateDualModePositionLeverage(String settle, String contract, String leverage, String crossLeverageLimit) throws ApiException {
+        ApiResponse<List<Position>> localVarResp = updateDualModePositionLeverageWithHttpInfo(settle, contract, leverage, crossLeverageLimit);
         return localVarResp.getData();
     }
 
@@ -3170,6 +3176,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3178,8 +3185,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Position>> updateDualModePositionLeverageWithHttpInfo(String settle, String contract, String leverage) throws ApiException {
-        okhttp3.Call localVarCall = updateDualModePositionLeverageValidateBeforeCall(settle, contract, leverage, null);
+    public ApiResponse<List<Position>> updateDualModePositionLeverageWithHttpInfo(String settle, String contract, String leverage, String crossLeverageLimit) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionLeverageValidateBeforeCall(settle, contract, leverage, crossLeverageLimit, null);
         Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3190,6 +3197,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3199,8 +3207,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDualModePositionLeverageAsync(String settle, String contract, String leverage, final ApiCallback<List<Position>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = updateDualModePositionLeverageValidateBeforeCall(settle, contract, leverage, _callback);
+    public okhttp3.Call updateDualModePositionLeverageAsync(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback<List<Position>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateDualModePositionLeverageValidateBeforeCall(settle, contract, leverage, crossLeverageLimit, _callback);
         Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3543,7 +3551,7 @@ public class FuturesApi {
 
     /**
      * List futures orders
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param status Only list the orders with this status (required)
@@ -3619,7 +3627,7 @@ public class FuturesApi {
 
     /**
      * Create a futures order
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @return FuturesOrder
@@ -3637,7 +3645,7 @@ public class FuturesApi {
 
     /**
      * Create a futures order
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -3656,7 +3664,7 @@ public class FuturesApi {
 
     /**
      * Create a futures order (asynchronously)
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3745,7 +3753,7 @@ public class FuturesApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param side All bids or asks. Both included if not specified (optional)
@@ -3764,7 +3772,7 @@ public class FuturesApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param side All bids or asks. Both included if not specified (optional)
@@ -3784,7 +3792,7 @@ public class FuturesApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched (asynchronously)
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param side All bids or asks. Both included if not specified (optional)
@@ -3866,7 +3874,7 @@ public class FuturesApi {
 
     /**
      * Get a single order
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @return FuturesOrder
@@ -3884,7 +3892,7 @@ public class FuturesApi {
 
     /**
      * Get a single order
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -3903,7 +3911,7 @@ public class FuturesApi {
 
     /**
      * Get a single order (asynchronously)
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
      * @param _callback The callback to be executed when the API call finishes

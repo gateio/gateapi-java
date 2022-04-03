@@ -358,7 +358,7 @@ public class Example {
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
         Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        String interval = "5m"; // String | Interval time between data points
+        String interval = "5m"; // String | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0
         try {
             List<FuturesCandlestick> result = apiInstance.listFuturesCandlesticks(settle, contract)
                         .from(from)
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
  **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **String**| Interval time between data points | [optional] [default to 5m] [enum: 10s, 1m, 5m, 15m, 30m, 1h, 4h, 8h, 1d, 7d]
+ **interval** | **String**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 | [optional] [default to 5m] [enum: 10s, 30s, 1m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 7d, 1w, 30d]
 
 ### Return type
 
@@ -1493,7 +1493,7 @@ Name | Type | Description  | Notes
 
 <a name="updateDualModePositionLeverage"></a>
 # **updateDualModePositionLeverage**
-> List&lt;Position&gt; updateDualModePositionLeverage(settle, contract, leverage)
+> List&lt;Position&gt; updateDualModePositionLeverage(settle, contract, leverage, crossLeverageLimit)
 
 Update position leverage in dual mode
 
@@ -1521,8 +1521,9 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         String leverage = "10"; // String | New position leverage
+        String crossLeverageLimit = "10"; // String | Cross margin leverage(valid only when `leverage` is 0)
         try {
-            List<Position> result = apiInstance.updateDualModePositionLeverage(settle, contract, leverage);
+            List<Position> result = apiInstance.updateDualModePositionLeverage(settle, contract, leverage, crossLeverageLimit);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1544,6 +1545,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| New position leverage |
+ **crossLeverageLimit** | **String**| Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) | [optional]
 
 ### Return type
 
@@ -1641,7 +1643,7 @@ Name | Type | Description  | Notes
 
 List futures orders
 
-Zero-fill order cannot be retrieved for 60 seconds after cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
 
@@ -1728,7 +1730,7 @@ Name | Type | Description  | Notes
 
 Create a futures order
 
-Zero-fill order cannot be retrieved for 60 seconds after cancellation
+- Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
 
 ### Example
 
@@ -1800,7 +1802,7 @@ Name | Type | Description  | Notes
 
 Cancel all &#x60;open&#x60; orders matched
 
-Zero-fill order cannot be retrieved for 60 seconds after cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
 
@@ -1874,7 +1876,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Zero-fill order cannot be retrieved for 60 seconds after cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
 

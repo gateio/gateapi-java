@@ -51,6 +51,10 @@ public class Currency {
     @SerializedName(SERIALIZED_NAME_FIXED_RATE)
     private String fixedRate;
 
+    public static final String SERIALIZED_NAME_CHAIN = "chain";
+    @SerializedName(SERIALIZED_NAME_CHAIN)
+    private String chain;
+
 
     public Currency currency(String currency) {
         
@@ -191,6 +195,26 @@ public class Currency {
     public void setFixedRate(String fixedRate) {
         this.fixedRate = fixedRate;
     }
+
+    public Currency chain(String chain) {
+        
+        this.chain = chain;
+        return this;
+    }
+
+     /**
+     * Chain of currency
+     * @return chain
+    **/
+    @javax.annotation.Nullable
+    public String getChain() {
+        return chain;
+    }
+
+
+    public void setChain(String chain) {
+        this.chain = chain;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -206,12 +230,13 @@ public class Currency {
                 Objects.equals(this.withdrawDelayed, currency.withdrawDelayed) &&
                 Objects.equals(this.depositDisabled, currency.depositDisabled) &&
                 Objects.equals(this.tradeDisabled, currency.tradeDisabled) &&
-                Objects.equals(this.fixedRate, currency.fixedRate);
+                Objects.equals(this.fixedRate, currency.fixedRate) &&
+                Objects.equals(this.chain, currency.chain);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate);
+        return Objects.hash(currency, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain);
     }
 
 
@@ -226,6 +251,7 @@ public class Currency {
         sb.append("      depositDisabled: ").append(toIndentedString(depositDisabled)).append("\n");
         sb.append("      tradeDisabled: ").append(toIndentedString(tradeDisabled)).append("\n");
         sb.append("      fixedRate: ").append(toIndentedString(fixedRate)).append("\n");
+        sb.append("      chain: ").append(toIndentedString(chain)).append("\n");
         sb.append("}");
         return sb.toString();
     }

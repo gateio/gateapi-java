@@ -9,4 +9,6 @@ Name | Type | Description | Notes
 **nameCn** | **String** | Chain name in Chinese |  [optional]
 **nameEn** | **String** | Chain name in English |  [optional]
 **isDisabled** | **Integer** | If it is disabled. 0 means NOT being disabled |  [optional]
+**isDepositDisabled** | **Integer** | Is deposit disabled. 0 means not |  [optional]
+**isWithdrawDisabled** | **Integer** | Is withdrawal disabled. 0 means not |  [optional]
 

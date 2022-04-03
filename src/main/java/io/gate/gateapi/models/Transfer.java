@@ -261,7 +261,7 @@ public class Transfer {
     }
 
      /**
-     * Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;
+     * Futures settle currency. Required if transferring from or to futures account
      * @return settle
     **/
     @javax.annotation.Nullable

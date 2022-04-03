@@ -39,6 +39,14 @@ public class CurrencyChain {
     @SerializedName(SERIALIZED_NAME_IS_DISABLED)
     private Integer isDisabled;
 
+    public static final String SERIALIZED_NAME_IS_DEPOSIT_DISABLED = "is_deposit_disabled";
+    @SerializedName(SERIALIZED_NAME_IS_DEPOSIT_DISABLED)
+    private Integer isDepositDisabled;
+
+    public static final String SERIALIZED_NAME_IS_WITHDRAW_DISABLED = "is_withdraw_disabled";
+    @SerializedName(SERIALIZED_NAME_IS_WITHDRAW_DISABLED)
+    private Integer isWithdrawDisabled;
+
 
     public CurrencyChain chain(String chain) {
         
@@ -119,6 +127,46 @@ public class CurrencyChain {
     public void setIsDisabled(Integer isDisabled) {
         this.isDisabled = isDisabled;
     }
+
+    public CurrencyChain isDepositDisabled(Integer isDepositDisabled) {
+        
+        this.isDepositDisabled = isDepositDisabled;
+        return this;
+    }
+
+     /**
+     * Is deposit disabled. 0 means not
+     * @return isDepositDisabled
+    **/
+    @javax.annotation.Nullable
+    public Integer getIsDepositDisabled() {
+        return isDepositDisabled;
+    }
+
+
+    public void setIsDepositDisabled(Integer isDepositDisabled) {
+        this.isDepositDisabled = isDepositDisabled;
+    }
+
+    public CurrencyChain isWithdrawDisabled(Integer isWithdrawDisabled) {
+        
+        this.isWithdrawDisabled = isWithdrawDisabled;
+        return this;
+    }
+
+     /**
+     * Is withdrawal disabled. 0 means not
+     * @return isWithdrawDisabled
+    **/
+    @javax.annotation.Nullable
+    public Integer getIsWithdrawDisabled() {
+        return isWithdrawDisabled;
+    }
+
+
+    public void setIsWithdrawDisabled(Integer isWithdrawDisabled) {
+        this.isWithdrawDisabled = isWithdrawDisabled;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -131,12 +179,14 @@ public class CurrencyChain {
         return Objects.equals(this.chain, currencyChain.chain) &&
                 Objects.equals(this.nameCn, currencyChain.nameCn) &&
                 Objects.equals(this.nameEn, currencyChain.nameEn) &&
-                Objects.equals(this.isDisabled, currencyChain.isDisabled);
+                Objects.equals(this.isDisabled, currencyChain.isDisabled) &&
+                Objects.equals(this.isDepositDisabled, currencyChain.isDepositDisabled) &&
+                Objects.equals(this.isWithdrawDisabled, currencyChain.isWithdrawDisabled);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(chain, nameCn, nameEn, isDisabled);
+        return Objects.hash(chain, nameCn, nameEn, isDisabled, isDepositDisabled, isWithdrawDisabled);
     }
 
 
@@ -148,6 +198,8 @@ public class CurrencyChain {
         sb.append("      nameCn: ").append(toIndentedString(nameCn)).append("\n");
         sb.append("      nameEn: ").append(toIndentedString(nameEn)).append("\n");
         sb.append("      isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
+        sb.append("      isDepositDisabled: ").append(toIndentedString(isDepositDisabled)).append("\n");
+        sb.append("      isWithdrawDisabled: ").append(toIndentedString(isWithdrawDisabled)).append("\n");
         sb.append("}");
         return sb.toString();
     }

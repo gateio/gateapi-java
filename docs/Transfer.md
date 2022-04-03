@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **to** | [**ToEnum**](#ToEnum) | Account to transfer to | 
 **amount** | **String** | Transfer amount | 
 **currencyPair** | **String** | Margin currency pair. Required if transfer from or to margin account |  [optional]
-**settle** | **String** | Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60; |  [optional]
+**settle** | **String** | Futures settle currency. Required if transferring from or to futures account |  [optional]
 
 ## Enum: FromEnum
 

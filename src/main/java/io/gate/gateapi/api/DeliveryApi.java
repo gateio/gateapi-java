@@ -816,7 +816,7 @@ public class DeliveryApi {
 
         /**
          * Set interval
-         * @param interval Interval time between data points (optional, default to 5m)
+         * @param interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)
          * @return APIlistDeliveryCandlesticksRequest
          */
         public APIlistDeliveryCandlesticksRequest interval(String interval) {
@@ -2338,7 +2338,7 @@ public class DeliveryApi {
 
     /**
      * List futures orders
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param status Only list the orders with this status (required)
      * @return APIlistDeliveryOrdersRequest
@@ -2413,7 +2413,7 @@ public class DeliveryApi {
 
     /**
      * Create a futures order
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @return FuturesOrder
@@ -2431,7 +2431,7 @@ public class DeliveryApi {
 
     /**
      * Create a futures order
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -2450,7 +2450,7 @@ public class DeliveryApi {
 
     /**
      * Create a futures order (asynchronously)
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2539,7 +2539,7 @@ public class DeliveryApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param side All bids or asks. Both included if not specified (optional)
@@ -2558,7 +2558,7 @@ public class DeliveryApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param side All bids or asks. Both included if not specified (optional)
@@ -2578,7 +2578,7 @@ public class DeliveryApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders matched (asynchronously)
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param side All bids or asks. Both included if not specified (optional)
@@ -2660,7 +2660,7 @@ public class DeliveryApi {
 
     /**
      * Get a single order
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return FuturesOrder
@@ -2678,7 +2678,7 @@ public class DeliveryApi {
 
     /**
      * Get a single order
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -2697,7 +2697,7 @@ public class DeliveryApi {
 
     /**
      * Get a single order (asynchronously)
-     * Zero-fill order cannot be retrieved for 60 seconds after cancellation
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback The callback to be executed when the API call finishes
