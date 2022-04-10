@@ -36,7 +36,7 @@ public class FutureTest {
 
         // update position leverage
         String leverage = "3";
-        futuresApi.updatePositionLeverage(settle, contract, leverage);
+        futuresApi.updatePositionLeverage(settle, contract, leverage, "0");
 
         // retrieve position information
         Long positionSize = 0L;

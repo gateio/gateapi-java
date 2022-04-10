@@ -45,20 +45,6 @@ Building the API client library requires:
 
 ## Installation
 
-To install the API client library to your local Maven repository, simply execute:
-
-```shell
-mvn clean install
-```
-
-To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
-
-```shell
-mvn clean deploy
-```
-
-Refer to the [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) for more information.
-
 ### Maven users
 
 Add this dependency to your project's POM:
@@ -92,6 +78,20 @@ Then manually install the following JARs:
 
 * `target/gate-api-6.23.3.jar`
 * `target/lib/*.jar`
+
+To install the API client library to your local Maven repository, simply execute:
+
+```shell
+mvn clean install
+```
+
+To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
+
+```shell
+mvn clean deploy
+```
+
+Refer to the [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) for more information.
 
 ## Getting Started
 

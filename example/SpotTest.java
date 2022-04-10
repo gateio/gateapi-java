@@ -63,10 +63,10 @@ class SpotTest {
         Order created = spotApi.createOrder(order);
         System.out.printf("order created with id %s, status %s\n", created.getId(), created.getStatus());
         if (Order.StatusEnum.OPEN.equals(created.getStatus())) {
-            Order orderResult = spotApi.getOrder(created.getId(), currencyPair);
+            Order orderResult = spotApi.getOrder(created.getId(), currencyPair, null);
             System.out.printf("order %s filled: %s, left: %s\n", orderResult.getId(), orderResult.getFilledTotal(), orderResult.getLeft());
 
-            Order result = spotApi.cancelOrder(orderResult.getId(), currencyPair);
+            Order result = spotApi.cancelOrder(orderResult.getId(), currencyPair, null);
             if (Order.StatusEnum.CANCELLED.equals(result.getStatus())) {
                 System.out.println("order " + orderResult.getId() + " canceled\n");
             }
