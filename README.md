@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.23.3
-- SDK version: 6.23.3
+- API version: 4.23.4
+- SDK version: 6.23.4
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.23.3</version>
+    <version>6.23.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.23.3"
+compile "io.gate:gate-api:6.23.4"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.23.3.jar`
+* `target/gate-api-6.23.4.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -192,6 +192,7 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**createFuturesOrder**](docs/FuturesApi.md#createFuturesOrder) | **POST** /futures/{settle}/orders | Create a futures order
 *FuturesApi* | [**cancelFuturesOrders**](docs/FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
 *FuturesApi* | [**getFuturesOrder**](docs/FuturesApi.md#getFuturesOrder) | **GET** /futures/{settle}/orders/{order_id} | Get a single order
+*FuturesApi* | [**amendFuturesOrder**](docs/FuturesApi.md#amendFuturesOrder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
 *FuturesApi* | [**cancelFuturesOrder**](docs/FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
 *FuturesApi* | [**getMyTrades**](docs/FuturesApi.md#getMyTrades) | **GET** /futures/{settle}/my_trades | List personal trading history
 *FuturesApi* | [**listPositionClose**](docs/FuturesApi.md#listPositionClose) | **GET** /futures/{settle}/position_close | List position close history
@@ -328,6 +329,7 @@ Class | Method | HTTP request | Description
  - [FuturesInitialOrder](docs/FuturesInitialOrder.md)
  - [FuturesLiquidate](docs/FuturesLiquidate.md)
  - [FuturesOrder](docs/FuturesOrder.md)
+ - [FuturesOrderAmendment](docs/FuturesOrderAmendment.md)
  - [FuturesOrderBook](docs/FuturesOrderBook.md)
  - [FuturesOrderBookItem](docs/FuturesOrderBookItem.md)
  - [FuturesPriceTrigger](docs/FuturesPriceTrigger.md)

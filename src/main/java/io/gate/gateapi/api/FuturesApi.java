@@ -28,6 +28,7 @@ import io.gate.gateapi.models.FuturesAccountBook;
 import io.gate.gateapi.models.FuturesCandlestick;
 import io.gate.gateapi.models.FuturesLiquidate;
 import io.gate.gateapi.models.FuturesOrder;
+import io.gate.gateapi.models.FuturesOrderAmendment;
 import io.gate.gateapi.models.FuturesOrderBook;
 import io.gate.gateapi.models.FuturesPriceTriggeredOrder;
 import io.gate.gateapi.models.FuturesTicker;
@@ -3925,6 +3926,133 @@ public class FuturesApi {
      */
     public okhttp3.Call getFuturesOrderAsync(String settle, String orderId, final ApiCallback<FuturesOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = getFuturesOrderValidateBeforeCall(settle, orderId, _callback);
+        Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for amendFuturesOrder
+     * @param settle Settle currency (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param futuresOrderAmendment  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call amendFuturesOrderCall(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = futuresOrderAmendment;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/orders/{order_id}"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call amendFuturesOrderValidateBeforeCall(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling amendFuturesOrder(Async)");
+        }
+
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling amendFuturesOrder(Async)");
+        }
+
+        // verify the required parameter 'futuresOrderAmendment' is set
+        if (futuresOrderAmendment == null) {
+            throw new ApiException("Missing the required parameter 'futuresOrderAmendment' when calling amendFuturesOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = amendFuturesOrderCall(settle, orderId, futuresOrderAmendment, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Amend an order
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param futuresOrderAmendment  (required)
+     * @return FuturesOrder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public FuturesOrder amendFuturesOrder(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment) throws ApiException {
+        ApiResponse<FuturesOrder> localVarResp = amendFuturesOrderWithHttpInfo(settle, orderId, futuresOrderAmendment);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Amend an order
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param futuresOrderAmendment  (required)
+     * @return ApiResponse&lt;FuturesOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FuturesOrder> amendFuturesOrderWithHttpInfo(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment) throws ApiException {
+        okhttp3.Call localVarCall = amendFuturesOrderValidateBeforeCall(settle, orderId, futuresOrderAmendment, null);
+        Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Amend an order (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param futuresOrderAmendment  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call amendFuturesOrderAsync(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, final ApiCallback<FuturesOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = amendFuturesOrderValidateBeforeCall(settle, orderId, futuresOrderAmendment, _callback);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

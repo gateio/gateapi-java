@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**createFuturesOrder**](FuturesApi.md#createFuturesOrder) | **POST** /futures/{settle}/orders | Create a futures order
 [**cancelFuturesOrders**](FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
 [**getFuturesOrder**](FuturesApi.md#getFuturesOrder) | **GET** /futures/{settle}/orders/{order_id} | Get a single order
+[**amendFuturesOrder**](FuturesApi.md#amendFuturesOrder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
 [**cancelFuturesOrder**](FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
 [**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/{settle}/my_trades | List personal trading history
 [**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/{settle}/position_close | List position close history
@@ -85,7 +86,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
 
 ### Return type
 
@@ -150,7 +151,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -225,7 +226,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
@@ -303,7 +304,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **lastId** | **String**| Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional]
@@ -384,7 +385,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
@@ -456,7 +457,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
 
 ### Return type
@@ -525,7 +526,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
@@ -594,7 +595,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
@@ -667,7 +668,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start timestamp | [optional]
  **interval** | **String**|  | [optional] [default to 5m] [enum: 5m, 15m, 30m, 1h, 4h, 1d]
@@ -746,7 +747,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **from** | **Long**| Start timestamp | [optional]
  **to** | **Long**| End timestamp | [optional]
@@ -818,7 +819,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
 
 ### Return type
 
@@ -895,7 +896,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **from** | **Long**| Start timestamp | [optional]
  **to** | **Long**| End timestamp | [optional]
@@ -967,7 +968,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
 
 ### Return type
 
@@ -1036,7 +1037,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -1107,7 +1108,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **change** | **String**| Margin change. Use positive number to increase margin, negative number otherwise. |
 
@@ -1180,7 +1181,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| New position leverage |
  **crossLeverageLimit** | **String**| Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) | [optional]
@@ -1253,7 +1254,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **riskLimit** | **String**| New position risk limit |
 
@@ -1326,7 +1327,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **dualMode** | **Boolean**| Whether to enable dual mode |
 
 ### Return type
@@ -1396,7 +1397,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -1468,7 +1469,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **change** | **String**| Margin change. Use positive number to increase margin, negative number otherwise. |
  **dualSide** | **String**| Long or short position | [enum: dual_long, dual_short]
@@ -1542,7 +1543,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| New position leverage |
  **crossLeverageLimit** | **String**| Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) | [optional]
@@ -1615,7 +1616,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **riskLimit** | **String**| New position risk limit |
 
@@ -1698,7 +1699,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **status** | **String**| Only list the orders with this status | [enum: open, finished]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -1775,7 +1776,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  |
 
 ### Return type
@@ -1848,7 +1849,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: ask, bid]
 
@@ -1921,7 +1922,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
 
 ### Return type
@@ -1935,6 +1936,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order details |  -  |
+
+<a name="amendFuturesOrder"></a>
+# **amendFuturesOrder**
+> FuturesOrder amendFuturesOrder(settle, orderId, futuresOrderAmendment)
+
+Amend an order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
+        FuturesOrderAmendment futuresOrderAmendment = new FuturesOrderAmendment(); // FuturesOrderAmendment | 
+        try {
+            FuturesOrder result = apiInstance.amendFuturesOrder(settle, orderId, futuresOrderAmendment);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#amendFuturesOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
+ **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
+ **futuresOrderAmendment** | [**FuturesOrderAmendment**](FuturesOrderAmendment.md)|  |
+
+### Return type
+
+[**FuturesOrder**](FuturesOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -1991,7 +2064,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
 
 ### Return type
@@ -2073,7 +2146,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **order** | **Long**| Futures order ID, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -2158,7 +2231,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -2238,7 +2311,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **at** | **Integer**| Specify a liquidation timestamp | [optional] [default to 0]
@@ -2317,7 +2390,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **status** | **String**| Only list the orders with this status | [enum: open, finished]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -2390,7 +2463,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **futuresPriceTriggeredOrder** | [**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)|  |
 
 ### Return type
@@ -2460,7 +2533,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -2530,7 +2603,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **orderId** | **String**| Retrieve the data of the order with the specified ID |
 
 ### Return type
@@ -2600,7 +2673,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **orderId** | **String**| Retrieve the data of the order with the specified ID |
 
 ### Return type

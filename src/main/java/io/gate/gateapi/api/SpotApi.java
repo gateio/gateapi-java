@@ -917,7 +917,7 @@ public class SpotApi {
 
         /**
          * Set reverse
-         * @param reverse Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
+         * @param reverse Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest reverse(Boolean reverse) {
@@ -1147,7 +1147,7 @@ public class SpotApi {
 
         /**
          * Set interval
-         * @param interval Interval time between data points (optional, default to 30m)
+         * @param interval Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)
          * @return APIlistCandlesticksRequest
          */
         public APIlistCandlesticksRequest interval(String interval) {
