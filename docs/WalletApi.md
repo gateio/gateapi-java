@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**listWithdrawStatus**](WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
+[**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
+[**listSubAccountFuturesBalances**](WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
 [**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 [**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 
@@ -664,6 +666,149 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;SubAccountBalance&gt;**](SubAccountBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="listSubAccountMarginBalances"></a>
+# **listSubAccountMarginBalances**
+> List&lt;SubAccountMarginBalance&gt; listSubAccountMarginBalances().subUid(subUid).execute();
+
+Query sub accounts&#39; margin balances
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        try {
+            List<SubAccountMarginBalance> result = apiInstance.listSubAccountMarginBalances()
+                        .subUid(subUid)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listSubAccountMarginBalances");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+
+### Return type
+
+[**List&lt;SubAccountMarginBalance&gt;**](SubAccountMarginBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="listSubAccountFuturesBalances"></a>
+# **listSubAccountFuturesBalances**
+> List&lt;SubAccountFuturesBalance&gt; listSubAccountFuturesBalances().subUid(subUid).settle(settle).execute();
+
+Query sub accounts&#39; futures account balances
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        String settle = "usdt"; // String | Query only balances of specified settle currency
+        try {
+            List<SubAccountFuturesBalance> result = apiInstance.listSubAccountFuturesBalances()
+                        .subUid(subUid)
+                        .settle(settle)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listSubAccountFuturesBalances");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **settle** | **String**| Query only balances of specified settle currency | [optional]
+
+### Return type
+
+[**List&lt;SubAccountFuturesBalance&gt;**](SubAccountFuturesBalance.md)
 
 ### Authorization
 

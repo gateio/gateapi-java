@@ -24,6 +24,8 @@ import io.gate.gateapi.models.CurrencyChain;
 import io.gate.gateapi.models.DepositAddress;
 import io.gate.gateapi.models.LedgerRecord;
 import io.gate.gateapi.models.SubAccountBalance;
+import io.gate.gateapi.models.SubAccountFuturesBalance;
+import io.gate.gateapi.models.SubAccountMarginBalance;
 import io.gate.gateapi.models.SubAccountTransfer;
 import io.gate.gateapi.models.TotalBalance;
 import io.gate.gateapi.models.TradeFee;
@@ -1376,6 +1378,307 @@ public class WalletApi {
      */
     public APIlistSubAccountBalancesRequest listSubAccountBalances() {
         return new APIlistSubAccountBalancesRequest();
+    }
+
+    private okhttp3.Call listSubAccountMarginBalancesCall(String subUid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/sub_account_margin_balances";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (subUid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sub_uid", subUid));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSubAccountMarginBalancesValidateBeforeCall(String subUid, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountMarginBalancesCall(subUid, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<SubAccountMarginBalance>> listSubAccountMarginBalancesWithHttpInfo(String subUid) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountMarginBalancesValidateBeforeCall(subUid, null);
+        Type localVarReturnType = new TypeToken<List<SubAccountMarginBalance>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listSubAccountMarginBalancesAsync(String subUid, final ApiCallback<List<SubAccountMarginBalance>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountMarginBalancesValidateBeforeCall(subUid, _callback);
+        Type localVarReturnType = new TypeToken<List<SubAccountMarginBalance>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSubAccountMarginBalancesRequest {
+        private String subUid;
+
+        private APIlistSubAccountMarginBalancesRequest() {
+        }
+
+        /**
+         * Set subUid
+         * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+         * @return APIlistSubAccountMarginBalancesRequest
+         */
+        public APIlistSubAccountMarginBalancesRequest subUid(String subUid) {
+            this.subUid = subUid;
+            return this;
+        }
+
+        /**
+         * Build call for listSubAccountMarginBalances
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSubAccountMarginBalancesCall(subUid, _callback);
+        }
+
+        /**
+         * Execute listSubAccountMarginBalances request
+         * @return List&lt;SubAccountMarginBalance&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<SubAccountMarginBalance> execute() throws ApiException {
+            ApiResponse<List<SubAccountMarginBalance>> localVarResp = listSubAccountMarginBalancesWithHttpInfo(subUid);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSubAccountMarginBalances request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;SubAccountMarginBalance&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<SubAccountMarginBalance>> executeWithHttpInfo() throws ApiException {
+            return listSubAccountMarginBalancesWithHttpInfo(subUid);
+        }
+
+        /**
+         * Execute listSubAccountMarginBalances request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<SubAccountMarginBalance>> _callback) throws ApiException {
+            return listSubAccountMarginBalancesAsync(subUid, _callback);
+        }
+    }
+
+    /**
+     * Query sub accounts&#39; margin balances
+     * 
+     * @return APIlistSubAccountMarginBalancesRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistSubAccountMarginBalancesRequest listSubAccountMarginBalances() {
+        return new APIlistSubAccountMarginBalancesRequest();
+    }
+
+    private okhttp3.Call listSubAccountFuturesBalancesCall(String subUid, String settle, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/sub_account_futures_balances";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (subUid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sub_uid", subUid));
+        }
+
+        if (settle != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("settle", settle));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSubAccountFuturesBalancesValidateBeforeCall(String subUid, String settle, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountFuturesBalancesCall(subUid, settle, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<SubAccountFuturesBalance>> listSubAccountFuturesBalancesWithHttpInfo(String subUid, String settle) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountFuturesBalancesValidateBeforeCall(subUid, settle, null);
+        Type localVarReturnType = new TypeToken<List<SubAccountFuturesBalance>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listSubAccountFuturesBalancesAsync(String subUid, String settle, final ApiCallback<List<SubAccountFuturesBalance>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountFuturesBalancesValidateBeforeCall(subUid, settle, _callback);
+        Type localVarReturnType = new TypeToken<List<SubAccountFuturesBalance>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSubAccountFuturesBalancesRequest {
+        private String subUid;
+        private String settle;
+
+        private APIlistSubAccountFuturesBalancesRequest() {
+        }
+
+        /**
+         * Set subUid
+         * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+         * @return APIlistSubAccountFuturesBalancesRequest
+         */
+        public APIlistSubAccountFuturesBalancesRequest subUid(String subUid) {
+            this.subUid = subUid;
+            return this;
+        }
+
+        /**
+         * Set settle
+         * @param settle Query only balances of specified settle currency (optional)
+         * @return APIlistSubAccountFuturesBalancesRequest
+         */
+        public APIlistSubAccountFuturesBalancesRequest settle(String settle) {
+            this.settle = settle;
+            return this;
+        }
+
+        /**
+         * Build call for listSubAccountFuturesBalances
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSubAccountFuturesBalancesCall(subUid, settle, _callback);
+        }
+
+        /**
+         * Execute listSubAccountFuturesBalances request
+         * @return List&lt;SubAccountFuturesBalance&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<SubAccountFuturesBalance> execute() throws ApiException {
+            ApiResponse<List<SubAccountFuturesBalance>> localVarResp = listSubAccountFuturesBalancesWithHttpInfo(subUid, settle);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSubAccountFuturesBalances request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;SubAccountFuturesBalance&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<SubAccountFuturesBalance>> executeWithHttpInfo() throws ApiException {
+            return listSubAccountFuturesBalancesWithHttpInfo(subUid, settle);
+        }
+
+        /**
+         * Execute listSubAccountFuturesBalances request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<SubAccountFuturesBalance>> _callback) throws ApiException {
+            return listSubAccountFuturesBalancesAsync(subUid, settle, _callback);
+        }
+    }
+
+    /**
+     * Query sub accounts&#39; futures account balances
+     * 
+     * @return APIlistSubAccountFuturesBalancesRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistSubAccountFuturesBalancesRequest listSubAccountFuturesBalances() {
+        return new APIlistSubAccountFuturesBalancesRequest();
     }
 
     private okhttp3.Call getTradeFeeCall(String currencyPair, final ApiCallback _callback) throws ApiException {

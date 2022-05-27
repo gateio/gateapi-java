@@ -98,6 +98,10 @@ public class FuturesInitialOrder {
     @SerializedName(SERIALIZED_NAME_REDUCE_ONLY)
     private Boolean reduceOnly = false;
 
+    public static final String SERIALIZED_NAME_AUTO_SIZE = "auto_size";
+    @SerializedName(SERIALIZED_NAME_AUTO_SIZE)
+    private String autoSize;
+
     public static final String SERIALIZED_NAME_IS_REDUCE_ONLY = "is_reduce_only";
     @SerializedName(SERIALIZED_NAME_IS_REDUCE_ONLY)
     private Boolean isReduceOnly;
@@ -245,6 +249,26 @@ public class FuturesInitialOrder {
         this.reduceOnly = reduceOnly;
     }
 
+    public FuturesInitialOrder autoSize(String autoSize) {
+        
+        this.autoSize = autoSize;
+        return this;
+    }
+
+     /**
+     * Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
+     * @return autoSize
+    **/
+    @javax.annotation.Nullable
+    public String getAutoSize() {
+        return autoSize;
+    }
+
+
+    public void setAutoSize(String autoSize) {
+        this.autoSize = autoSize;
+    }
+
      /**
      * Is the order reduce-only
      * @return isReduceOnly
@@ -280,13 +304,14 @@ public class FuturesInitialOrder {
                 Objects.equals(this.tif, futuresInitialOrder.tif) &&
                 Objects.equals(this.text, futuresInitialOrder.text) &&
                 Objects.equals(this.reduceOnly, futuresInitialOrder.reduceOnly) &&
+                Objects.equals(this.autoSize, futuresInitialOrder.autoSize) &&
                 Objects.equals(this.isReduceOnly, futuresInitialOrder.isReduceOnly) &&
                 Objects.equals(this.isClose, futuresInitialOrder.isClose);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contract, size, price, close, tif, text, reduceOnly, isReduceOnly, isClose);
+        return Objects.hash(contract, size, price, close, tif, text, reduceOnly, autoSize, isReduceOnly, isClose);
     }
 
 
@@ -301,6 +326,7 @@ public class FuturesInitialOrder {
         sb.append("      tif: ").append(toIndentedString(tif)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("      reduceOnly: ").append(toIndentedString(reduceOnly)).append("\n");
+        sb.append("      autoSize: ").append(toIndentedString(autoSize)).append("\n");
         sb.append("      isReduceOnly: ").append(toIndentedString(isReduceOnly)).append("\n");
         sb.append("      isClose: ").append(toIndentedString(isClose)).append("\n");
         sb.append("}");

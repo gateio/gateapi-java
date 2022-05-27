@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.23.4
-- SDK version: 6.23.4
+- API version: 4.24.0
+- SDK version: 6.24.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.23.4</version>
+    <version>6.24.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.23.4"
+compile "io.gate:gate-api:6.24.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.23.4.jar`
+* `target/gate-api-6.24.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -166,6 +166,11 @@ Class | Method | HTTP request | Description
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrderList**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
 *DeliveryApi* | [**getPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a single order
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | Cancel a single order
+*FlashSwapApi* | [**listFlashSwapCurrencies**](docs/FlashSwapApi.md#listFlashSwapCurrencies) | **GET** /flash_swap/currencies | List all supported currencies in flash swap
+*FlashSwapApi* | [**listFlashSwapOrders**](docs/FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders
+*FlashSwapApi* | [**createFlashSwapOrder**](docs/FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
+*FlashSwapApi* | [**getFlashSwapOrder**](docs/FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Get a single flash swap order&#39;s detail
+*FlashSwapApi* | [**previewFlashSwapOrder**](docs/FlashSwapApi.md#previewFlashSwapOrder) | **POST** /flash_swap/orders/preview | Initiate a flash swap order preview
 *FuturesApi* | [**listFuturesContracts**](docs/FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | List all futures contracts
 *FuturesApi* | [**getFuturesContract**](docs/FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Get a single contract
 *FuturesApi* | [**listFuturesOrderBook**](docs/FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Futures order book
@@ -175,6 +180,7 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listFuturesFundingRateHistory**](docs/FuturesApi.md#listFuturesFundingRateHistory) | **GET** /futures/{settle}/funding_rate | Funding rate history
 *FuturesApi* | [**listFuturesInsuranceLedger**](docs/FuturesApi.md#listFuturesInsuranceLedger) | **GET** /futures/{settle}/insurance | Futures insurance balance history
 *FuturesApi* | [**listContractStats**](docs/FuturesApi.md#listContractStats) | **GET** /futures/{settle}/contract_stats | Futures stats
+*FuturesApi* | [**getIndexConstituents**](docs/FuturesApi.md#getIndexConstituents) | **GET** /futures/{settle}/index_constituents/{index} | Get index constituents
 *FuturesApi* | [**listLiquidatedOrders**](docs/FuturesApi.md#listLiquidatedOrders) | **GET** /futures/{settle}/liq_orders | Retrieve liquidation history
 *FuturesApi* | [**listFuturesAccounts**](docs/FuturesApi.md#listFuturesAccounts) | **GET** /futures/{settle}/accounts | Query futures account
 *FuturesApi* | [**listFuturesAccountBook**](docs/FuturesApi.md#listFuturesAccountBook) | **GET** /futures/{settle}/account_book | Query account book
@@ -290,6 +296,8 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**transferWithSubAccount**](docs/WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 *WalletApi* | [**listWithdrawStatus**](docs/WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 *WalletApi* | [**listSubAccountBalances**](docs/WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
+*WalletApi* | [**listSubAccountMarginBalances**](docs/WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
+*WalletApi* | [**listSubAccountFuturesBalances**](docs/WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
 *WalletApi* | [**getTradeFee**](docs/WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 *WalletApi* | [**getTotalBalance**](docs/WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
@@ -320,12 +328,17 @@ Class | Method | HTTP request | Description
  - [DeliveryContract](docs/DeliveryContract.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)
  - [DepositAddress](docs/DepositAddress.md)
+ - [FlashSwapCurrency](docs/FlashSwapCurrency.md)
+ - [FlashSwapOrder](docs/FlashSwapOrder.md)
+ - [FlashSwapOrderPreview](docs/FlashSwapOrderPreview.md)
+ - [FlashSwapOrderRequest](docs/FlashSwapOrderRequest.md)
  - [FundingAccount](docs/FundingAccount.md)
  - [FundingBookItem](docs/FundingBookItem.md)
  - [FundingRateRecord](docs/FundingRateRecord.md)
  - [FuturesAccount](docs/FuturesAccount.md)
  - [FuturesAccountBook](docs/FuturesAccountBook.md)
  - [FuturesCandlestick](docs/FuturesCandlestick.md)
+ - [FuturesIndexConstituents](docs/FuturesIndexConstituents.md)
  - [FuturesInitialOrder](docs/FuturesInitialOrder.md)
  - [FuturesLiquidate](docs/FuturesLiquidate.md)
  - [FuturesOrder](docs/FuturesOrder.md)
@@ -336,6 +349,7 @@ Class | Method | HTTP request | Description
  - [FuturesPriceTriggeredOrder](docs/FuturesPriceTriggeredOrder.md)
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
+ - [IndexConstituent](docs/IndexConstituent.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [Loan](docs/Loan.md)
@@ -373,6 +387,8 @@ Class | Method | HTTP request | Description
  - [SpotPriceTrigger](docs/SpotPriceTrigger.md)
  - [SpotPriceTriggeredOrder](docs/SpotPriceTriggeredOrder.md)
  - [SubAccountBalance](docs/SubAccountBalance.md)
+ - [SubAccountFuturesBalance](docs/SubAccountFuturesBalance.md)
+ - [SubAccountMarginBalance](docs/SubAccountMarginBalance.md)
  - [SubAccountTransfer](docs/SubAccountTransfer.md)
  - [Ticker](docs/Ticker.md)
  - [TotalBalance](docs/TotalBalance.md)

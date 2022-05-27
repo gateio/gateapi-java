@@ -26,6 +26,7 @@ import io.gate.gateapi.models.FundingRateRecord;
 import io.gate.gateapi.models.FuturesAccount;
 import io.gate.gateapi.models.FuturesAccountBook;
 import io.gate.gateapi.models.FuturesCandlestick;
+import io.gate.gateapi.models.FuturesIndexConstituents;
 import io.gate.gateapi.models.FuturesLiquidate;
 import io.gate.gateapi.models.FuturesOrder;
 import io.gate.gateapi.models.FuturesOrderAmendment;
@@ -1562,6 +1563,124 @@ public class FuturesApi {
      */
     public APIlistContractStatsRequest listContractStats(String settle, String contract) {
         return new APIlistContractStatsRequest(settle, contract);
+    }
+
+    /**
+     * Build call for getIndexConstituents
+     * @param settle Settle currency (required)
+     * @param index Index name (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getIndexConstituentsCall(String settle, String index, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/index_constituents/{index}"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
+            .replaceAll("\\{" + "index" + "\\}", localVarApiClient.escapeString(index));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getIndexConstituentsValidateBeforeCall(String settle, String index, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling getIndexConstituents(Async)");
+        }
+
+        // verify the required parameter 'index' is set
+        if (index == null) {
+            throw new ApiException("Missing the required parameter 'index' when calling getIndexConstituents(Async)");
+        }
+
+        okhttp3.Call localVarCall = getIndexConstituentsCall(settle, index, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get index constituents
+     * 
+     * @param settle Settle currency (required)
+     * @param index Index name (required)
+     * @return FuturesIndexConstituents
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public FuturesIndexConstituents getIndexConstituents(String settle, String index) throws ApiException {
+        ApiResponse<FuturesIndexConstituents> localVarResp = getIndexConstituentsWithHttpInfo(settle, index);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get index constituents
+     * 
+     * @param settle Settle currency (required)
+     * @param index Index name (required)
+     * @return ApiResponse&lt;FuturesIndexConstituents&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FuturesIndexConstituents> getIndexConstituentsWithHttpInfo(String settle, String index) throws ApiException {
+        okhttp3.Call localVarCall = getIndexConstituentsValidateBeforeCall(settle, index, null);
+        Type localVarReturnType = new TypeToken<FuturesIndexConstituents>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get index constituents (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param index Index name (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getIndexConstituentsAsync(String settle, String index, final ApiCallback<FuturesIndexConstituents> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getIndexConstituentsValidateBeforeCall(settle, index, _callback);
+        Type localVarReturnType = new TypeToken<FuturesIndexConstituents>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     private okhttp3.Call listLiquidatedOrdersCall(String settle, String contract, Long from, Long to, Integer limit, final ApiCallback _callback) throws ApiException {

@@ -52,7 +52,7 @@ public class LedgerRecord {
     private String memo;
 
     /**
-     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
+     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -76,7 +76,11 @@ public class LedgerRecord {
         
         PROCES("PROCES"),
         
-        PEND("PEND");
+        PEND("PEND"),
+        
+        DMOVE("DMOVE"),
+        
+        SPLITPEND("SPLITPEND");
 
         private String value;
 
@@ -238,7 +242,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
+     * Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
      * @return status
     **/
     @javax.annotation.Nullable

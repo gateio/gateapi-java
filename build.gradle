@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'io.gate'
-version = '6.23.4'
+version = '6.24.0'
 
 buildscript {
     repositories {
