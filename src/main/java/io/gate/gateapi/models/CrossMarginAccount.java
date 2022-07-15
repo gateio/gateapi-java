@@ -55,6 +55,30 @@ public class CrossMarginAccount {
     @SerializedName(SERIALIZED_NAME_RISK)
     private String risk;
 
+    public static final String SERIALIZED_NAME_TOTAL_INITIAL_MARGIN = "total_initial_margin";
+    @SerializedName(SERIALIZED_NAME_TOTAL_INITIAL_MARGIN)
+    private String totalInitialMargin;
+
+    public static final String SERIALIZED_NAME_TOTAL_MARGIN_BALANCE = "total_margin_balance";
+    @SerializedName(SERIALIZED_NAME_TOTAL_MARGIN_BALANCE)
+    private String totalMarginBalance;
+
+    public static final String SERIALIZED_NAME_TOTAL_MAINTENANCE_MARGIN = "total_maintenance_margin";
+    @SerializedName(SERIALIZED_NAME_TOTAL_MAINTENANCE_MARGIN)
+    private String totalMaintenanceMargin;
+
+    public static final String SERIALIZED_NAME_TOTAL_INITIAL_MARGIN_RATE = "total_initial_margin_rate";
+    @SerializedName(SERIALIZED_NAME_TOTAL_INITIAL_MARGIN_RATE)
+    private String totalInitialMarginRate;
+
+    public static final String SERIALIZED_NAME_TOTAL_MAINTENANCE_MARGIN_RATE = "total_maintenance_margin_rate";
+    @SerializedName(SERIALIZED_NAME_TOTAL_MAINTENANCE_MARGIN_RATE)
+    private String totalMaintenanceMarginRate;
+
+    public static final String SERIALIZED_NAME_TOTAL_AVAILABLE_MARGIN = "total_available_margin";
+    @SerializedName(SERIALIZED_NAME_TOTAL_AVAILABLE_MARGIN)
+    private String totalAvailableMargin;
+
 
     public CrossMarginAccount userId(Long userId) {
         
@@ -203,6 +227,126 @@ public class CrossMarginAccount {
     public void setRisk(String risk) {
         this.risk = risk;
     }
+
+    public CrossMarginAccount totalInitialMargin(String totalInitialMargin) {
+        
+        this.totalInitialMargin = totalInitialMargin;
+        return this;
+    }
+
+     /**
+     * Total initial margin
+     * @return totalInitialMargin
+    **/
+    @javax.annotation.Nullable
+    public String getTotalInitialMargin() {
+        return totalInitialMargin;
+    }
+
+
+    public void setTotalInitialMargin(String totalInitialMargin) {
+        this.totalInitialMargin = totalInitialMargin;
+    }
+
+    public CrossMarginAccount totalMarginBalance(String totalMarginBalance) {
+        
+        this.totalMarginBalance = totalMarginBalance;
+        return this;
+    }
+
+     /**
+     * Total margin balance
+     * @return totalMarginBalance
+    **/
+    @javax.annotation.Nullable
+    public String getTotalMarginBalance() {
+        return totalMarginBalance;
+    }
+
+
+    public void setTotalMarginBalance(String totalMarginBalance) {
+        this.totalMarginBalance = totalMarginBalance;
+    }
+
+    public CrossMarginAccount totalMaintenanceMargin(String totalMaintenanceMargin) {
+        
+        this.totalMaintenanceMargin = totalMaintenanceMargin;
+        return this;
+    }
+
+     /**
+     * Total maintenance margin
+     * @return totalMaintenanceMargin
+    **/
+    @javax.annotation.Nullable
+    public String getTotalMaintenanceMargin() {
+        return totalMaintenanceMargin;
+    }
+
+
+    public void setTotalMaintenanceMargin(String totalMaintenanceMargin) {
+        this.totalMaintenanceMargin = totalMaintenanceMargin;
+    }
+
+    public CrossMarginAccount totalInitialMarginRate(String totalInitialMarginRate) {
+        
+        this.totalInitialMarginRate = totalInitialMarginRate;
+        return this;
+    }
+
+     /**
+     * Total initial margin rate
+     * @return totalInitialMarginRate
+    **/
+    @javax.annotation.Nullable
+    public String getTotalInitialMarginRate() {
+        return totalInitialMarginRate;
+    }
+
+
+    public void setTotalInitialMarginRate(String totalInitialMarginRate) {
+        this.totalInitialMarginRate = totalInitialMarginRate;
+    }
+
+    public CrossMarginAccount totalMaintenanceMarginRate(String totalMaintenanceMarginRate) {
+        
+        this.totalMaintenanceMarginRate = totalMaintenanceMarginRate;
+        return this;
+    }
+
+     /**
+     * Total maintenance margin rate
+     * @return totalMaintenanceMarginRate
+    **/
+    @javax.annotation.Nullable
+    public String getTotalMaintenanceMarginRate() {
+        return totalMaintenanceMarginRate;
+    }
+
+
+    public void setTotalMaintenanceMarginRate(String totalMaintenanceMarginRate) {
+        this.totalMaintenanceMarginRate = totalMaintenanceMarginRate;
+    }
+
+    public CrossMarginAccount totalAvailableMargin(String totalAvailableMargin) {
+        
+        this.totalAvailableMargin = totalAvailableMargin;
+        return this;
+    }
+
+     /**
+     * Total available margin
+     * @return totalAvailableMargin
+    **/
+    @javax.annotation.Nullable
+    public String getTotalAvailableMargin() {
+        return totalAvailableMargin;
+    }
+
+
+    public void setTotalAvailableMargin(String totalAvailableMargin) {
+        this.totalAvailableMargin = totalAvailableMargin;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -218,12 +362,18 @@ public class CrossMarginAccount {
                 Objects.equals(this.total, crossMarginAccount.total) &&
                 Objects.equals(this.borrowed, crossMarginAccount.borrowed) &&
                 Objects.equals(this.interest, crossMarginAccount.interest) &&
-                Objects.equals(this.risk, crossMarginAccount.risk);
+                Objects.equals(this.risk, crossMarginAccount.risk) &&
+                Objects.equals(this.totalInitialMargin, crossMarginAccount.totalInitialMargin) &&
+                Objects.equals(this.totalMarginBalance, crossMarginAccount.totalMarginBalance) &&
+                Objects.equals(this.totalMaintenanceMargin, crossMarginAccount.totalMaintenanceMargin) &&
+                Objects.equals(this.totalInitialMarginRate, crossMarginAccount.totalInitialMarginRate) &&
+                Objects.equals(this.totalMaintenanceMarginRate, crossMarginAccount.totalMaintenanceMarginRate) &&
+                Objects.equals(this.totalAvailableMargin, crossMarginAccount.totalAvailableMargin);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, locked, balances, total, borrowed, interest, risk);
+        return Objects.hash(userId, locked, balances, total, borrowed, interest, risk, totalInitialMargin, totalMarginBalance, totalMaintenanceMargin, totalInitialMarginRate, totalMaintenanceMarginRate, totalAvailableMargin);
     }
 
 
@@ -238,6 +388,12 @@ public class CrossMarginAccount {
         sb.append("      borrowed: ").append(toIndentedString(borrowed)).append("\n");
         sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
         sb.append("      risk: ").append(toIndentedString(risk)).append("\n");
+        sb.append("      totalInitialMargin: ").append(toIndentedString(totalInitialMargin)).append("\n");
+        sb.append("      totalMarginBalance: ").append(toIndentedString(totalMarginBalance)).append("\n");
+        sb.append("      totalMaintenanceMargin: ").append(toIndentedString(totalMaintenanceMargin)).append("\n");
+        sb.append("      totalInitialMarginRate: ").append(toIndentedString(totalInitialMarginRate)).append("\n");
+        sb.append("      totalMaintenanceMarginRate: ").append(toIndentedString(totalMaintenanceMarginRate)).append("\n");
+        sb.append("      totalAvailableMargin: ").append(toIndentedString(totalAvailableMargin)).append("\n");
         sb.append("}");
         return sb.toString();
     }

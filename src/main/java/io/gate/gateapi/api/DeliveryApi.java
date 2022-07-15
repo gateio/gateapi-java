@@ -4203,7 +4203,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Cancel a single order
+     * cancel a price-triggered order
      * 
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)
@@ -4221,7 +4221,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Cancel a single order
+     * cancel a price-triggered order
      * 
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)
@@ -4240,7 +4240,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Cancel a single order (asynchronously)
+     * cancel a price-triggered order (asynchronously)
      * 
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)

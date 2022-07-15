@@ -8,7 +8,7 @@ Futures contract details
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Futures contract |  [optional]
-**tag** | **String** | 标记 |  [optional]
+**tag** | **String** | tag |  [optional]
 **createTime** | **Double** | Creation time |  [optional]
 **expirationTime** | **Double** | Expiration time |  [optional]
 **isCall** | **Boolean** | &#x60;true&#x60; means call options, while &#x60;false&#x60; is put options |  [optional]

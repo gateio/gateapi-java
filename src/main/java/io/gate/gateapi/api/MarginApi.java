@@ -4080,7 +4080,7 @@ public class MarginApi {
     }
 
     /**
-     * Repay cross margin loan
+     * When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
      * 
      * @param crossMarginRepayRequest  (required)
      * @return List&lt;CrossMarginLoan&gt;
@@ -4097,7 +4097,7 @@ public class MarginApi {
     }
 
     /**
-     * Repay cross margin loan
+     * When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
      * 
      * @param crossMarginRepayRequest  (required)
      * @return ApiResponse&lt;List&lt;CrossMarginLoan&gt;&gt;
@@ -4115,7 +4115,7 @@ public class MarginApi {
     }
 
     /**
-     * Repay cross margin loan (asynchronously)
+     * When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first (asynchronously)
      * 
      * @param crossMarginRepayRequest  (required)
      * @param _callback The callback to be executed when the API call finishes

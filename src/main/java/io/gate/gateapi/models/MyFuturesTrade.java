@@ -98,6 +98,18 @@ public class MyFuturesTrade {
     @SerializedName(SERIALIZED_NAME_ROLE)
     private RoleEnum role;
 
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
+    public static final String SERIALIZED_NAME_FEE = "fee";
+    @SerializedName(SERIALIZED_NAME_FEE)
+    private String fee;
+
+    public static final String SERIALIZED_NAME_POINT_FEE = "point_fee";
+    @SerializedName(SERIALIZED_NAME_POINT_FEE)
+    private String pointFee;
+
 
     public MyFuturesTrade id(Long id) {
         
@@ -238,6 +250,66 @@ public class MyFuturesTrade {
     public void setRole(RoleEnum role) {
         this.role = role;
     }
+
+    public MyFuturesTrade text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * User defined information
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public MyFuturesTrade fee(String fee) {
+        
+        this.fee = fee;
+        return this;
+    }
+
+     /**
+     * Fee deducted
+     * @return fee
+    **/
+    @javax.annotation.Nullable
+    public String getFee() {
+        return fee;
+    }
+
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public MyFuturesTrade pointFee(String pointFee) {
+        
+        this.pointFee = pointFee;
+        return this;
+    }
+
+     /**
+     * Points used to deduct fee
+     * @return pointFee
+    **/
+    @javax.annotation.Nullable
+    public String getPointFee() {
+        return pointFee;
+    }
+
+
+    public void setPointFee(String pointFee) {
+        this.pointFee = pointFee;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -253,12 +325,15 @@ public class MyFuturesTrade {
                 Objects.equals(this.orderId, myFuturesTrade.orderId) &&
                 Objects.equals(this.size, myFuturesTrade.size) &&
                 Objects.equals(this.price, myFuturesTrade.price) &&
-                Objects.equals(this.role, myFuturesTrade.role);
+                Objects.equals(this.role, myFuturesTrade.role) &&
+                Objects.equals(this.text, myFuturesTrade.text) &&
+                Objects.equals(this.fee, myFuturesTrade.fee) &&
+                Objects.equals(this.pointFee, myFuturesTrade.pointFee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, contract, orderId, size, price, role);
+        return Objects.hash(id, createTime, contract, orderId, size, price, role, text, fee, pointFee);
     }
 
 
@@ -273,6 +348,9 @@ public class MyFuturesTrade {
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      role: ").append(toIndentedString(role)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
+        sb.append("      pointFee: ").append(toIndentedString(pointFee)).append("\n");
         sb.append("}");
         return sb.toString();
     }

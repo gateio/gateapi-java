@@ -55,6 +55,10 @@ public class CrossMarginCurrency {
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
 
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private Integer status;
+
 
     public CrossMarginCurrency name(String name) {
         
@@ -215,6 +219,26 @@ public class CrossMarginCurrency {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    public CrossMarginCurrency status(Integer status) {
+        
+        this.status = status;
+        return this;
+    }
+
+     /**
+     * status  - &#x60;0&#x60; : disable  - &#x60;1&#x60; : enable
+     * @return status
+    **/
+    @javax.annotation.Nullable
+    public Integer getStatus() {
+        return status;
+    }
+
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -231,12 +255,13 @@ public class CrossMarginCurrency {
                 Objects.equals(this.minBorrowAmount, crossMarginCurrency.minBorrowAmount) &&
                 Objects.equals(this.userMaxBorrowAmount, crossMarginCurrency.userMaxBorrowAmount) &&
                 Objects.equals(this.totalMaxBorrowAmount, crossMarginCurrency.totalMaxBorrowAmount) &&
-                Objects.equals(this.price, crossMarginCurrency.price);
+                Objects.equals(this.price, crossMarginCurrency.price) &&
+                Objects.equals(this.status, crossMarginCurrency.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, rate, prec, discount, minBorrowAmount, userMaxBorrowAmount, totalMaxBorrowAmount, price);
+        return Objects.hash(name, rate, prec, discount, minBorrowAmount, userMaxBorrowAmount, totalMaxBorrowAmount, price, status);
     }
 
 
@@ -252,6 +277,7 @@ public class CrossMarginCurrency {
         sb.append("      userMaxBorrowAmount: ").append(toIndentedString(userMaxBorrowAmount)).append("\n");
         sb.append("      totalMaxBorrowAmount: ").append(toIndentedString(totalMaxBorrowAmount)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }

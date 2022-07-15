@@ -26,6 +26,7 @@ import io.gate.gateapi.models.FuturesTrade;
 import io.gate.gateapi.models.OptionsAccount;
 import io.gate.gateapi.models.OptionsAccountBook;
 import io.gate.gateapi.models.OptionsContract;
+import io.gate.gateapi.models.OptionsMySettlements;
 import io.gate.gateapi.models.OptionsMyTrade;
 import io.gate.gateapi.models.OptionsOrder;
 import io.gate.gateapi.models.OptionsPosition;
@@ -864,6 +865,221 @@ public class OptionsApi {
         Type localVarReturnType = new TypeToken<OptionsSettlement>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    private okhttp3.Call listMyOptionsSettlementsCall(String underlying, String contract, Integer limit, Integer offset, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/options/my_settlements";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (underlying != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("underlying", underlying));
+        }
+
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMyOptionsSettlementsValidateBeforeCall(String underlying, String contract, Integer limit, Integer offset, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'underlying' is set
+        if (underlying == null) {
+            throw new ApiException("Missing the required parameter 'underlying' when calling listMyOptionsSettlements(Async)");
+        }
+
+        okhttp3.Call localVarCall = listMyOptionsSettlementsCall(underlying, contract, limit, offset, from, to, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<OptionsMySettlements>> listMyOptionsSettlementsWithHttpInfo(String underlying, String contract, Integer limit, Integer offset, Long from, Long to) throws ApiException {
+        okhttp3.Call localVarCall = listMyOptionsSettlementsValidateBeforeCall(underlying, contract, limit, offset, from, to, null);
+        Type localVarReturnType = new TypeToken<List<OptionsMySettlements>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listMyOptionsSettlementsAsync(String underlying, String contract, Integer limit, Integer offset, Long from, Long to, final ApiCallback<List<OptionsMySettlements>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listMyOptionsSettlementsValidateBeforeCall(underlying, contract, limit, offset, from, to, _callback);
+        Type localVarReturnType = new TypeToken<List<OptionsMySettlements>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistMyOptionsSettlementsRequest {
+        private final String underlying;
+        private String contract;
+        private Integer limit;
+        private Integer offset;
+        private Long from;
+        private Long to;
+
+        private APIlistMyOptionsSettlementsRequest(String underlying) {
+            this.underlying = underlying;
+        }
+
+        /**
+         * Set contract
+         * @param contract Contract name (optional)
+         * @return APIlistMyOptionsSettlementsRequest
+         */
+        public APIlistMyOptionsSettlementsRequest contract(String contract) {
+            this.contract = contract;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIlistMyOptionsSettlementsRequest
+         */
+        public APIlistMyOptionsSettlementsRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistMyOptionsSettlementsRequest
+         */
+        public APIlistMyOptionsSettlementsRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIlistMyOptionsSettlementsRequest
+         */
+        public APIlistMyOptionsSettlementsRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIlistMyOptionsSettlementsRequest
+         */
+        public APIlistMyOptionsSettlementsRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Build call for listMyOptionsSettlements
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listMyOptionsSettlementsCall(underlying, contract, limit, offset, from, to, _callback);
+        }
+
+        /**
+         * Execute listMyOptionsSettlements request
+         * @return List&lt;OptionsMySettlements&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<OptionsMySettlements> execute() throws ApiException {
+            ApiResponse<List<OptionsMySettlements>> localVarResp = listMyOptionsSettlementsWithHttpInfo(underlying, contract, limit, offset, from, to);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listMyOptionsSettlements request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;OptionsMySettlements&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<OptionsMySettlements>> executeWithHttpInfo() throws ApiException {
+            return listMyOptionsSettlementsWithHttpInfo(underlying, contract, limit, offset, from, to);
+        }
+
+        /**
+         * Execute listMyOptionsSettlements request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<OptionsMySettlements>> _callback) throws ApiException {
+            return listMyOptionsSettlementsAsync(underlying, contract, limit, offset, from, to, _callback);
+        }
+    }
+
+    /**
+     * List my options settlements
+     * 
+     * @param underlying Underlying (required)
+     * @return APIlistMyOptionsSettlementsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistMyOptionsSettlementsRequest listMyOptionsSettlements(String underlying) {
+        return new APIlistMyOptionsSettlementsRequest(underlying);
     }
 
     private okhttp3.Call listOptionsOrderBookCall(String contract, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {

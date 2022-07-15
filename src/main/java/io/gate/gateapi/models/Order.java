@@ -154,7 +154,7 @@ public class Order {
     private TypeEnum type = TypeEnum.LIMIT;
 
     /**
-     * Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
+     * Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60; 
      */
     @JsonAdapter(AccountEnum.Adapter.class)
     public enum AccountEnum {
@@ -499,7 +499,7 @@ public class Order {
     }
 
      /**
-     * Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
+     * Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60; 
      * @return account
     **/
     @javax.annotation.Nullable

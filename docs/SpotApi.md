@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**listSpotAccounts**](SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot accounts
 [**createBatchOrders**](SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders
 [**listAllOpenOrders**](SpotApi.md#listAllOpenOrders) | **GET** /spot/open_orders | List all open orders
+[**createCrossLiquidateOrder**](SpotApi.md#createCrossLiquidateOrder) | **POST** /spot/cross_liquidate_orders | close position when cross-currency is disabled
 [**listOrders**](SpotApi.md#listOrders) | **GET** /spot/orders | List orders
 [**createOrder**](SpotApi.md#createOrder) | **POST** /spot/orders | Create an order
 [**cancelOrders**](SpotApi.md#cancelOrders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
@@ -23,11 +24,12 @@ Method | HTTP request | Description
 [**getOrder**](SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
 [**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 [**listMyTrades**](SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
+[**getSystemTime**](SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time
 [**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
 [**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
 [**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
 [**getSpotPriceTriggeredOrder**](SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a single order
-[**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel a single order
+[**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | cancel a price-triggered order
 
 
 <a name="listCurrencies"></a>
@@ -282,7 +284,7 @@ No authorization required
 
 <a name="listTickers"></a>
 # **listTickers**
-> List&lt;Ticker&gt; listTickers().currencyPair(currencyPair).execute();
+> List&lt;Ticker&gt; listTickers().currencyPair(currencyPair).timezone(timezone).execute();
 
 Retrieve ticker information
 
@@ -306,9 +308,11 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Currency pair
+        String timezone = "utc0"; // String | Timezone
         try {
             List<Ticker> result = apiInstance.listTickers()
                         .currencyPair(currencyPair)
+                        .timezone(timezone)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -329,6 +333,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair | [optional]
+ **timezone** | **String**| Timezone | [optional] [enum: utc0, utc8, all]
 
 ### Return type
 
@@ -831,7 +836,7 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records returned in one page in each currency pair
-        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         try {
             List<OpenOrders> result = apiInstance.listAllOpenOrders()
                         .page(page)
@@ -858,7 +863,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records returned in one page in each currency pair | [optional] [default to 100]
- **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -877,6 +882,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List retrieved |  -  |
+
+<a name="createCrossLiquidateOrder"></a>
+# **createCrossLiquidateOrder**
+> Order createCrossLiquidateOrder(liquidateOrder)
+
+close position when cross-currency is disabled
+
+Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        LiquidateOrder liquidateOrder = new LiquidateOrder(); // LiquidateOrder | 
+        try {
+            Order result = apiInstance.createCrossLiquidateOrder(liquidateOrder);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#createCrossLiquidateOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **liquidateOrder** | [**LiquidateOrder**](LiquidateOrder.md)|  |
+
+### Return type
+
+[**Order**](Order.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | order created |  -  |
 
 <a name="listOrders"></a>
 # **listOrders**
@@ -911,7 +986,7 @@ public class Example {
         String status = "open"; // String | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100
-        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         Long from = 1627706330L; // Long | Start timestamp of the query
         Long to = 1635329650L; // Long | Time range ending, default to current time
         String side = "sell"; // String | All bids or asks. Both included if not specified
@@ -946,7 +1021,7 @@ Name | Type | Description  | Notes
  **status** | **String**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | [enum: open, finished]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
- **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
  **from** | **Long**| Start timestamp of the query | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
  **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: buy, sell]
@@ -1070,7 +1145,7 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String side = "sell"; // String | All bids or asks. Both included if not specified
-        String account = "spot"; // String | Specify account type. Default to all account types being included
+        String account = "spot"; // String | Specify account type  - classic account：Default to all account types being included   - portfolio margin account：`cross_margin` only
         try {
             List<Order> result = apiInstance.cancelOrders(currencyPair, side, account);
             System.out.println(result);
@@ -1093,7 +1168,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
  **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: buy, sell]
- **account** | **String**| Specify account type. Default to all account types being included | [optional] [enum: spot, margin, cross_margin]
+ **account** | **String**| Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only | [optional] [enum: spot, margin, cross_margin]
 
 ### Return type
 
@@ -1189,7 +1264,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
 
 ### Example
 
@@ -1214,7 +1289,7 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
-        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         try {
             Order result = apiInstance.getOrder(orderId, currencyPair, account);
             System.out.println(result);
@@ -1237,7 +1312,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
- **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -1263,7 +1338,7 @@ Name | Type | Description  | Notes
 
 Cancel a single order
 
-Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
 
 ### Example
 
@@ -1288,7 +1363,7 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
-        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         try {
             Order result = apiInstance.cancelOrder(orderId, currencyPair, account);
             System.out.println(result);
@@ -1311,7 +1386,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
- **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
 
@@ -1364,7 +1439,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer page = 1; // Integer | Page number
         String orderId = "12345"; // String | Filter trades with specified order ID. `currency_pair` is also required if this field is present
-        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account
+        String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         Long from = 1627706330L; // Long | Start timestamp of the query
         Long to = 1635329650L; // Long | Time range ending, default to current time
         try {
@@ -1398,7 +1473,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **orderId** | **String**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
- **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional]
+ **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
  **from** | **Long**| Start timestamp of the query | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
 
@@ -1419,6 +1494,66 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List retrieved |  -  |
+
+<a name="getSystemTime"></a>
+# **getSystemTime**
+> SystemTime getSystemTime()
+
+Get server current time
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        try {
+            SystemTime result = apiInstance.getSystemTime();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#getSystemTime");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SystemTime**](SystemTime.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
 
 <a name="listSpotPriceTriggeredOrders"></a>
 # **listSpotPriceTriggeredOrders**
@@ -1711,7 +1846,7 @@ Name | Type | Description  | Notes
 # **cancelSpotPriceTriggeredOrder**
 > SpotPriceTriggeredOrder cancelSpotPriceTriggeredOrder(orderId)
 
-Cancel a single order
+cancel a price-triggered order
 
 ### Example
 

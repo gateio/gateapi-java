@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled |  [optional] [readonly]
 **currencyPair** | **String** | Currency pair | 
 **type** | [**TypeEnum**](#TypeEnum) | Order type. limit - limit order |  [optional]
-**account** | [**AccountEnum**](#AccountEnum) | Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account |  [optional]
+**account** | [**AccountEnum**](#AccountEnum) | Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60;  |  [optional]
 **side** | [**SideEnum**](#SideEnum) | Order side | 
 **amount** | **String** | Trade amount | 
 **price** | **String** | Order price | 

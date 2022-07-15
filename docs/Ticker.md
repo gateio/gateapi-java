@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **lowestAsk** | **String** | Recent lowest ask |  [optional]
 **highestBid** | **String** | Recent highest bid |  [optional]
 **changePercentage** | **String** | Change percentage in the last 24h |  [optional]
+**changeUtc0** | **String** | utc0 timezone, the percentage change in the last 24 hours |  [optional]
+**changeUtc8** | **String** | utc8 timezone, the percentage change in the last 24 hours |  [optional]
 **baseVolume** | **String** | Base currency trade volume in the last 24h |  [optional]
 **quoteVolume** | **String** | Quote currency trade volume in the last 24h |  [optional]
 **high24h** | **String** | Highest price in 24h |  [optional]

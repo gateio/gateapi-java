@@ -99,13 +99,15 @@ public class SubAccountTransfer {
     private String source;
 
     /**
-     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account
+     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
      */
     @JsonAdapter(SubAccountTypeEnum.Adapter.class)
     public enum SubAccountTypeEnum {
         SPOT("spot"),
         
-        FUTURES("futures");
+        FUTURES("futures"),
+        
+        CROSS_MARGIN("cross_margin");
 
         private String value;
 
@@ -263,7 +265,7 @@ public class SubAccountTransfer {
     }
 
      /**
-     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account
+     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
      * @return subAccountType
     **/
     @javax.annotation.Nullable

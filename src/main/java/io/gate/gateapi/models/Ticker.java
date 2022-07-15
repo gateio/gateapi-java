@@ -43,6 +43,14 @@ public class Ticker {
     @SerializedName(SERIALIZED_NAME_CHANGE_PERCENTAGE)
     private String changePercentage;
 
+    public static final String SERIALIZED_NAME_CHANGE_UTC0 = "change_utc0";
+    @SerializedName(SERIALIZED_NAME_CHANGE_UTC0)
+    private String changeUtc0;
+
+    public static final String SERIALIZED_NAME_CHANGE_UTC8 = "change_utc8";
+    @SerializedName(SERIALIZED_NAME_CHANGE_UTC8)
+    private String changeUtc8;
+
     public static final String SERIALIZED_NAME_BASE_VOLUME = "base_volume";
     @SerializedName(SERIALIZED_NAME_BASE_VOLUME)
     private String baseVolume;
@@ -174,6 +182,46 @@ public class Ticker {
 
     public void setChangePercentage(String changePercentage) {
         this.changePercentage = changePercentage;
+    }
+
+    public Ticker changeUtc0(String changeUtc0) {
+        
+        this.changeUtc0 = changeUtc0;
+        return this;
+    }
+
+     /**
+     * utc0 timezone, the percentage change in the last 24 hours
+     * @return changeUtc0
+    **/
+    @javax.annotation.Nullable
+    public String getChangeUtc0() {
+        return changeUtc0;
+    }
+
+
+    public void setChangeUtc0(String changeUtc0) {
+        this.changeUtc0 = changeUtc0;
+    }
+
+    public Ticker changeUtc8(String changeUtc8) {
+        
+        this.changeUtc8 = changeUtc8;
+        return this;
+    }
+
+     /**
+     * utc8 timezone, the percentage change in the last 24 hours
+     * @return changeUtc8
+    **/
+    @javax.annotation.Nullable
+    public String getChangeUtc8() {
+        return changeUtc8;
+    }
+
+
+    public void setChangeUtc8(String changeUtc8) {
+        this.changeUtc8 = changeUtc8;
     }
 
     public Ticker baseVolume(String baseVolume) {
@@ -349,6 +397,8 @@ public class Ticker {
                 Objects.equals(this.lowestAsk, ticker.lowestAsk) &&
                 Objects.equals(this.highestBid, ticker.highestBid) &&
                 Objects.equals(this.changePercentage, ticker.changePercentage) &&
+                Objects.equals(this.changeUtc0, ticker.changeUtc0) &&
+                Objects.equals(this.changeUtc8, ticker.changeUtc8) &&
                 Objects.equals(this.baseVolume, ticker.baseVolume) &&
                 Objects.equals(this.quoteVolume, ticker.quoteVolume) &&
                 Objects.equals(this.high24h, ticker.high24h) &&
@@ -361,7 +411,7 @@ public class Ticker {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, last, lowestAsk, highestBid, changePercentage, baseVolume, quoteVolume, high24h, low24h, etfNetValue, etfPreNetValue, etfPreTimestamp, etfLeverage);
+        return Objects.hash(currencyPair, last, lowestAsk, highestBid, changePercentage, changeUtc0, changeUtc8, baseVolume, quoteVolume, high24h, low24h, etfNetValue, etfPreNetValue, etfPreTimestamp, etfLeverage);
     }
 
 
@@ -374,6 +424,8 @@ public class Ticker {
         sb.append("      lowestAsk: ").append(toIndentedString(lowestAsk)).append("\n");
         sb.append("      highestBid: ").append(toIndentedString(highestBid)).append("\n");
         sb.append("      changePercentage: ").append(toIndentedString(changePercentage)).append("\n");
+        sb.append("      changeUtc0: ").append(toIndentedString(changeUtc0)).append("\n");
+        sb.append("      changeUtc8: ").append(toIndentedString(changeUtc8)).append("\n");
         sb.append("      baseVolume: ").append(toIndentedString(baseVolume)).append("\n");
         sb.append("      quoteVolume: ").append(toIndentedString(quoteVolume)).append("\n");
         sb.append("      high24h: ").append(toIndentedString(high24h)).append("\n");

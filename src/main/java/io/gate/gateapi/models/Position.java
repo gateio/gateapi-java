@@ -72,6 +72,14 @@ public class Position {
     @SerializedName(SERIALIZED_NAME_MARK_PRICE)
     private String markPrice;
 
+    public static final String SERIALIZED_NAME_INITIAL_MARGIN = "initial_margin";
+    @SerializedName(SERIALIZED_NAME_INITIAL_MARGIN)
+    private String initialMargin;
+
+    public static final String SERIALIZED_NAME_MAINTENANCE_MARGIN = "maintenance_margin";
+    @SerializedName(SERIALIZED_NAME_MAINTENANCE_MARGIN)
+    private String maintenanceMargin;
+
     public static final String SERIALIZED_NAME_UNREALISED_PNL = "unrealised_pnl";
     @SerializedName(SERIALIZED_NAME_UNREALISED_PNL)
     private String unrealisedPnl;
@@ -317,6 +325,26 @@ public class Position {
 
 
      /**
+     * The initial margin occupied by the position, applicable to the portfolio margin account
+     * @return initialMargin
+    **/
+    @javax.annotation.Nullable
+    public String getInitialMargin() {
+        return initialMargin;
+    }
+
+
+     /**
+     * Maintenance margin required for the position, applicable to portfolio margin account
+     * @return maintenanceMargin
+    **/
+    @javax.annotation.Nullable
+    public String getMaintenanceMargin() {
+        return maintenanceMargin;
+    }
+
+
+     /**
      * Unrealized PNL
      * @return unrealisedPnl
     **/
@@ -476,6 +504,8 @@ public class Position {
                 Objects.equals(this.entryPrice, position.entryPrice) &&
                 Objects.equals(this.liqPrice, position.liqPrice) &&
                 Objects.equals(this.markPrice, position.markPrice) &&
+                Objects.equals(this.initialMargin, position.initialMargin) &&
+                Objects.equals(this.maintenanceMargin, position.maintenanceMargin) &&
                 Objects.equals(this.unrealisedPnl, position.unrealisedPnl) &&
                 Objects.equals(this.realisedPnl, position.realisedPnl) &&
                 Objects.equals(this.historyPnl, position.historyPnl) &&
@@ -491,7 +521,7 @@ public class Position {
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit);
+        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit);
     }
 
 
@@ -511,6 +541,8 @@ public class Position {
         sb.append("      entryPrice: ").append(toIndentedString(entryPrice)).append("\n");
         sb.append("      liqPrice: ").append(toIndentedString(liqPrice)).append("\n");
         sb.append("      markPrice: ").append(toIndentedString(markPrice)).append("\n");
+        sb.append("      initialMargin: ").append(toIndentedString(initialMargin)).append("\n");
+        sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");
         sb.append("      unrealisedPnl: ").append(toIndentedString(unrealisedPnl)).append("\n");
         sb.append("      realisedPnl: ").append(toIndentedString(realisedPnl)).append("\n");
         sb.append("      historyPnl: ").append(toIndentedString(historyPnl)).append("\n");

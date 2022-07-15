@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getOptionsContract**](OptionsApi.md#getOptionsContract) | **GET** /options/contracts/{contract} | Query specified contract detail
 [**listOptionsSettlements**](OptionsApi.md#listOptionsSettlements) | **GET** /options/settlements | List settlement history
 [**getOptionsSettlement**](OptionsApi.md#getOptionsSettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement
+[**listMyOptionsSettlements**](OptionsApi.md#listMyOptionsSettlements) | **GET** /options/my_settlements | List my options settlements
 [**listOptionsOrderBook**](OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Futures order book
 [**listOptionsTickers**](OptionsApi.md#listOptionsTickers) | **GET** /options/tickers | List tickers of options contracts
 [**listOptionsUnderlyingTickers**](OptionsApi.md#listOptionsUnderlyingTickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker
@@ -429,6 +430,90 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
+
+<a name="listMyOptionsSettlements"></a>
+# **listMyOptionsSettlements**
+> List&lt;OptionsMySettlements&gt; listMyOptionsSettlements(underlying).contract(contract).limit(limit).offset(offset).from(from).to(to).execute();
+
+List my options settlements
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.OptionsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        OptionsApi apiInstance = new OptionsApi(defaultClient);
+        String underlying = "BTC_USDT"; // String | Underlying
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Contract name
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
+        try {
+            List<OptionsMySettlements> result = apiInstance.listMyOptionsSettlements(underlying)
+                        .contract(contract)
+                        .limit(limit)
+                        .offset(offset)
+                        .from(from)
+                        .to(to)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling OptionsApi#listMyOptionsSettlements");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **underlying** | **String**| Underlying |
+ **contract** | **String**| Contract name | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **Long**| Start timestamp | [optional]
+ **to** | **Long**| End timestamp | [optional]
+
+### Return type
+
+[**List&lt;OptionsMySettlements&gt;**](OptionsMySettlements.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
 
 <a name="listOptionsOrderBook"></a>
 # **listOptionsOrderBook**
