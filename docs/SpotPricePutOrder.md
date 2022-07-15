@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **side** | [**SideEnum**](#SideEnum) | Order side  - buy: buy side - sell: sell side | 
 **price** | **String** | Order price | 
 **amount** | **String** | Order amount | 
-**account** | [**AccountEnum**](#AccountEnum) | Trading type  - normal: spot trading - margin: margin trading | 
+**account** | [**AccountEnum**](#AccountEnum) | Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading  | 
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only  |  [optional]
 
 ## Enum: SideEnum
@@ -25,6 +25,7 @@ Name | Value
 ---- | -----
 NORMAL | &quot;normal&quot;
 MARGIN | &quot;margin&quot;
+CROSS_MARGIN | &quot;cross_margin&quot;
 
 ## Enum: TimeInForceEnum
 

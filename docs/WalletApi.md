@@ -15,6 +15,8 @@ Method | HTTP request | Description
 [**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
 [**listSubAccountFuturesBalances**](WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
+[**listSubAccountCrossMarginBalances**](WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info
+[**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
 [**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 [**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 
@@ -321,7 +323,7 @@ Name | Type | Description  | Notes
 
 <a name="transfer"></a>
 # **transfer**
-> transfer(transfer)
+> TransactionID transfer(transfer)
 
 Transfer between trading accounts
 
@@ -350,7 +352,8 @@ public class Example {
         WalletApi apiInstance = new WalletApi(defaultClient);
         Transfer transfer = new Transfer(); // Transfer | 
         try {
-            apiInstance.transfer(transfer);
+            TransactionID result = apiInstance.transfer(transfer);
+            System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
@@ -372,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**TransactionID**](TransactionID.md)
 
 ### Authorization
 
@@ -381,12 +384,12 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Balance transferred |  -  |
+**200** | Balance transferred |  -  |
 
 <a name="listSubAccountTransfers"></a>
 # **listSubAccountTransfers**
@@ -809,6 +812,151 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;SubAccountFuturesBalance&gt;**](SubAccountFuturesBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="listSubAccountCrossMarginBalances"></a>
+# **listSubAccountCrossMarginBalances**
+> List&lt;SubAccountCrossMarginBalance&gt; listSubAccountCrossMarginBalances().subUid(subUid).execute();
+
+Query subaccount&#39;s cross_margin account info
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        try {
+            List<SubAccountCrossMarginBalance> result = apiInstance.listSubAccountCrossMarginBalances()
+                        .subUid(subUid)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listSubAccountCrossMarginBalances");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+
+### Return type
+
+[**List&lt;SubAccountCrossMarginBalance&gt;**](SubAccountCrossMarginBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="listSavedAddress"></a>
+# **listSavedAddress**
+> List&lt;SavedAddress&gt; listSavedAddress(currency).chain(chain).limit(limit).execute();
+
+Query saved address
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String currency = "USDT"; // String | Currency
+        String chain = "\"\""; // String | Chain name
+        String limit = "\"50\""; // String | Maximum number returned, 100 at most
+        try {
+            List<SavedAddress> result = apiInstance.listSavedAddress(currency)
+                        .chain(chain)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listSavedAddress");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Currency |
+ **chain** | **String**| Chain name | [optional] [default to &quot;&quot;]
+ **limit** | **String**| Maximum number returned, 100 at most | [optional] [default to &quot;50&quot;]
+
+### Return type
+
+[**List&lt;SavedAddress&gt;**](SavedAddress.md)
 
 ### Authorization
 

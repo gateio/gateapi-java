@@ -3197,7 +3197,7 @@ public class SpotApi {
 
         /**
          * Set account
-         * @param account Trading account (optional)
+         * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
          * @return APIlistSpotPriceTriggeredOrdersRequest
          */
         public APIlistSpotPriceTriggeredOrdersRequest account(String account) {
@@ -3410,7 +3410,7 @@ public class SpotApi {
     /**
      * Build call for cancelSpotPriceTriggeredOrderList
      * @param market Currency pair (optional)
-     * @param account Trading account (optional)
+     * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3467,7 +3467,7 @@ public class SpotApi {
      * Cancel all open orders
      * 
      * @param market Currency pair (optional)
-     * @param account Trading account (optional)
+     * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @return List&lt;SpotPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3485,7 +3485,7 @@ public class SpotApi {
      * Cancel all open orders
      * 
      * @param market Currency pair (optional)
-     * @param account Trading account (optional)
+     * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @return ApiResponse&lt;List&lt;SpotPriceTriggeredOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3504,7 +3504,7 @@ public class SpotApi {
      * Cancel all open orders (asynchronously)
      * 
      * @param market Currency pair (optional)
-     * @param account Trading account (optional)
+     * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

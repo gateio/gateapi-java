@@ -87,13 +87,15 @@ public class SpotPricePutOrder {
     private String amount;
 
     /**
-     * Trading type  - normal: spot trading - margin: margin trading
+     * Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading 
      */
     @JsonAdapter(AccountEnum.Adapter.class)
     public enum AccountEnum {
         NORMAL("normal"),
         
-        MARGIN("margin");
+        MARGIN("margin"),
+        
+        CROSS_MARGIN("cross_margin");
 
         private String value;
 
@@ -273,7 +275,7 @@ public class SpotPricePutOrder {
     }
 
      /**
-     * Trading type  - normal: spot trading - margin: margin trading
+     * Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading 
      * @return account
     **/
     public AccountEnum getAccount() {

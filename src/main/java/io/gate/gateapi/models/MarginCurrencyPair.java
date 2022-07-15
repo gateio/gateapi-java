@@ -51,6 +51,10 @@ public class MarginCurrencyPair {
     @SerializedName(SERIALIZED_NAME_MAX_QUOTE_AMOUNT)
     private String maxQuoteAmount;
 
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private Integer status;
+
 
     public MarginCurrencyPair id(String id) {
         
@@ -191,6 +195,26 @@ public class MarginCurrencyPair {
     public void setMaxQuoteAmount(String maxQuoteAmount) {
         this.maxQuoteAmount = maxQuoteAmount;
     }
+
+    public MarginCurrencyPair status(Integer status) {
+        
+        this.status = status;
+        return this;
+    }
+
+     /**
+     * Currency pair status   - &#x60;0&#x60;: disabled  - &#x60;1&#x60;: enabled
+     * @return status
+    **/
+    @javax.annotation.Nullable
+    public Integer getStatus() {
+        return status;
+    }
+
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -206,12 +230,13 @@ public class MarginCurrencyPair {
                 Objects.equals(this.leverage, marginCurrencyPair.leverage) &&
                 Objects.equals(this.minBaseAmount, marginCurrencyPair.minBaseAmount) &&
                 Objects.equals(this.minQuoteAmount, marginCurrencyPair.minQuoteAmount) &&
-                Objects.equals(this.maxQuoteAmount, marginCurrencyPair.maxQuoteAmount);
+                Objects.equals(this.maxQuoteAmount, marginCurrencyPair.maxQuoteAmount) &&
+                Objects.equals(this.status, marginCurrencyPair.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, quote, leverage, minBaseAmount, minQuoteAmount, maxQuoteAmount);
+        return Objects.hash(id, base, quote, leverage, minBaseAmount, minQuoteAmount, maxQuoteAmount, status);
     }
 
 
@@ -226,6 +251,7 @@ public class MarginCurrencyPair {
         sb.append("      minBaseAmount: ").append(toIndentedString(minBaseAmount)).append("\n");
         sb.append("      minQuoteAmount: ").append(toIndentedString(minQuoteAmount)).append("\n");
         sb.append("      maxQuoteAmount: ").append(toIndentedString(maxQuoteAmount)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }

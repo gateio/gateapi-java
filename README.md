@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.25.1
-- SDK version: 6.25.1
+- API version: 4.26.0
+- SDK version: 6.26.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.25.1</version>
+    <version>6.26.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.25.1"
+compile "io.gate:gate-api:6.26.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.25.1.jar`
+* `target/gate-api-6.26.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -301,6 +301,8 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**listSubAccountBalances**](docs/WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 *WalletApi* | [**listSubAccountMarginBalances**](docs/WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
 *WalletApi* | [**listSubAccountFuturesBalances**](docs/WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
+*WalletApi* | [**listSubAccountCrossMarginBalances**](docs/WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info
+*WalletApi* | [**listSavedAddress**](docs/WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
 *WalletApi* | [**getTradeFee**](docs/WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 *WalletApi* | [**getTotalBalance**](docs/WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
@@ -388,19 +390,23 @@ Class | Method | HTTP request | Description
  - [PositionCloseOrder](docs/PositionCloseOrder.md)
  - [RepayRequest](docs/RepayRequest.md)
  - [Repayment](docs/Repayment.md)
+ - [SavedAddress](docs/SavedAddress.md)
  - [SpotAccount](docs/SpotAccount.md)
  - [SpotPricePutOrder](docs/SpotPricePutOrder.md)
  - [SpotPriceTrigger](docs/SpotPriceTrigger.md)
  - [SpotPriceTriggeredOrder](docs/SpotPriceTriggeredOrder.md)
  - [SubAccountBalance](docs/SubAccountBalance.md)
+ - [SubAccountCrossMarginBalance](docs/SubAccountCrossMarginBalance.md)
  - [SubAccountFuturesBalance](docs/SubAccountFuturesBalance.md)
  - [SubAccountMarginBalance](docs/SubAccountMarginBalance.md)
  - [SubAccountTransfer](docs/SubAccountTransfer.md)
+ - [SubCrossMarginAccount](docs/SubCrossMarginAccount.md)
  - [SystemTime](docs/SystemTime.md)
  - [Ticker](docs/Ticker.md)
  - [TotalBalance](docs/TotalBalance.md)
  - [Trade](docs/Trade.md)
  - [TradeFee](docs/TradeFee.md)
+ - [TransactionID](docs/TransactionID.md)
  - [Transfer](docs/Transfer.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
  - [WithdrawStatus](docs/WithdrawStatus.md)

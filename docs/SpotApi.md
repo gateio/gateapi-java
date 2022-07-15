@@ -1584,7 +1584,7 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         String status = "status_example"; // String | Only list the orders with this status
         String market = "BTC_USDT"; // String | Currency pair
-        String account = "account_example"; // String | Trading account
+        String account = "account_example"; // String | Trading account type.  Portfolio margin account must set to `cross_margin`
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
@@ -1614,7 +1614,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **String**| Only list the orders with this status | [enum: open, finished]
  **market** | **String**| Currency pair | [optional]
- **account** | **String**| Trading account | [optional] [enum: normal, margin]
+ **account** | **String**| Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; | [optional] [enum: normal, margin, cross_margin]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
@@ -1732,7 +1732,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String market = "BTC_USDT"; // String | Currency pair
-        String account = "account_example"; // String | Trading account
+        String account = "account_example"; // String | Trading account type.  Portfolio margin account must set to `cross_margin`
         try {
             List<SpotPriceTriggeredOrder> result = apiInstance.cancelSpotPriceTriggeredOrderList(market, account);
             System.out.println(result);
@@ -1754,7 +1754,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **market** | **String**| Currency pair | [optional]
- **account** | **String**| Trading account | [optional] [enum: normal, margin]
+ **account** | **String**| Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; | [optional] [enum: normal, margin, cross_margin]
 
 ### Return type
 
