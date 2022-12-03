@@ -123,7 +123,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Last trading price
+     * Last trading price (quote currency)
      * @return lastPrice
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Current mark price
+     * Current mark price (quote currency)
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Current index price
+     * Current index price (quote currency)
      * @return indexPrice
     **/
     @javax.annotation.Nullable

@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import io.gate.gateapi.models.BatchOrder;
 import io.gate.gateapi.models.CancelOrder;
 import io.gate.gateapi.models.CancelOrderResult;
+import io.gate.gateapi.models.CountdownCancelAllSpotTask;
 import io.gate.gateapi.models.Currency;
 import io.gate.gateapi.models.CurrencyPair;
 import io.gate.gateapi.models.LiquidateOrder;
@@ -36,6 +37,7 @@ import io.gate.gateapi.models.Ticker;
 import io.gate.gateapi.models.Trade;
 import io.gate.gateapi.models.TradeFee;
 import io.gate.gateapi.models.TriggerOrderResponse;
+import io.gate.gateapi.models.TriggerTime;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -914,7 +916,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest limit(Integer limit) {
@@ -2516,7 +2518,7 @@ public class SpotApi {
 
     /**
      * Build call for getOrder
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @param _callback Callback for upload/download progress
@@ -2585,7 +2587,7 @@ public class SpotApi {
     /**
      * Get a single order
      * Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @return Order
@@ -2604,7 +2606,7 @@ public class SpotApi {
     /**
      * Get a single order
      * Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @return ApiResponse&lt;Order&gt;
@@ -2624,7 +2626,7 @@ public class SpotApi {
     /**
      * Get a single order (asynchronously)
      * Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2645,7 +2647,7 @@ public class SpotApi {
 
     /**
      * Build call for cancelOrder
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @param _callback Callback for upload/download progress
@@ -2714,7 +2716,7 @@ public class SpotApi {
     /**
      * Cancel a single order
      * Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @return Order
@@ -2733,7 +2735,7 @@ public class SpotApi {
     /**
      * Cancel a single order
      * Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @return ApiResponse&lt;Order&gt;
@@ -2753,7 +2755,7 @@ public class SpotApi {
     /**
      * Cancel a single order (asynchronously)
      * Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2831,11 +2833,6 @@ public class SpotApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMyTradesValidateBeforeCall(String currencyPair, Integer limit, Integer page, String orderId, String account, Long from, Long to, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'currencyPair' is set
-        if (currencyPair == null) {
-            throw new ApiException("Missing the required parameter 'currencyPair' when calling listMyTrades(Async)");
-        }
-
         okhttp3.Call localVarCall = listMyTradesCall(currencyPair, limit, page, orderId, account, from, to, _callback);
         return localVarCall;
     }
@@ -2855,7 +2852,7 @@ public class SpotApi {
     }
 
     public class APIlistMyTradesRequest {
-        private final String currencyPair;
+        private String currencyPair;
         private Integer limit;
         private Integer page;
         private String orderId;
@@ -2863,8 +2860,17 @@ public class SpotApi {
         private Long from;
         private Long to;
 
-        private APIlistMyTradesRequest(String currencyPair) {
+        private APIlistMyTradesRequest() {
+        }
+
+        /**
+         * Set currencyPair
+         * @param currencyPair Retrieve results with specified currency pair (optional)
+         * @return APIlistMyTradesRequest
+         */
+        public APIlistMyTradesRequest currencyPair(String currencyPair) {
             this.currencyPair = currencyPair;
+            return this;
         }
 
         /**
@@ -2989,8 +2995,7 @@ public class SpotApi {
 
     /**
      * List personal trading history
-     * Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
-     * @param currencyPair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
+     * Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
      * @return APIlistMyTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2998,8 +3003,8 @@ public class SpotApi {
         <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistMyTradesRequest listMyTrades(String currencyPair) {
-        return new APIlistMyTradesRequest(currencyPair);
+    public APIlistMyTradesRequest listMyTrades() {
+        return new APIlistMyTradesRequest();
     }
 
     /**
@@ -3096,6 +3101,113 @@ public class SpotApi {
     public okhttp3.Call getSystemTimeAsync(final ApiCallback<SystemTime> _callback) throws ApiException {
         okhttp3.Call localVarCall = getSystemTimeValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<SystemTime>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for countdownCancelAllSpot
+     * @param countdownCancelAllSpotTask  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call countdownCancelAllSpotCall(CountdownCancelAllSpotTask countdownCancelAllSpotTask, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = countdownCancelAllSpotTask;
+
+        // create path and map variables
+        String localVarPath = "/spot/countdown_cancel_all";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call countdownCancelAllSpotValidateBeforeCall(CountdownCancelAllSpotTask countdownCancelAllSpotTask, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'countdownCancelAllSpotTask' is set
+        if (countdownCancelAllSpotTask == null) {
+            throw new ApiException("Missing the required parameter 'countdownCancelAllSpotTask' when calling countdownCancelAllSpot(Async)");
+        }
+
+        okhttp3.Call localVarCall = countdownCancelAllSpotCall(countdownCancelAllSpotTask, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Countdown cancel orders
+     * When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+     * @param countdownCancelAllSpotTask  (required)
+     * @return TriggerTime
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public TriggerTime countdownCancelAllSpot(CountdownCancelAllSpotTask countdownCancelAllSpotTask) throws ApiException {
+        ApiResponse<TriggerTime> localVarResp = countdownCancelAllSpotWithHttpInfo(countdownCancelAllSpotTask);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Countdown cancel orders
+     * When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+     * @param countdownCancelAllSpotTask  (required)
+     * @return ApiResponse&lt;TriggerTime&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TriggerTime> countdownCancelAllSpotWithHttpInfo(CountdownCancelAllSpotTask countdownCancelAllSpotTask) throws ApiException {
+        okhttp3.Call localVarCall = countdownCancelAllSpotValidateBeforeCall(countdownCancelAllSpotTask, null);
+        Type localVarReturnType = new TypeToken<TriggerTime>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Countdown cancel orders (asynchronously)
+     * When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+     * @param countdownCancelAllSpotTask  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call countdownCancelAllSpotAsync(CountdownCancelAllSpotTask countdownCancelAllSpotTask, final ApiCallback<TriggerTime> _callback) throws ApiException {
+        okhttp3.Call localVarCall = countdownCancelAllSpotValidateBeforeCall(countdownCancelAllSpotTask, _callback);
+        Type localVarReturnType = new TypeToken<TriggerTime>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3575,7 +3687,7 @@ public class SpotApi {
     }
 
     /**
-     * Get a single order
+     * Get a price-triggered order
      * 
      * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return SpotPriceTriggeredOrder
@@ -3592,7 +3704,7 @@ public class SpotApi {
     }
 
     /**
-     * Get a single order
+     * Get a price-triggered order
      * 
      * @param orderId Retrieve the data of the order with the specified ID (required)
      * @return ApiResponse&lt;SpotPriceTriggeredOrder&gt;
@@ -3610,7 +3722,7 @@ public class SpotApi {
     }
 
     /**
-     * Get a single order (asynchronously)
+     * Get a price-triggered order (asynchronously)
      * 
      * @param orderId Retrieve the data of the order with the specified ID (required)
      * @param _callback The callback to be executed when the API call finishes

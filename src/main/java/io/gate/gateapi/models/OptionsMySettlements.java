@@ -107,7 +107,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Futures contract
+     * Options contract name
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -127,7 +127,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Strike price
+     * Strike price (quote currency)
      * @return strikePrice
     **/
     @javax.annotation.Nullable
@@ -147,7 +147,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * settlement price
+     * Settlement price (quote currency)
      * @return settlePrice
     **/
     @javax.annotation.Nullable
@@ -187,7 +187,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Settlement profit
+     * Settlement profit (quote currency)
      * @return settleProfit
     **/
     @javax.annotation.Nullable
@@ -207,7 +207,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Fee
+     * Fee (quote currency)
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -227,7 +227,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc.
+     * The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc. (quote currency)
      * @return realisedPnl
     **/
     @javax.annotation.Nullable

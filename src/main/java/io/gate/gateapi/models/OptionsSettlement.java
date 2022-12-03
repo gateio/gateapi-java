@@ -75,7 +75,7 @@ public class OptionsSettlement {
     }
 
      /**
-     * Contract name
+     * Options contract name
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class OptionsSettlement {
     }
 
      /**
-     * Settlement profit per size
+     * Settlement profit per size (quote currency)
      * @return profit
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class OptionsSettlement {
     }
 
      /**
-     * Settlement fee per size
+     * Settlement fee per size (quote currency)
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class OptionsSettlement {
     }
 
      /**
-     * Strike price
+     * Strike price (quote currency)
      * @return strikePrice
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class OptionsSettlement {
     }
 
      /**
-     * settlement price
+     * Settlement price (quote currency)
      * @return settlePrice
     **/
     @javax.annotation.Nullable

@@ -190,7 +190,7 @@ public class FuturesOrder {
     private Boolean isLiq;
 
     /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
      */
     @JsonAdapter(TifEnum.Adapter.class)
     public enum TifEnum {
@@ -198,7 +198,9 @@ public class FuturesOrder {
         
         IOC("ioc"),
         
-        POC("poc");
+        POC("poc"),
+        
+        FOK("fok");
 
         private String value;
 
@@ -533,7 +535,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
      * @return tif
     **/
     @javax.annotation.Nullable

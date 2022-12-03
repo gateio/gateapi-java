@@ -105,11 +105,13 @@ public class Order {
     private String currencyPair;
 
     /**
-     * Order type. limit - limit order
+     * Order Type   - limit : Limit Order - market : Market Order
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
-        LIMIT("limit");
+        LIMIT("limit"),
+        
+        MARKET("market");
 
         private String value;
 
@@ -266,7 +268,7 @@ public class Order {
     private String price;
 
     /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
+     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60;
      */
     @JsonAdapter(TimeInForceEnum.Adapter.class)
     public enum TimeInForceEnum {
@@ -359,6 +361,14 @@ public class Order {
     public static final String SERIALIZED_NAME_GT_FEE = "gt_fee";
     @SerializedName(SERIALIZED_NAME_GT_FEE)
     private String gtFee;
+
+    public static final String SERIALIZED_NAME_GT_MAKER_FEE = "gt_maker_fee";
+    @SerializedName(SERIALIZED_NAME_GT_MAKER_FEE)
+    private String gtMakerFee;
+
+    public static final String SERIALIZED_NAME_GT_TAKER_FEE = "gt_taker_fee";
+    @SerializedName(SERIALIZED_NAME_GT_TAKER_FEE)
+    private String gtTakerFee;
 
     public static final String SERIALIZED_NAME_GT_DISCOUNT = "gt_discount";
     @SerializedName(SERIALIZED_NAME_GT_DISCOUNT)
@@ -479,7 +489,7 @@ public class Order {
     }
 
      /**
-     * Order type. limit - limit order
+     * Order Type   - limit : Limit Order - market : Market Order
      * @return type
     **/
     @javax.annotation.Nullable
@@ -538,7 +548,7 @@ public class Order {
     }
 
      /**
-     * Trade amount
+     * When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
      * @return amount
     **/
     public String getAmount() {
@@ -557,9 +567,10 @@ public class Order {
     }
 
      /**
-     * Order price
+     * Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;
      * @return price
     **/
+    @javax.annotation.Nullable
     public String getPrice() {
         return price;
     }
@@ -576,7 +587,7 @@ public class Order {
     }
 
      /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
+     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60;
      * @return timeInForce
     **/
     @javax.annotation.Nullable
@@ -720,6 +731,26 @@ public class Order {
 
 
      /**
+     * GT used to deduct maker fee
+     * @return gtMakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getGtMakerFee() {
+        return gtMakerFee;
+    }
+
+
+     /**
+     * GT used to deduct taker fee
+     * @return gtTakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getGtTakerFee() {
+        return gtTakerFee;
+    }
+
+
+     /**
      * Whether GT fee discount is used
      * @return gtDiscount
     **/
@@ -781,6 +812,8 @@ public class Order {
                 Objects.equals(this.feeCurrency, order.feeCurrency) &&
                 Objects.equals(this.pointFee, order.pointFee) &&
                 Objects.equals(this.gtFee, order.gtFee) &&
+                Objects.equals(this.gtMakerFee, order.gtMakerFee) &&
+                Objects.equals(this.gtTakerFee, order.gtTakerFee) &&
                 Objects.equals(this.gtDiscount, order.gtDiscount) &&
                 Objects.equals(this.rebatedFee, order.rebatedFee) &&
                 Objects.equals(this.rebatedFeeCurrency, order.rebatedFeeCurrency);
@@ -788,7 +821,7 @@ public class Order {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
+        return Objects.hash(id, text, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
     }
 
 
@@ -820,6 +853,8 @@ public class Order {
         sb.append("      feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
         sb.append("      pointFee: ").append(toIndentedString(pointFee)).append("\n");
         sb.append("      gtFee: ").append(toIndentedString(gtFee)).append("\n");
+        sb.append("      gtMakerFee: ").append(toIndentedString(gtMakerFee)).append("\n");
+        sb.append("      gtTakerFee: ").append(toIndentedString(gtTakerFee)).append("\n");
         sb.append("      gtDiscount: ").append(toIndentedString(gtDiscount)).append("\n");
         sb.append("      rebatedFee: ").append(toIndentedString(rebatedFee)).append("\n");
         sb.append("      rebatedFeeCurrency: ").append(toIndentedString(rebatedFeeCurrency)).append("\n");

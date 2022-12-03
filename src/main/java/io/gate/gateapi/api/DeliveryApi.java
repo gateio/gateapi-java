@@ -4085,7 +4085,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Get a single order
+     * Get a price-triggered order
      * 
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)
@@ -4103,7 +4103,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Get a single order
+     * Get a price-triggered order
      * 
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)
@@ -4122,7 +4122,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Get a single order (asynchronously)
+     * Get a price-triggered order (asynchronously)
      * 
      * @param settle Settle currency (required)
      * @param orderId Retrieve the data of the order with the specified ID (required)

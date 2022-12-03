@@ -155,7 +155,7 @@ public class FuturesTrade {
     }
 
      /**
-     * Trading price
+     * Trading price (quote currency)
      * @return price
     **/
     @javax.annotation.Nullable

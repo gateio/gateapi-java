@@ -59,7 +59,7 @@ public class OptionsUnderlying {
     }
 
      /**
-     * Spot index price
+     * Spot index price (quote currency)
      * @return indexPrice
     **/
     @javax.annotation.Nullable

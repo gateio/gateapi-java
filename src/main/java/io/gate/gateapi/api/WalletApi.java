@@ -28,6 +28,7 @@ import io.gate.gateapi.models.SubAccountBalance;
 import io.gate.gateapi.models.SubAccountCrossMarginBalance;
 import io.gate.gateapi.models.SubAccountFuturesBalance;
 import io.gate.gateapi.models.SubAccountMarginBalance;
+import io.gate.gateapi.models.SubAccountToSubAccount;
 import io.gate.gateapi.models.SubAccountTransfer;
 import io.gate.gateapi.models.TotalBalance;
 import io.gate.gateapi.models.TradeFee;
@@ -876,7 +877,7 @@ public class WalletApi {
 
         /**
          * Set subUid
-         * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+         * @param subUid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
          * @return APIlistSubAccountTransfersRequest
          */
         public APIlistSubAccountTransfersRequest subUid(String subUid) {
@@ -1101,6 +1102,109 @@ public class WalletApi {
         return localVarCall;
     }
 
+    /**
+     * Build call for subAccountToSubAccount
+     * @param subAccountToSubAccount  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call subAccountToSubAccountCall(SubAccountToSubAccount subAccountToSubAccount, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = subAccountToSubAccount;
+
+        // create path and map variables
+        String localVarPath = "/wallet/sub_account_to_sub_account";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call subAccountToSubAccountValidateBeforeCall(SubAccountToSubAccount subAccountToSubAccount, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'subAccountToSubAccount' is set
+        if (subAccountToSubAccount == null) {
+            throw new ApiException("Missing the required parameter 'subAccountToSubAccount' when calling subAccountToSubAccount(Async)");
+        }
+
+        okhttp3.Call localVarCall = subAccountToSubAccountCall(subAccountToSubAccount, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Sub-account transfers to sub-account
+     * 
+     * @param subAccountToSubAccount  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+     </table>
+     */
+    public void subAccountToSubAccount(SubAccountToSubAccount subAccountToSubAccount) throws ApiException {
+        subAccountToSubAccountWithHttpInfo(subAccountToSubAccount);
+    }
+
+    /**
+     * Sub-account transfers to sub-account
+     * 
+     * @param subAccountToSubAccount  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> subAccountToSubAccountWithHttpInfo(SubAccountToSubAccount subAccountToSubAccount) throws ApiException {
+        okhttp3.Call localVarCall = subAccountToSubAccountValidateBeforeCall(subAccountToSubAccount, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Sub-account transfers to sub-account (asynchronously)
+     * 
+     * @param subAccountToSubAccount  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call subAccountToSubAccountAsync(SubAccountToSubAccount subAccountToSubAccount, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = subAccountToSubAccountValidateBeforeCall(subAccountToSubAccount, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
     private okhttp3.Call listWithdrawStatusCall(String currency, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -1305,7 +1409,7 @@ public class WalletApi {
 
         /**
          * Set subUid
-         * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+         * @param subUid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
          * @return APIlistSubAccountBalancesRequest
          */
         public APIlistSubAccountBalancesRequest subUid(String subUid) {
@@ -1448,7 +1552,7 @@ public class WalletApi {
 
         /**
          * Set subUid
-         * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+         * @param subUid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
          * @return APIlistSubAccountMarginBalancesRequest
          */
         public APIlistSubAccountMarginBalancesRequest subUid(String subUid) {
@@ -1596,7 +1700,7 @@ public class WalletApi {
 
         /**
          * Set subUid
-         * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+         * @param subUid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
          * @return APIlistSubAccountFuturesBalancesRequest
          */
         public APIlistSubAccountFuturesBalancesRequest subUid(String subUid) {
@@ -1749,7 +1853,7 @@ public class WalletApi {
 
         /**
          * Set subUid
-         * @param subUid Sub account user ID. Return records related to all sub accounts if not specified (optional)
+         * @param subUid User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)
          * @return APIlistSubAccountCrossMarginBalancesRequest
          */
         public APIlistSubAccountCrossMarginBalancesRequest subUid(String subUid) {
@@ -2001,7 +2105,7 @@ public class WalletApi {
         return new APIlistSavedAddressRequest(currency);
     }
 
-    private okhttp3.Call getTradeFeeCall(String currencyPair, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTradeFeeCall(String currencyPair, String settle, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2011,6 +2115,10 @@ public class WalletApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (currencyPair != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        if (settle != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("settle", settle));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2035,20 +2143,20 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTradeFeeValidateBeforeCall(String currencyPair, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = getTradeFeeCall(currencyPair, _callback);
+    private okhttp3.Call getTradeFeeValidateBeforeCall(String currencyPair, String settle, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTradeFeeCall(currencyPair, settle, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<TradeFee> getTradeFeeWithHttpInfo(String currencyPair) throws ApiException {
-        okhttp3.Call localVarCall = getTradeFeeValidateBeforeCall(currencyPair, null);
+    private ApiResponse<TradeFee> getTradeFeeWithHttpInfo(String currencyPair, String settle) throws ApiException {
+        okhttp3.Call localVarCall = getTradeFeeValidateBeforeCall(currencyPair, settle, null);
         Type localVarReturnType = new TypeToken<TradeFee>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTradeFeeAsync(String currencyPair, final ApiCallback<TradeFee> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getTradeFeeValidateBeforeCall(currencyPair, _callback);
+    private okhttp3.Call getTradeFeeAsync(String currencyPair, String settle, final ApiCallback<TradeFee> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTradeFeeValidateBeforeCall(currencyPair, settle, _callback);
         Type localVarReturnType = new TypeToken<TradeFee>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2056,6 +2164,7 @@ public class WalletApi {
 
     public class APIgetTradeFeeRequest {
         private String currencyPair;
+        private String settle;
 
         private APIgetTradeFeeRequest() {
         }
@@ -2071,6 +2180,16 @@ public class WalletApi {
         }
 
         /**
+         * Set settle
+         * @param settle Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)
+         * @return APIgetTradeFeeRequest
+         */
+        public APIgetTradeFeeRequest settle(String settle) {
+            this.settle = settle;
+            return this;
+        }
+
+        /**
          * Build call for getTradeFee
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -2082,7 +2201,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getTradeFeeCall(currencyPair, _callback);
+            return getTradeFeeCall(currencyPair, settle, _callback);
         }
 
         /**
@@ -2096,7 +2215,7 @@ public class WalletApi {
          </table>
          */
         public TradeFee execute() throws ApiException {
-            ApiResponse<TradeFee> localVarResp = getTradeFeeWithHttpInfo(currencyPair);
+            ApiResponse<TradeFee> localVarResp = getTradeFeeWithHttpInfo(currencyPair, settle);
             return localVarResp.getData();
         }
 
@@ -2111,7 +2230,7 @@ public class WalletApi {
          </table>
          */
         public ApiResponse<TradeFee> executeWithHttpInfo() throws ApiException {
-            return getTradeFeeWithHttpInfo(currencyPair);
+            return getTradeFeeWithHttpInfo(currencyPair, settle);
         }
 
         /**
@@ -2126,7 +2245,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<TradeFee> _callback) throws ApiException {
-            return getTradeFeeAsync(currencyPair, _callback);
+            return getTradeFeeAsync(currencyPair, settle, _callback);
         }
     }
 

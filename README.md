@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.26.0
-- SDK version: 6.26.0
+- API version: 4.34.0
+- SDK version: 6.34.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.26.0</version>
+    <version>6.34.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.26.0"
+compile "io.gate:gate-api:6.34.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.26.0.jar`
+* `target/gate-api-6.34.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -164,7 +164,7 @@ Class | Method | HTTP request | Description
 *DeliveryApi* | [**listPriceTriggeredDeliveryOrders**](docs/DeliveryApi.md#listPriceTriggeredDeliveryOrders) | **GET** /delivery/{settle}/price_orders | List all auto orders
 *DeliveryApi* | [**createPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#createPriceTriggeredDeliveryOrder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrderList**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
-*DeliveryApi* | [**getPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a single order
+*DeliveryApi* | [**getPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a price-triggered order
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order
 *FlashSwapApi* | [**listFlashSwapCurrencies**](docs/FlashSwapApi.md#listFlashSwapCurrencies) | **GET** /flash_swap/currencies | List all supported currencies in flash swap
 *FlashSwapApi* | [**listFlashSwapOrders**](docs/FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders
@@ -176,6 +176,7 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listFuturesOrderBook**](docs/FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Futures order book
 *FuturesApi* | [**listFuturesTrades**](docs/FuturesApi.md#listFuturesTrades) | **GET** /futures/{settle}/trades | Futures trading history
 *FuturesApi* | [**listFuturesCandlesticks**](docs/FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/{settle}/candlesticks | Get futures candlesticks
+*FuturesApi* | [**listFuturesPremiumIndex**](docs/FuturesApi.md#listFuturesPremiumIndex) | **GET** /futures/{settle}/premium_index | Premium Index K-Line
 *FuturesApi* | [**listFuturesTickers**](docs/FuturesApi.md#listFuturesTickers) | **GET** /futures/{settle}/tickers | List futures tickers
 *FuturesApi* | [**listFuturesFundingRateHistory**](docs/FuturesApi.md#listFuturesFundingRateHistory) | **GET** /futures/{settle}/funding_rate | Funding rate history
 *FuturesApi* | [**listFuturesInsuranceLedger**](docs/FuturesApi.md#listFuturesInsuranceLedger) | **GET** /futures/{settle}/insurance | Futures insurance balance history
@@ -197,16 +198,18 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listFuturesOrders**](docs/FuturesApi.md#listFuturesOrders) | **GET** /futures/{settle}/orders | List futures orders
 *FuturesApi* | [**createFuturesOrder**](docs/FuturesApi.md#createFuturesOrder) | **POST** /futures/{settle}/orders | Create a futures order
 *FuturesApi* | [**cancelFuturesOrders**](docs/FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
+*FuturesApi* | [**createBatchFuturesOrder**](docs/FuturesApi.md#createBatchFuturesOrder) | **POST** /futures/{settle}/batch_orders | Create a batch of futures orders
 *FuturesApi* | [**getFuturesOrder**](docs/FuturesApi.md#getFuturesOrder) | **GET** /futures/{settle}/orders/{order_id} | Get a single order
 *FuturesApi* | [**amendFuturesOrder**](docs/FuturesApi.md#amendFuturesOrder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
 *FuturesApi* | [**cancelFuturesOrder**](docs/FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
 *FuturesApi* | [**getMyTrades**](docs/FuturesApi.md#getMyTrades) | **GET** /futures/{settle}/my_trades | List personal trading history
 *FuturesApi* | [**listPositionClose**](docs/FuturesApi.md#listPositionClose) | **GET** /futures/{settle}/position_close | List position close history
 *FuturesApi* | [**listLiquidates**](docs/FuturesApi.md#listLiquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
+*FuturesApi* | [**countdownCancelAllFutures**](docs/FuturesApi.md#countdownCancelAllFutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 *FuturesApi* | [**listPriceTriggeredOrders**](docs/FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
 *FuturesApi* | [**createPriceTriggeredOrder**](docs/FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 *FuturesApi* | [**cancelPriceTriggeredOrderList**](docs/FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
-*FuturesApi* | [**getPriceTriggeredOrder**](docs/FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Get a single order
+*FuturesApi* | [**getPriceTriggeredOrder**](docs/FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Get a price-triggered order
 *FuturesApi* | [**cancelPriceTriggeredOrder**](docs/FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | cancel a price-triggered order
 *MarginApi* | [**listMarginCurrencyPairs**](docs/MarginApi.md#listMarginCurrencyPairs) | **GET** /margin/currency_pairs | List all supported currency pairs supported in margin trading
 *MarginApi* | [**getMarginCurrencyPair**](docs/MarginApi.md#getMarginCurrencyPair) | **GET** /margin/currency_pairs/{currency_pair} | Query one single margin currency pair
@@ -247,10 +250,10 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**listOptionsSettlements**](docs/OptionsApi.md#listOptionsSettlements) | **GET** /options/settlements | List settlement history
 *OptionsApi* | [**getOptionsSettlement**](docs/OptionsApi.md#getOptionsSettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement
 *OptionsApi* | [**listMyOptionsSettlements**](docs/OptionsApi.md#listMyOptionsSettlements) | **GET** /options/my_settlements | List my options settlements
-*OptionsApi* | [**listOptionsOrderBook**](docs/OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Futures order book
+*OptionsApi* | [**listOptionsOrderBook**](docs/OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Options order book
 *OptionsApi* | [**listOptionsTickers**](docs/OptionsApi.md#listOptionsTickers) | **GET** /options/tickers | List tickers of options contracts
 *OptionsApi* | [**listOptionsUnderlyingTickers**](docs/OptionsApi.md#listOptionsUnderlyingTickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker
-*OptionsApi* | [**listOptionsCandlesticks**](docs/OptionsApi.md#listOptionsCandlesticks) | **GET** /options/candlesticks | Get futures candlesticks
+*OptionsApi* | [**listOptionsCandlesticks**](docs/OptionsApi.md#listOptionsCandlesticks) | **GET** /options/candlesticks | Get options candlesticks
 *OptionsApi* | [**listOptionsUnderlyingCandlesticks**](docs/OptionsApi.md#listOptionsUnderlyingCandlesticks) | **GET** /options/underlying/candlesticks | Mark price candlesticks of an underlying
 *OptionsApi* | [**listOptionsTrades**](docs/OptionsApi.md#listOptionsTrades) | **GET** /options/trades | Options trade history
 *OptionsApi* | [**listOptionsAccount**](docs/OptionsApi.md#listOptionsAccount) | **GET** /options/accounts | List options account
@@ -258,7 +261,7 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**listOptionsPositions**](docs/OptionsApi.md#listOptionsPositions) | **GET** /options/positions | List user&#39;s positions of specified underlying
 *OptionsApi* | [**getOptionsPosition**](docs/OptionsApi.md#getOptionsPosition) | **GET** /options/positions/{contract} | Get specified contract position
 *OptionsApi* | [**listOptionsPositionClose**](docs/OptionsApi.md#listOptionsPositionClose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying
-*OptionsApi* | [**listOptionsOrders**](docs/OptionsApi.md#listOptionsOrders) | **GET** /options/orders | List futures orders
+*OptionsApi* | [**listOptionsOrders**](docs/OptionsApi.md#listOptionsOrders) | **GET** /options/orders | List options orders
 *OptionsApi* | [**createOptionsOrder**](docs/OptionsApi.md#createOptionsOrder) | **POST** /options/orders | Create an options order
 *OptionsApi* | [**cancelOptionsOrders**](docs/OptionsApi.md#cancelOptionsOrders) | **DELETE** /options/orders | Cancel all &#x60;open&#x60; orders matched
 *OptionsApi* | [**getOptionsOrder**](docs/OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Get a single order
@@ -285,11 +288,22 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**cancelOrder**](docs/SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 *SpotApi* | [**listMyTrades**](docs/SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
 *SpotApi* | [**getSystemTime**](docs/SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time
+*SpotApi* | [**countdownCancelAllSpot**](docs/SpotApi.md#countdownCancelAllSpot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders
 *SpotApi* | [**listSpotPriceTriggeredOrders**](docs/SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
 *SpotApi* | [**createSpotPriceTriggeredOrder**](docs/SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
 *SpotApi* | [**cancelSpotPriceTriggeredOrderList**](docs/SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
-*SpotApi* | [**getSpotPriceTriggeredOrder**](docs/SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a single order
+*SpotApi* | [**getSpotPriceTriggeredOrder**](docs/SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a price-triggered order
 *SpotApi* | [**cancelSpotPriceTriggeredOrder**](docs/SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | cancel a price-triggered order
+*SubAccountApi* | [**listSubAccounts**](docs/SubAccountApi.md#listSubAccounts) | **GET** /sub_accounts | List sub-accounts
+*SubAccountApi* | [**createSubAccounts**](docs/SubAccountApi.md#createSubAccounts) | **POST** /sub_accounts | Create a new sub-account
+*SubAccountApi* | [**getSubAccount**](docs/SubAccountApi.md#getSubAccount) | **GET** /sub_accounts/{user_id} | Get the sub-account
+*SubAccountApi* | [**listSubAccountKeys**](docs/SubAccountApi.md#listSubAccountKeys) | **GET** /sub_accounts/{user_id}/keys | List all API Key of the sub-account
+*SubAccountApi* | [**createSubAccountKeys**](docs/SubAccountApi.md#createSubAccountKeys) | **POST** /sub_accounts/{user_id}/keys | Create API Key of the sub-account
+*SubAccountApi* | [**getSubAccountKey**](docs/SubAccountApi.md#getSubAccountKey) | **GET** /sub_accounts/{user_id}/keys/{key} | Get the API Key of the sub-account
+*SubAccountApi* | [**updateSubAccountKeys**](docs/SubAccountApi.md#updateSubAccountKeys) | **PUT** /sub_accounts/{user_id}/keys/{key} | Update API key of the sub-account
+*SubAccountApi* | [**deleteSubAccountKeys**](docs/SubAccountApi.md#deleteSubAccountKeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account
+*SubAccountApi* | [**lockSubAccount**](docs/SubAccountApi.md#lockSubAccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account
+*SubAccountApi* | [**unlockSubAccount**](docs/SubAccountApi.md#unlockSubAccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account
 *WalletApi* | [**listCurrencyChains**](docs/WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | List chains supported for specified currency
 *WalletApi* | [**getDepositAddress**](docs/WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
 *WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
@@ -297,6 +311,7 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**transfer**](docs/WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
 *WalletApi* | [**listSubAccountTransfers**](docs/WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
 *WalletApi* | [**transferWithSubAccount**](docs/WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
+*WalletApi* | [**subAccountToSubAccount**](docs/WalletApi.md#subAccountToSubAccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account
 *WalletApi* | [**listWithdrawStatus**](docs/WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 *WalletApi* | [**listSubAccountBalances**](docs/WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 *WalletApi* | [**listSubAccountMarginBalances**](docs/WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
@@ -312,12 +327,16 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AccountBalance](docs/AccountBalance.md)
+ - [ApiV4KeyPerm](docs/ApiV4KeyPerm.md)
  - [AutoRepaySetting](docs/AutoRepaySetting.md)
+ - [BatchFuturesOrder](docs/BatchFuturesOrder.md)
  - [BatchOrder](docs/BatchOrder.md)
  - [CancelOrder](docs/CancelOrder.md)
  - [CancelOrderResult](docs/CancelOrderResult.md)
  - [Contract](docs/Contract.md)
  - [ContractStat](docs/ContractStat.md)
+ - [CountdownCancelAllFuturesTask](docs/CountdownCancelAllFuturesTask.md)
+ - [CountdownCancelAllSpotTask](docs/CountdownCancelAllSpotTask.md)
  - [CrossMarginAccount](docs/CrossMarginAccount.md)
  - [CrossMarginAccountBook](docs/CrossMarginAccountBook.md)
  - [CrossMarginBalance](docs/CrossMarginBalance.md)
@@ -351,6 +370,7 @@ Class | Method | HTTP request | Description
  - [FuturesOrderAmendment](docs/FuturesOrderAmendment.md)
  - [FuturesOrderBook](docs/FuturesOrderBook.md)
  - [FuturesOrderBookItem](docs/FuturesOrderBookItem.md)
+ - [FuturesPremiumIndex](docs/FuturesPremiumIndex.md)
  - [FuturesPriceTrigger](docs/FuturesPriceTrigger.md)
  - [FuturesPriceTriggeredOrder](docs/FuturesPriceTriggeredOrder.md)
  - [FuturesTicker](docs/FuturesTicker.md)
@@ -373,12 +393,14 @@ Class | Method | HTTP request | Description
  - [OpenOrders](docs/OpenOrders.md)
  - [OptionsAccount](docs/OptionsAccount.md)
  - [OptionsAccountBook](docs/OptionsAccountBook.md)
+ - [OptionsCandlestick](docs/OptionsCandlestick.md)
  - [OptionsContract](docs/OptionsContract.md)
  - [OptionsMySettlements](docs/OptionsMySettlements.md)
  - [OptionsMyTrade](docs/OptionsMyTrade.md)
  - [OptionsOrder](docs/OptionsOrder.md)
  - [OptionsPosition](docs/OptionsPosition.md)
  - [OptionsPositionClose](docs/OptionsPositionClose.md)
+ - [OptionsPositionCloseOrder](docs/OptionsPositionCloseOrder.md)
  - [OptionsSettlement](docs/OptionsSettlement.md)
  - [OptionsTicker](docs/OptionsTicker.md)
  - [OptionsUnderlying](docs/OptionsUnderlying.md)
@@ -395,10 +417,13 @@ Class | Method | HTTP request | Description
  - [SpotPricePutOrder](docs/SpotPricePutOrder.md)
  - [SpotPriceTrigger](docs/SpotPriceTrigger.md)
  - [SpotPriceTriggeredOrder](docs/SpotPriceTriggeredOrder.md)
+ - [SubAccount](docs/SubAccount.md)
  - [SubAccountBalance](docs/SubAccountBalance.md)
  - [SubAccountCrossMarginBalance](docs/SubAccountCrossMarginBalance.md)
  - [SubAccountFuturesBalance](docs/SubAccountFuturesBalance.md)
+ - [SubAccountKey](docs/SubAccountKey.md)
  - [SubAccountMarginBalance](docs/SubAccountMarginBalance.md)
+ - [SubAccountToSubAccount](docs/SubAccountToSubAccount.md)
  - [SubAccountTransfer](docs/SubAccountTransfer.md)
  - [SubCrossMarginAccount](docs/SubCrossMarginAccount.md)
  - [SystemTime](docs/SystemTime.md)
@@ -409,6 +434,7 @@ Class | Method | HTTP request | Description
  - [TransactionID](docs/TransactionID.md)
  - [Transfer](docs/Transfer.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
+ - [TriggerTime](docs/TriggerTime.md)
  - [WithdrawStatus](docs/WithdrawStatus.md)
 
 

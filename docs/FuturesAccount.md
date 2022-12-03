@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **String** | total &#x3D; position_margin + order_margin + available |  [optional]
+**total** | **String** | total is the balance after the user&#39;s accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund) |  [optional]
 **unrealisedPnl** | **String** | Unrealized PNL |  [optional]
 **positionMargin** | **String** | Position margin |  [optional]
 **orderMargin** | **String** | Order margin of unfinished orders |  [optional]

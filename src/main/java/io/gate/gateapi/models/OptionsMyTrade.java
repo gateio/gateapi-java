@@ -150,7 +150,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Futures contract
+     * Options contract name
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -210,7 +210,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Trading price
+     * Trading price (quote currency)
      * @return price
     **/
     @javax.annotation.Nullable
@@ -230,7 +230,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Underlying price
+     * Underlying price (quote currency)
      * @return underlyingPrice
     **/
     @javax.annotation.Nullable

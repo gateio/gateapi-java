@@ -106,7 +106,7 @@ public class OptionsPositionClose {
 
 
      /**
-     * Futures contract
+     * Options contract name
      * @return contract
     **/
     @javax.annotation.Nullable

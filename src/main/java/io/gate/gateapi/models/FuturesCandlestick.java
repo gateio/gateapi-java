@@ -75,7 +75,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * size volume. Only returned if &#x60;contract&#x60; is not prefixed
+     * size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed
      * @return v
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Close price
+     * Close price (quote currency)
      * @return c
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Highest price
+     * Highest price (quote currency)
      * @return h
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Lowest price
+     * Lowest price (quote currency)
      * @return l
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Open price
+     * Open price (quote currency)
      * @return o
     **/
     @javax.annotation.Nullable

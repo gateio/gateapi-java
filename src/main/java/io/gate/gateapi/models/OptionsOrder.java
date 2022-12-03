@@ -190,7 +190,7 @@ public class OptionsOrder {
     private Boolean isLiq;
 
     /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
      */
     @JsonAdapter(TifEnum.Adapter.class)
     public enum TifEnum {
@@ -265,6 +265,10 @@ public class OptionsOrder {
     public static final String SERIALIZED_NAME_REFU = "refu";
     @SerializedName(SERIALIZED_NAME_REFU)
     private Integer refu;
+
+    public static final String SERIALIZED_NAME_REFR = "refr";
+    @SerializedName(SERIALIZED_NAME_REFR)
+    private String refr;
 
 
      /**
@@ -392,7 +396,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;
+     * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT)
      * @return price
     **/
     @javax.annotation.Nullable
@@ -482,7 +486,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
      * @return tif
     **/
     @javax.annotation.Nullable
@@ -564,6 +568,16 @@ public class OptionsOrder {
         return refu;
     }
 
+
+     /**
+     * Referrer rebate
+     * @return refr
+    **/
+    @javax.annotation.Nullable
+    public String getRefr() {
+        return refr;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -594,12 +608,13 @@ public class OptionsOrder {
                 Objects.equals(this.text, optionsOrder.text) &&
                 Objects.equals(this.tkfr, optionsOrder.tkfr) &&
                 Objects.equals(this.mkfr, optionsOrder.mkfr) &&
-                Objects.equals(this.refu, optionsOrder.refu);
+                Objects.equals(this.refu, optionsOrder.refu) &&
+                Objects.equals(this.refr, optionsOrder.refr);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu);
+        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, refr);
     }
 
 
@@ -629,6 +644,7 @@ public class OptionsOrder {
         sb.append("      tkfr: ").append(toIndentedString(tkfr)).append("\n");
         sb.append("      mkfr: ").append(toIndentedString(mkfr)).append("\n");
         sb.append("      refu: ").append(toIndentedString(refu)).append("\n");
+        sb.append("      refr: ").append(toIndentedString(refr)).append("\n");
         sb.append("}");
         return sb.toString();
     }

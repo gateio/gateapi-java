@@ -39,7 +39,7 @@ public class FuturesOrderBookItem {
     }
 
      /**
-     * Price
+     * Price (quote currency)
      * @return p
     **/
     @javax.annotation.Nullable

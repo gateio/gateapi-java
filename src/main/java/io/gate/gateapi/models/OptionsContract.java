@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Futures contract details
+ * Options contract detail
  */
 public class OptionsContract {
     public static final String SERIALIZED_NAME_NAME = "name";
@@ -131,7 +131,7 @@ public class OptionsContract {
     }
 
      /**
-     * Futures contract
+     * Options contract name
      * @return name
     **/
     @javax.annotation.Nullable
@@ -271,7 +271,7 @@ public class OptionsContract {
     }
 
      /**
-     * Underlying price
+     * Underlying price (quote currency)
      * @return underlyingPrice
     **/
     @javax.annotation.Nullable
@@ -311,7 +311,7 @@ public class OptionsContract {
     }
 
      /**
-     * Current mark price
+     * Current mark price (quote currency)
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -331,7 +331,7 @@ public class OptionsContract {
     }
 
      /**
-     * Current index price
+     * Current index price (quote currency)
      * @return indexPrice
     **/
     @javax.annotation.Nullable

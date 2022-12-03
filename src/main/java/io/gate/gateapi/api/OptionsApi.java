@@ -25,6 +25,7 @@ import io.gate.gateapi.models.FuturesOrderBook;
 import io.gate.gateapi.models.FuturesTrade;
 import io.gate.gateapi.models.OptionsAccount;
 import io.gate.gateapi.models.OptionsAccountBook;
+import io.gate.gateapi.models.OptionsCandlestick;
 import io.gate.gateapi.models.OptionsContract;
 import io.gate.gateapi.models.OptionsMySettlements;
 import io.gate.gateapi.models.OptionsMyTrade;
@@ -161,7 +162,7 @@ public class OptionsApi {
 
     /**
      * Build call for listOptionsExpirations
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -218,7 +219,7 @@ public class OptionsApi {
     /**
      * List all expiration times
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return List&lt;Long&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -235,7 +236,7 @@ public class OptionsApi {
     /**
      * List all expiration times
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return ApiResponse&lt;List&lt;Long&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -253,7 +254,7 @@ public class OptionsApi {
     /**
      * List all expiration times (asynchronously)
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -413,7 +414,7 @@ public class OptionsApi {
     /**
      * List all the contracts with specified underlying and expiration time
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return APIlistOptionsContractsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -721,7 +722,7 @@ public class OptionsApi {
     /**
      * List settlement history
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return APIlistOptionsSettlementsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -736,7 +737,7 @@ public class OptionsApi {
     /**
      * Build call for getOptionsSettlement
      * @param contract  (required)
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param at  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -810,7 +811,7 @@ public class OptionsApi {
      * Get specified contract&#39;s settlement
      * 
      * @param contract  (required)
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param at  (required)
      * @return OptionsSettlement
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -829,7 +830,7 @@ public class OptionsApi {
      * Get specified contract&#39;s settlement
      * 
      * @param contract  (required)
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param at  (required)
      * @return ApiResponse&lt;OptionsSettlement&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -849,7 +850,7 @@ public class OptionsApi {
      * Get specified contract&#39;s settlement (asynchronously)
      * 
      * @param contract  (required)
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param at  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -959,7 +960,7 @@ public class OptionsApi {
 
         /**
          * Set contract
-         * @param contract Contract name (optional)
+         * @param contract Options contract name (optional)
          * @return APIlistMyOptionsSettlementsRequest
          */
         public APIlistMyOptionsSettlementsRequest contract(String contract) {
@@ -1070,7 +1071,7 @@ public class OptionsApi {
     /**
      * List my options settlements
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return APIlistMyOptionsSettlementsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1253,9 +1254,9 @@ public class OptionsApi {
     }
 
     /**
-     * Futures order book
+     * Options order book
      * Bids will be sorted by price from high to low, while asks sorted reversely
-     * @param contract Futures contract (required)
+     * @param contract Options contract name (required)
      * @return APIlistOptionsOrderBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1269,7 +1270,7 @@ public class OptionsApi {
 
     /**
      * Build call for listOptionsTickers
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1326,7 +1327,7 @@ public class OptionsApi {
     /**
      * List tickers of options contracts
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return List&lt;OptionsTicker&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1343,7 +1344,7 @@ public class OptionsApi {
     /**
      * List tickers of options contracts
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return ApiResponse&lt;List&lt;OptionsTicker&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1361,7 +1362,7 @@ public class OptionsApi {
     /**
      * List tickers of options contracts (asynchronously)
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1547,15 +1548,15 @@ public class OptionsApi {
     }
 
 
-    private ApiResponse<List<FuturesCandlestick>> listOptionsCandlesticksWithHttpInfo(String contract, Integer limit, Long from, Long to, String interval) throws ApiException {
+    private ApiResponse<List<OptionsCandlestick>> listOptionsCandlesticksWithHttpInfo(String contract, Integer limit, Long from, Long to, String interval) throws ApiException {
         okhttp3.Call localVarCall = listOptionsCandlesticksValidateBeforeCall(contract, limit, from, to, interval, null);
-        Type localVarReturnType = new TypeToken<List<FuturesCandlestick>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OptionsCandlestick>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listOptionsCandlesticksAsync(String contract, Integer limit, Long from, Long to, String interval, final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
+    private okhttp3.Call listOptionsCandlesticksAsync(String contract, Integer limit, Long from, Long to, String interval, final ApiCallback<List<OptionsCandlestick>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listOptionsCandlesticksValidateBeforeCall(contract, limit, from, to, interval, _callback);
-        Type localVarReturnType = new TypeToken<List<FuturesCandlestick>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OptionsCandlestick>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1628,7 +1629,7 @@ public class OptionsApi {
 
         /**
          * Execute listOptionsCandlesticks request
-         * @return List&lt;FuturesCandlestick&gt;
+         * @return List&lt;OptionsCandlestick&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1636,14 +1637,14 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public List<FuturesCandlestick> execute() throws ApiException {
-            ApiResponse<List<FuturesCandlestick>> localVarResp = listOptionsCandlesticksWithHttpInfo(contract, limit, from, to, interval);
+        public List<OptionsCandlestick> execute() throws ApiException {
+            ApiResponse<List<OptionsCandlestick>> localVarResp = listOptionsCandlesticksWithHttpInfo(contract, limit, from, to, interval);
             return localVarResp.getData();
         }
 
         /**
          * Execute listOptionsCandlesticks request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;FuturesCandlestick&gt;&gt;
+         * @return ApiResponse&lt;List&lt;OptionsCandlestick&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1651,7 +1652,7 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<FuturesCandlestick>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<OptionsCandlestick>> executeWithHttpInfo() throws ApiException {
             return listOptionsCandlesticksWithHttpInfo(contract, limit, from, to, interval);
         }
 
@@ -1666,15 +1667,15 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<OptionsCandlestick>> _callback) throws ApiException {
             return listOptionsCandlesticksAsync(contract, limit, from, to, interval, _callback);
         }
     }
 
     /**
-     * Get futures candlesticks
+     * Get options candlesticks
      * 
-     * @param contract Futures contract (required)
+     * @param contract Options contract name (required)
      * @return APIlistOptionsCandlesticksRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1874,7 +1875,7 @@ public class OptionsApi {
     /**
      * Mark price candlesticks of an underlying
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return APIlistOptionsUnderlyingCandlesticksRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1972,7 +1973,7 @@ public class OptionsApi {
 
         /**
          * Set contract
-         * @param contract Contract name (optional)
+         * @param contract Options contract name (optional)
          * @return APIlistOptionsTradesRequest
          */
         public APIlistOptionsTradesRequest contract(String contract) {
@@ -2728,7 +2729,7 @@ public class OptionsApi {
 
         /**
          * Set contract
-         * @param contract Contract name (optional)
+         * @param contract Options contract name (optional)
          * @return APIlistOptionsPositionCloseRequest
          */
         public APIlistOptionsPositionCloseRequest contract(String contract) {
@@ -2799,7 +2800,7 @@ public class OptionsApi {
     /**
      * List user&#39;s liquidation history of specified underlying
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return APIlistOptionsPositionCloseRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2908,7 +2909,7 @@ public class OptionsApi {
 
         /**
          * Set contract
-         * @param contract Contract name (optional)
+         * @param contract Options contract name (optional)
          * @return APIlistOptionsOrdersRequest
          */
         public APIlistOptionsOrdersRequest contract(String contract) {
@@ -3027,7 +3028,7 @@ public class OptionsApi {
     }
 
     /**
-     * List futures orders
+     * List options orders
      * 
      * @param status Only list the orders with this status (required)
      * @return APIlistOptionsOrdersRequest
@@ -3150,7 +3151,7 @@ public class OptionsApi {
 
     /**
      * Build call for cancelOptionsOrders
-     * @param contract Contract name (optional)
+     * @param contract Options contract name (optional)
      * @param underlying Underlying (optional)
      * @param side All bids or asks. Both included if not specified (optional)
      * @param _callback Callback for upload/download progress
@@ -3212,7 +3213,7 @@ public class OptionsApi {
     /**
      * Cancel all &#x60;open&#x60; orders matched
      * 
-     * @param contract Contract name (optional)
+     * @param contract Options contract name (optional)
      * @param underlying Underlying (optional)
      * @param side All bids or asks. Both included if not specified (optional)
      * @return List&lt;OptionsOrder&gt;
@@ -3231,7 +3232,7 @@ public class OptionsApi {
     /**
      * Cancel all &#x60;open&#x60; orders matched
      * 
-     * @param contract Contract name (optional)
+     * @param contract Options contract name (optional)
      * @param underlying Underlying (optional)
      * @param side All bids or asks. Both included if not specified (optional)
      * @return ApiResponse&lt;List&lt;OptionsOrder&gt;&gt;
@@ -3251,7 +3252,7 @@ public class OptionsApi {
     /**
      * Cancel all &#x60;open&#x60; orders matched (asynchronously)
      * 
-     * @param contract Contract name (optional)
+     * @param contract Options contract name (optional)
      * @param underlying Underlying (optional)
      * @param side All bids or asks. Both included if not specified (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3578,7 +3579,7 @@ public class OptionsApi {
 
         /**
          * Set contract
-         * @param contract Contract name (optional)
+         * @param contract Options contract name (optional)
          * @return APIlistMyOptionsTradesRequest
          */
         public APIlistMyOptionsTradesRequest contract(String contract) {
@@ -3689,7 +3690,7 @@ public class OptionsApi {
     /**
      * List personal trading history
      * 
-     * @param underlying Underlying (required)
+     * @param underlying Underlying (Obtained by listing underlying endpoint) (required)
      * @return APIlistMyOptionsTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">

@@ -71,7 +71,7 @@ public class OptionsAccountBook {
     }
 
      /**
-     * Amount changed
+     * Amount changed (USDT)
      * @return change
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class OptionsAccountBook {
     }
 
      /**
-     * Account total balance after change
+     * Account total balance after change (USDT)
      * @return balance
     **/
     @javax.annotation.Nullable

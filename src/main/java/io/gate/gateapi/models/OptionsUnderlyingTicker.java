@@ -83,7 +83,7 @@ public class OptionsUnderlyingTicker {
     }
 
      /**
-     * Index price
+     * Index price (quote currency)
      * @return indexPrice
     **/
     @javax.annotation.Nullable

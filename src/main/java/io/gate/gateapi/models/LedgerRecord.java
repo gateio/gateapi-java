@@ -261,7 +261,6 @@ public class LedgerRecord {
      * Name of the chain used in withdrawals
      * @return chain
     **/
-    @javax.annotation.Nullable
     public String getChain() {
         return chain;
     }
@@ -269,12 +268,6 @@ public class LedgerRecord {
 
     public void setChain(String chain) {
         this.chain = chain;
-    }
-
-    public LedgerRecord fee(String fee) {
-        
-        this.fee = fee;
-        return this;
     }
 
      /**
@@ -286,10 +279,6 @@ public class LedgerRecord {
         return fee;
     }
 
-
-    public void setFee(String fee) {
-        this.fee = fee;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Contract detail.  USD value per contract:  - USDT settled contracts： &#x60;quanto_multiplier x token price&#x60; - BTC settled contracts：&#x60;quanto_multiplier x BTC price x token price&#x60;
+ * Futures contract details
  */
 public class Contract {
     public static final String SERIALIZED_NAME_NAME = "name";

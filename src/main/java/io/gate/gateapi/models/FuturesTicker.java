@@ -91,6 +91,14 @@ public class FuturesTicker {
     @SerializedName(SERIALIZED_NAME_QUANTO_BASE_RATE)
     private String quantoBaseRate;
 
+    public static final String SERIALIZED_NAME_BASIS_RATE = "basis_rate";
+    @SerializedName(SERIALIZED_NAME_BASIS_RATE)
+    private String basisRate;
+
+    public static final String SERIALIZED_NAME_BASIS_VALUE = "basis_value";
+    @SerializedName(SERIALIZED_NAME_BASIS_VALUE)
+    private String basisValue;
+
 
     public FuturesTicker contract(String contract) {
         
@@ -431,6 +439,46 @@ public class FuturesTicker {
     public void setQuantoBaseRate(String quantoBaseRate) {
         this.quantoBaseRate = quantoBaseRate;
     }
+
+    public FuturesTicker basisRate(String basisRate) {
+        
+        this.basisRate = basisRate;
+        return this;
+    }
+
+     /**
+     * Basis rate
+     * @return basisRate
+    **/
+    @javax.annotation.Nullable
+    public String getBasisRate() {
+        return basisRate;
+    }
+
+
+    public void setBasisRate(String basisRate) {
+        this.basisRate = basisRate;
+    }
+
+    public FuturesTicker basisValue(String basisValue) {
+        
+        this.basisValue = basisValue;
+        return this;
+    }
+
+     /**
+     * Basis value
+     * @return basisValue
+    **/
+    @javax.annotation.Nullable
+    public String getBasisValue() {
+        return basisValue;
+    }
+
+
+    public void setBasisValue(String basisValue) {
+        this.basisValue = basisValue;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -456,12 +504,14 @@ public class FuturesTicker {
                 Objects.equals(this.fundingRate, futuresTicker.fundingRate) &&
                 Objects.equals(this.fundingRateIndicative, futuresTicker.fundingRateIndicative) &&
                 Objects.equals(this.indexPrice, futuresTicker.indexPrice) &&
-                Objects.equals(this.quantoBaseRate, futuresTicker.quantoBaseRate);
+                Objects.equals(this.quantoBaseRate, futuresTicker.quantoBaseRate) &&
+                Objects.equals(this.basisRate, futuresTicker.basisRate) &&
+                Objects.equals(this.basisValue, futuresTicker.basisValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contract, last, changePercentage, totalSize, low24h, high24h, volume24h, volume24hBtc, volume24hUsd, volume24hBase, volume24hQuote, volume24hSettle, markPrice, fundingRate, fundingRateIndicative, indexPrice, quantoBaseRate);
+        return Objects.hash(contract, last, changePercentage, totalSize, low24h, high24h, volume24h, volume24hBtc, volume24hUsd, volume24hBase, volume24hQuote, volume24hSettle, markPrice, fundingRate, fundingRateIndicative, indexPrice, quantoBaseRate, basisRate, basisValue);
     }
 
 
@@ -486,6 +536,8 @@ public class FuturesTicker {
         sb.append("      fundingRateIndicative: ").append(toIndentedString(fundingRateIndicative)).append("\n");
         sb.append("      indexPrice: ").append(toIndentedString(indexPrice)).append("\n");
         sb.append("      quantoBaseRate: ").append(toIndentedString(quantoBaseRate)).append("\n");
+        sb.append("      basisRate: ").append(toIndentedString(basisRate)).append("\n");
+        sb.append("      basisValue: ").append(toIndentedString(basisValue)).append("\n");
         sb.append("}");
         return sb.toString();
     }

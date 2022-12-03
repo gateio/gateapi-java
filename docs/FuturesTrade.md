@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **createTimeMs** | **Double** | Trading time, with milliseconds set to 3 decimal places. |  [optional]
 **contract** | **String** | Futures contract |  [optional]
 **size** | **Long** | Trading size |  [optional]
-**price** | **String** | Trading price |  [optional]
+**price** | **String** | Trading price (quote currency) |  [optional]
 

@@ -59,7 +59,7 @@ public class FuturesOrderAmendment {
     }
 
      /**
-     * New order price. New price cannot take any orders
+     * New order price.
      * @return price
     **/
     @javax.annotation.Nullable

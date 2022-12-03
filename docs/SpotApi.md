@@ -25,10 +25,11 @@ Method | HTTP request | Description
 [**cancelOrder**](SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 [**listMyTrades**](SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
 [**getSystemTime**](SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time
+[**countdownCancelAllSpot**](SpotApi.md#countdownCancelAllSpot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders
 [**listSpotPriceTriggeredOrders**](SpotApi.md#listSpotPriceTriggeredOrders) | **GET** /spot/price_orders | Retrieve running auto order list
 [**createSpotPriceTriggeredOrder**](SpotApi.md#createSpotPriceTriggeredOrder) | **POST** /spot/price_orders | Create a price-triggered order
 [**cancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all open orders
-[**getSpotPriceTriggeredOrder**](SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a single order
+[**getSpotPriceTriggeredOrder**](SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Get a price-triggered order
 [**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | cancel a price-triggered order
 
 
@@ -455,7 +456,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Currency pair
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000
         String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
         Boolean reverse = false; // Boolean | Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified.
         Long from = 1627706330L; // Long | Start timestamp of the query
@@ -489,7 +490,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 | [optional] [default to 100]
  **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
  **reverse** | **Boolean**| Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
  **from** | **Long**| Start timestamp of the query | [optional]
@@ -1287,7 +1288,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
+        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         try {
@@ -1310,7 +1311,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
+ **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
  **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
@@ -1361,7 +1362,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
+        String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String account = "cross_margin"; // String | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         try {
@@ -1384,7 +1385,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. |
+ **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
  **account** | **String**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
@@ -1408,11 +1409,11 @@ Name | Type | Description  | Notes
 
 <a name="listMyTrades"></a>
 # **listMyTrades**
-> List&lt;Trade&gt; listMyTrades(currencyPair).limit(limit).page(page).orderId(orderId).account(account).from(from).to(to).execute();
+> List&lt;Trade&gt; listMyTrades().currencyPair(currencyPair).limit(limit).page(page).orderId(orderId).account(account).from(from).to(to).execute();
 
 List personal trading history
 
-Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
 
 ### Example
 
@@ -1435,7 +1436,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
+        String currencyPair = "BTC_USDT"; // String | Retrieve results with specified currency pair
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer page = 1; // Integer | Page number
         String orderId = "12345"; // String | Filter trades with specified order ID. `currency_pair` is also required if this field is present
@@ -1443,7 +1444,8 @@ public class Example {
         Long from = 1627706330L; // Long | Start timestamp of the query
         Long to = 1635329650L; // Long | Time range ending, default to current time
         try {
-            List<Trade> result = apiInstance.listMyTrades(currencyPair)
+            List<Trade> result = apiInstance.listMyTrades()
+                        .currencyPair(currencyPair)
                         .limit(limit)
                         .page(page)
                         .orderId(orderId)
@@ -1469,7 +1471,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
+ **currencyPair** | **String**| Retrieve results with specified currency pair | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **orderId** | **String**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
@@ -1554,6 +1556,76 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
+
+<a name="countdownCancelAllSpot"></a>
+# **countdownCancelAllSpot**
+> TriggerTime countdownCancelAllSpot(countdownCancelAllSpotTask)
+
+Countdown cancel orders
+
+When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        CountdownCancelAllSpotTask countdownCancelAllSpotTask = new CountdownCancelAllSpotTask(); // CountdownCancelAllSpotTask | 
+        try {
+            TriggerTime result = apiInstance.countdownCancelAllSpot(countdownCancelAllSpotTask);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#countdownCancelAllSpot");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **countdownCancelAllSpotTask** | [**CountdownCancelAllSpotTask**](CountdownCancelAllSpotTask.md)|  |
+
+### Return type
+
+[**TriggerTime**](TriggerTime.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Set countdown successfully |  -  |
 
 <a name="listSpotPriceTriggeredOrders"></a>
 # **listSpotPriceTriggeredOrders**
@@ -1778,7 +1850,7 @@ Name | Type | Description  | Notes
 # **getSpotPriceTriggeredOrder**
 > SpotPriceTriggeredOrder getSpotPriceTriggeredOrder(orderId)
 
-Get a single order
+Get a price-triggered order
 
 ### Example
 

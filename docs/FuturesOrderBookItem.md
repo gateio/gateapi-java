@@ -5,6 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**p** | **String** | Price |  [optional]
+**p** | **String** | Price (quote currency) |  [optional]
 **s** | **Long** | Size |  [optional]
 

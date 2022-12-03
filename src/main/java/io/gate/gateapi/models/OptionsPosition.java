@@ -17,11 +17,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.PositionCloseOrder;
+import io.gate.gateapi.models.OptionsPositionCloseOrder;
 import java.io.IOException;
 
 /**
- * Futures position details
+ * Options position information
  */
 public class OptionsPosition {
     public static final String SERIALIZED_NAME_USER = "user";
@@ -58,7 +58,7 @@ public class OptionsPosition {
 
     public static final String SERIALIZED_NAME_CLOSE_ORDER = "close_order";
     @SerializedName(SERIALIZED_NAME_CLOSE_ORDER)
-    private PositionCloseOrder closeOrder;
+    private OptionsPositionCloseOrder closeOrder;
 
 
      /**
@@ -72,7 +72,7 @@ public class OptionsPosition {
 
 
      /**
-     * Futures contract
+     * Options contract name
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -82,7 +82,7 @@ public class OptionsPosition {
 
 
      /**
-     * Position size
+     * Position size (contract size)
      * @return size
     **/
     @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class OptionsPosition {
 
 
      /**
-     * Entry price
+     * Entry size (quote currency)
      * @return entryPrice
     **/
     @javax.annotation.Nullable
@@ -102,7 +102,7 @@ public class OptionsPosition {
 
 
      /**
-     * Current mark price
+     * Current mark price (quote currency)
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -141,7 +141,7 @@ public class OptionsPosition {
     }
 
 
-    public OptionsPosition closeOrder(PositionCloseOrder closeOrder) {
+    public OptionsPosition closeOrder(OptionsPositionCloseOrder closeOrder) {
         
         this.closeOrder = closeOrder;
         return this;
@@ -152,12 +152,12 @@ public class OptionsPosition {
      * @return closeOrder
     **/
     @javax.annotation.Nullable
-    public PositionCloseOrder getCloseOrder() {
+    public OptionsPositionCloseOrder getCloseOrder() {
         return closeOrder;
     }
 
 
-    public void setCloseOrder(PositionCloseOrder closeOrder) {
+    public void setCloseOrder(OptionsPositionCloseOrder closeOrder) {
         this.closeOrder = closeOrder;
     }
     @Override

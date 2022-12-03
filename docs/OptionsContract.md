@@ -1,23 +1,23 @@
 
 # OptionsContract
 
-Futures contract details
+Options contract detail
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Futures contract |  [optional]
+**name** | **String** | Options contract name |  [optional]
 **tag** | **String** | tag |  [optional]
 **createTime** | **Double** | Creation time |  [optional]
 **expirationTime** | **Double** | Expiration time |  [optional]
 **isCall** | **Boolean** | &#x60;true&#x60; means call options, while &#x60;false&#x60; is put options |  [optional]
 **multiplier** | **String** | Multiplier used in converting from invoicing to settlement currency |  [optional]
 **underlying** | **String** | Underlying |  [optional]
-**underlyingPrice** | **String** | Underlying price |  [optional]
+**underlyingPrice** | **String** | Underlying price (quote currency) |  [optional]
 **lastPrice** | **String** | Last trading price |  [optional]
-**markPrice** | **String** | Current mark price |  [optional]
-**indexPrice** | **String** | Current index price |  [optional]
+**markPrice** | **String** | Current mark price (quote currency) |  [optional]
+**indexPrice** | **String** | Current index price (quote currency) |  [optional]
 **makerFeeRate** | **String** | Maker fee rate, where negative means rebate |  [optional]
 **takerFeeRate** | **String** | Taker fee rate |  [optional]
 **orderPriceRound** | **String** | Minimum order price increment |  [optional]

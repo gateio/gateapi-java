@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
 [**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
 [**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
+[**subAccountToSubAccount**](WalletApi.md#subAccountToSubAccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account
 [**listWithdrawStatus**](WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
@@ -420,7 +421,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        String subUid = "10003"; // String | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
         Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
         Long to = 1602123600L; // Long | Time range ending, default to current time
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
@@ -451,7 +452,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **subUid** | **String**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
  **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -525,6 +526,73 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subAccountTransfer** | [**SubAccountTransfer**](SubAccountTransfer.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Balance transferred |  -  |
+
+<a name="subAccountToSubAccount"></a>
+# **subAccountToSubAccount**
+> subAccountToSubAccount(subAccountToSubAccount)
+
+Sub-account transfers to sub-account
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        SubAccountToSubAccount subAccountToSubAccount = new SubAccountToSubAccount(); // SubAccountToSubAccount | 
+        try {
+            apiInstance.subAccountToSubAccount(subAccountToSubAccount);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#subAccountToSubAccount");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subAccountToSubAccount** | [**SubAccountToSubAccount**](SubAccountToSubAccount.md)|  |
 
 ### Return type
 
@@ -641,7 +709,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        String subUid = "10003"; // String | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
         try {
             List<SubAccountBalance> result = apiInstance.listSubAccountBalances()
                         .subUid(subUid)
@@ -664,7 +732,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **subUid** | **String**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
 
 ### Return type
 
@@ -711,7 +779,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        String subUid = "10003"; // String | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
         try {
             List<SubAccountMarginBalance> result = apiInstance.listSubAccountMarginBalances()
                         .subUid(subUid)
@@ -734,7 +802,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **subUid** | **String**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
 
 ### Return type
 
@@ -781,7 +849,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        String subUid = "10003"; // String | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
         String settle = "usdt"; // String | Query only balances of specified settle currency
         try {
             List<SubAccountFuturesBalance> result = apiInstance.listSubAccountFuturesBalances()
@@ -806,7 +874,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **subUid** | **String**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
  **settle** | **String**| Query only balances of specified settle currency | [optional]
 
 ### Return type
@@ -854,7 +922,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String subUid = "10003"; // String | Sub account user ID. Return records related to all sub accounts if not specified
+        String subUid = "10003"; // String | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
         try {
             List<SubAccountCrossMarginBalance> result = apiInstance.listSubAccountCrossMarginBalances()
                         .subUid(subUid)
@@ -877,7 +945,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **String**| Sub account user ID. Return records related to all sub accounts if not specified | [optional]
+ **subUid** | **String**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
 
 ### Return type
 
@@ -974,7 +1042,7 @@ Name | Type | Description  | Notes
 
 <a name="getTradeFee"></a>
 # **getTradeFee**
-> TradeFee getTradeFee().currencyPair(currencyPair).execute();
+> TradeFee getTradeFee().currencyPair(currencyPair).settle(settle).execute();
 
 Retrieve personal trading fee
 
@@ -1000,9 +1068,11 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs
+        String settle = "BTC"; // String | Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same.
         try {
             TradeFee result = apiInstance.getTradeFee()
                         .currencyPair(currencyPair)
+                        .settle(settle)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -1023,6 +1093,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs | [optional]
+ **settle** | **String**| Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. | [optional] [enum: BTC, USDT, USD]
 
 ### Return type
 
