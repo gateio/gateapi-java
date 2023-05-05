@@ -24,6 +24,7 @@ import io.gate.gateapi.models.FlashSwapCurrency;
 import io.gate.gateapi.models.FlashSwapOrder;
 import io.gate.gateapi.models.FlashSwapOrderPreview;
 import io.gate.gateapi.models.FlashSwapOrderRequest;
+import io.gate.gateapi.models.FlashSwapPreviewRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -583,7 +584,7 @@ public class FlashSwapApi {
 
     /**
      * Build call for previewFlashSwapOrder
-     * @param flashSwapOrderRequest  (required)
+     * @param flashSwapPreviewRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -593,8 +594,8 @@ public class FlashSwapApi {
         <tr><td> 200 </td><td> The flash swap order successfully previewed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call previewFlashSwapOrderCall(FlashSwapOrderRequest flashSwapOrderRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = flashSwapOrderRequest;
+    public okhttp3.Call previewFlashSwapOrderCall(FlashSwapPreviewRequest flashSwapPreviewRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = flashSwapPreviewRequest;
 
         // create path and map variables
         String localVarPath = "/flash_swap/orders/preview";
@@ -623,20 +624,20 @@ public class FlashSwapApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call previewFlashSwapOrderValidateBeforeCall(FlashSwapOrderRequest flashSwapOrderRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'flashSwapOrderRequest' is set
-        if (flashSwapOrderRequest == null) {
-            throw new ApiException("Missing the required parameter 'flashSwapOrderRequest' when calling previewFlashSwapOrder(Async)");
+    private okhttp3.Call previewFlashSwapOrderValidateBeforeCall(FlashSwapPreviewRequest flashSwapPreviewRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'flashSwapPreviewRequest' is set
+        if (flashSwapPreviewRequest == null) {
+            throw new ApiException("Missing the required parameter 'flashSwapPreviewRequest' when calling previewFlashSwapOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = previewFlashSwapOrderCall(flashSwapOrderRequest, _callback);
+        okhttp3.Call localVarCall = previewFlashSwapOrderCall(flashSwapPreviewRequest, _callback);
         return localVarCall;
     }
 
     /**
      * Initiate a flash swap order preview
      * 
-     * @param flashSwapOrderRequest  (required)
+     * @param flashSwapPreviewRequest  (required)
      * @return FlashSwapOrderPreview
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -645,15 +646,15 @@ public class FlashSwapApi {
         <tr><td> 200 </td><td> The flash swap order successfully previewed </td><td>  -  </td></tr>
      </table>
      */
-    public FlashSwapOrderPreview previewFlashSwapOrder(FlashSwapOrderRequest flashSwapOrderRequest) throws ApiException {
-        ApiResponse<FlashSwapOrderPreview> localVarResp = previewFlashSwapOrderWithHttpInfo(flashSwapOrderRequest);
+    public FlashSwapOrderPreview previewFlashSwapOrder(FlashSwapPreviewRequest flashSwapPreviewRequest) throws ApiException {
+        ApiResponse<FlashSwapOrderPreview> localVarResp = previewFlashSwapOrderWithHttpInfo(flashSwapPreviewRequest);
         return localVarResp.getData();
     }
 
     /**
      * Initiate a flash swap order preview
      * 
-     * @param flashSwapOrderRequest  (required)
+     * @param flashSwapPreviewRequest  (required)
      * @return ApiResponse&lt;FlashSwapOrderPreview&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -662,8 +663,8 @@ public class FlashSwapApi {
         <tr><td> 200 </td><td> The flash swap order successfully previewed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FlashSwapOrderPreview> previewFlashSwapOrderWithHttpInfo(FlashSwapOrderRequest flashSwapOrderRequest) throws ApiException {
-        okhttp3.Call localVarCall = previewFlashSwapOrderValidateBeforeCall(flashSwapOrderRequest, null);
+    public ApiResponse<FlashSwapOrderPreview> previewFlashSwapOrderWithHttpInfo(FlashSwapPreviewRequest flashSwapPreviewRequest) throws ApiException {
+        okhttp3.Call localVarCall = previewFlashSwapOrderValidateBeforeCall(flashSwapPreviewRequest, null);
         Type localVarReturnType = new TypeToken<FlashSwapOrderPreview>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -671,7 +672,7 @@ public class FlashSwapApi {
     /**
      * Initiate a flash swap order preview (asynchronously)
      * 
-     * @param flashSwapOrderRequest  (required)
+     * @param flashSwapPreviewRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -681,8 +682,8 @@ public class FlashSwapApi {
         <tr><td> 200 </td><td> The flash swap order successfully previewed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call previewFlashSwapOrderAsync(FlashSwapOrderRequest flashSwapOrderRequest, final ApiCallback<FlashSwapOrderPreview> _callback) throws ApiException {
-        okhttp3.Call localVarCall = previewFlashSwapOrderValidateBeforeCall(flashSwapOrderRequest, _callback);
+    public okhttp3.Call previewFlashSwapOrderAsync(FlashSwapPreviewRequest flashSwapPreviewRequest, final ApiCallback<FlashSwapOrderPreview> _callback) throws ApiException {
+        okhttp3.Call localVarCall = previewFlashSwapOrderValidateBeforeCall(flashSwapPreviewRequest, _callback);
         Type localVarReturnType = new TypeToken<FlashSwapOrderPreview>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

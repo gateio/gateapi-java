@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **unrealisedPnl** | **String** | Unrealized PNL |  [optional]
 **positionMargin** | **String** | Position margin |  [optional]
 **orderMargin** | **String** | Order margin of unfinished orders |  [optional]
-**available** | **String** | The available balance for transferring or trading |  [optional]
+**available** | **String** | The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus) |  [optional]
 **point** | **String** | POINT amount |  [optional]
 **currency** | **String** | Settle currency |  [optional]
 **inDualMode** | **Boolean** | Whether dual mode is enabled |  [optional]

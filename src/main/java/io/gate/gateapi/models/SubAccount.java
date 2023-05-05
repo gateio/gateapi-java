@@ -43,6 +43,10 @@ public class SubAccount {
     @SerializedName(SERIALIZED_NAME_STATE)
     private Integer state;
 
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private Integer type;
+
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private Long userId;
@@ -141,6 +145,26 @@ public class SubAccount {
     }
 
 
+    public SubAccount type(Integer type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public Integer getType() {
+        return type;
+    }
+
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
      /**
      * The user id of the sub-account
      * @return userId
@@ -174,13 +198,14 @@ public class SubAccount {
                 Objects.equals(this.password, subAccount.password) &&
                 Objects.equals(this.email, subAccount.email) &&
                 Objects.equals(this.state, subAccount.state) &&
+                Objects.equals(this.type, subAccount.type) &&
                 Objects.equals(this.userId, subAccount.userId) &&
                 Objects.equals(this.createTime, subAccount.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(remark, loginName, password, email, state, userId, createTime);
+        return Objects.hash(remark, loginName, password, email, state, type, userId, createTime);
     }
 
 
@@ -193,6 +218,7 @@ public class SubAccount {
         sb.append("      password: ").append(toIndentedString(password)).append("\n");
         sb.append("      email: ").append(toIndentedString(email)).append("\n");
         sb.append("      state: ").append(toIndentedString(state)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("}");

@@ -164,7 +164,7 @@ public class FuturesAccount {
     }
 
      /**
-     * The available balance for transferring or trading
+     * The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus)
      * @return available
     **/
     @javax.annotation.Nullable

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **uid** | **String** | Main account user ID |  [optional] [readonly]
 **timest** | **String** | Transfer timestamp |  [optional] [readonly]
 **source** | **String** | Where the operation is initiated from |  [optional] [readonly]
-**subAccountType** | [**SubAccountTypeEnum**](#SubAccountTypeEnum) | Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account |  [optional]
+**subAccountType** | [**SubAccountTypeEnum**](#SubAccountTypeEnum) | Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account |  [optional]
 
 ## Enum: DirectionEnum
 
@@ -28,4 +28,5 @@ Name | Value
 SPOT | &quot;spot&quot;
 FUTURES | &quot;futures&quot;
 CROSS_MARGIN | &quot;cross_margin&quot;
+DELIVERY | &quot;delivery&quot;
 

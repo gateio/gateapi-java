@@ -31,6 +31,10 @@ public class Order {
     @SerializedName(SERIALIZED_NAME_TEXT)
     private String text;
 
+    public static final String SERIALIZED_NAME_AMEND_TEXT = "amend_text";
+    @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
+    private String amendText;
+
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private String createTime;
@@ -105,7 +109,7 @@ public class Order {
     private String currencyPair;
 
     /**
-     * Order Type   - limit : Limit Order - market : Market Order
+     * Order Type    - limit : Limit Order - market : Market Order
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -346,6 +350,10 @@ public class Order {
     @SerializedName(SERIALIZED_NAME_FILLED_TOTAL)
     private String filledTotal;
 
+    public static final String SERIALIZED_NAME_AVG_DEAL_PRICE = "avg_deal_price";
+    @SerializedName(SERIALIZED_NAME_AVG_DEAL_PRICE)
+    private String avgDealPrice;
+
     public static final String SERIALIZED_NAME_FEE = "fee";
     @SerializedName(SERIALIZED_NAME_FEE)
     private String fee;
@@ -382,6 +390,122 @@ public class Order {
     @SerializedName(SERIALIZED_NAME_REBATED_FEE_CURRENCY)
     private String rebatedFeeCurrency;
 
+    public static final String SERIALIZED_NAME_STP_ID = "stp_id";
+    @SerializedName(SERIALIZED_NAME_STP_ID)
+    private Integer stpId;
+
+    /**
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     */
+    @JsonAdapter(StpActEnum.Adapter.class)
+    public enum StpActEnum {
+        CN("cn"),
+        
+        CO("co"),
+        
+        CB("cb"),
+        
+        MINUS("-");
+
+        private String value;
+
+        StpActEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StpActEnum fromValue(String value) {
+            for (StpActEnum b : StpActEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StpActEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StpActEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StpActEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return StpActEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STP_ACT = "stp_act";
+    @SerializedName(SERIALIZED_NAME_STP_ACT)
+    private StpActEnum stpAct;
+
+    /**
+     * How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention 
+     */
+    @JsonAdapter(FinishAsEnum.Adapter.class)
+    public enum FinishAsEnum {
+        OPEN("open"),
+        
+        FILLED("filled"),
+        
+        CANCELLED("cancelled"),
+        
+        IOC("ioc"),
+        
+        STP("stp");
+
+        private String value;
+
+        FinishAsEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static FinishAsEnum fromValue(String value) {
+            for (FinishAsEnum b : FinishAsEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<FinishAsEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final FinishAsEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public FinishAsEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return FinishAsEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_FINISH_AS = "finish_as";
+    @SerializedName(SERIALIZED_NAME_FINISH_AS)
+    private FinishAsEnum finishAs;
+
 
      /**
      * Order ID
@@ -400,7 +524,7 @@ public class Order {
     }
 
      /**
-     * User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) 
+     * User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4 
      * @return text
     **/
     @javax.annotation.Nullable
@@ -412,6 +536,16 @@ public class Order {
     public void setText(String text) {
         this.text = text;
     }
+
+     /**
+     * The custom data that the user remarked when amending the order
+     * @return amendText
+    **/
+    @javax.annotation.Nullable
+    public String getAmendText() {
+        return amendText;
+    }
+
 
      /**
      * Creation time of order
@@ -489,7 +623,7 @@ public class Order {
     }
 
      /**
-     * Order Type   - limit : Limit Order - market : Market Order
+     * Order Type    - limit : Limit Order - market : Market Order
      * @return type
     **/
     @javax.annotation.Nullable
@@ -607,7 +741,7 @@ public class Order {
     }
 
      /**
-     * Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely
+     * Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
      * @return iceberg
     **/
     @javax.annotation.Nullable
@@ -687,6 +821,16 @@ public class Order {
     @javax.annotation.Nullable
     public String getFilledTotal() {
         return filledTotal;
+    }
+
+
+     /**
+     * Average fill price
+     * @return avgDealPrice
+    **/
+    @javax.annotation.Nullable
+    public String getAvgDealPrice() {
+        return avgDealPrice;
     }
 
 
@@ -779,6 +923,46 @@ public class Order {
         return rebatedFeeCurrency;
     }
 
+
+     /**
+     * Orders between users in the same &#x60;stp_id&#x60; group are not allowed to be self-traded  1. If the &#x60;stp_id&#x60; of two orders being matched is non-zero and equal, they will not be executed. Instead, the corresponding strategy will be executed based on the &#x60;stp_act&#x60; of the taker. 2. &#x60;stp_id&#x60; returns &#x60;0&#x60; by default for orders that have not been set for &#x60;STP group&#x60;
+     * @return stpId
+    **/
+    @javax.annotation.Nullable
+    public Integer getStpId() {
+        return stpId;
+    }
+
+
+    public Order stpAct(StpActEnum stpAct) {
+        
+        this.stpAct = stpAct;
+        return this;
+    }
+
+     /**
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * @return stpAct
+    **/
+    @javax.annotation.Nullable
+    public StpActEnum getStpAct() {
+        return stpAct;
+    }
+
+
+    public void setStpAct(StpActEnum stpAct) {
+        this.stpAct = stpAct;
+    }
+
+     /**
+     * How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention 
+     * @return finishAs
+    **/
+    @javax.annotation.Nullable
+    public FinishAsEnum getFinishAs() {
+        return finishAs;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -790,6 +974,7 @@ public class Order {
         Order order = (Order) o;
         return Objects.equals(this.id, order.id) &&
                 Objects.equals(this.text, order.text) &&
+                Objects.equals(this.amendText, order.amendText) &&
                 Objects.equals(this.createTime, order.createTime) &&
                 Objects.equals(this.updateTime, order.updateTime) &&
                 Objects.equals(this.createTimeMs, order.createTimeMs) &&
@@ -808,6 +993,7 @@ public class Order {
                 Objects.equals(this.left, order.left) &&
                 Objects.equals(this.fillPrice, order.fillPrice) &&
                 Objects.equals(this.filledTotal, order.filledTotal) &&
+                Objects.equals(this.avgDealPrice, order.avgDealPrice) &&
                 Objects.equals(this.fee, order.fee) &&
                 Objects.equals(this.feeCurrency, order.feeCurrency) &&
                 Objects.equals(this.pointFee, order.pointFee) &&
@@ -816,12 +1002,15 @@ public class Order {
                 Objects.equals(this.gtTakerFee, order.gtTakerFee) &&
                 Objects.equals(this.gtDiscount, order.gtDiscount) &&
                 Objects.equals(this.rebatedFee, order.rebatedFee) &&
-                Objects.equals(this.rebatedFeeCurrency, order.rebatedFeeCurrency);
+                Objects.equals(this.rebatedFeeCurrency, order.rebatedFeeCurrency) &&
+                Objects.equals(this.stpId, order.stpId) &&
+                Objects.equals(this.stpAct, order.stpAct) &&
+                Objects.equals(this.finishAs, order.finishAs);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, fillPrice, filledTotal, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency);
+        return Objects.hash(id, text, amendText, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs);
     }
 
 
@@ -831,6 +1020,7 @@ public class Order {
         sb.append("class Order {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
         sb.append("      createTimeMs: ").append(toIndentedString(createTimeMs)).append("\n");
@@ -849,6 +1039,7 @@ public class Order {
         sb.append("      left: ").append(toIndentedString(left)).append("\n");
         sb.append("      fillPrice: ").append(toIndentedString(fillPrice)).append("\n");
         sb.append("      filledTotal: ").append(toIndentedString(filledTotal)).append("\n");
+        sb.append("      avgDealPrice: ").append(toIndentedString(avgDealPrice)).append("\n");
         sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("      feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
         sb.append("      pointFee: ").append(toIndentedString(pointFee)).append("\n");
@@ -858,6 +1049,9 @@ public class Order {
         sb.append("      gtDiscount: ").append(toIndentedString(gtDiscount)).append("\n");
         sb.append("      rebatedFee: ").append(toIndentedString(rebatedFee)).append("\n");
         sb.append("      rebatedFeeCurrency: ").append(toIndentedString(rebatedFeeCurrency)).append("\n");
+        sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
+        sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
+        sb.append("      finishAs: ").append(toIndentedString(finishAs)).append("\n");
         sb.append("}");
         return sb.toString();
     }

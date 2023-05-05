@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'io.gate'
-version = '6.34.0'
+version = '6.45.0'
 
 buildscript {
     repositories {
@@ -99,9 +99,9 @@ if(hasProperty('target') && target == 'android') {
 
 dependencies {
     compile "com.google.code.findbugs:jsr305:3.0.2"
-    compile 'com.squareup.okhttp3:okhttp:3.14.7'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.14.7'
-    compile 'com.google.code.gson:gson:2.8.6'
+    compile 'com.squareup.okhttp3:okhttp:4.9.3'
+    compile 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    compile 'com.google.code.gson:gson:2.10'
     compile 'io.gsonfire:gson-fire:1.8.4'
     compile 'commons-codec:commons-codec:1.14'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'

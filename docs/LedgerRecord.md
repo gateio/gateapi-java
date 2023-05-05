@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Record ID |  [optional] [readonly]
 **txid** | **String** | Hash record of the withdrawal |  [optional] [readonly]
+**withdrawOrderId** | **String** | Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  |  [optional]
 **timestamp** | **String** | Operation time |  [optional] [readonly]
 **amount** | **String** | Currency amount | 
 **currency** | **String** | Currency name | 

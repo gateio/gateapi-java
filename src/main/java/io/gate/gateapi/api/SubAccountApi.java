@@ -48,18 +48,7 @@ public class SubAccountApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for listSubAccounts
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listSubAccountsCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSubAccountsCall(String type, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -67,6 +56,10 @@ public class SubAccountApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -89,61 +82,113 @@ public class SubAccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSubAccountsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSubAccountsCall(_callback);
+    private okhttp3.Call listSubAccountsValidateBeforeCall(String type, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountsCall(type, _callback);
         return localVarCall;
     }
 
-    /**
-     * List sub-accounts
-     * 
-     * @return List&lt;SubAccount&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<SubAccount> listSubAccounts() throws ApiException {
-        ApiResponse<List<SubAccount>> localVarResp = listSubAccountsWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * List sub-accounts
-     * 
-     * @return ApiResponse&lt;List&lt;SubAccount&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<SubAccount>> listSubAccountsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = listSubAccountsValidateBeforeCall(null);
+    private ApiResponse<List<SubAccount>> listSubAccountsWithHttpInfo(String type) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountsValidateBeforeCall(type, null);
         Type localVarReturnType = new TypeToken<List<SubAccount>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call listSubAccountsAsync(String type, final ApiCallback<List<SubAccount>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountsValidateBeforeCall(type, _callback);
+        Type localVarReturnType = new TypeToken<List<SubAccount>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSubAccountsRequest {
+        private String type;
+
+        private APIlistSubAccountsRequest() {
+        }
+
+        /**
+         * Set type
+         * @param type &#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)
+         * @return APIlistSubAccountsRequest
+         */
+        public APIlistSubAccountsRequest type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Build call for listSubAccounts
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSubAccountsCall(type, _callback);
+        }
+
+        /**
+         * Execute listSubAccounts request
+         * @return List&lt;SubAccount&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<SubAccount> execute() throws ApiException {
+            ApiResponse<List<SubAccount>> localVarResp = listSubAccountsWithHttpInfo(type);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSubAccounts request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;SubAccount&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<SubAccount>> executeWithHttpInfo() throws ApiException {
+            return listSubAccountsWithHttpInfo(type);
+        }
+
+        /**
+         * Execute listSubAccounts request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<SubAccount>> _callback) throws ApiException {
+            return listSubAccountsAsync(type, _callback);
+        }
+    }
+
     /**
-     * List sub-accounts (asynchronously)
+     * List sub-accounts
      * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIlistSubAccountsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listSubAccountsAsync(final ApiCallback<List<SubAccount>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSubAccountsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<SubAccount>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIlistSubAccountsRequest listSubAccounts() {
+        return new APIlistSubAccountsRequest();
     }
 
     /**

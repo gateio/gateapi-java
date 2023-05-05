@@ -4,27 +4,27 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listMarginCurrencyPairs**](MarginApi.md#listMarginCurrencyPairs) | **GET** /margin/currency_pairs | List all supported currency pairs supported in margin trading
-[**getMarginCurrencyPair**](MarginApi.md#getMarginCurrencyPair) | **GET** /margin/currency_pairs/{currency_pair} | Query one single margin currency pair
-[**listFundingBook**](MarginApi.md#listFundingBook) | **GET** /margin/funding_book | Order book of lending loans
 [**listMarginAccounts**](MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list
 [**listMarginAccountBook**](MarginApi.md#listMarginAccountBook) | **GET** /margin/account_book | List margin account balance change history
 [**listFundingAccounts**](MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list
-[**listLoans**](MarginApi.md#listLoans) | **GET** /margin/loans | List all loans
-[**createLoan**](MarginApi.md#createLoan) | **POST** /margin/loans | Lend or borrow
-[**mergeLoans**](MarginApi.md#mergeLoans) | **POST** /margin/merged_loans | Merge multiple lending loans
-[**getLoan**](MarginApi.md#getLoan) | **GET** /margin/loans/{loan_id} | Retrieve one single loan detail
-[**cancelLoan**](MarginApi.md#cancelLoan) | **DELETE** /margin/loans/{loan_id} | Cancel lending loan
-[**updateLoan**](MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan
-[**listLoanRepayments**](MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records
-[**repayLoan**](MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan
-[**listLoanRecords**](MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of a specific loan
-[**getLoanRecord**](MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
-[**updateLoanRecord**](MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 [**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
 [**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
-[**getMarginBorrowable**](MarginApi.md#getMarginBorrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency
+[**listMarginCurrencyPairs**](MarginApi.md#listMarginCurrencyPairs) | **GET** /margin/currency_pairs | List all supported currency pairs supported in margin trading(Deprecated)
+[**getMarginCurrencyPair**](MarginApi.md#getMarginCurrencyPair) | **GET** /margin/currency_pairs/{currency_pair} | Query one single margin currency pair(Deprecated)
+[**listFundingBook**](MarginApi.md#listFundingBook) | **GET** /margin/funding_book | Order book of lending loans(Deprecated)
+[**listLoans**](MarginApi.md#listLoans) | **GET** /margin/loans | List all loans(Deprecated)
+[**createLoan**](MarginApi.md#createLoan) | **POST** /margin/loans | Lend or borrow(Deprecated)
+[**mergeLoans**](MarginApi.md#mergeLoans) | **POST** /margin/merged_loans | Merge multiple lending loans(Deprecated)
+[**getLoan**](MarginApi.md#getLoan) | **GET** /margin/loans/{loan_id} | Retrieve one single loan detail(Deprecated)
+[**cancelLoan**](MarginApi.md#cancelLoan) | **DELETE** /margin/loans/{loan_id} | Cancel lending loan(Deprecated)
+[**updateLoan**](MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan(Deprecated)
+[**listLoanRepayments**](MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records(Deprecated)
+[**repayLoan**](MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan(Deprecated)
+[**listLoanRecords**](MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of a specific loan(Deprecated)
+[**getLoanRecord**](MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record(Deprecated)
+[**updateLoanRecord**](MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record(Deprecated)
+[**getMarginBorrowable**](MarginApi.md#getMarginBorrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency(Deprecated)
 [**listCrossMarginCurrencies**](MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 [**getCrossMarginCurrency**](MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 [**getCrossMarginAccount**](MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -33,198 +33,11 @@ Method | HTTP request | Description
 [**createCrossMarginLoan**](MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
 [**getCrossMarginLoan**](MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
 [**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
-[**repayCrossMarginLoan**](MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+[**repayCrossMarginLoan**](MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Cross margin repayments
+[**getCrossMarginInterestRecords**](MarginApi.md#getCrossMarginInterestRecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account
 [**getCrossMarginTransferable**](MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
 [**getCrossMarginBorrowable**](MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
 
-
-<a name="listMarginCurrencyPairs"></a>
-# **listMarginCurrencyPairs**
-> List&lt;MarginCurrencyPair&gt; listMarginCurrencyPairs()
-
-List all supported currency pairs supported in margin trading
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        try {
-            List<MarginCurrencyPair> result = apiInstance.listMarginCurrencyPairs();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#listMarginCurrencyPairs");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;MarginCurrencyPair&gt;**](MarginCurrencyPair.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List retrieved |  -  |
-
-<a name="getMarginCurrencyPair"></a>
-# **getMarginCurrencyPair**
-> MarginCurrencyPair getMarginCurrencyPair(currencyPair)
-
-Query one single margin currency pair
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Margin currency pair
-        try {
-            MarginCurrencyPair result = apiInstance.getMarginCurrencyPair(currencyPair);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#getMarginCurrencyPair");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Margin currency pair |
-
-### Return type
-
-[**MarginCurrencyPair**](MarginCurrencyPair.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successfully retrieved |  -  |
-
-<a name="listFundingBook"></a>
-# **listFundingBook**
-> List&lt;FundingBookItem&gt; listFundingBook(currency)
-
-Order book of lending loans
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        try {
-            List<FundingBookItem> result = apiInstance.listFundingBook(currency);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#listFundingBook");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency |
-
-### Return type
-
-[**List&lt;FundingBookItem&gt;**](FundingBookItem.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Order book retrieved |  -  |
 
 <a name="listMarginAccounts"></a>
 # **listMarginAccounts**
@@ -453,805 +266,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | List retrieved |  -  |
 
-<a name="listLoans"></a>
-# **listLoans**
-> List&lt;Loan&gt; listLoans(status, side).currency(currency).currencyPair(currencyPair).sortBy(sortBy).reverseSort(reverseSort).page(page).limit(limit).execute();
-
-List all loans
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String status = "open"; // String | Loan status
-        String side = "lend"; // String | Lend or borrow
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        String currencyPair = "BTC_USDT"; // String | Currency pair
-        String sortBy = "rate"; // String | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
-        Boolean reverseSort = false; // Boolean | Whether to sort in descending order. Default to `true`
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        try {
-            List<Loan> result = apiInstance.listLoans(status, side)
-                        .currency(currency)
-                        .currencyPair(currencyPair)
-                        .sortBy(sortBy)
-                        .reverseSort(reverseSort)
-                        .page(page)
-                        .limit(limit)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#listLoans");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **status** | **String**| Loan status | [enum: open, loaned, finished, auto_repaid]
- **side** | **String**| Lend or borrow | [enum: lend, borrow]
- **currency** | **String**| Retrieve data of the specified currency | [optional]
- **currencyPair** | **String**| Currency pair | [optional]
- **sortBy** | **String**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional] [enum: create_time, rate]
- **reverseSort** | **Boolean**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional]
- **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
-
-### Return type
-
-[**List&lt;Loan&gt;**](Loan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List retrieved |  -  |
-
-<a name="createLoan"></a>
-# **createLoan**
-> Loan createLoan(loan)
-
-Lend or borrow
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        Loan loan = new Loan(); // Loan | 
-        try {
-            Loan result = apiInstance.createLoan(loan);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#createLoan");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loan** | [**Loan**](Loan.md)|  |
-
-### Return type
-
-[**Loan**](Loan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Loan created |  -  |
-
-<a name="mergeLoans"></a>
-# **mergeLoans**
-> Loan mergeLoans(currency, ids)
-
-Merge multiple lending loans
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        String ids = "123,234,345"; // String | A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request
-        try {
-            Loan result = apiInstance.mergeLoans(currency, ids);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#mergeLoans");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency |
- **ids** | **String**| A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request |
-
-### Return type
-
-[**Loan**](Loan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Loans merged |  -  |
-
-<a name="getLoan"></a>
-# **getLoan**
-> Loan getLoan(loanId, side)
-
-Retrieve one single loan detail
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String loanId = "12345"; // String | Loan ID
-        String side = "lend"; // String | Lend or borrow
-        try {
-            Loan result = apiInstance.getLoan(loanId, side);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#getLoan");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanId** | **String**| Loan ID |
- **side** | **String**| Lend or borrow | [enum: lend, borrow]
-
-### Return type
-
-[**Loan**](Loan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List retrieved |  -  |
-
-<a name="cancelLoan"></a>
-# **cancelLoan**
-> Loan cancelLoan(loanId, currency)
-
-Cancel lending loan
-
-Only lent loans can be cancelled
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String loanId = "12345"; // String | Loan ID
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        try {
-            Loan result = apiInstance.cancelLoan(loanId, currency);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#cancelLoan");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanId** | **String**| Loan ID |
- **currency** | **String**| Retrieve data of the specified currency |
-
-### Return type
-
-[**Loan**](Loan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Order cancelled |  -  |
-
-<a name="updateLoan"></a>
-# **updateLoan**
-> Loan updateLoan(loanId, loanPatch)
-
-Modify a loan
-
-Only &#x60;auto_renew&#x60; modification is supported currently
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String loanId = "12345"; // String | Loan ID
-        LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
-        try {
-            Loan result = apiInstance.updateLoan(loanId, loanPatch);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#updateLoan");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanId** | **String**| Loan ID |
- **loanPatch** | [**LoanPatch**](LoanPatch.md)|  |
-
-### Return type
-
-[**Loan**](Loan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Updated |  -  |
-
-<a name="listLoanRepayments"></a>
-# **listLoanRepayments**
-> List&lt;Repayment&gt; listLoanRepayments(loanId)
-
-List loan repayment records
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String loanId = "12345"; // String | Loan ID
-        try {
-            List<Repayment> result = apiInstance.listLoanRepayments(loanId);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#listLoanRepayments");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanId** | **String**| Loan ID |
-
-### Return type
-
-[**List&lt;Repayment&gt;**](Repayment.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List retrieved |  -  |
-
-<a name="repayLoan"></a>
-# **repayLoan**
-> Loan repayLoan(loanId, repayRequest)
-
-Repay a loan
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String loanId = "12345"; // String | Loan ID
-        RepayRequest repayRequest = new RepayRequest(); // RepayRequest | 
-        try {
-            Loan result = apiInstance.repayLoan(loanId, repayRequest);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#repayLoan");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanId** | **String**| Loan ID |
- **repayRequest** | [**RepayRequest**](RepayRequest.md)|  |
-
-### Return type
-
-[**Loan**](Loan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Loan repaid |  -  |
-
-<a name="listLoanRecords"></a>
-# **listLoanRecords**
-> List&lt;LoanRecord&gt; listLoanRecords(loanId).status(status).page(page).limit(limit).execute();
-
-List repayment records of a specific loan
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String loanId = "12345"; // String | Loan ID
-        String status = "loaned"; // String | Loan record status
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        try {
-            List<LoanRecord> result = apiInstance.listLoanRecords(loanId)
-                        .status(status)
-                        .page(page)
-                        .limit(limit)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#listLoanRecords");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanId** | **String**| Loan ID |
- **status** | **String**| Loan record status | [optional] [enum: loaned, finished]
- **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
-
-### Return type
-
-[**List&lt;LoanRecord&gt;**](LoanRecord.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List retrieved |  -  |
-
-<a name="getLoanRecord"></a>
-# **getLoanRecord**
-> LoanRecord getLoanRecord(loanRecordId, loanId)
-
-Get one single loan record
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String loanRecordId = "12345"; // String | Loan record ID
-        String loanId = "12345"; // String | Loan ID
-        try {
-            LoanRecord result = apiInstance.getLoanRecord(loanRecordId, loanId);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#getLoanRecord");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanRecordId** | **String**| Loan record ID |
- **loanId** | **String**| Loan ID |
-
-### Return type
-
-[**LoanRecord**](LoanRecord.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Detail retrieved |  -  |
-
-<a name="updateLoanRecord"></a>
-# **updateLoanRecord**
-> LoanRecord updateLoanRecord(loanRecordId, loanPatch)
-
-Modify a loan record
-
-Only &#x60;auto_renew&#x60; modification is supported currently
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.MarginApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        MarginApi apiInstance = new MarginApi(defaultClient);
-        String loanRecordId = "12345"; // String | Loan record ID
-        LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
-        try {
-            LoanRecord result = apiInstance.updateLoanRecord(loanRecordId, loanPatch);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginApi#updateLoanRecord");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanRecordId** | **String**| Loan record ID |
- **loanPatch** | [**LoanPatch**](LoanPatch.md)|  |
-
-### Return type
-
-[**LoanRecord**](LoanRecord.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Loan record updated |  -  |
-
 <a name="getAutoRepayStatus"></a>
 # **getAutoRepayStatus**
 > AutoRepaySetting getAutoRepayStatus()
@@ -1456,11 +470,998 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
 
+<a name="listMarginCurrencyPairs"></a>
+# **listMarginCurrencyPairs**
+> List&lt;MarginCurrencyPair&gt; listMarginCurrencyPairs()
+
+List all supported currency pairs supported in margin trading(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        try {
+            List<MarginCurrencyPair> result = apiInstance.listMarginCurrencyPairs();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listMarginCurrencyPairs");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;MarginCurrencyPair&gt;**](MarginCurrencyPair.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="getMarginCurrencyPair"></a>
+# **getMarginCurrencyPair**
+> MarginCurrencyPair getMarginCurrencyPair(currencyPair)
+
+Query one single margin currency pair(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currencyPair = "BTC_USDT"; // String | Margin currency pair
+        try {
+            MarginCurrencyPair result = apiInstance.getMarginCurrencyPair(currencyPair);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getMarginCurrencyPair");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **String**| Margin currency pair |
+
+### Return type
+
+[**MarginCurrencyPair**](MarginCurrencyPair.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="listFundingBook"></a>
+# **listFundingBook**
+> List&lt;FundingBookItem&gt; listFundingBook(currency)
+
+Order book of lending loans(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            List<FundingBookItem> result = apiInstance.listFundingBook(currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listFundingBook");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Retrieve data of the specified currency |
+
+### Return type
+
+[**List&lt;FundingBookItem&gt;**](FundingBookItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order book retrieved |  -  |
+
+<a name="listLoans"></a>
+# **listLoans**
+> List&lt;Loan&gt; listLoans(status, side).currency(currency).currencyPair(currencyPair).sortBy(sortBy).reverseSort(reverseSort).page(page).limit(limit).execute();
+
+List all loans(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String status = "open"; // String | Loan status
+        String side = "lend"; // String | Lend or borrow
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        String sortBy = "rate"; // String | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
+        Boolean reverseSort = false; // Boolean | Whether to sort in descending order. Default to `true`
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        try {
+            List<Loan> result = apiInstance.listLoans(status, side)
+                        .currency(currency)
+                        .currencyPair(currencyPair)
+                        .sortBy(sortBy)
+                        .reverseSort(reverseSort)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listLoans");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **String**| Loan status | [enum: open, loaned, finished, auto_repaid]
+ **side** | **String**| Lend or borrow | [enum: lend, borrow]
+ **currency** | **String**| Retrieve data of the specified currency | [optional]
+ **currencyPair** | **String**| Currency pair | [optional]
+ **sortBy** | **String**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional] [enum: create_time, rate]
+ **reverseSort** | **Boolean**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+
+### Return type
+
+[**List&lt;Loan&gt;**](Loan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="createLoan"></a>
+# **createLoan**
+> Loan createLoan(loan)
+
+Lend or borrow(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        Loan loan = new Loan(); // Loan | 
+        try {
+            Loan result = apiInstance.createLoan(loan);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#createLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loan** | [**Loan**](Loan.md)|  |
+
+### Return type
+
+[**Loan**](Loan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Loan created |  -  |
+
+<a name="mergeLoans"></a>
+# **mergeLoans**
+> Loan mergeLoans(currency, ids)
+
+Merge multiple lending loans(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String ids = "123,234,345"; // String | A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request
+        try {
+            Loan result = apiInstance.mergeLoans(currency, ids);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#mergeLoans");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Retrieve data of the specified currency |
+ **ids** | **String**| A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request |
+
+### Return type
+
+[**Loan**](Loan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Loans merged |  -  |
+
+<a name="getLoan"></a>
+# **getLoan**
+> Loan getLoan(loanId, side)
+
+Retrieve one single loan detail(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        String side = "lend"; // String | Lend or borrow
+        try {
+            Loan result = apiInstance.getLoan(loanId, side);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
+ **side** | **String**| Lend or borrow | [enum: lend, borrow]
+
+### Return type
+
+[**Loan**](Loan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="cancelLoan"></a>
+# **cancelLoan**
+> Loan cancelLoan(loanId, currency)
+
+Cancel lending loan(Deprecated)
+
+Only lent loans can be cancelled
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            Loan result = apiInstance.cancelLoan(loanId, currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#cancelLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
+ **currency** | **String**| Retrieve data of the specified currency |
+
+### Return type
+
+[**Loan**](Loan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order cancelled |  -  |
+
+<a name="updateLoan"></a>
+# **updateLoan**
+> Loan updateLoan(loanId, loanPatch)
+
+Modify a loan(Deprecated)
+
+Only &#x60;auto_renew&#x60; modification is supported currently
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
+        try {
+            Loan result = apiInstance.updateLoan(loanId, loanPatch);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#updateLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
+ **loanPatch** | [**LoanPatch**](LoanPatch.md)|  |
+
+### Return type
+
+[**Loan**](Loan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated |  -  |
+
+<a name="listLoanRepayments"></a>
+# **listLoanRepayments**
+> List&lt;Repayment&gt; listLoanRepayments(loanId)
+
+List loan repayment records(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        try {
+            List<Repayment> result = apiInstance.listLoanRepayments(loanId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listLoanRepayments");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
+
+### Return type
+
+[**List&lt;Repayment&gt;**](Repayment.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="repayLoan"></a>
+# **repayLoan**
+> Loan repayLoan(loanId, repayRequest)
+
+Repay a loan(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        RepayRequest repayRequest = new RepayRequest(); // RepayRequest | 
+        try {
+            Loan result = apiInstance.repayLoan(loanId, repayRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#repayLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
+ **repayRequest** | [**RepayRequest**](RepayRequest.md)|  |
+
+### Return type
+
+[**Loan**](Loan.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Loan repaid |  -  |
+
+<a name="listLoanRecords"></a>
+# **listLoanRecords**
+> List&lt;LoanRecord&gt; listLoanRecords(loanId).status(status).page(page).limit(limit).execute();
+
+List repayment records of a specific loan(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        String status = "loaned"; // String | Loan record status
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        try {
+            List<LoanRecord> result = apiInstance.listLoanRecords(loanId)
+                        .status(status)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listLoanRecords");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | **String**| Loan ID |
+ **status** | **String**| Loan record status | [optional] [enum: loaned, finished]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+
+### Return type
+
+[**List&lt;LoanRecord&gt;**](LoanRecord.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="getLoanRecord"></a>
+# **getLoanRecord**
+> LoanRecord getLoanRecord(loanRecordId, loanId)
+
+Get one single loan record(Deprecated)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanRecordId = "12345"; // String | Loan record ID
+        String loanId = "12345"; // String | Loan ID
+        try {
+            LoanRecord result = apiInstance.getLoanRecord(loanRecordId, loanId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getLoanRecord");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanRecordId** | **String**| Loan record ID |
+ **loanId** | **String**| Loan ID |
+
+### Return type
+
+[**LoanRecord**](LoanRecord.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Detail retrieved |  -  |
+
+<a name="updateLoanRecord"></a>
+# **updateLoanRecord**
+> LoanRecord updateLoanRecord(loanRecordId, loanPatch)
+
+Modify a loan record(Deprecated)
+
+Only &#x60;auto_renew&#x60; modification is supported currently
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanRecordId = "12345"; // String | Loan record ID
+        LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
+        try {
+            LoanRecord result = apiInstance.updateLoanRecord(loanRecordId, loanPatch);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#updateLoanRecord");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanRecordId** | **String**| Loan record ID |
+ **loanPatch** | [**LoanPatch**](LoanPatch.md)|  |
+
+### Return type
+
+[**LoanRecord**](LoanRecord.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Loan record updated |  -  |
+
 <a name="getMarginBorrowable"></a>
 # **getMarginBorrowable**
 > MarginBorrowable getMarginBorrowable(currency).currencyPair(currencyPair).execute();
 
-Get the max borrowable amount for a specific margin currency
+Get the max borrowable amount for a specific margin currency(Deprecated)
 
 ### Example
 
@@ -2112,6 +2113,8 @@ Name | Type | Description  | Notes
 # **repayCrossMarginLoan**
 > List&lt;CrossMarginLoan&gt; repayCrossMarginLoan(crossMarginRepayRequest)
 
+Cross margin repayments
+
 When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
 
 ### Example
@@ -2175,6 +2178,82 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Loan repaid |  -  |
+
+<a name="getCrossMarginInterestRecords"></a>
+# **getCrossMarginInterestRecords**
+> List&lt;UniLoanInterestRecord&gt; getCrossMarginInterestRecords().currency(currency).page(page).limit(limit).execute();
+
+Interest records for the cross margin account
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+        try {
+            List<UniLoanInterestRecord> result = apiInstance.getCrossMarginInterestRecords()
+                        .currency(currency)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginInterestRecords");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Retrieve data of the specified currency | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+
+### Return type
+
+[**List&lt;UniLoanInterestRecord&gt;**](UniLoanInterestRecord.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
 
 <a name="getCrossMarginTransferable"></a>
 # **getCrossMarginTransferable**

@@ -27,6 +27,7 @@ import io.gate.gateapi.models.CountdownCancelAllFuturesTask;
 import io.gate.gateapi.models.FundingRateRecord;
 import io.gate.gateapi.models.FuturesAccount;
 import io.gate.gateapi.models.FuturesAccountBook;
+import io.gate.gateapi.models.FuturesAutoDeleverage;
 import io.gate.gateapi.models.FuturesCandlestick;
 import io.gate.gateapi.models.FuturesIndexConstituents;
 import io.gate.gateapi.models.FuturesLiquidate;
@@ -39,6 +40,7 @@ import io.gate.gateapi.models.FuturesTicker;
 import io.gate.gateapi.models.FuturesTrade;
 import io.gate.gateapi.models.InsuranceRecord;
 import io.gate.gateapi.models.MyFuturesTrade;
+import io.gate.gateapi.models.MyFuturesTradeTimeRange;
 import io.gate.gateapi.models.Position;
 import io.gate.gateapi.models.PositionClose;
 import io.gate.gateapi.models.TriggerOrderResponse;
@@ -3960,7 +3962,7 @@ public class FuturesApi {
 
     /**
      * Create a futures order
-     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
+     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0 - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @return FuturesOrder
@@ -3978,7 +3980,7 @@ public class FuturesApi {
 
     /**
      * Create a futures order
-     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
+     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0 - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -3997,7 +3999,7 @@ public class FuturesApi {
 
     /**
      * Create a futures order (asynchronously)
-     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
+     * - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0 - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
      * @param settle Settle currency (required)
      * @param futuresOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4754,7 +4756,7 @@ public class FuturesApi {
 
         /**
          * Set lastId
-         * @param lastId Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)
+         * @param lastId Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. If you need to iterate through and retrieve more records, we recommend using &#39;GET /futures/{settle}/my_trades_timerange&#39;. (optional)
          * @return APIgetMyTradesRequest
          */
         public APIgetMyTradesRequest lastId(String lastId) {
@@ -4835,6 +4837,218 @@ public class FuturesApi {
      */
     public APIgetMyTradesRequest getMyTrades(String settle) {
         return new APIgetMyTradesRequest(settle);
+    }
+
+    private okhttp3.Call getMyTradesWithTimeRangeCall(String settle, String contract, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/my_trades_timerange"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMyTradesWithTimeRangeValidateBeforeCall(String settle, String contract, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling getMyTradesWithTimeRange(Async)");
+        }
+
+        okhttp3.Call localVarCall = getMyTradesWithTimeRangeCall(settle, contract, from, to, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<MyFuturesTradeTimeRange>> getMyTradesWithTimeRangeWithHttpInfo(String settle, String contract, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = getMyTradesWithTimeRangeValidateBeforeCall(settle, contract, from, to, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<MyFuturesTradeTimeRange>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getMyTradesWithTimeRangeAsync(String settle, String contract, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<MyFuturesTradeTimeRange>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getMyTradesWithTimeRangeValidateBeforeCall(settle, contract, from, to, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<MyFuturesTradeTimeRange>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetMyTradesWithTimeRangeRequest {
+        private final String settle;
+        private String contract;
+        private Long from;
+        private Long to;
+        private Integer limit;
+        private Integer offset;
+
+        private APIgetMyTradesWithTimeRangeRequest(String settle) {
+            this.settle = settle;
+        }
+
+        /**
+         * Set contract
+         * @param contract Futures contract, return related data only if specified (optional)
+         * @return APIgetMyTradesWithTimeRangeRequest
+         */
+        public APIgetMyTradesWithTimeRangeRequest contract(String contract) {
+            this.contract = contract;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIgetMyTradesWithTimeRangeRequest
+         */
+        public APIgetMyTradesWithTimeRangeRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIgetMyTradesWithTimeRangeRequest
+         */
+        public APIgetMyTradesWithTimeRangeRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIgetMyTradesWithTimeRangeRequest
+         */
+        public APIgetMyTradesWithTimeRangeRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIgetMyTradesWithTimeRangeRequest
+         */
+        public APIgetMyTradesWithTimeRangeRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for getMyTradesWithTimeRange
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getMyTradesWithTimeRangeCall(settle, contract, from, to, limit, offset, _callback);
+        }
+
+        /**
+         * Execute getMyTradesWithTimeRange request
+         * @return List&lt;MyFuturesTradeTimeRange&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+         </table>
+         */
+        public List<MyFuturesTradeTimeRange> execute() throws ApiException {
+            ApiResponse<List<MyFuturesTradeTimeRange>> localVarResp = getMyTradesWithTimeRangeWithHttpInfo(settle, contract, from, to, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getMyTradesWithTimeRange request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;MyFuturesTradeTimeRange&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<MyFuturesTradeTimeRange>> executeWithHttpInfo() throws ApiException {
+            return getMyTradesWithTimeRangeWithHttpInfo(settle, contract, from, to, limit, offset);
+        }
+
+        /**
+         * Execute getMyTradesWithTimeRange request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<MyFuturesTradeTimeRange>> _callback) throws ApiException {
+            return getMyTradesWithTimeRangeAsync(settle, contract, from, to, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * List personal trading history by time range
+     * 
+     * @param settle Settle currency (required)
+     * @return APIgetMyTradesWithTimeRangeRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+     </table>
+     */
+    public APIgetMyTradesWithTimeRangeRequest getMyTradesWithTimeRange(String settle) {
+        return new APIgetMyTradesWithTimeRangeRequest(settle);
     }
 
     private okhttp3.Call listPositionCloseCall(String settle, String contract, Integer limit, Integer offset, Long from, Long to, final ApiCallback _callback) throws ApiException {
@@ -5229,6 +5443,188 @@ public class FuturesApi {
      */
     public APIlistLiquidatesRequest listLiquidates(String settle) {
         return new APIlistLiquidatesRequest(settle);
+    }
+
+    private okhttp3.Call listAutoDeleveragesCall(String settle, String contract, Integer limit, Integer at, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/auto_deleverages"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (at != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("at", at));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAutoDeleveragesValidateBeforeCall(String settle, String contract, Integer limit, Integer at, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listAutoDeleverages(Async)");
+        }
+
+        okhttp3.Call localVarCall = listAutoDeleveragesCall(settle, contract, limit, at, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<FuturesAutoDeleverage>> listAutoDeleveragesWithHttpInfo(String settle, String contract, Integer limit, Integer at) throws ApiException {
+        okhttp3.Call localVarCall = listAutoDeleveragesValidateBeforeCall(settle, contract, limit, at, null);
+        Type localVarReturnType = new TypeToken<List<FuturesAutoDeleverage>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listAutoDeleveragesAsync(String settle, String contract, Integer limit, Integer at, final ApiCallback<List<FuturesAutoDeleverage>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoDeleveragesValidateBeforeCall(settle, contract, limit, at, _callback);
+        Type localVarReturnType = new TypeToken<List<FuturesAutoDeleverage>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistAutoDeleveragesRequest {
+        private final String settle;
+        private String contract;
+        private Integer limit;
+        private Integer at;
+
+        private APIlistAutoDeleveragesRequest(String settle) {
+            this.settle = settle;
+        }
+
+        /**
+         * Set contract
+         * @param contract Futures contract, return related data only if specified (optional)
+         * @return APIlistAutoDeleveragesRequest
+         */
+        public APIlistAutoDeleveragesRequest contract(String contract) {
+            this.contract = contract;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIlistAutoDeleveragesRequest
+         */
+        public APIlistAutoDeleveragesRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set at
+         * @param at Specify an auto-deleveraging timestamp (optional, default to 0)
+         * @return APIlistAutoDeleveragesRequest
+         */
+        public APIlistAutoDeleveragesRequest at(Integer at) {
+            this.at = at;
+            return this;
+        }
+
+        /**
+         * Build call for listAutoDeleverages
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAutoDeleveragesCall(settle, contract, limit, at, _callback);
+        }
+
+        /**
+         * Execute listAutoDeleverages request
+         * @return List&lt;FuturesAutoDeleverage&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<FuturesAutoDeleverage> execute() throws ApiException {
+            ApiResponse<List<FuturesAutoDeleverage>> localVarResp = listAutoDeleveragesWithHttpInfo(settle, contract, limit, at);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAutoDeleverages request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;FuturesAutoDeleverage&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<FuturesAutoDeleverage>> executeWithHttpInfo() throws ApiException {
+            return listAutoDeleveragesWithHttpInfo(settle, contract, limit, at);
+        }
+
+        /**
+         * Execute listAutoDeleverages request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesAutoDeleverage>> _callback) throws ApiException {
+            return listAutoDeleveragesAsync(settle, contract, limit, at, _callback);
+        }
+    }
+
+    /**
+     * List Auto-Deleveraging History
+     * 
+     * @param settle Settle currency (required)
+     * @return APIlistAutoDeleveragesRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistAutoDeleveragesRequest listAutoDeleverages(String settle) {
+        return new APIlistAutoDeleveragesRequest(settle);
     }
 
     /**

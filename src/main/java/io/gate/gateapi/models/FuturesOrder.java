@@ -40,7 +40,7 @@ public class FuturesOrder {
     private Double finishTime;
 
     /**
-     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
+     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - stp: cancelled because self trade prevention 
      */
     @JsonAdapter(FinishAsEnum.Adapter.class)
     public enum FinishAsEnum {
@@ -58,7 +58,9 @@ public class FuturesOrder {
         
         POSITION_CLOSED("position_closed"),
         
-        REDUCE_OUT("reduce_out");
+        REDUCE_OUT("reduce_out"),
+        
+        STP("stp");
 
         private String value;
 
@@ -319,6 +321,69 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_AUTO_SIZE)
     private AutoSizeEnum autoSize;
 
+    public static final String SERIALIZED_NAME_STP_ID = "stp_id";
+    @SerializedName(SERIALIZED_NAME_STP_ID)
+    private Integer stpId;
+
+    /**
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     */
+    @JsonAdapter(StpActEnum.Adapter.class)
+    public enum StpActEnum {
+        CO("co"),
+        
+        CN("cn"),
+        
+        CB("cb"),
+        
+        MINUS("-");
+
+        private String value;
+
+        StpActEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StpActEnum fromValue(String value) {
+            for (StpActEnum b : StpActEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StpActEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StpActEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StpActEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return StpActEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STP_ACT = "stp_act";
+    @SerializedName(SERIALIZED_NAME_STP_ACT)
+    private StpActEnum stpAct;
+
+    public static final String SERIALIZED_NAME_AMEND_TEXT = "amend_text";
+    @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
+    private String amendText;
+
 
      /**
      * Futures order ID
@@ -361,7 +426,7 @@ public class FuturesOrder {
 
 
      /**
-     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
+     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - stp: cancelled because self trade prevention 
      * @return finishAs
     **/
     @javax.annotation.Nullable
@@ -637,6 +702,46 @@ public class FuturesOrder {
     public void setAutoSize(AutoSizeEnum autoSize) {
         this.autoSize = autoSize;
     }
+
+     /**
+     * Orders between users in the same &#x60;stp_id&#x60; group are not allowed to be self-traded  1. If the &#x60;stp_id&#x60; of two orders being matched is non-zero and equal, they will not be executed. Instead, the corresponding strategy will be executed based on the &#x60;stp_act&#x60; of the taker. 2. &#x60;stp_id&#x60; returns &#x60;0&#x60; by default for orders that have not been set for &#x60;STP group&#x60;
+     * @return stpId
+    **/
+    @javax.annotation.Nullable
+    public Integer getStpId() {
+        return stpId;
+    }
+
+
+    public FuturesOrder stpAct(StpActEnum stpAct) {
+        
+        this.stpAct = stpAct;
+        return this;
+    }
+
+     /**
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * @return stpAct
+    **/
+    @javax.annotation.Nullable
+    public StpActEnum getStpAct() {
+        return stpAct;
+    }
+
+
+    public void setStpAct(StpActEnum stpAct) {
+        this.stpAct = stpAct;
+    }
+
+     /**
+     * The custom data that the user remarked when amending the order
+     * @return amendText
+    **/
+    @javax.annotation.Nullable
+    public String getAmendText() {
+        return amendText;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -668,12 +773,15 @@ public class FuturesOrder {
                 Objects.equals(this.tkfr, futuresOrder.tkfr) &&
                 Objects.equals(this.mkfr, futuresOrder.mkfr) &&
                 Objects.equals(this.refu, futuresOrder.refu) &&
-                Objects.equals(this.autoSize, futuresOrder.autoSize);
+                Objects.equals(this.autoSize, futuresOrder.autoSize) &&
+                Objects.equals(this.stpId, futuresOrder.stpId) &&
+                Objects.equals(this.stpAct, futuresOrder.stpAct) &&
+                Objects.equals(this.amendText, futuresOrder.amendText);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize);
+        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText);
     }
 
 
@@ -704,6 +812,9 @@ public class FuturesOrder {
         sb.append("      mkfr: ").append(toIndentedString(mkfr)).append("\n");
         sb.append("      refu: ").append(toIndentedString(refu)).append("\n");
         sb.append("      autoSize: ").append(toIndentedString(autoSize)).append("\n");
+        sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
+        sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
+        sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
         sb.append("}");
         return sb.toString();
     }

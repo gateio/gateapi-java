@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.34.0
-- SDK version: 6.34.0
+- API version: 4.45.0
+- SDK version: 6.45.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.34.0</version>
+    <version>6.45.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.34.0"
+compile "io.gate:gate-api:6.45.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.34.0.jar`
+* `target/gate-api-6.45.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -104,24 +104,27 @@ import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
 import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.DeliveryApi;
+import io.gate.gateapi.api.AccountApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        AccountApi apiInstance = new AccountApi(defaultClient);
         try {
-            List<DeliveryContract> result = apiInstance.listDeliveryContracts(settle);
+            AccountDetail result = apiInstance.getAccountDetail();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryContracts");
+            System.err.println("Exception when calling AccountApi#getAccountDetail");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
@@ -138,6 +141,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountApi* | [**getAccountDetail**](docs/AccountApi.md#getAccountDetail) | **GET** /account/detail | Get account detail
 *DeliveryApi* | [**listDeliveryContracts**](docs/DeliveryApi.md#listDeliveryContracts) | **GET** /delivery/{settle}/contracts | List all futures contracts
 *DeliveryApi* | [**getDeliveryContract**](docs/DeliveryApi.md#getDeliveryContract) | **GET** /delivery/{settle}/contracts/{contract} | Get a single contract
 *DeliveryApi* | [**listDeliveryOrderBook**](docs/DeliveryApi.md#listDeliveryOrderBook) | **GET** /delivery/{settle}/order_book | Futures order book
@@ -166,6 +170,14 @@ Class | Method | HTTP request | Description
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrderList**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
 *DeliveryApi* | [**getPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a price-triggered order
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order
+*EarnUniApi* | [**listUniCurrencies**](docs/EarnUniApi.md#listUniCurrencies) | **GET** /earn/uni/currencies | List currencies for lending
+*EarnUniApi* | [**getUniCurrency**](docs/EarnUniApi.md#getUniCurrency) | **GET** /earn/uni/currencies/{currency} | Get currency detail for lending
+*EarnUniApi* | [**listUserUniLends**](docs/EarnUniApi.md#listUserUniLends) | **GET** /earn/uni/lends | List user&#39;s lending orders
+*EarnUniApi* | [**createUniLend**](docs/EarnUniApi.md#createUniLend) | **POST** /earn/uni/lends | Lend or redeem
+*EarnUniApi* | [**changeUniLend**](docs/EarnUniApi.md#changeUniLend) | **PATCH** /earn/uni/lends | Amend lending order
+*EarnUniApi* | [**listUniLendRecords**](docs/EarnUniApi.md#listUniLendRecords) | **GET** /earn/uni/lend_records | List records of lending
+*EarnUniApi* | [**getUniInterest**](docs/EarnUniApi.md#getUniInterest) | **GET** /earn/uni/interests/{currency} | Get the user&#39;s total interest income of specified currency
+*EarnUniApi* | [**listUniInterestRecords**](docs/EarnUniApi.md#listUniInterestRecords) | **GET** /earn/uni/interest_records | List interest records
 *FlashSwapApi* | [**listFlashSwapCurrencies**](docs/FlashSwapApi.md#listFlashSwapCurrencies) | **GET** /flash_swap/currencies | List all supported currencies in flash swap
 *FlashSwapApi* | [**listFlashSwapOrders**](docs/FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders
 *FlashSwapApi* | [**createFlashSwapOrder**](docs/FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
@@ -203,35 +215,37 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**amendFuturesOrder**](docs/FuturesApi.md#amendFuturesOrder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
 *FuturesApi* | [**cancelFuturesOrder**](docs/FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
 *FuturesApi* | [**getMyTrades**](docs/FuturesApi.md#getMyTrades) | **GET** /futures/{settle}/my_trades | List personal trading history
+*FuturesApi* | [**getMyTradesWithTimeRange**](docs/FuturesApi.md#getMyTradesWithTimeRange) | **GET** /futures/{settle}/my_trades_timerange | List personal trading history by time range
 *FuturesApi* | [**listPositionClose**](docs/FuturesApi.md#listPositionClose) | **GET** /futures/{settle}/position_close | List position close history
 *FuturesApi* | [**listLiquidates**](docs/FuturesApi.md#listLiquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
+*FuturesApi* | [**listAutoDeleverages**](docs/FuturesApi.md#listAutoDeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 *FuturesApi* | [**countdownCancelAllFutures**](docs/FuturesApi.md#countdownCancelAllFutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 *FuturesApi* | [**listPriceTriggeredOrders**](docs/FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
 *FuturesApi* | [**createPriceTriggeredOrder**](docs/FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 *FuturesApi* | [**cancelPriceTriggeredOrderList**](docs/FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
 *FuturesApi* | [**getPriceTriggeredOrder**](docs/FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Get a price-triggered order
 *FuturesApi* | [**cancelPriceTriggeredOrder**](docs/FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | cancel a price-triggered order
-*MarginApi* | [**listMarginCurrencyPairs**](docs/MarginApi.md#listMarginCurrencyPairs) | **GET** /margin/currency_pairs | List all supported currency pairs supported in margin trading
-*MarginApi* | [**getMarginCurrencyPair**](docs/MarginApi.md#getMarginCurrencyPair) | **GET** /margin/currency_pairs/{currency_pair} | Query one single margin currency pair
-*MarginApi* | [**listFundingBook**](docs/MarginApi.md#listFundingBook) | **GET** /margin/funding_book | Order book of lending loans
 *MarginApi* | [**listMarginAccounts**](docs/MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list
 *MarginApi* | [**listMarginAccountBook**](docs/MarginApi.md#listMarginAccountBook) | **GET** /margin/account_book | List margin account balance change history
 *MarginApi* | [**listFundingAccounts**](docs/MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list
-*MarginApi* | [**listLoans**](docs/MarginApi.md#listLoans) | **GET** /margin/loans | List all loans
-*MarginApi* | [**createLoan**](docs/MarginApi.md#createLoan) | **POST** /margin/loans | Lend or borrow
-*MarginApi* | [**mergeLoans**](docs/MarginApi.md#mergeLoans) | **POST** /margin/merged_loans | Merge multiple lending loans
-*MarginApi* | [**getLoan**](docs/MarginApi.md#getLoan) | **GET** /margin/loans/{loan_id} | Retrieve one single loan detail
-*MarginApi* | [**cancelLoan**](docs/MarginApi.md#cancelLoan) | **DELETE** /margin/loans/{loan_id} | Cancel lending loan
-*MarginApi* | [**updateLoan**](docs/MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan
-*MarginApi* | [**listLoanRepayments**](docs/MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records
-*MarginApi* | [**repayLoan**](docs/MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan
-*MarginApi* | [**listLoanRecords**](docs/MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of a specific loan
-*MarginApi* | [**getLoanRecord**](docs/MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
-*MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 *MarginApi* | [**getAutoRepayStatus**](docs/MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 *MarginApi* | [**setAutoRepay**](docs/MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
 *MarginApi* | [**getMarginTransferable**](docs/MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
-*MarginApi* | [**getMarginBorrowable**](docs/MarginApi.md#getMarginBorrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency
+*MarginApi* | [**listMarginCurrencyPairs**](docs/MarginApi.md#listMarginCurrencyPairs) | **GET** /margin/currency_pairs | List all supported currency pairs supported in margin trading(Deprecated)
+*MarginApi* | [**getMarginCurrencyPair**](docs/MarginApi.md#getMarginCurrencyPair) | **GET** /margin/currency_pairs/{currency_pair} | Query one single margin currency pair(Deprecated)
+*MarginApi* | [**listFundingBook**](docs/MarginApi.md#listFundingBook) | **GET** /margin/funding_book | Order book of lending loans(Deprecated)
+*MarginApi* | [**listLoans**](docs/MarginApi.md#listLoans) | **GET** /margin/loans | List all loans(Deprecated)
+*MarginApi* | [**createLoan**](docs/MarginApi.md#createLoan) | **POST** /margin/loans | Lend or borrow(Deprecated)
+*MarginApi* | [**mergeLoans**](docs/MarginApi.md#mergeLoans) | **POST** /margin/merged_loans | Merge multiple lending loans(Deprecated)
+*MarginApi* | [**getLoan**](docs/MarginApi.md#getLoan) | **GET** /margin/loans/{loan_id} | Retrieve one single loan detail(Deprecated)
+*MarginApi* | [**cancelLoan**](docs/MarginApi.md#cancelLoan) | **DELETE** /margin/loans/{loan_id} | Cancel lending loan(Deprecated)
+*MarginApi* | [**updateLoan**](docs/MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan(Deprecated)
+*MarginApi* | [**listLoanRepayments**](docs/MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records(Deprecated)
+*MarginApi* | [**repayLoan**](docs/MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan(Deprecated)
+*MarginApi* | [**listLoanRecords**](docs/MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of a specific loan(Deprecated)
+*MarginApi* | [**getLoanRecord**](docs/MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record(Deprecated)
+*MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record(Deprecated)
+*MarginApi* | [**getMarginBorrowable**](docs/MarginApi.md#getMarginBorrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency(Deprecated)
 *MarginApi* | [**listCrossMarginCurrencies**](docs/MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 *MarginApi* | [**getCrossMarginCurrency**](docs/MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 *MarginApi* | [**getCrossMarginAccount**](docs/MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -240,9 +254,17 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**createCrossMarginLoan**](docs/MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
 *MarginApi* | [**getCrossMarginLoan**](docs/MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
 *MarginApi* | [**listCrossMarginRepayments**](docs/MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
-*MarginApi* | [**repayCrossMarginLoan**](docs/MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+*MarginApi* | [**repayCrossMarginLoan**](docs/MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Cross margin repayments
+*MarginApi* | [**getCrossMarginInterestRecords**](docs/MarginApi.md#getCrossMarginInterestRecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account
 *MarginApi* | [**getCrossMarginTransferable**](docs/MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
 *MarginApi* | [**getCrossMarginBorrowable**](docs/MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
+*MarginUniApi* | [**listUniCurrencyPairs**](docs/MarginUniApi.md#listUniCurrencyPairs) | **GET** /margin/uni/currency_pairs | List lending markets
+*MarginUniApi* | [**getUniCurrencyPair**](docs/MarginUniApi.md#getUniCurrencyPair) | **GET** /margin/uni/currency_pairs/{currency_pair} | Get detail of lending market
+*MarginUniApi* | [**listUniLoans**](docs/MarginUniApi.md#listUniLoans) | **GET** /margin/uni/loans | List loans
+*MarginUniApi* | [**createUniLoan**](docs/MarginUniApi.md#createUniLoan) | **POST** /margin/uni/loans | Borrow or repay
+*MarginUniApi* | [**listUniLoanRecords**](docs/MarginUniApi.md#listUniLoanRecords) | **GET** /margin/uni/loan_records | Get load records
+*MarginUniApi* | [**listUniLoanInterestRecords**](docs/MarginUniApi.md#listUniLoanInterestRecords) | **GET** /margin/uni/interest_records | List interest records
+*MarginUniApi* | [**getUniBorrowable**](docs/MarginUniApi.md#getUniBorrowable) | **GET** /margin/uni/borrowable | Get maximum borrowable
 *OptionsApi* | [**listOptionsUnderlyings**](docs/OptionsApi.md#listOptionsUnderlyings) | **GET** /options/underlyings | List all underlyings
 *OptionsApi* | [**listOptionsExpirations**](docs/OptionsApi.md#listOptionsExpirations) | **GET** /options/expirations | List all expiration times
 *OptionsApi* | [**listOptionsContracts**](docs/OptionsApi.md#listOptionsContracts) | **GET** /options/contracts | List all the contracts with specified underlying and expiration time
@@ -267,15 +289,18 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**getOptionsOrder**](docs/OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Get a single order
 *OptionsApi* | [**cancelOptionsOrder**](docs/OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel a single order
 *OptionsApi* | [**listMyOptionsTrades**](docs/OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | List personal trading history
+*RebateApi* | [**agencyTransactionHistory**](docs/RebateApi.md#agencyTransactionHistory) | **GET** /rebate/agency/transaction_history | The broker obtains the transaction history of the recommended user
+*RebateApi* | [**agencyCommissionsHistory**](docs/RebateApi.md#agencyCommissionsHistory) | **GET** /rebate/agency/commission_history | The broker obtains the commission history of the recommended user
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; details
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
-*SpotApi* | [**getCurrencyPair**](docs/SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get details of a specifc order
+*SpotApi* | [**getCurrencyPair**](docs/SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Get details of a specifc currency pair
 *SpotApi* | [**listTickers**](docs/SpotApi.md#listTickers) | **GET** /spot/tickers | Retrieve ticker information
 *SpotApi* | [**listOrderBook**](docs/SpotApi.md#listOrderBook) | **GET** /spot/order_book | Retrieve order book
 *SpotApi* | [**listTrades**](docs/SpotApi.md#listTrades) | **GET** /spot/trades | Retrieve market trades
 *SpotApi* | [**listCandlesticks**](docs/SpotApi.md#listCandlesticks) | **GET** /spot/candlesticks | Market candlesticks
 *SpotApi* | [**getFee**](docs/SpotApi.md#getFee) | **GET** /spot/fee | Query user trading fee rates
+*SpotApi* | [**getBatchSpotFee**](docs/SpotApi.md#getBatchSpotFee) | **GET** /spot/batch_fee | Query a batch of user trading fee rates
 *SpotApi* | [**listSpotAccounts**](docs/SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot accounts
 *SpotApi* | [**createBatchOrders**](docs/SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Create a batch of orders
 *SpotApi* | [**listAllOpenOrders**](docs/SpotApi.md#listAllOpenOrders) | **GET** /spot/open_orders | List all open orders
@@ -286,6 +311,7 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**cancelBatchOrders**](docs/SpotApi.md#cancelBatchOrders) | **POST** /spot/cancel_batch_orders | Cancel a batch of orders with an ID list
 *SpotApi* | [**getOrder**](docs/SpotApi.md#getOrder) | **GET** /spot/orders/{order_id} | Get a single order
 *SpotApi* | [**cancelOrder**](docs/SpotApi.md#cancelOrder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
+*SpotApi* | [**amendOrder**](docs/SpotApi.md#amendOrder) | **PATCH** /spot/orders/{order_id} | Amend an order
 *SpotApi* | [**listMyTrades**](docs/SpotApi.md#listMyTrades) | **GET** /spot/my_trades | List personal trading history
 *SpotApi* | [**getSystemTime**](docs/SpotApi.md#getSystemTime) | **GET** /spot/time | Get server current time
 *SpotApi* | [**countdownCancelAllSpot**](docs/SpotApi.md#countdownCancelAllSpot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders
@@ -327,6 +353,11 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AccountBalance](docs/AccountBalance.md)
+ - [AccountDetail](docs/AccountDetail.md)
+ - [AgencyCommission](docs/AgencyCommission.md)
+ - [AgencyCommissionHistory](docs/AgencyCommissionHistory.md)
+ - [AgencyTransaction](docs/AgencyTransaction.md)
+ - [AgencyTransactionHistory](docs/AgencyTransactionHistory.md)
  - [ApiV4KeyPerm](docs/ApiV4KeyPerm.md)
  - [AutoRepaySetting](docs/AutoRepaySetting.md)
  - [BatchFuturesOrder](docs/BatchFuturesOrder.md)
@@ -337,9 +368,12 @@ Class | Method | HTTP request | Description
  - [ContractStat](docs/ContractStat.md)
  - [CountdownCancelAllFuturesTask](docs/CountdownCancelAllFuturesTask.md)
  - [CountdownCancelAllSpotTask](docs/CountdownCancelAllSpotTask.md)
+ - [CreateUniLend](docs/CreateUniLend.md)
+ - [CreateUniLoan](docs/CreateUniLoan.md)
  - [CrossMarginAccount](docs/CrossMarginAccount.md)
  - [CrossMarginAccountBook](docs/CrossMarginAccountBook.md)
  - [CrossMarginBalance](docs/CrossMarginBalance.md)
+ - [CrossMarginBalance1](docs/CrossMarginBalance1.md)
  - [CrossMarginBorrowable](docs/CrossMarginBorrowable.md)
  - [CrossMarginCurrency](docs/CrossMarginCurrency.md)
  - [CrossMarginLoan](docs/CrossMarginLoan.md)
@@ -356,12 +390,14 @@ Class | Method | HTTP request | Description
  - [FlashSwapOrder](docs/FlashSwapOrder.md)
  - [FlashSwapOrderPreview](docs/FlashSwapOrderPreview.md)
  - [FlashSwapOrderRequest](docs/FlashSwapOrderRequest.md)
+ - [FlashSwapPreviewRequest](docs/FlashSwapPreviewRequest.md)
  - [FundingAccount](docs/FundingAccount.md)
  - [FundingBookItem](docs/FundingBookItem.md)
  - [FundingRateRecord](docs/FundingRateRecord.md)
  - [FuturesAccount](docs/FuturesAccount.md)
  - [FuturesAccountBook](docs/FuturesAccountBook.md)
  - [FuturesAccountHistory](docs/FuturesAccountHistory.md)
+ - [FuturesAutoDeleverage](docs/FuturesAutoDeleverage.md)
  - [FuturesCandlestick](docs/FuturesCandlestick.md)
  - [FuturesIndexConstituents](docs/FuturesIndexConstituents.md)
  - [FuturesInitialOrder](docs/FuturesInitialOrder.md)
@@ -388,8 +424,10 @@ Class | Method | HTTP request | Description
  - [MarginBorrowable](docs/MarginBorrowable.md)
  - [MarginCurrencyPair](docs/MarginCurrencyPair.md)
  - [MarginTransferable](docs/MarginTransferable.md)
+ - [MaxUniBorrowable](docs/MaxUniBorrowable.md)
  - [MultiChainAddressItem](docs/MultiChainAddressItem.md)
  - [MyFuturesTrade](docs/MyFuturesTrade.md)
+ - [MyFuturesTradeTimeRange](docs/MyFuturesTradeTimeRange.md)
  - [OpenOrders](docs/OpenOrders.md)
  - [OptionsAccount](docs/OptionsAccount.md)
  - [OptionsAccountBook](docs/OptionsAccountBook.md)
@@ -407,6 +445,8 @@ Class | Method | HTTP request | Description
  - [OptionsUnderlyingTicker](docs/OptionsUnderlyingTicker.md)
  - [Order](docs/Order.md)
  - [OrderBook](docs/OrderBook.md)
+ - [OrderPatch](docs/OrderPatch.md)
+ - [PatchUniLend](docs/PatchUniLend.md)
  - [Position](docs/Position.md)
  - [PositionClose](docs/PositionClose.md)
  - [PositionCloseOrder](docs/PositionCloseOrder.md)
@@ -414,6 +454,7 @@ Class | Method | HTTP request | Description
  - [Repayment](docs/Repayment.md)
  - [SavedAddress](docs/SavedAddress.md)
  - [SpotAccount](docs/SpotAccount.md)
+ - [SpotFee](docs/SpotFee.md)
  - [SpotPricePutOrder](docs/SpotPricePutOrder.md)
  - [SpotPriceTrigger](docs/SpotPriceTrigger.md)
  - [SpotPriceTriggeredOrder](docs/SpotPriceTriggeredOrder.md)
@@ -435,6 +476,15 @@ Class | Method | HTTP request | Description
  - [Transfer](docs/Transfer.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
  - [TriggerTime](docs/TriggerTime.md)
+ - [UniCurrency](docs/UniCurrency.md)
+ - [UniCurrencyPair](docs/UniCurrencyPair.md)
+ - [UniInterestRecord](docs/UniInterestRecord.md)
+ - [UniLend](docs/UniLend.md)
+ - [UniLendInterest](docs/UniLendInterest.md)
+ - [UniLendRecord](docs/UniLendRecord.md)
+ - [UniLoan](docs/UniLoan.md)
+ - [UniLoanInterestRecord](docs/UniLoanInterestRecord.md)
+ - [UniLoanRecord](docs/UniLoanRecord.md)
  - [WithdrawStatus](docs/WithdrawStatus.md)
 
 

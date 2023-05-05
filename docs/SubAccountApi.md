@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="listSubAccounts"></a>
 # **listSubAccounts**
-> List&lt;SubAccount&gt; listSubAccounts()
+> List&lt;SubAccount&gt; listSubAccounts().type(type).execute();
 
 List sub-accounts
 
@@ -43,8 +43,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
+        String type = "0"; // String | `0` to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  `1` to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default.
         try {
-            List<SubAccount> result = apiInstance.listSubAccounts();
+            List<SubAccount> result = apiInstance.listSubAccounts()
+                        .type(type)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -60,7 +63,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | **String**| &#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. | [optional]
 
 ### Return type
 

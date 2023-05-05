@@ -31,6 +31,10 @@ public class LedgerRecord {
     @SerializedName(SERIALIZED_NAME_TXID)
     private String txid;
 
+    public static final String SERIALIZED_NAME_WITHDRAW_ORDER_ID = "withdraw_order_id";
+    @SerializedName(SERIALIZED_NAME_WITHDRAW_ORDER_ID)
+    private String withdrawOrderId;
+
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
     private String timestamp;
@@ -152,6 +156,26 @@ public class LedgerRecord {
         return txid;
     }
 
+
+    public LedgerRecord withdrawOrderId(String withdrawOrderId) {
+        
+        this.withdrawOrderId = withdrawOrderId;
+        return this;
+    }
+
+     /**
+     * Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) 
+     * @return withdrawOrderId
+    **/
+    @javax.annotation.Nullable
+    public String getWithdrawOrderId() {
+        return withdrawOrderId;
+    }
+
+
+    public void setWithdrawOrderId(String withdrawOrderId) {
+        this.withdrawOrderId = withdrawOrderId;
+    }
 
      /**
      * Operation time
@@ -290,6 +314,7 @@ public class LedgerRecord {
         LedgerRecord ledgerRecord = (LedgerRecord) o;
         return Objects.equals(this.id, ledgerRecord.id) &&
                 Objects.equals(this.txid, ledgerRecord.txid) &&
+                Objects.equals(this.withdrawOrderId, ledgerRecord.withdrawOrderId) &&
                 Objects.equals(this.timestamp, ledgerRecord.timestamp) &&
                 Objects.equals(this.amount, ledgerRecord.amount) &&
                 Objects.equals(this.currency, ledgerRecord.currency) &&
@@ -302,7 +327,7 @@ public class LedgerRecord {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, txid, timestamp, amount, currency, address, memo, status, chain, fee);
+        return Objects.hash(id, txid, withdrawOrderId, timestamp, amount, currency, address, memo, status, chain, fee);
     }
 
 
@@ -312,6 +337,7 @@ public class LedgerRecord {
         sb.append("class LedgerRecord {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
+        sb.append("      withdrawOrderId: ").append(toIndentedString(withdrawOrderId)).append("\n");
         sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");

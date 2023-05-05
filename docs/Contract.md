@@ -39,6 +39,9 @@ Name | Type | Description | Notes
 **configChangeTime** | **Double** | Last changed time of configuration |  [optional]
 **inDelisting** | **Boolean** | Contract is delisting |  [optional]
 **ordersLimit** | **Integer** | Maximum number of open orders |  [optional]
+**enableBonus** | **Boolean** | Whether bouns is enabled |  [optional]
+**enableCredit** | **Boolean** | Whether portfolio margin account is enabled |  [optional]
+**createTime** | **Double** | Created time of the contract |  [optional]
 
 ## Enum: TypeEnum
 

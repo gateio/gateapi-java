@@ -13,4 +13,5 @@ Name | Type | Description | Notes
 **h** | **String** | Highest price (quote currency) |  [optional]
 **l** | **String** | Lowest price (quote currency) |  [optional]
 **o** | **String** | Open price (quote currency) |  [optional]
+**sum** | **String** | Trading volume (unit: Quote currency) |  [optional]
 

@@ -114,7 +114,7 @@ public class CrossMarginLoan {
 
 
      /**
-     * Borrow loan ID
+     * Loan record ID
      * @return id
     **/
     @javax.annotation.Nullable

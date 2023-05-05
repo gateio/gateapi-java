@@ -39,6 +39,26 @@ public class CrossMarginBalance {
     @SerializedName(SERIALIZED_NAME_INTEREST)
     private String interest;
 
+    public static final String SERIALIZED_NAME_NEGATIVE_LIAB = "negative_liab";
+    @SerializedName(SERIALIZED_NAME_NEGATIVE_LIAB)
+    private String negativeLiab;
+
+    public static final String SERIALIZED_NAME_FUTURES_POS_LIAB = "futures_pos_liab";
+    @SerializedName(SERIALIZED_NAME_FUTURES_POS_LIAB)
+    private String futuresPosLiab;
+
+    public static final String SERIALIZED_NAME_EQUITY = "equity";
+    @SerializedName(SERIALIZED_NAME_EQUITY)
+    private String equity;
+
+    public static final String SERIALIZED_NAME_TOTAL_FREEZE = "total_freeze";
+    @SerializedName(SERIALIZED_NAME_TOTAL_FREEZE)
+    private String totalFreeze;
+
+    public static final String SERIALIZED_NAME_TOTAL_LIAB = "total_liab";
+    @SerializedName(SERIALIZED_NAME_TOTAL_LIAB)
+    private String totalLiab;
+
 
     public CrossMarginBalance available(String available) {
         
@@ -119,6 +139,106 @@ public class CrossMarginBalance {
     public void setInterest(String interest) {
         this.interest = interest;
     }
+
+    public CrossMarginBalance negativeLiab(String negativeLiab) {
+        
+        this.negativeLiab = negativeLiab;
+        return this;
+    }
+
+     /**
+     * Negative Liabilities. Formula:Min[available+total+unrealized_pnl,0]
+     * @return negativeLiab
+    **/
+    @javax.annotation.Nullable
+    public String getNegativeLiab() {
+        return negativeLiab;
+    }
+
+
+    public void setNegativeLiab(String negativeLiab) {
+        this.negativeLiab = negativeLiab;
+    }
+
+    public CrossMarginBalance futuresPosLiab(String futuresPosLiab) {
+        
+        this.futuresPosLiab = futuresPosLiab;
+        return this;
+    }
+
+     /**
+     * Borrowing to Open Positions in Futures
+     * @return futuresPosLiab
+    **/
+    @javax.annotation.Nullable
+    public String getFuturesPosLiab() {
+        return futuresPosLiab;
+    }
+
+
+    public void setFuturesPosLiab(String futuresPosLiab) {
+        this.futuresPosLiab = futuresPosLiab;
+    }
+
+    public CrossMarginBalance equity(String equity) {
+        
+        this.equity = equity;
+        return this;
+    }
+
+     /**
+     * Equity. Formula: available + freeze - borrowed + total + unrealized_pnl
+     * @return equity
+    **/
+    @javax.annotation.Nullable
+    public String getEquity() {
+        return equity;
+    }
+
+
+    public void setEquity(String equity) {
+        this.equity = equity;
+    }
+
+    public CrossMarginBalance totalFreeze(String totalFreeze) {
+        
+        this.totalFreeze = totalFreeze;
+        return this;
+    }
+
+     /**
+     * Total freeze. Formula: position_initial_margin + order_margin
+     * @return totalFreeze
+    **/
+    @javax.annotation.Nullable
+    public String getTotalFreeze() {
+        return totalFreeze;
+    }
+
+
+    public void setTotalFreeze(String totalFreeze) {
+        this.totalFreeze = totalFreeze;
+    }
+
+    public CrossMarginBalance totalLiab(String totalLiab) {
+        
+        this.totalLiab = totalLiab;
+        return this;
+    }
+
+     /**
+     * Total liabilities. Formula: Max[Abs[Min[quity - total_freeze,0], borrowed]] - futures_pos_liab
+     * @return totalLiab
+    **/
+    @javax.annotation.Nullable
+    public String getTotalLiab() {
+        return totalLiab;
+    }
+
+
+    public void setTotalLiab(String totalLiab) {
+        this.totalLiab = totalLiab;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -131,12 +251,17 @@ public class CrossMarginBalance {
         return Objects.equals(this.available, crossMarginBalance.available) &&
                 Objects.equals(this.freeze, crossMarginBalance.freeze) &&
                 Objects.equals(this.borrowed, crossMarginBalance.borrowed) &&
-                Objects.equals(this.interest, crossMarginBalance.interest);
+                Objects.equals(this.interest, crossMarginBalance.interest) &&
+                Objects.equals(this.negativeLiab, crossMarginBalance.negativeLiab) &&
+                Objects.equals(this.futuresPosLiab, crossMarginBalance.futuresPosLiab) &&
+                Objects.equals(this.equity, crossMarginBalance.equity) &&
+                Objects.equals(this.totalFreeze, crossMarginBalance.totalFreeze) &&
+                Objects.equals(this.totalLiab, crossMarginBalance.totalLiab);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(available, freeze, borrowed, interest);
+        return Objects.hash(available, freeze, borrowed, interest, negativeLiab, futuresPosLiab, equity, totalFreeze, totalLiab);
     }
 
 
@@ -148,6 +273,11 @@ public class CrossMarginBalance {
         sb.append("      freeze: ").append(toIndentedString(freeze)).append("\n");
         sb.append("      borrowed: ").append(toIndentedString(borrowed)).append("\n");
         sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
+        sb.append("      negativeLiab: ").append(toIndentedString(negativeLiab)).append("\n");
+        sb.append("      futuresPosLiab: ").append(toIndentedString(futuresPosLiab)).append("\n");
+        sb.append("      equity: ").append(toIndentedString(equity)).append("\n");
+        sb.append("      totalFreeze: ").append(toIndentedString(totalFreeze)).append("\n");
+        sb.append("      totalLiab: ").append(toIndentedString(totalLiab)).append("\n");
         sb.append("}");
         return sb.toString();
     }

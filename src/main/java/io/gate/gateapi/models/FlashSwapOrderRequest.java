@@ -54,7 +54,6 @@ public class FlashSwapOrderRequest {
      * Preview result ID
      * @return previewId
     **/
-    @javax.annotation.Nullable
     public String getPreviewId() {
         return previewId;
     }
@@ -90,10 +89,9 @@ public class FlashSwapOrderRequest {
     }
 
      /**
-     * Amount to sell. It is required to choose one parameter between &#x60;sell_amount&#x60; and &#x60;buy_amount&#x60;
+     * Amount to sell (based on the preview result)
      * @return sellAmount
     **/
-    @javax.annotation.Nullable
     public String getSellAmount() {
         return sellAmount;
     }
@@ -129,10 +127,9 @@ public class FlashSwapOrderRequest {
     }
 
      /**
-     * Amount to buy. It is required to choose one parameter between &#x60;sell_amount&#x60; and &#x60;buy_amount&#x60;
+     * Amount to buy (based on the preview result)
      * @return buyAmount
     **/
-    @javax.annotation.Nullable
     public String getBuyAmount() {
         return buyAmount;
     }

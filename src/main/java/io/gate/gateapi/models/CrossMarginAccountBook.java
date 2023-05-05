@@ -44,7 +44,7 @@ public class CrossMarginAccountBook {
     private String balance;
 
     /**
-     * Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+     * Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -56,6 +56,8 @@ public class CrossMarginAccountBook {
         
         BORROW("borrow"),
         
+        INTEREST("interest"),
+        
         NEW_ORDER("new_order"),
         
         ORDER_FILL("order_fill"),
@@ -63,6 +65,10 @@ public class CrossMarginAccountBook {
         REFERRAL_FEE("referral_fee"),
         
         ORDER_FEE("order_fee"),
+        
+        FUTURES_IN("futures_in"),
+        
+        FUTURES_OUT("futures_out"),
         
         UNKNOWN("unknown");
 
@@ -216,7 +222,7 @@ public class CrossMarginAccountBook {
     }
 
      /**
-     * Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+     * Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type
      * @return type
     **/
     @javax.annotation.Nullable

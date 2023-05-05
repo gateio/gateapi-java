@@ -43,7 +43,7 @@ public class FundingBookItem {
     }
 
      /**
-     * Loan rate
+     * Loan rate (daily rate)
      * @return rate
     **/
     @javax.annotation.Nullable

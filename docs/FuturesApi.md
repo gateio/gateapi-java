@@ -36,8 +36,10 @@ Method | HTTP request | Description
 [**amendFuturesOrder**](FuturesApi.md#amendFuturesOrder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
 [**cancelFuturesOrder**](FuturesApi.md#cancelFuturesOrder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
 [**getMyTrades**](FuturesApi.md#getMyTrades) | **GET** /futures/{settle}/my_trades | List personal trading history
+[**getMyTradesWithTimeRange**](FuturesApi.md#getMyTradesWithTimeRange) | **GET** /futures/{settle}/my_trades_timerange | List personal trading history by time range
 [**listPositionClose**](FuturesApi.md#listPositionClose) | **GET** /futures/{settle}/position_close | List position close history
 [**listLiquidates**](FuturesApi.md#listLiquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
+[**listAutoDeleverages**](FuturesApi.md#listAutoDeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 [**countdownCancelAllFutures**](FuturesApi.md#countdownCancelAllFutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
@@ -1882,7 +1884,7 @@ Name | Type | Description  | Notes
 
 Create a futures order
 
-- Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
+- Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0 - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
 
 ### Example
 
@@ -2340,7 +2342,7 @@ public class Example {
         Long order = 12345L; // Long | Futures order ID, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
+        String lastId = "12345"; // String | Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. If you need to iterate through and retrieve more records, we recommend using 'GET /futures/{settle}/my_trades_timerange'.
         try {
             List<MyFuturesTrade> result = apiInstance.getMyTrades(settle)
                         .contract(contract)
@@ -2372,11 +2374,95 @@ Name | Type | Description  | Notes
  **order** | **Long**| Futures order ID, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
+ **lastId** | **String**| Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. If you need to iterate through and retrieve more records, we recommend using &#39;GET /futures/{settle}/my_trades_timerange&#39;. | [optional]
 
 ### Return type
 
 [**List&lt;MyFuturesTrade&gt;**](MyFuturesTrade.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  |
+
+<a name="getMyTradesWithTimeRange"></a>
+# **getMyTradesWithTimeRange**
+> List&lt;MyFuturesTradeTimeRange&gt; getMyTradesWithTimeRange(settle).contract(contract).from(from).to(to).limit(limit).offset(offset).execute();
+
+List personal trading history by time range
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        try {
+            List<MyFuturesTradeTimeRange> result = apiInstance.getMyTradesWithTimeRange(settle)
+                        .contract(contract)
+                        .from(from)
+                        .to(to)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#getMyTradesWithTimeRange");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
+ **contract** | **String**| Futures contract, return related data only if specified | [optional]
+ **from** | **Long**| Start timestamp | [optional]
+ **to** | **Long**| End timestamp | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;MyFuturesTradeTimeRange&gt;**](MyFuturesTradeTimeRange.md)
 
 ### Authorization
 
@@ -2539,6 +2625,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;FuturesLiquidate&gt;**](FuturesLiquidate.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
+
+<a name="listAutoDeleverages"></a>
+# **listAutoDeleverages**
+> List&lt;FuturesAutoDeleverage&gt; listAutoDeleverages(settle).contract(contract).limit(limit).at(at).execute();
+
+List Auto-Deleveraging History
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer at = 0; // Integer | Specify an auto-deleveraging timestamp
+        try {
+            List<FuturesAutoDeleverage> result = apiInstance.listAutoDeleverages(settle)
+                        .contract(contract)
+                        .limit(limit)
+                        .at(at)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#listAutoDeleverages");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
+ **contract** | **String**| Futures contract, return related data only if specified | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **at** | **Integer**| Specify an auto-deleveraging timestamp | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;FuturesAutoDeleverage&gt;**](FuturesAutoDeleverage.md)
 
 ### Authorization
 

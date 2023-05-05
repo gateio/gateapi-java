@@ -47,6 +47,10 @@ public class FuturesCandlestick {
     @SerializedName(SERIALIZED_NAME_O)
     private String o;
 
+    public static final String SERIALIZED_NAME_SUM = "sum";
+    @SerializedName(SERIALIZED_NAME_SUM)
+    private String sum;
+
 
     public FuturesCandlestick t(Double t) {
         
@@ -167,6 +171,26 @@ public class FuturesCandlestick {
     public void setO(String o) {
         this.o = o;
     }
+
+    public FuturesCandlestick sum(String sum) {
+        
+        this.sum = sum;
+        return this;
+    }
+
+     /**
+     * Trading volume (unit: Quote currency)
+     * @return sum
+    **/
+    @javax.annotation.Nullable
+    public String getSum() {
+        return sum;
+    }
+
+
+    public void setSum(String sum) {
+        this.sum = sum;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -181,12 +205,13 @@ public class FuturesCandlestick {
                 Objects.equals(this.c, futuresCandlestick.c) &&
                 Objects.equals(this.h, futuresCandlestick.h) &&
                 Objects.equals(this.l, futuresCandlestick.l) &&
-                Objects.equals(this.o, futuresCandlestick.o);
+                Objects.equals(this.o, futuresCandlestick.o) &&
+                Objects.equals(this.sum, futuresCandlestick.sum);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(t, v, c, h, l, o);
+        return Objects.hash(t, v, c, h, l, o, sum);
     }
 
 
@@ -200,6 +225,7 @@ public class FuturesCandlestick {
         sb.append("      h: ").append(toIndentedString(h)).append("\n");
         sb.append("      l: ").append(toIndentedString(l)).append("\n");
         sb.append("      o: ").append(toIndentedString(o)).append("\n");
+        sb.append("      sum: ").append(toIndentedString(sum)).append("\n");
         sb.append("}");
         return sb.toString();
     }

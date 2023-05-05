@@ -87,7 +87,7 @@ public class CrossMarginCurrency {
     }
 
      /**
-     * Loan rate
+     * Minimum lending rate (hourly rate)
      * @return rate
     **/
     @javax.annotation.Nullable

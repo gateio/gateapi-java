@@ -245,6 +245,18 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_ORDERS_LIMIT)
     private Integer ordersLimit;
 
+    public static final String SERIALIZED_NAME_ENABLE_BONUS = "enable_bonus";
+    @SerializedName(SERIALIZED_NAME_ENABLE_BONUS)
+    private Boolean enableBonus;
+
+    public static final String SERIALIZED_NAME_ENABLE_CREDIT = "enable_credit";
+    @SerializedName(SERIALIZED_NAME_ENABLE_CREDIT)
+    private Boolean enableCredit;
+
+    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
+    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
+    private Double createTime;
+
 
     public Contract name(String name) {
         
@@ -885,6 +897,66 @@ public class Contract {
     public void setOrdersLimit(Integer ordersLimit) {
         this.ordersLimit = ordersLimit;
     }
+
+    public Contract enableBonus(Boolean enableBonus) {
+        
+        this.enableBonus = enableBonus;
+        return this;
+    }
+
+     /**
+     * Whether bouns is enabled
+     * @return enableBonus
+    **/
+    @javax.annotation.Nullable
+    public Boolean getEnableBonus() {
+        return enableBonus;
+    }
+
+
+    public void setEnableBonus(Boolean enableBonus) {
+        this.enableBonus = enableBonus;
+    }
+
+    public Contract enableCredit(Boolean enableCredit) {
+        
+        this.enableCredit = enableCredit;
+        return this;
+    }
+
+     /**
+     * Whether portfolio margin account is enabled
+     * @return enableCredit
+    **/
+    @javax.annotation.Nullable
+    public Boolean getEnableCredit() {
+        return enableCredit;
+    }
+
+
+    public void setEnableCredit(Boolean enableCredit) {
+        this.enableCredit = enableCredit;
+    }
+
+    public Contract createTime(Double createTime) {
+        
+        this.createTime = createTime;
+        return this;
+    }
+
+     /**
+     * Created time of the contract
+     * @return createTime
+    **/
+    @javax.annotation.Nullable
+    public Double getCreateTime() {
+        return createTime;
+    }
+
+
+    public void setCreateTime(Double createTime) {
+        this.createTime = createTime;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -925,12 +997,15 @@ public class Contract {
                 Objects.equals(this.positionSize, contract.positionSize) &&
                 Objects.equals(this.configChangeTime, contract.configChangeTime) &&
                 Objects.equals(this.inDelisting, contract.inDelisting) &&
-                Objects.equals(this.ordersLimit, contract.ordersLimit);
+                Objects.equals(this.ordersLimit, contract.ordersLimit) &&
+                Objects.equals(this.enableBonus, contract.enableBonus) &&
+                Objects.equals(this.enableCredit, contract.enableCredit) &&
+                Objects.equals(this.createTime, contract.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime);
     }
 
 
@@ -970,6 +1045,9 @@ public class Contract {
         sb.append("      configChangeTime: ").append(toIndentedString(configChangeTime)).append("\n");
         sb.append("      inDelisting: ").append(toIndentedString(inDelisting)).append("\n");
         sb.append("      ordersLimit: ").append(toIndentedString(ordersLimit)).append("\n");
+        sb.append("      enableBonus: ").append(toIndentedString(enableBonus)).append("\n");
+        sb.append("      enableCredit: ").append(toIndentedString(enableCredit)).append("\n");
+        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("}");
         return sb.toString();
     }

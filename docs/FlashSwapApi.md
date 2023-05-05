@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 <a name="previewFlashSwapOrder"></a>
 # **previewFlashSwapOrder**
-> FlashSwapOrderPreview previewFlashSwapOrder(flashSwapOrderRequest)
+> FlashSwapOrderPreview previewFlashSwapOrder(flashSwapPreviewRequest)
 
 Initiate a flash swap order preview
 
@@ -321,9 +321,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
-        FlashSwapOrderRequest flashSwapOrderRequest = new FlashSwapOrderRequest(); // FlashSwapOrderRequest | 
+        FlashSwapPreviewRequest flashSwapPreviewRequest = new FlashSwapPreviewRequest(); // FlashSwapPreviewRequest | 
         try {
-            FlashSwapOrderPreview result = apiInstance.previewFlashSwapOrder(flashSwapOrderRequest);
+            FlashSwapOrderPreview result = apiInstance.previewFlashSwapOrder(flashSwapPreviewRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -342,7 +342,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **flashSwapOrderRequest** | [**FlashSwapOrderRequest**](FlashSwapOrderRequest.md)|  |
+ **flashSwapPreviewRequest** | [**FlashSwapPreviewRequest**](FlashSwapPreviewRequest.md)|  |
 
 ### Return type
 

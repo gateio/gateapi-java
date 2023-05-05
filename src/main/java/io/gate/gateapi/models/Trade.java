@@ -169,6 +169,10 @@ public class Trade {
     @SerializedName(SERIALIZED_NAME_GT_FEE)
     private String gtFee;
 
+    public static final String SERIALIZED_NAME_AMEND_TEXT = "amend_text";
+    @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
+    private String amendText;
+
 
     public Trade id(String id) {
         
@@ -429,6 +433,26 @@ public class Trade {
     public void setGtFee(String gtFee) {
         this.gtFee = gtFee;
     }
+
+    public Trade amendText(String amendText) {
+        
+        this.amendText = amendText;
+        return this;
+    }
+
+     /**
+     * The custom data that the user remarked when amending the order
+     * @return amendText
+    **/
+    @javax.annotation.Nullable
+    public String getAmendText() {
+        return amendText;
+    }
+
+
+    public void setAmendText(String amendText) {
+        this.amendText = amendText;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -450,12 +474,13 @@ public class Trade {
                 Objects.equals(this.fee, trade.fee) &&
                 Objects.equals(this.feeCurrency, trade.feeCurrency) &&
                 Objects.equals(this.pointFee, trade.pointFee) &&
-                Objects.equals(this.gtFee, trade.gtFee);
+                Objects.equals(this.gtFee, trade.gtFee) &&
+                Objects.equals(this.amendText, trade.amendText);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, createTimeMs, currencyPair, side, role, amount, price, orderId, fee, feeCurrency, pointFee, gtFee);
+        return Objects.hash(id, createTime, createTimeMs, currencyPair, side, role, amount, price, orderId, fee, feeCurrency, pointFee, gtFee, amendText);
     }
 
 
@@ -476,6 +501,7 @@ public class Trade {
         sb.append("      feeCurrency: ").append(toIndentedString(feeCurrency)).append("\n");
         sb.append("      pointFee: ").append(toIndentedString(pointFee)).append("\n");
         sb.append("      gtFee: ").append(toIndentedString(gtFee)).append("\n");
+        sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
         sb.append("}");
         return sb.toString();
     }

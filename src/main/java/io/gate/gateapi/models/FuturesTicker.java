@@ -99,6 +99,14 @@ public class FuturesTicker {
     @SerializedName(SERIALIZED_NAME_BASIS_VALUE)
     private String basisValue;
 
+    public static final String SERIALIZED_NAME_LOWEST_ASK = "lowest_ask";
+    @SerializedName(SERIALIZED_NAME_LOWEST_ASK)
+    private String lowestAsk;
+
+    public static final String SERIALIZED_NAME_HIGHEST_BID = "highest_bid";
+    @SerializedName(SERIALIZED_NAME_HIGHEST_BID)
+    private String highestBid;
+
 
     public FuturesTicker contract(String contract) {
         
@@ -479,6 +487,46 @@ public class FuturesTicker {
     public void setBasisValue(String basisValue) {
         this.basisValue = basisValue;
     }
+
+    public FuturesTicker lowestAsk(String lowestAsk) {
+        
+        this.lowestAsk = lowestAsk;
+        return this;
+    }
+
+     /**
+     * Recent lowest ask
+     * @return lowestAsk
+    **/
+    @javax.annotation.Nullable
+    public String getLowestAsk() {
+        return lowestAsk;
+    }
+
+
+    public void setLowestAsk(String lowestAsk) {
+        this.lowestAsk = lowestAsk;
+    }
+
+    public FuturesTicker highestBid(String highestBid) {
+        
+        this.highestBid = highestBid;
+        return this;
+    }
+
+     /**
+     * Recent highest bid
+     * @return highestBid
+    **/
+    @javax.annotation.Nullable
+    public String getHighestBid() {
+        return highestBid;
+    }
+
+
+    public void setHighestBid(String highestBid) {
+        this.highestBid = highestBid;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -506,12 +554,14 @@ public class FuturesTicker {
                 Objects.equals(this.indexPrice, futuresTicker.indexPrice) &&
                 Objects.equals(this.quantoBaseRate, futuresTicker.quantoBaseRate) &&
                 Objects.equals(this.basisRate, futuresTicker.basisRate) &&
-                Objects.equals(this.basisValue, futuresTicker.basisValue);
+                Objects.equals(this.basisValue, futuresTicker.basisValue) &&
+                Objects.equals(this.lowestAsk, futuresTicker.lowestAsk) &&
+                Objects.equals(this.highestBid, futuresTicker.highestBid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contract, last, changePercentage, totalSize, low24h, high24h, volume24h, volume24hBtc, volume24hUsd, volume24hBase, volume24hQuote, volume24hSettle, markPrice, fundingRate, fundingRateIndicative, indexPrice, quantoBaseRate, basisRate, basisValue);
+        return Objects.hash(contract, last, changePercentage, totalSize, low24h, high24h, volume24h, volume24hBtc, volume24hUsd, volume24hBase, volume24hQuote, volume24hSettle, markPrice, fundingRate, fundingRateIndicative, indexPrice, quantoBaseRate, basisRate, basisValue, lowestAsk, highestBid);
     }
 
 
@@ -538,6 +588,8 @@ public class FuturesTicker {
         sb.append("      quantoBaseRate: ").append(toIndentedString(quantoBaseRate)).append("\n");
         sb.append("      basisRate: ").append(toIndentedString(basisRate)).append("\n");
         sb.append("      basisValue: ").append(toIndentedString(basisValue)).append("\n");
+        sb.append("      lowestAsk: ").append(toIndentedString(lowestAsk)).append("\n");
+        sb.append("      highestBid: ").append(toIndentedString(highestBid)).append("\n");
         sb.append("}");
         return sb.toString();
     }

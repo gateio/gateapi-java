@@ -405,7 +405,7 @@ public class Position {
 
 
      /**
-     * ADL ranking, ranging from 1 to 5
+     * Ranking of auto deleveraging, a total of 1-5 grades, &#x60;1&#x60; is the highest, &#x60;5&#x60; is the lowest, and &#x60;6&#x60; is the special case when there is no position held or in liquidation
      * @return adlRanking
     **/
     @javax.annotation.Nullable

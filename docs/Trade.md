@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **feeCurrency** | **String** | Fee currency unit. No value in public endpoints |  [optional]
 **pointFee** | **String** | Points used to deduct fee. No value in public endpoints |  [optional]
 **gtFee** | **String** | GT used to deduct fee. No value in public endpoints |  [optional]
+**amendText** | **String** | The custom data that the user remarked when amending the order |  [optional]
 
 ## Enum: SideEnum
 

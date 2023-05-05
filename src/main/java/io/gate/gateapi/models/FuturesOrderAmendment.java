@@ -31,6 +31,10 @@ public class FuturesOrderAmendment {
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
 
+    public static final String SERIALIZED_NAME_AMEND_TEXT = "amend_text";
+    @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
+    private String amendText;
+
 
     public FuturesOrderAmendment size(Long size) {
         
@@ -71,6 +75,26 @@ public class FuturesOrderAmendment {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    public FuturesOrderAmendment amendText(String amendText) {
+        
+        this.amendText = amendText;
+        return this;
+    }
+
+     /**
+     * Custom info during amending order
+     * @return amendText
+    **/
+    @javax.annotation.Nullable
+    public String getAmendText() {
+        return amendText;
+    }
+
+
+    public void setAmendText(String amendText) {
+        this.amendText = amendText;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -81,12 +105,13 @@ public class FuturesOrderAmendment {
         }
         FuturesOrderAmendment futuresOrderAmendment = (FuturesOrderAmendment) o;
         return Objects.equals(this.size, futuresOrderAmendment.size) &&
-                Objects.equals(this.price, futuresOrderAmendment.price);
+                Objects.equals(this.price, futuresOrderAmendment.price) &&
+                Objects.equals(this.amendText, futuresOrderAmendment.amendText);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, price);
+        return Objects.hash(size, price, amendText);
     }
 
 
@@ -96,6 +121,7 @@ public class FuturesOrderAmendment {
         sb.append("class FuturesOrderAmendment {\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
         sb.append("}");
         return sb.toString();
     }
