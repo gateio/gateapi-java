@@ -47,6 +47,10 @@ public class CrossMarginRepayment {
     @SerializedName(SERIALIZED_NAME_INTEREST)
     private String interest;
 
+    public static final String SERIALIZED_NAME_REPAYMENT_TYPE = "repayment_type";
+    @SerializedName(SERIALIZED_NAME_REPAYMENT_TYPE)
+    private String repaymentType;
+
 
     public CrossMarginRepayment id(String id) {
         
@@ -167,6 +171,16 @@ public class CrossMarginRepayment {
     public void setInterest(String interest) {
         this.interest = interest;
     }
+
+     /**
+     * Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation
+     * @return repaymentType
+    **/
+    @javax.annotation.Nullable
+    public String getRepaymentType() {
+        return repaymentType;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -181,12 +195,13 @@ public class CrossMarginRepayment {
                 Objects.equals(this.loanId, crossMarginRepayment.loanId) &&
                 Objects.equals(this.currency, crossMarginRepayment.currency) &&
                 Objects.equals(this.principal, crossMarginRepayment.principal) &&
-                Objects.equals(this.interest, crossMarginRepayment.interest);
+                Objects.equals(this.interest, crossMarginRepayment.interest) &&
+                Objects.equals(this.repaymentType, crossMarginRepayment.repaymentType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, loanId, currency, principal, interest);
+        return Objects.hash(id, createTime, loanId, currency, principal, interest, repaymentType);
     }
 
 
@@ -200,6 +215,7 @@ public class CrossMarginRepayment {
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      principal: ").append(toIndentedString(principal)).append("\n");
         sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
+        sb.append("      repaymentType: ").append(toIndentedString(repaymentType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

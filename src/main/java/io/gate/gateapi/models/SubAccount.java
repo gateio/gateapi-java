@@ -145,12 +145,6 @@ public class SubAccount {
     }
 
 
-    public SubAccount type(Integer type) {
-        
-        this.type = type;
-        return this;
-    }
-
      /**
      * \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account
      * @return type
@@ -160,10 +154,6 @@ public class SubAccount {
         return type;
     }
 
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
 
      /**
      * The user id of the sub-account

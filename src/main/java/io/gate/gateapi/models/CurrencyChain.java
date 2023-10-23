@@ -35,6 +35,10 @@ public class CurrencyChain {
     @SerializedName(SERIALIZED_NAME_NAME_EN)
     private String nameEn;
 
+    public static final String SERIALIZED_NAME_CONTRACT_ADDRESS = "contract_address";
+    @SerializedName(SERIALIZED_NAME_CONTRACT_ADDRESS)
+    private String contractAddress;
+
     public static final String SERIALIZED_NAME_IS_DISABLED = "is_disabled";
     @SerializedName(SERIALIZED_NAME_IS_DISABLED)
     private Integer isDisabled;
@@ -108,6 +112,26 @@ public class CurrencyChain {
         this.nameEn = nameEn;
     }
 
+    public CurrencyChain contractAddress(String contractAddress) {
+        
+        this.contractAddress = contractAddress;
+        return this;
+    }
+
+     /**
+     * Smart contract address for the currency; if no address is available, it will be an empty string
+     * @return contractAddress
+    **/
+    @javax.annotation.Nullable
+    public String getContractAddress() {
+        return contractAddress;
+    }
+
+
+    public void setContractAddress(String contractAddress) {
+        this.contractAddress = contractAddress;
+    }
+
     public CurrencyChain isDisabled(Integer isDisabled) {
         
         this.isDisabled = isDisabled;
@@ -179,6 +203,7 @@ public class CurrencyChain {
         return Objects.equals(this.chain, currencyChain.chain) &&
                 Objects.equals(this.nameCn, currencyChain.nameCn) &&
                 Objects.equals(this.nameEn, currencyChain.nameEn) &&
+                Objects.equals(this.contractAddress, currencyChain.contractAddress) &&
                 Objects.equals(this.isDisabled, currencyChain.isDisabled) &&
                 Objects.equals(this.isDepositDisabled, currencyChain.isDepositDisabled) &&
                 Objects.equals(this.isWithdrawDisabled, currencyChain.isWithdrawDisabled);
@@ -186,7 +211,7 @@ public class CurrencyChain {
 
     @Override
     public int hashCode() {
-        return Objects.hash(chain, nameCn, nameEn, isDisabled, isDepositDisabled, isWithdrawDisabled);
+        return Objects.hash(chain, nameCn, nameEn, contractAddress, isDisabled, isDepositDisabled, isWithdrawDisabled);
     }
 
 
@@ -197,6 +222,7 @@ public class CurrencyChain {
         sb.append("      chain: ").append(toIndentedString(chain)).append("\n");
         sb.append("      nameCn: ").append(toIndentedString(nameCn)).append("\n");
         sb.append("      nameEn: ").append(toIndentedString(nameEn)).append("\n");
+        sb.append("      contractAddress: ").append(toIndentedString(contractAddress)).append("\n");
         sb.append("      isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
         sb.append("      isDepositDisabled: ").append(toIndentedString(isDepositDisabled)).append("\n");
         sb.append("      isWithdrawDisabled: ").append(toIndentedString(isWithdrawDisabled)).append("\n");

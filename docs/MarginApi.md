@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**repayCrossMarginLoan**](MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Cross margin repayments
 [**getCrossMarginInterestRecords**](MarginApi.md#getCrossMarginInterestRecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account
 [**getCrossMarginTransferable**](MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
+[**getCrossMarginEstimateRate**](MarginApi.md#getCrossMarginEstimateRate) | **GET** /margin/cross/estimate_rate | Estimated interest rates
 [**getCrossMarginBorrowable**](MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
 
 
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 <a name="listMarginAccountBook"></a>
 # **listMarginAccountBook**
-> List&lt;MarginAccountBook&gt; listMarginAccountBook().currency(currency).currencyPair(currencyPair).from(from).to(to).page(page).limit(limit).execute();
+> List&lt;MarginAccountBook&gt; listMarginAccountBook().currency(currency).currencyPair(currencyPair).type(type).from(from).to(to).page(page).limit(limit).execute();
 
 List margin account balance change history
 
@@ -140,6 +141,7 @@ public class Example {
         MarginApi apiInstance = new MarginApi(defaultClient);
         String currency = "currency_example"; // String | List records related to specified currency only. If specified, `currency_pair` is also required.
         String currencyPair = "currencyPair_example"; // String | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided
+        String type = "lend"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
         Long from = 1627706330L; // Long | Start timestamp of the query
         Long to = 1635329650L; // Long | Time range ending, default to current time
         Integer page = 1; // Integer | Page number
@@ -148,6 +150,7 @@ public class Example {
             List<MarginAccountBook> result = apiInstance.listMarginAccountBook()
                         .currency(currency)
                         .currencyPair(currencyPair)
+                        .type(type)
                         .from(from)
                         .to(to)
                         .page(page)
@@ -173,6 +176,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**| List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. | [optional]
  **currencyPair** | **String**| List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided | [optional]
+ **type** | **String**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
  **from** | **Long**| Start timestamp of the query | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
@@ -1833,7 +1837,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        Integer status = 56; // Integer | Filter by status. Supported values are 2 and 3.
+        Integer status = 56; // Integer | Filter by status. Supported values are 2 and 3. (deprecated.)
         String currency = "currency_example"; // String | Filter by currency
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -1863,7 +1867,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **Integer**| Filter by status. Supported values are 2 and 3. |
+ **status** | **Integer**| Filter by status. Supported values are 2 and 3. (deprecated.) |
  **currency** | **String**| Filter by currency | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -2323,9 +2327,79 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
 
+<a name="getCrossMarginEstimateRate"></a>
+# **getCrossMarginEstimateRate**
+> Map&lt;String, String&gt; getCrossMarginEstimateRate(currencies)
+
+Estimated interest rates
+
+Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.MarginApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        List<String> currencies = Arrays.asList(); // List<String> | An array of up to 10 specifying the currency name
+        try {
+            Map<String, String> result = apiInstance.getCrossMarginEstimateRate(currencies);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginEstimateRate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencies** | [**List&lt;String&gt;**](String.md)| An array of up to 10 specifying the currency name |
+
+### Return type
+
+**Map&lt;String, String&gt;**
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
 <a name="getCrossMarginBorrowable"></a>
 # **getCrossMarginBorrowable**
-> CrossMarginBorrowable getCrossMarginBorrowable(currency)
+> PortfolioBorrowable getCrossMarginBorrowable(currency)
 
 Get the max borrowable amount for a specific cross margin currency
 
@@ -2352,7 +2426,7 @@ public class Example {
         MarginApi apiInstance = new MarginApi(defaultClient);
         String currency = "BTC"; // String | Retrieve data of the specified currency
         try {
-            CrossMarginBorrowable result = apiInstance.getCrossMarginBorrowable(currency);
+            PortfolioBorrowable result = apiInstance.getCrossMarginBorrowable(currency);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -2375,7 +2449,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CrossMarginBorrowable**](CrossMarginBorrowable.md)
+[**PortfolioBorrowable**](PortfolioBorrowable.md)
 
 ### Authorization
 

@@ -47,6 +47,14 @@ public class UniLend {
     @SerializedName(SERIALIZED_NAME_MIN_RATE)
     private String minRate;
 
+    public static final String SERIALIZED_NAME_INTEREST_STATUS = "interest_status";
+    @SerializedName(SERIALIZED_NAME_INTEREST_STATUS)
+    private String interestStatus;
+
+    public static final String SERIALIZED_NAME_REINVEST_LEFT_AMOUNT = "reinvest_left_amount";
+    @SerializedName(SERIALIZED_NAME_REINVEST_LEFT_AMOUNT)
+    private String reinvestLeftAmount;
+
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private Long createTime;
@@ -117,6 +125,26 @@ public class UniLend {
 
 
      /**
+     * Interest status: interest_dividend - regular dividend, interest_reinvest - interest reinvestment
+     * @return interestStatus
+    **/
+    @javax.annotation.Nullable
+    public String getInterestStatus() {
+        return interestStatus;
+    }
+
+
+     /**
+     * Amount not reinvested
+     * @return reinvestLeftAmount
+    **/
+    @javax.annotation.Nullable
+    public String getReinvestLeftAmount() {
+        return reinvestLeftAmount;
+    }
+
+
+     /**
      * Created time of the lending order
      * @return createTime
     **/
@@ -150,13 +178,15 @@ public class UniLend {
                 Objects.equals(this.lentAmount, uniLend.lentAmount) &&
                 Objects.equals(this.frozenAmount, uniLend.frozenAmount) &&
                 Objects.equals(this.minRate, uniLend.minRate) &&
+                Objects.equals(this.interestStatus, uniLend.interestStatus) &&
+                Objects.equals(this.reinvestLeftAmount, uniLend.reinvestLeftAmount) &&
                 Objects.equals(this.createTime, uniLend.createTime) &&
                 Objects.equals(this.updateTime, uniLend.updateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, currentAmount, amount, lentAmount, frozenAmount, minRate, createTime, updateTime);
+        return Objects.hash(currency, currentAmount, amount, lentAmount, frozenAmount, minRate, interestStatus, reinvestLeftAmount, createTime, updateTime);
     }
 
 
@@ -170,6 +200,8 @@ public class UniLend {
         sb.append("      lentAmount: ").append(toIndentedString(lentAmount)).append("\n");
         sb.append("      frozenAmount: ").append(toIndentedString(frozenAmount)).append("\n");
         sb.append("      minRate: ").append(toIndentedString(minRate)).append("\n");
+        sb.append("      interestStatus: ").append(toIndentedString(interestStatus)).append("\n");
+        sb.append("      reinvestLeftAmount: ").append(toIndentedString(reinvestLeftAmount)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
         sb.append("}");

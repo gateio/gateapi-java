@@ -39,6 +39,10 @@ public class UniInterestRecord {
     @SerializedName(SERIALIZED_NAME_INTEREST)
     private String interest;
 
+    public static final String SERIALIZED_NAME_INTEREST_STATUS = "interest_status";
+    @SerializedName(SERIALIZED_NAME_INTEREST_STATUS)
+    private String interestStatus;
+
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private Long createTime;
@@ -85,6 +89,16 @@ public class UniInterestRecord {
 
 
      /**
+     * Interest status: interest_dividend - regular dividend, interest_reinvest - interest reinvestment
+     * @return interestStatus
+    **/
+    @javax.annotation.Nullable
+    public String getInterestStatus() {
+        return interestStatus;
+    }
+
+
+     /**
      * Created time
      * @return createTime
     **/
@@ -106,12 +120,13 @@ public class UniInterestRecord {
                 Objects.equals(this.currency, uniInterestRecord.currency) &&
                 Objects.equals(this.actualRate, uniInterestRecord.actualRate) &&
                 Objects.equals(this.interest, uniInterestRecord.interest) &&
+                Objects.equals(this.interestStatus, uniInterestRecord.interestStatus) &&
                 Objects.equals(this.createTime, uniInterestRecord.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(status, currency, actualRate, interest, createTime);
+        return Objects.hash(status, currency, actualRate, interest, interestStatus, createTime);
     }
 
 
@@ -123,6 +138,7 @@ public class UniInterestRecord {
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      actualRate: ").append(toIndentedString(actualRate)).append("\n");
         sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
+        sb.append("      interestStatus: ").append(toIndentedString(interestStatus)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("}");
         return sb.toString();

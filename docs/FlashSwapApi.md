@@ -4,7 +4,8 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listFlashSwapCurrencies**](FlashSwapApi.md#listFlashSwapCurrencies) | **GET** /flash_swap/currencies | List all supported currencies in flash swap
+[**listFlashSwapCurrencies**](FlashSwapApi.md#listFlashSwapCurrencies) | **GET** /flash_swap/currencies | List All Supported Currencies In Flash Swap (deprecated)
+[**listFlashSwapCurrencyPair**](FlashSwapApi.md#listFlashSwapCurrencyPair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap
 [**listFlashSwapOrders**](FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders
 [**createFlashSwapOrder**](FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
 [**getFlashSwapOrder**](FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Get a single flash swap order&#39;s detail
@@ -15,7 +16,7 @@ Method | HTTP request | Description
 # **listFlashSwapCurrencies**
 > List&lt;FlashSwapCurrency&gt; listFlashSwapCurrencies()
 
-List all supported currencies in flash swap
+List All Supported Currencies In Flash Swap (deprecated)
 
 ### Example
 
@@ -56,6 +57,74 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;FlashSwapCurrency&gt;**](FlashSwapCurrency.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="listFlashSwapCurrencyPair"></a>
+# **listFlashSwapCurrencyPair**
+> List&lt;FlashSwapCurrencyPair&gt; listFlashSwapCurrencyPair().currency(currency).execute();
+
+List All Supported Currency Pairs In Flash Swap
+
+&#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FlashSwapApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            List<FlashSwapCurrencyPair> result = apiInstance.listFlashSwapCurrencyPair()
+                        .currency(currency)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FlashSwapApi#listFlashSwapCurrencyPair");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Retrieve data of the specified currency | [optional]
+
+### Return type
+
+[**List&lt;FlashSwapCurrencyPair&gt;**](FlashSwapCurrencyPair.md)
 
 ### Authorization
 

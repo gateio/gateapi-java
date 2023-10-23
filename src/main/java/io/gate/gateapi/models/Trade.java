@@ -173,6 +173,14 @@ public class Trade {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
+    public static final String SERIALIZED_NAME_SEQUENCE_ID = "sequence_id";
+    @SerializedName(SERIALIZED_NAME_SEQUENCE_ID)
+    private String sequenceId;
+
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
 
     public Trade id(String id) {
         
@@ -453,6 +461,46 @@ public class Trade {
     public void setAmendText(String amendText) {
         this.amendText = amendText;
     }
+
+    public Trade sequenceId(String sequenceId) {
+        
+        this.sequenceId = sequenceId;
+        return this;
+    }
+
+     /**
+     * Represents a unique and consecutive trade ID within a single market. It is used to track and identify trades in the specific market
+     * @return sequenceId
+    **/
+    @javax.annotation.Nullable
+    public String getSequenceId() {
+        return sequenceId;
+    }
+
+
+    public void setSequenceId(String sequenceId) {
+        this.sequenceId = sequenceId;
+    }
+
+    public Trade text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * User defined information. No value in public endpoints
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -475,12 +523,14 @@ public class Trade {
                 Objects.equals(this.feeCurrency, trade.feeCurrency) &&
                 Objects.equals(this.pointFee, trade.pointFee) &&
                 Objects.equals(this.gtFee, trade.gtFee) &&
-                Objects.equals(this.amendText, trade.amendText);
+                Objects.equals(this.amendText, trade.amendText) &&
+                Objects.equals(this.sequenceId, trade.sequenceId) &&
+                Objects.equals(this.text, trade.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, createTimeMs, currencyPair, side, role, amount, price, orderId, fee, feeCurrency, pointFee, gtFee, amendText);
+        return Objects.hash(id, createTime, createTimeMs, currencyPair, side, role, amount, price, orderId, fee, feeCurrency, pointFee, gtFee, amendText, sequenceId, text);
     }
 
 
@@ -502,6 +552,8 @@ public class Trade {
         sb.append("      pointFee: ").append(toIndentedString(pointFee)).append("\n");
         sb.append("      gtFee: ").append(toIndentedString(gtFee)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
+        sb.append("      sequenceId: ").append(toIndentedString(sequenceId)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

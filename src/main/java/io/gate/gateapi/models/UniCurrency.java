@@ -55,7 +55,7 @@ public class UniCurrency {
 
 
      /**
-     * Minimum lend amount
+     * The minimum lending amount, in the unit of the currency.
      * @return minLendAmount
     **/
     @javax.annotation.Nullable
@@ -65,7 +65,7 @@ public class UniCurrency {
 
 
      /**
-     * Maximum lend amount
+     * The total maximum lending amount, in USDT
      * @return maxLendAmount
     **/
     @javax.annotation.Nullable

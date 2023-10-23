@@ -173,6 +173,10 @@ public class Position {
     @SerializedName(SERIALIZED_NAME_CROSS_LEVERAGE_LIMIT)
     private String crossLeverageLimit;
 
+    public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
+    @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
+    private Long updateTime;
+
 
      /**
      * User ID
@@ -483,6 +487,16 @@ public class Position {
     public void setCrossLeverageLimit(String crossLeverageLimit) {
         this.crossLeverageLimit = crossLeverageLimit;
     }
+
+     /**
+     * Last update time
+     * @return updateTime
+    **/
+    @javax.annotation.Nullable
+    public Long getUpdateTime() {
+        return updateTime;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -516,12 +530,13 @@ public class Position {
                 Objects.equals(this.pendingOrders, position.pendingOrders) &&
                 Objects.equals(this.closeOrder, position.closeOrder) &&
                 Objects.equals(this.mode, position.mode) &&
-                Objects.equals(this.crossLeverageLimit, position.crossLeverageLimit);
+                Objects.equals(this.crossLeverageLimit, position.crossLeverageLimit) &&
+                Objects.equals(this.updateTime, position.updateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit);
+        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime);
     }
 
 
@@ -554,6 +569,7 @@ public class Position {
         sb.append("      closeOrder: ").append(toIndentedString(closeOrder)).append("\n");
         sb.append("      mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("      crossLeverageLimit: ").append(toIndentedString(crossLeverageLimit)).append("\n");
+        sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
         sb.append("}");
         return sb.toString();
     }

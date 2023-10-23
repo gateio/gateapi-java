@@ -51,6 +51,10 @@ public class MarginAccountBook {
     @SerializedName(SERIALIZED_NAME_BALANCE)
     private String balance;
 
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
+
 
     public MarginAccountBook id(String id) {
         
@@ -191,6 +195,26 @@ public class MarginAccountBook {
     public void setBalance(String balance) {
         this.balance = balance;
     }
+
+    public MarginAccountBook type(String type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * Account book type.  Please refer to [account book type](#accountbook-type) for more detail
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public String getType() {
+        return type;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -206,12 +230,13 @@ public class MarginAccountBook {
                 Objects.equals(this.currency, marginAccountBook.currency) &&
                 Objects.equals(this.currencyPair, marginAccountBook.currencyPair) &&
                 Objects.equals(this.change, marginAccountBook.change) &&
-                Objects.equals(this.balance, marginAccountBook.balance);
+                Objects.equals(this.balance, marginAccountBook.balance) &&
+                Objects.equals(this.type, marginAccountBook.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, time, timeMs, currency, currencyPair, change, balance);
+        return Objects.hash(id, time, timeMs, currency, currencyPair, change, balance, type);
     }
 
 
@@ -226,6 +251,7 @@ public class MarginAccountBook {
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      change: ").append(toIndentedString(change)).append("\n");
         sb.append("      balance: ").append(toIndentedString(balance)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

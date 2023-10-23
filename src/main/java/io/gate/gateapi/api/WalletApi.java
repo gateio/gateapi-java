@@ -1156,7 +1156,7 @@ public class WalletApi {
 
     /**
      * Sub-account transfers to sub-account
-     * 
+     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
      * @param subAccountToSubAccount  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1171,7 +1171,7 @@ public class WalletApi {
 
     /**
      * Sub-account transfers to sub-account
-     * 
+     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
      * @param subAccountToSubAccount  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1188,7 +1188,7 @@ public class WalletApi {
 
     /**
      * Sub-account transfers to sub-account (asynchronously)
-     * 
+     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
      * @param subAccountToSubAccount  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

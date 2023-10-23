@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Loan record
+ * Loan records
  */
 public class UniLoanRecord {
     public static final String SERIALIZED_NAME_TYPE = "type";

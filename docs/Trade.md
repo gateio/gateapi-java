@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **pointFee** | **String** | Points used to deduct fee. No value in public endpoints |  [optional]
 **gtFee** | **String** | GT used to deduct fee. No value in public endpoints |  [optional]
 **amendText** | **String** | The custom data that the user remarked when amending the order |  [optional]
+**sequenceId** | **String** | Represents a unique and consecutive trade ID within a single market. It is used to track and identify trades in the specific market |  [optional]
+**text** | **String** | User defined information. No value in public endpoints |  [optional]
 
 ## Enum: SideEnum
 

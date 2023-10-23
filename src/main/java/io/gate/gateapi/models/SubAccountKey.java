@@ -30,6 +30,10 @@ public class SubAccountKey {
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private String userId;
 
+    public static final String SERIALIZED_NAME_MODE = "mode";
+    @SerializedName(SERIALIZED_NAME_MODE)
+    private Integer mode;
+
     public static final String SERIALIZED_NAME_NAME = "name";
     @SerializedName(SERIALIZED_NAME_NAME)
     private String name;
@@ -68,6 +72,26 @@ public class SubAccountKey {
         return userId;
     }
 
+
+    public SubAccountKey mode(Integer mode) {
+        
+        this.mode = mode;
+        return this;
+    }
+
+     /**
+     * Mode: 1 - classic 2 - portfolio account
+     * @return mode
+    **/
+    @javax.annotation.Nullable
+    public Integer getMode() {
+        return mode;
+    }
+
+
+    public void setMode(Integer mode) {
+        this.mode = mode;
+    }
 
     public SubAccountKey name(String name) {
         
@@ -194,6 +218,7 @@ public class SubAccountKey {
         }
         SubAccountKey subAccountKey = (SubAccountKey) o;
         return Objects.equals(this.userId, subAccountKey.userId) &&
+                Objects.equals(this.mode, subAccountKey.mode) &&
                 Objects.equals(this.name, subAccountKey.name) &&
                 Objects.equals(this.perms, subAccountKey.perms) &&
                 Objects.equals(this.ipWhitelist, subAccountKey.ipWhitelist) &&
@@ -205,7 +230,7 @@ public class SubAccountKey {
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, name, perms, ipWhitelist, key, state, createdAt, updatedAt);
+        return Objects.hash(userId, mode, name, perms, ipWhitelist, key, state, createdAt, updatedAt);
     }
 
 
@@ -214,6 +239,7 @@ public class SubAccountKey {
         StringBuilder sb = new StringBuilder();
         sb.append("class SubAccountKey {\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
+        sb.append("      mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("      name: ").append(toIndentedString(name)).append("\n");
         sb.append("      perms: ").append(toIndentedString(perms)).append("\n");
         sb.append("      ipWhitelist: ").append(toIndentedString(ipWhitelist)).append("\n");

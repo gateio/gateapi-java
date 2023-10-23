@@ -187,7 +187,7 @@ public class CrossMarginBalance {
     }
 
      /**
-     * Equity. Formula: available + freeze - borrowed + total + unrealized_pnl
+     * Equity. Formula: available + freeze - borrowed + futures account&#39;s total + unrealized_pnl
      * @return equity
     **/
     @javax.annotation.Nullable
@@ -207,7 +207,7 @@ public class CrossMarginBalance {
     }
 
      /**
-     * Total freeze. Formula: position_initial_margin + order_margin
+     * Total freeze. Formula: freeze + position_initial_margin + order_margin
      * @return totalFreeze
     **/
     @javax.annotation.Nullable

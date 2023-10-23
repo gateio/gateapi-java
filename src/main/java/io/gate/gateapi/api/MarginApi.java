@@ -23,7 +23,6 @@ import com.google.gson.reflect.TypeToken;
 import io.gate.gateapi.models.AutoRepaySetting;
 import io.gate.gateapi.models.CrossMarginAccount;
 import io.gate.gateapi.models.CrossMarginAccountBook;
-import io.gate.gateapi.models.CrossMarginBorrowable;
 import io.gate.gateapi.models.CrossMarginCurrency;
 import io.gate.gateapi.models.CrossMarginLoan;
 import io.gate.gateapi.models.CrossMarginRepayRequest;
@@ -39,6 +38,7 @@ import io.gate.gateapi.models.MarginAccountBook;
 import io.gate.gateapi.models.MarginBorrowable;
 import io.gate.gateapi.models.MarginCurrencyPair;
 import io.gate.gateapi.models.MarginTransferable;
+import io.gate.gateapi.models.PortfolioBorrowable;
 import io.gate.gateapi.models.RepayRequest;
 import io.gate.gateapi.models.Repayment;
 import io.gate.gateapi.models.UniLoanInterestRecord;
@@ -211,7 +211,7 @@ public class MarginApi {
         return new APIlistMarginAccountsRequest();
     }
 
-    private okhttp3.Call listMarginAccountBookCall(String currency, String currencyPair, Long from, Long to, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMarginAccountBookCall(String currency, String currencyPair, String type, Long from, Long to, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -225,6 +225,10 @@ public class MarginApi {
 
         if (currencyPair != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
         }
 
         if (from != null) {
@@ -265,20 +269,20 @@ public class MarginApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMarginAccountBookValidateBeforeCall(String currency, String currencyPair, Long from, Long to, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listMarginAccountBookCall(currency, currencyPair, from, to, page, limit, _callback);
+    private okhttp3.Call listMarginAccountBookValidateBeforeCall(String currency, String currencyPair, String type, Long from, Long to, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listMarginAccountBookCall(currency, currencyPair, type, from, to, page, limit, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<MarginAccountBook>> listMarginAccountBookWithHttpInfo(String currency, String currencyPair, Long from, Long to, Integer page, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listMarginAccountBookValidateBeforeCall(currency, currencyPair, from, to, page, limit, null);
+    private ApiResponse<List<MarginAccountBook>> listMarginAccountBookWithHttpInfo(String currency, String currencyPair, String type, Long from, Long to, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listMarginAccountBookValidateBeforeCall(currency, currencyPair, type, from, to, page, limit, null);
         Type localVarReturnType = new TypeToken<List<MarginAccountBook>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listMarginAccountBookAsync(String currency, String currencyPair, Long from, Long to, Integer page, Integer limit, final ApiCallback<List<MarginAccountBook>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listMarginAccountBookValidateBeforeCall(currency, currencyPair, from, to, page, limit, _callback);
+    private okhttp3.Call listMarginAccountBookAsync(String currency, String currencyPair, String type, Long from, Long to, Integer page, Integer limit, final ApiCallback<List<MarginAccountBook>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listMarginAccountBookValidateBeforeCall(currency, currencyPair, type, from, to, page, limit, _callback);
         Type localVarReturnType = new TypeToken<List<MarginAccountBook>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -287,6 +291,7 @@ public class MarginApi {
     public class APIlistMarginAccountBookRequest {
         private String currency;
         private String currencyPair;
+        private String type;
         private Long from;
         private Long to;
         private Integer page;
@@ -312,6 +317,16 @@ public class MarginApi {
          */
         public APIlistMarginAccountBookRequest currencyPair(String currencyPair) {
             this.currencyPair = currencyPair;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type Only retrieve changes of the specified type. All types will be returned if not specified. (optional)
+         * @return APIlistMarginAccountBookRequest
+         */
+        public APIlistMarginAccountBookRequest type(String type) {
+            this.type = type;
             return this;
         }
 
@@ -367,7 +382,7 @@ public class MarginApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listMarginAccountBookCall(currency, currencyPair, from, to, page, limit, _callback);
+            return listMarginAccountBookCall(currency, currencyPair, type, from, to, page, limit, _callback);
         }
 
         /**
@@ -381,7 +396,7 @@ public class MarginApi {
          </table>
          */
         public List<MarginAccountBook> execute() throws ApiException {
-            ApiResponse<List<MarginAccountBook>> localVarResp = listMarginAccountBookWithHttpInfo(currency, currencyPair, from, to, page, limit);
+            ApiResponse<List<MarginAccountBook>> localVarResp = listMarginAccountBookWithHttpInfo(currency, currencyPair, type, from, to, page, limit);
             return localVarResp.getData();
         }
 
@@ -396,7 +411,7 @@ public class MarginApi {
          </table>
          */
         public ApiResponse<List<MarginAccountBook>> executeWithHttpInfo() throws ApiException {
-            return listMarginAccountBookWithHttpInfo(currency, currencyPair, from, to, page, limit);
+            return listMarginAccountBookWithHttpInfo(currency, currencyPair, type, from, to, page, limit);
         }
 
         /**
@@ -411,7 +426,7 @@ public class MarginApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MarginAccountBook>> _callback) throws ApiException {
-            return listMarginAccountBookAsync(currency, currencyPair, from, to, page, limit, _callback);
+            return listMarginAccountBookAsync(currency, currencyPair, type, from, to, page, limit, _callback);
         }
     }
 
@@ -3598,7 +3613,7 @@ public class MarginApi {
     /**
      * List cross margin borrow history
      * Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
-     * @param status Filter by status. Supported values are 2 and 3. (required)
+     * @param status Filter by status. Supported values are 2 and 3. (deprecated.) (required)
      * @return APIlistCrossMarginLoansRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4420,6 +4435,117 @@ public class MarginApi {
     }
 
     /**
+     * Build call for getCrossMarginEstimateRate
+     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginEstimateRateCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/cross/estimate_rate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencies != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "currencies", currencies));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCrossMarginEstimateRateValidateBeforeCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currencies' is set
+        if (currencies == null) {
+            throw new ApiException("Missing the required parameter 'currencies' when calling getCrossMarginEstimateRate(Async)");
+        }
+
+        okhttp3.Call localVarCall = getCrossMarginEstimateRateCall(currencies, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Estimated interest rates
+     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @return Map&lt;String, String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public Map<String, String> getCrossMarginEstimateRate(List<String> currencies) throws ApiException {
+        ApiResponse<Map<String, String>> localVarResp = getCrossMarginEstimateRateWithHttpInfo(currencies);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Estimated interest rates
+     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Map<String, String>> getCrossMarginEstimateRateWithHttpInfo(List<String> currencies) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginEstimateRateValidateBeforeCall(currencies, null);
+        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Estimated interest rates (asynchronously)
+     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossMarginEstimateRateAsync(List<String> currencies, final ApiCallback<Map<String, String>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginEstimateRateValidateBeforeCall(currencies, _callback);
+        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for getCrossMarginBorrowable
      * @param currency Retrieve data of the specified currency (required)
      * @param _callback Callback for upload/download progress
@@ -4479,7 +4605,7 @@ public class MarginApi {
      * Get the max borrowable amount for a specific cross margin currency
      * 
      * @param currency Retrieve data of the specified currency (required)
-     * @return CrossMarginBorrowable
+     * @return PortfolioBorrowable
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4487,8 +4613,8 @@ public class MarginApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public CrossMarginBorrowable getCrossMarginBorrowable(String currency) throws ApiException {
-        ApiResponse<CrossMarginBorrowable> localVarResp = getCrossMarginBorrowableWithHttpInfo(currency);
+    public PortfolioBorrowable getCrossMarginBorrowable(String currency) throws ApiException {
+        ApiResponse<PortfolioBorrowable> localVarResp = getCrossMarginBorrowableWithHttpInfo(currency);
         return localVarResp.getData();
     }
 
@@ -4496,7 +4622,7 @@ public class MarginApi {
      * Get the max borrowable amount for a specific cross margin currency
      * 
      * @param currency Retrieve data of the specified currency (required)
-     * @return ApiResponse&lt;CrossMarginBorrowable&gt;
+     * @return ApiResponse&lt;PortfolioBorrowable&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4504,9 +4630,9 @@ public class MarginApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CrossMarginBorrowable> getCrossMarginBorrowableWithHttpInfo(String currency) throws ApiException {
+    public ApiResponse<PortfolioBorrowable> getCrossMarginBorrowableWithHttpInfo(String currency) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginBorrowableValidateBeforeCall(currency, null);
-        Type localVarReturnType = new TypeToken<CrossMarginBorrowable>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortfolioBorrowable>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4523,9 +4649,9 @@ public class MarginApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCrossMarginBorrowableAsync(String currency, final ApiCallback<CrossMarginBorrowable> _callback) throws ApiException {
+    public okhttp3.Call getCrossMarginBorrowableAsync(String currency, final ApiCallback<PortfolioBorrowable> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginBorrowableValidateBeforeCall(currency, _callback);
-        Type localVarReturnType = new TypeToken<CrossMarginBorrowable>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortfolioBorrowable>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

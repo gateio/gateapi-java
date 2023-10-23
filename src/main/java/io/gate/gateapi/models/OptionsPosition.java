@@ -28,6 +28,14 @@ public class OptionsPosition {
     @SerializedName(SERIALIZED_NAME_USER)
     private Integer user;
 
+    public static final String SERIALIZED_NAME_UNDERLYING = "underlying";
+    @SerializedName(SERIALIZED_NAME_UNDERLYING)
+    private String underlying;
+
+    public static final String SERIALIZED_NAME_UNDERLYING_PRICE = "underlying_price";
+    @SerializedName(SERIALIZED_NAME_UNDERLYING_PRICE)
+    private String underlyingPrice;
+
     public static final String SERIALIZED_NAME_CONTRACT = "contract";
     @SerializedName(SERIALIZED_NAME_CONTRACT)
     private String contract;
@@ -43,6 +51,10 @@ public class OptionsPosition {
     public static final String SERIALIZED_NAME_MARK_PRICE = "mark_price";
     @SerializedName(SERIALIZED_NAME_MARK_PRICE)
     private String markPrice;
+
+    public static final String SERIALIZED_NAME_MARK_IV = "mark_iv";
+    @SerializedName(SERIALIZED_NAME_MARK_IV)
+    private String markIv;
 
     public static final String SERIALIZED_NAME_REALISED_PNL = "realised_pnl";
     @SerializedName(SERIALIZED_NAME_REALISED_PNL)
@@ -60,6 +72,22 @@ public class OptionsPosition {
     @SerializedName(SERIALIZED_NAME_CLOSE_ORDER)
     private OptionsPositionCloseOrder closeOrder;
 
+    public static final String SERIALIZED_NAME_DELTA = "delta";
+    @SerializedName(SERIALIZED_NAME_DELTA)
+    private String delta;
+
+    public static final String SERIALIZED_NAME_GAMMA = "gamma";
+    @SerializedName(SERIALIZED_NAME_GAMMA)
+    private String gamma;
+
+    public static final String SERIALIZED_NAME_VEGA = "vega";
+    @SerializedName(SERIALIZED_NAME_VEGA)
+    private String vega;
+
+    public static final String SERIALIZED_NAME_THETA = "theta";
+    @SerializedName(SERIALIZED_NAME_THETA)
+    private String theta;
+
 
      /**
      * User ID
@@ -68,6 +96,26 @@ public class OptionsPosition {
     @javax.annotation.Nullable
     public Integer getUser() {
         return user;
+    }
+
+
+     /**
+     * Underlying
+     * @return underlying
+    **/
+    @javax.annotation.Nullable
+    public String getUnderlying() {
+        return underlying;
+    }
+
+
+     /**
+     * Underlying price (quote currency)
+     * @return underlyingPrice
+    **/
+    @javax.annotation.Nullable
+    public String getUnderlyingPrice() {
+        return underlyingPrice;
     }
 
 
@@ -108,6 +156,16 @@ public class OptionsPosition {
     @javax.annotation.Nullable
     public String getMarkPrice() {
         return markPrice;
+    }
+
+
+     /**
+     * Implied volatility
+     * @return markIv
+    **/
+    @javax.annotation.Nullable
+    public String getMarkIv() {
+        return markIv;
     }
 
 
@@ -160,6 +218,46 @@ public class OptionsPosition {
     public void setCloseOrder(OptionsPositionCloseOrder closeOrder) {
         this.closeOrder = closeOrder;
     }
+
+     /**
+     * Delta
+     * @return delta
+    **/
+    @javax.annotation.Nullable
+    public String getDelta() {
+        return delta;
+    }
+
+
+     /**
+     * Gamma
+     * @return gamma
+    **/
+    @javax.annotation.Nullable
+    public String getGamma() {
+        return gamma;
+    }
+
+
+     /**
+     * Vega
+     * @return vega
+    **/
+    @javax.annotation.Nullable
+    public String getVega() {
+        return vega;
+    }
+
+
+     /**
+     * Theta
+     * @return theta
+    **/
+    @javax.annotation.Nullable
+    public String getTheta() {
+        return theta;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -170,19 +268,26 @@ public class OptionsPosition {
         }
         OptionsPosition optionsPosition = (OptionsPosition) o;
         return Objects.equals(this.user, optionsPosition.user) &&
+                Objects.equals(this.underlying, optionsPosition.underlying) &&
+                Objects.equals(this.underlyingPrice, optionsPosition.underlyingPrice) &&
                 Objects.equals(this.contract, optionsPosition.contract) &&
                 Objects.equals(this.size, optionsPosition.size) &&
                 Objects.equals(this.entryPrice, optionsPosition.entryPrice) &&
                 Objects.equals(this.markPrice, optionsPosition.markPrice) &&
+                Objects.equals(this.markIv, optionsPosition.markIv) &&
                 Objects.equals(this.realisedPnl, optionsPosition.realisedPnl) &&
                 Objects.equals(this.unrealisedPnl, optionsPosition.unrealisedPnl) &&
                 Objects.equals(this.pendingOrders, optionsPosition.pendingOrders) &&
-                Objects.equals(this.closeOrder, optionsPosition.closeOrder);
+                Objects.equals(this.closeOrder, optionsPosition.closeOrder) &&
+                Objects.equals(this.delta, optionsPosition.delta) &&
+                Objects.equals(this.gamma, optionsPosition.gamma) &&
+                Objects.equals(this.vega, optionsPosition.vega) &&
+                Objects.equals(this.theta, optionsPosition.theta);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, entryPrice, markPrice, realisedPnl, unrealisedPnl, pendingOrders, closeOrder);
+        return Objects.hash(user, underlying, underlyingPrice, contract, size, entryPrice, markPrice, markIv, realisedPnl, unrealisedPnl, pendingOrders, closeOrder, delta, gamma, vega, theta);
     }
 
 
@@ -191,14 +296,21 @@ public class OptionsPosition {
         StringBuilder sb = new StringBuilder();
         sb.append("class OptionsPosition {\n");
         sb.append("      user: ").append(toIndentedString(user)).append("\n");
+        sb.append("      underlying: ").append(toIndentedString(underlying)).append("\n");
+        sb.append("      underlyingPrice: ").append(toIndentedString(underlyingPrice)).append("\n");
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      entryPrice: ").append(toIndentedString(entryPrice)).append("\n");
         sb.append("      markPrice: ").append(toIndentedString(markPrice)).append("\n");
+        sb.append("      markIv: ").append(toIndentedString(markIv)).append("\n");
         sb.append("      realisedPnl: ").append(toIndentedString(realisedPnl)).append("\n");
         sb.append("      unrealisedPnl: ").append(toIndentedString(unrealisedPnl)).append("\n");
         sb.append("      pendingOrders: ").append(toIndentedString(pendingOrders)).append("\n");
         sb.append("      closeOrder: ").append(toIndentedString(closeOrder)).append("\n");
+        sb.append("      delta: ").append(toIndentedString(delta)).append("\n");
+        sb.append("      gamma: ").append(toIndentedString(gamma)).append("\n");
+        sb.append("      vega: ").append(toIndentedString(vega)).append("\n");
+        sb.append("      theta: ").append(toIndentedString(theta)).append("\n");
         sb.append("}");
         return sb.toString();
     }

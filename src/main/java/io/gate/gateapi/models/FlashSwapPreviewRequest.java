@@ -47,7 +47,7 @@ public class FlashSwapPreviewRequest {
     }
 
      /**
-     * Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60;
+     * The name of the asset being sold, as obtained from the \&quot;GET /flash_swap/currency_pairs\&quot; API, which retrieves a list of supported flash swap currency pairs.
      * @return sellCurrency
     **/
     public String getSellCurrency() {
@@ -86,7 +86,7 @@ public class FlashSwapPreviewRequest {
     }
 
      /**
-     * Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60;
+     * The name of the asset being purchased, as obtained from the \&quot;GET /flash_swap/currency_pairs\&quot; API, which provides a list of supported flash swap currency pairs.
      * @return buyCurrency
     **/
     public String getBuyCurrency() {

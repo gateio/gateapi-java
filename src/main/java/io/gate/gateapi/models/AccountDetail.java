@@ -17,6 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.AccountDetailKey;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,10 @@ public class AccountDetail {
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private Long userId;
+
+    public static final String SERIALIZED_NAME_KEY = "key";
+    @SerializedName(SERIALIZED_NAME_KEY)
+    private AccountDetailKey key;
 
 
     public AccountDetail ipWhitelist(List<String> ipWhitelist) {
@@ -113,6 +118,26 @@ public class AccountDetail {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
+    public AccountDetail key(AccountDetailKey key) {
+        
+        this.key = key;
+        return this;
+    }
+
+     /**
+     * Get key
+     * @return key
+    **/
+    @javax.annotation.Nullable
+    public AccountDetailKey getKey() {
+        return key;
+    }
+
+
+    public void setKey(AccountDetailKey key) {
+        this.key = key;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -124,12 +149,13 @@ public class AccountDetail {
         AccountDetail accountDetail = (AccountDetail) o;
         return Objects.equals(this.ipWhitelist, accountDetail.ipWhitelist) &&
                 Objects.equals(this.currencyPairs, accountDetail.currencyPairs) &&
-                Objects.equals(this.userId, accountDetail.userId);
+                Objects.equals(this.userId, accountDetail.userId) &&
+                Objects.equals(this.key, accountDetail.key);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ipWhitelist, currencyPairs, userId);
+        return Objects.hash(ipWhitelist, currencyPairs, userId, key);
     }
 
 
@@ -140,6 +166,7 @@ public class AccountDetail {
         sb.append("      ipWhitelist: ").append(toIndentedString(ipWhitelist)).append("\n");
         sb.append("      currencyPairs: ").append(toIndentedString(currencyPairs)).append("\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
+        sb.append("      key: ").append(toIndentedString(key)).append("\n");
         sb.append("}");
         return sb.toString();
     }

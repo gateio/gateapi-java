@@ -15,4 +15,6 @@ Name | Type | Description | Notes
 **pointType** | **String** | Point type. 0 - Initial version. 1 - new version since 202009 |  [optional]
 **futuresTakerFee** | **String** | Futures trading taker fee |  [optional]
 **futuresMakerFee** | **String** | Future trading maker fee |  [optional]
+**deliveryTakerFee** | **String** | Delivery trading taker fee |  [optional]
+**deliveryMakerFee** | **String** | Delivery trading maker fee |  [optional]
 

@@ -20,11 +20,11 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.DeliveryCandlestick;
 import io.gate.gateapi.models.DeliveryContract;
 import io.gate.gateapi.models.DeliverySettlement;
 import io.gate.gateapi.models.FuturesAccount;
 import io.gate.gateapi.models.FuturesAccountBook;
-import io.gate.gateapi.models.FuturesCandlestick;
 import io.gate.gateapi.models.FuturesLiquidate;
 import io.gate.gateapi.models.FuturesOrder;
 import io.gate.gateapi.models.FuturesOrderBook;
@@ -758,15 +758,15 @@ public class DeliveryApi {
     }
 
 
-    private ApiResponse<List<FuturesCandlestick>> listDeliveryCandlesticksWithHttpInfo(String settle, String contract, Long from, Long to, Integer limit, String interval) throws ApiException {
+    private ApiResponse<List<DeliveryCandlestick>> listDeliveryCandlesticksWithHttpInfo(String settle, String contract, Long from, Long to, Integer limit, String interval) throws ApiException {
         okhttp3.Call localVarCall = listDeliveryCandlesticksValidateBeforeCall(settle, contract, from, to, limit, interval, null);
-        Type localVarReturnType = new TypeToken<List<FuturesCandlestick>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<DeliveryCandlestick>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listDeliveryCandlesticksAsync(String settle, String contract, Long from, Long to, Integer limit, String interval, final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
+    private okhttp3.Call listDeliveryCandlesticksAsync(String settle, String contract, Long from, Long to, Integer limit, String interval, final ApiCallback<List<DeliveryCandlestick>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listDeliveryCandlesticksValidateBeforeCall(settle, contract, from, to, limit, interval, _callback);
-        Type localVarReturnType = new TypeToken<List<FuturesCandlestick>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<DeliveryCandlestick>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -841,7 +841,7 @@ public class DeliveryApi {
 
         /**
          * Execute listDeliveryCandlesticks request
-         * @return List&lt;FuturesCandlestick&gt;
+         * @return List&lt;DeliveryCandlestick&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -849,14 +849,14 @@ public class DeliveryApi {
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public List<FuturesCandlestick> execute() throws ApiException {
-            ApiResponse<List<FuturesCandlestick>> localVarResp = listDeliveryCandlesticksWithHttpInfo(settle, contract, from, to, limit, interval);
+        public List<DeliveryCandlestick> execute() throws ApiException {
+            ApiResponse<List<DeliveryCandlestick>> localVarResp = listDeliveryCandlesticksWithHttpInfo(settle, contract, from, to, limit, interval);
             return localVarResp.getData();
         }
 
         /**
          * Execute listDeliveryCandlesticks request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;FuturesCandlestick&gt;&gt;
+         * @return ApiResponse&lt;List&lt;DeliveryCandlestick&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -864,7 +864,7 @@ public class DeliveryApi {
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<FuturesCandlestick>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<DeliveryCandlestick>> executeWithHttpInfo() throws ApiException {
             return listDeliveryCandlesticksWithHttpInfo(settle, contract, from, to, limit, interval);
         }
 
@@ -879,7 +879,7 @@ public class DeliveryApi {
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<DeliveryCandlestick>> _callback) throws ApiException {
             return listDeliveryCandlesticksAsync(settle, contract, from, to, limit, interval, _callback);
         }
     }

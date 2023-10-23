@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**listUniLendRecords**](EarnUniApi.md#listUniLendRecords) | **GET** /earn/uni/lend_records | List records of lending
 [**getUniInterest**](EarnUniApi.md#getUniInterest) | **GET** /earn/uni/interests/{currency} | Get the user&#39;s total interest income of specified currency
 [**listUniInterestRecords**](EarnUniApi.md#listUniInterestRecords) | **GET** /earn/uni/interest_records | List interest records
+[**switchInterestReinvest**](EarnUniApi.md#switchInterestReinvest) | **PUT** /earn/uni/interest_reinvest | Set interest reinvestment toggle
+[**getUniInterestStatus**](EarnUniApi.md#getUniInterestStatus) | **GET** /earn/uni/interest_status/{currency} | query currency interest compounding status
 
 
 <a name="listUniCurrencies"></a>
@@ -354,7 +356,7 @@ null (empty response body)
 
 <a name="listUniLendRecords"></a>
 # **listUniLendRecords**
-> List&lt;UniLendRecord&gt; listUniLendRecords().currency(currency).page(page).limit(limit).type(type).execute();
+> List&lt;UniLendRecord&gt; listUniLendRecords().currency(currency).page(page).limit(limit).from(from).to(to).type(type).execute();
 
 List records of lending
 
@@ -382,12 +384,16 @@ public class Example {
         String currency = "BTC"; // String | Retrieve data of the specified currency
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
         String type = "lend"; // String | type: lend - lend, redeem - redeem
         try {
             List<UniLendRecord> result = apiInstance.listUniLendRecords()
                         .currency(currency)
                         .page(page)
                         .limit(limit)
+                        .from(from)
+                        .to(to)
                         .type(type)
                         .execute();
             System.out.println(result);
@@ -411,6 +417,8 @@ Name | Type | Description  | Notes
  **currency** | **String**| Retrieve data of the specified currency | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **from** | **Long**| Start timestamp | [optional]
+ **to** | **Long**| End timestamp | [optional]
  **type** | **String**| type: lend - lend, redeem - redeem | [optional] [enum: lend, redeem]
 
 ### Return type
@@ -560,6 +568,141 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;UniInterestRecord&gt;**](UniInterestRecord.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="switchInterestReinvest"></a>
+# **switchInterestReinvest**
+> switchInterestReinvest(uniInterestMode)
+
+Set interest reinvestment toggle
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnUniApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+        UniInterestMode uniInterestMode = new UniInterestMode(); // UniInterestMode | 
+        try {
+            apiInstance.switchInterestReinvest(uniInterestMode);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnUniApi#switchInterestReinvest");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uniInterestMode** | [**UniInterestMode**](UniInterestMode.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Success |  -  |
+
+<a name="getUniInterestStatus"></a>
+# **getUniInterestStatus**
+> UniCurrencyInterest getUniInterestStatus(currency)
+
+query currency interest compounding status
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnUniApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+        String currency = "btc"; // String | Currency
+        try {
+            UniCurrencyInterest result = apiInstance.getUniInterestStatus(currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnUniApi#getUniInterestStatus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Currency |
+
+### Return type
+
+[**UniCurrencyInterest**](UniCurrencyInterest.md)
 
 ### Authorization
 

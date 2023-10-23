@@ -47,6 +47,10 @@ public class FuturesTrade {
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
 
+    public static final String SERIALIZED_NAME_IS_INTERNAL = "is_internal";
+    @SerializedName(SERIALIZED_NAME_IS_INTERNAL)
+    private Boolean isInternal;
+
 
     public FuturesTrade id(Long id) {
         
@@ -167,6 +171,26 @@ public class FuturesTrade {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    public FuturesTrade isInternal(Boolean isInternal) {
+        
+        this.isInternal = isInternal;
+        return this;
+    }
+
+     /**
+     * Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned.
+     * @return isInternal
+    **/
+    @javax.annotation.Nullable
+    public Boolean getIsInternal() {
+        return isInternal;
+    }
+
+
+    public void setIsInternal(Boolean isInternal) {
+        this.isInternal = isInternal;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -181,12 +205,13 @@ public class FuturesTrade {
                 Objects.equals(this.createTimeMs, futuresTrade.createTimeMs) &&
                 Objects.equals(this.contract, futuresTrade.contract) &&
                 Objects.equals(this.size, futuresTrade.size) &&
-                Objects.equals(this.price, futuresTrade.price);
+                Objects.equals(this.price, futuresTrade.price) &&
+                Objects.equals(this.isInternal, futuresTrade.isInternal);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, createTimeMs, contract, size, price);
+        return Objects.hash(id, createTime, createTimeMs, contract, size, price, isInternal);
     }
 
 
@@ -200,6 +225,7 @@ public class FuturesTrade {
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      isInternal: ").append(toIndentedString(isInternal)).append("\n");
         sb.append("}");
         return sb.toString();
     }

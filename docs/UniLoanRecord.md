@@ -1,7 +1,7 @@
 
 # UniLoanRecord
 
-Loan record
+Loan records
 
 ## Properties
 

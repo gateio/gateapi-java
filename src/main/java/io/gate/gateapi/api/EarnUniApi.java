@@ -23,6 +23,8 @@ import com.google.gson.reflect.TypeToken;
 import io.gate.gateapi.models.CreateUniLend;
 import io.gate.gateapi.models.PatchUniLend;
 import io.gate.gateapi.models.UniCurrency;
+import io.gate.gateapi.models.UniCurrencyInterest;
+import io.gate.gateapi.models.UniInterestMode;
 import io.gate.gateapi.models.UniInterestRecord;
 import io.gate.gateapi.models.UniLend;
 import io.gate.gateapi.models.UniLendInterest;
@@ -638,7 +640,7 @@ public class EarnUniApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listUniLendRecordsCall(String currency, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUniLendRecordsCall(String currency, Integer page, Integer limit, Long from, Long to, String type, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -656,6 +658,14 @@ public class EarnUniApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
         }
 
         if (type != null) {
@@ -684,20 +694,20 @@ public class EarnUniApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUniLendRecordsValidateBeforeCall(String currency, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUniLendRecordsCall(currency, page, limit, type, _callback);
+    private okhttp3.Call listUniLendRecordsValidateBeforeCall(String currency, Integer page, Integer limit, Long from, Long to, String type, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUniLendRecordsCall(currency, page, limit, from, to, type, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<UniLendRecord>> listUniLendRecordsWithHttpInfo(String currency, Integer page, Integer limit, String type) throws ApiException {
-        okhttp3.Call localVarCall = listUniLendRecordsValidateBeforeCall(currency, page, limit, type, null);
+    private ApiResponse<List<UniLendRecord>> listUniLendRecordsWithHttpInfo(String currency, Integer page, Integer limit, Long from, Long to, String type) throws ApiException {
+        okhttp3.Call localVarCall = listUniLendRecordsValidateBeforeCall(currency, page, limit, from, to, type, null);
         Type localVarReturnType = new TypeToken<List<UniLendRecord>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listUniLendRecordsAsync(String currency, Integer page, Integer limit, String type, final ApiCallback<List<UniLendRecord>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUniLendRecordsValidateBeforeCall(currency, page, limit, type, _callback);
+    private okhttp3.Call listUniLendRecordsAsync(String currency, Integer page, Integer limit, Long from, Long to, String type, final ApiCallback<List<UniLendRecord>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUniLendRecordsValidateBeforeCall(currency, page, limit, from, to, type, _callback);
         Type localVarReturnType = new TypeToken<List<UniLendRecord>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -707,6 +717,8 @@ public class EarnUniApi {
         private String currency;
         private Integer page;
         private Integer limit;
+        private Long from;
+        private Long to;
         private String type;
 
         private APIlistUniLendRecordsRequest() {
@@ -743,6 +755,26 @@ public class EarnUniApi {
         }
 
         /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIlistUniLendRecordsRequest
+         */
+        public APIlistUniLendRecordsRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIlistUniLendRecordsRequest
+         */
+        public APIlistUniLendRecordsRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
          * Set type
          * @param type type: lend - lend, redeem - redeem (optional)
          * @return APIlistUniLendRecordsRequest
@@ -764,7 +796,7 @@ public class EarnUniApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listUniLendRecordsCall(currency, page, limit, type, _callback);
+            return listUniLendRecordsCall(currency, page, limit, from, to, type, _callback);
         }
 
         /**
@@ -778,7 +810,7 @@ public class EarnUniApi {
          </table>
          */
         public List<UniLendRecord> execute() throws ApiException {
-            ApiResponse<List<UniLendRecord>> localVarResp = listUniLendRecordsWithHttpInfo(currency, page, limit, type);
+            ApiResponse<List<UniLendRecord>> localVarResp = listUniLendRecordsWithHttpInfo(currency, page, limit, from, to, type);
             return localVarResp.getData();
         }
 
@@ -793,7 +825,7 @@ public class EarnUniApi {
          </table>
          */
         public ApiResponse<List<UniLendRecord>> executeWithHttpInfo() throws ApiException {
-            return listUniLendRecordsWithHttpInfo(currency, page, limit, type);
+            return listUniLendRecordsWithHttpInfo(currency, page, limit, from, to, type);
         }
 
         /**
@@ -808,7 +840,7 @@ public class EarnUniApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLendRecord>> _callback) throws ApiException {
-            return listUniLendRecordsAsync(currency, page, limit, type, _callback);
+            return listUniLendRecordsAsync(currency, page, limit, from, to, type, _callback);
         }
     }
 
@@ -1105,6 +1137,217 @@ public class EarnUniApi {
      */
     public APIlistUniInterestRecordsRequest listUniInterestRecords() {
         return new APIlistUniInterestRecordsRequest();
+    }
+
+    /**
+     * Build call for switchInterestReinvest
+     * @param uniInterestMode  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call switchInterestReinvestCall(UniInterestMode uniInterestMode, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = uniInterestMode;
+
+        // create path and map variables
+        String localVarPath = "/earn/uni/interest_reinvest";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call switchInterestReinvestValidateBeforeCall(UniInterestMode uniInterestMode, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'uniInterestMode' is set
+        if (uniInterestMode == null) {
+            throw new ApiException("Missing the required parameter 'uniInterestMode' when calling switchInterestReinvest(Async)");
+        }
+
+        okhttp3.Call localVarCall = switchInterestReinvestCall(uniInterestMode, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Set interest reinvestment toggle
+     * 
+     * @param uniInterestMode  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public void switchInterestReinvest(UniInterestMode uniInterestMode) throws ApiException {
+        switchInterestReinvestWithHttpInfo(uniInterestMode);
+    }
+
+    /**
+     * Set interest reinvestment toggle
+     * 
+     * @param uniInterestMode  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> switchInterestReinvestWithHttpInfo(UniInterestMode uniInterestMode) throws ApiException {
+        okhttp3.Call localVarCall = switchInterestReinvestValidateBeforeCall(uniInterestMode, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Set interest reinvestment toggle (asynchronously)
+     * 
+     * @param uniInterestMode  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call switchInterestReinvestAsync(UniInterestMode uniInterestMode, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = switchInterestReinvestValidateBeforeCall(uniInterestMode, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getUniInterestStatus
+     * @param currency Currency (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUniInterestStatusCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/uni/interest_status/{currency}"
+            .replaceAll("\\{" + "currency" + "\\}", localVarApiClient.escapeString(currency));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUniInterestStatusValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling getUniInterestStatus(Async)");
+        }
+
+        okhttp3.Call localVarCall = getUniInterestStatusCall(currency, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * query currency interest compounding status
+     * 
+     * @param currency Currency (required)
+     * @return UniCurrencyInterest
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public UniCurrencyInterest getUniInterestStatus(String currency) throws ApiException {
+        ApiResponse<UniCurrencyInterest> localVarResp = getUniInterestStatusWithHttpInfo(currency);
+        return localVarResp.getData();
+    }
+
+    /**
+     * query currency interest compounding status
+     * 
+     * @param currency Currency (required)
+     * @return ApiResponse&lt;UniCurrencyInterest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UniCurrencyInterest> getUniInterestStatusWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = getUniInterestStatusValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<UniCurrencyInterest>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * query currency interest compounding status (asynchronously)
+     * 
+     * @param currency Currency (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUniInterestStatusAsync(String currency, final ApiCallback<UniCurrencyInterest> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUniInterestStatusValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<UniCurrencyInterest>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
 }

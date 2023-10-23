@@ -90,6 +90,10 @@ public class SubAccountTransfer {
     @SerializedName(SERIALIZED_NAME_UID)
     private String uid;
 
+    public static final String SERIALIZED_NAME_CLIENT_ORDER_ID = "client_order_id";
+    @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID)
+    private String clientOrderId;
+
     public static final String SERIALIZED_NAME_TIMEST = "timest";
     @SerializedName(SERIALIZED_NAME_TIMEST)
     private String timest;
@@ -240,6 +244,26 @@ public class SubAccountTransfer {
     }
 
 
+    public SubAccountTransfer clientOrderId(String clientOrderId) {
+        
+        this.clientOrderId = clientOrderId;
+        return this;
+    }
+
+     /**
+     * The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters.
+     * @return clientOrderId
+    **/
+    @javax.annotation.Nullable
+    public String getClientOrderId() {
+        return clientOrderId;
+    }
+
+
+    public void setClientOrderId(String clientOrderId) {
+        this.clientOrderId = clientOrderId;
+    }
+
      /**
      * Transfer timestamp
      * @return timest
@@ -293,6 +317,7 @@ public class SubAccountTransfer {
                 Objects.equals(this.direction, subAccountTransfer.direction) &&
                 Objects.equals(this.amount, subAccountTransfer.amount) &&
                 Objects.equals(this.uid, subAccountTransfer.uid) &&
+                Objects.equals(this.clientOrderId, subAccountTransfer.clientOrderId) &&
                 Objects.equals(this.timest, subAccountTransfer.timest) &&
                 Objects.equals(this.source, subAccountTransfer.source) &&
                 Objects.equals(this.subAccountType, subAccountTransfer.subAccountType);
@@ -300,7 +325,7 @@ public class SubAccountTransfer {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, subAccount, direction, amount, uid, timest, source, subAccountType);
+        return Objects.hash(currency, subAccount, direction, amount, uid, clientOrderId, timest, source, subAccountType);
     }
 
 
@@ -313,6 +338,7 @@ public class SubAccountTransfer {
         sb.append("      direction: ").append(toIndentedString(direction)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      uid: ").append(toIndentedString(uid)).append("\n");
+        sb.append("      clientOrderId: ").append(toIndentedString(clientOrderId)).append("\n");
         sb.append("      timest: ").append(toIndentedString(timest)).append("\n");
         sb.append("      source: ").append(toIndentedString(source)).append("\n");
         sb.append("      subAccountType: ").append(toIndentedString(subAccountType)).append("\n");

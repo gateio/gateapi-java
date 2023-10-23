@@ -168,7 +168,7 @@ public class BatchOrder {
     private TypeEnum type = TypeEnum.LIMIT;
 
     /**
-     * Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
+     * Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, portfolio - portfolio account
      */
     @JsonAdapter(AccountEnum.Adapter.class)
     public enum AccountEnum {
@@ -176,7 +176,9 @@ public class BatchOrder {
         
         MARGIN("margin"),
         
-        CROSS_MARGIN("cross_margin");
+        CROSS_MARGIN("cross_margin"),
+        
+        PORTFOLIO("portfolio");
 
         private String value;
 
@@ -690,7 +692,7 @@ public class BatchOrder {
     }
 
      /**
-     * Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
+     * Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, portfolio - portfolio account
      * @return account
     **/
     @javax.annotation.Nullable

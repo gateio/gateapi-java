@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled |  [optional] [readonly]
 **currencyPair** | **String** | Currency pair |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Order Type    - limit : Limit Order - market : Market Order |  [optional]
-**account** | [**AccountEnum**](#AccountEnum) | Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account |  [optional]
+**account** | [**AccountEnum**](#AccountEnum) | Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, portfolio - portfolio account |  [optional]
 **side** | [**SideEnum**](#SideEnum) | Order side |  [optional]
 **amount** | **String** | Trade amount |  [optional]
 **price** | **String** | Order price |  [optional]
@@ -63,6 +63,7 @@ Name | Value
 SPOT | &quot;spot&quot;
 MARGIN | &quot;margin&quot;
 CROSS_MARGIN | &quot;cross_margin&quot;
+PORTFOLIO | &quot;portfolio&quot;
 
 ## Enum: SideEnum
 

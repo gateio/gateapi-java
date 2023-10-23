@@ -43,76 +43,9 @@ public class CrossMarginAccountBook {
     @SerializedName(SERIALIZED_NAME_BALANCE)
     private String balance;
 
-    /**
-     * Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type
-     */
-    @JsonAdapter(TypeEnum.Adapter.class)
-    public enum TypeEnum {
-        IN("in"),
-        
-        OUT("out"),
-        
-        REPAY("repay"),
-        
-        BORROW("borrow"),
-        
-        INTEREST("interest"),
-        
-        NEW_ORDER("new_order"),
-        
-        ORDER_FILL("order_fill"),
-        
-        REFERRAL_FEE("referral_fee"),
-        
-        ORDER_FEE("order_fee"),
-        
-        FUTURES_IN("futures_in"),
-        
-        FUTURES_OUT("futures_out"),
-        
-        UNKNOWN("unknown");
-
-        private String value;
-
-        TypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static TypeEnum fromValue(String value) {
-            for (TypeEnum b : TypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<TypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public TypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value =  jsonReader.nextString();
-                return TypeEnum.fromValue(value);
-            }
-        }
-    }
-
     public static final String SERIALIZED_NAME_TYPE = "type";
     @SerializedName(SERIALIZED_NAME_TYPE)
-    private TypeEnum type;
+    private String type;
 
 
     public CrossMarginAccountBook id(String id) {
@@ -215,23 +148,23 @@ public class CrossMarginAccountBook {
         this.balance = balance;
     }
 
-    public CrossMarginAccountBook type(TypeEnum type) {
+    public CrossMarginAccountBook type(String type) {
         
         this.type = type;
         return this;
     }
 
      /**
-     * Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type
+     * Account book type.  Please refer to [account book type](#accountbook-type) for more detail
      * @return type
     **/
     @javax.annotation.Nullable
-    public TypeEnum getType() {
+    public String getType() {
         return type;
     }
 
 
-    public void setType(TypeEnum type) {
+    public void setType(String type) {
         this.type = type;
     }
     @Override
