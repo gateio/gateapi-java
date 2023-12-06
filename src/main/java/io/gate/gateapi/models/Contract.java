@@ -257,6 +257,10 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private Double createTime;
 
+    public static final String SERIALIZED_NAME_FUNDING_CAP_RATIO = "funding_cap_ratio";
+    @SerializedName(SERIALIZED_NAME_FUNDING_CAP_RATIO)
+    private String fundingCapRatio;
+
 
     public Contract name(String name) {
         
@@ -957,6 +961,26 @@ public class Contract {
     public void setCreateTime(Double createTime) {
         this.createTime = createTime;
     }
+
+    public Contract fundingCapRatio(String fundingCapRatio) {
+        
+        this.fundingCapRatio = fundingCapRatio;
+        return this;
+    }
+
+     /**
+     * The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio
+     * @return fundingCapRatio
+    **/
+    @javax.annotation.Nullable
+    public String getFundingCapRatio() {
+        return fundingCapRatio;
+    }
+
+
+    public void setFundingCapRatio(String fundingCapRatio) {
+        this.fundingCapRatio = fundingCapRatio;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1000,12 +1024,13 @@ public class Contract {
                 Objects.equals(this.ordersLimit, contract.ordersLimit) &&
                 Objects.equals(this.enableBonus, contract.enableBonus) &&
                 Objects.equals(this.enableCredit, contract.enableCredit) &&
-                Objects.equals(this.createTime, contract.createTime);
+                Objects.equals(this.createTime, contract.createTime) &&
+                Objects.equals(this.fundingCapRatio, contract.fundingCapRatio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio);
     }
 
 
@@ -1048,6 +1073,7 @@ public class Contract {
         sb.append("      enableBonus: ").append(toIndentedString(enableBonus)).append("\n");
         sb.append("      enableCredit: ").append(toIndentedString(enableCredit)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("      fundingCapRatio: ").append(toIndentedString(fundingCapRatio)).append("\n");
         sb.append("}");
         return sb.toString();
     }

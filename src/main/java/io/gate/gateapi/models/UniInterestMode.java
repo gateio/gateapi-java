@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 余币宝利息复投开关
+ * Lend &amp; Earn interest reinvestment toggle
  */
 public class UniInterestMode {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";

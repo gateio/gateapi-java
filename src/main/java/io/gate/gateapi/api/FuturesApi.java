@@ -2220,7 +2220,7 @@ public class FuturesApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listFuturesAccountBookCall(String settle, Integer limit, Long from, Long to, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listFuturesAccountBookCall(String settle, String contract, Integer limit, Long from, Long to, String type, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2229,6 +2229,10 @@ public class FuturesApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
@@ -2267,25 +2271,25 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listFuturesAccountBookValidateBeforeCall(String settle, Integer limit, Long from, Long to, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listFuturesAccountBookValidateBeforeCall(String settle, String contract, Integer limit, Long from, Long to, String type, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listFuturesAccountBook(Async)");
         }
 
-        okhttp3.Call localVarCall = listFuturesAccountBookCall(settle, limit, from, to, type, _callback);
+        okhttp3.Call localVarCall = listFuturesAccountBookCall(settle, contract, limit, from, to, type, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<FuturesAccountBook>> listFuturesAccountBookWithHttpInfo(String settle, Integer limit, Long from, Long to, String type) throws ApiException {
-        okhttp3.Call localVarCall = listFuturesAccountBookValidateBeforeCall(settle, limit, from, to, type, null);
+    private ApiResponse<List<FuturesAccountBook>> listFuturesAccountBookWithHttpInfo(String settle, String contract, Integer limit, Long from, Long to, String type) throws ApiException {
+        okhttp3.Call localVarCall = listFuturesAccountBookValidateBeforeCall(settle, contract, limit, from, to, type, null);
         Type localVarReturnType = new TypeToken<List<FuturesAccountBook>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listFuturesAccountBookAsync(String settle, Integer limit, Long from, Long to, String type, final ApiCallback<List<FuturesAccountBook>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listFuturesAccountBookValidateBeforeCall(settle, limit, from, to, type, _callback);
+    private okhttp3.Call listFuturesAccountBookAsync(String settle, String contract, Integer limit, Long from, Long to, String type, final ApiCallback<List<FuturesAccountBook>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listFuturesAccountBookValidateBeforeCall(settle, contract, limit, from, to, type, _callback);
         Type localVarReturnType = new TypeToken<List<FuturesAccountBook>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2293,6 +2297,7 @@ public class FuturesApi {
 
     public class APIlistFuturesAccountBookRequest {
         private final String settle;
+        private String contract;
         private Integer limit;
         private Long from;
         private Long to;
@@ -2300,6 +2305,16 @@ public class FuturesApi {
 
         private APIlistFuturesAccountBookRequest(String settle) {
             this.settle = settle;
+        }
+
+        /**
+         * Set contract
+         * @param contract Futures contract, return related data only if specified (optional)
+         * @return APIlistFuturesAccountBookRequest
+         */
+        public APIlistFuturesAccountBookRequest contract(String contract) {
+            this.contract = contract;
+            return this;
         }
 
         /**
@@ -2354,7 +2369,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listFuturesAccountBookCall(settle, limit, from, to, type, _callback);
+            return listFuturesAccountBookCall(settle, contract, limit, from, to, type, _callback);
         }
 
         /**
@@ -2368,7 +2383,7 @@ public class FuturesApi {
          </table>
          */
         public List<FuturesAccountBook> execute() throws ApiException {
-            ApiResponse<List<FuturesAccountBook>> localVarResp = listFuturesAccountBookWithHttpInfo(settle, limit, from, to, type);
+            ApiResponse<List<FuturesAccountBook>> localVarResp = listFuturesAccountBookWithHttpInfo(settle, contract, limit, from, to, type);
             return localVarResp.getData();
         }
 
@@ -2383,7 +2398,7 @@ public class FuturesApi {
          </table>
          */
         public ApiResponse<List<FuturesAccountBook>> executeWithHttpInfo() throws ApiException {
-            return listFuturesAccountBookWithHttpInfo(settle, limit, from, to, type);
+            return listFuturesAccountBookWithHttpInfo(settle, contract, limit, from, to, type);
         }
 
         /**
@@ -2398,13 +2413,13 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesAccountBook>> _callback) throws ApiException {
-            return listFuturesAccountBookAsync(settle, limit, from, to, type, _callback);
+            return listFuturesAccountBookAsync(settle, contract, limit, from, to, type, _callback);
         }
     }
 
     /**
      * Query account book
-     * 
+     * If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
      * @param settle Settle currency (required)
      * @return APIlistFuturesAccountBookRequest
      * @http.response.details
@@ -3936,7 +3951,7 @@ public class FuturesApi {
 
     /**
      * List futures orders
-     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
+     * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
      * @param settle Settle currency (required)
      * @param status Only list the orders with this status (required)
      * @return APIlistFuturesOrdersRequest
@@ -4587,7 +4602,7 @@ public class FuturesApi {
 
     /**
      * Get a single order
-     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
+     * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
      * @param settle Settle currency (required)
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
      * @return FuturesOrder
@@ -4605,7 +4620,7 @@ public class FuturesApi {
 
     /**
      * Get a single order
-     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
+     * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
      * @param settle Settle currency (required)
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -4624,7 +4639,7 @@ public class FuturesApi {
 
     /**
      * Get a single order (asynchronously)
-     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
+     * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
      * @param settle Settle currency (required)
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -5087,7 +5102,7 @@ public class FuturesApi {
 
     /**
      * List personal trading history
-     * 
+     * By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
      * @param settle Settle currency (required)
      * @return APIgetMyTradesRequest
      * @http.response.details

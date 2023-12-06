@@ -24,7 +24,7 @@ import java.io.IOException;
  */
 public class ApiV4KeyPerm {
     /**
-     * Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options- account: Account - portfolio: Portfolio - loan: Loan
+     * Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options\\m- account: Account - unified: unified - loan: Loan
      */
     @JsonAdapter(NameEnum.Adapter.class)
     public enum NameEnum {
@@ -42,7 +42,7 @@ public class ApiV4KeyPerm {
         
         ACCOUNT("account"),
         
-        PORTFOLIO("portfolio"),
+        UNIFIED("unified"),
         
         LOAN("loan");
 
@@ -100,7 +100,7 @@ public class ApiV4KeyPerm {
     }
 
      /**
-     * Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options- account: Account - portfolio: Portfolio - loan: Loan
+     * Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options\\m- account: Account - unified: unified - loan: Loan
      * @return name
     **/
     @javax.annotation.Nullable

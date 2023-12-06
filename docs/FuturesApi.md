@@ -999,9 +999,11 @@ Name | Type | Description  | Notes
 
 <a name="listFuturesAccountBook"></a>
 # **listFuturesAccountBook**
-> List&lt;FuturesAccountBook&gt; listFuturesAccountBook(settle).limit(limit).from(from).to(to).type(type).execute();
+> List&lt;FuturesAccountBook&gt; listFuturesAccountBook(settle).contract(contract).limit(limit).from(from).to(to).type(type).execute();
 
 Query account book
+
+If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
 
 ### Example
 
@@ -1025,12 +1027,14 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Long from = 1547706332L; // Long | Start timestamp
         Long to = 1547706332L; // Long | End timestamp
         String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
         try {
             List<FuturesAccountBook> result = apiInstance.listFuturesAccountBook(settle)
+                        .contract(contract)
                         .limit(limit)
                         .from(from)
                         .to(to)
@@ -1055,6 +1059,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
+ **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **from** | **Long**| Start timestamp | [optional]
  **to** | **Long**| End timestamp | [optional]
@@ -1806,7 +1811,7 @@ Name | Type | Description  | Notes
 
 List futures orders
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
 
 ### Example
 
@@ -2193,7 +2198,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
 
 ### Example
 
@@ -2406,6 +2411,8 @@ Name | Type | Description  | Notes
 > List&lt;MyFuturesTrade&gt; getMyTrades(settle).contract(contract).order(order).limit(limit).offset(offset).lastId(lastId).execute();
 
 List personal trading history
+
+By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
 
 ### Example
 

@@ -159,60 +159,9 @@ public class Order {
     @SerializedName(SERIALIZED_NAME_TYPE)
     private TypeEnum type = TypeEnum.LIMIT;
 
-    /**
-     * Account type, spot - spot account, margin - margin account, cross_margin - cross margin account, portfolio - portfolio account  Portfolio margin account must set to &#x60;cross_margin&#x60;
-     */
-    @JsonAdapter(AccountEnum.Adapter.class)
-    public enum AccountEnum {
-        SPOT("spot"),
-        
-        MARGIN("margin"),
-        
-        CROSS_MARGIN("cross_margin"),
-        
-        PORTFOLIO("portfolio");
-
-        private String value;
-
-        AccountEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static AccountEnum fromValue(String value) {
-            for (AccountEnum b : AccountEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<AccountEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final AccountEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public AccountEnum read(final JsonReader jsonReader) throws IOException {
-                String value =  jsonReader.nextString();
-                return AccountEnum.fromValue(value);
-            }
-        }
-    }
-
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    private AccountEnum account = AccountEnum.SPOT;
+    private String account = "spot";
 
     /**
      * Order side
@@ -638,23 +587,23 @@ public class Order {
         this.type = type;
     }
 
-    public Order account(AccountEnum account) {
+    public Order account(String account) {
         
         this.account = account;
         return this;
     }
 
      /**
-     * Account type, spot - spot account, margin - margin account, cross_margin - cross margin account, portfolio - portfolio account  Portfolio margin account must set to &#x60;cross_margin&#x60;
+     * Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.  Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;
      * @return account
     **/
     @javax.annotation.Nullable
-    public AccountEnum getAccount() {
+    public String getAccount() {
         return account;
     }
 
 
-    public void setAccount(AccountEnum account) {
+    public void setAccount(String account) {
         this.account = account;
     }
 

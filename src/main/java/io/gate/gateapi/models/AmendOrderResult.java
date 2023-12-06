@@ -127,7 +127,7 @@ public class AmendOrderResult {
 
 
      /**
-     * Account types， spot - spot account, margin - margin account, portfolio - portfolio margin account, cross_margin - cross margin account.Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;
+     * Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;
      * @return account
     **/
     @javax.annotation.Nullable

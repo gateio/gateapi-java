@@ -47,6 +47,14 @@ public class CurrencyPair {
     @SerializedName(SERIALIZED_NAME_MIN_QUOTE_AMOUNT)
     private String minQuoteAmount;
 
+    public static final String SERIALIZED_NAME_MAX_BASE_AMOUNT = "max_base_amount";
+    @SerializedName(SERIALIZED_NAME_MAX_BASE_AMOUNT)
+    private String maxBaseAmount;
+
+    public static final String SERIALIZED_NAME_MAX_QUOTE_AMOUNT = "max_quote_amount";
+    @SerializedName(SERIALIZED_NAME_MAX_QUOTE_AMOUNT)
+    private String maxQuoteAmount;
+
     public static final String SERIALIZED_NAME_AMOUNT_PRECISION = "amount_precision";
     @SerializedName(SERIALIZED_NAME_AMOUNT_PRECISION)
     private Integer amountPrecision;
@@ -239,6 +247,46 @@ public class CurrencyPair {
         this.minQuoteAmount = minQuoteAmount;
     }
 
+    public CurrencyPair maxBaseAmount(String maxBaseAmount) {
+        
+        this.maxBaseAmount = maxBaseAmount;
+        return this;
+    }
+
+     /**
+     * Maximum amount of base currency to trade, &#x60;null&#x60; means no limit
+     * @return maxBaseAmount
+    **/
+    @javax.annotation.Nullable
+    public String getMaxBaseAmount() {
+        return maxBaseAmount;
+    }
+
+
+    public void setMaxBaseAmount(String maxBaseAmount) {
+        this.maxBaseAmount = maxBaseAmount;
+    }
+
+    public CurrencyPair maxQuoteAmount(String maxQuoteAmount) {
+        
+        this.maxQuoteAmount = maxQuoteAmount;
+        return this;
+    }
+
+     /**
+     * Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit
+     * @return maxQuoteAmount
+    **/
+    @javax.annotation.Nullable
+    public String getMaxQuoteAmount() {
+        return maxQuoteAmount;
+    }
+
+
+    public void setMaxQuoteAmount(String maxQuoteAmount) {
+        this.maxQuoteAmount = maxQuoteAmount;
+    }
+
     public CurrencyPair amountPrecision(Integer amountPrecision) {
         
         this.amountPrecision = amountPrecision;
@@ -353,6 +401,8 @@ public class CurrencyPair {
                 Objects.equals(this.fee, currencyPair.fee) &&
                 Objects.equals(this.minBaseAmount, currencyPair.minBaseAmount) &&
                 Objects.equals(this.minQuoteAmount, currencyPair.minQuoteAmount) &&
+                Objects.equals(this.maxBaseAmount, currencyPair.maxBaseAmount) &&
+                Objects.equals(this.maxQuoteAmount, currencyPair.maxQuoteAmount) &&
                 Objects.equals(this.amountPrecision, currencyPair.amountPrecision) &&
                 Objects.equals(this.precision, currencyPair.precision) &&
                 Objects.equals(this.tradeStatus, currencyPair.tradeStatus) &&
@@ -362,7 +412,7 @@ public class CurrencyPair {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart);
+        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart);
     }
 
 
@@ -376,6 +426,8 @@ public class CurrencyPair {
         sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("      minBaseAmount: ").append(toIndentedString(minBaseAmount)).append("\n");
         sb.append("      minQuoteAmount: ").append(toIndentedString(minQuoteAmount)).append("\n");
+        sb.append("      maxBaseAmount: ").append(toIndentedString(maxBaseAmount)).append("\n");
+        sb.append("      maxQuoteAmount: ").append(toIndentedString(maxQuoteAmount)).append("\n");
         sb.append("      amountPrecision: ").append(toIndentedString(amountPrecision)).append("\n");
         sb.append("      precision: ").append(toIndentedString(precision)).append("\n");
         sb.append("      tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");

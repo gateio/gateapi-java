@@ -35,6 +35,7 @@ import io.gate.gateapi.models.TradeFee;
 import io.gate.gateapi.models.TransactionID;
 import io.gate.gateapi.models.Transfer;
 import io.gate.gateapi.models.WithdrawStatus;
+import io.gate.gateapi.models.WithdrawalRecord;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -339,15 +340,15 @@ public class WalletApi {
     }
 
 
-    private ApiResponse<List<LedgerRecord>> listWithdrawalsWithHttpInfo(String currency, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+    private ApiResponse<List<WithdrawalRecord>> listWithdrawalsWithHttpInfo(String currency, Long from, Long to, Integer limit, Integer offset) throws ApiException {
         okhttp3.Call localVarCall = listWithdrawalsValidateBeforeCall(currency, from, to, limit, offset, null);
-        Type localVarReturnType = new TypeToken<List<LedgerRecord>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<WithdrawalRecord>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listWithdrawalsAsync(String currency, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<LedgerRecord>> _callback) throws ApiException {
+    private okhttp3.Call listWithdrawalsAsync(String currency, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<WithdrawalRecord>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listWithdrawalsValidateBeforeCall(currency, from, to, limit, offset, _callback);
-        Type localVarReturnType = new TypeToken<List<LedgerRecord>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<WithdrawalRecord>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -429,7 +430,7 @@ public class WalletApi {
 
         /**
          * Execute listWithdrawals request
-         * @return List&lt;LedgerRecord&gt;
+         * @return List&lt;WithdrawalRecord&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -437,14 +438,14 @@ public class WalletApi {
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public List<LedgerRecord> execute() throws ApiException {
-            ApiResponse<List<LedgerRecord>> localVarResp = listWithdrawalsWithHttpInfo(currency, from, to, limit, offset);
+        public List<WithdrawalRecord> execute() throws ApiException {
+            ApiResponse<List<WithdrawalRecord>> localVarResp = listWithdrawalsWithHttpInfo(currency, from, to, limit, offset);
             return localVarResp.getData();
         }
 
         /**
          * Execute listWithdrawals request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;LedgerRecord&gt;&gt;
+         * @return ApiResponse&lt;List&lt;WithdrawalRecord&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -452,7 +453,7 @@ public class WalletApi {
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<LedgerRecord>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<WithdrawalRecord>> executeWithHttpInfo() throws ApiException {
             return listWithdrawalsWithHttpInfo(currency, from, to, limit, offset);
         }
 
@@ -467,7 +468,7 @@ public class WalletApi {
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<LedgerRecord>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<WithdrawalRecord>> _callback) throws ApiException {
             return listWithdrawalsAsync(currency, from, to, limit, offset, _callback);
         }
     }

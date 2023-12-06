@@ -42,6 +42,7 @@ Name | Type | Description | Notes
 **enableBonus** | **Boolean** | Whether bouns is enabled |  [optional]
 **enableCredit** | **Boolean** | Whether portfolio margin account is enabled |  [optional]
 **createTime** | **Double** | Created time of the contract |  [optional]
+**fundingCapRatio** | **String** | The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio |  [optional]
 
 ## Enum: TypeEnum
 

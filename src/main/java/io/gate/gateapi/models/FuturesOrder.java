@@ -384,6 +384,10 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
+    public static final String SERIALIZED_NAME_BIZ_INFO = "biz_info";
+    @SerializedName(SERIALIZED_NAME_BIZ_INFO)
+    private String bizInfo;
+
 
      /**
      * Futures order ID
@@ -742,6 +746,16 @@ public class FuturesOrder {
         return amendText;
     }
 
+
+     /**
+     * Additional information
+     * @return bizInfo
+    **/
+    @javax.annotation.Nullable
+    public String getBizInfo() {
+        return bizInfo;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -776,12 +790,13 @@ public class FuturesOrder {
                 Objects.equals(this.autoSize, futuresOrder.autoSize) &&
                 Objects.equals(this.stpId, futuresOrder.stpId) &&
                 Objects.equals(this.stpAct, futuresOrder.stpAct) &&
-                Objects.equals(this.amendText, futuresOrder.amendText);
+                Objects.equals(this.amendText, futuresOrder.amendText) &&
+                Objects.equals(this.bizInfo, futuresOrder.bizInfo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText);
+        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, bizInfo);
     }
 
 
@@ -815,6 +830,7 @@ public class FuturesOrder {
         sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
+        sb.append("      bizInfo: ").append(toIndentedString(bizInfo)).append("\n");
         sb.append("}");
         return sb.toString();
     }

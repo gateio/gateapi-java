@@ -38,6 +38,10 @@ public class AccountDetail {
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private Long userId;
 
+    public static final String SERIALIZED_NAME_TIER = "tier";
+    @SerializedName(SERIALIZED_NAME_TIER)
+    private Long tier;
+
     public static final String SERIALIZED_NAME_KEY = "key";
     @SerializedName(SERIALIZED_NAME_KEY)
     private AccountDetailKey key;
@@ -119,6 +123,26 @@ public class AccountDetail {
         this.userId = userId;
     }
 
+    public AccountDetail tier(Long tier) {
+        
+        this.tier = tier;
+        return this;
+    }
+
+     /**
+     * User VIP level
+     * @return tier
+    **/
+    @javax.annotation.Nullable
+    public Long getTier() {
+        return tier;
+    }
+
+
+    public void setTier(Long tier) {
+        this.tier = tier;
+    }
+
     public AccountDetail key(AccountDetailKey key) {
         
         this.key = key;
@@ -150,12 +174,13 @@ public class AccountDetail {
         return Objects.equals(this.ipWhitelist, accountDetail.ipWhitelist) &&
                 Objects.equals(this.currencyPairs, accountDetail.currencyPairs) &&
                 Objects.equals(this.userId, accountDetail.userId) &&
+                Objects.equals(this.tier, accountDetail.tier) &&
                 Objects.equals(this.key, accountDetail.key);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ipWhitelist, currencyPairs, userId, key);
+        return Objects.hash(ipWhitelist, currencyPairs, userId, tier, key);
     }
 
 
@@ -166,6 +191,7 @@ public class AccountDetail {
         sb.append("      ipWhitelist: ").append(toIndentedString(ipWhitelist)).append("\n");
         sb.append("      currencyPairs: ").append(toIndentedString(currencyPairs)).append("\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
+        sb.append("      tier: ").append(toIndentedString(tier)).append("\n");
         sb.append("      key: ").append(toIndentedString(key)).append("\n");
         sb.append("}");
         return sb.toString();

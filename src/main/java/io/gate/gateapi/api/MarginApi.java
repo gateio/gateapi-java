@@ -38,10 +38,10 @@ import io.gate.gateapi.models.MarginAccountBook;
 import io.gate.gateapi.models.MarginBorrowable;
 import io.gate.gateapi.models.MarginCurrencyPair;
 import io.gate.gateapi.models.MarginTransferable;
-import io.gate.gateapi.models.PortfolioBorrowable;
 import io.gate.gateapi.models.RepayRequest;
 import io.gate.gateapi.models.Repayment;
 import io.gate.gateapi.models.UniLoanInterestRecord;
+import io.gate.gateapi.models.UnifiedBorrowable;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -4605,7 +4605,7 @@ public class MarginApi {
      * Get the max borrowable amount for a specific cross margin currency
      * 
      * @param currency Retrieve data of the specified currency (required)
-     * @return PortfolioBorrowable
+     * @return UnifiedBorrowable
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4613,8 +4613,8 @@ public class MarginApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public PortfolioBorrowable getCrossMarginBorrowable(String currency) throws ApiException {
-        ApiResponse<PortfolioBorrowable> localVarResp = getCrossMarginBorrowableWithHttpInfo(currency);
+    public UnifiedBorrowable getCrossMarginBorrowable(String currency) throws ApiException {
+        ApiResponse<UnifiedBorrowable> localVarResp = getCrossMarginBorrowableWithHttpInfo(currency);
         return localVarResp.getData();
     }
 
@@ -4622,7 +4622,7 @@ public class MarginApi {
      * Get the max borrowable amount for a specific cross margin currency
      * 
      * @param currency Retrieve data of the specified currency (required)
-     * @return ApiResponse&lt;PortfolioBorrowable&gt;
+     * @return ApiResponse&lt;UnifiedBorrowable&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4630,9 +4630,9 @@ public class MarginApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PortfolioBorrowable> getCrossMarginBorrowableWithHttpInfo(String currency) throws ApiException {
+    public ApiResponse<UnifiedBorrowable> getCrossMarginBorrowableWithHttpInfo(String currency) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginBorrowableValidateBeforeCall(currency, null);
-        Type localVarReturnType = new TypeToken<PortfolioBorrowable>(){}.getType();
+        Type localVarReturnType = new TypeToken<UnifiedBorrowable>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4649,9 +4649,9 @@ public class MarginApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCrossMarginBorrowableAsync(String currency, final ApiCallback<PortfolioBorrowable> _callback) throws ApiException {
+    public okhttp3.Call getCrossMarginBorrowableAsync(String currency, final ApiCallback<UnifiedBorrowable> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginBorrowableValidateBeforeCall(currency, _callback);
-        Type localVarReturnType = new TypeToken<PortfolioBorrowable>(){}.getType();
+        Type localVarReturnType = new TypeToken<UnifiedBorrowable>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 <a name="listWithdrawals"></a>
 # **listWithdrawals**
-> List&lt;LedgerRecord&gt; listWithdrawals().currency(currency).from(from).to(to).limit(limit).offset(offset).execute();
+> List&lt;WithdrawalRecord&gt; listWithdrawals().currency(currency).from(from).to(to).limit(limit).offset(offset).execute();
 
 Retrieve withdrawal records
 
@@ -189,7 +189,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
-            List<LedgerRecord> result = apiInstance.listWithdrawals()
+            List<WithdrawalRecord> result = apiInstance.listWithdrawals()
                         .currency(currency)
                         .from(from)
                         .to(to)
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;LedgerRecord&gt;**](LedgerRecord.md)
+[**List&lt;WithdrawalRecord&gt;**](WithdrawalRecord.md)
 
 ### Authorization
 

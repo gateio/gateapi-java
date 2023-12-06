@@ -23,9 +23,56 @@ import java.io.IOException;
  * SpotPricePutOrder
  */
 public class SpotPricePutOrder {
+    /**
+     * Order type，default to &#x60;limit&#x60;  - limit : Limit Order - market : Market Order
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        LIMIT("limit"),
+        
+        MARKET("market");
+
+        private String value;
+
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_TYPE = "type";
     @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type = "limit";
+    private TypeEnum type = TypeEnum.LIMIT;
 
     /**
      * Order side  - buy: buy side - sell: sell side
@@ -191,23 +238,23 @@ public class SpotPricePutOrder {
     private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
 
 
-    public SpotPricePutOrder type(String type) {
+    public SpotPricePutOrder type(TypeEnum type) {
         
         this.type = type;
         return this;
     }
 
      /**
-     * Order type, default to &#x60;limit&#x60;
+     * Order type，default to &#x60;limit&#x60;  - limit : Limit Order - market : Market Order
      * @return type
     **/
     @javax.annotation.Nullable
-    public String getType() {
+    public TypeEnum getType() {
         return type;
     }
 
 
-    public void setType(String type) {
+    public void setType(TypeEnum type) {
         this.type = type;
     }
 
@@ -256,7 +303,7 @@ public class SpotPricePutOrder {
     }
 
      /**
-     * Order amount
+     * When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
      * @return amount
     **/
     public String getAmount() {

@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.57.0
-- SDK version: 6.57.0
+- API version: 4.60.1
+- SDK version: 6.60.1
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.57.0</version>
+    <version>6.60.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.57.0"
+compile "io.gate:gate-api:6.60.1"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.57.0.jar`
+* `target/gate-api-6.60.1.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -185,6 +185,14 @@ Class | Method | HTTP request | Description
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrderList**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
 *DeliveryApi* | [**getPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a price-triggered order
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order
+*EarnApi* | [**swapETH2**](docs/EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap
+*EarnApi* | [**listDualInvestmentPlans**](docs/EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
+*EarnApi* | [**listDualOrders**](docs/EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
+*EarnApi* | [**placeDualOrder**](docs/EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
+*EarnApi* | [**cancelDualOrder**](docs/EarnApi.md#cancelDualOrder) | **DELETE** /earn/dual/orders/{order_id} | Cancel Dual Investment order
+*EarnApi* | [**listStructuredProducts**](docs/EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List
+*EarnApi* | [**listStructuredOrders**](docs/EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List
+*EarnApi* | [**placeStructuredOrder**](docs/EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
 *EarnUniApi* | [**listUniCurrencies**](docs/EarnUniApi.md#listUniCurrencies) | **GET** /earn/uni/currencies | List currencies for lending
 *EarnUniApi* | [**getUniCurrency**](docs/EarnUniApi.md#getUniCurrency) | **GET** /earn/uni/currencies/{currency} | Get currency detail for lending
 *EarnUniApi* | [**listUserUniLends**](docs/EarnUniApi.md#listUserUniLends) | **GET** /earn/uni/lends | List user&#39;s lending orders
@@ -311,15 +319,6 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**getOptionsOrder**](docs/OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Get a single order
 *OptionsApi* | [**cancelOptionsOrder**](docs/OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel a single order
 *OptionsApi* | [**listMyOptionsTrades**](docs/OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | List personal trading history
-*PortfolioApi* | [**listPortfolioAccounts**](docs/PortfolioApi.md#listPortfolioAccounts) | **GET** /portfolio/accounts | Get portfolio account information
-*PortfolioApi* | [**listAccountPortfolioMode**](docs/PortfolioApi.md#listAccountPortfolioMode) | **GET** /portfolio/account_mode | Retrieve the account&#39;s portfolio mode
-*PortfolioApi* | [**setAccountPortfolioMode**](docs/PortfolioApi.md#setAccountPortfolioMode) | **POST** /portfolio/account_mode | Configure the account&#39;s portfolio mode.
-*PortfolioApi* | [**getPortfolioBorrowable**](docs/PortfolioApi.md#getPortfolioBorrowable) | **GET** /portfolio/borrowable | Retrieve the maximum borrowable amount for the account.
-*PortfolioApi* | [**getPortfolioTransferable**](docs/PortfolioApi.md#getPortfolioTransferable) | **GET** /portfolio/transferable | Retrieve the maximum amount that can be transferred out from the account
-*PortfolioApi* | [**listPortfolioUniLoanInterestRecords**](docs/PortfolioApi.md#listPortfolioUniLoanInterestRecords) | **GET** /portfolio/loans | List loans
-*PortfolioApi* | [**createPortfolioLoan**](docs/PortfolioApi.md#createPortfolioLoan) | **POST** /portfolio/loans | Borrow or repay
-*PortfolioApi* | [**listPortfolioLoanRecords**](docs/PortfolioApi.md#listPortfolioLoanRecords) | **GET** /portfolio/loan_records | Get load records
-*PortfolioApi* | [**listPortfolioLoanInterestRecords**](docs/PortfolioApi.md#listPortfolioLoanInterestRecords) | **GET** /portfolio/interest_records | List interest records
 *RebateApi* | [**agencyTransactionHistory**](docs/RebateApi.md#agencyTransactionHistory) | **GET** /rebate/agency/transaction_history | The broker obtains the transaction history of the recommended user
 *RebateApi* | [**agencyCommissionsHistory**](docs/RebateApi.md#agencyCommissionsHistory) | **GET** /rebate/agency/commission_history | The broker obtains the commission history of the recommended user
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; details
@@ -363,6 +362,15 @@ Class | Method | HTTP request | Description
 *SubAccountApi* | [**deleteSubAccountKeys**](docs/SubAccountApi.md#deleteSubAccountKeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account
 *SubAccountApi* | [**lockSubAccount**](docs/SubAccountApi.md#lockSubAccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account
 *SubAccountApi* | [**unlockSubAccount**](docs/SubAccountApi.md#unlockSubAccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account
+*UnifiedApi* | [**listUnifiedAccounts**](docs/UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information
+*UnifiedApi* | [**listUnifiedAccountMode**](docs/UnifiedApi.md#listUnifiedAccountMode) | **GET** /unified/account_mode | Query mode of the unified account
+*UnifiedApi* | [**setUnifiedAccountMode**](docs/UnifiedApi.md#setUnifiedAccountMode) | **POST** /unified/account_mode | Set mode of the unified account
+*UnifiedApi* | [**getUnifiedBorrowable**](docs/UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query about the maximum borrowing for the unified account
+*UnifiedApi* | [**getUnifiedTransferable**](docs/UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query about the maximum transferable for the unified account
+*UnifiedApi* | [**listUnifiedLoans**](docs/UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | List loans
+*UnifiedApi* | [**createUnifiedLoan**](docs/UnifiedApi.md#createUnifiedLoan) | **POST** /unified/loans | Borrow or repay
+*UnifiedApi* | [**listUnifiedLoanRecords**](docs/UnifiedApi.md#listUnifiedLoanRecords) | **GET** /unified/loan_records | Get load records
+*UnifiedApi* | [**listUnifiedLoanInterestRecords**](docs/UnifiedApi.md#listUnifiedLoanInterestRecords) | **GET** /unified/interest_records | List interest records
 *WalletApi* | [**listCurrencyChains**](docs/WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | List chains supported for specified currency
 *WalletApi* | [**getDepositAddress**](docs/WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
 *WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
@@ -427,6 +435,9 @@ Class | Method | HTTP request | Description
  - [DeliveryContract](docs/DeliveryContract.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)
  - [DepositAddress](docs/DepositAddress.md)
+ - [DualGetOrders](docs/DualGetOrders.md)
+ - [DualGetPlans](docs/DualGetPlans.md)
+ - [Eth2Swap](docs/Eth2Swap.md)
  - [FlashSwapCurrency](docs/FlashSwapCurrency.md)
  - [FlashSwapCurrencyPair](docs/FlashSwapCurrencyPair.md)
  - [FlashSwapOrder](docs/FlashSwapOrder.md)
@@ -492,13 +503,7 @@ Class | Method | HTTP request | Description
  - [OrderPatch](docs/OrderPatch.md)
  - [OrderResp](docs/OrderResp.md)
  - [PatchUniLend](docs/PatchUniLend.md)
- - [PortfolioAccount](docs/PortfolioAccount.md)
- - [PortfolioBorrowable](docs/PortfolioBorrowable.md)
- - [PortfolioLoan](docs/PortfolioLoan.md)
- - [PortfolioLoanRecord](docs/PortfolioLoanRecord.md)
- - [PortfolioMarginBalance](docs/PortfolioMarginBalance.md)
- - [PortfolioMode](docs/PortfolioMode.md)
- - [PortfolioTransferable](docs/PortfolioTransferable.md)
+ - [PlaceDualInvestmentOrder](docs/PlaceDualInvestmentOrder.md)
  - [Position](docs/Position.md)
  - [PositionClose](docs/PositionClose.md)
  - [PositionCloseOrder](docs/PositionCloseOrder.md)
@@ -516,6 +521,11 @@ Class | Method | HTTP request | Description
  - [SpotPriceTriggeredOrder](docs/SpotPriceTriggeredOrder.md)
  - [StpGroup](docs/StpGroup.md)
  - [StpGroupUser](docs/StpGroupUser.md)
+ - [StructuredBuy](docs/StructuredBuy.md)
+ - [StructuredGetProjectList](docs/StructuredGetProjectList.md)
+ - [StructuredGetProjectListRequest](docs/StructuredGetProjectListRequest.md)
+ - [StructuredOrderList](docs/StructuredOrderList.md)
+ - [StructuredOrderListRequest](docs/StructuredOrderListRequest.md)
  - [SubAccount](docs/SubAccount.md)
  - [SubAccountBalance](docs/SubAccountBalance.md)
  - [SubAccountCrossMarginBalance](docs/SubAccountCrossMarginBalance.md)
@@ -545,9 +555,17 @@ Class | Method | HTTP request | Description
  - [UniLoan](docs/UniLoan.md)
  - [UniLoanInterestRecord](docs/UniLoanInterestRecord.md)
  - [UniLoanRecord](docs/UniLoanRecord.md)
+ - [UnifiedAccount](docs/UnifiedAccount.md)
+ - [UnifiedBalance](docs/UnifiedBalance.md)
+ - [UnifiedBorrowable](docs/UnifiedBorrowable.md)
+ - [UnifiedLoan](docs/UnifiedLoan.md)
+ - [UnifiedLoanRecord](docs/UnifiedLoanRecord.md)
+ - [UnifiedMode](docs/UnifiedMode.md)
+ - [UnifiedTransferable](docs/UnifiedTransferable.md)
  - [UserLtvInfo](docs/UserLtvInfo.md)
  - [UserTotalAmount](docs/UserTotalAmount.md)
  - [WithdrawStatus](docs/WithdrawStatus.md)
+ - [WithdrawalRecord](docs/WithdrawalRecord.md)
 
 
 ## Documentation for Authorization

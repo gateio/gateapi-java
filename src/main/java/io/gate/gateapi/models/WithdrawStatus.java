@@ -70,6 +70,10 @@ public class WithdrawStatus {
     @SerializedName(SERIALIZED_NAME_WITHDRAW_FIX_ON_CHAINS)
     private Map<String, String> withdrawFixOnChains = null;
 
+    public static final String SERIALIZED_NAME_WITHDRAW_PERCENT_ON_CHAINS = "withdraw_percent_on_chains";
+    @SerializedName(SERIALIZED_NAME_WITHDRAW_PERCENT_ON_CHAINS)
+    private Map<String, String> withdrawPercentOnChains = null;
+
 
     public WithdrawStatus currency(String currency) {
         
@@ -298,6 +302,34 @@ public class WithdrawStatus {
     public void setWithdrawFixOnChains(Map<String, String> withdrawFixOnChains) {
         this.withdrawFixOnChains = withdrawFixOnChains;
     }
+
+    public WithdrawStatus withdrawPercentOnChains(Map<String, String> withdrawPercentOnChains) {
+        
+        this.withdrawPercentOnChains = withdrawPercentOnChains;
+        return this;
+    }
+
+    public WithdrawStatus putWithdrawPercentOnChainsItem(String key, String withdrawPercentOnChainsItem) {
+        if (this.withdrawPercentOnChains == null) {
+            this.withdrawPercentOnChains = new HashMap<>();
+        }
+        this.withdrawPercentOnChains.put(key, withdrawPercentOnChainsItem);
+        return this;
+    }
+
+     /**
+     * Percentage withdrawal fee on multiple chains
+     * @return withdrawPercentOnChains
+    **/
+    @javax.annotation.Nullable
+    public Map<String, String> getWithdrawPercentOnChains() {
+        return withdrawPercentOnChains;
+    }
+
+
+    public void setWithdrawPercentOnChains(Map<String, String> withdrawPercentOnChains) {
+        this.withdrawPercentOnChains = withdrawPercentOnChains;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -317,12 +349,13 @@ public class WithdrawStatus {
                 Objects.equals(this.withdrawAmountMini, withdrawStatus.withdrawAmountMini) &&
                 Objects.equals(this.withdrawDayLimitRemain, withdrawStatus.withdrawDayLimitRemain) &&
                 Objects.equals(this.withdrawEachtimeLimit, withdrawStatus.withdrawEachtimeLimit) &&
-                Objects.equals(this.withdrawFixOnChains, withdrawStatus.withdrawFixOnChains);
+                Objects.equals(this.withdrawFixOnChains, withdrawStatus.withdrawFixOnChains) &&
+                Objects.equals(this.withdrawPercentOnChains, withdrawStatus.withdrawPercentOnChains);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, name, nameCn, deposit, withdrawPercent, withdrawFix, withdrawDayLimit, withdrawAmountMini, withdrawDayLimitRemain, withdrawEachtimeLimit, withdrawFixOnChains);
+        return Objects.hash(currency, name, nameCn, deposit, withdrawPercent, withdrawFix, withdrawDayLimit, withdrawAmountMini, withdrawDayLimitRemain, withdrawEachtimeLimit, withdrawFixOnChains, withdrawPercentOnChains);
     }
 
 
@@ -341,6 +374,7 @@ public class WithdrawStatus {
         sb.append("      withdrawDayLimitRemain: ").append(toIndentedString(withdrawDayLimitRemain)).append("\n");
         sb.append("      withdrawEachtimeLimit: ").append(toIndentedString(withdrawEachtimeLimit)).append("\n");
         sb.append("      withdrawFixOnChains: ").append(toIndentedString(withdrawFixOnChains)).append("\n");
+        sb.append("      withdrawPercentOnChains: ").append(toIndentedString(withdrawPercentOnChains)).append("\n");
         sb.append("}");
         return sb.toString();
     }

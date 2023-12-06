@@ -102,6 +102,14 @@ public class FuturesAccountBook {
     @SerializedName(SERIALIZED_NAME_TEXT)
     private String text;
 
+    public static final String SERIALIZED_NAME_CONTRACT = "contract";
+    @SerializedName(SERIALIZED_NAME_CONTRACT)
+    private String contract;
+
+    public static final String SERIALIZED_NAME_TRADE_ID = "trade_id";
+    @SerializedName(SERIALIZED_NAME_TRADE_ID)
+    private String tradeId;
+
 
     public FuturesAccountBook time(Double time) {
         
@@ -202,6 +210,46 @@ public class FuturesAccountBook {
     public void setText(String text) {
         this.text = text;
     }
+
+    public FuturesAccountBook contract(String contract) {
+        
+        this.contract = contract;
+        return this;
+    }
+
+     /**
+     * Futures contract, the field is only available for data after 2023-10-30.
+     * @return contract
+    **/
+    @javax.annotation.Nullable
+    public String getContract() {
+        return contract;
+    }
+
+
+    public void setContract(String contract) {
+        this.contract = contract;
+    }
+
+    public FuturesAccountBook tradeId(String tradeId) {
+        
+        this.tradeId = tradeId;
+        return this;
+    }
+
+     /**
+     * trade id
+     * @return tradeId
+    **/
+    @javax.annotation.Nullable
+    public String getTradeId() {
+        return tradeId;
+    }
+
+
+    public void setTradeId(String tradeId) {
+        this.tradeId = tradeId;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -215,12 +263,14 @@ public class FuturesAccountBook {
                 Objects.equals(this.change, futuresAccountBook.change) &&
                 Objects.equals(this.balance, futuresAccountBook.balance) &&
                 Objects.equals(this.type, futuresAccountBook.type) &&
-                Objects.equals(this.text, futuresAccountBook.text);
+                Objects.equals(this.text, futuresAccountBook.text) &&
+                Objects.equals(this.contract, futuresAccountBook.contract) &&
+                Objects.equals(this.tradeId, futuresAccountBook.tradeId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, change, balance, type, text);
+        return Objects.hash(time, change, balance, type, text, contract, tradeId);
     }
 
 
@@ -233,6 +283,8 @@ public class FuturesAccountBook {
         sb.append("      balance: ").append(toIndentedString(balance)).append("\n");
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
+        sb.append("      tradeId: ").append(toIndentedString(tradeId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

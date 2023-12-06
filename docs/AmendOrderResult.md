@@ -14,5 +14,5 @@ Name | Type | Description | Notes
 **succeeded** | **Boolean** | Update success status |  [optional] [readonly]
 **label** | **String** | Error indicator for failed modifications; empty when successful |  [optional] [readonly]
 **message** | **String** | Error description for failed modifications; empty when successful |  [optional] [readonly]
-**account** | **String** | Account types， spot - spot account, margin - margin account, portfolio - portfolio margin account, cross_margin - cross margin account.Portfolio margin accounts can only be set to &#x60;cross_margin&#x60; |  [optional] [readonly]
+**account** | **String** | Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.Portfolio margin accounts can only be set to &#x60;cross_margin&#x60; |  [optional] [readonly]
 
