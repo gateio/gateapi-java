@@ -20,10 +20,13 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.ConvertSmallBalance;
 import io.gate.gateapi.models.CurrencyChain;
 import io.gate.gateapi.models.DepositAddress;
 import io.gate.gateapi.models.LedgerRecord;
 import io.gate.gateapi.models.SavedAddress;
+import io.gate.gateapi.models.SmallBalance;
+import io.gate.gateapi.models.SmallBalanceHistory;
 import io.gate.gateapi.models.SubAccountBalance;
 import io.gate.gateapi.models.SubAccountCrossMarginBalance;
 import io.gate.gateapi.models.SubAccountFuturesBalance;
@@ -34,6 +37,7 @@ import io.gate.gateapi.models.TotalBalance;
 import io.gate.gateapi.models.TradeFee;
 import io.gate.gateapi.models.TransactionID;
 import io.gate.gateapi.models.Transfer;
+import io.gate.gateapi.models.UidPushOrder;
 import io.gate.gateapi.models.WithdrawStatus;
 import io.gate.gateapi.models.WithdrawalRecord;
 
@@ -598,7 +602,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)
          * @return APIlistDepositsRequest
          */
         public APIlistDepositsRequest limit(Integer limit) {
@@ -744,7 +748,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
      * @param transfer  (required)
      * @return TransactionID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -761,7 +765,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
      * @param transfer  (required)
      * @return ApiResponse&lt;TransactionID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -779,7 +783,7 @@ public class WalletApi {
 
     /**
      * Transfer between trading accounts (asynchronously)
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
      * @param transfer  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1009,7 +1013,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call transferWithSubAccountCall(SubAccountTransfer subAccountTransfer, final ApiCallback _callback) throws ApiException {
@@ -1024,7 +1028,7 @@ public class WalletApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1056,32 +1060,35 @@ public class WalletApi {
      * Transfer between main and sub accounts
      * Support transferring with sub user&#39;s spot or futures account. Note that only main user&#39;s spot account is used no matter which sub user&#39;s account is operated.
      * @param subAccountTransfer  (required)
+     * @return TransactionID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
      </table>
      */
-    public void transferWithSubAccount(SubAccountTransfer subAccountTransfer) throws ApiException {
-        transferWithSubAccountWithHttpInfo(subAccountTransfer);
+    public TransactionID transferWithSubAccount(SubAccountTransfer subAccountTransfer) throws ApiException {
+        ApiResponse<TransactionID> localVarResp = transferWithSubAccountWithHttpInfo(subAccountTransfer);
+        return localVarResp.getData();
     }
 
     /**
      * Transfer between main and sub accounts
      * Support transferring with sub user&#39;s spot or futures account. Note that only main user&#39;s spot account is used no matter which sub user&#39;s account is operated.
      * @param subAccountTransfer  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;TransactionID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> transferWithSubAccountWithHttpInfo(SubAccountTransfer subAccountTransfer) throws ApiException {
+    public ApiResponse<TransactionID> transferWithSubAccountWithHttpInfo(SubAccountTransfer subAccountTransfer) throws ApiException {
         okhttp3.Call localVarCall = transferWithSubAccountValidateBeforeCall(subAccountTransfer, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<TransactionID>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -1094,12 +1101,13 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call transferWithSubAccountAsync(SubAccountTransfer subAccountTransfer, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call transferWithSubAccountAsync(SubAccountTransfer subAccountTransfer, final ApiCallback<TransactionID> _callback) throws ApiException {
         okhttp3.Call localVarCall = transferWithSubAccountValidateBeforeCall(subAccountTransfer, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<TransactionID>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
@@ -1112,7 +1120,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call subAccountToSubAccountCall(SubAccountToSubAccount subAccountToSubAccount, final ApiCallback _callback) throws ApiException {
@@ -1127,7 +1135,7 @@ public class WalletApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1159,32 +1167,35 @@ public class WalletApi {
      * Sub-account transfers to sub-account
      * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
      * @param subAccountToSubAccount  (required)
+     * @return TransactionID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
      </table>
      */
-    public void subAccountToSubAccount(SubAccountToSubAccount subAccountToSubAccount) throws ApiException {
-        subAccountToSubAccountWithHttpInfo(subAccountToSubAccount);
+    public TransactionID subAccountToSubAccount(SubAccountToSubAccount subAccountToSubAccount) throws ApiException {
+        ApiResponse<TransactionID> localVarResp = subAccountToSubAccountWithHttpInfo(subAccountToSubAccount);
+        return localVarResp.getData();
     }
 
     /**
      * Sub-account transfers to sub-account
      * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
      * @param subAccountToSubAccount  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;TransactionID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> subAccountToSubAccountWithHttpInfo(SubAccountToSubAccount subAccountToSubAccount) throws ApiException {
+    public ApiResponse<TransactionID> subAccountToSubAccountWithHttpInfo(SubAccountToSubAccount subAccountToSubAccount) throws ApiException {
         okhttp3.Call localVarCall = subAccountToSubAccountValidateBeforeCall(subAccountToSubAccount, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<TransactionID>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -1197,12 +1208,13 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call subAccountToSubAccountAsync(SubAccountToSubAccount subAccountToSubAccount, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call subAccountToSubAccountAsync(SubAccountToSubAccount subAccountToSubAccount, final ApiCallback<TransactionID> _callback) throws ApiException {
         okhttp3.Call localVarCall = subAccountToSubAccountValidateBeforeCall(subAccountToSubAccount, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<TransactionID>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
@@ -1936,7 +1948,7 @@ public class WalletApi {
         return new APIlistSubAccountCrossMarginBalancesRequest();
     }
 
-    private okhttp3.Call listSavedAddressCall(String currency, String chain, String limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSavedAddressCall(String currency, String chain, String limit, Integer page, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1954,6 +1966,10 @@ public class WalletApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1978,25 +1994,25 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSavedAddressValidateBeforeCall(String currency, String chain, String limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSavedAddressValidateBeforeCall(String currency, String chain, String limit, Integer page, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currency' is set
         if (currency == null) {
             throw new ApiException("Missing the required parameter 'currency' when calling listSavedAddress(Async)");
         }
 
-        okhttp3.Call localVarCall = listSavedAddressCall(currency, chain, limit, _callback);
+        okhttp3.Call localVarCall = listSavedAddressCall(currency, chain, limit, page, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<SavedAddress>> listSavedAddressWithHttpInfo(String currency, String chain, String limit) throws ApiException {
-        okhttp3.Call localVarCall = listSavedAddressValidateBeforeCall(currency, chain, limit, null);
+    private ApiResponse<List<SavedAddress>> listSavedAddressWithHttpInfo(String currency, String chain, String limit, Integer page) throws ApiException {
+        okhttp3.Call localVarCall = listSavedAddressValidateBeforeCall(currency, chain, limit, page, null);
         Type localVarReturnType = new TypeToken<List<SavedAddress>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listSavedAddressAsync(String currency, String chain, String limit, final ApiCallback<List<SavedAddress>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSavedAddressValidateBeforeCall(currency, chain, limit, _callback);
+    private okhttp3.Call listSavedAddressAsync(String currency, String chain, String limit, Integer page, final ApiCallback<List<SavedAddress>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSavedAddressValidateBeforeCall(currency, chain, limit, page, _callback);
         Type localVarReturnType = new TypeToken<List<SavedAddress>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2006,6 +2022,7 @@ public class WalletApi {
         private final String currency;
         private String chain;
         private String limit;
+        private Integer page;
 
         private APIlistSavedAddressRequest(String currency) {
             this.currency = currency;
@@ -2032,6 +2049,16 @@ public class WalletApi {
         }
 
         /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistSavedAddressRequest
+         */
+        public APIlistSavedAddressRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
          * Build call for listSavedAddress
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -2043,7 +2070,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listSavedAddressCall(currency, chain, limit, _callback);
+            return listSavedAddressCall(currency, chain, limit, page, _callback);
         }
 
         /**
@@ -2057,7 +2084,7 @@ public class WalletApi {
          </table>
          */
         public List<SavedAddress> execute() throws ApiException {
-            ApiResponse<List<SavedAddress>> localVarResp = listSavedAddressWithHttpInfo(currency, chain, limit);
+            ApiResponse<List<SavedAddress>> localVarResp = listSavedAddressWithHttpInfo(currency, chain, limit, page);
             return localVarResp.getData();
         }
 
@@ -2072,7 +2099,7 @@ public class WalletApi {
          </table>
          */
         public ApiResponse<List<SavedAddress>> executeWithHttpInfo() throws ApiException {
-            return listSavedAddressWithHttpInfo(currency, chain, limit);
+            return listSavedAddressWithHttpInfo(currency, chain, limit, page);
         }
 
         /**
@@ -2087,7 +2114,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SavedAddress>> _callback) throws ApiException {
-            return listSavedAddressAsync(currency, chain, limit, _callback);
+            return listSavedAddressAsync(currency, chain, limit, page, _callback);
         }
     }
 
@@ -2405,6 +2432,583 @@ public class WalletApi {
      */
     public APIgetTotalBalanceRequest getTotalBalance() {
         return new APIgetTotalBalanceRequest();
+    }
+
+    /**
+     * Build call for listSmallBalance
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSmallBalanceCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/small_balance";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSmallBalanceValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSmallBalanceCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * List small balance
+     * 
+     * @return SmallBalance
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public SmallBalance listSmallBalance() throws ApiException {
+        ApiResponse<SmallBalance> localVarResp = listSmallBalanceWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List small balance
+     * 
+     * @return ApiResponse&lt;SmallBalance&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SmallBalance> listSmallBalanceWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = listSmallBalanceValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<SmallBalance>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List small balance (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSmallBalanceAsync(final ApiCallback<SmallBalance> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSmallBalanceValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<SmallBalance>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for convertSmallBalance
+     * @param convertSmallBalance  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call convertSmallBalanceCall(ConvertSmallBalance convertSmallBalance, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = convertSmallBalance;
+
+        // create path and map variables
+        String localVarPath = "/wallet/small_balance";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call convertSmallBalanceValidateBeforeCall(ConvertSmallBalance convertSmallBalance, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'convertSmallBalance' is set
+        if (convertSmallBalance == null) {
+            throw new ApiException("Missing the required parameter 'convertSmallBalance' when calling convertSmallBalance(Async)");
+        }
+
+        okhttp3.Call localVarCall = convertSmallBalanceCall(convertSmallBalance, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Convert small balance
+     * 
+     * @param convertSmallBalance  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public void convertSmallBalance(ConvertSmallBalance convertSmallBalance) throws ApiException {
+        convertSmallBalanceWithHttpInfo(convertSmallBalance);
+    }
+
+    /**
+     * Convert small balance
+     * 
+     * @param convertSmallBalance  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> convertSmallBalanceWithHttpInfo(ConvertSmallBalance convertSmallBalance) throws ApiException {
+        okhttp3.Call localVarCall = convertSmallBalanceValidateBeforeCall(convertSmallBalance, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Convert small balance (asynchronously)
+     * 
+     * @param convertSmallBalance  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call convertSmallBalanceAsync(ConvertSmallBalance convertSmallBalance, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = convertSmallBalanceValidateBeforeCall(convertSmallBalance, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listSmallBalanceHistoryCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/small_balance_history";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSmallBalanceHistoryValidateBeforeCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSmallBalanceHistoryCall(currency, page, limit, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<SmallBalanceHistory> listSmallBalanceHistoryWithHttpInfo(String currency, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listSmallBalanceHistoryValidateBeforeCall(currency, page, limit, null);
+        Type localVarReturnType = new TypeToken<SmallBalanceHistory>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listSmallBalanceHistoryAsync(String currency, Integer page, Integer limit, final ApiCallback<SmallBalanceHistory> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSmallBalanceHistoryValidateBeforeCall(currency, page, limit, _callback);
+        Type localVarReturnType = new TypeToken<SmallBalanceHistory>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSmallBalanceHistoryRequest {
+        private String currency;
+        private Integer page;
+        private Integer limit;
+
+        private APIlistSmallBalanceHistoryRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency Currency (optional)
+         * @return APIlistSmallBalanceHistoryRequest
+         */
+        public APIlistSmallBalanceHistoryRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistSmallBalanceHistoryRequest
+         */
+        public APIlistSmallBalanceHistoryRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+         * @return APIlistSmallBalanceHistoryRequest
+         */
+        public APIlistSmallBalanceHistoryRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listSmallBalanceHistory
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSmallBalanceHistoryCall(currency, page, limit, _callback);
+        }
+
+        /**
+         * Execute listSmallBalanceHistory request
+         * @return SmallBalanceHistory
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public SmallBalanceHistory execute() throws ApiException {
+            ApiResponse<SmallBalanceHistory> localVarResp = listSmallBalanceHistoryWithHttpInfo(currency, page, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSmallBalanceHistory request with HTTP info returned
+         * @return ApiResponse&lt;SmallBalanceHistory&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<SmallBalanceHistory> executeWithHttpInfo() throws ApiException {
+            return listSmallBalanceHistoryWithHttpInfo(currency, page, limit);
+        }
+
+        /**
+         * Execute listSmallBalanceHistory request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SmallBalanceHistory> _callback) throws ApiException {
+            return listSmallBalanceHistoryAsync(currency, page, limit, _callback);
+        }
+    }
+
+    /**
+     * List small balance history
+     * 
+     * @return APIlistSmallBalanceHistoryRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistSmallBalanceHistoryRequest listSmallBalanceHistory() {
+        return new APIlistSmallBalanceHistoryRequest();
+    }
+
+    private okhttp3.Call listPushOrdersCall(Integer id, Integer from, Integer to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/push";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listPushOrdersValidateBeforeCall(Integer id, Integer from, Integer to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listPushOrdersCall(id, from, to, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<UidPushOrder>> listPushOrdersWithHttpInfo(Integer id, Integer from, Integer to, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listPushOrdersValidateBeforeCall(id, from, to, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<UidPushOrder>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listPushOrdersAsync(Integer id, Integer from, Integer to, Integer limit, Integer offset, final ApiCallback<List<UidPushOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listPushOrdersValidateBeforeCall(id, from, to, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<UidPushOrder>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistPushOrdersRequest {
+        private Integer id;
+        private Integer from;
+        private Integer to;
+        private Integer limit;
+        private Integer offset;
+
+        private APIlistPushOrdersRequest() {
+        }
+
+        /**
+         * Set id
+         * @param id Order ID (optional)
+         * @return APIlistPushOrdersRequest
+         */
+        public APIlistPushOrdersRequest id(Integer id) {
+            this.id = id;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)
+         * @return APIlistPushOrdersRequest
+         */
+        public APIlistPushOrdersRequest from(Integer from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)
+         * @return APIlistPushOrdersRequest
+         */
+        public APIlistPushOrdersRequest to(Integer to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
+         * @return APIlistPushOrdersRequest
+         */
+        public APIlistPushOrdersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistPushOrdersRequest
+         */
+        public APIlistPushOrdersRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listPushOrders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listPushOrdersCall(id, from, to, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listPushOrders request
+         * @return List&lt;UidPushOrder&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<UidPushOrder> execute() throws ApiException {
+            ApiResponse<List<UidPushOrder>> localVarResp = listPushOrdersWithHttpInfo(id, from, to, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listPushOrders request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;UidPushOrder&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<UidPushOrder>> executeWithHttpInfo() throws ApiException {
+            return listPushOrdersWithHttpInfo(id, from, to, limit, offset);
+        }
+
+        /**
+         * Execute listPushOrders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<UidPushOrder>> _callback) throws ApiException {
+            return listPushOrdersAsync(id, from, to, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * Retrieve the UID transfer history
+     * 
+     * @return APIlistPushOrdersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistPushOrdersRequest listPushOrders() {
+        return new APIlistPushOrdersRequest();
     }
 
 }

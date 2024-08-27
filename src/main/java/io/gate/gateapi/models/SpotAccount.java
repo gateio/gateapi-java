@@ -35,6 +35,10 @@ public class SpotAccount {
     @SerializedName(SERIALIZED_NAME_LOCKED)
     private String locked;
 
+    public static final String SERIALIZED_NAME_UPDATE_ID = "update_id";
+    @SerializedName(SERIALIZED_NAME_UPDATE_ID)
+    private Integer updateId;
+
 
     public SpotAccount currency(String currency) {
         
@@ -95,6 +99,26 @@ public class SpotAccount {
     public void setLocked(String locked) {
         this.locked = locked;
     }
+
+    public SpotAccount updateId(Integer updateId) {
+        
+        this.updateId = updateId;
+        return this;
+    }
+
+     /**
+     * Version number
+     * @return updateId
+    **/
+    @javax.annotation.Nullable
+    public Integer getUpdateId() {
+        return updateId;
+    }
+
+
+    public void setUpdateId(Integer updateId) {
+        this.updateId = updateId;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -106,12 +130,13 @@ public class SpotAccount {
         SpotAccount spotAccount = (SpotAccount) o;
         return Objects.equals(this.currency, spotAccount.currency) &&
                 Objects.equals(this.available, spotAccount.available) &&
-                Objects.equals(this.locked, spotAccount.locked);
+                Objects.equals(this.locked, spotAccount.locked) &&
+                Objects.equals(this.updateId, spotAccount.updateId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, available, locked);
+        return Objects.hash(currency, available, locked, updateId);
     }
 
 
@@ -122,6 +147,7 @@ public class SpotAccount {
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      available: ").append(toIndentedString(available)).append("\n");
         sb.append("      locked: ").append(toIndentedString(locked)).append("\n");
+        sb.append("      updateId: ").append(toIndentedString(updateId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

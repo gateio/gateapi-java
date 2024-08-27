@@ -23,6 +23,9 @@ Name | Type | Description | Notes
 **maintenanceMargin** | **String** | Maintenance margin required for the position, applicable to portfolio margin account |  [optional] [readonly]
 **unrealisedPnl** | **String** | Unrealized PNL |  [optional] [readonly]
 **realisedPnl** | **String** | Realized PNL |  [optional] [readonly]
+**pnlPnl** | **String** | Realized PNL - Position P/L |  [optional] [readonly]
+**pnlFund** | **String** | Realized PNL -  Funding Fees |  [optional] [readonly]
+**pnlFee** | **String** | Realized PNL - Transaction Fees |  [optional] [readonly]
 **historyPnl** | **String** | History realized PNL |  [optional] [readonly]
 **lastClosePnl** | **String** | PNL of last position close |  [optional] [readonly]
 **realisedPoint** | **String** | Realized POINT PNL |  [optional] [readonly]
@@ -33,6 +36,7 @@ Name | Type | Description | Notes
 **mode** | [**ModeEnum**](#ModeEnum) | Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode |  [optional]
 **crossLeverageLimit** | **String** | Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) |  [optional]
 **updateTime** | **Long** | Last update time |  [optional] [readonly]
+**openTime** | **Long** | First Open Time |  [optional]
 
 ## Enum: ModeEnum
 

@@ -20,7 +20,6 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import io.gate.gateapi.models.AmendOrderResult;
 import io.gate.gateapi.models.BatchAmendItem;
 import io.gate.gateapi.models.BatchOrder;
 import io.gate.gateapi.models.CancelBatchOrder;
@@ -32,6 +31,7 @@ import io.gate.gateapi.models.LiquidateOrder;
 import io.gate.gateapi.models.OpenOrders;
 import io.gate.gateapi.models.Order;
 import io.gate.gateapi.models.OrderBook;
+import io.gate.gateapi.models.OrderCancel;
 import io.gate.gateapi.models.OrderPatch;
 import io.gate.gateapi.models.SpotAccount;
 import io.gate.gateapi.models.SpotAccountBook;
@@ -40,7 +40,6 @@ import io.gate.gateapi.models.SpotPriceTriggeredOrder;
 import io.gate.gateapi.models.SystemTime;
 import io.gate.gateapi.models.Ticker;
 import io.gate.gateapi.models.Trade;
-import io.gate.gateapi.models.TradeFee;
 import io.gate.gateapi.models.TriggerOrderResponse;
 import io.gate.gateapi.models.TriggerTime;
 
@@ -1041,7 +1040,7 @@ public class SpotApi {
 
     /**
      * Retrieve market trades
-     * You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+     * You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
      * @param currencyPair Currency pair (required)
      * @return APIlistTradesRequest
      * @http.response.details
@@ -1295,15 +1294,15 @@ public class SpotApi {
     }
 
 
-    private ApiResponse<TradeFee> getFeeWithHttpInfo(String currencyPair) throws ApiException {
+    private ApiResponse<SpotFee> getFeeWithHttpInfo(String currencyPair) throws ApiException {
         okhttp3.Call localVarCall = getFeeValidateBeforeCall(currencyPair, null);
-        Type localVarReturnType = new TypeToken<TradeFee>(){}.getType();
+        Type localVarReturnType = new TypeToken<SpotFee>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getFeeAsync(String currencyPair, final ApiCallback<TradeFee> _callback) throws ApiException {
+    private okhttp3.Call getFeeAsync(String currencyPair, final ApiCallback<SpotFee> _callback) throws ApiException {
         okhttp3.Call localVarCall = getFeeValidateBeforeCall(currencyPair, _callback);
-        Type localVarReturnType = new TypeToken<TradeFee>(){}.getType();
+        Type localVarReturnType = new TypeToken<SpotFee>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1343,7 +1342,7 @@ public class SpotApi {
 
         /**
          * Execute getFee request
-         * @return TradeFee
+         * @return SpotFee
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1353,14 +1352,14 @@ public class SpotApi {
          * @deprecated
          */
         @Deprecated
-        public TradeFee execute() throws ApiException {
-            ApiResponse<TradeFee> localVarResp = getFeeWithHttpInfo(currencyPair);
+        public SpotFee execute() throws ApiException {
+            ApiResponse<SpotFee> localVarResp = getFeeWithHttpInfo(currencyPair);
             return localVarResp.getData();
         }
 
         /**
          * Execute getFee request with HTTP info returned
-         * @return ApiResponse&lt;TradeFee&gt;
+         * @return ApiResponse&lt;SpotFee&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1370,7 +1369,7 @@ public class SpotApi {
          * @deprecated
          */
         @Deprecated
-        public ApiResponse<TradeFee> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<SpotFee> executeWithHttpInfo() throws ApiException {
             return getFeeWithHttpInfo(currencyPair);
         }
 
@@ -1387,7 +1386,7 @@ public class SpotApi {
          * @deprecated
          */
         @Deprecated
-        public okhttp3.Call executeAsync(final ApiCallback<TradeFee> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<SpotFee> _callback) throws ApiException {
             return getFeeAsync(currencyPair, _callback);
         }
     }
@@ -2618,9 +2617,10 @@ public class SpotApi {
 
     /**
      * Build call for cancelOrders
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair (optional)
      * @param side All bids or asks. Both included if not specified (optional)
-     * @param account Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)
+     * @param account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2630,7 +2630,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOrdersCall(String currencyPair, String side, String account, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelOrdersCall(String currencyPair, String side, String account, String actionMode, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2648,6 +2648,10 @@ public class SpotApi {
 
         if (account != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("account", account));
+        }
+
+        if (actionMode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("action_mode", actionMode));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2672,23 +2676,19 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelOrdersValidateBeforeCall(String currencyPair, String side, String account, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'currencyPair' is set
-        if (currencyPair == null) {
-            throw new ApiException("Missing the required parameter 'currencyPair' when calling cancelOrders(Async)");
-        }
-
-        okhttp3.Call localVarCall = cancelOrdersCall(currencyPair, side, account, _callback);
+    private okhttp3.Call cancelOrdersValidateBeforeCall(String currencyPair, String side, String account, String actionMode, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelOrdersCall(currencyPair, side, account, actionMode, _callback);
         return localVarCall;
     }
 
     /**
      * Cancel all &#x60;open&#x60; orders in specified currency pair
-     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
-     * @param currencyPair Currency pair (required)
+     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
+     * @param currencyPair Currency pair (optional)
      * @param side All bids or asks. Both included if not specified (optional)
-     * @param account Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)
-     * @return List&lt;Order&gt;
+     * @param account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @return List&lt;OrderCancel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2696,18 +2696,19 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
      </table>
      */
-    public List<Order> cancelOrders(String currencyPair, String side, String account) throws ApiException {
-        ApiResponse<List<Order>> localVarResp = cancelOrdersWithHttpInfo(currencyPair, side, account);
+    public List<OrderCancel> cancelOrders(String currencyPair, String side, String account, String actionMode) throws ApiException {
+        ApiResponse<List<OrderCancel>> localVarResp = cancelOrdersWithHttpInfo(currencyPair, side, account, actionMode);
         return localVarResp.getData();
     }
 
     /**
      * Cancel all &#x60;open&#x60; orders in specified currency pair
-     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
-     * @param currencyPair Currency pair (required)
+     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
+     * @param currencyPair Currency pair (optional)
      * @param side All bids or asks. Both included if not specified (optional)
-     * @param account Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)
-     * @return ApiResponse&lt;List&lt;Order&gt;&gt;
+     * @param account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
+     * @return ApiResponse&lt;List&lt;OrderCancel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2715,18 +2716,19 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Order>> cancelOrdersWithHttpInfo(String currencyPair, String side, String account) throws ApiException {
-        okhttp3.Call localVarCall = cancelOrdersValidateBeforeCall(currencyPair, side, account, null);
-        Type localVarReturnType = new TypeToken<List<Order>>(){}.getType();
+    public ApiResponse<List<OrderCancel>> cancelOrdersWithHttpInfo(String currencyPair, String side, String account, String actionMode) throws ApiException {
+        okhttp3.Call localVarCall = cancelOrdersValidateBeforeCall(currencyPair, side, account, actionMode, null);
+        Type localVarReturnType = new TypeToken<List<OrderCancel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Cancel all &#x60;open&#x60; orders in specified currency pair (asynchronously)
-     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
-     * @param currencyPair Currency pair (required)
+     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
+     * @param currencyPair Currency pair (optional)
      * @param side All bids or asks. Both included if not specified (optional)
-     * @param account Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)
+     * @param account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2736,9 +2738,9 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOrdersAsync(String currencyPair, String side, String account, final ApiCallback<List<Order>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = cancelOrdersValidateBeforeCall(currencyPair, side, account, _callback);
-        Type localVarReturnType = new TypeToken<List<Order>>(){}.getType();
+    public okhttp3.Call cancelOrdersAsync(String currencyPair, String side, String account, String actionMode, final ApiCallback<List<OrderCancel>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelOrdersValidateBeforeCall(currencyPair, side, account, actionMode, _callback);
+        Type localVarReturnType = new TypeToken<List<OrderCancel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2853,7 +2855,7 @@ public class SpotApi {
     /**
      * Build call for getOrder
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2922,7 +2924,7 @@ public class SpotApi {
      * Get a single order
      * Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2941,7 +2943,7 @@ public class SpotApi {
      * Get a single order
      * Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2961,7 +2963,7 @@ public class SpotApi {
      * Get a single order (asynchronously)
      * Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2984,6 +2986,7 @@ public class SpotApi {
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2993,7 +2996,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOrderCall(String orderId, String currencyPair, String account, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelOrderCall(String orderId, String currencyPair, String account, String actionMode, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3008,6 +3011,10 @@ public class SpotApi {
 
         if (account != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("account", account));
+        }
+
+        if (actionMode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("action_mode", actionMode));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -3032,7 +3039,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelOrderValidateBeforeCall(String orderId, String currencyPair, String account, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelOrderValidateBeforeCall(String orderId, String currencyPair, String account, String actionMode, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling cancelOrder(Async)");
@@ -3043,7 +3050,7 @@ public class SpotApi {
             throw new ApiException("Missing the required parameter 'currencyPair' when calling cancelOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = cancelOrderCall(orderId, currencyPair, account, _callback);
+        okhttp3.Call localVarCall = cancelOrderCall(orderId, currencyPair, account, actionMode, _callback);
         return localVarCall;
     }
 
@@ -3053,6 +3060,7 @@ public class SpotApi {
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3061,8 +3069,8 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public Order cancelOrder(String orderId, String currencyPair, String account) throws ApiException {
-        ApiResponse<Order> localVarResp = cancelOrderWithHttpInfo(orderId, currencyPair, account);
+    public Order cancelOrder(String orderId, String currencyPair, String account, String actionMode) throws ApiException {
+        ApiResponse<Order> localVarResp = cancelOrderWithHttpInfo(orderId, currencyPair, account, actionMode);
         return localVarResp.getData();
     }
 
@@ -3072,6 +3080,7 @@ public class SpotApi {
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3080,8 +3089,8 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Order> cancelOrderWithHttpInfo(String orderId, String currencyPair, String account) throws ApiException {
-        okhttp3.Call localVarCall = cancelOrderValidateBeforeCall(orderId, currencyPair, account, null);
+    public ApiResponse<Order> cancelOrderWithHttpInfo(String orderId, String currencyPair, String account, String actionMode) throws ApiException {
+        okhttp3.Call localVarCall = cancelOrderValidateBeforeCall(orderId, currencyPair, account, actionMode, null);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3092,6 +3101,7 @@ public class SpotApi {
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
      * @param currencyPair Currency pair (required)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3101,8 +3111,8 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOrderAsync(String orderId, String currencyPair, String account, final ApiCallback<Order> _callback) throws ApiException {
-        okhttp3.Call localVarCall = cancelOrderValidateBeforeCall(orderId, currencyPair, account, _callback);
+    public okhttp3.Call cancelOrderAsync(String orderId, String currencyPair, String account, String actionMode, final ApiCallback<Order> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelOrderValidateBeforeCall(orderId, currencyPair, account, actionMode, _callback);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3111,8 +3121,8 @@ public class SpotApi {
     /**
      * Build call for amendOrder
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param currencyPair Currency pair (required)
      * @param orderPatch  (required)
+     * @param currencyPair Currency pair (optional)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3123,7 +3133,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendOrderCall(String orderId, String currencyPair, OrderPatch orderPatch, String account, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call amendOrderCall(String orderId, OrderPatch orderPatch, String currencyPair, String account, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = orderPatch;
 
         // create path and map variables
@@ -3162,15 +3172,10 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call amendOrderValidateBeforeCall(String orderId, String currencyPair, OrderPatch orderPatch, String account, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call amendOrderValidateBeforeCall(String orderId, OrderPatch orderPatch, String currencyPair, String account, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling amendOrder(Async)");
-        }
-
-        // verify the required parameter 'currencyPair' is set
-        if (currencyPair == null) {
-            throw new ApiException("Missing the required parameter 'currencyPair' when calling amendOrder(Async)");
         }
 
         // verify the required parameter 'orderPatch' is set
@@ -3178,16 +3183,16 @@ public class SpotApi {
             throw new ApiException("Missing the required parameter 'orderPatch' when calling amendOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = amendOrderCall(orderId, currencyPair, orderPatch, account, _callback);
+        okhttp3.Call localVarCall = amendOrderCall(orderId, orderPatch, currencyPair, account, _callback);
         return localVarCall;
     }
 
     /**
      * Amend an order
-     * By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+     * By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param currencyPair Currency pair (required)
      * @param orderPatch  (required)
+     * @param currencyPair Currency pair (optional)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3197,17 +3202,17 @@ public class SpotApi {
         <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
      </table>
      */
-    public Order amendOrder(String orderId, String currencyPair, OrderPatch orderPatch, String account) throws ApiException {
-        ApiResponse<Order> localVarResp = amendOrderWithHttpInfo(orderId, currencyPair, orderPatch, account);
+    public Order amendOrder(String orderId, OrderPatch orderPatch, String currencyPair, String account) throws ApiException {
+        ApiResponse<Order> localVarResp = amendOrderWithHttpInfo(orderId, orderPatch, currencyPair, account);
         return localVarResp.getData();
     }
 
     /**
      * Amend an order
-     * By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+     * By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param currencyPair Currency pair (required)
      * @param orderPatch  (required)
+     * @param currencyPair Currency pair (optional)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3217,18 +3222,18 @@ public class SpotApi {
         <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Order> amendOrderWithHttpInfo(String orderId, String currencyPair, OrderPatch orderPatch, String account) throws ApiException {
-        okhttp3.Call localVarCall = amendOrderValidateBeforeCall(orderId, currencyPair, orderPatch, account, null);
+    public ApiResponse<Order> amendOrderWithHttpInfo(String orderId, OrderPatch orderPatch, String currencyPair, String account) throws ApiException {
+        okhttp3.Call localVarCall = amendOrderValidateBeforeCall(orderId, orderPatch, currencyPair, account, null);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Amend an order (asynchronously)
-     * By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+     * By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
      * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
-     * @param currencyPair Currency pair (required)
      * @param orderPatch  (required)
+     * @param currencyPair Currency pair (optional)
      * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3239,8 +3244,8 @@ public class SpotApi {
         <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendOrderAsync(String orderId, String currencyPair, OrderPatch orderPatch, String account, final ApiCallback<Order> _callback) throws ApiException {
-        okhttp3.Call localVarCall = amendOrderValidateBeforeCall(orderId, currencyPair, orderPatch, account, _callback);
+    public okhttp3.Call amendOrderAsync(String orderId, OrderPatch orderPatch, String currencyPair, String account, final ApiCallback<Order> _callback) throws ApiException {
+        okhttp3.Call localVarCall = amendOrderValidateBeforeCall(orderId, orderPatch, currencyPair, account, _callback);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3740,7 +3745,7 @@ public class SpotApi {
      * Batch modification of orders
      * Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
      * @param batchAmendItem  (required)
-     * @return List&lt;AmendOrderResult&gt;
+     * @return List&lt;BatchOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3748,8 +3753,8 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public List<AmendOrderResult> amendBatchOrders(List<BatchAmendItem> batchAmendItem) throws ApiException {
-        ApiResponse<List<AmendOrderResult>> localVarResp = amendBatchOrdersWithHttpInfo(batchAmendItem);
+    public List<BatchOrder> amendBatchOrders(List<BatchAmendItem> batchAmendItem) throws ApiException {
+        ApiResponse<List<BatchOrder>> localVarResp = amendBatchOrdersWithHttpInfo(batchAmendItem);
         return localVarResp.getData();
     }
 
@@ -3757,7 +3762,7 @@ public class SpotApi {
      * Batch modification of orders
      * Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
      * @param batchAmendItem  (required)
-     * @return ApiResponse&lt;List&lt;AmendOrderResult&gt;&gt;
+     * @return ApiResponse&lt;List&lt;BatchOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3765,9 +3770,9 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AmendOrderResult>> amendBatchOrdersWithHttpInfo(List<BatchAmendItem> batchAmendItem) throws ApiException {
+    public ApiResponse<List<BatchOrder>> amendBatchOrdersWithHttpInfo(List<BatchAmendItem> batchAmendItem) throws ApiException {
         okhttp3.Call localVarCall = amendBatchOrdersValidateBeforeCall(batchAmendItem, null);
-        Type localVarReturnType = new TypeToken<List<AmendOrderResult>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<BatchOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3784,9 +3789,9 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendBatchOrdersAsync(List<BatchAmendItem> batchAmendItem, final ApiCallback<List<AmendOrderResult>> _callback) throws ApiException {
+    public okhttp3.Call amendBatchOrdersAsync(List<BatchAmendItem> batchAmendItem, final ApiCallback<List<BatchOrder>> _callback) throws ApiException {
         okhttp3.Call localVarCall = amendBatchOrdersValidateBeforeCall(batchAmendItem, _callback);
-        Type localVarReturnType = new TypeToken<List<AmendOrderResult>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<BatchOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

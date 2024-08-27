@@ -35,6 +35,10 @@ public class UniLoan {
     @SerializedName(SERIALIZED_NAME_AMOUNT)
     private String amount;
 
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
+
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private Long createTime;
@@ -75,6 +79,16 @@ public class UniLoan {
 
 
      /**
+     * Loan type, platform - platform, margin - margin
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public String getType() {
+        return type;
+    }
+
+
+     /**
      * Created time
      * @return createTime
     **/
@@ -105,13 +119,14 @@ public class UniLoan {
         return Objects.equals(this.currency, uniLoan.currency) &&
                 Objects.equals(this.currencyPair, uniLoan.currencyPair) &&
                 Objects.equals(this.amount, uniLoan.amount) &&
+                Objects.equals(this.type, uniLoan.type) &&
                 Objects.equals(this.createTime, uniLoan.createTime) &&
                 Objects.equals(this.updateTime, uniLoan.updateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, currencyPair, amount, createTime, updateTime);
+        return Objects.hash(currency, currencyPair, amount, type, createTime, updateTime);
     }
 
 
@@ -122,6 +137,7 @@ public class UniLoan {
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
         sb.append("}");

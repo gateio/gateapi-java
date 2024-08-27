@@ -66,7 +66,7 @@ public class OpenOrders {
     }
 
      /**
-     * Total open orders in this currency pair
+     * The total number of pending orders for this trading pair on the current page
      * @return total
     **/
     @javax.annotation.Nullable

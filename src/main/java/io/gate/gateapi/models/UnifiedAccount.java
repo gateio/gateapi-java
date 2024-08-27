@@ -91,6 +91,18 @@ public class UnifiedAccount {
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private String leverage;
 
+    public static final String SERIALIZED_NAME_SPOT_ORDER_LOSS = "spot_order_loss";
+    @SerializedName(SERIALIZED_NAME_SPOT_ORDER_LOSS)
+    private String spotOrderLoss;
+
+    public static final String SERIALIZED_NAME_SPOT_HEDGE = "spot_hedge";
+    @SerializedName(SERIALIZED_NAME_SPOT_HEDGE)
+    private Boolean spotHedge;
+
+    public static final String SERIALIZED_NAME_USE_FUNDING = "use_funding";
+    @SerializedName(SERIALIZED_NAME_USE_FUNDING)
+    private Boolean useFunding;
+
 
     public UnifiedAccount userId(Long userId) {
         
@@ -187,7 +199,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * The total asset value in USDT. Sum of &#x60;(available + freeze) * price&#x60;
+     * The total asset value in USD, calculated as the sum of the product of &#x60;(available + freeze) * price&#x60; for all currencies.
      * @return total
     **/
     @javax.annotation.Nullable
@@ -207,7 +219,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * The total borrowed amount in USDT equivalent. Sum of &#x60;borrowed * price&#x60; 
+     * The total borrowed amount in USD, calculated as the sum of the product of &#x60;borrowed * price&#x60; for all currencies (excluding points cards).
      * @return borrowed
     **/
     @javax.annotation.Nullable
@@ -409,6 +421,66 @@ public class UnifiedAccount {
         return leverage;
     }
 
+
+    public UnifiedAccount spotOrderLoss(String spotOrderLoss) {
+        
+        this.spotOrderLoss = spotOrderLoss;
+        return this;
+    }
+
+     /**
+     * Total order loss, in USDT
+     * @return spotOrderLoss
+    **/
+    @javax.annotation.Nullable
+    public String getSpotOrderLoss() {
+        return spotOrderLoss;
+    }
+
+
+    public void setSpotOrderLoss(String spotOrderLoss) {
+        this.spotOrderLoss = spotOrderLoss;
+    }
+
+    public UnifiedAccount spotHedge(Boolean spotHedge) {
+        
+        this.spotHedge = spotHedge;
+        return this;
+    }
+
+     /**
+     * Spot hedging status, true - enabled, false - not enabled.
+     * @return spotHedge
+    **/
+    @javax.annotation.Nullable
+    public Boolean getSpotHedge() {
+        return spotHedge;
+    }
+
+
+    public void setSpotHedge(Boolean spotHedge) {
+        this.spotHedge = spotHedge;
+    }
+
+    public UnifiedAccount useFunding(Boolean useFunding) {
+        
+        this.useFunding = useFunding;
+        return this;
+    }
+
+     /**
+     * Whether to use funds as margin
+     * @return useFunding
+    **/
+    @javax.annotation.Nullable
+    public Boolean getUseFunding() {
+        return useFunding;
+    }
+
+
+    public void setUseFunding(Boolean useFunding) {
+        this.useFunding = useFunding;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -433,12 +505,15 @@ public class UnifiedAccount {
                 Objects.equals(this.unifiedAccountTotal, unifiedAccount.unifiedAccountTotal) &&
                 Objects.equals(this.unifiedAccountTotalLiab, unifiedAccount.unifiedAccountTotalLiab) &&
                 Objects.equals(this.unifiedAccountTotalEquity, unifiedAccount.unifiedAccountTotalEquity) &&
-                Objects.equals(this.leverage, unifiedAccount.leverage);
+                Objects.equals(this.leverage, unifiedAccount.leverage) &&
+                Objects.equals(this.spotOrderLoss, unifiedAccount.spotOrderLoss) &&
+                Objects.equals(this.spotHedge, unifiedAccount.spotHedge) &&
+                Objects.equals(this.useFunding, unifiedAccount.useFunding);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, refreshTime, locked, balances, total, borrowed, totalInitialMargin, totalMarginBalance, totalMaintenanceMargin, totalInitialMarginRate, totalMaintenanceMarginRate, totalAvailableMargin, unifiedAccountTotal, unifiedAccountTotalLiab, unifiedAccountTotalEquity, leverage);
+        return Objects.hash(userId, refreshTime, locked, balances, total, borrowed, totalInitialMargin, totalMarginBalance, totalMaintenanceMargin, totalInitialMarginRate, totalMaintenanceMarginRate, totalAvailableMargin, unifiedAccountTotal, unifiedAccountTotalLiab, unifiedAccountTotalEquity, leverage, spotOrderLoss, spotHedge, useFunding);
     }
 
 
@@ -462,6 +537,9 @@ public class UnifiedAccount {
         sb.append("      unifiedAccountTotalLiab: ").append(toIndentedString(unifiedAccountTotalLiab)).append("\n");
         sb.append("      unifiedAccountTotalEquity: ").append(toIndentedString(unifiedAccountTotalEquity)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
+        sb.append("      spotOrderLoss: ").append(toIndentedString(spotOrderLoss)).append("\n");
+        sb.append("      spotHedge: ").append(toIndentedString(spotHedge)).append("\n");
+        sb.append("      useFunding: ").append(toIndentedString(useFunding)).append("\n");
         sb.append("}");
         return sb.toString();
     }

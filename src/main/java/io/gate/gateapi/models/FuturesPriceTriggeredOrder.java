@@ -173,7 +173,7 @@ public class FuturesPriceTriggeredOrder {
 
     public static final String SERIALIZED_NAME_ME_ORDER_ID = "me_order_id";
     @SerializedName(SERIALIZED_NAME_ME_ORDER_ID)
-    private String meOrderId;
+    private Long meOrderId;
 
 
     public FuturesPriceTriggeredOrder initial(FuturesInitialOrder initial) {
@@ -319,7 +319,7 @@ public class FuturesPriceTriggeredOrder {
      * @return meOrderId
     **/
     @javax.annotation.Nullable
-    public String getMeOrderId() {
+    public Long getMeOrderId() {
         return meOrderId;
     }
 

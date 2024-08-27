@@ -31,6 +31,10 @@ public class CancelOrderResult {
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
 
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
     public static final String SERIALIZED_NAME_SUCCEEDED = "succeeded";
     @SerializedName(SERIALIZED_NAME_SUCCEEDED)
     private Boolean succeeded;
@@ -86,6 +90,26 @@ public class CancelOrderResult {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public CancelOrderResult text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * Custom order information
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public CancelOrderResult succeeded(Boolean succeeded) {
@@ -178,6 +202,7 @@ public class CancelOrderResult {
         CancelOrderResult cancelOrderResult = (CancelOrderResult) o;
         return Objects.equals(this.currencyPair, cancelOrderResult.currencyPair) &&
                 Objects.equals(this.id, cancelOrderResult.id) &&
+                Objects.equals(this.text, cancelOrderResult.text) &&
                 Objects.equals(this.succeeded, cancelOrderResult.succeeded) &&
                 Objects.equals(this.label, cancelOrderResult.label) &&
                 Objects.equals(this.message, cancelOrderResult.message) &&
@@ -186,7 +211,7 @@ public class CancelOrderResult {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, id, succeeded, label, message, account);
+        return Objects.hash(currencyPair, id, text, succeeded, label, message, account);
     }
 
 
@@ -196,6 +221,7 @@ public class CancelOrderResult {
         sb.append("class CancelOrderResult {\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("      succeeded: ").append(toIndentedString(succeeded)).append("\n");
         sb.append("      label: ").append(toIndentedString(label)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");

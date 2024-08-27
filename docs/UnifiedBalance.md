@@ -13,4 +13,7 @@ Name | Type | Description | Notes
 **equity** | **String** | Equity |  [optional]
 **totalFreeze** | **String** | Total freeze |  [optional]
 **totalLiab** | **String** | Total liabilities |  [optional]
+**spotInUse** | **String** | Spot hedging utilization |  [optional]
+**funding** | **String** | Quantity of funding |  [optional]
+**fundingVersion** | **String** | Funding version |  [optional]
 

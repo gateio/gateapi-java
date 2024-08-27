@@ -25,6 +25,7 @@ import io.gate.gateapi.models.DeliveryContract;
 import io.gate.gateapi.models.DeliverySettlement;
 import io.gate.gateapi.models.FuturesAccount;
 import io.gate.gateapi.models.FuturesAccountBook;
+import io.gate.gateapi.models.FuturesLimitRiskTiers;
 import io.gate.gateapi.models.FuturesLiquidate;
 import io.gate.gateapi.models.FuturesOrder;
 import io.gate.gateapi.models.FuturesOrderBook;
@@ -3590,6 +3591,188 @@ public class DeliveryApi {
      */
     public APIlistDeliverySettlementsRequest listDeliverySettlements(String settle) {
         return new APIlistDeliverySettlementsRequest(settle);
+    }
+
+    private okhttp3.Call listDeliveryRiskLimitTiersCall(String settle, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/delivery/{settle}/risk_limit_tiers"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDeliveryRiskLimitTiersValidateBeforeCall(String settle, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listDeliveryRiskLimitTiers(Async)");
+        }
+
+        okhttp3.Call localVarCall = listDeliveryRiskLimitTiersCall(settle, contract, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<FuturesLimitRiskTiers>> listDeliveryRiskLimitTiersWithHttpInfo(String settle, String contract, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listDeliveryRiskLimitTiersValidateBeforeCall(settle, contract, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<FuturesLimitRiskTiers>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listDeliveryRiskLimitTiersAsync(String settle, String contract, Integer limit, Integer offset, final ApiCallback<List<FuturesLimitRiskTiers>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listDeliveryRiskLimitTiersValidateBeforeCall(settle, contract, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<FuturesLimitRiskTiers>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistDeliveryRiskLimitTiersRequest {
+        private final String settle;
+        private String contract;
+        private Integer limit;
+        private Integer offset;
+
+        private APIlistDeliveryRiskLimitTiersRequest(String settle) {
+            this.settle = settle;
+        }
+
+        /**
+         * Set contract
+         * @param contract Futures contract (optional)
+         * @return APIlistDeliveryRiskLimitTiersRequest
+         */
+        public APIlistDeliveryRiskLimitTiersRequest contract(String contract) {
+            this.contract = contract;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIlistDeliveryRiskLimitTiersRequest
+         */
+        public APIlistDeliveryRiskLimitTiersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistDeliveryRiskLimitTiersRequest
+         */
+        public APIlistDeliveryRiskLimitTiersRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listDeliveryRiskLimitTiers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDeliveryRiskLimitTiersCall(settle, contract, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listDeliveryRiskLimitTiers request
+         * @return List&lt;FuturesLimitRiskTiers&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<FuturesLimitRiskTiers> execute() throws ApiException {
+            ApiResponse<List<FuturesLimitRiskTiers>> localVarResp = listDeliveryRiskLimitTiersWithHttpInfo(settle, contract, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDeliveryRiskLimitTiers request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;FuturesLimitRiskTiers&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<FuturesLimitRiskTiers>> executeWithHttpInfo() throws ApiException {
+            return listDeliveryRiskLimitTiersWithHttpInfo(settle, contract, limit, offset);
+        }
+
+        /**
+         * Execute listDeliveryRiskLimitTiers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesLimitRiskTiers>> _callback) throws ApiException {
+            return listDeliveryRiskLimitTiersAsync(settle, contract, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * List risk limit tiers
+     * When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+     * @param settle Settle currency (required)
+     * @return APIlistDeliveryRiskLimitTiersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistDeliveryRiskLimitTiersRequest listDeliveryRiskLimitTiers(String settle) {
+        return new APIlistDeliveryRiskLimitTiersRequest(settle);
     }
 
     private okhttp3.Call listPriceTriggeredDeliveryOrdersCall(String settle, String status, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {

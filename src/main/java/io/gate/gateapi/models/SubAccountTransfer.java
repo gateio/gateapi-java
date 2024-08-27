@@ -31,56 +31,9 @@ public class SubAccountTransfer {
     @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT)
     private String subAccount;
 
-    /**
-     * Transfer direction. to - transfer into sub account; from - transfer out from sub account
-     */
-    @JsonAdapter(DirectionEnum.Adapter.class)
-    public enum DirectionEnum {
-        TO("to"),
-        
-        FROM("from");
-
-        private String value;
-
-        DirectionEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static DirectionEnum fromValue(String value) {
-            for (DirectionEnum b : DirectionEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<DirectionEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final DirectionEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public DirectionEnum read(final JsonReader jsonReader) throws IOException {
-                String value =  jsonReader.nextString();
-                return DirectionEnum.fromValue(value);
-            }
-        }
-    }
-
     public static final String SERIALIZED_NAME_DIRECTION = "direction";
     @SerializedName(SERIALIZED_NAME_DIRECTION)
-    private DirectionEnum direction;
+    private String direction;
 
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
     @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -102,60 +55,9 @@ public class SubAccountTransfer {
     @SerializedName(SERIALIZED_NAME_SOURCE)
     private String source;
 
-    /**
-     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account
-     */
-    @JsonAdapter(SubAccountTypeEnum.Adapter.class)
-    public enum SubAccountTypeEnum {
-        SPOT("spot"),
-        
-        FUTURES("futures"),
-        
-        CROSS_MARGIN("cross_margin"),
-        
-        DELIVERY("delivery");
-
-        private String value;
-
-        SubAccountTypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static SubAccountTypeEnum fromValue(String value) {
-            for (SubAccountTypeEnum b : SubAccountTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<SubAccountTypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final SubAccountTypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public SubAccountTypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value =  jsonReader.nextString();
-                return SubAccountTypeEnum.fromValue(value);
-            }
-        }
-    }
-
     public static final String SERIALIZED_NAME_SUB_ACCOUNT_TYPE = "sub_account_type";
     @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT_TYPE)
-    private SubAccountTypeEnum subAccountType = SubAccountTypeEnum.SPOT;
+    private String subAccountType = "spot";
 
 
     public SubAccountTransfer currency(String currency) {
@@ -196,7 +98,7 @@ public class SubAccountTransfer {
         this.subAccount = subAccount;
     }
 
-    public SubAccountTransfer direction(DirectionEnum direction) {
+    public SubAccountTransfer direction(String direction) {
         
         this.direction = direction;
         return this;
@@ -206,12 +108,12 @@ public class SubAccountTransfer {
      * Transfer direction. to - transfer into sub account; from - transfer out from sub account
      * @return direction
     **/
-    public DirectionEnum getDirection() {
+    public String getDirection() {
         return direction;
     }
 
 
-    public void setDirection(DirectionEnum direction) {
+    public void setDirection(String direction) {
         this.direction = direction;
     }
 
@@ -284,23 +186,23 @@ public class SubAccountTransfer {
     }
 
 
-    public SubAccountTransfer subAccountType(SubAccountTypeEnum subAccountType) {
+    public SubAccountTransfer subAccountType(String subAccountType) {
         
         this.subAccountType = subAccountType;
         return this;
     }
 
      /**
-     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account
+     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;delivery&#x60; - delivery account
      * @return subAccountType
     **/
     @javax.annotation.Nullable
-    public SubAccountTypeEnum getSubAccountType() {
+    public String getSubAccountType() {
         return subAccountType;
     }
 
 
-    public void setSubAccountType(SubAccountTypeEnum subAccountType) {
+    public void setSubAccountType(String subAccountType) {
         this.subAccountType = subAccountType;
     }
     @Override

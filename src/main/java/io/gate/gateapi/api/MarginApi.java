@@ -4150,7 +4150,7 @@ public class MarginApi {
         return localVarCall;
     }
 
-    private okhttp3.Call getCrossMarginInterestRecordsCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCrossMarginInterestRecordsCall(String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4168,6 +4168,14 @@ public class MarginApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4192,20 +4200,20 @@ public class MarginApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCrossMarginInterestRecordsValidateBeforeCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = getCrossMarginInterestRecordsCall(currency, page, limit, _callback);
+    private okhttp3.Call getCrossMarginInterestRecordsValidateBeforeCall(String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginInterestRecordsCall(currency, page, limit, from, to, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<UniLoanInterestRecord>> getCrossMarginInterestRecordsWithHttpInfo(String currency, Integer page, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getCrossMarginInterestRecordsValidateBeforeCall(currency, page, limit, null);
+    private ApiResponse<List<UniLoanInterestRecord>> getCrossMarginInterestRecordsWithHttpInfo(String currency, Integer page, Integer limit, Long from, Long to) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginInterestRecordsValidateBeforeCall(currency, page, limit, from, to, null);
         Type localVarReturnType = new TypeToken<List<UniLoanInterestRecord>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCrossMarginInterestRecordsAsync(String currency, Integer page, Integer limit, final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getCrossMarginInterestRecordsValidateBeforeCall(currency, page, limit, _callback);
+    private okhttp3.Call getCrossMarginInterestRecordsAsync(String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossMarginInterestRecordsValidateBeforeCall(currency, page, limit, from, to, _callback);
         Type localVarReturnType = new TypeToken<List<UniLoanInterestRecord>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4215,6 +4223,8 @@ public class MarginApi {
         private String currency;
         private Integer page;
         private Integer limit;
+        private Long from;
+        private Long to;
 
         private APIgetCrossMarginInterestRecordsRequest() {
         }
@@ -4250,6 +4260,26 @@ public class MarginApi {
         }
 
         /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIgetCrossMarginInterestRecordsRequest
+         */
+        public APIgetCrossMarginInterestRecordsRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIgetCrossMarginInterestRecordsRequest
+         */
+        public APIgetCrossMarginInterestRecordsRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
          * Build call for getCrossMarginInterestRecords
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -4261,7 +4291,7 @@ public class MarginApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCrossMarginInterestRecordsCall(currency, page, limit, _callback);
+            return getCrossMarginInterestRecordsCall(currency, page, limit, from, to, _callback);
         }
 
         /**
@@ -4275,7 +4305,7 @@ public class MarginApi {
          </table>
          */
         public List<UniLoanInterestRecord> execute() throws ApiException {
-            ApiResponse<List<UniLoanInterestRecord>> localVarResp = getCrossMarginInterestRecordsWithHttpInfo(currency, page, limit);
+            ApiResponse<List<UniLoanInterestRecord>> localVarResp = getCrossMarginInterestRecordsWithHttpInfo(currency, page, limit, from, to);
             return localVarResp.getData();
         }
 
@@ -4290,7 +4320,7 @@ public class MarginApi {
          </table>
          */
         public ApiResponse<List<UniLoanInterestRecord>> executeWithHttpInfo() throws ApiException {
-            return getCrossMarginInterestRecordsWithHttpInfo(currency, page, limit);
+            return getCrossMarginInterestRecordsWithHttpInfo(currency, page, limit, from, to);
         }
 
         /**
@@ -4305,7 +4335,7 @@ public class MarginApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
-            return getCrossMarginInterestRecordsAsync(currency, page, limit, _callback);
+            return getCrossMarginInterestRecordsAsync(currency, page, limit, from, to, _callback);
         }
     }
 

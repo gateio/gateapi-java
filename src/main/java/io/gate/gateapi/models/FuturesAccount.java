@@ -72,6 +72,10 @@ public class FuturesAccount {
     @SerializedName(SERIALIZED_NAME_BONUS)
     private String bonus;
 
+    public static final String SERIALIZED_NAME_ENABLE_EVOLVED_CLASSIC = "enable_evolved_classic";
+    @SerializedName(SERIALIZED_NAME_ENABLE_EVOLVED_CLASSIC)
+    private Boolean enableEvolvedClassic;
+
     public static final String SERIALIZED_NAME_HISTORY = "history";
     @SerializedName(SERIALIZED_NAME_HISTORY)
     private FuturesAccountHistory history;
@@ -317,6 +321,26 @@ public class FuturesAccount {
         this.bonus = bonus;
     }
 
+    public FuturesAccount enableEvolvedClassic(Boolean enableEvolvedClassic) {
+        
+        this.enableEvolvedClassic = enableEvolvedClassic;
+        return this;
+    }
+
+     /**
+     * Classic account margin mode, true - enable new mode, false - revert to old mode.
+     * @return enableEvolvedClassic
+    **/
+    @javax.annotation.Nullable
+    public Boolean getEnableEvolvedClassic() {
+        return enableEvolvedClassic;
+    }
+
+
+    public void setEnableEvolvedClassic(Boolean enableEvolvedClassic) {
+        this.enableEvolvedClassic = enableEvolvedClassic;
+    }
+
     public FuturesAccount history(FuturesAccountHistory history) {
         
         this.history = history;
@@ -357,12 +381,13 @@ public class FuturesAccount {
                 Objects.equals(this.positionInitialMargin, futuresAccount.positionInitialMargin) &&
                 Objects.equals(this.maintenanceMargin, futuresAccount.maintenanceMargin) &&
                 Objects.equals(this.bonus, futuresAccount.bonus) &&
+                Objects.equals(this.enableEvolvedClassic, futuresAccount.enableEvolvedClassic) &&
                 Objects.equals(this.history, futuresAccount.history);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode, enableCredit, positionInitialMargin, maintenanceMargin, bonus, history);
+        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode, enableCredit, positionInitialMargin, maintenanceMargin, bonus, enableEvolvedClassic, history);
     }
 
 
@@ -382,6 +407,7 @@ public class FuturesAccount {
         sb.append("      positionInitialMargin: ").append(toIndentedString(positionInitialMargin)).append("\n");
         sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");
         sb.append("      bonus: ").append(toIndentedString(bonus)).append("\n");
+        sb.append("      enableEvolvedClassic: ").append(toIndentedString(enableEvolvedClassic)).append("\n");
         sb.append("      history: ").append(toIndentedString(history)).append("\n");
         sb.append("}");
         return sb.toString();

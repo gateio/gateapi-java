@@ -21,6 +21,8 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.AccountDetail;
+import io.gate.gateapi.models.InlineObject;
+import io.gate.gateapi.models.InlineResponse200;
 import io.gate.gateapi.models.StpGroup;
 import io.gate.gateapi.models.StpGroupUser;
 
@@ -625,7 +627,7 @@ public class AccountApi {
     /**
      * Build call for deleteSTPGroupUsers
      * @param stpId STP Group ID (required)
-     * @param requestBody User ID (required)
+     * @param userId STP user ID, multiple can be separated by commas (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -635,12 +637,130 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSTPGroupUsersCall(Long stpId, List<Long> requestBody, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = requestBody;
+    public okhttp3.Call deleteSTPGroupUsersCall(Long stpId, Long userId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/account/stp_groups/{stp_id}/users"
             .replaceAll("\\{" + "stp_id" + "\\}", localVarApiClient.escapeString(stpId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_id", userId));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSTPGroupUsersValidateBeforeCall(Long stpId, Long userId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'stpId' is set
+        if (stpId == null) {
+            throw new ApiException("Missing the required parameter 'stpId' when calling deleteSTPGroupUsers(Async)");
+        }
+
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling deleteSTPGroupUsers(Async)");
+        }
+
+        okhttp3.Call localVarCall = deleteSTPGroupUsersCall(stpId, userId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Delete the user in the STP group
+     * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+     * @param stpId STP Group ID (required)
+     * @param userId STP user ID, multiple can be separated by commas (required)
+     * @return List&lt;StpGroupUser&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<StpGroupUser> deleteSTPGroupUsers(Long stpId, Long userId) throws ApiException {
+        ApiResponse<List<StpGroupUser>> localVarResp = deleteSTPGroupUsersWithHttpInfo(stpId, userId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete the user in the STP group
+     * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+     * @param stpId STP Group ID (required)
+     * @param userId STP user ID, multiple can be separated by commas (required)
+     * @return ApiResponse&lt;List&lt;StpGroupUser&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<StpGroupUser>> deleteSTPGroupUsersWithHttpInfo(Long stpId, Long userId) throws ApiException {
+        okhttp3.Call localVarCall = deleteSTPGroupUsersValidateBeforeCall(stpId, userId, null);
+        Type localVarReturnType = new TypeToken<List<StpGroupUser>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete the user in the STP group (asynchronously)
+     * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+     * @param stpId STP Group ID (required)
+     * @param userId STP user ID, multiple can be separated by commas (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSTPGroupUsersAsync(Long stpId, Long userId, final ApiCallback<List<StpGroupUser>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = deleteSTPGroupUsersValidateBeforeCall(stpId, userId, _callback);
+        Type localVarReturnType = new TypeToken<List<StpGroupUser>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getDebitFee
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getDebitFeeCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/account/debit_fee";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -656,37 +776,25 @@ public class AccountApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteSTPGroupUsersValidateBeforeCall(Long stpId, List<Long> requestBody, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'stpId' is set
-        if (stpId == null) {
-            throw new ApiException("Missing the required parameter 'stpId' when calling deleteSTPGroupUsers(Async)");
-        }
-
-        // verify the required parameter 'requestBody' is set
-        if (requestBody == null) {
-            throw new ApiException("Missing the required parameter 'requestBody' when calling deleteSTPGroupUsers(Async)");
-        }
-
-        okhttp3.Call localVarCall = deleteSTPGroupUsersCall(stpId, requestBody, _callback);
+    private okhttp3.Call getDebitFeeValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getDebitFeeCall(_callback);
         return localVarCall;
     }
 
     /**
-     * Delete the user in the STP group
-     * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
-     * @param stpId STP Group ID (required)
-     * @param requestBody User ID (required)
-     * @return List&lt;StpGroupUser&gt;
+     * Query GT deduction configuration.
+     * Query the current GT deduction configuration for the account.
+     * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -694,17 +802,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public List<StpGroupUser> deleteSTPGroupUsers(Long stpId, List<Long> requestBody) throws ApiException {
-        ApiResponse<List<StpGroupUser>> localVarResp = deleteSTPGroupUsersWithHttpInfo(stpId, requestBody);
+    public InlineResponse200 getDebitFee() throws ApiException {
+        ApiResponse<InlineResponse200> localVarResp = getDebitFeeWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * Delete the user in the STP group
-     * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
-     * @param stpId STP Group ID (required)
-     * @param requestBody User ID (required)
-     * @return ApiResponse&lt;List&lt;StpGroupUser&gt;&gt;
+     * Query GT deduction configuration.
+     * Query the current GT deduction configuration for the account.
+     * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -712,17 +818,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<StpGroupUser>> deleteSTPGroupUsersWithHttpInfo(Long stpId, List<Long> requestBody) throws ApiException {
-        okhttp3.Call localVarCall = deleteSTPGroupUsersValidateBeforeCall(stpId, requestBody, null);
-        Type localVarReturnType = new TypeToken<List<StpGroupUser>>(){}.getType();
+    public ApiResponse<InlineResponse200> getDebitFeeWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getDebitFeeValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Delete the user in the STP group (asynchronously)
-     * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
-     * @param stpId STP Group ID (required)
-     * @param requestBody User ID (required)
+     * Query GT deduction configuration. (asynchronously)
+     * Query the current GT deduction configuration for the account.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -732,10 +836,113 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSTPGroupUsersAsync(Long stpId, List<Long> requestBody, final ApiCallback<List<StpGroupUser>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = deleteSTPGroupUsersValidateBeforeCall(stpId, requestBody, _callback);
-        Type localVarReturnType = new TypeToken<List<StpGroupUser>>(){}.getType();
+    public okhttp3.Call getDebitFeeAsync(final ApiCallback<InlineResponse200> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getDebitFeeValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for setDebitFee
+     * @param inlineObject  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setDebitFeeCall(InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject;
+
+        // create path and map variables
+        String localVarPath = "/account/debit_fee";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setDebitFeeValidateBeforeCall(InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'inlineObject' is set
+        if (inlineObject == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject' when calling setDebitFee(Async)");
+        }
+
+        okhttp3.Call localVarCall = setDebitFeeCall(inlineObject, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Set GT deduction.
+     * Enable or disable GT deduction for the current account.
+     * @param inlineObject  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public void setDebitFee(InlineObject inlineObject) throws ApiException {
+        setDebitFeeWithHttpInfo(inlineObject);
+    }
+
+    /**
+     * Set GT deduction.
+     * Enable or disable GT deduction for the current account.
+     * @param inlineObject  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> setDebitFeeWithHttpInfo(InlineObject inlineObject) throws ApiException {
+        okhttp3.Call localVarCall = setDebitFeeValidateBeforeCall(inlineObject, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Set GT deduction. (asynchronously)
+     * Enable or disable GT deduction for the current account.
+     * @param inlineObject  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setDebitFeeAsync(InlineObject inlineObject, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = setDebitFeeValidateBeforeCall(inlineObject, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 

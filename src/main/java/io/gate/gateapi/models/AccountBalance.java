@@ -82,6 +82,14 @@ public class AccountBalance {
     @SerializedName(SERIALIZED_NAME_CURRENCY)
     private CurrencyEnum currency;
 
+    public static final String SERIALIZED_NAME_UNREALISED_PNL = "unrealised_pnl";
+    @SerializedName(SERIALIZED_NAME_UNREALISED_PNL)
+    private String unrealisedPnl;
+
+    public static final String SERIALIZED_NAME_BORROWED = "borrowed";
+    @SerializedName(SERIALIZED_NAME_BORROWED)
+    private String borrowed;
+
 
     public AccountBalance amount(String amount) {
         
@@ -122,6 +130,46 @@ public class AccountBalance {
     public void setCurrency(CurrencyEnum currency) {
         this.currency = currency;
     }
+
+    public AccountBalance unrealisedPnl(String unrealisedPnl) {
+        
+        this.unrealisedPnl = unrealisedPnl;
+        return this;
+    }
+
+     /**
+     * Unrealised_pnl, this field will only appear in futures, options, delivery, and total accounts
+     * @return unrealisedPnl
+    **/
+    @javax.annotation.Nullable
+    public String getUnrealisedPnl() {
+        return unrealisedPnl;
+    }
+
+
+    public void setUnrealisedPnl(String unrealisedPnl) {
+        this.unrealisedPnl = unrealisedPnl;
+    }
+
+    public AccountBalance borrowed(String borrowed) {
+        
+        this.borrowed = borrowed;
+        return this;
+    }
+
+     /**
+     * Borrowed，this field will only appear in margin and cross_margin accounts
+     * @return borrowed
+    **/
+    @javax.annotation.Nullable
+    public String getBorrowed() {
+        return borrowed;
+    }
+
+
+    public void setBorrowed(String borrowed) {
+        this.borrowed = borrowed;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -132,12 +180,14 @@ public class AccountBalance {
         }
         AccountBalance accountBalance = (AccountBalance) o;
         return Objects.equals(this.amount, accountBalance.amount) &&
-                Objects.equals(this.currency, accountBalance.currency);
+                Objects.equals(this.currency, accountBalance.currency) &&
+                Objects.equals(this.unrealisedPnl, accountBalance.unrealisedPnl) &&
+                Objects.equals(this.borrowed, accountBalance.borrowed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, currency);
+        return Objects.hash(amount, currency, unrealisedPnl, borrowed);
     }
 
 
@@ -147,6 +197,8 @@ public class AccountBalance {
         sb.append("class AccountBalance {\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("      unrealisedPnl: ").append(toIndentedString(unrealisedPnl)).append("\n");
+        sb.append("      borrowed: ").append(toIndentedString(borrowed)).append("\n");
         sb.append("}");
         return sb.toString();
     }

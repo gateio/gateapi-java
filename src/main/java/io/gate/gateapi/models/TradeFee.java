@@ -71,6 +71,10 @@ public class TradeFee {
     @SerializedName(SERIALIZED_NAME_DELIVERY_MAKER_FEE)
     private String deliveryMakerFee;
 
+    public static final String SERIALIZED_NAME_DEBIT_FEE = "debit_fee";
+    @SerializedName(SERIALIZED_NAME_DEBIT_FEE)
+    private Integer debitFee;
+
 
     public TradeFee userId(Long userId) {
         
@@ -311,6 +315,26 @@ public class TradeFee {
     public void setDeliveryMakerFee(String deliveryMakerFee) {
         this.deliveryMakerFee = deliveryMakerFee;
     }
+
+    public TradeFee debitFee(Integer debitFee) {
+        
+        this.debitFee = debitFee;
+        return this;
+    }
+
+     /**
+     * Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates
+     * @return debitFee
+    **/
+    @javax.annotation.Nullable
+    public Integer getDebitFee() {
+        return debitFee;
+    }
+
+
+    public void setDebitFee(Integer debitFee) {
+        this.debitFee = debitFee;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -331,12 +355,13 @@ public class TradeFee {
                 Objects.equals(this.futuresTakerFee, tradeFee.futuresTakerFee) &&
                 Objects.equals(this.futuresMakerFee, tradeFee.futuresMakerFee) &&
                 Objects.equals(this.deliveryTakerFee, tradeFee.deliveryTakerFee) &&
-                Objects.equals(this.deliveryMakerFee, tradeFee.deliveryMakerFee);
+                Objects.equals(this.deliveryMakerFee, tradeFee.deliveryMakerFee) &&
+                Objects.equals(this.debitFee, tradeFee.debitFee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, futuresTakerFee, futuresMakerFee, deliveryTakerFee, deliveryMakerFee);
+        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, futuresTakerFee, futuresMakerFee, deliveryTakerFee, deliveryMakerFee, debitFee);
     }
 
 
@@ -356,6 +381,7 @@ public class TradeFee {
         sb.append("      futuresMakerFee: ").append(toIndentedString(futuresMakerFee)).append("\n");
         sb.append("      deliveryTakerFee: ").append(toIndentedString(deliveryTakerFee)).append("\n");
         sb.append("      deliveryMakerFee: ").append(toIndentedString(deliveryMakerFee)).append("\n");
+        sb.append("      debitFee: ").append(toIndentedString(debitFee)).append("\n");
         sb.append("}");
         return sb.toString();
     }

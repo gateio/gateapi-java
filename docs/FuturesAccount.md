@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **positionInitialMargin** | **String** | Initial margin position, applicable to the portfolio margin account model |  [optional]
 **maintenanceMargin** | **String** | Maintenance margin position, applicable to the portfolio margin account model |  [optional]
 **bonus** | **String** | Perpetual Contract Bonus |  [optional]
+**enableEvolvedClassic** | **Boolean** | Classic account margin mode, true - enable new mode, false - revert to old mode. |  [optional]
 **history** | [**FuturesAccountHistory**](FuturesAccountHistory.md) |  |  [optional]
 

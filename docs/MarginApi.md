@@ -2185,7 +2185,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossMarginInterestRecords"></a>
 # **getCrossMarginInterestRecords**
-> List&lt;UniLoanInterestRecord&gt; getCrossMarginInterestRecords().currency(currency).page(page).limit(limit).execute();
+> List&lt;UniLoanInterestRecord&gt; getCrossMarginInterestRecords().currency(currency).page(page).limit(limit).from(from).to(to).execute();
 
 Interest records for the cross margin account
 
@@ -2213,11 +2213,15 @@ public class Example {
         String currency = "BTC"; // String | Retrieve data of the specified currency
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
         try {
             List<UniLoanInterestRecord> result = apiInstance.getCrossMarginInterestRecords()
                         .currency(currency)
                         .page(page)
                         .limit(limit)
+                        .from(from)
+                        .to(to)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -2240,6 +2244,8 @@ Name | Type | Description  | Notes
  **currency** | **String**| Retrieve data of the specified currency | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **from** | **Long**| Start timestamp | [optional]
+ **to** | **Long**| End timestamp | [optional]
 
 ### Return type
 

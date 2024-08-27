@@ -35,115 +35,17 @@ public class SubAccountToSubAccount {
     @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT_FROM)
     private String subAccountFrom;
 
-    /**
-     * Transfer from the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
-     */
-    @JsonAdapter(SubAccountFromTypeEnum.Adapter.class)
-    public enum SubAccountFromTypeEnum {
-        SPOT("spot"),
-        
-        FUTURES("futures"),
-        
-        CROSS_MARGIN("cross_margin");
-
-        private String value;
-
-        SubAccountFromTypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static SubAccountFromTypeEnum fromValue(String value) {
-            for (SubAccountFromTypeEnum b : SubAccountFromTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<SubAccountFromTypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final SubAccountFromTypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public SubAccountFromTypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value =  jsonReader.nextString();
-                return SubAccountFromTypeEnum.fromValue(value);
-            }
-        }
-    }
-
     public static final String SERIALIZED_NAME_SUB_ACCOUNT_FROM_TYPE = "sub_account_from_type";
     @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT_FROM_TYPE)
-    private SubAccountFromTypeEnum subAccountFromType;
+    private String subAccountFromType;
 
     public static final String SERIALIZED_NAME_SUB_ACCOUNT_TO = "sub_account_to";
     @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT_TO)
     private String subAccountTo;
 
-    /**
-     * Transfer to the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
-     */
-    @JsonAdapter(SubAccountToTypeEnum.Adapter.class)
-    public enum SubAccountToTypeEnum {
-        SPOT("spot"),
-        
-        FUTURES("futures"),
-        
-        CROSS_MARGIN("cross_margin");
-
-        private String value;
-
-        SubAccountToTypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static SubAccountToTypeEnum fromValue(String value) {
-            for (SubAccountToTypeEnum b : SubAccountToTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<SubAccountToTypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final SubAccountToTypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public SubAccountToTypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value =  jsonReader.nextString();
-                return SubAccountToTypeEnum.fromValue(value);
-            }
-        }
-    }
-
     public static final String SERIALIZED_NAME_SUB_ACCOUNT_TO_TYPE = "sub_account_to_type";
     @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT_TO_TYPE)
-    private SubAccountToTypeEnum subAccountToType;
+    private String subAccountToType;
 
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
     @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -208,22 +110,22 @@ public class SubAccountToSubAccount {
         this.subAccountFrom = subAccountFrom;
     }
 
-    public SubAccountToSubAccount subAccountFromType(SubAccountFromTypeEnum subAccountFromType) {
+    public SubAccountToSubAccount subAccountFromType(String subAccountFromType) {
         
         this.subAccountFromType = subAccountFromType;
         return this;
     }
 
      /**
-     * Transfer from the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
+     * The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account.
      * @return subAccountFromType
     **/
-    public SubAccountFromTypeEnum getSubAccountFromType() {
+    public String getSubAccountFromType() {
         return subAccountFromType;
     }
 
 
-    public void setSubAccountFromType(SubAccountFromTypeEnum subAccountFromType) {
+    public void setSubAccountFromType(String subAccountFromType) {
         this.subAccountFromType = subAccountFromType;
     }
 
@@ -246,22 +148,22 @@ public class SubAccountToSubAccount {
         this.subAccountTo = subAccountTo;
     }
 
-    public SubAccountToSubAccount subAccountToType(SubAccountToTypeEnum subAccountToType) {
+    public SubAccountToSubAccount subAccountToType(String subAccountToType) {
         
         this.subAccountToType = subAccountToType;
         return this;
     }
 
      /**
-     * Transfer to the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
+     * The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account
      * @return subAccountToType
     **/
-    public SubAccountToTypeEnum getSubAccountToType() {
+    public String getSubAccountToType() {
         return subAccountToType;
     }
 
 
-    public void setSubAccountToType(SubAccountToTypeEnum subAccountToType) {
+    public void setSubAccountToType(String subAccountToType) {
         this.subAccountToType = subAccountToType;
     }
 

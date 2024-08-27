@@ -39,6 +39,10 @@ public class LiquidateOrder {
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
 
+    public static final String SERIALIZED_NAME_ACTION_MODE = "action_mode";
+    @SerializedName(SERIALIZED_NAME_ACTION_MODE)
+    private String actionMode;
+
 
     public LiquidateOrder text(String text) {
         
@@ -116,6 +120,26 @@ public class LiquidateOrder {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    public LiquidateOrder actionMode(String actionMode) {
+        
+        this.actionMode = actionMode;
+        return this;
+    }
+
+     /**
+     * Processing Mode:  Different fields are returned when placing an order based on action_mode. This field is only valid during the request, and it is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
+     * @return actionMode
+    **/
+    @javax.annotation.Nullable
+    public String getActionMode() {
+        return actionMode;
+    }
+
+
+    public void setActionMode(String actionMode) {
+        this.actionMode = actionMode;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -128,12 +152,13 @@ public class LiquidateOrder {
         return Objects.equals(this.text, liquidateOrder.text) &&
                 Objects.equals(this.currencyPair, liquidateOrder.currencyPair) &&
                 Objects.equals(this.amount, liquidateOrder.amount) &&
-                Objects.equals(this.price, liquidateOrder.price);
+                Objects.equals(this.price, liquidateOrder.price) &&
+                Objects.equals(this.actionMode, liquidateOrder.actionMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(text, currencyPair, amount, price);
+        return Objects.hash(text, currencyPair, amount, price, actionMode);
     }
 
 
@@ -145,6 +170,7 @@ public class LiquidateOrder {
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

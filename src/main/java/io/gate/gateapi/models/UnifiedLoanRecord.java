@@ -35,6 +35,10 @@ public class UnifiedLoanRecord {
     @SerializedName(SERIALIZED_NAME_REPAYMENT_TYPE)
     private String repaymentType;
 
+    public static final String SERIALIZED_NAME_BORROW_TYPE = "borrow_type";
+    @SerializedName(SERIALIZED_NAME_BORROW_TYPE)
+    private String borrowType;
+
     public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
     @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
     private String currencyPair;
@@ -81,6 +85,26 @@ public class UnifiedLoanRecord {
         return repaymentType;
     }
 
+
+    public UnifiedLoanRecord borrowType(String borrowType) {
+        
+        this.borrowType = borrowType;
+        return this;
+    }
+
+     /**
+     * Loan type, returned when querying loan records. manual_borrow - Manual repayment , auto_borrow - Automatic repayment
+     * @return borrowType
+    **/
+    @javax.annotation.Nullable
+    public String getBorrowType() {
+        return borrowType;
+    }
+
+
+    public void setBorrowType(String borrowType) {
+        this.borrowType = borrowType;
+    }
 
      /**
      * Currency pair
@@ -133,6 +157,7 @@ public class UnifiedLoanRecord {
         return Objects.equals(this.id, unifiedLoanRecord.id) &&
                 Objects.equals(this.type, unifiedLoanRecord.type) &&
                 Objects.equals(this.repaymentType, unifiedLoanRecord.repaymentType) &&
+                Objects.equals(this.borrowType, unifiedLoanRecord.borrowType) &&
                 Objects.equals(this.currencyPair, unifiedLoanRecord.currencyPair) &&
                 Objects.equals(this.currency, unifiedLoanRecord.currency) &&
                 Objects.equals(this.amount, unifiedLoanRecord.amount) &&
@@ -141,7 +166,7 @@ public class UnifiedLoanRecord {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, type, repaymentType, currencyPair, currency, amount, createTime);
+        return Objects.hash(id, type, repaymentType, borrowType, currencyPair, currency, amount, createTime);
     }
 
 
@@ -152,6 +177,7 @@ public class UnifiedLoanRecord {
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      repaymentType: ").append(toIndentedString(repaymentType)).append("\n");
+        sb.append("      borrowType: ").append(toIndentedString(borrowType)).append("\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");

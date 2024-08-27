@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 <a name="listUniLoanInterestRecords"></a>
 # **listUniLoanInterestRecords**
-> List&lt;UniLoanInterestRecord&gt; listUniLoanInterestRecords().currencyPair(currencyPair).currency(currency).page(page).limit(limit).execute();
+> List&lt;UniLoanInterestRecord&gt; listUniLoanInterestRecords().currencyPair(currencyPair).currency(currency).page(page).limit(limit).from(from).to(to).execute();
 
 List interest records
 
@@ -466,13 +466,17 @@ public class Example {
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String currency = "BTC"; // String | Retrieve data of the specified currency
         Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
         try {
             List<UniLoanInterestRecord> result = apiInstance.listUniLoanInterestRecords()
                         .currencyPair(currencyPair)
                         .currency(currency)
                         .page(page)
                         .limit(limit)
+                        .from(from)
+                        .to(to)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -495,7 +499,9 @@ Name | Type | Description  | Notes
  **currencyPair** | **String**| Currency pair | [optional]
  **currency** | **String**| Retrieve data of the specified currency | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **from** | **Long**| Start timestamp | [optional]
+ **to** | **Long**| End timestamp | [optional]
 
 ### Return type
 

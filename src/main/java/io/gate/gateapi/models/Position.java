@@ -88,6 +88,18 @@ public class Position {
     @SerializedName(SERIALIZED_NAME_REALISED_PNL)
     private String realisedPnl;
 
+    public static final String SERIALIZED_NAME_PNL_PNL = "pnl_pnl";
+    @SerializedName(SERIALIZED_NAME_PNL_PNL)
+    private String pnlPnl;
+
+    public static final String SERIALIZED_NAME_PNL_FUND = "pnl_fund";
+    @SerializedName(SERIALIZED_NAME_PNL_FUND)
+    private String pnlFund;
+
+    public static final String SERIALIZED_NAME_PNL_FEE = "pnl_fee";
+    @SerializedName(SERIALIZED_NAME_PNL_FEE)
+    private String pnlFee;
+
     public static final String SERIALIZED_NAME_HISTORY_PNL = "history_pnl";
     @SerializedName(SERIALIZED_NAME_HISTORY_PNL)
     private String historyPnl;
@@ -176,6 +188,10 @@ public class Position {
     public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
     @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
     private Long updateTime;
+
+    public static final String SERIALIZED_NAME_OPEN_TIME = "open_time";
+    @SerializedName(SERIALIZED_NAME_OPEN_TIME)
+    private Long openTime;
 
 
      /**
@@ -369,6 +385,36 @@ public class Position {
 
 
      /**
+     * Realized PNL - Position P/L
+     * @return pnlPnl
+    **/
+    @javax.annotation.Nullable
+    public String getPnlPnl() {
+        return pnlPnl;
+    }
+
+
+     /**
+     * Realized PNL -  Funding Fees
+     * @return pnlFund
+    **/
+    @javax.annotation.Nullable
+    public String getPnlFund() {
+        return pnlFund;
+    }
+
+
+     /**
+     * Realized PNL - Transaction Fees
+     * @return pnlFee
+    **/
+    @javax.annotation.Nullable
+    public String getPnlFee() {
+        return pnlFee;
+    }
+
+
+     /**
      * History realized PNL
      * @return historyPnl
     **/
@@ -497,6 +543,26 @@ public class Position {
         return updateTime;
     }
 
+
+    public Position openTime(Long openTime) {
+        
+        this.openTime = openTime;
+        return this;
+    }
+
+     /**
+     * First Open Time
+     * @return openTime
+    **/
+    @javax.annotation.Nullable
+    public Long getOpenTime() {
+        return openTime;
+    }
+
+
+    public void setOpenTime(Long openTime) {
+        this.openTime = openTime;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -522,6 +588,9 @@ public class Position {
                 Objects.equals(this.maintenanceMargin, position.maintenanceMargin) &&
                 Objects.equals(this.unrealisedPnl, position.unrealisedPnl) &&
                 Objects.equals(this.realisedPnl, position.realisedPnl) &&
+                Objects.equals(this.pnlPnl, position.pnlPnl) &&
+                Objects.equals(this.pnlFund, position.pnlFund) &&
+                Objects.equals(this.pnlFee, position.pnlFee) &&
                 Objects.equals(this.historyPnl, position.historyPnl) &&
                 Objects.equals(this.lastClosePnl, position.lastClosePnl) &&
                 Objects.equals(this.realisedPoint, position.realisedPoint) &&
@@ -531,12 +600,13 @@ public class Position {
                 Objects.equals(this.closeOrder, position.closeOrder) &&
                 Objects.equals(this.mode, position.mode) &&
                 Objects.equals(this.crossLeverageLimit, position.crossLeverageLimit) &&
-                Objects.equals(this.updateTime, position.updateTime);
+                Objects.equals(this.updateTime, position.updateTime) &&
+                Objects.equals(this.openTime, position.openTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime);
+        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, pnlPnl, pnlFund, pnlFee, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime, openTime);
     }
 
 
@@ -560,6 +630,9 @@ public class Position {
         sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");
         sb.append("      unrealisedPnl: ").append(toIndentedString(unrealisedPnl)).append("\n");
         sb.append("      realisedPnl: ").append(toIndentedString(realisedPnl)).append("\n");
+        sb.append("      pnlPnl: ").append(toIndentedString(pnlPnl)).append("\n");
+        sb.append("      pnlFund: ").append(toIndentedString(pnlFund)).append("\n");
+        sb.append("      pnlFee: ").append(toIndentedString(pnlFee)).append("\n");
         sb.append("      historyPnl: ").append(toIndentedString(historyPnl)).append("\n");
         sb.append("      lastClosePnl: ").append(toIndentedString(lastClosePnl)).append("\n");
         sb.append("      realisedPoint: ").append(toIndentedString(realisedPoint)).append("\n");
@@ -570,6 +643,7 @@ public class Position {
         sb.append("      mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("      crossLeverageLimit: ").append(toIndentedString(crossLeverageLimit)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
+        sb.append("      openTime: ").append(toIndentedString(openTime)).append("\n");
         sb.append("}");
         return sb.toString();
     }

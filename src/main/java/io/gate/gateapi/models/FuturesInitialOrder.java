@@ -216,7 +216,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * How the order is created. Possible values are: web, api and app
+     * The source of the order, including: - web: web - api: api - app: app
      * @return text
     **/
     @javax.annotation.Nullable

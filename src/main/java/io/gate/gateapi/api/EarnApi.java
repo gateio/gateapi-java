@@ -26,9 +26,7 @@ import io.gate.gateapi.models.Eth2Swap;
 import io.gate.gateapi.models.PlaceDualInvestmentOrder;
 import io.gate.gateapi.models.StructuredBuy;
 import io.gate.gateapi.models.StructuredGetProjectList;
-import io.gate.gateapi.models.StructuredGetProjectListRequest;
 import io.gate.gateapi.models.StructuredOrderList;
-import io.gate.gateapi.models.StructuredOrderListRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -457,130 +455,30 @@ public class EarnApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for cancelDualOrder
-     * @param orderId Order ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Cancel success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call cancelDualOrderCall(Integer orderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listStructuredProductsCall(String status, String type, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/earn/dual/orders/{order_id}"
-            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelDualOrderValidateBeforeCall(Integer orderId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'orderId' is set
-        if (orderId == null) {
-            throw new ApiException("Missing the required parameter 'orderId' when calling cancelDualOrder(Async)");
-        }
-
-        okhttp3.Call localVarCall = cancelDualOrderCall(orderId, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Cancel Dual Investment order
-     * 
-     * @param orderId Order ID (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Cancel success </td><td>  -  </td></tr>
-     </table>
-     */
-    public void cancelDualOrder(Integer orderId) throws ApiException {
-        cancelDualOrderWithHttpInfo(orderId);
-    }
-
-    /**
-     * Cancel Dual Investment order
-     * 
-     * @param orderId Order ID (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Cancel success </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> cancelDualOrderWithHttpInfo(Integer orderId) throws ApiException {
-        okhttp3.Call localVarCall = cancelDualOrderValidateBeforeCall(orderId, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Cancel Dual Investment order (asynchronously)
-     * 
-     * @param orderId Order ID (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Cancel success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call cancelDualOrderAsync(Integer orderId, final ApiCallback<Void> _callback) throws ApiException {
-        okhttp3.Call localVarCall = cancelDualOrderValidateBeforeCall(orderId, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for listStructuredProducts
-     * @param structuredGetProjectListRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listStructuredProductsCall(StructuredGetProjectListRequest structuredGetProjectListRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = structuredGetProjectListRequest;
 
         // create path and map variables
         String localVarPath = "/earn/structured/products";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -593,7 +491,7 @@ public class EarnApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -603,91 +501,169 @@ public class EarnApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listStructuredProductsValidateBeforeCall(StructuredGetProjectListRequest structuredGetProjectListRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'structuredGetProjectListRequest' is set
-        if (structuredGetProjectListRequest == null) {
-            throw new ApiException("Missing the required parameter 'structuredGetProjectListRequest' when calling listStructuredProducts(Async)");
+    private okhttp3.Call listStructuredProductsValidateBeforeCall(String status, String type, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'status' is set
+        if (status == null) {
+            throw new ApiException("Missing the required parameter 'status' when calling listStructuredProducts(Async)");
         }
 
-        okhttp3.Call localVarCall = listStructuredProductsCall(structuredGetProjectListRequest, _callback);
+        okhttp3.Call localVarCall = listStructuredProductsCall(status, type, page, limit, _callback);
         return localVarCall;
     }
 
-    /**
-     * Structured Product List
-     * 
-     * @param structuredGetProjectListRequest  (required)
-     * @return List&lt;StructuredGetProjectList&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<StructuredGetProjectList> listStructuredProducts(StructuredGetProjectListRequest structuredGetProjectListRequest) throws ApiException {
-        ApiResponse<List<StructuredGetProjectList>> localVarResp = listStructuredProductsWithHttpInfo(structuredGetProjectListRequest);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Structured Product List
-     * 
-     * @param structuredGetProjectListRequest  (required)
-     * @return ApiResponse&lt;List&lt;StructuredGetProjectList&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<StructuredGetProjectList>> listStructuredProductsWithHttpInfo(StructuredGetProjectListRequest structuredGetProjectListRequest) throws ApiException {
-        okhttp3.Call localVarCall = listStructuredProductsValidateBeforeCall(structuredGetProjectListRequest, null);
+    private ApiResponse<List<StructuredGetProjectList>> listStructuredProductsWithHttpInfo(String status, String type, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listStructuredProductsValidateBeforeCall(status, type, page, limit, null);
         Type localVarReturnType = new TypeToken<List<StructuredGetProjectList>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Structured Product List (asynchronously)
-     * 
-     * @param structuredGetProjectListRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listStructuredProductsAsync(StructuredGetProjectListRequest structuredGetProjectListRequest, final ApiCallback<List<StructuredGetProjectList>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listStructuredProductsValidateBeforeCall(structuredGetProjectListRequest, _callback);
+    private okhttp3.Call listStructuredProductsAsync(String status, String type, Integer page, Integer limit, final ApiCallback<List<StructuredGetProjectList>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listStructuredProductsValidateBeforeCall(status, type, page, limit, _callback);
         Type localVarReturnType = new TypeToken<List<StructuredGetProjectList>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
+    public class APIlistStructuredProductsRequest {
+        private final String status;
+        private String type;
+        private Integer page;
+        private Integer limit;
+
+        private APIlistStructuredProductsRequest(String status) {
+            this.status = status;
+        }
+
+        /**
+         * Set type
+         * @param type Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall (optional)
+         * @return APIlistStructuredProductsRequest
+         */
+        public APIlistStructuredProductsRequest type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistStructuredProductsRequest
+         */
+        public APIlistStructuredProductsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIlistStructuredProductsRequest
+         */
+        public APIlistStructuredProductsRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listStructuredProducts
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listStructuredProductsCall(status, type, page, limit, _callback);
+        }
+
+        /**
+         * Execute listStructuredProducts request
+         * @return List&lt;StructuredGetProjectList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<StructuredGetProjectList> execute() throws ApiException {
+            ApiResponse<List<StructuredGetProjectList>> localVarResp = listStructuredProductsWithHttpInfo(status, type, page, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listStructuredProducts request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;StructuredGetProjectList&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<StructuredGetProjectList>> executeWithHttpInfo() throws ApiException {
+            return listStructuredProductsWithHttpInfo(status, type, page, limit);
+        }
+
+        /**
+         * Execute listStructuredProducts request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<StructuredGetProjectList>> _callback) throws ApiException {
+            return listStructuredProductsAsync(status, type, page, limit, _callback);
+        }
+    }
+
     /**
-     * Build call for listStructuredOrders
-     * @param structuredOrderListRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Structured Product List
+     * 
+     * @param status Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish (required)
+     * @return APIlistStructuredProductsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listStructuredOrdersCall(StructuredOrderListRequest structuredOrderListRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = structuredOrderListRequest;
+    public APIlistStructuredProductsRequest listStructuredProducts(String status) {
+        return new APIlistStructuredProductsRequest(status);
+    }
+
+    private okhttp3.Call listStructuredOrdersCall(Long from, Long to, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/earn/structured/orders";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -700,7 +676,7 @@ public class EarnApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -710,69 +686,146 @@ public class EarnApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listStructuredOrdersValidateBeforeCall(StructuredOrderListRequest structuredOrderListRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'structuredOrderListRequest' is set
-        if (structuredOrderListRequest == null) {
-            throw new ApiException("Missing the required parameter 'structuredOrderListRequest' when calling listStructuredOrders(Async)");
-        }
-
-        okhttp3.Call localVarCall = listStructuredOrdersCall(structuredOrderListRequest, _callback);
+    private okhttp3.Call listStructuredOrdersValidateBeforeCall(Long from, Long to, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listStructuredOrdersCall(from, to, page, limit, _callback);
         return localVarCall;
     }
 
-    /**
-     * Structured Product Order List
-     * 
-     * @param structuredOrderListRequest  (required)
-     * @return List&lt;StructuredOrderList&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<StructuredOrderList> listStructuredOrders(StructuredOrderListRequest structuredOrderListRequest) throws ApiException {
-        ApiResponse<List<StructuredOrderList>> localVarResp = listStructuredOrdersWithHttpInfo(structuredOrderListRequest);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Structured Product Order List
-     * 
-     * @param structuredOrderListRequest  (required)
-     * @return ApiResponse&lt;List&lt;StructuredOrderList&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<StructuredOrderList>> listStructuredOrdersWithHttpInfo(StructuredOrderListRequest structuredOrderListRequest) throws ApiException {
-        okhttp3.Call localVarCall = listStructuredOrdersValidateBeforeCall(structuredOrderListRequest, null);
+    private ApiResponse<List<StructuredOrderList>> listStructuredOrdersWithHttpInfo(Long from, Long to, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listStructuredOrdersValidateBeforeCall(from, to, page, limit, null);
         Type localVarReturnType = new TypeToken<List<StructuredOrderList>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call listStructuredOrdersAsync(Long from, Long to, Integer page, Integer limit, final ApiCallback<List<StructuredOrderList>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listStructuredOrdersValidateBeforeCall(from, to, page, limit, _callback);
+        Type localVarReturnType = new TypeToken<List<StructuredOrderList>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistStructuredOrdersRequest {
+        private Long from;
+        private Long to;
+        private Integer page;
+        private Integer limit;
+
+        private APIlistStructuredOrdersRequest() {
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIlistStructuredOrdersRequest
+         */
+        public APIlistStructuredOrdersRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIlistStructuredOrdersRequest
+         */
+        public APIlistStructuredOrdersRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistStructuredOrdersRequest
+         */
+        public APIlistStructuredOrdersRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIlistStructuredOrdersRequest
+         */
+        public APIlistStructuredOrdersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listStructuredOrders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listStructuredOrdersCall(from, to, page, limit, _callback);
+        }
+
+        /**
+         * Execute listStructuredOrders request
+         * @return List&lt;StructuredOrderList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<StructuredOrderList> execute() throws ApiException {
+            ApiResponse<List<StructuredOrderList>> localVarResp = listStructuredOrdersWithHttpInfo(from, to, page, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listStructuredOrders request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;StructuredOrderList&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<StructuredOrderList>> executeWithHttpInfo() throws ApiException {
+            return listStructuredOrdersWithHttpInfo(from, to, page, limit);
+        }
+
+        /**
+         * Execute listStructuredOrders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<StructuredOrderList>> _callback) throws ApiException {
+            return listStructuredOrdersAsync(from, to, page, limit, _callback);
+        }
+    }
+
     /**
-     * Structured Product Order List (asynchronously)
+     * Structured Product Order List
      * 
-     * @param structuredOrderListRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIlistStructuredOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listStructuredOrdersAsync(StructuredOrderListRequest structuredOrderListRequest, final ApiCallback<List<StructuredOrderList>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listStructuredOrdersValidateBeforeCall(structuredOrderListRequest, _callback);
-        Type localVarReturnType = new TypeToken<List<StructuredOrderList>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIlistStructuredOrdersRequest listStructuredOrders() {
+        return new APIlistStructuredOrdersRequest();
     }
 
     /**

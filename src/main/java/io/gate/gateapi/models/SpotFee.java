@@ -59,6 +59,10 @@ public class SpotFee {
     @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
     private String currencyPair;
 
+    public static final String SERIALIZED_NAME_DEBIT_FEE = "debit_fee";
+    @SerializedName(SERIALIZED_NAME_DEBIT_FEE)
+    private Integer debitFee;
+
 
     public SpotFee userId(Long userId) {
         
@@ -239,6 +243,26 @@ public class SpotFee {
     public void setCurrencyPair(String currencyPair) {
         this.currencyPair = currencyPair;
     }
+
+    public SpotFee debitFee(Integer debitFee) {
+        
+        this.debitFee = debitFee;
+        return this;
+    }
+
+     /**
+     * Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates
+     * @return debitFee
+    **/
+    @javax.annotation.Nullable
+    public Integer getDebitFee() {
+        return debitFee;
+    }
+
+
+    public void setDebitFee(Integer debitFee) {
+        this.debitFee = debitFee;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -256,12 +280,13 @@ public class SpotFee {
                 Objects.equals(this.gtMakerFee, spotFee.gtMakerFee) &&
                 Objects.equals(this.loanFee, spotFee.loanFee) &&
                 Objects.equals(this.pointType, spotFee.pointType) &&
-                Objects.equals(this.currencyPair, spotFee.currencyPair);
+                Objects.equals(this.currencyPair, spotFee.currencyPair) &&
+                Objects.equals(this.debitFee, spotFee.debitFee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, currencyPair);
+        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, currencyPair, debitFee);
     }
 
 
@@ -278,6 +303,7 @@ public class SpotFee {
         sb.append("      loanFee: ").append(toIndentedString(loanFee)).append("\n");
         sb.append("      pointType: ").append(toIndentedString(pointType)).append("\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
+        sb.append("      debitFee: ").append(toIndentedString(debitFee)).append("\n");
         sb.append("}");
         return sb.toString();
     }

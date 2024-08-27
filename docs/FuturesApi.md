@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**listContractStats**](FuturesApi.md#listContractStats) | **GET** /futures/{settle}/contract_stats | Futures stats
 [**getIndexConstituents**](FuturesApi.md#getIndexConstituents) | **GET** /futures/{settle}/index_constituents/{index} | Get index constituents
 [**listLiquidatedOrders**](FuturesApi.md#listLiquidatedOrders) | **GET** /futures/{settle}/liq_orders | Retrieve liquidation history
+[**listFuturesRiskLimitTiers**](FuturesApi.md#listFuturesRiskLimitTiers) | **GET** /futures/{settle}/risk_limit_tiers | List risk limit tiers
 [**listFuturesAccounts**](FuturesApi.md#listFuturesAccounts) | **GET** /futures/{settle}/accounts | Query futures account
 [**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/{settle}/account_book | Query account book
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/{settle}/positions | List all positions of a user
@@ -43,6 +44,8 @@ Method | HTTP request | Description
 [**listAutoDeleverages**](FuturesApi.md#listAutoDeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 [**countdownCancelAllFutures**](FuturesApi.md#countdownCancelAllFutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 [**getFuturesFee**](FuturesApi.md#getFuturesFee) | **GET** /futures/{settle}/fee | Query user trading fee rates
+[**cancelBatchFutureOrders**](FuturesApi.md#cancelBatchFutureOrders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel a batch of orders with an ID list
+[**amendBatchFutureOrders**](FuturesApi.md#amendBatchFutureOrders) | **POST** /futures/{settle}/batch_amend_orders | Batch modify orders with specified IDs
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 [**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
@@ -52,7 +55,7 @@ Method | HTTP request | Description
 
 <a name="listFuturesContracts"></a>
 # **listFuturesContracts**
-> List&lt;Contract&gt; listFuturesContracts(settle)
+> List&lt;Contract&gt; listFuturesContracts(settle).limit(limit).offset(offset).execute();
 
 List all futures contracts
 
@@ -74,8 +77,13 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         try {
-            List<Contract> result = apiInstance.listFuturesContracts(settle);
+            List<Contract> result = apiInstance.listFuturesContracts(settle)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -95,6 +103,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -207,7 +217,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
-        String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
+        String interval = "\"0\""; // String | Order depth. 0 means no aggregation is applied. default to 0
         Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
         Boolean withId = false; // Boolean | Whether the order book update ID will be returned. This ID increases by 1 on every order book update
         try {
@@ -236,7 +246,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
- **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
+ **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &quot;0&quot;]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
  **withId** | **Boolean**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
 
@@ -370,7 +380,7 @@ public class Example {
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
         Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        String interval = "5m"; // String | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days
+        String interval = "\"5m\""; // String | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days
         try {
             List<FuturesCandlestick> result = apiInstance.listFuturesCandlesticks(settle, contract)
                         .from(from)
@@ -401,7 +411,7 @@ Name | Type | Description  | Notes
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
  **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **String**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days | [optional] [default to 5m] [enum: 10s, 30s, 1m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 7d, 1w, 30d]
+ **interval** | **String**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days | [optional] [default to &quot;5m&quot;]
 
 ### Return type
 
@@ -451,7 +461,7 @@ public class Example {
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
         Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        String interval = "5m"; // String | Interval time between data points
+        String interval = "\"5m\""; // String | Interval time between data points
         try {
             List<FuturesPremiumIndex> result = apiInstance.listFuturesPremiumIndex(settle, contract)
                         .from(from)
@@ -482,7 +492,7 @@ Name | Type | Description  | Notes
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
  **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **String**| Interval time between data points | [optional] [default to 5m] [enum: 1m, 5m, 15m, 30m, 1h, 4h, 6h, 8h, 1d, 7d, 30d]
+ **interval** | **String**| Interval time between data points | [optional] [default to &quot;5m&quot;]
 
 ### Return type
 
@@ -734,7 +744,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1604561000L; // Long | Start timestamp
-        String interval = "5m"; // String | 
+        String interval = "\"5m\""; // String | 
         Integer limit = 30; // Integer | 
         try {
             List<ContractStat> result = apiInstance.listContractStats(settle, contract)
@@ -763,7 +773,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start timestamp | [optional]
- **interval** | **String**|  | [optional] [default to 5m] [enum: 5m, 15m, 30m, 1h, 4h, 1d]
+ **interval** | **String**|  | [optional] [default to &quot;5m&quot;]
  **limit** | **Integer**|  | [optional] [default to 30]
 
 ### Return type
@@ -929,6 +939,82 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | List retrieved |  -  |
 
+<a name="listFuturesRiskLimitTiers"></a>
+# **listFuturesRiskLimitTiers**
+> List&lt;FuturesLimitRiskTiers&gt; listFuturesRiskLimitTiers(settle).contract(contract).limit(limit).offset(offset).execute();
+
+List risk limit tiers
+
+When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        try {
+            List<FuturesLimitRiskTiers> result = apiInstance.listFuturesRiskLimitTiers(settle)
+                        .contract(contract)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#listFuturesRiskLimitTiers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
+ **contract** | **String**| Futures contract, return related data only if specified | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;FuturesLimitRiskTiers&gt;**](FuturesLimitRiskTiers.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
 <a name="listFuturesAccounts"></a>
 # **listFuturesAccounts**
 > FuturesAccount listFuturesAccounts(settle)
@@ -999,7 +1085,7 @@ Name | Type | Description  | Notes
 
 <a name="listFuturesAccountBook"></a>
 # **listFuturesAccountBook**
-> List&lt;FuturesAccountBook&gt; listFuturesAccountBook(settle).contract(contract).limit(limit).from(from).to(to).type(type).execute();
+> List&lt;FuturesAccountBook&gt; listFuturesAccountBook(settle).contract(contract).limit(limit).offset(offset).from(from).to(to).type(type).execute();
 
 Query account book
 
@@ -1029,13 +1115,15 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Long from = 1547706332L; // Long | Start timestamp
         Long to = 1547706332L; // Long | End timestamp
-        String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+        String type = "dnw"; // String | Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
         try {
             List<FuturesAccountBook> result = apiInstance.listFuturesAccountBook(settle)
                         .contract(contract)
                         .limit(limit)
+                        .offset(offset)
                         .from(from)
                         .to(to)
                         .type(type)
@@ -1061,9 +1149,10 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **Long**| Start timestamp | [optional]
  **to** | **Long**| End timestamp | [optional]
- **type** | **String**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional] [enum: dnw, pnl, fee, refr, fund, point_dnw, point_fee, point_refr]
+ **type** | **String**| Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction | [optional]
 
 ### Return type
 
@@ -1085,7 +1174,7 @@ Name | Type | Description  | Notes
 
 <a name="listPositions"></a>
 # **listPositions**
-> List&lt;Position&gt; listPositions(settle).holding(holding).execute();
+> List&lt;Position&gt; listPositions(settle).holding(holding).limit(limit).offset(offset).execute();
 
 List all positions of a user
 
@@ -1112,9 +1201,13 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         Boolean holding = true; // Boolean | Return only real positions - true, return all - false.
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         try {
             List<Position> result = apiInstance.listPositions(settle)
                         .holding(holding)
+                        .limit(limit)
+                        .offset(offset)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -1136,6 +1229,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **holding** | **Boolean**| Return only real positions - true, return all - false. | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -1157,7 +1252,7 @@ Name | Type | Description  | Notes
 
 <a name="getPosition"></a>
 # **getPosition**
-> Position getPosition(settle, contract)
+> Position getPosition(settle, contract).execute();
 
 Get single position
 
@@ -1185,7 +1280,8 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         try {
-            Position result = apiInstance.getPosition(settle, contract);
+            Position result = apiInstance.getPosition(settle, contract)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1517,7 +1613,7 @@ Name | Type | Description  | Notes
 
 <a name="getDualModePosition"></a>
 # **getDualModePosition**
-> List&lt;Position&gt; getDualModePosition(settle, contract)
+> List&lt;Position&gt; getDualModePosition(settle, contract).execute();
 
 Retrieve position detail in dual mode
 
@@ -1545,7 +1641,8 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         try {
-            List<Position> result = apiInstance.getDualModePosition(settle, contract);
+            List<Position> result = apiInstance.getDualModePosition(settle, contract)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1639,7 +1736,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
  **change** | **String**| Margin change. Use positive number to increase margin, negative number otherwise. |
- **dualSide** | **String**| Long or short position | [enum: dual_long, dual_short]
+ **dualSide** | **String**| Long or short position |
 
 ### Return type
 
@@ -1866,7 +1963,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
- **status** | **String**| Only list the orders with this status | [enum: open, finished]
+ **status** | **String**| Only list the orders with this status |
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -2016,7 +2113,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
  **contract** | **String**| Futures contract |
- **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: ask, bid]
+ **side** | **String**| All bids or asks. Both included if not specified | [optional]
 
 ### Return type
 
@@ -2969,6 +3066,150 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
 
+<a name="cancelBatchFutureOrders"></a>
+# **cancelBatchFutureOrders**
+> List&lt;FutureCancelOrderResult&gt; cancelBatchFutureOrders(settle, requestBody)
+
+Cancel a batch of orders with an ID list
+
+Multiple distinct order ID list can be specified。Each request can cancel a maximum of 20 records.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        List<String> requestBody = Arrays.asList(); // List<String> | 
+        try {
+            List<FutureCancelOrderResult> result = apiInstance.cancelBatchFutureOrders(settle, requestBody);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#cancelBatchFutureOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
+ **requestBody** | [**List&lt;String&gt;**](String.md)|  |
+
+### Return type
+
+[**List&lt;FutureCancelOrderResult&gt;**](FutureCancelOrderResult.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order cancellation operation completed |  -  |
+
+<a name="amendBatchFutureOrders"></a>
+# **amendBatchFutureOrders**
+> List&lt;BatchFuturesOrder&gt; amendBatchFutureOrders(settle, batchAmendOrderReq)
+
+Batch modify orders with specified IDs
+
+You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        List<BatchAmendOrderReq> batchAmendOrderReq = Arrays.asList(); // List<BatchAmendOrderReq> | 
+        try {
+            List<BatchFuturesOrder> result = apiInstance.amendBatchFutureOrders(settle, batchAmendOrderReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#amendBatchFutureOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
+ **batchAmendOrderReq** | [**List&lt;BatchAmendOrderReq&gt;**](BatchAmendOrderReq.md)|  |
+
+### Return type
+
+[**List&lt;BatchFuturesOrder&gt;**](BatchFuturesOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Request is completed |  -  |
+
 <a name="listPriceTriggeredOrders"></a>
 # **listPriceTriggeredOrders**
 > List&lt;FuturesPriceTriggeredOrder&gt; listPriceTriggeredOrders(settle, status).contract(contract).limit(limit).offset(offset).execute();
@@ -3147,7 +3388,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT"; // String | Futures contract
+        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         try {
             List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredOrderList(settle, contract);
             System.out.println(result);
@@ -3169,7 +3410,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt, usd]
- **contract** | **String**| Futures contract |
+ **contract** | **String**| Futures contract, return related data only if specified | [optional]
 
 ### Return type
 

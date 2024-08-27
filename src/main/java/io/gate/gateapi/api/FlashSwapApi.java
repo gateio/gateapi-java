@@ -159,7 +159,7 @@ public class FlashSwapApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listFlashSwapCurrencyPairCall(String currency, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listFlashSwapCurrencyPairCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -169,6 +169,14 @@ public class FlashSwapApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (currency != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -193,20 +201,20 @@ public class FlashSwapApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listFlashSwapCurrencyPairValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listFlashSwapCurrencyPairCall(currency, _callback);
+    private okhttp3.Call listFlashSwapCurrencyPairValidateBeforeCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listFlashSwapCurrencyPairCall(currency, page, limit, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<FlashSwapCurrencyPair>> listFlashSwapCurrencyPairWithHttpInfo(String currency) throws ApiException {
-        okhttp3.Call localVarCall = listFlashSwapCurrencyPairValidateBeforeCall(currency, null);
+    private ApiResponse<List<FlashSwapCurrencyPair>> listFlashSwapCurrencyPairWithHttpInfo(String currency, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listFlashSwapCurrencyPairValidateBeforeCall(currency, page, limit, null);
         Type localVarReturnType = new TypeToken<List<FlashSwapCurrencyPair>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listFlashSwapCurrencyPairAsync(String currency, final ApiCallback<List<FlashSwapCurrencyPair>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listFlashSwapCurrencyPairValidateBeforeCall(currency, _callback);
+    private okhttp3.Call listFlashSwapCurrencyPairAsync(String currency, Integer page, Integer limit, final ApiCallback<List<FlashSwapCurrencyPair>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listFlashSwapCurrencyPairValidateBeforeCall(currency, page, limit, _callback);
         Type localVarReturnType = new TypeToken<List<FlashSwapCurrencyPair>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -214,6 +222,8 @@ public class FlashSwapApi {
 
     public class APIlistFlashSwapCurrencyPairRequest {
         private String currency;
+        private Integer page;
+        private Integer limit;
 
         private APIlistFlashSwapCurrencyPairRequest() {
         }
@@ -229,6 +239,26 @@ public class FlashSwapApi {
         }
 
         /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistFlashSwapCurrencyPairRequest
+         */
+        public APIlistFlashSwapCurrencyPairRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)
+         * @return APIlistFlashSwapCurrencyPairRequest
+         */
+        public APIlistFlashSwapCurrencyPairRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
          * Build call for listFlashSwapCurrencyPair
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -240,7 +270,7 @@ public class FlashSwapApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listFlashSwapCurrencyPairCall(currency, _callback);
+            return listFlashSwapCurrencyPairCall(currency, page, limit, _callback);
         }
 
         /**
@@ -254,7 +284,7 @@ public class FlashSwapApi {
          </table>
          */
         public List<FlashSwapCurrencyPair> execute() throws ApiException {
-            ApiResponse<List<FlashSwapCurrencyPair>> localVarResp = listFlashSwapCurrencyPairWithHttpInfo(currency);
+            ApiResponse<List<FlashSwapCurrencyPair>> localVarResp = listFlashSwapCurrencyPairWithHttpInfo(currency, page, limit);
             return localVarResp.getData();
         }
 
@@ -269,7 +299,7 @@ public class FlashSwapApi {
          </table>
          */
         public ApiResponse<List<FlashSwapCurrencyPair>> executeWithHttpInfo() throws ApiException {
-            return listFlashSwapCurrencyPairWithHttpInfo(currency);
+            return listFlashSwapCurrencyPairWithHttpInfo(currency, page, limit);
         }
 
         /**
@@ -284,7 +314,7 @@ public class FlashSwapApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FlashSwapCurrencyPair>> _callback) throws ApiException {
-            return listFlashSwapCurrencyPairAsync(currency, _callback);
+            return listFlashSwapCurrencyPairAsync(currency, page, limit, _callback);
         }
     }
 

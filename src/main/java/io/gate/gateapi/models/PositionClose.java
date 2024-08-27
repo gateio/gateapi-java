@@ -86,9 +86,41 @@ public class PositionClose {
     @SerializedName(SERIALIZED_NAME_PNL)
     private String pnl;
 
+    public static final String SERIALIZED_NAME_PNL_PNL = "pnl_pnl";
+    @SerializedName(SERIALIZED_NAME_PNL_PNL)
+    private String pnlPnl;
+
+    public static final String SERIALIZED_NAME_PNL_FUND = "pnl_fund";
+    @SerializedName(SERIALIZED_NAME_PNL_FUND)
+    private String pnlFund;
+
+    public static final String SERIALIZED_NAME_PNL_FEE = "pnl_fee";
+    @SerializedName(SERIALIZED_NAME_PNL_FEE)
+    private String pnlFee;
+
     public static final String SERIALIZED_NAME_TEXT = "text";
     @SerializedName(SERIALIZED_NAME_TEXT)
     private String text;
+
+    public static final String SERIALIZED_NAME_MAX_SIZE = "max_size";
+    @SerializedName(SERIALIZED_NAME_MAX_SIZE)
+    private String maxSize;
+
+    public static final String SERIALIZED_NAME_ACCUM_SIZE = "accum_size";
+    @SerializedName(SERIALIZED_NAME_ACCUM_SIZE)
+    private String accumSize;
+
+    public static final String SERIALIZED_NAME_FIRST_OPEN_TIME = "first_open_time";
+    @SerializedName(SERIALIZED_NAME_FIRST_OPEN_TIME)
+    private Long firstOpenTime;
+
+    public static final String SERIALIZED_NAME_LONG_PRICE = "long_price";
+    @SerializedName(SERIALIZED_NAME_LONG_PRICE)
+    private String longPrice;
+
+    public static final String SERIALIZED_NAME_SHORT_PRICE = "short_price";
+    @SerializedName(SERIALIZED_NAME_SHORT_PRICE)
+    private String shortPrice;
 
 
      /**
@@ -132,12 +164,92 @@ public class PositionClose {
 
 
      /**
+     * PNL - Position P/L
+     * @return pnlPnl
+    **/
+    @javax.annotation.Nullable
+    public String getPnlPnl() {
+        return pnlPnl;
+    }
+
+
+     /**
+     * PNL - Funding Fees
+     * @return pnlFund
+    **/
+    @javax.annotation.Nullable
+    public String getPnlFund() {
+        return pnlFund;
+    }
+
+
+     /**
+     * PNL - Transaction Fees
+     * @return pnlFee
+    **/
+    @javax.annotation.Nullable
+    public String getPnlFee() {
+        return pnlFee;
+    }
+
+
+     /**
      * Text of close order
      * @return text
     **/
     @javax.annotation.Nullable
     public String getText() {
         return text;
+    }
+
+
+     /**
+     * Max Trade Size
+     * @return maxSize
+    **/
+    @javax.annotation.Nullable
+    public String getMaxSize() {
+        return maxSize;
+    }
+
+
+     /**
+     * Cumulative closed position volume
+     * @return accumSize
+    **/
+    @javax.annotation.Nullable
+    public String getAccumSize() {
+        return accumSize;
+    }
+
+
+     /**
+     * First Open Time
+     * @return firstOpenTime
+    **/
+    @javax.annotation.Nullable
+    public Long getFirstOpenTime() {
+        return firstOpenTime;
+    }
+
+
+     /**
+     * When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price.
+     * @return longPrice
+    **/
+    @javax.annotation.Nullable
+    public String getLongPrice() {
+        return longPrice;
+    }
+
+
+     /**
+     * When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price
+     * @return shortPrice
+    **/
+    @javax.annotation.Nullable
+    public String getShortPrice() {
+        return shortPrice;
     }
 
     @Override
@@ -153,12 +265,20 @@ public class PositionClose {
                 Objects.equals(this.contract, positionClose.contract) &&
                 Objects.equals(this.side, positionClose.side) &&
                 Objects.equals(this.pnl, positionClose.pnl) &&
-                Objects.equals(this.text, positionClose.text);
+                Objects.equals(this.pnlPnl, positionClose.pnlPnl) &&
+                Objects.equals(this.pnlFund, positionClose.pnlFund) &&
+                Objects.equals(this.pnlFee, positionClose.pnlFee) &&
+                Objects.equals(this.text, positionClose.text) &&
+                Objects.equals(this.maxSize, positionClose.maxSize) &&
+                Objects.equals(this.accumSize, positionClose.accumSize) &&
+                Objects.equals(this.firstOpenTime, positionClose.firstOpenTime) &&
+                Objects.equals(this.longPrice, positionClose.longPrice) &&
+                Objects.equals(this.shortPrice, positionClose.shortPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, contract, side, pnl, text);
+        return Objects.hash(time, contract, side, pnl, pnlPnl, pnlFund, pnlFee, text, maxSize, accumSize, firstOpenTime, longPrice, shortPrice);
     }
 
 
@@ -170,7 +290,15 @@ public class PositionClose {
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      side: ").append(toIndentedString(side)).append("\n");
         sb.append("      pnl: ").append(toIndentedString(pnl)).append("\n");
+        sb.append("      pnlPnl: ").append(toIndentedString(pnlPnl)).append("\n");
+        sb.append("      pnlFund: ").append(toIndentedString(pnlFund)).append("\n");
+        sb.append("      pnlFee: ").append(toIndentedString(pnlFee)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      maxSize: ").append(toIndentedString(maxSize)).append("\n");
+        sb.append("      accumSize: ").append(toIndentedString(accumSize)).append("\n");
+        sb.append("      firstOpenTime: ").append(toIndentedString(firstOpenTime)).append("\n");
+        sb.append("      longPrice: ").append(toIndentedString(longPrice)).append("\n");
+        sb.append("      shortPrice: ").append(toIndentedString(shortPrice)).append("\n");
         sb.append("}");
         return sb.toString();
     }

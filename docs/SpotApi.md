@@ -440,7 +440,7 @@ No authorization required
 
 Retrieve market trades
 
-You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
 
 ### Example
 
@@ -600,7 +600,7 @@ No authorization required
 
 <a name="getFee"></a>
 # **getFee**
-> TradeFee getFee().currencyPair(currencyPair).execute();
+> SpotFee getFee().currencyPair(currencyPair).execute();
 
 Query user trading fee rates
 
@@ -629,7 +629,7 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs
         try {
-            TradeFee result = apiInstance.getFee()
+            SpotFee result = apiInstance.getFee()
                         .currencyPair(currencyPair)
                         .execute();
             System.out.println(result);
@@ -654,7 +654,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TradeFee**](TradeFee.md)
+[**SpotFee**](SpotFee.md)
 
 ### Authorization
 
@@ -1178,13 +1178,13 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. |
- **status** | **String**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | [enum: open, finished]
+ **status** | **String**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  |
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
  **account** | **String**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
  **from** | **Long**| Start timestamp of the query | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
- **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: buy, sell]
+ **side** | **String**| All bids or asks. Both included if not specified | [optional]
 
 ### Return type
 
@@ -1276,11 +1276,11 @@ Name | Type | Description  | Notes
 
 <a name="cancelOrders"></a>
 # **cancelOrders**
-> List&lt;Order&gt; cancelOrders(currencyPair, side, account)
+> List&lt;OrderCancel&gt; cancelOrders(currencyPair, side, account, actionMode)
 
 Cancel all &#x60;open&#x60; orders in specified currency pair
 
-If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
 
 ### Example
 
@@ -1305,9 +1305,10 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String side = "sell"; // String | All bids or asks. Both included if not specified
-        String account = "spot"; // String | Specify account type  - classic account：Default to all account types being included   - portfolio margin account：`cross_margin` only
+        String account = "spot"; // String | Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify `unified` - Unified account (legacy): Can only specify `cross_margin`
+        String actionMode = "ACK"; // String | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
         try {
-            List<Order> result = apiInstance.cancelOrders(currencyPair, side, account);
+            List<OrderCancel> result = apiInstance.cancelOrders(currencyPair, side, account, actionMode);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1326,13 +1327,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair |
- **side** | **String**| All bids or asks. Both included if not specified | [optional] [enum: buy, sell]
- **account** | **String**| Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only | [optional] [enum: spot, margin, cross_margin]
+ **currencyPair** | **String**| Currency pair | [optional]
+ **side** | **String**| All bids or asks. Both included if not specified | [optional]
+ **account** | **String**| Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; | [optional]
+ **actionMode** | **String**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
 
 ### Return type
 
-[**List&lt;Order&gt;**](Order.md)
+[**List&lt;OrderCancel&gt;**](OrderCancel.md)
 
 ### Authorization
 
@@ -1448,7 +1450,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
-        String currencyPair = "BTC_USDT"; // String | Currency pair
+        String currencyPair = "BTC_USDT"; // String | Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.
         String account = "cross_margin"; // String | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         try {
             Order result = apiInstance.getOrder(orderId, currencyPair, account);
@@ -1471,7 +1473,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. |
- **currencyPair** | **String**| Currency pair |
+ **currencyPair** | **String**| Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. |
  **account** | **String**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
@@ -1494,7 +1496,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelOrder"></a>
 # **cancelOrder**
-> Order cancelOrder(orderId, currencyPair, account)
+> Order cancelOrder(orderId, currencyPair, account, actionMode)
 
 Cancel a single order
 
@@ -1524,8 +1526,9 @@ public class Example {
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String account = "cross_margin"; // String | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
+        String actionMode = "ACK"; // String | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
         try {
-            Order result = apiInstance.cancelOrder(orderId, currencyPair, account);
+            Order result = apiInstance.cancelOrder(orderId, currencyPair, account, actionMode);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1547,6 +1550,7 @@ Name | Type | Description  | Notes
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. |
  **currencyPair** | **String**| Currency pair |
  **account** | **String**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
+ **actionMode** | **String**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
 
 ### Return type
 
@@ -1568,11 +1572,11 @@ Name | Type | Description  | Notes
 
 <a name="amendOrder"></a>
 # **amendOrder**
-> Order amendOrder(orderId, currencyPair, orderPatch, account)
+> Order amendOrder(orderId, orderPatch, currencyPair, account)
 
 Amend an order
 
-By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
 
 ### Example
 
@@ -1596,11 +1600,11 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
-        String currencyPair = "BTC_USDT"; // String | Currency pair
         OrderPatch orderPatch = new OrderPatch(); // OrderPatch | 
+        String currencyPair = "BTC_USDT"; // String | Currency pair
         String account = "cross_margin"; // String | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only
         try {
-            Order result = apiInstance.amendOrder(orderId, currencyPair, orderPatch, account);
+            Order result = apiInstance.amendOrder(orderId, orderPatch, currencyPair, account);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1620,8 +1624,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. |
- **currencyPair** | **String**| Currency pair |
  **orderPatch** | [**OrderPatch**](OrderPatch.md)|  |
+ **currencyPair** | **String**| Currency pair | [optional]
  **account** | **String**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional]
 
 ### Return type
@@ -1864,7 +1868,7 @@ Name | Type | Description  | Notes
 
 <a name="amendBatchOrders"></a>
 # **amendBatchOrders**
-> List&lt;AmendOrderResult&gt; amendBatchOrders(batchAmendItem)
+> List&lt;BatchOrder&gt; amendBatchOrders(batchAmendItem)
 
 Batch modification of orders
 
@@ -1893,7 +1897,7 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         List<BatchAmendItem> batchAmendItem = Arrays.asList(); // List<BatchAmendItem> | 
         try {
-            List<AmendOrderResult> result = apiInstance.amendBatchOrders(batchAmendItem);
+            List<BatchOrder> result = apiInstance.amendBatchOrders(batchAmendItem);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1916,7 +1920,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AmendOrderResult&gt;**](AmendOrderResult.md)
+[**List&lt;BatchOrder&gt;**](BatchOrder.md)
 
 ### Authorization
 

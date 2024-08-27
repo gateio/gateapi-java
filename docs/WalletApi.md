@@ -20,6 +20,10 @@ Method | HTTP request | Description
 [**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
 [**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 [**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
+[**listSmallBalance**](WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | List small balance
+[**convertSmallBalance**](WalletApi.md#convertSmallBalance) | **POST** /wallet/small_balance | Convert small balance
+[**listSmallBalanceHistory**](WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | List small balance history
+[**listPushOrders**](WalletApi.md#listPushOrders) | **GET** /wallet/push | Retrieve the UID transfer history
 
 
 <a name="listCurrencyChains"></a>
@@ -270,7 +274,7 @@ public class Example {
         String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
         Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
         Long to = 1602123600L; // Long | Time range ending, default to current time
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer limit = 100; // Integer | The maximum number of entries returned in the list is limited to 500 transactions.
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
             List<LedgerRecord> result = apiInstance.listDeposits()
@@ -301,7 +305,7 @@ Name | Type | Description  | Notes
  **currency** | **String**| Filter by currency. Return all currency records if not specified | [optional]
  **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
  **to** | **Long**| Time range ending, default to current time | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **limit** | **Integer**| The maximum number of entries returned in the list is limited to 500 transactions. | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -328,7 +332,7 @@ Name | Type | Description  | Notes
 
 Transfer between trading accounts
 
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
 
 ### Example
 
@@ -478,7 +482,7 @@ Name | Type | Description  | Notes
 
 <a name="transferWithSubAccount"></a>
 # **transferWithSubAccount**
-> transferWithSubAccount(subAccountTransfer)
+> TransactionID transferWithSubAccount(subAccountTransfer)
 
 Transfer between main and sub accounts
 
@@ -507,7 +511,8 @@ public class Example {
         WalletApi apiInstance = new WalletApi(defaultClient);
         SubAccountTransfer subAccountTransfer = new SubAccountTransfer(); // SubAccountTransfer | 
         try {
-            apiInstance.transferWithSubAccount(subAccountTransfer);
+            TransactionID result = apiInstance.transferWithSubAccount(subAccountTransfer);
+            System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
@@ -529,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**TransactionID**](TransactionID.md)
 
 ### Authorization
 
@@ -538,16 +543,16 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Balance transferred |  -  |
+**200** | Balance transferred |  -  |
 
 <a name="subAccountToSubAccount"></a>
 # **subAccountToSubAccount**
-> subAccountToSubAccount(subAccountToSubAccount)
+> TransactionID subAccountToSubAccount(subAccountToSubAccount)
 
 Sub-account transfers to sub-account
 
@@ -576,7 +581,8 @@ public class Example {
         WalletApi apiInstance = new WalletApi(defaultClient);
         SubAccountToSubAccount subAccountToSubAccount = new SubAccountToSubAccount(); // SubAccountToSubAccount | 
         try {
-            apiInstance.subAccountToSubAccount(subAccountToSubAccount);
+            TransactionID result = apiInstance.subAccountToSubAccount(subAccountToSubAccount);
+            System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
@@ -598,7 +604,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**TransactionID**](TransactionID.md)
 
 ### Authorization
 
@@ -607,12 +613,12 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Balance transferred |  -  |
+**200** | Balance transferred |  -  |
 
 <a name="listWithdrawStatus"></a>
 # **listWithdrawStatus**
@@ -969,7 +975,7 @@ Name | Type | Description  | Notes
 
 <a name="listSavedAddress"></a>
 # **listSavedAddress**
-> List&lt;SavedAddress&gt; listSavedAddress(currency).chain(chain).limit(limit).execute();
+> List&lt;SavedAddress&gt; listSavedAddress(currency).chain(chain).limit(limit).page(page).execute();
 
 Query saved address
 
@@ -997,10 +1003,12 @@ public class Example {
         String currency = "USDT"; // String | Currency
         String chain = "\"\""; // String | Chain name
         String limit = "\"50\""; // String | Maximum number returned, 100 at most
+        Integer page = 1; // Integer | Page number
         try {
             List<SavedAddress> result = apiInstance.listSavedAddress(currency)
                         .chain(chain)
                         .limit(limit)
+                        .page(page)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -1023,6 +1031,7 @@ Name | Type | Description  | Notes
  **currency** | **String**| Currency |
  **chain** | **String**| Chain name | [optional] [default to &quot;&quot;]
  **limit** | **String**| Maximum number returned, 100 at most | [optional] [default to &quot;50&quot;]
+ **page** | **Integer**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -1186,4 +1195,293 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Request is valid and is successfully responded |  -  |
+
+<a name="listSmallBalance"></a>
+# **listSmallBalance**
+> SmallBalance listSmallBalance()
+
+List small balance
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        try {
+            SmallBalance result = apiInstance.listSmallBalance();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listSmallBalance");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SmallBalance**](SmallBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="convertSmallBalance"></a>
+# **convertSmallBalance**
+> convertSmallBalance(convertSmallBalance)
+
+Convert small balance
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        ConvertSmallBalance convertSmallBalance = new ConvertSmallBalance(); // ConvertSmallBalance | 
+        try {
+            apiInstance.convertSmallBalance(convertSmallBalance);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#convertSmallBalance");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **convertSmallBalance** | [**ConvertSmallBalance**](ConvertSmallBalance.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="listSmallBalanceHistory"></a>
+# **listSmallBalanceHistory**
+> SmallBalanceHistory listSmallBalanceHistory().currency(currency).page(page).limit(limit).execute();
+
+List small balance history
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        String currency = "currency_example"; // String | Currency
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+        try {
+            SmallBalanceHistory result = apiInstance.listSmallBalanceHistory()
+                        .currency(currency)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listSmallBalanceHistory");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Currency | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+
+### Return type
+
+[**SmallBalanceHistory**](SmallBalanceHistory.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="listPushOrders"></a>
+# **listPushOrders**
+> List&lt;UidPushOrder&gt; listPushOrders().id(id).from(from).to(to).limit(limit).offset(offset).execute();
+
+Retrieve the UID transfer history
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.WalletApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        WalletApi apiInstance = new WalletApi(defaultClient);
+        Integer id = 56; // Integer | Order ID
+        Integer from = 56; // Integer | The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp
+        Integer to = 56; // Integer | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds.
+        Integer limit = 100; // Integer | The maximum number of items returned in the list, the default value is 100
+        Integer offset = 0; // Integer | List offset, starting from 0
+        try {
+            List<UidPushOrder> result = apiInstance.listPushOrders()
+                        .id(id)
+                        .from(from)
+                        .to(to)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WalletApi#listPushOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Order ID | [optional]
+ **from** | **Integer**| The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp | [optional]
+ **to** | **Integer**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional]
+ **limit** | **Integer**| The maximum number of items returned in the list, the default value is 100 | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;UidPushOrder&gt;**](UidPushOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 

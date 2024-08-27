@@ -509,7 +509,7 @@ Name | Type | Description  | Notes
 
 <a name="listUniInterestRecords"></a>
 # **listUniInterestRecords**
-> List&lt;UniInterestRecord&gt; listUniInterestRecords().currency(currency).page(page).limit(limit).execute();
+> List&lt;UniInterestRecord&gt; listUniInterestRecords().currency(currency).page(page).limit(limit).from(from).to(to).execute();
 
 List interest records
 
@@ -537,11 +537,15 @@ public class Example {
         String currency = "BTC"; // String | Retrieve data of the specified currency
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
         try {
             List<UniInterestRecord> result = apiInstance.listUniInterestRecords()
                         .currency(currency)
                         .page(page)
                         .limit(limit)
+                        .from(from)
+                        .to(to)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -564,6 +568,8 @@ Name | Type | Description  | Notes
  **currency** | **String**| Retrieve data of the specified currency | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **from** | **Long**| Start timestamp | [optional]
+ **to** | **Long**| End timestamp | [optional]
 
 ### Return type
 

@@ -966,7 +966,7 @@ public class EarnUniApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listUniInterestRecordsCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUniInterestRecordsCall(String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -984,6 +984,14 @@ public class EarnUniApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1008,20 +1016,20 @@ public class EarnUniApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUniInterestRecordsValidateBeforeCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUniInterestRecordsCall(currency, page, limit, _callback);
+    private okhttp3.Call listUniInterestRecordsValidateBeforeCall(String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUniInterestRecordsCall(currency, page, limit, from, to, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<UniInterestRecord>> listUniInterestRecordsWithHttpInfo(String currency, Integer page, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listUniInterestRecordsValidateBeforeCall(currency, page, limit, null);
+    private ApiResponse<List<UniInterestRecord>> listUniInterestRecordsWithHttpInfo(String currency, Integer page, Integer limit, Long from, Long to) throws ApiException {
+        okhttp3.Call localVarCall = listUniInterestRecordsValidateBeforeCall(currency, page, limit, from, to, null);
         Type localVarReturnType = new TypeToken<List<UniInterestRecord>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listUniInterestRecordsAsync(String currency, Integer page, Integer limit, final ApiCallback<List<UniInterestRecord>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUniInterestRecordsValidateBeforeCall(currency, page, limit, _callback);
+    private okhttp3.Call listUniInterestRecordsAsync(String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback<List<UniInterestRecord>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUniInterestRecordsValidateBeforeCall(currency, page, limit, from, to, _callback);
         Type localVarReturnType = new TypeToken<List<UniInterestRecord>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1031,6 +1039,8 @@ public class EarnUniApi {
         private String currency;
         private Integer page;
         private Integer limit;
+        private Long from;
+        private Long to;
 
         private APIlistUniInterestRecordsRequest() {
         }
@@ -1066,6 +1076,26 @@ public class EarnUniApi {
         }
 
         /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIlistUniInterestRecordsRequest
+         */
+        public APIlistUniInterestRecordsRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIlistUniInterestRecordsRequest
+         */
+        public APIlistUniInterestRecordsRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
          * Build call for listUniInterestRecords
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -1077,7 +1107,7 @@ public class EarnUniApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listUniInterestRecordsCall(currency, page, limit, _callback);
+            return listUniInterestRecordsCall(currency, page, limit, from, to, _callback);
         }
 
         /**
@@ -1091,7 +1121,7 @@ public class EarnUniApi {
          </table>
          */
         public List<UniInterestRecord> execute() throws ApiException {
-            ApiResponse<List<UniInterestRecord>> localVarResp = listUniInterestRecordsWithHttpInfo(currency, page, limit);
+            ApiResponse<List<UniInterestRecord>> localVarResp = listUniInterestRecordsWithHttpInfo(currency, page, limit, from, to);
             return localVarResp.getData();
         }
 
@@ -1106,7 +1136,7 @@ public class EarnUniApi {
          </table>
          */
         public ApiResponse<List<UniInterestRecord>> executeWithHttpInfo() throws ApiException {
-            return listUniInterestRecordsWithHttpInfo(currency, page, limit);
+            return listUniInterestRecordsWithHttpInfo(currency, page, limit, from, to);
         }
 
         /**
@@ -1121,7 +1151,7 @@ public class EarnUniApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniInterestRecord>> _callback) throws ApiException {
-            return listUniInterestRecordsAsync(currency, page, limit, _callback);
+            return listUniInterestRecordsAsync(currency, page, limit, from, to, _callback);
         }
     }
 

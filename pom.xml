@@ -5,7 +5,7 @@
     <artifactId>gate-api</artifactId>
     <packaging>jar</packaging>
     <name>gate-api</name>
-    <version>6.60.1</version>
+    <version>6.78.0</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>Java client for gateapi</description>
     <scm>

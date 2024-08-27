@@ -51,6 +51,10 @@ public class CurrencyChain {
     @SerializedName(SERIALIZED_NAME_IS_WITHDRAW_DISABLED)
     private Integer isWithdrawDisabled;
 
+    public static final String SERIALIZED_NAME_DECIMAL = "decimal";
+    @SerializedName(SERIALIZED_NAME_DECIMAL)
+    private String decimal;
+
 
     public CurrencyChain chain(String chain) {
         
@@ -191,6 +195,26 @@ public class CurrencyChain {
     public void setIsWithdrawDisabled(Integer isWithdrawDisabled) {
         this.isWithdrawDisabled = isWithdrawDisabled;
     }
+
+    public CurrencyChain decimal(String decimal) {
+        
+        this.decimal = decimal;
+        return this;
+    }
+
+     /**
+     * Withdrawal precision
+     * @return decimal
+    **/
+    @javax.annotation.Nullable
+    public String getDecimal() {
+        return decimal;
+    }
+
+
+    public void setDecimal(String decimal) {
+        this.decimal = decimal;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -206,12 +230,13 @@ public class CurrencyChain {
                 Objects.equals(this.contractAddress, currencyChain.contractAddress) &&
                 Objects.equals(this.isDisabled, currencyChain.isDisabled) &&
                 Objects.equals(this.isDepositDisabled, currencyChain.isDepositDisabled) &&
-                Objects.equals(this.isWithdrawDisabled, currencyChain.isWithdrawDisabled);
+                Objects.equals(this.isWithdrawDisabled, currencyChain.isWithdrawDisabled) &&
+                Objects.equals(this.decimal, currencyChain.decimal);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(chain, nameCn, nameEn, contractAddress, isDisabled, isDepositDisabled, isWithdrawDisabled);
+        return Objects.hash(chain, nameCn, nameEn, contractAddress, isDisabled, isDepositDisabled, isWithdrawDisabled, decimal);
     }
 
 
@@ -226,6 +251,7 @@ public class CurrencyChain {
         sb.append("      isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
         sb.append("      isDepositDisabled: ").append(toIndentedString(isDepositDisabled)).append("\n");
         sb.append("      isWithdrawDisabled: ").append(toIndentedString(isWithdrawDisabled)).append("\n");
+        sb.append("      decimal: ").append(toIndentedString(decimal)).append("\n");
         sb.append("}");
         return sb.toString();
     }

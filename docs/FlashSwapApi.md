@@ -74,7 +74,7 @@ No authorization required
 
 <a name="listFlashSwapCurrencyPair"></a>
 # **listFlashSwapCurrencyPair**
-> List&lt;FlashSwapCurrencyPair&gt; listFlashSwapCurrencyPair().currency(currency).execute();
+> List&lt;FlashSwapCurrencyPair&gt; listFlashSwapCurrencyPair().currency(currency).page(page).limit(limit).execute();
 
 List All Supported Currency Pairs In Flash Swap
 
@@ -98,9 +98,13 @@ public class Example {
 
         FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
         String currency = "BTC"; // String | Retrieve data of the specified currency
+        Integer page = 1; // Integer | Page number
+        Integer limit = 1000; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 1000
         try {
             List<FlashSwapCurrencyPair> result = apiInstance.listFlashSwapCurrencyPair()
                         .currency(currency)
+                        .page(page)
+                        .limit(limit)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -121,6 +125,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**| Retrieve data of the specified currency | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 | [optional] [default to 1000]
 
 ### Return type
 

@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**listDualInvestmentPlans**](EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 [**listDualOrders**](EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
 [**placeDualOrder**](EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
-[**cancelDualOrder**](EarnApi.md#cancelDualOrder) | **DELETE** /earn/dual/orders/{order_id} | Cancel Dual Investment order
 [**listStructuredProducts**](EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List
 [**listStructuredOrders**](EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List
 [**placeStructuredOrder**](EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
@@ -272,76 +271,9 @@ null (empty response body)
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 
-<a name="cancelDualOrder"></a>
-# **cancelDualOrder**
-> cancelDualOrder(orderId)
-
-Cancel Dual Investment order
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.EarnApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        EarnApi apiInstance = new EarnApi(defaultClient);
-        Integer orderId = 1; // Integer | Order ID
-        try {
-            apiInstance.cancelDualOrder(orderId);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnApi#cancelDualOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **Integer**| Order ID |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Cancel success |  -  |
-
 <a name="listStructuredProducts"></a>
 # **listStructuredProducts**
-> List&lt;StructuredGetProjectList&gt; listStructuredProducts(structuredGetProjectListRequest)
+> List&lt;StructuredGetProjectList&gt; listStructuredProducts(status).type(type).page(page).limit(limit).execute();
 
 Structured Product List
 
@@ -362,9 +294,16 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
-        StructuredGetProjectListRequest structuredGetProjectListRequest = new StructuredGetProjectListRequest(); // StructuredGetProjectListRequest | 
+        String status = "in_process"; // String | Status (default: all)  `in_process`-processing  `will_begin`-unstarted  `wait_settlement`-unsettled  `done`-finish
+        String type = "BullishSharkFin"; // String | Product Type (default all)  `SharkFin2.0`-SharkFin  `BullishSharkFin`-BullishSharkFin  `BearishSharkFin`-BearishSharkFin `DoubleNoTouch`-DoubleNoTouch `RangeAccrual`-RangeAccrual `SnowBall`-SnowBall
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
-            List<StructuredGetProjectList> result = apiInstance.listStructuredProducts(structuredGetProjectListRequest);
+            List<StructuredGetProjectList> result = apiInstance.listStructuredProducts(status)
+                        .type(type)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -383,7 +322,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **structuredGetProjectListRequest** | [**StructuredGetProjectListRequest**](StructuredGetProjectListRequest.md)|  |
+ **status** | **String**| Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish |
+ **type** | **String**| Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -395,7 +337,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -405,7 +347,7 @@ No authorization required
 
 <a name="listStructuredOrders"></a>
 # **listStructuredOrders**
-> List&lt;StructuredOrderList&gt; listStructuredOrders(structuredOrderListRequest)
+> List&lt;StructuredOrderList&gt; listStructuredOrders().from(from).to(to).page(page).limit(limit).execute();
 
 Structured Product Order List
 
@@ -430,9 +372,17 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
-        StructuredOrderListRequest structuredOrderListRequest = new StructuredOrderListRequest(); // StructuredOrderListRequest | 
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
-            List<StructuredOrderList> result = apiInstance.listStructuredOrders(structuredOrderListRequest);
+            List<StructuredOrderList> result = apiInstance.listStructuredOrders()
+                        .from(from)
+                        .to(to)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -451,7 +401,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **structuredOrderListRequest** | [**StructuredOrderListRequest**](StructuredOrderListRequest.md)|  |
+ **from** | **Long**| Start timestamp | [optional]
+ **to** | **Long**| End timestamp | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -463,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

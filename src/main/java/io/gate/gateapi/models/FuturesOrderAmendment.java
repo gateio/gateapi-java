@@ -35,6 +35,14 @@ public class FuturesOrderAmendment {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
+    public static final String SERIALIZED_NAME_BIZ_INFO = "biz_info";
+    @SerializedName(SERIALIZED_NAME_BIZ_INFO)
+    private String bizInfo;
+
+    public static final String SERIALIZED_NAME_BBO = "bbo";
+    @SerializedName(SERIALIZED_NAME_BBO)
+    private String bbo;
+
 
     public FuturesOrderAmendment size(Long size) {
         
@@ -95,6 +103,46 @@ public class FuturesOrderAmendment {
     public void setAmendText(String amendText) {
         this.amendText = amendText;
     }
+
+    public FuturesOrderAmendment bizInfo(String bizInfo) {
+        
+        this.bizInfo = bizInfo;
+        return this;
+    }
+
+     /**
+     * Users can annotate this modification with information.
+     * @return bizInfo
+    **/
+    @javax.annotation.Nullable
+    public String getBizInfo() {
+        return bizInfo;
+    }
+
+
+    public void setBizInfo(String bizInfo) {
+        this.bizInfo = bizInfo;
+    }
+
+    public FuturesOrderAmendment bbo(String bbo) {
+        
+        this.bbo = bbo;
+        return this;
+    }
+
+     /**
+     * Users are able to modify the offer price manually.
+     * @return bbo
+    **/
+    @javax.annotation.Nullable
+    public String getBbo() {
+        return bbo;
+    }
+
+
+    public void setBbo(String bbo) {
+        this.bbo = bbo;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -106,12 +154,14 @@ public class FuturesOrderAmendment {
         FuturesOrderAmendment futuresOrderAmendment = (FuturesOrderAmendment) o;
         return Objects.equals(this.size, futuresOrderAmendment.size) &&
                 Objects.equals(this.price, futuresOrderAmendment.price) &&
-                Objects.equals(this.amendText, futuresOrderAmendment.amendText);
+                Objects.equals(this.amendText, futuresOrderAmendment.amendText) &&
+                Objects.equals(this.bizInfo, futuresOrderAmendment.bizInfo) &&
+                Objects.equals(this.bbo, futuresOrderAmendment.bbo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, price, amendText);
+        return Objects.hash(size, price, amendText, bizInfo, bbo);
     }
 
 
@@ -122,6 +172,8 @@ public class FuturesOrderAmendment {
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
+        sb.append("      bizInfo: ").append(toIndentedString(bizInfo)).append("\n");
+        sb.append("      bbo: ").append(toIndentedString(bbo)).append("\n");
         sb.append("}");
         return sb.toString();
     }

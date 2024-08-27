@@ -22,6 +22,12 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.AgencyCommissionHistory;
 import io.gate.gateapi.models.AgencyTransactionHistory;
+import io.gate.gateapi.models.BrokerCommission;
+import io.gate.gateapi.models.BrokerTransaction;
+import io.gate.gateapi.models.PartnerCommissionHistory;
+import io.gate.gateapi.models.PartnerSubList;
+import io.gate.gateapi.models.PartnerTransactionHistory;
+import io.gate.gateapi.models.RebateUserInfo;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -48,7 +54,7 @@ public class RebateApi {
         this.localVarApiClient = apiClient;
     }
 
-    private okhttp3.Call agencyTransactionHistoryCall(String currencyPair, String userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call agencyTransactionHistoryCall(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -102,19 +108,19 @@ public class RebateApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call agencyTransactionHistoryValidateBeforeCall(String currencyPair, String userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call agencyTransactionHistoryValidateBeforeCall(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = agencyTransactionHistoryCall(currencyPair, userId, from, to, limit, offset, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<AgencyTransactionHistory>> agencyTransactionHistoryWithHttpInfo(String currencyPair, String userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+    private ApiResponse<List<AgencyTransactionHistory>> agencyTransactionHistoryWithHttpInfo(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
         okhttp3.Call localVarCall = agencyTransactionHistoryValidateBeforeCall(currencyPair, userId, from, to, limit, offset, null);
         Type localVarReturnType = new TypeToken<List<AgencyTransactionHistory>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call agencyTransactionHistoryAsync(String currencyPair, String userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<AgencyTransactionHistory>> _callback) throws ApiException {
+    private okhttp3.Call agencyTransactionHistoryAsync(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<AgencyTransactionHistory>> _callback) throws ApiException {
         okhttp3.Call localVarCall = agencyTransactionHistoryValidateBeforeCall(currencyPair, userId, from, to, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<List<AgencyTransactionHistory>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -123,7 +129,7 @@ public class RebateApi {
 
     public class APIagencyTransactionHistoryRequest {
         private String currencyPair;
-        private String userId;
+        private Long userId;
         private Long from;
         private Long to;
         private Integer limit;
@@ -147,7 +153,7 @@ public class RebateApi {
          * @param userId User ID. If not specified, all user records will be returned (optional)
          * @return APIagencyTransactionHistoryRequest
          */
-        public APIagencyTransactionHistoryRequest userId(String userId) {
+        public APIagencyTransactionHistoryRequest userId(Long userId) {
             this.userId = userId;
             return this;
         }
@@ -253,7 +259,7 @@ public class RebateApi {
     }
 
     /**
-     * The broker obtains the transaction history of the recommended user
+     * The agency obtains the transaction history of the recommended user
      * Record time range cannot exceed 30 days
      * @return APIagencyTransactionHistoryRequest
      * @http.response.details
@@ -266,7 +272,7 @@ public class RebateApi {
         return new APIagencyTransactionHistoryRequest();
     }
 
-    private okhttp3.Call agencyCommissionsHistoryCall(String currency, String userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call agencyCommissionsHistoryCall(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -320,19 +326,19 @@ public class RebateApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call agencyCommissionsHistoryValidateBeforeCall(String currency, String userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call agencyCommissionsHistoryValidateBeforeCall(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = agencyCommissionsHistoryCall(currency, userId, from, to, limit, offset, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<AgencyCommissionHistory>> agencyCommissionsHistoryWithHttpInfo(String currency, String userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+    private ApiResponse<List<AgencyCommissionHistory>> agencyCommissionsHistoryWithHttpInfo(String currency, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
         okhttp3.Call localVarCall = agencyCommissionsHistoryValidateBeforeCall(currency, userId, from, to, limit, offset, null);
         Type localVarReturnType = new TypeToken<List<AgencyCommissionHistory>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call agencyCommissionsHistoryAsync(String currency, String userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<AgencyCommissionHistory>> _callback) throws ApiException {
+    private okhttp3.Call agencyCommissionsHistoryAsync(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<AgencyCommissionHistory>> _callback) throws ApiException {
         okhttp3.Call localVarCall = agencyCommissionsHistoryValidateBeforeCall(currency, userId, from, to, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<List<AgencyCommissionHistory>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -341,7 +347,7 @@ public class RebateApi {
 
     public class APIagencyCommissionsHistoryRequest {
         private String currency;
-        private String userId;
+        private Long userId;
         private Long from;
         private Long to;
         private Integer limit;
@@ -365,7 +371,7 @@ public class RebateApi {
          * @param userId User ID. If not specified, all user records will be returned (optional)
          * @return APIagencyCommissionsHistoryRequest
          */
-        public APIagencyCommissionsHistoryRequest userId(String userId) {
+        public APIagencyCommissionsHistoryRequest userId(Long userId) {
             this.userId = userId;
             return this;
         }
@@ -471,7 +477,7 @@ public class RebateApi {
     }
 
     /**
-     * The broker obtains the commission history of the recommended user
+     * The agency obtains the commission history of the recommended user
      * Record time range cannot exceed 30 days
      * @return APIagencyCommissionsHistoryRequest
      * @http.response.details
@@ -482,6 +488,1119 @@ public class RebateApi {
      */
     public APIagencyCommissionsHistoryRequest agencyCommissionsHistory() {
         return new APIagencyCommissionsHistoryRequest();
+    }
+
+    private okhttp3.Call partnerTransactionHistoryCall(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/partner/transaction_history";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencyPair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_id", userId));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call partnerTransactionHistoryValidateBeforeCall(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = partnerTransactionHistoryCall(currencyPair, userId, from, to, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<PartnerTransactionHistory>> partnerTransactionHistoryWithHttpInfo(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = partnerTransactionHistoryValidateBeforeCall(currencyPair, userId, from, to, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<PartnerTransactionHistory>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call partnerTransactionHistoryAsync(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<PartnerTransactionHistory>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = partnerTransactionHistoryValidateBeforeCall(currencyPair, userId, from, to, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<PartnerTransactionHistory>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpartnerTransactionHistoryRequest {
+        private String currencyPair;
+        private Long userId;
+        private Long from;
+        private Long to;
+        private Integer limit;
+        private Integer offset;
+
+        private APIpartnerTransactionHistoryRequest() {
+        }
+
+        /**
+         * Set currencyPair
+         * @param currencyPair Specify the currency pair, if not specified, return all currency pairs (optional)
+         * @return APIpartnerTransactionHistoryRequest
+         */
+        public APIpartnerTransactionHistoryRequest currencyPair(String currencyPair) {
+            this.currencyPair = currencyPair;
+            return this;
+        }
+
+        /**
+         * Set userId
+         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @return APIpartnerTransactionHistoryRequest
+         */
+        public APIpartnerTransactionHistoryRequest userId(Long userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @return APIpartnerTransactionHistoryRequest
+         */
+        public APIpartnerTransactionHistoryRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Time range ending, default to current time (optional)
+         * @return APIpartnerTransactionHistoryRequest
+         */
+        public APIpartnerTransactionHistoryRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIpartnerTransactionHistoryRequest
+         */
+        public APIpartnerTransactionHistoryRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIpartnerTransactionHistoryRequest
+         */
+        public APIpartnerTransactionHistoryRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for partnerTransactionHistory
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return partnerTransactionHistoryCall(currencyPair, userId, from, to, limit, offset, _callback);
+        }
+
+        /**
+         * Execute partnerTransactionHistory request
+         * @return List&lt;PartnerTransactionHistory&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<PartnerTransactionHistory> execute() throws ApiException {
+            ApiResponse<List<PartnerTransactionHistory>> localVarResp = partnerTransactionHistoryWithHttpInfo(currencyPair, userId, from, to, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute partnerTransactionHistory request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;PartnerTransactionHistory&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<PartnerTransactionHistory>> executeWithHttpInfo() throws ApiException {
+            return partnerTransactionHistoryWithHttpInfo(currencyPair, userId, from, to, limit, offset);
+        }
+
+        /**
+         * Execute partnerTransactionHistory request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<PartnerTransactionHistory>> _callback) throws ApiException {
+            return partnerTransactionHistoryAsync(currencyPair, userId, from, to, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * Partner obtains transaction records of recommended users
+     * Record time range cannot exceed 30 days
+     * @return APIpartnerTransactionHistoryRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpartnerTransactionHistoryRequest partnerTransactionHistory() {
+        return new APIpartnerTransactionHistoryRequest();
+    }
+
+    private okhttp3.Call partnerCommissionsHistoryCall(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/partner/commission_history";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_id", userId));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call partnerCommissionsHistoryValidateBeforeCall(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = partnerCommissionsHistoryCall(currency, userId, from, to, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<PartnerCommissionHistory>> partnerCommissionsHistoryWithHttpInfo(String currency, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = partnerCommissionsHistoryValidateBeforeCall(currency, userId, from, to, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<PartnerCommissionHistory>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call partnerCommissionsHistoryAsync(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<PartnerCommissionHistory>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = partnerCommissionsHistoryValidateBeforeCall(currency, userId, from, to, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<PartnerCommissionHistory>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpartnerCommissionsHistoryRequest {
+        private String currency;
+        private Long userId;
+        private Long from;
+        private Long to;
+        private Integer limit;
+        private Integer offset;
+
+        private APIpartnerCommissionsHistoryRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency Filter by currency. Return all currency records if not specified (optional)
+         * @return APIpartnerCommissionsHistoryRequest
+         */
+        public APIpartnerCommissionsHistoryRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set userId
+         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @return APIpartnerCommissionsHistoryRequest
+         */
+        public APIpartnerCommissionsHistoryRequest userId(Long userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @return APIpartnerCommissionsHistoryRequest
+         */
+        public APIpartnerCommissionsHistoryRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Time range ending, default to current time (optional)
+         * @return APIpartnerCommissionsHistoryRequest
+         */
+        public APIpartnerCommissionsHistoryRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIpartnerCommissionsHistoryRequest
+         */
+        public APIpartnerCommissionsHistoryRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIpartnerCommissionsHistoryRequest
+         */
+        public APIpartnerCommissionsHistoryRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for partnerCommissionsHistory
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return partnerCommissionsHistoryCall(currency, userId, from, to, limit, offset, _callback);
+        }
+
+        /**
+         * Execute partnerCommissionsHistory request
+         * @return List&lt;PartnerCommissionHistory&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<PartnerCommissionHistory> execute() throws ApiException {
+            ApiResponse<List<PartnerCommissionHistory>> localVarResp = partnerCommissionsHistoryWithHttpInfo(currency, userId, from, to, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute partnerCommissionsHistory request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;PartnerCommissionHistory&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<PartnerCommissionHistory>> executeWithHttpInfo() throws ApiException {
+            return partnerCommissionsHistoryWithHttpInfo(currency, userId, from, to, limit, offset);
+        }
+
+        /**
+         * Execute partnerCommissionsHistory request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<PartnerCommissionHistory>> _callback) throws ApiException {
+            return partnerCommissionsHistoryAsync(currency, userId, from, to, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * Partner obtains commission records of recommended users
+     * Record time range cannot exceed 30 days
+     * @return APIpartnerCommissionsHistoryRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpartnerCommissionsHistoryRequest partnerCommissionsHistory() {
+        return new APIpartnerCommissionsHistoryRequest();
+    }
+
+    private okhttp3.Call partnerSubListCall(Long userId, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/partner/sub_list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_id", userId));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call partnerSubListValidateBeforeCall(Long userId, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = partnerSubListCall(userId, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<PartnerSubList>> partnerSubListWithHttpInfo(Long userId, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = partnerSubListValidateBeforeCall(userId, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<PartnerSubList>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call partnerSubListAsync(Long userId, Integer limit, Integer offset, final ApiCallback<List<PartnerSubList>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = partnerSubListValidateBeforeCall(userId, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<PartnerSubList>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpartnerSubListRequest {
+        private Long userId;
+        private Integer limit;
+        private Integer offset;
+
+        private APIpartnerSubListRequest() {
+        }
+
+        /**
+         * Set userId
+         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @return APIpartnerSubListRequest
+         */
+        public APIpartnerSubListRequest userId(Long userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIpartnerSubListRequest
+         */
+        public APIpartnerSubListRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIpartnerSubListRequest
+         */
+        public APIpartnerSubListRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for partnerSubList
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return partnerSubListCall(userId, limit, offset, _callback);
+        }
+
+        /**
+         * Execute partnerSubList request
+         * @return List&lt;PartnerSubList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<PartnerSubList> execute() throws ApiException {
+            ApiResponse<List<PartnerSubList>> localVarResp = partnerSubListWithHttpInfo(userId, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute partnerSubList request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;PartnerSubList&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<PartnerSubList>> executeWithHttpInfo() throws ApiException {
+            return partnerSubListWithHttpInfo(userId, limit, offset);
+        }
+
+        /**
+         * Execute partnerSubList request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<PartnerSubList>> _callback) throws ApiException {
+            return partnerSubListAsync(userId, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * Partner subordinate list
+     * Including sub-agents, direct customers, indirect customers
+     * @return APIpartnerSubListRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpartnerSubListRequest partnerSubList() {
+        return new APIpartnerSubListRequest();
+    }
+
+    private okhttp3.Call rebateBrokerCommissionHistoryCall(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/broker/commission_history";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_id", userId));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rebateBrokerCommissionHistoryValidateBeforeCall(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = rebateBrokerCommissionHistoryCall(limit, offset, userId, from, to, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<BrokerCommission>> rebateBrokerCommissionHistoryWithHttpInfo(Integer limit, Integer offset, Long userId, Long from, Long to) throws ApiException {
+        okhttp3.Call localVarCall = rebateBrokerCommissionHistoryValidateBeforeCall(limit, offset, userId, from, to, null);
+        Type localVarReturnType = new TypeToken<List<BrokerCommission>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call rebateBrokerCommissionHistoryAsync(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback<List<BrokerCommission>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = rebateBrokerCommissionHistoryValidateBeforeCall(limit, offset, userId, from, to, _callback);
+        Type localVarReturnType = new TypeToken<List<BrokerCommission>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIrebateBrokerCommissionHistoryRequest {
+        private Integer limit;
+        private Integer offset;
+        private Long userId;
+        private Long from;
+        private Long to;
+
+        private APIrebateBrokerCommissionHistoryRequest() {
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIrebateBrokerCommissionHistoryRequest
+         */
+        public APIrebateBrokerCommissionHistoryRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIrebateBrokerCommissionHistoryRequest
+         */
+        public APIrebateBrokerCommissionHistoryRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set userId
+         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @return APIrebateBrokerCommissionHistoryRequest
+         */
+        public APIrebateBrokerCommissionHistoryRequest userId(Long userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
+         * @return APIrebateBrokerCommissionHistoryRequest
+         */
+        public APIrebateBrokerCommissionHistoryRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Time range ending, default to current time (optional)
+         * @return APIrebateBrokerCommissionHistoryRequest
+         */
+        public APIrebateBrokerCommissionHistoryRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Build call for rebateBrokerCommissionHistory
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return rebateBrokerCommissionHistoryCall(limit, offset, userId, from, to, _callback);
+        }
+
+        /**
+         * Execute rebateBrokerCommissionHistory request
+         * @return List&lt;BrokerCommission&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<BrokerCommission> execute() throws ApiException {
+            ApiResponse<List<BrokerCommission>> localVarResp = rebateBrokerCommissionHistoryWithHttpInfo(limit, offset, userId, from, to);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute rebateBrokerCommissionHistory request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;BrokerCommission&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<BrokerCommission>> executeWithHttpInfo() throws ApiException {
+            return rebateBrokerCommissionHistoryWithHttpInfo(limit, offset, userId, from, to);
+        }
+
+        /**
+         * Execute rebateBrokerCommissionHistory request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<BrokerCommission>> _callback) throws ApiException {
+            return rebateBrokerCommissionHistoryAsync(limit, offset, userId, from, to, _callback);
+        }
+    }
+
+    /**
+     * The broker obtains the user&#39;s commission rebate records
+     * Record time range cannot exceed 30 days
+     * @return APIrebateBrokerCommissionHistoryRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIrebateBrokerCommissionHistoryRequest rebateBrokerCommissionHistory() {
+        return new APIrebateBrokerCommissionHistoryRequest();
+    }
+
+    private okhttp3.Call rebateBrokerTransactionHistoryCall(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/broker/transaction_history";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_id", userId));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rebateBrokerTransactionHistoryValidateBeforeCall(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = rebateBrokerTransactionHistoryCall(limit, offset, userId, from, to, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<BrokerTransaction>> rebateBrokerTransactionHistoryWithHttpInfo(Integer limit, Integer offset, Long userId, Long from, Long to) throws ApiException {
+        okhttp3.Call localVarCall = rebateBrokerTransactionHistoryValidateBeforeCall(limit, offset, userId, from, to, null);
+        Type localVarReturnType = new TypeToken<List<BrokerTransaction>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call rebateBrokerTransactionHistoryAsync(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback<List<BrokerTransaction>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = rebateBrokerTransactionHistoryValidateBeforeCall(limit, offset, userId, from, to, _callback);
+        Type localVarReturnType = new TypeToken<List<BrokerTransaction>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIrebateBrokerTransactionHistoryRequest {
+        private Integer limit;
+        private Integer offset;
+        private Long userId;
+        private Long from;
+        private Long to;
+
+        private APIrebateBrokerTransactionHistoryRequest() {
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIrebateBrokerTransactionHistoryRequest
+         */
+        public APIrebateBrokerTransactionHistoryRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIrebateBrokerTransactionHistoryRequest
+         */
+        public APIrebateBrokerTransactionHistoryRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set userId
+         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @return APIrebateBrokerTransactionHistoryRequest
+         */
+        public APIrebateBrokerTransactionHistoryRequest userId(Long userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)
+         * @return APIrebateBrokerTransactionHistoryRequest
+         */
+        public APIrebateBrokerTransactionHistoryRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Time range ending, default to current time (optional)
+         * @return APIrebateBrokerTransactionHistoryRequest
+         */
+        public APIrebateBrokerTransactionHistoryRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Build call for rebateBrokerTransactionHistory
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return rebateBrokerTransactionHistoryCall(limit, offset, userId, from, to, _callback);
+        }
+
+        /**
+         * Execute rebateBrokerTransactionHistory request
+         * @return List&lt;BrokerTransaction&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<BrokerTransaction> execute() throws ApiException {
+            ApiResponse<List<BrokerTransaction>> localVarResp = rebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId, from, to);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute rebateBrokerTransactionHistory request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;BrokerTransaction&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<BrokerTransaction>> executeWithHttpInfo() throws ApiException {
+            return rebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId, from, to);
+        }
+
+        /**
+         * Execute rebateBrokerTransactionHistory request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<BrokerTransaction>> _callback) throws ApiException {
+            return rebateBrokerTransactionHistoryAsync(limit, offset, userId, from, to, _callback);
+        }
+    }
+
+    /**
+     * The broker obtains the user&#39;s trading history
+     * Record time range cannot exceed 30 days
+     * @return APIrebateBrokerTransactionHistoryRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIrebateBrokerTransactionHistoryRequest rebateBrokerTransactionHistory() {
+        return new APIrebateBrokerTransactionHistoryRequest();
+    }
+
+    /**
+     * Build call for rebateUserInfo
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rebateUserInfoCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/user/info";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rebateUserInfoValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = rebateUserInfoCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * User retrieves rebate information
+     * 
+     * @return List&lt;RebateUserInfo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<RebateUserInfo> rebateUserInfo() throws ApiException {
+        ApiResponse<List<RebateUserInfo>> localVarResp = rebateUserInfoWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * User retrieves rebate information
+     * 
+     * @return ApiResponse&lt;List&lt;RebateUserInfo&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<RebateUserInfo>> rebateUserInfoWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = rebateUserInfoValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<RebateUserInfo>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * User retrieves rebate information (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rebateUserInfoAsync(final ApiCallback<List<RebateUserInfo>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = rebateUserInfoValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<RebateUserInfo>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
 }

@@ -863,7 +863,7 @@ public class MarginUniApi {
         return new APIlistUniLoanRecordsRequest();
     }
 
-    private okhttp3.Call listUniLoanInterestRecordsCall(String currencyPair, String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUniLoanInterestRecordsCall(String currencyPair, String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -885,6 +885,14 @@ public class MarginUniApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -909,20 +917,20 @@ public class MarginUniApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUniLoanInterestRecordsValidateBeforeCall(String currencyPair, String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUniLoanInterestRecordsCall(currencyPair, currency, page, limit, _callback);
+    private okhttp3.Call listUniLoanInterestRecordsValidateBeforeCall(String currencyPair, String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUniLoanInterestRecordsCall(currencyPair, currency, page, limit, from, to, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<UniLoanInterestRecord>> listUniLoanInterestRecordsWithHttpInfo(String currencyPair, String currency, Integer page, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listUniLoanInterestRecordsValidateBeforeCall(currencyPair, currency, page, limit, null);
+    private ApiResponse<List<UniLoanInterestRecord>> listUniLoanInterestRecordsWithHttpInfo(String currencyPair, String currency, Integer page, Integer limit, Long from, Long to) throws ApiException {
+        okhttp3.Call localVarCall = listUniLoanInterestRecordsValidateBeforeCall(currencyPair, currency, page, limit, from, to, null);
         Type localVarReturnType = new TypeToken<List<UniLoanInterestRecord>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listUniLoanInterestRecordsAsync(String currencyPair, String currency, Integer page, Integer limit, final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUniLoanInterestRecordsValidateBeforeCall(currencyPair, currency, page, limit, _callback);
+    private okhttp3.Call listUniLoanInterestRecordsAsync(String currencyPair, String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUniLoanInterestRecordsValidateBeforeCall(currencyPair, currency, page, limit, from, to, _callback);
         Type localVarReturnType = new TypeToken<List<UniLoanInterestRecord>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -933,6 +941,8 @@ public class MarginUniApi {
         private String currency;
         private Integer page;
         private Integer limit;
+        private Long from;
+        private Long to;
 
         private APIlistUniLoanInterestRecordsRequest() {
         }
@@ -969,11 +979,31 @@ public class MarginUniApi {
 
         /**
          * Set limit
-         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
          * @return APIlistUniLoanInterestRecordsRequest
          */
         public APIlistUniLoanInterestRecordsRequest limit(Integer limit) {
             this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp (optional)
+         * @return APIlistUniLoanInterestRecordsRequest
+         */
+        public APIlistUniLoanInterestRecordsRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End timestamp (optional)
+         * @return APIlistUniLoanInterestRecordsRequest
+         */
+        public APIlistUniLoanInterestRecordsRequest to(Long to) {
+            this.to = to;
             return this;
         }
 
@@ -989,7 +1019,7 @@ public class MarginUniApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listUniLoanInterestRecordsCall(currencyPair, currency, page, limit, _callback);
+            return listUniLoanInterestRecordsCall(currencyPair, currency, page, limit, from, to, _callback);
         }
 
         /**
@@ -1003,7 +1033,7 @@ public class MarginUniApi {
          </table>
          */
         public List<UniLoanInterestRecord> execute() throws ApiException {
-            ApiResponse<List<UniLoanInterestRecord>> localVarResp = listUniLoanInterestRecordsWithHttpInfo(currencyPair, currency, page, limit);
+            ApiResponse<List<UniLoanInterestRecord>> localVarResp = listUniLoanInterestRecordsWithHttpInfo(currencyPair, currency, page, limit, from, to);
             return localVarResp.getData();
         }
 
@@ -1018,7 +1048,7 @@ public class MarginUniApi {
          </table>
          */
         public ApiResponse<List<UniLoanInterestRecord>> executeWithHttpInfo() throws ApiException {
-            return listUniLoanInterestRecordsWithHttpInfo(currencyPair, currency, page, limit);
+            return listUniLoanInterestRecordsWithHttpInfo(currencyPair, currency, page, limit, from, to);
         }
 
         /**
@@ -1033,7 +1063,7 @@ public class MarginUniApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
-            return listUniLoanInterestRecordsAsync(currencyPair, currency, page, limit, _callback);
+            return listUniLoanInterestRecordsAsync(currencyPair, currency, page, limit, from, to, _callback);
         }
     }
 

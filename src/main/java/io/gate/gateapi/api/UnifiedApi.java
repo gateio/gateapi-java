@@ -24,9 +24,15 @@ import io.gate.gateapi.models.UniLoan;
 import io.gate.gateapi.models.UniLoanInterestRecord;
 import io.gate.gateapi.models.UnifiedAccount;
 import io.gate.gateapi.models.UnifiedBorrowable;
+import io.gate.gateapi.models.UnifiedDiscount;
 import io.gate.gateapi.models.UnifiedLoan;
 import io.gate.gateapi.models.UnifiedLoanRecord;
+import io.gate.gateapi.models.UnifiedMarginTiers;
 import io.gate.gateapi.models.UnifiedMode;
+import io.gate.gateapi.models.UnifiedModeSet;
+import io.gate.gateapi.models.UnifiedPortfolioInput;
+import io.gate.gateapi.models.UnifiedPortfolioOutput;
+import io.gate.gateapi.models.UnifiedRiskUnits;
 import io.gate.gateapi.models.UnifiedTransferable;
 
 import java.lang.reflect.Type;
@@ -207,7 +213,9 @@ public class UnifiedApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listUnifiedAccountModeCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -237,6 +245,7 @@ public class UnifiedApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUnifiedAccountModeValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = listUnifiedAccountModeCall(_callback);
@@ -244,8 +253,8 @@ public class UnifiedApi {
     }
 
     /**
-     * Query mode of the unified account
-     * cross_margin - cross margin, usdt_futures - usdt futures
+     * Inquire about unified account mode (deprecated)
+     * cross_margin - Spot full-margin trading, usdt_futures - USDT perpetual futures
      * @return Map&lt;String, Boolean&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -253,15 +262,17 @@ public class UnifiedApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public Map<String, Boolean> listUnifiedAccountMode() throws ApiException {
         ApiResponse<Map<String, Boolean>> localVarResp = listUnifiedAccountModeWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * Query mode of the unified account
-     * cross_margin - cross margin, usdt_futures - usdt futures
+     * Inquire about unified account mode (deprecated)
+     * cross_margin - Spot full-margin trading, usdt_futures - USDT perpetual futures
      * @return ApiResponse&lt;Map&lt;String, Boolean&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -269,7 +280,9 @@ public class UnifiedApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Map<String, Boolean>> listUnifiedAccountModeWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listUnifiedAccountModeValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<Map<String, Boolean>>(){}.getType();
@@ -277,8 +290,8 @@ public class UnifiedApi {
     }
 
     /**
-     * Query mode of the unified account (asynchronously)
-     * cross_margin - cross margin, usdt_futures - usdt futures
+     * Inquire about unified account mode (deprecated) (asynchronously)
+     * cross_margin - Spot full-margin trading, usdt_futures - USDT perpetual futures
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -287,7 +300,9 @@ public class UnifiedApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listUnifiedAccountModeAsync(final ApiCallback<Map<String, Boolean>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listUnifiedAccountModeValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<Map<String, Boolean>>(){}.getType();
@@ -306,7 +321,9 @@ public class UnifiedApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call setUnifiedAccountModeCall(UnifiedMode unifiedMode, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = unifiedMode;
 
@@ -336,6 +353,7 @@ public class UnifiedApi {
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call setUnifiedAccountModeValidateBeforeCall(UnifiedMode unifiedMode, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'unifiedMode' is set
@@ -348,7 +366,7 @@ public class UnifiedApi {
     }
 
     /**
-     * Set mode of the unified account
+     * Set unified account mode (deprecated)
      * 
      * @param unifiedMode  (required)
      * @return Map&lt;String, Boolean&gt;
@@ -358,14 +376,16 @@ public class UnifiedApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public Map<String, Boolean> setUnifiedAccountMode(UnifiedMode unifiedMode) throws ApiException {
         ApiResponse<Map<String, Boolean>> localVarResp = setUnifiedAccountModeWithHttpInfo(unifiedMode);
         return localVarResp.getData();
     }
 
     /**
-     * Set mode of the unified account
+     * Set unified account mode (deprecated)
      * 
      * @param unifiedMode  (required)
      * @return ApiResponse&lt;Map&lt;String, Boolean&gt;&gt;
@@ -375,7 +395,9 @@ public class UnifiedApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Map<String, Boolean>> setUnifiedAccountModeWithHttpInfo(UnifiedMode unifiedMode) throws ApiException {
         okhttp3.Call localVarCall = setUnifiedAccountModeValidateBeforeCall(unifiedMode, null);
         Type localVarReturnType = new TypeToken<Map<String, Boolean>>(){}.getType();
@@ -383,7 +405,7 @@ public class UnifiedApi {
     }
 
     /**
-     * Set mode of the unified account (asynchronously)
+     * Set unified account mode (deprecated) (asynchronously)
      * 
      * @param unifiedMode  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -394,7 +416,9 @@ public class UnifiedApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call setUnifiedAccountModeAsync(UnifiedMode unifiedMode, final ApiCallback<Map<String, Boolean>> _callback) throws ApiException {
         okhttp3.Call localVarCall = setUnifiedAccountModeValidateBeforeCall(unifiedMode, _callback);
         Type localVarReturnType = new TypeToken<Map<String, Boolean>>(){}.getType();
@@ -624,7 +648,7 @@ public class UnifiedApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listUnifiedLoansCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUnifiedLoansCall(String currency, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -642,6 +666,10 @@ public class UnifiedApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -666,20 +694,20 @@ public class UnifiedApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUnifiedLoansValidateBeforeCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedLoansCall(currency, page, limit, _callback);
+    private okhttp3.Call listUnifiedLoansValidateBeforeCall(String currency, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedLoansCall(currency, page, limit, type, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<UniLoan>> listUnifiedLoansWithHttpInfo(String currency, Integer page, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedLoansValidateBeforeCall(currency, page, limit, null);
+    private ApiResponse<List<UniLoan>> listUnifiedLoansWithHttpInfo(String currency, Integer page, Integer limit, String type) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedLoansValidateBeforeCall(currency, page, limit, type, null);
         Type localVarReturnType = new TypeToken<List<UniLoan>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listUnifiedLoansAsync(String currency, Integer page, Integer limit, final ApiCallback<List<UniLoan>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedLoansValidateBeforeCall(currency, page, limit, _callback);
+    private okhttp3.Call listUnifiedLoansAsync(String currency, Integer page, Integer limit, String type, final ApiCallback<List<UniLoan>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedLoansValidateBeforeCall(currency, page, limit, type, _callback);
         Type localVarReturnType = new TypeToken<List<UniLoan>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -689,6 +717,7 @@ public class UnifiedApi {
         private String currency;
         private Integer page;
         private Integer limit;
+        private String type;
 
         private APIlistUnifiedLoansRequest() {
         }
@@ -724,6 +753,16 @@ public class UnifiedApi {
         }
 
         /**
+         * Set type
+         * @param type Loan type, platform - platform, margin - margin (optional)
+         * @return APIlistUnifiedLoansRequest
+         */
+        public APIlistUnifiedLoansRequest type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
          * Build call for listUnifiedLoans
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -735,7 +774,7 @@ public class UnifiedApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listUnifiedLoansCall(currency, page, limit, _callback);
+            return listUnifiedLoansCall(currency, page, limit, type, _callback);
         }
 
         /**
@@ -749,7 +788,7 @@ public class UnifiedApi {
          </table>
          */
         public List<UniLoan> execute() throws ApiException {
-            ApiResponse<List<UniLoan>> localVarResp = listUnifiedLoansWithHttpInfo(currency, page, limit);
+            ApiResponse<List<UniLoan>> localVarResp = listUnifiedLoansWithHttpInfo(currency, page, limit, type);
             return localVarResp.getData();
         }
 
@@ -764,7 +803,7 @@ public class UnifiedApi {
          </table>
          */
         public ApiResponse<List<UniLoan>> executeWithHttpInfo() throws ApiException {
-            return listUnifiedLoansWithHttpInfo(currency, page, limit);
+            return listUnifiedLoansWithHttpInfo(currency, page, limit, type);
         }
 
         /**
@@ -779,7 +818,7 @@ public class UnifiedApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLoan>> _callback) throws ApiException {
-            return listUnifiedLoansAsync(currency, page, limit, _callback);
+            return listUnifiedLoansAsync(currency, page, limit, type, _callback);
         }
     }
 
@@ -1088,7 +1127,7 @@ public class UnifiedApi {
         return new APIlistUnifiedLoanRecordsRequest();
     }
 
-    private okhttp3.Call listUnifiedLoanInterestRecordsCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUnifiedLoanInterestRecordsCall(String currency, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1106,6 +1145,10 @@ public class UnifiedApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1130,20 +1173,20 @@ public class UnifiedApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUnifiedLoanInterestRecordsValidateBeforeCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedLoanInterestRecordsCall(currency, page, limit, _callback);
+    private okhttp3.Call listUnifiedLoanInterestRecordsValidateBeforeCall(String currency, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedLoanInterestRecordsCall(currency, page, limit, type, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<UniLoanInterestRecord>> listUnifiedLoanInterestRecordsWithHttpInfo(String currency, Integer page, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedLoanInterestRecordsValidateBeforeCall(currency, page, limit, null);
+    private ApiResponse<List<UniLoanInterestRecord>> listUnifiedLoanInterestRecordsWithHttpInfo(String currency, Integer page, Integer limit, String type) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedLoanInterestRecordsValidateBeforeCall(currency, page, limit, type, null);
         Type localVarReturnType = new TypeToken<List<UniLoanInterestRecord>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listUnifiedLoanInterestRecordsAsync(String currency, Integer page, Integer limit, final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedLoanInterestRecordsValidateBeforeCall(currency, page, limit, _callback);
+    private okhttp3.Call listUnifiedLoanInterestRecordsAsync(String currency, Integer page, Integer limit, String type, final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedLoanInterestRecordsValidateBeforeCall(currency, page, limit, type, _callback);
         Type localVarReturnType = new TypeToken<List<UniLoanInterestRecord>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1153,6 +1196,7 @@ public class UnifiedApi {
         private String currency;
         private Integer page;
         private Integer limit;
+        private String type;
 
         private APIlistUnifiedLoanInterestRecordsRequest() {
         }
@@ -1188,6 +1232,16 @@ public class UnifiedApi {
         }
 
         /**
+         * Set type
+         * @param type Loan type, platform - platform, margin - margin (optional)
+         * @return APIlistUnifiedLoanInterestRecordsRequest
+         */
+        public APIlistUnifiedLoanInterestRecordsRequest type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
          * Build call for listUnifiedLoanInterestRecords
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -1199,7 +1253,7 @@ public class UnifiedApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listUnifiedLoanInterestRecordsCall(currency, page, limit, _callback);
+            return listUnifiedLoanInterestRecordsCall(currency, page, limit, type, _callback);
         }
 
         /**
@@ -1213,7 +1267,7 @@ public class UnifiedApi {
          </table>
          */
         public List<UniLoanInterestRecord> execute() throws ApiException {
-            ApiResponse<List<UniLoanInterestRecord>> localVarResp = listUnifiedLoanInterestRecordsWithHttpInfo(currency, page, limit);
+            ApiResponse<List<UniLoanInterestRecord>> localVarResp = listUnifiedLoanInterestRecordsWithHttpInfo(currency, page, limit, type);
             return localVarResp.getData();
         }
 
@@ -1228,7 +1282,7 @@ public class UnifiedApi {
          </table>
          */
         public ApiResponse<List<UniLoanInterestRecord>> executeWithHttpInfo() throws ApiException {
-            return listUnifiedLoanInterestRecordsWithHttpInfo(currency, page, limit);
+            return listUnifiedLoanInterestRecordsWithHttpInfo(currency, page, limit, type);
         }
 
         /**
@@ -1243,7 +1297,7 @@ public class UnifiedApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
-            return listUnifiedLoanInterestRecordsAsync(currency, page, limit, _callback);
+            return listUnifiedLoanInterestRecordsAsync(currency, page, limit, type, _callback);
         }
     }
 
@@ -1259,6 +1313,719 @@ public class UnifiedApi {
      */
     public APIlistUnifiedLoanInterestRecordsRequest listUnifiedLoanInterestRecords() {
         return new APIlistUnifiedLoanInterestRecordsRequest();
+    }
+
+    /**
+     * Build call for getUnifiedRiskUnits
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedRiskUnitsCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/risk_units";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUnifiedRiskUnitsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedRiskUnitsCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Retrieve user risk unit details, only valid in portfolio margin mode
+     * 
+     * @return UnifiedRiskUnits
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public UnifiedRiskUnits getUnifiedRiskUnits() throws ApiException {
+        ApiResponse<UnifiedRiskUnits> localVarResp = getUnifiedRiskUnitsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve user risk unit details, only valid in portfolio margin mode
+     * 
+     * @return ApiResponse&lt;UnifiedRiskUnits&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UnifiedRiskUnits> getUnifiedRiskUnitsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedRiskUnitsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<UnifiedRiskUnits>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve user risk unit details, only valid in portfolio margin mode (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedRiskUnitsAsync(final ApiCallback<UnifiedRiskUnits> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedRiskUnitsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<UnifiedRiskUnits>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getUnifiedMode
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedModeCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/unified_mode";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUnifiedModeValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedModeCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Query mode of the unified account
+     * Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+     * @return UnifiedModeSet
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public UnifiedModeSet getUnifiedMode() throws ApiException {
+        ApiResponse<UnifiedModeSet> localVarResp = getUnifiedModeWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Query mode of the unified account
+     * Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+     * @return ApiResponse&lt;UnifiedModeSet&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UnifiedModeSet> getUnifiedModeWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedModeValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<UnifiedModeSet>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Query mode of the unified account (asynchronously)
+     * Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedModeAsync(final ApiCallback<UnifiedModeSet> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedModeValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<UnifiedModeSet>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for setUnifiedMode
+     * @param unifiedModeSet  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUnifiedModeCall(UnifiedModeSet unifiedModeSet, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = unifiedModeSet;
+
+        // create path and map variables
+        String localVarPath = "/unified/unified_mode";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setUnifiedModeValidateBeforeCall(UnifiedModeSet unifiedModeSet, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'unifiedModeSet' is set
+        if (unifiedModeSet == null) {
+            throw new ApiException("Missing the required parameter 'unifiedModeSet' when calling setUnifiedMode(Async)");
+        }
+
+        okhttp3.Call localVarCall = setUnifiedModeCall(unifiedModeSet, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Set mode of the unified account
+     * Switching between different account modes requires only passing the parameters n\\corresponding to the target account mode. It also supports opening or closing configuration switches for the corresponding account mode when switching- When enabling classic account mode,mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling multi-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling portfolio margin mode,mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60;
+     * @param unifiedModeSet  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public void setUnifiedMode(UnifiedModeSet unifiedModeSet) throws ApiException {
+        setUnifiedModeWithHttpInfo(unifiedModeSet);
+    }
+
+    /**
+     * Set mode of the unified account
+     * Switching between different account modes requires only passing the parameters n\\corresponding to the target account mode. It also supports opening or closing configuration switches for the corresponding account mode when switching- When enabling classic account mode,mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling multi-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling portfolio margin mode,mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60;
+     * @param unifiedModeSet  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> setUnifiedModeWithHttpInfo(UnifiedModeSet unifiedModeSet) throws ApiException {
+        okhttp3.Call localVarCall = setUnifiedModeValidateBeforeCall(unifiedModeSet, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Set mode of the unified account (asynchronously)
+     * Switching between different account modes requires only passing the parameters n\\corresponding to the target account mode. It also supports opening or closing configuration switches for the corresponding account mode when switching- When enabling classic account mode,mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling multi-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling portfolio margin mode,mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60;
+     * @param unifiedModeSet  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUnifiedModeAsync(UnifiedModeSet unifiedModeSet, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = setUnifiedModeValidateBeforeCall(unifiedModeSet, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getUnifiedEstimateRate
+     * @param currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedEstimateRateCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/estimate_rate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencies != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "currencies", currencies));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUnifiedEstimateRateValidateBeforeCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currencies' is set
+        if (currencies == null) {
+            throw new ApiException("Missing the required parameter 'currencies' when calling getUnifiedEstimateRate(Async)");
+        }
+
+        okhttp3.Call localVarCall = getUnifiedEstimateRateCall(currencies, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get unified estimate rate
+     * Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+     * @param currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     * @return Map&lt;String, String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public Map<String, String> getUnifiedEstimateRate(List<String> currencies) throws ApiException {
+        ApiResponse<Map<String, String>> localVarResp = getUnifiedEstimateRateWithHttpInfo(currencies);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get unified estimate rate
+     * Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+     * @param currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Map<String, String>> getUnifiedEstimateRateWithHttpInfo(List<String> currencies) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedEstimateRateValidateBeforeCall(currencies, null);
+        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get unified estimate rate (asynchronously)
+     * Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+     * @param currencies Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedEstimateRateAsync(List<String> currencies, final ApiCallback<Map<String, String>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedEstimateRateValidateBeforeCall(currencies, _callback);
+        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listCurrencyDiscountTiers
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCurrencyDiscountTiersCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/currency_discount_tiers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCurrencyDiscountTiersValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCurrencyDiscountTiersCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * List currency discount tiers
+     * 
+     * @return List&lt;UnifiedDiscount&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<UnifiedDiscount> listCurrencyDiscountTiers() throws ApiException {
+        ApiResponse<List<UnifiedDiscount>> localVarResp = listCurrencyDiscountTiersWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List currency discount tiers
+     * 
+     * @return ApiResponse&lt;List&lt;UnifiedDiscount&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<UnifiedDiscount>> listCurrencyDiscountTiersWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = listCurrencyDiscountTiersValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<UnifiedDiscount>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List currency discount tiers (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listCurrencyDiscountTiersAsync(final ApiCallback<List<UnifiedDiscount>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCurrencyDiscountTiersValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<UnifiedDiscount>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listLoanMarginTiers
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listLoanMarginTiersCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/loan_margin_tiers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listLoanMarginTiersValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listLoanMarginTiersCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * List loan margin tiers
+     * 
+     * @return List&lt;UnifiedMarginTiers&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<UnifiedMarginTiers> listLoanMarginTiers() throws ApiException {
+        ApiResponse<List<UnifiedMarginTiers>> localVarResp = listLoanMarginTiersWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List loan margin tiers
+     * 
+     * @return ApiResponse&lt;List&lt;UnifiedMarginTiers&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<UnifiedMarginTiers>> listLoanMarginTiersWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = listLoanMarginTiersValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<UnifiedMarginTiers>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List loan margin tiers (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listLoanMarginTiersAsync(final ApiCallback<List<UnifiedMarginTiers>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listLoanMarginTiersValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<UnifiedMarginTiers>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for calculatePortfolioMargin
+     * @param unifiedPortfolioInput  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call calculatePortfolioMarginCall(UnifiedPortfolioInput unifiedPortfolioInput, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = unifiedPortfolioInput;
+
+        // create path and map variables
+        String localVarPath = "/unified/portfolio_calculator";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call calculatePortfolioMarginValidateBeforeCall(UnifiedPortfolioInput unifiedPortfolioInput, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'unifiedPortfolioInput' is set
+        if (unifiedPortfolioInput == null) {
+            throw new ApiException("Missing the required parameter 'unifiedPortfolioInput' when calling calculatePortfolioMargin(Async)");
+        }
+
+        okhttp3.Call localVarCall = calculatePortfolioMarginCall(unifiedPortfolioInput, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Portfolio margin calculator
+     * Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+     * @param unifiedPortfolioInput  (required)
+     * @return UnifiedPortfolioOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public UnifiedPortfolioOutput calculatePortfolioMargin(UnifiedPortfolioInput unifiedPortfolioInput) throws ApiException {
+        ApiResponse<UnifiedPortfolioOutput> localVarResp = calculatePortfolioMarginWithHttpInfo(unifiedPortfolioInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Portfolio margin calculator
+     * Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+     * @param unifiedPortfolioInput  (required)
+     * @return ApiResponse&lt;UnifiedPortfolioOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UnifiedPortfolioOutput> calculatePortfolioMarginWithHttpInfo(UnifiedPortfolioInput unifiedPortfolioInput) throws ApiException {
+        okhttp3.Call localVarCall = calculatePortfolioMarginValidateBeforeCall(unifiedPortfolioInput, null);
+        Type localVarReturnType = new TypeToken<UnifiedPortfolioOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Portfolio margin calculator (asynchronously)
+     * Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+     * @param unifiedPortfolioInput  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call calculatePortfolioMarginAsync(UnifiedPortfolioInput unifiedPortfolioInput, final ApiCallback<UnifiedPortfolioOutput> _callback) throws ApiException {
+        okhttp3.Call localVarCall = calculatePortfolioMarginValidateBeforeCall(unifiedPortfolioInput, _callback);
+        Type localVarReturnType = new TypeToken<UnifiedPortfolioOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
 }

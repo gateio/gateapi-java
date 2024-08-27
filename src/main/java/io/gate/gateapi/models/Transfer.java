@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account - &#x60;cross_margin&#x60;: cross margin account - &#x60;options&#x60;: options account
+ * Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account - &#x60;options&#x60;: options account
  */
 public class Transfer {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -39,8 +39,6 @@ public class Transfer {
         FUTURES("futures"),
         
         DELIVERY("delivery"),
-        
-        CROSS_MARGIN("cross_margin"),
         
         OPTIONS("options");
 
@@ -98,8 +96,6 @@ public class Transfer {
         FUTURES("futures"),
         
         DELIVERY("delivery"),
-        
-        CROSS_MARGIN("cross_margin"),
         
         OPTIONS("options");
 

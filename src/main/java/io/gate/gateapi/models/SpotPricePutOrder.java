@@ -237,6 +237,10 @@ public class SpotPricePutOrder {
     @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
     private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
 
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
 
     public SpotPricePutOrder type(TypeEnum type) {
         
@@ -353,6 +357,26 @@ public class SpotPricePutOrder {
     public void setTimeInForce(TimeInForceEnum timeInForce) {
         this.timeInForce = timeInForce;
     }
+
+    public SpotPricePutOrder text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * The source of the order, including: - web: web - api: api - app: app
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -367,12 +391,13 @@ public class SpotPricePutOrder {
                 Objects.equals(this.price, spotPricePutOrder.price) &&
                 Objects.equals(this.amount, spotPricePutOrder.amount) &&
                 Objects.equals(this.account, spotPricePutOrder.account) &&
-                Objects.equals(this.timeInForce, spotPricePutOrder.timeInForce);
+                Objects.equals(this.timeInForce, spotPricePutOrder.timeInForce) &&
+                Objects.equals(this.text, spotPricePutOrder.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, side, price, amount, account, timeInForce);
+        return Objects.hash(type, side, price, amount, account, timeInForce, text);
     }
 
 
@@ -386,6 +411,7 @@ public class SpotPricePutOrder {
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      account: ").append(toIndentedString(account)).append("\n");
         sb.append("      timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

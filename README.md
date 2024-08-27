@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.60.1
-- SDK version: 6.60.1
+- API version: 4.78.0
+- SDK version: 6.78.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.60.1</version>
+    <version>6.78.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.60.1"
+compile "io.gate:gate-api:6.78.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.60.1.jar`
+* `target/gate-api-6.78.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -147,6 +147,8 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**listSTPGroupsUsers**](docs/AccountApi.md#listSTPGroupsUsers) | **GET** /account/stp_groups/{stp_id}/users | List users of the STP group
 *AccountApi* | [**addSTPGroupUsers**](docs/AccountApi.md#addSTPGroupUsers) | **POST** /account/stp_groups/{stp_id}/users | Add users to the STP group
 *AccountApi* | [**deleteSTPGroupUsers**](docs/AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete the user in the STP group
+*AccountApi* | [**getDebitFee**](docs/AccountApi.md#getDebitFee) | **GET** /account/debit_fee | Query GT deduction configuration.
+*AccountApi* | [**setDebitFee**](docs/AccountApi.md#setDebitFee) | **POST** /account/debit_fee | Set GT deduction.
 *CollateralLoanApi* | [**listCollateralLoanOrders**](docs/CollateralLoanApi.md#listCollateralLoanOrders) | **GET** /loan/collateral/orders | List Orders
 *CollateralLoanApi* | [**createCollateralLoan**](docs/CollateralLoanApi.md#createCollateralLoan) | **POST** /loan/collateral/orders | Place order
 *CollateralLoanApi* | [**getCollateralLoanOrderDetail**](docs/CollateralLoanApi.md#getCollateralLoanOrderDetail) | **GET** /loan/collateral/orders/{order_id} | Get a single order
@@ -180,6 +182,7 @@ Class | Method | HTTP request | Description
 *DeliveryApi* | [**listDeliveryPositionClose**](docs/DeliveryApi.md#listDeliveryPositionClose) | **GET** /delivery/{settle}/position_close | List position close history
 *DeliveryApi* | [**listDeliveryLiquidates**](docs/DeliveryApi.md#listDeliveryLiquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history
 *DeliveryApi* | [**listDeliverySettlements**](docs/DeliveryApi.md#listDeliverySettlements) | **GET** /delivery/{settle}/settlements | List settlement history
+*DeliveryApi* | [**listDeliveryRiskLimitTiers**](docs/DeliveryApi.md#listDeliveryRiskLimitTiers) | **GET** /delivery/{settle}/risk_limit_tiers | List risk limit tiers
 *DeliveryApi* | [**listPriceTriggeredDeliveryOrders**](docs/DeliveryApi.md#listPriceTriggeredDeliveryOrders) | **GET** /delivery/{settle}/price_orders | List all auto orders
 *DeliveryApi* | [**createPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#createPriceTriggeredDeliveryOrder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrderList**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
@@ -189,7 +192,6 @@ Class | Method | HTTP request | Description
 *EarnApi* | [**listDualInvestmentPlans**](docs/EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 *EarnApi* | [**listDualOrders**](docs/EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
 *EarnApi* | [**placeDualOrder**](docs/EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
-*EarnApi* | [**cancelDualOrder**](docs/EarnApi.md#cancelDualOrder) | **DELETE** /earn/dual/orders/{order_id} | Cancel Dual Investment order
 *EarnApi* | [**listStructuredProducts**](docs/EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List
 *EarnApi* | [**listStructuredOrders**](docs/EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List
 *EarnApi* | [**placeStructuredOrder**](docs/EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
@@ -221,6 +223,7 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listContractStats**](docs/FuturesApi.md#listContractStats) | **GET** /futures/{settle}/contract_stats | Futures stats
 *FuturesApi* | [**getIndexConstituents**](docs/FuturesApi.md#getIndexConstituents) | **GET** /futures/{settle}/index_constituents/{index} | Get index constituents
 *FuturesApi* | [**listLiquidatedOrders**](docs/FuturesApi.md#listLiquidatedOrders) | **GET** /futures/{settle}/liq_orders | Retrieve liquidation history
+*FuturesApi* | [**listFuturesRiskLimitTiers**](docs/FuturesApi.md#listFuturesRiskLimitTiers) | **GET** /futures/{settle}/risk_limit_tiers | List risk limit tiers
 *FuturesApi* | [**listFuturesAccounts**](docs/FuturesApi.md#listFuturesAccounts) | **GET** /futures/{settle}/accounts | Query futures account
 *FuturesApi* | [**listFuturesAccountBook**](docs/FuturesApi.md#listFuturesAccountBook) | **GET** /futures/{settle}/account_book | Query account book
 *FuturesApi* | [**listPositions**](docs/FuturesApi.md#listPositions) | **GET** /futures/{settle}/positions | List all positions of a user
@@ -248,6 +251,8 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listAutoDeleverages**](docs/FuturesApi.md#listAutoDeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 *FuturesApi* | [**countdownCancelAllFutures**](docs/FuturesApi.md#countdownCancelAllFutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 *FuturesApi* | [**getFuturesFee**](docs/FuturesApi.md#getFuturesFee) | **GET** /futures/{settle}/fee | Query user trading fee rates
+*FuturesApi* | [**cancelBatchFutureOrders**](docs/FuturesApi.md#cancelBatchFutureOrders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel a batch of orders with an ID list
+*FuturesApi* | [**amendBatchFutureOrders**](docs/FuturesApi.md#amendBatchFutureOrders) | **POST** /futures/{settle}/batch_amend_orders | Batch modify orders with specified IDs
 *FuturesApi* | [**listPriceTriggeredOrders**](docs/FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List all auto orders
 *FuturesApi* | [**createPriceTriggeredOrder**](docs/FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 *FuturesApi* | [**cancelPriceTriggeredOrderList**](docs/FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
@@ -295,6 +300,17 @@ Class | Method | HTTP request | Description
 *MarginUniApi* | [**listUniLoanRecords**](docs/MarginUniApi.md#listUniLoanRecords) | **GET** /margin/uni/loan_records | Get load records
 *MarginUniApi* | [**listUniLoanInterestRecords**](docs/MarginUniApi.md#listUniLoanInterestRecords) | **GET** /margin/uni/interest_records | List interest records
 *MarginUniApi* | [**getUniBorrowable**](docs/MarginUniApi.md#getUniBorrowable) | **GET** /margin/uni/borrowable | Get maximum borrowable
+*MultiCollateralLoanApi* | [**listMultiCollateralOrders**](docs/MultiCollateralLoanApi.md#listMultiCollateralOrders) | **GET** /loan/multi_collateral/orders | List Multi-Collateral Orders
+*MultiCollateralLoanApi* | [**createMultiCollateral**](docs/MultiCollateralLoanApi.md#createMultiCollateral) | **POST** /loan/multi_collateral/orders | Create Multi-Collateral Order
+*MultiCollateralLoanApi* | [**getMultiCollateralOrderDetail**](docs/MultiCollateralLoanApi.md#getMultiCollateralOrderDetail) | **GET** /loan/multi_collateral/orders/{order_id} | Get Multi-Collateral Order Detail
+*MultiCollateralLoanApi* | [**listMultiRepayRecords**](docs/MultiCollateralLoanApi.md#listMultiRepayRecords) | **GET** /loan/multi_collateral/repay | List Multi-Collateral Repay Records
+*MultiCollateralLoanApi* | [**repayMultiCollateralLoan**](docs/MultiCollateralLoanApi.md#repayMultiCollateralLoan) | **POST** /loan/multi_collateral/repay | Repay Multi-Collateral Loan
+*MultiCollateralLoanApi* | [**listMultiCollateralRecords**](docs/MultiCollateralLoanApi.md#listMultiCollateralRecords) | **GET** /loan/multi_collateral/mortgage | Query collateral adjustment records
+*MultiCollateralLoanApi* | [**operateMultiCollateral**](docs/MultiCollateralLoanApi.md#operateMultiCollateral) | **POST** /loan/multi_collateral/mortgage | Operate Multi-Collateral
+*MultiCollateralLoanApi* | [**listUserCurrencyQuota**](docs/MultiCollateralLoanApi.md#listUserCurrencyQuota) | **GET** /loan/multi_collateral/currency_quota | List User Currency Quota
+*MultiCollateralLoanApi* | [**listMultiCollateralCurrencies**](docs/MultiCollateralLoanApi.md#listMultiCollateralCurrencies) | **GET** /loan/multi_collateral/currencies | Query supported borrowing and collateral currencies in Multi-Collateral 
+*MultiCollateralLoanApi* | [**getMultiCollateralLtv**](docs/MultiCollateralLoanApi.md#getMultiCollateralLtv) | **GET** /loan/multi_collateral/ltv | Get Multi-Collateral ratio
+*MultiCollateralLoanApi* | [**getMultiCollateralFixRate**](docs/MultiCollateralLoanApi.md#getMultiCollateralFixRate) | **GET** /loan/multi_collateral/fixed_rate | Query fixed interest rates for the currency for 7 days and 30 days
 *OptionsApi* | [**listOptionsUnderlyings**](docs/OptionsApi.md#listOptionsUnderlyings) | **GET** /options/underlyings | List all underlyings
 *OptionsApi* | [**listOptionsExpirations**](docs/OptionsApi.md#listOptionsExpirations) | **GET** /options/expirations | List all expiration times
 *OptionsApi* | [**listOptionsContracts**](docs/OptionsApi.md#listOptionsContracts) | **GET** /options/contracts | List all the contracts with specified underlying and expiration time
@@ -319,8 +335,14 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**getOptionsOrder**](docs/OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Get a single order
 *OptionsApi* | [**cancelOptionsOrder**](docs/OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel a single order
 *OptionsApi* | [**listMyOptionsTrades**](docs/OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | List personal trading history
-*RebateApi* | [**agencyTransactionHistory**](docs/RebateApi.md#agencyTransactionHistory) | **GET** /rebate/agency/transaction_history | The broker obtains the transaction history of the recommended user
-*RebateApi* | [**agencyCommissionsHistory**](docs/RebateApi.md#agencyCommissionsHistory) | **GET** /rebate/agency/commission_history | The broker obtains the commission history of the recommended user
+*RebateApi* | [**agencyTransactionHistory**](docs/RebateApi.md#agencyTransactionHistory) | **GET** /rebate/agency/transaction_history | The agency obtains the transaction history of the recommended user
+*RebateApi* | [**agencyCommissionsHistory**](docs/RebateApi.md#agencyCommissionsHistory) | **GET** /rebate/agency/commission_history | The agency obtains the commission history of the recommended user
+*RebateApi* | [**partnerTransactionHistory**](docs/RebateApi.md#partnerTransactionHistory) | **GET** /rebate/partner/transaction_history | Partner obtains transaction records of recommended users
+*RebateApi* | [**partnerCommissionsHistory**](docs/RebateApi.md#partnerCommissionsHistory) | **GET** /rebate/partner/commission_history | Partner obtains commission records of recommended users
+*RebateApi* | [**partnerSubList**](docs/RebateApi.md#partnerSubList) | **GET** /rebate/partner/sub_list | Partner subordinate list
+*RebateApi* | [**rebateBrokerCommissionHistory**](docs/RebateApi.md#rebateBrokerCommissionHistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records
+*RebateApi* | [**rebateBrokerTransactionHistory**](docs/RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history
+*RebateApi* | [**rebateUserInfo**](docs/RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User retrieves rebate information
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; details
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
@@ -362,15 +384,23 @@ Class | Method | HTTP request | Description
 *SubAccountApi* | [**deleteSubAccountKeys**](docs/SubAccountApi.md#deleteSubAccountKeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account
 *SubAccountApi* | [**lockSubAccount**](docs/SubAccountApi.md#lockSubAccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account
 *SubAccountApi* | [**unlockSubAccount**](docs/SubAccountApi.md#unlockSubAccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account
+*SubAccountApi* | [**listUnifiedMode**](docs/SubAccountApi.md#listUnifiedMode) | **GET** /sub_accounts/unified_mode | Get sub-account mode
 *UnifiedApi* | [**listUnifiedAccounts**](docs/UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information
-*UnifiedApi* | [**listUnifiedAccountMode**](docs/UnifiedApi.md#listUnifiedAccountMode) | **GET** /unified/account_mode | Query mode of the unified account
-*UnifiedApi* | [**setUnifiedAccountMode**](docs/UnifiedApi.md#setUnifiedAccountMode) | **POST** /unified/account_mode | Set mode of the unified account
+*UnifiedApi* | [**listUnifiedAccountMode**](docs/UnifiedApi.md#listUnifiedAccountMode) | **GET** /unified/account_mode | Inquire about unified account mode (deprecated)
+*UnifiedApi* | [**setUnifiedAccountMode**](docs/UnifiedApi.md#setUnifiedAccountMode) | **POST** /unified/account_mode | Set unified account mode (deprecated)
 *UnifiedApi* | [**getUnifiedBorrowable**](docs/UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query about the maximum borrowing for the unified account
 *UnifiedApi* | [**getUnifiedTransferable**](docs/UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query about the maximum transferable for the unified account
 *UnifiedApi* | [**listUnifiedLoans**](docs/UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | List loans
 *UnifiedApi* | [**createUnifiedLoan**](docs/UnifiedApi.md#createUnifiedLoan) | **POST** /unified/loans | Borrow or repay
 *UnifiedApi* | [**listUnifiedLoanRecords**](docs/UnifiedApi.md#listUnifiedLoanRecords) | **GET** /unified/loan_records | Get load records
 *UnifiedApi* | [**listUnifiedLoanInterestRecords**](docs/UnifiedApi.md#listUnifiedLoanInterestRecords) | **GET** /unified/interest_records | List interest records
+*UnifiedApi* | [**getUnifiedRiskUnits**](docs/UnifiedApi.md#getUnifiedRiskUnits) | **GET** /unified/risk_units | Retrieve user risk unit details, only valid in portfolio margin mode
+*UnifiedApi* | [**getUnifiedMode**](docs/UnifiedApi.md#getUnifiedMode) | **GET** /unified/unified_mode | Query mode of the unified account
+*UnifiedApi* | [**setUnifiedMode**](docs/UnifiedApi.md#setUnifiedMode) | **PUT** /unified/unified_mode | Set mode of the unified account
+*UnifiedApi* | [**getUnifiedEstimateRate**](docs/UnifiedApi.md#getUnifiedEstimateRate) | **GET** /unified/estimate_rate | Get unified estimate rate
+*UnifiedApi* | [**listCurrencyDiscountTiers**](docs/UnifiedApi.md#listCurrencyDiscountTiers) | **GET** /unified/currency_discount_tiers | List currency discount tiers
+*UnifiedApi* | [**listLoanMarginTiers**](docs/UnifiedApi.md#listLoanMarginTiers) | **GET** /unified/loan_margin_tiers | List loan margin tiers
+*UnifiedApi* | [**calculatePortfolioMargin**](docs/UnifiedApi.md#calculatePortfolioMargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
 *WalletApi* | [**listCurrencyChains**](docs/WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | List chains supported for specified currency
 *WalletApi* | [**getDepositAddress**](docs/WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
 *WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
@@ -387,7 +417,12 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**listSavedAddress**](docs/WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
 *WalletApi* | [**getTradeFee**](docs/WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
 *WalletApi* | [**getTotalBalance**](docs/WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
+*WalletApi* | [**listSmallBalance**](docs/WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | List small balance
+*WalletApi* | [**convertSmallBalance**](docs/WalletApi.md#convertSmallBalance) | **POST** /wallet/small_balance | Convert small balance
+*WalletApi* | [**listSmallBalanceHistory**](docs/WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | List small balance history
+*WalletApi* | [**listPushOrders**](docs/WalletApi.md#listPushOrders) | **GET** /wallet/push | Retrieve the UID transfer history
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
+*WithdrawalApi* | [**withdrawPushOrder**](docs/WithdrawalApi.md#withdrawPushOrder) | **POST** /withdrawals/push | UID transfer
 *WithdrawalApi* | [**cancelWithdrawal**](docs/WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID
 
 
@@ -400,23 +435,36 @@ Class | Method | HTTP request | Description
  - [AgencyCommissionHistory](docs/AgencyCommissionHistory.md)
  - [AgencyTransaction](docs/AgencyTransaction.md)
  - [AgencyTransactionHistory](docs/AgencyTransactionHistory.md)
- - [AmendOrderResult](docs/AmendOrderResult.md)
- - [ApiV4KeyPerm](docs/ApiV4KeyPerm.md)
  - [AutoRepaySetting](docs/AutoRepaySetting.md)
  - [BatchAmendItem](docs/BatchAmendItem.md)
+ - [BatchAmendOrderReq](docs/BatchAmendOrderReq.md)
  - [BatchFuturesOrder](docs/BatchFuturesOrder.md)
  - [BatchOrder](docs/BatchOrder.md)
+ - [BorrowCurrencyInfo](docs/BorrowCurrencyInfo.md)
+ - [BrokerCommission](docs/BrokerCommission.md)
+ - [BrokerCommission1](docs/BrokerCommission1.md)
+ - [BrokerTransaction](docs/BrokerTransaction.md)
+ - [BrokerTransaction1](docs/BrokerTransaction1.md)
  - [CancelBatchOrder](docs/CancelBatchOrder.md)
  - [CancelOrderResult](docs/CancelOrderResult.md)
+ - [CollateralAdjust](docs/CollateralAdjust.md)
+ - [CollateralAdjustRes](docs/CollateralAdjustRes.md)
  - [CollateralAlign](docs/CollateralAlign.md)
+ - [CollateralCurrency](docs/CollateralCurrency.md)
+ - [CollateralCurrencyInfo](docs/CollateralCurrencyInfo.md)
+ - [CollateralCurrencyRes](docs/CollateralCurrencyRes.md)
+ - [CollateralFixRate](docs/CollateralFixRate.md)
  - [CollateralLoanCurrency](docs/CollateralLoanCurrency.md)
+ - [CollateralLtv](docs/CollateralLtv.md)
  - [CollateralOrder](docs/CollateralOrder.md)
  - [CollateralRecord](docs/CollateralRecord.md)
  - [Contract](docs/Contract.md)
  - [ContractStat](docs/ContractStat.md)
+ - [ConvertSmallBalance](docs/ConvertSmallBalance.md)
  - [CountdownCancelAllFuturesTask](docs/CountdownCancelAllFuturesTask.md)
  - [CountdownCancelAllSpotTask](docs/CountdownCancelAllSpotTask.md)
  - [CreateCollateralOrder](docs/CreateCollateralOrder.md)
+ - [CreateMultiCollateralOrder](docs/CreateMultiCollateralOrder.md)
  - [CreateUniLend](docs/CreateUniLend.md)
  - [CreateUniLoan](docs/CreateUniLoan.md)
  - [CrossMarginAccount](docs/CrossMarginAccount.md)
@@ -431,6 +479,7 @@ Class | Method | HTTP request | Description
  - [Currency](docs/Currency.md)
  - [CurrencyChain](docs/CurrencyChain.md)
  - [CurrencyPair](docs/CurrencyPair.md)
+ - [CurrencyQuota](docs/CurrencyQuota.md)
  - [DeliveryCandlestick](docs/DeliveryCandlestick.md)
  - [DeliveryContract](docs/DeliveryContract.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)
@@ -447,14 +496,17 @@ Class | Method | HTTP request | Description
  - [FundingAccount](docs/FundingAccount.md)
  - [FundingBookItem](docs/FundingBookItem.md)
  - [FundingRateRecord](docs/FundingRateRecord.md)
+ - [FutureCancelOrderResult](docs/FutureCancelOrderResult.md)
  - [FuturesAccount](docs/FuturesAccount.md)
  - [FuturesAccountBook](docs/FuturesAccountBook.md)
  - [FuturesAccountHistory](docs/FuturesAccountHistory.md)
  - [FuturesAutoDeleverage](docs/FuturesAutoDeleverage.md)
+ - [FuturesBatchAmendOrderRequest](docs/FuturesBatchAmendOrderRequest.md)
  - [FuturesCandlestick](docs/FuturesCandlestick.md)
  - [FuturesFee](docs/FuturesFee.md)
  - [FuturesIndexConstituents](docs/FuturesIndexConstituents.md)
  - [FuturesInitialOrder](docs/FuturesInitialOrder.md)
+ - [FuturesLimitRiskTiers](docs/FuturesLimitRiskTiers.md)
  - [FuturesLiqOrder](docs/FuturesLiqOrder.md)
  - [FuturesLiquidate](docs/FuturesLiquidate.md)
  - [FuturesOrder](docs/FuturesOrder.md)
@@ -467,6 +519,8 @@ Class | Method | HTTP request | Description
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
  - [IndexConstituent](docs/IndexConstituent.md)
+ - [InlineObject](docs/InlineObject.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [LiquidateOrder](docs/LiquidateOrder.md)
@@ -478,9 +532,27 @@ Class | Method | HTTP request | Description
  - [MarginAccountCurrency](docs/MarginAccountCurrency.md)
  - [MarginBorrowable](docs/MarginBorrowable.md)
  - [MarginCurrencyPair](docs/MarginCurrencyPair.md)
+ - [MarginTiers](docs/MarginTiers.md)
  - [MarginTransferable](docs/MarginTransferable.md)
  - [MaxUniBorrowable](docs/MaxUniBorrowable.md)
+ - [MockFuturesOrder](docs/MockFuturesOrder.md)
+ - [MockFuturesPosition](docs/MockFuturesPosition.md)
+ - [MockMarginResult](docs/MockMarginResult.md)
+ - [MockOptionsOrder](docs/MockOptionsOrder.md)
+ - [MockOptionsPosition](docs/MockOptionsPosition.md)
+ - [MockRiskUnit](docs/MockRiskUnit.md)
+ - [MockSpotBalance](docs/MockSpotBalance.md)
+ - [MockSpotOrder](docs/MockSpotOrder.md)
  - [MultiChainAddressItem](docs/MultiChainAddressItem.md)
+ - [MultiCollateralCurrency](docs/MultiCollateralCurrency.md)
+ - [MultiCollateralItem](docs/MultiCollateralItem.md)
+ - [MultiCollateralOrder](docs/MultiCollateralOrder.md)
+ - [MultiCollateralRecord](docs/MultiCollateralRecord.md)
+ - [MultiCollateralRecordCurrency](docs/MultiCollateralRecordCurrency.md)
+ - [MultiLoanItem](docs/MultiLoanItem.md)
+ - [MultiLoanRepayItem](docs/MultiLoanRepayItem.md)
+ - [MultiRepayRecord](docs/MultiRepayRecord.md)
+ - [MultiRepayResp](docs/MultiRepayResp.md)
  - [MyFuturesTrade](docs/MyFuturesTrade.md)
  - [MyFuturesTradeTimeRange](docs/MyFuturesTradeTimeRange.md)
  - [OpenOrders](docs/OpenOrders.md)
@@ -500,19 +572,35 @@ Class | Method | HTTP request | Description
  - [OptionsUnderlyingTicker](docs/OptionsUnderlyingTicker.md)
  - [Order](docs/Order.md)
  - [OrderBook](docs/OrderBook.md)
+ - [OrderCancel](docs/OrderCancel.md)
  - [OrderPatch](docs/OrderPatch.md)
  - [OrderResp](docs/OrderResp.md)
+ - [PartnerCommissionHistory](docs/PartnerCommissionHistory.md)
+ - [PartnerSub](docs/PartnerSub.md)
+ - [PartnerSubList](docs/PartnerSubList.md)
+ - [PartnerTransactionHistory](docs/PartnerTransactionHistory.md)
  - [PatchUniLend](docs/PatchUniLend.md)
  - [PlaceDualInvestmentOrder](docs/PlaceDualInvestmentOrder.md)
  - [Position](docs/Position.md)
  - [PositionClose](docs/PositionClose.md)
  - [PositionCloseOrder](docs/PositionCloseOrder.md)
+ - [ProfitLossRange](docs/ProfitLossRange.md)
+ - [RebateUserInfo](docs/RebateUserInfo.md)
+ - [RepayCurrencyRes](docs/RepayCurrencyRes.md)
  - [RepayLoan](docs/RepayLoan.md)
+ - [RepayMultiLoan](docs/RepayMultiLoan.md)
  - [RepayRecord](docs/RepayRecord.md)
+ - [RepayRecordCurrency](docs/RepayRecordCurrency.md)
+ - [RepayRecordLeftInterest](docs/RepayRecordLeftInterest.md)
+ - [RepayRecordRepaidCurrency](docs/RepayRecordRepaidCurrency.md)
+ - [RepayRecordTotalInterest](docs/RepayRecordTotalInterest.md)
  - [RepayRequest](docs/RepayRequest.md)
  - [RepayResp](docs/RepayResp.md)
  - [Repayment](docs/Repayment.md)
+ - [RiskUnits](docs/RiskUnits.md)
  - [SavedAddress](docs/SavedAddress.md)
+ - [SmallBalance](docs/SmallBalance.md)
+ - [SmallBalanceHistory](docs/SmallBalanceHistory.md)
  - [SpotAccount](docs/SpotAccount.md)
  - [SpotAccountBook](docs/SpotAccountBook.md)
  - [SpotFee](docs/SpotFee.md)
@@ -523,18 +611,18 @@ Class | Method | HTTP request | Description
  - [StpGroupUser](docs/StpGroupUser.md)
  - [StructuredBuy](docs/StructuredBuy.md)
  - [StructuredGetProjectList](docs/StructuredGetProjectList.md)
- - [StructuredGetProjectListRequest](docs/StructuredGetProjectListRequest.md)
  - [StructuredOrderList](docs/StructuredOrderList.md)
- - [StructuredOrderListRequest](docs/StructuredOrderListRequest.md)
  - [SubAccount](docs/SubAccount.md)
  - [SubAccountBalance](docs/SubAccountBalance.md)
  - [SubAccountCrossMarginBalance](docs/SubAccountCrossMarginBalance.md)
  - [SubAccountFuturesBalance](docs/SubAccountFuturesBalance.md)
  - [SubAccountKey](docs/SubAccountKey.md)
+ - [SubAccountKeyPerms](docs/SubAccountKeyPerms.md)
  - [SubAccountMarginBalance](docs/SubAccountMarginBalance.md)
  - [SubAccountToSubAccount](docs/SubAccountToSubAccount.md)
  - [SubAccountTransfer](docs/SubAccountTransfer.md)
  - [SubCrossMarginAccount](docs/SubCrossMarginAccount.md)
+ - [SubUserMode](docs/SubUserMode.md)
  - [SystemTime](docs/SystemTime.md)
  - [Ticker](docs/Ticker.md)
  - [TotalBalance](docs/TotalBalance.md)
@@ -544,6 +632,9 @@ Class | Method | HTTP request | Description
  - [Transfer](docs/Transfer.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
  - [TriggerTime](docs/TriggerTime.md)
+ - [UidPushOrder](docs/UidPushOrder.md)
+ - [UidPushWithdrawal](docs/UidPushWithdrawal.md)
+ - [UidPushWithdrawalResp](docs/UidPushWithdrawalResp.md)
  - [UniCurrency](docs/UniCurrency.md)
  - [UniCurrencyInterest](docs/UniCurrencyInterest.md)
  - [UniCurrencyPair](docs/UniCurrencyPair.md)
@@ -558,9 +649,17 @@ Class | Method | HTTP request | Description
  - [UnifiedAccount](docs/UnifiedAccount.md)
  - [UnifiedBalance](docs/UnifiedBalance.md)
  - [UnifiedBorrowable](docs/UnifiedBorrowable.md)
+ - [UnifiedDiscount](docs/UnifiedDiscount.md)
+ - [UnifiedDiscountTiers](docs/UnifiedDiscountTiers.md)
  - [UnifiedLoan](docs/UnifiedLoan.md)
  - [UnifiedLoanRecord](docs/UnifiedLoanRecord.md)
+ - [UnifiedMarginTiers](docs/UnifiedMarginTiers.md)
  - [UnifiedMode](docs/UnifiedMode.md)
+ - [UnifiedModeSet](docs/UnifiedModeSet.md)
+ - [UnifiedPortfolioInput](docs/UnifiedPortfolioInput.md)
+ - [UnifiedPortfolioOutput](docs/UnifiedPortfolioOutput.md)
+ - [UnifiedRiskUnits](docs/UnifiedRiskUnits.md)
+ - [UnifiedSettings](docs/UnifiedSettings.md)
  - [UnifiedTransferable](docs/UnifiedTransferable.md)
  - [UserLtvInfo](docs/UserLtvInfo.md)
  - [UserTotalAmount](docs/UserTotalAmount.md)

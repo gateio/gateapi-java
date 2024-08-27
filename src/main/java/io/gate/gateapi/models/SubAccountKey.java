@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.ApiV4KeyPerm;
+import io.gate.gateapi.models.SubAccountKeyPerms;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class SubAccountKey {
 
     public static final String SERIALIZED_NAME_PERMS = "perms";
     @SerializedName(SERIALIZED_NAME_PERMS)
-    private List<ApiV4KeyPerm> perms = null;
+    private List<SubAccountKeyPerms> perms = null;
 
     public static final String SERIALIZED_NAME_IP_WHITELIST = "ip_whitelist";
     @SerializedName(SERIALIZED_NAME_IP_WHITELIST)
@@ -56,11 +56,15 @@ public class SubAccountKey {
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    private String createdAt;
+    private Long createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    private String updatedAt;
+    private Long updatedAt;
+
+    public static final String SERIALIZED_NAME_LAST_ACCESS = "last_access";
+    @SerializedName(SERIALIZED_NAME_LAST_ACCESS)
+    private Long lastAccess;
 
 
      /**
@@ -113,13 +117,13 @@ public class SubAccountKey {
         this.name = name;
     }
 
-    public SubAccountKey perms(List<ApiV4KeyPerm> perms) {
+    public SubAccountKey perms(List<SubAccountKeyPerms> perms) {
         
         this.perms = perms;
         return this;
     }
 
-    public SubAccountKey addPermsItem(ApiV4KeyPerm permsItem) {
+    public SubAccountKey addPermsItem(SubAccountKeyPerms permsItem) {
         if (this.perms == null) {
             this.perms = new ArrayList<>();
         }
@@ -132,12 +136,12 @@ public class SubAccountKey {
      * @return perms
     **/
     @javax.annotation.Nullable
-    public List<ApiV4KeyPerm> getPerms() {
+    public List<SubAccountKeyPerms> getPerms() {
         return perms;
     }
 
 
-    public void setPerms(List<ApiV4KeyPerm> perms) {
+    public void setPerms(List<SubAccountKeyPerms> perms) {
         this.perms = perms;
     }
 
@@ -194,7 +198,7 @@ public class SubAccountKey {
      * @return createdAt
     **/
     @javax.annotation.Nullable
-    public String getCreatedAt() {
+    public Long getCreatedAt() {
         return createdAt;
     }
 
@@ -204,8 +208,18 @@ public class SubAccountKey {
      * @return updatedAt
     **/
     @javax.annotation.Nullable
-    public String getUpdatedAt() {
+    public Long getUpdatedAt() {
         return updatedAt;
+    }
+
+
+     /**
+     * Last access time
+     * @return lastAccess
+    **/
+    @javax.annotation.Nullable
+    public Long getLastAccess() {
+        return lastAccess;
     }
 
     @Override
@@ -225,12 +239,13 @@ public class SubAccountKey {
                 Objects.equals(this.key, subAccountKey.key) &&
                 Objects.equals(this.state, subAccountKey.state) &&
                 Objects.equals(this.createdAt, subAccountKey.createdAt) &&
-                Objects.equals(this.updatedAt, subAccountKey.updatedAt);
+                Objects.equals(this.updatedAt, subAccountKey.updatedAt) &&
+                Objects.equals(this.lastAccess, subAccountKey.lastAccess);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, mode, name, perms, ipWhitelist, key, state, createdAt, updatedAt);
+        return Objects.hash(userId, mode, name, perms, ipWhitelist, key, state, createdAt, updatedAt, lastAccess);
     }
 
 
@@ -247,6 +262,7 @@ public class SubAccountKey {
         sb.append("      state: ").append(toIndentedString(state)).append("\n");
         sb.append("      createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("      updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+        sb.append("      lastAccess: ").append(toIndentedString(lastAccess)).append("\n");
         sb.append("}");
         return sb.toString();
     }

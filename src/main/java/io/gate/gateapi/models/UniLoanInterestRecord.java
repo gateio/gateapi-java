@@ -43,6 +43,10 @@ public class UniLoanInterestRecord {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private Integer status;
 
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
+
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private Long createTime;
@@ -99,6 +103,16 @@ public class UniLoanInterestRecord {
 
 
      /**
+     * Type, platform - platform，margin - margin
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public String getType() {
+        return type;
+    }
+
+
+     /**
      * Created time
      * @return createTime
     **/
@@ -121,12 +135,13 @@ public class UniLoanInterestRecord {
                 Objects.equals(this.actualRate, uniLoanInterestRecord.actualRate) &&
                 Objects.equals(this.interest, uniLoanInterestRecord.interest) &&
                 Objects.equals(this.status, uniLoanInterestRecord.status) &&
+                Objects.equals(this.type, uniLoanInterestRecord.type) &&
                 Objects.equals(this.createTime, uniLoanInterestRecord.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, currencyPair, actualRate, interest, status, createTime);
+        return Objects.hash(currency, currencyPair, actualRate, interest, status, type, createTime);
     }
 
 
@@ -139,6 +154,7 @@ public class UniLoanInterestRecord {
         sb.append("      actualRate: ").append(toIndentedString(actualRate)).append("\n");
         sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("}");
         return sb.toString();

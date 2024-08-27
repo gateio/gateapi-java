@@ -23,6 +23,14 @@ import java.io.IOException;
  * Spot order details
  */
 public class OrderPatch {
+    public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
+    @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
+    private String currencyPair;
+
+    public static final String SERIALIZED_NAME_ACCOUNT = "account";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT)
+    private String account;
+
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
     @SerializedName(SERIALIZED_NAME_AMOUNT)
     private String amount;
@@ -35,6 +43,50 @@ public class OrderPatch {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
+    public static final String SERIALIZED_NAME_ACTION_MODE = "action_mode";
+    @SerializedName(SERIALIZED_NAME_ACTION_MODE)
+    private String actionMode;
+
+
+    public OrderPatch currencyPair(String currencyPair) {
+        
+        this.currencyPair = currencyPair;
+        return this;
+    }
+
+     /**
+     * Currency pair
+     * @return currencyPair
+    **/
+    @javax.annotation.Nullable
+    public String getCurrencyPair() {
+        return currencyPair;
+    }
+
+
+    public void setCurrencyPair(String currencyPair) {
+        this.currencyPair = currencyPair;
+    }
+
+    public OrderPatch account(String account) {
+        
+        this.account = account;
+        return this;
+    }
+
+     /**
+     * 指定查询账户。
+     * @return account
+    **/
+    @javax.annotation.Nullable
+    public String getAccount() {
+        return account;
+    }
+
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
     public OrderPatch amount(String amount) {
         
@@ -95,6 +147,26 @@ public class OrderPatch {
     public void setAmendText(String amendText) {
         this.amendText = amendText;
     }
+
+    public OrderPatch actionMode(String actionMode) {
+        
+        this.actionMode = actionMode;
+        return this;
+    }
+
+     /**
+     * Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
+     * @return actionMode
+    **/
+    @javax.annotation.Nullable
+    public String getActionMode() {
+        return actionMode;
+    }
+
+
+    public void setActionMode(String actionMode) {
+        this.actionMode = actionMode;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -104,14 +176,17 @@ public class OrderPatch {
             return false;
         }
         OrderPatch orderPatch = (OrderPatch) o;
-        return Objects.equals(this.amount, orderPatch.amount) &&
+        return Objects.equals(this.currencyPair, orderPatch.currencyPair) &&
+                Objects.equals(this.account, orderPatch.account) &&
+                Objects.equals(this.amount, orderPatch.amount) &&
                 Objects.equals(this.price, orderPatch.price) &&
-                Objects.equals(this.amendText, orderPatch.amendText);
+                Objects.equals(this.amendText, orderPatch.amendText) &&
+                Objects.equals(this.actionMode, orderPatch.actionMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, price, amendText);
+        return Objects.hash(currencyPair, account, amount, price, amendText, actionMode);
     }
 
 
@@ -119,9 +194,12 @@ public class OrderPatch {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OrderPatch {\n");
+        sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
+        sb.append("      account: ").append(toIndentedString(account)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
+        sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

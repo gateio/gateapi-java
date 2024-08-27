@@ -21,6 +21,8 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.LedgerRecord;
+import io.gate.gateapi.models.UidPushWithdrawal;
+import io.gate.gateapi.models.UidPushWithdrawalResp;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -101,7 +103,7 @@ public class WithdrawalApi {
 
     /**
      * Withdraw
-     * 
+     * Withdrawals to Gate addresses do not incur transaction fees.
      * @param ledgerRecord  (required)
      * @return LedgerRecord
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -118,7 +120,7 @@ public class WithdrawalApi {
 
     /**
      * Withdraw
-     * 
+     * Withdrawals to Gate addresses do not incur transaction fees.
      * @param ledgerRecord  (required)
      * @return ApiResponse&lt;LedgerRecord&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -136,7 +138,7 @@ public class WithdrawalApi {
 
     /**
      * Withdraw (asynchronously)
-     * 
+     * Withdrawals to Gate addresses do not incur transaction fees.
      * @param ledgerRecord  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -150,6 +152,113 @@ public class WithdrawalApi {
     public okhttp3.Call withdrawAsync(LedgerRecord ledgerRecord, final ApiCallback<LedgerRecord> _callback) throws ApiException {
         okhttp3.Call localVarCall = withdrawValidateBeforeCall(ledgerRecord, _callback);
         Type localVarReturnType = new TypeToken<LedgerRecord>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for withdrawPushOrder
+     * @param uidPushWithdrawal  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request has been accepted. Check the withdrawal record status for the processing result. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call withdrawPushOrderCall(UidPushWithdrawal uidPushWithdrawal, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = uidPushWithdrawal;
+
+        // create path and map variables
+        String localVarPath = "/withdrawals/push";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call withdrawPushOrderValidateBeforeCall(UidPushWithdrawal uidPushWithdrawal, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'uidPushWithdrawal' is set
+        if (uidPushWithdrawal == null) {
+            throw new ApiException("Missing the required parameter 'uidPushWithdrawal' when calling withdrawPushOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = withdrawPushOrderCall(uidPushWithdrawal, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * UID transfer
+     * Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+     * @param uidPushWithdrawal  (required)
+     * @return UidPushWithdrawalResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request has been accepted. Check the withdrawal record status for the processing result. </td><td>  -  </td></tr>
+     </table>
+     */
+    public UidPushWithdrawalResp withdrawPushOrder(UidPushWithdrawal uidPushWithdrawal) throws ApiException {
+        ApiResponse<UidPushWithdrawalResp> localVarResp = withdrawPushOrderWithHttpInfo(uidPushWithdrawal);
+        return localVarResp.getData();
+    }
+
+    /**
+     * UID transfer
+     * Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+     * @param uidPushWithdrawal  (required)
+     * @return ApiResponse&lt;UidPushWithdrawalResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request has been accepted. Check the withdrawal record status for the processing result. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UidPushWithdrawalResp> withdrawPushOrderWithHttpInfo(UidPushWithdrawal uidPushWithdrawal) throws ApiException {
+        okhttp3.Call localVarCall = withdrawPushOrderValidateBeforeCall(uidPushWithdrawal, null);
+        Type localVarReturnType = new TypeToken<UidPushWithdrawalResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * UID transfer (asynchronously)
+     * Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+     * @param uidPushWithdrawal  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The request has been accepted. Check the withdrawal record status for the processing result. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call withdrawPushOrderAsync(UidPushWithdrawal uidPushWithdrawal, final ApiCallback<UidPushWithdrawalResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = withdrawPushOrderValidateBeforeCall(uidPushWithdrawal, _callback);
+        Type localVarReturnType = new TypeToken<UidPushWithdrawalResp>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

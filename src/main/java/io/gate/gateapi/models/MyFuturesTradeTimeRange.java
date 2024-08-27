@@ -43,6 +43,10 @@ public class MyFuturesTradeTimeRange {
     @SerializedName(SERIALIZED_NAME_SIZE)
     private Long size;
 
+    public static final String SERIALIZED_NAME_CLOSE_SIZE = "close_size";
+    @SerializedName(SERIALIZED_NAME_CLOSE_SIZE)
+    private Long closeSize;
+
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
@@ -211,6 +215,26 @@ public class MyFuturesTradeTimeRange {
         this.size = size;
     }
 
+    public MyFuturesTradeTimeRange closeSize(Long closeSize) {
+        
+        this.closeSize = closeSize;
+        return this;
+    }
+
+     /**
+     * Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0       Open long position close_size&#x3D;0 &amp;&amp; size＜0       Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close short postion close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position
+     * @return closeSize
+    **/
+    @javax.annotation.Nullable
+    public Long getCloseSize() {
+        return closeSize;
+    }
+
+
+    public void setCloseSize(Long closeSize) {
+        this.closeSize = closeSize;
+    }
+
     public MyFuturesTradeTimeRange price(String price) {
         
         this.price = price;
@@ -324,6 +348,7 @@ public class MyFuturesTradeTimeRange {
                 Objects.equals(this.contract, myFuturesTradeTimeRange.contract) &&
                 Objects.equals(this.orderId, myFuturesTradeTimeRange.orderId) &&
                 Objects.equals(this.size, myFuturesTradeTimeRange.size) &&
+                Objects.equals(this.closeSize, myFuturesTradeTimeRange.closeSize) &&
                 Objects.equals(this.price, myFuturesTradeTimeRange.price) &&
                 Objects.equals(this.role, myFuturesTradeTimeRange.role) &&
                 Objects.equals(this.text, myFuturesTradeTimeRange.text) &&
@@ -333,7 +358,7 @@ public class MyFuturesTradeTimeRange {
 
     @Override
     public int hashCode() {
-        return Objects.hash(tradeId, createTime, contract, orderId, size, price, role, text, fee, pointFee);
+        return Objects.hash(tradeId, createTime, contract, orderId, size, closeSize, price, role, text, fee, pointFee);
     }
 
 
@@ -346,6 +371,7 @@ public class MyFuturesTradeTimeRange {
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
+        sb.append("      closeSize: ").append(toIndentedString(closeSize)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      role: ").append(toIndentedString(role)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");

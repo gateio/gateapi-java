@@ -609,7 +609,7 @@ public class Contract {
     }
 
      /**
-     * Risk limit base
+     * Risk limit base,deprecated
      * @return riskLimitBase
     **/
     @javax.annotation.Nullable
@@ -629,7 +629,7 @@ public class Contract {
     }
 
      /**
-     * Step of adjusting risk limit
+     * Step of adjusting risk limit,deprecated
      * @return riskLimitStep
     **/
     @javax.annotation.Nullable
@@ -649,7 +649,7 @@ public class Contract {
     }
 
      /**
-     * Maximum risk limit the contract allowed
+     * Maximum risk limit the contract allowed,deprecated,It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits.
      * @return riskLimitMax
     **/
     @javax.annotation.Nullable
@@ -869,7 +869,7 @@ public class Contract {
     }
 
      /**
-     * Contract is delisting
+     * &#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; And when position_size&#x3D;0, it means the contract is offline
      * @return inDelisting
     **/
     @javax.annotation.Nullable

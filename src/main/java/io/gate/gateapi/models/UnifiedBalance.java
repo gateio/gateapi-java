@@ -55,6 +55,18 @@ public class UnifiedBalance {
     @SerializedName(SERIALIZED_NAME_TOTAL_LIAB)
     private String totalLiab;
 
+    public static final String SERIALIZED_NAME_SPOT_IN_USE = "spot_in_use";
+    @SerializedName(SERIALIZED_NAME_SPOT_IN_USE)
+    private String spotInUse;
+
+    public static final String SERIALIZED_NAME_FUNDING = "funding";
+    @SerializedName(SERIALIZED_NAME_FUNDING)
+    private String funding;
+
+    public static final String SERIALIZED_NAME_FUNDING_VERSION = "funding_version";
+    @SerializedName(SERIALIZED_NAME_FUNDING_VERSION)
+    private String fundingVersion;
+
 
     public UnifiedBalance available(String available) {
         
@@ -215,6 +227,66 @@ public class UnifiedBalance {
     public void setTotalLiab(String totalLiab) {
         this.totalLiab = totalLiab;
     }
+
+    public UnifiedBalance spotInUse(String spotInUse) {
+        
+        this.spotInUse = spotInUse;
+        return this;
+    }
+
+     /**
+     * Spot hedging utilization
+     * @return spotInUse
+    **/
+    @javax.annotation.Nullable
+    public String getSpotInUse() {
+        return spotInUse;
+    }
+
+
+    public void setSpotInUse(String spotInUse) {
+        this.spotInUse = spotInUse;
+    }
+
+    public UnifiedBalance funding(String funding) {
+        
+        this.funding = funding;
+        return this;
+    }
+
+     /**
+     * Quantity of funding
+     * @return funding
+    **/
+    @javax.annotation.Nullable
+    public String getFunding() {
+        return funding;
+    }
+
+
+    public void setFunding(String funding) {
+        this.funding = funding;
+    }
+
+    public UnifiedBalance fundingVersion(String fundingVersion) {
+        
+        this.fundingVersion = fundingVersion;
+        return this;
+    }
+
+     /**
+     * Funding version
+     * @return fundingVersion
+    **/
+    @javax.annotation.Nullable
+    public String getFundingVersion() {
+        return fundingVersion;
+    }
+
+
+    public void setFundingVersion(String fundingVersion) {
+        this.fundingVersion = fundingVersion;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -231,12 +303,15 @@ public class UnifiedBalance {
                 Objects.equals(this.futuresPosLiab, unifiedBalance.futuresPosLiab) &&
                 Objects.equals(this.equity, unifiedBalance.equity) &&
                 Objects.equals(this.totalFreeze, unifiedBalance.totalFreeze) &&
-                Objects.equals(this.totalLiab, unifiedBalance.totalLiab);
+                Objects.equals(this.totalLiab, unifiedBalance.totalLiab) &&
+                Objects.equals(this.spotInUse, unifiedBalance.spotInUse) &&
+                Objects.equals(this.funding, unifiedBalance.funding) &&
+                Objects.equals(this.fundingVersion, unifiedBalance.fundingVersion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(available, freeze, borrowed, negativeLiab, futuresPosLiab, equity, totalFreeze, totalLiab);
+        return Objects.hash(available, freeze, borrowed, negativeLiab, futuresPosLiab, equity, totalFreeze, totalLiab, spotInUse, funding, fundingVersion);
     }
 
 
@@ -252,6 +327,9 @@ public class UnifiedBalance {
         sb.append("      equity: ").append(toIndentedString(equity)).append("\n");
         sb.append("      totalFreeze: ").append(toIndentedString(totalFreeze)).append("\n");
         sb.append("      totalLiab: ").append(toIndentedString(totalLiab)).append("\n");
+        sb.append("      spotInUse: ").append(toIndentedString(spotInUse)).append("\n");
+        sb.append("      funding: ").append(toIndentedString(funding)).append("\n");
+        sb.append("      fundingVersion: ").append(toIndentedString(fundingVersion)).append("\n");
         sb.append("}");
         return sb.toString();
     }

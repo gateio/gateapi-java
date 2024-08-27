@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**listSTPGroupsUsers**](AccountApi.md#listSTPGroupsUsers) | **GET** /account/stp_groups/{stp_id}/users | List users of the STP group
 [**addSTPGroupUsers**](AccountApi.md#addSTPGroupUsers) | **POST** /account/stp_groups/{stp_id}/users | Add users to the STP group
 [**deleteSTPGroupUsers**](AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete the user in the STP group
+[**getDebitFee**](AccountApi.md#getDebitFee) | **GET** /account/debit_fee | Query GT deduction configuration.
+[**setDebitFee**](AccountApi.md#setDebitFee) | **POST** /account/debit_fee | Set GT deduction.
 
 
 <a name="getAccountDetail"></a>
@@ -362,7 +364,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteSTPGroupUsers"></a>
 # **deleteSTPGroupUsers**
-> List&lt;StpGroupUser&gt; deleteSTPGroupUsers(stpId, requestBody)
+> List&lt;StpGroupUser&gt; deleteSTPGroupUsers(stpId, userId)
 
 Delete the user in the STP group
 
@@ -390,9 +392,9 @@ public class Example {
 
         AccountApi apiInstance = new AccountApi(defaultClient);
         Long stpId = 1L; // Long | STP Group ID
-        List<Long> requestBody = Arrays.asList(); // List<Long> | User ID
+        Long userId = 1L; // Long | STP user ID, multiple can be separated by commas
         try {
-            List<StpGroupUser> result = apiInstance.deleteSTPGroupUsers(stpId, requestBody);
+            List<StpGroupUser> result = apiInstance.deleteSTPGroupUsers(stpId, userId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -412,7 +414,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stpId** | **Long**| STP Group ID |
- **requestBody** | [**List&lt;Long&gt;**](Long.md)| User ID |
+ **userId** | **Long**| STP user ID, multiple can be separated by commas |
 
 ### Return type
 
@@ -424,8 +426,143 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="getDebitFee"></a>
+# **getDebitFee**
+> InlineResponse200 getDebitFee()
+
+Query GT deduction configuration.
+
+Query the current GT deduction configuration for the account.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.AccountApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        try {
+            InlineResponse200 result = apiInstance.getDebitFee();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#getDebitFee");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="setDebitFee"></a>
+# **setDebitFee**
+> setDebitFee(inlineObject)
+
+Set GT deduction.
+
+Enable or disable GT deduction for the current account.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.AccountApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        try {
+            apiInstance.setDebitFee(inlineObject);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#setDebitFee");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |

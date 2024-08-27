@@ -47,6 +47,10 @@ public class BatchAmendItem {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
+    public static final String SERIALIZED_NAME_ACTION_MODE = "action_mode";
+    @SerializedName(SERIALIZED_NAME_ACTION_MODE)
+    private String actionMode;
+
 
     public BatchAmendItem orderId(String orderId) {
         
@@ -165,6 +169,26 @@ public class BatchAmendItem {
     public void setAmendText(String amendText) {
         this.amendText = amendText;
     }
+
+    public BatchAmendItem actionMode(String actionMode) {
+        
+        this.actionMode = actionMode;
+        return this;
+    }
+
+     /**
+     * Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
+     * @return actionMode
+    **/
+    @javax.annotation.Nullable
+    public String getActionMode() {
+        return actionMode;
+    }
+
+
+    public void setActionMode(String actionMode) {
+        this.actionMode = actionMode;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -179,12 +203,13 @@ public class BatchAmendItem {
                 Objects.equals(this.account, batchAmendItem.account) &&
                 Objects.equals(this.amount, batchAmendItem.amount) &&
                 Objects.equals(this.price, batchAmendItem.price) &&
-                Objects.equals(this.amendText, batchAmendItem.amendText);
+                Objects.equals(this.amendText, batchAmendItem.amendText) &&
+                Objects.equals(this.actionMode, batchAmendItem.actionMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, currencyPair, account, amount, price, amendText);
+        return Objects.hash(orderId, currencyPair, account, amount, price, amendText, actionMode);
     }
 
 
@@ -198,6 +223,7 @@ public class BatchAmendItem {
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
+        sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
