@@ -21,35 +21,31 @@ Method | HTTP request | Description
 List lending markets
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        try {
-            List<UniCurrencyPair> result = apiInstance.listUniCurrencyPairs();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginUniApi#listUniCurrencyPairs");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    MarginUniApi apiInstance = new MarginUniApi(defaultClient);
+    try {
+      List<UniCurrencyPair> result = apiInstance.listUniCurrencyPairs();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MarginUniApi#listUniCurrencyPairs");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -81,36 +77,32 @@ No authorization required
 Get detail of lending market
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String currencyPair = "AE_USDT"; // String | Currency pair
-        try {
-            UniCurrencyPair result = apiInstance.getUniCurrencyPair(currencyPair);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginUniApi#getUniCurrencyPair");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    MarginUniApi apiInstance = new MarginUniApi(defaultClient);
+    String currencyPair = "AE_USDT"; // String | Currency pair
+    try {
+      UniCurrencyPair result = apiInstance.getUniCurrencyPair(currencyPair);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MarginUniApi#getUniCurrencyPair");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -147,40 +139,39 @@ Estimate interest Rate
 Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        List<String> currencies = Arrays.asList(); // List<String> | An array of up to 10 specifying the currency name
-        try {
-            Map<String, String> result = apiInstance.getMarginUniEstimateRate(currencies);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginUniApi#getMarginUniEstimateRate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    MarginUniApi apiInstance = new MarginUniApi(defaultClient);
+    List<String> currencies = Arrays.asList(); // List<String> | An array of up to 10 specifying the currency name
+    try {
+      Map<String, String> result = apiInstance.getMarginUniEstimateRate(currencies);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MarginUniApi#getMarginUniEstimateRate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -215,48 +206,47 @@ Name | Type | Description  | Notes
 List loans
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
-        try {
-            List<UniLoan> result = apiInstance.listUniLoans()
-                        .currencyPair(currencyPair)
-                        .currency(currency)
-                        .page(page)
-                        .limit(limit)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginUniApi#listUniLoans");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    MarginUniApi apiInstance = new MarginUniApi(defaultClient);
+    String currencyPair = "BTC_USDT"; // String | Currency pair
+    String currency = "BTC"; // String | Retrieve data of the specified currency
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+    try {
+      List<UniLoan> result = apiInstance.listUniLoans()
+            .currencyPair(currencyPair)
+            .currency(currency)
+            .page(page)
+            .limit(limit)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MarginUniApi#listUniLoans");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -294,39 +284,38 @@ Name | Type | Description  | Notes
 Borrow or repay
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        CreateUniLoan createUniLoan = new CreateUniLoan(); // CreateUniLoan | 
-        try {
-            apiInstance.createUniLoan(createUniLoan);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginUniApi#createUniLoan");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    MarginUniApi apiInstance = new MarginUniApi(defaultClient);
+    CreateUniLoan createUniLoan = new CreateUniLoan(); // CreateUniLoan | 
+    try {
+      apiInstance.createUniLoan(createUniLoan);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MarginUniApi#createUniLoan");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -361,50 +350,49 @@ null (empty response body)
 Get load records
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String type = "type_example"; // String | type: borrow - borrow, repay - repay
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        String currencyPair = "BTC_USDT"; // String | Currency pair
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
-        try {
-            List<UniLoanRecord> result = apiInstance.listUniLoanRecords()
-                        .type(type)
-                        .currency(currency)
-                        .currencyPair(currencyPair)
-                        .page(page)
-                        .limit(limit)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginUniApi#listUniLoanRecords");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    MarginUniApi apiInstance = new MarginUniApi(defaultClient);
+    String type = "type_example"; // String | type: borrow - borrow, repay - repay
+    String currency = "BTC"; // String | Retrieve data of the specified currency
+    String currencyPair = "BTC_USDT"; // String | Currency pair
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+    try {
+      List<UniLoanRecord> result = apiInstance.listUniLoanRecords()
+            .type(type)
+            .currency(currency)
+            .currencyPair(currencyPair)
+            .page(page)
+            .limit(limit)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MarginUniApi#listUniLoanRecords");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -443,52 +431,51 @@ Name | Type | Description  | Notes
 List interest records
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
-        try {
-            List<UniLoanInterestRecord> result = apiInstance.listUniLoanInterestRecords()
-                        .currencyPair(currencyPair)
-                        .currency(currency)
-                        .page(page)
-                        .limit(limit)
-                        .from(from)
-                        .to(to)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginUniApi#listUniLoanInterestRecords");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    MarginUniApi apiInstance = new MarginUniApi(defaultClient);
+    String currencyPair = "BTC_USDT"; // String | Currency pair
+    String currency = "BTC"; // String | Retrieve data of the specified currency
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Long from = 1547706332L; // Long | Start timestamp
+    Long to = 1547706332L; // Long | End timestamp
+    try {
+      List<UniLoanInterestRecord> result = apiInstance.listUniLoanInterestRecords()
+            .currencyPair(currencyPair)
+            .currency(currency)
+            .page(page)
+            .limit(limit)
+            .from(from)
+            .to(to)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MarginUniApi#listUniLoanInterestRecords");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -528,41 +515,40 @@ Name | Type | Description  | Notes
 Get maximum borrowable
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        String currencyPair = "BTC_USDT"; // String | Currency pair
-        try {
-            MaxUniBorrowable result = apiInstance.getUniBorrowable(currency, currencyPair);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MarginUniApi#getUniBorrowable");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    MarginUniApi apiInstance = new MarginUniApi(defaultClient);
+    String currency = "BTC"; // String | Retrieve data of the specified currency
+    String currencyPair = "BTC_USDT"; // String | Currency pair
+    try {
+      MaxUniBorrowable result = apiInstance.getUniBorrowable(currency, currencyPair);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MarginUniApi#getUniBorrowable");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 

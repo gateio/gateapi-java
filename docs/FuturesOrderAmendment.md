@@ -1,4 +1,5 @@
 
+
 # FuturesOrderAmendment
 
 ## Properties
@@ -10,4 +11,6 @@ Name | Type | Description | Notes
 **amendText** | **String** | Custom info during amending order |  [optional]
 **bizInfo** | **String** | Users can annotate this modification with information. |  [optional]
 **bbo** | **String** | Users are able to modify the offer price manually. |  [optional]
+
+
 

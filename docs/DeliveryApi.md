@@ -42,36 +42,32 @@ Method | HTTP request | Description
 List all futures contracts
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        try {
-            List<DeliveryContract> result = apiInstance.listDeliveryContracts(settle);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryContracts");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    try {
+      List<DeliveryContract> result = apiInstance.listDeliveryContracts(settle);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryContracts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -106,37 +102,33 @@ No authorization required
 Get a single contract
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        try {
-            DeliveryContract result = apiInstance.getDeliveryContract(settle, contract);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#getDeliveryContract");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    try {
+      DeliveryContract result = apiInstance.getDeliveryContract(settle, contract);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#getDeliveryContract");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -174,44 +166,40 @@ Futures order book
 Bids will be sorted by price from high to low, while asks sorted reversely
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
-        Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
-        Boolean withId = false; // Boolean | Whether the order book update ID will be returned. This ID increases by 1 on every order book update
-        try {
-            FuturesOrderBook result = apiInstance.listDeliveryOrderBook(settle, contract)
-                        .interval(interval)
-                        .limit(limit)
-                        .withId(withId)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryOrderBook");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
+    Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
+    Boolean withId = false; // Boolean | Whether the order book update ID will be returned. This ID increases by 1 on every order book update
+    try {
+      FuturesOrderBook result = apiInstance.listDeliveryOrderBook(settle, contract)
+            .interval(interval)
+            .limit(limit)
+            .withId(withId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryOrderBook");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -250,46 +238,42 @@ No authorization required
 Futures trading history
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        String lastId = "12345"; // String | Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use `from` and `to` instead to limit time range
-        Long from = 1546905600L; // Long | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
-        Long to = 1546935600L; // Long | Specify end time in Unix seconds, default to current time
-        try {
-            List<FuturesTrade> result = apiInstance.listDeliveryTrades(settle, contract)
-                        .limit(limit)
-                        .lastId(lastId)
-                        .from(from)
-                        .to(to)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryTrades");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    String lastId = "12345"; // String | Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use `from` and `to` instead to limit time range
+    Long from = 1546905600L; // Long | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
+    Long to = 1546935600L; // Long | Specify end time in Unix seconds, default to current time
+    try {
+      List<FuturesTrade> result = apiInstance.listDeliveryTrades(settle, contract)
+            .limit(limit)
+            .lastId(lastId)
+            .from(from)
+            .to(to)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryTrades");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -331,46 +315,42 @@ Get futures candlesticks
 Return specified contract candlesticks. If prefix &#x60;contract&#x60; with &#x60;mark_&#x60;, the contract&#39;s mark price candlesticks are returned; if prefix with &#x60;index_&#x60;, index price candlesticks will be returned.  Maximum of 2000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
-        Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
-        Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        String interval = "5m"; // String | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0
-        try {
-            List<DeliveryCandlestick> result = apiInstance.listDeliveryCandlesticks(settle, contract)
-                        .from(from)
-                        .to(to)
-                        .limit(limit)
-                        .interval(interval)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryCandlesticks");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
+    Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
+    Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
+    String interval = "5m"; // String | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0
+    try {
+      List<DeliveryCandlestick> result = apiInstance.listDeliveryCandlesticks(settle, contract)
+            .from(from)
+            .to(to)
+            .limit(limit)
+            .interval(interval)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryCandlesticks");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -410,39 +390,35 @@ No authorization required
 List futures tickers
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        try {
-            List<FuturesTicker> result = apiInstance.listDeliveryTickers(settle)
-                        .contract(contract)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryTickers");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    try {
+      List<FuturesTicker> result = apiInstance.listDeliveryTickers(settle)
+            .contract(contract)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryTickers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -478,39 +454,35 @@ No authorization required
 Futures insurance balance history
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        try {
-            List<InsuranceRecord> result = apiInstance.listDeliveryInsuranceLedger(settle)
-                        .limit(limit)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryInsuranceLedger");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    try {
+      List<InsuranceRecord> result = apiInstance.listDeliveryInsuranceLedger(settle)
+            .limit(limit)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryInsuranceLedger");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -546,40 +518,39 @@ No authorization required
 Query futures account
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        try {
-            FuturesAccount result = apiInstance.listDeliveryAccounts(settle);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryAccounts");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    try {
+      FuturesAccount result = apiInstance.listDeliveryAccounts(settle);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryAccounts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -614,49 +585,48 @@ Name | Type | Description  | Notes
 Query account book
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
-        String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
-        try {
-            List<FuturesAccountBook> result = apiInstance.listDeliveryAccountBook(settle)
-                        .limit(limit)
-                        .from(from)
-                        .to(to)
-                        .type(type)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryAccountBook");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Long from = 1547706332L; // Long | Start timestamp
+    Long to = 1547706332L; // Long | End timestamp
+    String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+    try {
+      List<FuturesAccountBook> result = apiInstance.listDeliveryAccountBook(settle)
+            .limit(limit)
+            .from(from)
+            .to(to)
+            .type(type)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryAccountBook");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -695,40 +665,39 @@ Name | Type | Description  | Notes
 List all positions of a user
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        try {
-            List<Position> result = apiInstance.listDeliveryPositions(settle);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryPositions");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    try {
+      List<Position> result = apiInstance.listDeliveryPositions(settle);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryPositions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -763,41 +732,40 @@ Name | Type | Description  | Notes
 Get single position
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        try {
-            Position result = apiInstance.getDeliveryPosition(settle, contract);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#getDeliveryPosition");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    try {
+      Position result = apiInstance.getDeliveryPosition(settle, contract);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#getDeliveryPosition");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -833,42 +801,41 @@ Name | Type | Description  | Notes
 Update position margin
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        String change = "0.01"; // String | Margin change. Use positive number to increase margin, negative number otherwise.
-        try {
-            Position result = apiInstance.updateDeliveryPositionMargin(settle, contract, change);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionMargin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    String change = "0.01"; // String | Margin change. Use positive number to increase margin, negative number otherwise.
+    try {
+      Position result = apiInstance.updateDeliveryPositionMargin(settle, contract, change);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionMargin");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -905,42 +872,41 @@ Name | Type | Description  | Notes
 Update position leverage
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        String leverage = "10"; // String | New position leverage
-        try {
-            Position result = apiInstance.updateDeliveryPositionLeverage(settle, contract, leverage);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionLeverage");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    String leverage = "10"; // String | New position leverage
+    try {
+      Position result = apiInstance.updateDeliveryPositionLeverage(settle, contract, leverage);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionLeverage");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -977,42 +943,41 @@ Name | Type | Description  | Notes
 Update position risk limit
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        String riskLimit = "10"; // String | New position risk limit
-        try {
-            Position result = apiInstance.updateDeliveryPositionRiskLimit(settle, contract, riskLimit);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionRiskLimit");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    String riskLimit = "10"; // String | New position risk limit
+    try {
+      Position result = apiInstance.updateDeliveryPositionRiskLimit(settle, contract, riskLimit);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#updateDeliveryPositionRiskLimit");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1051,52 +1016,51 @@ List futures orders
 Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String status = "open"; // String | Only list the orders with this status
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
-        Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
-        try {
-            List<FuturesOrder> result = apiInstance.listDeliveryOrders(settle, status)
-                        .contract(contract)
-                        .limit(limit)
-                        .offset(offset)
-                        .lastId(lastId)
-                        .countTotal(countTotal)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryOrders");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String status = "open"; // String | Only list the orders with this status
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
+    Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
+    try {
+      List<FuturesOrder> result = apiInstance.listDeliveryOrders(settle, status)
+            .contract(contract)
+            .limit(limit)
+            .offset(offset)
+            .lastId(lastId)
+            .countTotal(countTotal)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryOrders");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1139,41 +1103,40 @@ Create a futures order
 Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        FuturesOrder futuresOrder = new FuturesOrder(); // FuturesOrder | 
-        try {
-            FuturesOrder result = apiInstance.createDeliveryOrder(settle, futuresOrder);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#createDeliveryOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    FuturesOrder futuresOrder = new FuturesOrder(); // FuturesOrder | 
+    try {
+      FuturesOrder result = apiInstance.createDeliveryOrder(settle, futuresOrder);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#createDeliveryOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1211,42 +1174,41 @@ Cancel all &#x60;open&#x60; orders matched
 Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        String side = "ask"; // String | All bids or asks. Both included if not specified
-        try {
-            List<FuturesOrder> result = apiInstance.cancelDeliveryOrders(settle, contract, side);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#cancelDeliveryOrders");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    String side = "ask"; // String | All bids or asks. Both included if not specified
+    try {
+      List<FuturesOrder> result = apiInstance.cancelDeliveryOrders(settle, contract, side);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#cancelDeliveryOrders");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1285,41 +1247,40 @@ Get a single order
 Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String orderId = "12345"; // String | Retrieve the data of the order with the specified ID
-        try {
-            FuturesOrder result = apiInstance.getDeliveryOrder(settle, orderId);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#getDeliveryOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String orderId = "12345"; // String | Retrieve the data of the order with the specified ID
+    try {
+      FuturesOrder result = apiInstance.getDeliveryOrder(settle, orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#getDeliveryOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1355,41 +1316,40 @@ Name | Type | Description  | Notes
 Cancel a single order
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String orderId = "12345"; // String | Retrieve the data of the order with the specified ID
-        try {
-            FuturesOrder result = apiInstance.cancelDeliveryOrder(settle, orderId);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#cancelDeliveryOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String orderId = "12345"; // String | Retrieve the data of the order with the specified ID
+    try {
+      FuturesOrder result = apiInstance.cancelDeliveryOrder(settle, orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#cancelDeliveryOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1425,53 +1385,52 @@ Name | Type | Description  | Notes
 List personal trading history
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Long order = 12345L; // Long | Futures order ID, return related data only if specified
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
-        Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
-        try {
-            List<MyFuturesTrade> result = apiInstance.getMyDeliveryTrades(settle)
-                        .contract(contract)
-                        .order(order)
-                        .limit(limit)
-                        .offset(offset)
-                        .lastId(lastId)
-                        .countTotal(countTotal)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#getMyDeliveryTrades");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    Long order = 12345L; // Long | Futures order ID, return related data only if specified
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
+    Integer countTotal = 0; // Integer | Whether to return total number matched. Default to 0(no return)
+    try {
+      List<MyFuturesTrade> result = apiInstance.getMyDeliveryTrades(settle)
+            .contract(contract)
+            .order(order)
+            .limit(limit)
+            .offset(offset)
+            .lastId(lastId)
+            .countTotal(countTotal)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#getMyDeliveryTrades");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1512,45 +1471,44 @@ Name | Type | Description  | Notes
 List position close history
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        try {
-            List<PositionClose> result = apiInstance.listDeliveryPositionClose(settle)
-                        .contract(contract)
-                        .limit(limit)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryPositionClose");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    try {
+      List<PositionClose> result = apiInstance.listDeliveryPositionClose(settle)
+            .contract(contract)
+            .limit(limit)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryPositionClose");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1587,47 +1545,46 @@ Name | Type | Description  | Notes
 List liquidation history
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer at = 0; // Integer | Specify a liquidation timestamp
-        try {
-            List<FuturesLiquidate> result = apiInstance.listDeliveryLiquidates(settle)
-                        .contract(contract)
-                        .limit(limit)
-                        .at(at)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryLiquidates");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer at = 0; // Integer | Specify a liquidation timestamp
+    try {
+      List<FuturesLiquidate> result = apiInstance.listDeliveryLiquidates(settle)
+            .contract(contract)
+            .limit(limit)
+            .at(at)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryLiquidates");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1665,47 +1622,46 @@ Name | Type | Description  | Notes
 List settlement history
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer at = 0; // Integer | Specify a settlement timestamp
-        try {
-            List<DeliverySettlement> result = apiInstance.listDeliverySettlements(settle)
-                        .contract(contract)
-                        .limit(limit)
-                        .at(at)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliverySettlements");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer at = 0; // Integer | Specify a settlement timestamp
+    try {
+      List<DeliverySettlement> result = apiInstance.listDeliverySettlements(settle)
+            .contract(contract)
+            .limit(limit)
+            .at(at)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliverySettlements");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1745,43 +1701,39 @@ List risk limit tiers
 When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT_20200814"; // String | Futures contract
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        try {
-            List<FuturesLimitRiskTiers> result = apiInstance.listDeliveryRiskLimitTiers(settle)
-                        .contract(contract)
-                        .limit(limit)
-                        .offset(offset)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listDeliveryRiskLimitTiers");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT_20200814"; // String | Futures contract
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    try {
+      List<FuturesLimitRiskTiers> result = apiInstance.listDeliveryRiskLimitTiers(settle)
+            .contract(contract)
+            .limit(limit)
+            .offset(offset)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listDeliveryRiskLimitTiers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1819,48 +1771,47 @@ No authorization required
 List all auto orders
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String status = "status_example"; // String | Only list the orders with this status
-        String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        try {
-            List<FuturesPriceTriggeredOrder> result = apiInstance.listPriceTriggeredDeliveryOrders(settle, status)
-                        .contract(contract)
-                        .limit(limit)
-                        .offset(offset)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#listPriceTriggeredDeliveryOrders");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String status = "status_example"; // String | Only list the orders with this status
+    String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    try {
+      List<FuturesPriceTriggeredOrder> result = apiInstance.listPriceTriggeredDeliveryOrders(settle, status)
+            .contract(contract)
+            .limit(limit)
+            .offset(offset)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#listPriceTriggeredDeliveryOrders");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1899,41 +1850,40 @@ Name | Type | Description  | Notes
 Create a price-triggered order
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        FuturesPriceTriggeredOrder futuresPriceTriggeredOrder = new FuturesPriceTriggeredOrder(); // FuturesPriceTriggeredOrder | 
-        try {
-            TriggerOrderResponse result = apiInstance.createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#createPriceTriggeredDeliveryOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    FuturesPriceTriggeredOrder futuresPriceTriggeredOrder = new FuturesPriceTriggeredOrder(); // FuturesPriceTriggeredOrder | 
+    try {
+      TriggerOrderResponse result = apiInstance.createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#createPriceTriggeredDeliveryOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -1969,41 +1919,40 @@ Name | Type | Description  | Notes
 Cancel all open orders
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT"; // String | Futures contract
-        try {
-            List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredDeliveryOrderList(settle, contract);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#cancelPriceTriggeredDeliveryOrderList");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String contract = "BTC_USDT"; // String | Futures contract
+    try {
+      List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredDeliveryOrderList(settle, contract);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#cancelPriceTriggeredDeliveryOrderList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -2039,41 +1988,40 @@ Name | Type | Description  | Notes
 Get a price-triggered order
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String orderId = "orderId_example"; // String | Retrieve the data of the order with the specified ID
-        try {
-            FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredDeliveryOrder(settle, orderId);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#getPriceTriggeredDeliveryOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String orderId = "orderId_example"; // String | Retrieve the data of the order with the specified ID
+    try {
+      FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredDeliveryOrder(settle, orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#getPriceTriggeredDeliveryOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -2109,41 +2057,40 @@ Name | Type | Description  | Notes
 cancel a price-triggered order
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.DeliveryApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        DeliveryApi apiInstance = new DeliveryApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String orderId = "orderId_example"; // String | Retrieve the data of the order with the specified ID
-        try {
-            FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredDeliveryOrder(settle, orderId);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeliveryApi#cancelPriceTriggeredDeliveryOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    DeliveryApi apiInstance = new DeliveryApi(defaultClient);
+    String settle = "usdt"; // String | Settle currency
+    String orderId = "orderId_example"; // String | Retrieve the data of the order with the specified ID
+    try {
+      FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredDeliveryOrder(settle, orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DeliveryApi#cancelPriceTriggeredDeliveryOrder");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 

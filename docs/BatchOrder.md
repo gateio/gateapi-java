@@ -1,8 +1,8 @@
 
+
 # BatchOrder
 
 Batch order details
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -45,6 +45,8 @@ Name | Type | Description | Notes
 **stpAct** | [**StpActEnum**](#StpActEnum) | Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled |  [optional]
 **finishAs** | [**FinishAsEnum**](#FinishAsEnum) | How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention  |  [optional] [readonly]
 
+
+
 ## Enum: StatusEnum
 
 Name | Value
@@ -53,12 +55,16 @@ OPEN | &quot;open&quot;
 CLOSED | &quot;closed&quot;
 CANCELLED | &quot;cancelled&quot;
 
+
+
 ## Enum: TypeEnum
 
 Name | Value
 ---- | -----
 LIMIT | &quot;limit&quot;
 MARKET | &quot;market&quot;
+
+
 
 ## Enum: AccountEnum
 
@@ -69,12 +75,16 @@ MARGIN | &quot;margin&quot;
 CROSS_MARGIN | &quot;cross_margin&quot;
 UNIFIED | &quot;unified&quot;
 
+
+
 ## Enum: SideEnum
 
 Name | Value
 ---- | -----
 BUY | &quot;buy&quot;
 SELL | &quot;sell&quot;
+
+
 
 ## Enum: TimeInForceEnum
 
@@ -85,6 +95,8 @@ IOC | &quot;ioc&quot;
 POC | &quot;poc&quot;
 FOK | &quot;fok&quot;
 
+
+
 ## Enum: StpActEnum
 
 Name | Value
@@ -93,6 +105,8 @@ CN | &quot;cn&quot;
 CO | &quot;co&quot;
 CB | &quot;cb&quot;
 MINUS | &quot;-&quot;
+
+
 
 ## Enum: FinishAsEnum
 
@@ -103,4 +117,6 @@ FILLED | &quot;filled&quot;
 CANCELLED | &quot;cancelled&quot;
 IOC | &quot;ioc&quot;
 STP | &quot;stp&quot;
+
+
 

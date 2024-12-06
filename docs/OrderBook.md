@@ -1,4 +1,5 @@
 
+
 # OrderBook
 
 ## Properties
@@ -10,4 +11,6 @@ Name | Type | Description | Notes
 **update** | **Long** | The timestamp of when the orderbook last changed (in milliseconds) |  [optional]
 **asks** | [**List&lt;List&lt;String&gt;&gt;**](List.md) | Asks order depth | 
 **bids** | [**List&lt;List&lt;String&gt;&gt;**](List.md) | Bids order depth | 
+
+
 

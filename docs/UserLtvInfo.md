@@ -1,8 +1,8 @@
 
+
 # UserLtvInfo
 
 User's currency statistics data
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,4 +14,6 @@ Name | Type | Description | Notes
 **liquidateLtv** | **String** | The liquidation collateralization rate |  [optional]
 **minBorrowAmount** | **String** | Minimum borrowable amount for the loan currency |  [optional]
 **leftBorrowableAmount** | **String** | Remaining borrowable amount for the loan currency |  [optional]
+
+
 

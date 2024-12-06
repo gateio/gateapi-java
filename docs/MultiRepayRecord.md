@@ -1,8 +1,8 @@
 
+
 # MultiRepayRecord
 
 Mult Repay Record
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,4 +19,6 @@ Name | Type | Description | Notes
 **repaidCurrencies** | [**List&lt;RepayRecordRepaidCurrency&gt;**](RepayRecordRepaidCurrency.md) | Repay Currency List |  [optional]
 **totalInterestList** | [**List&lt;RepayRecordTotalInterest&gt;**](RepayRecordTotalInterest.md) | Total Interest List |  [optional]
 **leftRepayInterestList** | [**List&lt;RepayRecordLeftInterest&gt;**](RepayRecordLeftInterest.md) | List of left repay interest |  [optional]
+
+
 

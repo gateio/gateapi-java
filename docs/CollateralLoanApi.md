@@ -23,48 +23,47 @@ Method | HTTP request | Description
 List Orders
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        String collateralCurrency = "BTC"; // String | Collateral
-        String borrowCurrency = "USDT"; // String | Borrowed currency
-        try {
-            List<CollateralOrder> result = apiInstance.listCollateralLoanOrders()
-                        .page(page)
-                        .limit(limit)
-                        .collateralCurrency(collateralCurrency)
-                        .borrowCurrency(borrowCurrency)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#listCollateralLoanOrders");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    String collateralCurrency = "BTC"; // String | Collateral
+    String borrowCurrency = "USDT"; // String | Borrowed currency
+    try {
+      List<CollateralOrder> result = apiInstance.listCollateralLoanOrders()
+            .page(page)
+            .limit(limit)
+            .collateralCurrency(collateralCurrency)
+            .borrowCurrency(borrowCurrency)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#listCollateralLoanOrders");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -102,40 +101,39 @@ Name | Type | Description  | Notes
 Place order
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        CreateCollateralOrder createCollateralOrder = new CreateCollateralOrder(); // CreateCollateralOrder | 
-        try {
-            OrderResp result = apiInstance.createCollateralLoan(createCollateralOrder);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#createCollateralLoan");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    CreateCollateralOrder createCollateralOrder = new CreateCollateralOrder(); // CreateCollateralOrder | 
+    try {
+      OrderResp result = apiInstance.createCollateralLoan(createCollateralOrder);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#createCollateralLoan");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -170,40 +168,39 @@ Name | Type | Description  | Notes
 Get a single order
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        Long orderId = 100001L; // Long | Order ID returned on successful order creation
-        try {
-            CollateralOrder result = apiInstance.getCollateralLoanOrderDetail(orderId);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#getCollateralLoanOrderDetail");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    Long orderId = 100001L; // Long | Order ID returned on successful order creation
+    try {
+      CollateralOrder result = apiInstance.getCollateralLoanOrderDetail(orderId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#getCollateralLoanOrderDetail");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -238,40 +235,39 @@ Name | Type | Description  | Notes
 Repayment
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        RepayLoan repayLoan = new RepayLoan(); // RepayLoan | 
-        try {
-            RepayResp result = apiInstance.repayCollateralLoan(repayLoan);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#repayCollateralLoan");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    RepayLoan repayLoan = new RepayLoan(); // RepayLoan | 
+    try {
+      RepayResp result = apiInstance.repayCollateralLoan(repayLoan);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#repayCollateralLoan");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -306,53 +302,52 @@ Name | Type | Description  | Notes
 Repayment history
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        String source = "repay"; // String | Operation type: repay - Regular repayment, liquidate - Liquidation
-        String borrowCurrency = "USDT"; // String | Borrowed currency
-        String collateralCurrency = "BTC"; // String | Collateral
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Long from = 1609459200L; // Long | Start timestamp of the query
-        Long to = 1609459200L; // Long | Time range ending, default to current time
-        try {
-            List<RepayRecord> result = apiInstance.listRepayRecords(source)
-                        .borrowCurrency(borrowCurrency)
-                        .collateralCurrency(collateralCurrency)
-                        .page(page)
-                        .limit(limit)
-                        .from(from)
-                        .to(to)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#listRepayRecords");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    String source = "repay"; // String | Operation type: repay - Regular repayment, liquidate - Liquidation
+    String borrowCurrency = "USDT"; // String | Borrowed currency
+    String collateralCurrency = "BTC"; // String | Collateral
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Long from = 1609459200L; // Long | Start timestamp of the query
+    Long to = 1609459200L; // Long | Time range ending, default to current time
+    try {
+      List<RepayRecord> result = apiInstance.listRepayRecords(source)
+            .borrowCurrency(borrowCurrency)
+            .collateralCurrency(collateralCurrency)
+            .page(page)
+            .limit(limit)
+            .from(from)
+            .to(to)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#listRepayRecords");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -393,52 +388,51 @@ Name | Type | Description  | Notes
 Query collateral adjustment records
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Long from = 1609459200L; // Long | Start timestamp of the query
-        Long to = 1609459200L; // Long | Time range ending, default to current time
-        String borrowCurrency = "USDT"; // String | Borrowed currency
-        String collateralCurrency = "BTC"; // String | Collateral
-        try {
-            List<CollateralRecord> result = apiInstance.listCollateralRecords()
-                        .page(page)
-                        .limit(limit)
-                        .from(from)
-                        .to(to)
-                        .borrowCurrency(borrowCurrency)
-                        .collateralCurrency(collateralCurrency)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#listCollateralRecords");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Long from = 1609459200L; // Long | Start timestamp of the query
+    Long to = 1609459200L; // Long | Time range ending, default to current time
+    String borrowCurrency = "USDT"; // String | Borrowed currency
+    String collateralCurrency = "BTC"; // String | Collateral
+    try {
+      List<CollateralRecord> result = apiInstance.listCollateralRecords()
+            .page(page)
+            .limit(limit)
+            .from(from)
+            .to(to)
+            .borrowCurrency(borrowCurrency)
+            .collateralCurrency(collateralCurrency)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#listCollateralRecords");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -478,39 +472,38 @@ Name | Type | Description  | Notes
 Increase or redeem collateral
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        CollateralAlign collateralAlign = new CollateralAlign(); // CollateralAlign | 
-        try {
-            apiInstance.operateCollateral(collateralAlign);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#operateCollateral");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    CollateralAlign collateralAlign = new CollateralAlign(); // CollateralAlign | 
+    try {
+      apiInstance.operateCollateral(collateralAlign);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#operateCollateral");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -545,39 +538,38 @@ null (empty response body)
 Query the total borrowing and collateral amount for the user
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        try {
-            UserTotalAmount result = apiInstance.getUserTotalAmount();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#getUserTotalAmount");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    try {
+      UserTotalAmount result = apiInstance.getUserTotalAmount();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#getUserTotalAmount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -609,41 +601,40 @@ This endpoint does not need any parameter.
 Query user&#39;s collateralization ratio
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        String collateralCurrency = "BTC"; // String | Collateral
-        String borrowCurrency = "USDT"; // String | Borrowed currency
-        try {
-            UserLtvInfo result = apiInstance.getUserLtvInfo(collateralCurrency, borrowCurrency);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#getUserLtvInfo");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    String collateralCurrency = "BTC"; // String | Collateral
+    String borrowCurrency = "USDT"; // String | Borrowed currency
+    try {
+      UserLtvInfo result = apiInstance.getUserLtvInfo(collateralCurrency, borrowCurrency);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#getUserLtvInfo");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -679,38 +670,34 @@ Name | Type | Description  | Notes
 Query supported borrowing and collateral currencies
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.CollateralLoanApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        String loanCurrency = "BTC"; // String | The parameter loan_currency is used to specify the borrowing currency. If loan_currency is not provided, the API will return all supported borrowing currencies. If loan_currency is provided, the API will return an array of collateral currencies supported for the specified borrowing currency.
-        try {
-            List<CollateralLoanCurrency> result = apiInstance.listCollateralCurrencies()
-                        .loanCurrency(loanCurrency)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling CollateralLoanApi#listCollateralCurrencies");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
+    String loanCurrency = "BTC"; // String | The parameter loan_currency is used to specify the borrowing currency. If loan_currency is not provided, the API will return all supported borrowing currencies. If loan_currency is provided, the API will return an array of collateral currencies supported for the specified borrowing currency.
+    try {
+      List<CollateralLoanCurrency> result = apiInstance.listCollateralCurrencies()
+            .loanCurrency(loanCurrency)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollateralLoanApi#listCollateralCurrencies");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 

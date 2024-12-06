@@ -1,4 +1,5 @@
 
+
 # LedgerRecord
 
 ## Properties
@@ -15,6 +16,8 @@ Name | Type | Description | Notes
 **memo** | **String** | Additional remarks with regards to the withdrawal |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) | Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount |  [optional] [readonly]
 **chain** | **String** | Name of the chain used in withdrawals | 
+
+
 
 ## Enum: StatusEnum
 
@@ -33,4 +36,6 @@ PROCES | &quot;PROCES&quot;
 PEND | &quot;PEND&quot;
 DMOVE | &quot;DMOVE&quot;
 SPLITPEND | &quot;SPLITPEND&quot;
+
+
 

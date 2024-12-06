@@ -1,8 +1,8 @@
 
+
 # FuturesLimitRiskTiers
 
 Retrieve risk limit configurations for different tiers under a specified contract.
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,4 +13,6 @@ Name | Type | Description | Notes
 **maintenanceRate** | **String** | Maintenance margin rate |  [optional]
 **leverageMax** | **String** | Maximum leverage |  [optional]
 **contract** | **String** | Markets, visible only during market pagination requests |  [optional]
+
+
 

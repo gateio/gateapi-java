@@ -1,8 +1,8 @@
 
+
 # MultiCollateralOrder
 
 Multi-Collateral Order
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -21,4 +21,6 @@ Name | Type | Description | Notes
 **totalLeftCollateralUsdt** | **String** | Value of Collateral amount in USDT |  [optional]
 **borrowCurrencies** | [**List&lt;BorrowCurrencyInfo&gt;**](BorrowCurrencyInfo.md) | Borrowing Currency List |  [optional]
 **collateralCurrencies** | [**List&lt;CollateralCurrencyInfo&gt;**](CollateralCurrencyInfo.md) | Collateral Currency List |  [optional]
+
+
 

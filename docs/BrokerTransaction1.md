@@ -1,4 +1,5 @@
 
+
 # BrokerTransaction1
 
 ## Properties
@@ -13,4 +14,6 @@ Name | Type | Description | Notes
 **amount** | **String** | Commission Amount |  [optional]
 **feeAsset** | **String** | Fee currency |  [optional]
 **source** | **String** | Rebate Type: Spot、Futures、Options |  [optional]
+
+
 

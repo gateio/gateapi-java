@@ -1,8 +1,8 @@
 
+
 # OptionsContract
 
 Options contract detail
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **markPriceRound** | **String** | Minimum mark price increment |  [optional]
 **orderSizeMin** | **Long** | Minimum order size the contract allowed |  [optional]
 **orderSizeMax** | **Long** | Maximum order size the contract allowed |  [optional]
-**orderPriceDeviate** | **String** | deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate |  [optional]
+**orderPriceDeviate** | **String** | The positive and negative offset allowed between the order price and the current mark price, that is, the order price &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price  and does not distinguish between buy and sell orders |  [optional]
 **refDiscountRate** | **String** | Referral fee rate discount |  [optional]
 **refRebateRate** | **String** | Referrer commission rate |  [optional]
 **orderbookId** | **Long** | Current orderbook ID |  [optional]
@@ -32,4 +32,6 @@ Name | Type | Description | Notes
 **tradeSize** | **Long** | Historical accumulated trade size |  [optional]
 **positionSize** | **Long** | Current total long position size |  [optional]
 **ordersLimit** | **Integer** | Maximum number of open orders |  [optional]
+
+
 

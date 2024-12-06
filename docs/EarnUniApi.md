@@ -23,35 +23,31 @@ Method | HTTP request | Description
 List currencies for lending
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        try {
-            List<UniCurrency> result = apiInstance.listUniCurrencies();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#listUniCurrencies");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    try {
+      List<UniCurrency> result = apiInstance.listUniCurrencies();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#listUniCurrencies");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -83,36 +79,32 @@ No authorization required
 Get currency detail for lending
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        String currency = "btc"; // String | Currency
-        try {
-            UniCurrency result = apiInstance.getUniCurrency(currency);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#getUniCurrency");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    String currency = "btc"; // String | Currency
+    try {
+      UniCurrency result = apiInstance.getUniCurrency(currency);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#getUniCurrency");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -147,46 +139,45 @@ No authorization required
 List user&#39;s lending orders
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
-        try {
-            List<UniLend> result = apiInstance.listUserUniLends()
-                        .currency(currency)
-                        .page(page)
-                        .limit(limit)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#listUserUniLends");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    String currency = "BTC"; // String | Retrieve data of the specified currency
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+    try {
+      List<UniLend> result = apiInstance.listUserUniLends()
+            .currency(currency)
+            .page(page)
+            .limit(limit)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#listUserUniLends");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -225,39 +216,38 @@ Lend or redeem
 &#x60;Lending&#x60;:  The minimum interest rate is required in lending. The lending result is updated hourly and the interest profit is paid on the next hour. A high interest rate might lead to unsuccessful lending and no profit will be gained for that hour. If the funds are redeemed before the hourly settlement, no interest can be obtained for that hour. About priority: the orders created or amended first under the same interest rate will be lent out first  &#x60;Redemption&#x60;:  Funds that failed to be lent can be redeemed immediately.  For the successfully lent funds, enjoy the hourly income, and the redemption will arrive at the next hour  &#x60;Note&#x60;:  Two minutes before and after the hour is the settlement time, lending and redemption are prohibited. 
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        CreateUniLend createUniLend = new CreateUniLend(); // CreateUniLend | 
-        try {
-            apiInstance.createUniLend(createUniLend);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#createUniLend");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    CreateUniLend createUniLend = new CreateUniLend(); // CreateUniLend | 
+    try {
+      apiInstance.createUniLend(createUniLend);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#createUniLend");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -294,39 +284,38 @@ Amend lending order
 Currently only supports amending the minimum interest rate (hour)
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        PatchUniLend patchUniLend = new PatchUniLend(); // PatchUniLend | 
-        try {
-            apiInstance.changeUniLend(patchUniLend);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#changeUniLend");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    PatchUniLend patchUniLend = new PatchUniLend(); // PatchUniLend | 
+    try {
+      apiInstance.changeUniLend(patchUniLend);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#changeUniLend");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -361,52 +350,51 @@ null (empty response body)
 List records of lending
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
-        String type = "lend"; // String | type: lend - lend, redeem - redeem
-        try {
-            List<UniLendRecord> result = apiInstance.listUniLendRecords()
-                        .currency(currency)
-                        .page(page)
-                        .limit(limit)
-                        .from(from)
-                        .to(to)
-                        .type(type)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#listUniLendRecords");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    String currency = "BTC"; // String | Retrieve data of the specified currency
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+    Long from = 1547706332L; // Long | Start timestamp
+    Long to = 1547706332L; // Long | End timestamp
+    String type = "lend"; // String | type: lend - lend, redeem - redeem
+    try {
+      List<UniLendRecord> result = apiInstance.listUniLendRecords()
+            .currency(currency)
+            .page(page)
+            .limit(limit)
+            .from(from)
+            .to(to)
+            .type(type)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#listUniLendRecords");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -446,40 +434,39 @@ Name | Type | Description  | Notes
 Get the user&#39;s total interest income of specified currency
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        String currency = "btc"; // String | Currency
-        try {
-            UniLendInterest result = apiInstance.getUniInterest(currency);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#getUniInterest");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    String currency = "btc"; // String | Currency
+    try {
+      UniLendInterest result = apiInstance.getUniInterest(currency);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#getUniInterest");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -514,50 +501,49 @@ Name | Type | Description  | Notes
 List interest records
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
-        try {
-            List<UniInterestRecord> result = apiInstance.listUniInterestRecords()
-                        .currency(currency)
-                        .page(page)
-                        .limit(limit)
-                        .from(from)
-                        .to(to)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#listUniInterestRecords");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    String currency = "BTC"; // String | Retrieve data of the specified currency
+    Integer page = 1; // Integer | Page number
+    Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+    Long from = 1547706332L; // Long | Start timestamp
+    Long to = 1547706332L; // Long | End timestamp
+    try {
+      List<UniInterestRecord> result = apiInstance.listUniInterestRecords()
+            .currency(currency)
+            .page(page)
+            .limit(limit)
+            .from(from)
+            .to(to)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#listUniInterestRecords");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -596,39 +582,38 @@ Name | Type | Description  | Notes
 Set interest reinvestment toggle
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        UniInterestMode uniInterestMode = new UniInterestMode(); // UniInterestMode | 
-        try {
-            apiInstance.switchInterestReinvest(uniInterestMode);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#switchInterestReinvest");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    UniInterestMode uniInterestMode = new UniInterestMode(); // UniInterestMode | 
+    try {
+      apiInstance.switchInterestReinvest(uniInterestMode);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#switchInterestReinvest");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -663,40 +648,39 @@ null (empty response body)
 query currency interest compounding status
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnUniApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        EarnUniApi apiInstance = new EarnUniApi(defaultClient);
-        String currency = "btc"; // String | Currency
-        try {
-            UniCurrencyInterest result = apiInstance.getUniInterestStatus(currency);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling EarnUniApi#getUniInterestStatus");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    EarnUniApi apiInstance = new EarnUniApi(defaultClient);
+    String currency = "btc"; // String | Currency
+    try {
+      UniCurrencyInterest result = apiInstance.getUniInterestStatus(currency);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EarnUniApi#getUniInterestStatus");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 

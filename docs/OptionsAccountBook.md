@@ -1,4 +1,5 @@
 
+
 # OptionsAccountBook
 
 ## Properties
@@ -10,4 +11,6 @@ Name | Type | Description | Notes
 **balance** | **String** | Account total balance after change (USDT) |  [optional]
 **type** | **String** | Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate |  [optional]
 **text** | **String** | custom text |  [optional]
+
+
 

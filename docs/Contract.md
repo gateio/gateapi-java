@@ -1,8 +1,8 @@
 
+
 # Contract
 
 Futures contract details
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -44,6 +44,8 @@ Name | Type | Description | Notes
 **createTime** | **Double** | Created time of the contract |  [optional]
 **fundingCapRatio** | **String** | The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio |  [optional]
 
+
+
 ## Enum: TypeEnum
 
 Name | Value
@@ -51,10 +53,14 @@ Name | Value
 INVERSE | &quot;inverse&quot;
 DIRECT | &quot;direct&quot;
 
+
+
 ## Enum: MarkTypeEnum
 
 Name | Value
 ---- | -----
 INTERNAL | &quot;internal&quot;
 INDEX | &quot;index&quot;
+
+
 

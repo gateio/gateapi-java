@@ -23,52 +23,51 @@ The agency obtains the transaction history of the recommended user
 Record time range cannot exceed 30 days
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.RebateApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        RebateApi apiInstance = new RebateApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Specify the currency pair, if not specified, return all currency pairs
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 1602123600L; // Long | Time range ending, default to current time
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        try {
-            List<AgencyTransactionHistory> result = apiInstance.agencyTransactionHistory()
-                        .currencyPair(currencyPair)
-                        .userId(userId)
-                        .from(from)
-                        .to(to)
-                        .limit(limit)
-                        .offset(offset)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RebateApi#agencyTransactionHistory");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    RebateApi apiInstance = new RebateApi(defaultClient);
+    String currencyPair = "BTC_USDT"; // String | Specify the currency pair, if not specified, return all currency pairs
+    Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+    Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
+    Long to = 1602123600L; // Long | Time range ending, default to current time
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    try {
+      List<AgencyTransactionHistory> result = apiInstance.agencyTransactionHistory()
+            .currencyPair(currencyPair)
+            .userId(userId)
+            .from(from)
+            .to(to)
+            .limit(limit)
+            .offset(offset)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RebateApi#agencyTransactionHistory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -110,52 +109,51 @@ The agency obtains the commission history of the recommended user
 Record time range cannot exceed 30 days
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.RebateApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        RebateApi apiInstance = new RebateApi(defaultClient);
-        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 1602123600L; // Long | Time range ending, default to current time
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        try {
-            List<AgencyCommissionHistory> result = apiInstance.agencyCommissionsHistory()
-                        .currency(currency)
-                        .userId(userId)
-                        .from(from)
-                        .to(to)
-                        .limit(limit)
-                        .offset(offset)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RebateApi#agencyCommissionsHistory");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    RebateApi apiInstance = new RebateApi(defaultClient);
+    String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
+    Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+    Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
+    Long to = 1602123600L; // Long | Time range ending, default to current time
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    try {
+      List<AgencyCommissionHistory> result = apiInstance.agencyCommissionsHistory()
+            .currency(currency)
+            .userId(userId)
+            .from(from)
+            .to(to)
+            .limit(limit)
+            .offset(offset)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RebateApi#agencyCommissionsHistory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -190,59 +188,58 @@ Name | Type | Description  | Notes
 
 <a name="partnerTransactionHistory"></a>
 # **partnerTransactionHistory**
-> List&lt;PartnerTransactionHistory&gt; partnerTransactionHistory().currencyPair(currencyPair).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
+> PartnerTransactionHistory partnerTransactionHistory().currencyPair(currencyPair).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
 Partner obtains transaction records of recommended users
 
 Record time range cannot exceed 30 days
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.RebateApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        RebateApi apiInstance = new RebateApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Specify the currency pair, if not specified, return all currency pairs
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 1602123600L; // Long | Time range ending, default to current time
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        try {
-            List<PartnerTransactionHistory> result = apiInstance.partnerTransactionHistory()
-                        .currencyPair(currencyPair)
-                        .userId(userId)
-                        .from(from)
-                        .to(to)
-                        .limit(limit)
-                        .offset(offset)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RebateApi#partnerTransactionHistory");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    RebateApi apiInstance = new RebateApi(defaultClient);
+    String currencyPair = "BTC_USDT"; // String | Specify the currency pair, if not specified, return all currency pairs
+    Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+    Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
+    Long to = 1602123600L; // Long | Time range ending, default to current time
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    try {
+      PartnerTransactionHistory result = apiInstance.partnerTransactionHistory()
+            .currencyPair(currencyPair)
+            .userId(userId)
+            .from(from)
+            .to(to)
+            .limit(limit)
+            .offset(offset)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RebateApi#partnerTransactionHistory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -259,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PartnerTransactionHistory&gt;**](PartnerTransactionHistory.md)
+[**PartnerTransactionHistory**](PartnerTransactionHistory.md)
 
 ### Authorization
 
@@ -277,59 +274,58 @@ Name | Type | Description  | Notes
 
 <a name="partnerCommissionsHistory"></a>
 # **partnerCommissionsHistory**
-> List&lt;PartnerCommissionHistory&gt; partnerCommissionsHistory().currency(currency).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
+> PartnerCommissionHistory partnerCommissionsHistory().currency(currency).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
 Partner obtains commission records of recommended users
 
 Record time range cannot exceed 30 days
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.RebateApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        RebateApi apiInstance = new RebateApi(defaultClient);
-        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 1602123600L; // Long | Time range ending, default to current time
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        try {
-            List<PartnerCommissionHistory> result = apiInstance.partnerCommissionsHistory()
-                        .currency(currency)
-                        .userId(userId)
-                        .from(from)
-                        .to(to)
-                        .limit(limit)
-                        .offset(offset)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RebateApi#partnerCommissionsHistory");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    RebateApi apiInstance = new RebateApi(defaultClient);
+    String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
+    Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+    Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
+    Long to = 1602123600L; // Long | Time range ending, default to current time
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    try {
+      PartnerCommissionHistory result = apiInstance.partnerCommissionsHistory()
+            .currency(currency)
+            .userId(userId)
+            .from(from)
+            .to(to)
+            .limit(limit)
+            .offset(offset)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RebateApi#partnerCommissionsHistory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -346,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PartnerCommissionHistory&gt;**](PartnerCommissionHistory.md)
+[**PartnerCommissionHistory**](PartnerCommissionHistory.md)
 
 ### Authorization
 
@@ -364,53 +360,52 @@ Name | Type | Description  | Notes
 
 <a name="partnerSubList"></a>
 # **partnerSubList**
-> List&lt;PartnerSubList&gt; partnerSubList().userId(userId).limit(limit).offset(offset).execute();
+> PartnerSubList partnerSubList().userId(userId).limit(limit).offset(offset).execute();
 
 Partner subordinate list
 
 Including sub-agents, direct customers, indirect customers
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.RebateApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        RebateApi apiInstance = new RebateApi(defaultClient);
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        try {
-            List<PartnerSubList> result = apiInstance.partnerSubList()
-                        .userId(userId)
-                        .limit(limit)
-                        .offset(offset)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RebateApi#partnerSubList");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    RebateApi apiInstance = new RebateApi(defaultClient);
+    Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    try {
+      PartnerSubList result = apiInstance.partnerSubList()
+            .userId(userId)
+            .limit(limit)
+            .offset(offset)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RebateApi#partnerSubList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -424,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PartnerSubList&gt;**](PartnerSubList.md)
+[**PartnerSubList**](PartnerSubList.md)
 
 ### Authorization
 
@@ -449,50 +444,49 @@ The broker obtains the user&#39;s commission rebate records
 Record time range cannot exceed 30 days
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.RebateApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        RebateApi apiInstance = new RebateApi(defaultClient);
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1711929600L; // Long | The start time of the query record. If not specified, the default is to push forward 30 days from the current time.
-        Long to = 1714521600L; // Long | Time range ending, default to current time
-        try {
-            List<BrokerCommission> result = apiInstance.rebateBrokerCommissionHistory()
-                        .limit(limit)
-                        .offset(offset)
-                        .userId(userId)
-                        .from(from)
-                        .to(to)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RebateApi#rebateBrokerCommissionHistory");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    RebateApi apiInstance = new RebateApi(defaultClient);
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+    Long from = 1711929600L; // Long | The start time of the query record. If not specified, the default is to push forward 30 days from the current time.
+    Long to = 1714521600L; // Long | Time range ending, default to current time
+    try {
+      List<BrokerCommission> result = apiInstance.rebateBrokerCommissionHistory()
+            .limit(limit)
+            .offset(offset)
+            .userId(userId)
+            .from(from)
+            .to(to)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RebateApi#rebateBrokerCommissionHistory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -533,50 +527,49 @@ The broker obtains the user&#39;s trading history
 Record time range cannot exceed 30 days
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.RebateApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        RebateApi apiInstance = new RebateApi(defaultClient);
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1711929600L; // Long | The start time of the query record. If not specified, the default is to push forward 30 days from the current time.
-        Long to = 1714521600L; // Long | Time range ending, default to current time
-        try {
-            List<BrokerTransaction> result = apiInstance.rebateBrokerTransactionHistory()
-                        .limit(limit)
-                        .offset(offset)
-                        .userId(userId)
-                        .from(from)
-                        .to(to)
-                        .execute();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RebateApi#rebateBrokerTransactionHistory");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    RebateApi apiInstance = new RebateApi(defaultClient);
+    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+    Integer offset = 0; // Integer | List offset, starting from 0
+    Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+    Long from = 1711929600L; // Long | The start time of the query record. If not specified, the default is to push forward 30 days from the current time.
+    Long to = 1714521600L; // Long | Time range ending, default to current time
+    try {
+      List<BrokerTransaction> result = apiInstance.rebateBrokerTransactionHistory()
+            .limit(limit)
+            .offset(offset)
+            .userId(userId)
+            .from(from)
+            .to(to)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RebateApi#rebateBrokerTransactionHistory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
@@ -615,39 +608,38 @@ Name | Type | Description  | Notes
 User retrieves rebate information
 
 ### Example
-
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.RebateApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    
+    // Configure API key authorization: apiv4
+    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
+    apiv4.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiv4.setApiKeyPrefix("Token");
 
-        RebateApi apiInstance = new RebateApi(defaultClient);
-        try {
-            List<RebateUserInfo> result = apiInstance.rebateUserInfo();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RebateApi#rebateUserInfo");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    RebateApi apiInstance = new RebateApi(defaultClient);
+    try {
+      List<RebateUserInfo> result = apiInstance.rebateUserInfo();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RebateApi#rebateUserInfo");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 

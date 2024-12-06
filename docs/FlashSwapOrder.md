@@ -1,8 +1,8 @@
 
+
 # FlashSwapOrder
 
 Flash swap order
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,4 +16,6 @@ Name | Type | Description | Notes
 **buyAmount** | **String** | Amount to buy |  [optional] [readonly]
 **price** | **String** | Price |  [optional] [readonly]
 **status** | **Integer** | Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure |  [optional] [readonly]
+
+
 

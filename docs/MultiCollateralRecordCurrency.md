@@ -1,4 +1,5 @@
 
+
 # MultiCollateralRecordCurrency
 
 ## Properties
@@ -11,4 +12,6 @@ Name | Type | Description | Notes
 **beforeAmountUsdt** | **String** | USDT Amount before the operation. |  [optional]
 **afterAmount** | **String** | Amount after the operation. |  [optional]
 **afterAmountUsdt** | **String** | USDT Amount after the operation. |  [optional]
+
+
 

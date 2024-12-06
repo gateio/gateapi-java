@@ -1,4 +1,5 @@
 
+
 # SubAccount
 
 ## Properties
@@ -13,4 +14,6 @@ Name | Type | Description | Notes
 **type** | **Integer** | \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account |  [optional] [readonly]
 **userId** | **Long** | The user id of the sub-account |  [optional] [readonly]
 **createTime** | **Long** | Created time |  [optional] [readonly]
+
+
 

@@ -1,4 +1,5 @@
 
+
 # BrokerCommission1
 
 ## Properties
@@ -14,4 +15,6 @@ Name | Type | Description | Notes
 **rebateFee** | **String** | The income from rebates, converted to USDT |  [optional]
 **source** | **String** | Rebate Type: Spot、Futures、Options |  [optional]
 **currencyPair** | **String** | Currency pair |  [optional]
+
+
 

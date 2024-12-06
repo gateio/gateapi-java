@@ -1,4 +1,5 @@
 
+
 # RepayRecordLeftInterest
 
 ## Properties
@@ -11,4 +12,6 @@ Name | Type | Description | Notes
 **beforeAmountUsdt** | **String** | Converted value of interest before repayment in USDT |  [optional]
 **afterAmount** | **String** | Interest amount after repayment |  [optional]
 **afterAmountUsdt** | **String** | Converted value of interest after repayment in USDT |  [optional]
+
+
 

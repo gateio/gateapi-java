@@ -1,8 +1,8 @@
 
+
 # UniInterestRecord
 
 Interest Record
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,4 +13,6 @@ Name | Type | Description | Notes
 **interest** | **String** | Interest |  [optional] [readonly]
 **interestStatus** | **String** | Interest status: interest_dividend - regular dividend, interest_reinvest - interest reinvestment |  [optional] [readonly]
 **createTime** | **Long** | Created time |  [optional] [readonly]
+
+
 

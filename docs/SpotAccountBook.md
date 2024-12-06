@@ -1,4 +1,5 @@
 
+
 # SpotAccountBook
 
 ## Properties
@@ -12,4 +13,6 @@ Name | Type | Description | Notes
 **balance** | **String** | Balance after change |  [optional]
 **type** | **String** | Account book type.  Please refer to [account book type](#accountbook-type) for more detail |  [optional]
 **text** | **String** | Additional information |  [optional]
+
+
 

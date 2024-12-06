@@ -1,8 +1,8 @@
 
+
 # UniLendRecord
 
 Interest Record
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,4 +14,6 @@ Name | Type | Description | Notes
 **lastFrozenAmount** | **String** | Last frozen amount |  [optional] [readonly]
 **type** | **String** | Record type: lend - lend, redeem - redeem |  [optional] [readonly]
 **createTime** | **Long** | Created time |  [optional] [readonly]
+
+
 

@@ -1,4 +1,5 @@
 
+
 # FuturesOrderBook
 
 ## Properties
@@ -10,4 +11,6 @@ Name | Type | Description | Notes
 **update** | **Double** | Order book changed timestamp |  [optional]
 **asks** | [**List&lt;FuturesOrderBookItem&gt;**](FuturesOrderBookItem.md) | Asks order depth | 
 **bids** | [**List&lt;FuturesOrderBookItem&gt;**](FuturesOrderBookItem.md) | Bids order depth | 
+
+
 

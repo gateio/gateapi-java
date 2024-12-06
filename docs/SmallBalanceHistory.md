@@ -1,8 +1,8 @@
 
+
 # SmallBalanceHistory
 
 Convert Small Balance
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,4 +12,6 @@ Name | Type | Description | Notes
 **amount** | **String** | amount |  [optional] [readonly]
 **gtAmount** | **String** | GT amount |  [optional] [readonly]
 **createTime** | **Long** | Exchange time (in seconds) |  [optional] [readonly]
+
+
 

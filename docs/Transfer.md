@@ -1,8 +1,8 @@
 
+
 # Transfer
 
 Accounts available to transfer:  - `spot`: spot account - `margin`: margin account - `futures`: perpetual futures account - `delivery`: delivery futures account - `options`: options account
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **currencyPair** | **String** | Margin currency pair. Required if transfer from or to margin account |  [optional]
 **settle** | **String** | Futures settle currency. Required if transferring from or to futures account |  [optional]
 
+
+
 ## Enum: FromEnum
 
 Name | Value
@@ -24,6 +26,8 @@ FUTURES | &quot;futures&quot;
 DELIVERY | &quot;delivery&quot;
 OPTIONS | &quot;options&quot;
 
+
+
 ## Enum: ToEnum
 
 Name | Value
@@ -33,4 +37,6 @@ MARGIN | &quot;margin&quot;
 FUTURES | &quot;futures&quot;
 DELIVERY | &quot;delivery&quot;
 OPTIONS | &quot;options&quot;
+
+
 

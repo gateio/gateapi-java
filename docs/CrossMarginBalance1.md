@@ -1,4 +1,5 @@
 
+
 # CrossMarginBalance1
 
 ## Properties
@@ -9,4 +10,6 @@ Name | Type | Description | Notes
 **freeze** | **String** | Locked amount |  [optional]
 **borrowed** | **String** | Borrowed amount |  [optional]
 **interest** | **String** | Unpaid interests |  [optional]
+
+
 

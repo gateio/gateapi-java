@@ -1,8 +1,8 @@
 
+
 # CollateralRecord
 
 Collateral record
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,4 +17,6 @@ Name | Type | Description | Notes
 **beforeLtv** | **String** | The collateral ratio before adjustment |  [optional]
 **afterLtv** | **String** | The collateral ratio after adjustment |  [optional]
 **operateTime** | **Long** | Timestamp of the operation, in seconds |  [optional]
+
+
 

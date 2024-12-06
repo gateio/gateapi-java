@@ -1,8 +1,8 @@
 
+
 # FlashSwapCurrencyPair
 
 List all supported currencies in flash swap
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,4 +14,6 @@ Name | Type | Description | Notes
 **sellMaxAmount** | **String** | The maximum quantity allowed for selling |  [optional] [readonly]
 **buyMinAmount** | **String** | The minimum quantity required for buying |  [optional] [readonly]
 **buyMaxAmount** | **String** | The maximum quantity allowed for buying |  [optional] [readonly]
+
+
 

@@ -1,4 +1,5 @@
 
+
 # OptionsMySettlements
 
 ## Properties
@@ -14,4 +15,6 @@ Name | Type | Description | Notes
 **settleProfit** | **String** | Settlement profit (quote currency) |  [optional]
 **fee** | **String** | Fee (quote currency) |  [optional]
 **realisedPnl** | **String** | The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc. (quote currency) |  [optional]
+
+
 

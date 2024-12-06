@@ -1,8 +1,8 @@
 
+
 # RepayRecord
 
 Repayment record
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -20,4 +20,6 @@ Name | Type | Description | Notes
 **afterLeftPrincipal** | **String** | Principal to be repaid after repayment |  [optional]
 **beforeLeftCollateral** | **String** | Collateral quantity before repayment |  [optional]
 **afterLeftCollateral** | **String** | Collateral quantity after repayment |  [optional]
+
+
 

@@ -1,4 +1,5 @@
 
+
 # SubCrossMarginAccount
 
 ## Properties
@@ -21,4 +22,6 @@ Name | Type | Description | Notes
 **totalInitialMarginRate** | **String** | Total initial margin rate |  [optional]
 **totalMaintenanceMarginRate** | **String** | Total maintenance margin rate |  [optional]
 **totalAvailableMargin** | **String** | Total available margin |  [optional]
+
+
 

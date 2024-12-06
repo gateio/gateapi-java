@@ -1,8 +1,8 @@
 
+
 # DeliveryCandlestick
 
 data point in every timestamp
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,4 +13,6 @@ Name | Type | Description | Notes
 **h** | **String** | Highest price (quote currency) |  [optional]
 **l** | **String** | Lowest price (quote currency) |  [optional]
 **o** | **String** | Open price (quote currency) |  [optional]
+
+
 

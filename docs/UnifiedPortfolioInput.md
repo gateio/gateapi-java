@@ -1,8 +1,8 @@
 
+
 # UnifiedPortfolioInput
 
 Input for the portfolio margin calculator.
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,4 +14,6 @@ Name | Type | Description | Notes
 **optionsPositions** | [**List&lt;MockOptionsPosition&gt;**](MockOptionsPosition.md) | Options positions |  [optional]
 **optionsOrders** | [**List&lt;MockOptionsOrder&gt;**](MockOptionsOrder.md) | Option orders |  [optional]
 **spotHedge** | **Boolean** | Whether to enable spot hedging. |  [optional]
+
+
 

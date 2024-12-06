@@ -1,8 +1,8 @@
 
+
 # LiquidateOrder
 
 Liquidate Order detail
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,4 +12,6 @@ Name | Type | Description | Notes
 **amount** | **String** | Trade amount | 
 **price** | **String** | Order price | 
 **actionMode** | **String** | Processing Mode:  Different fields are returned when placing an order based on action_mode. This field is only valid during the request, and it is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default) |  [optional]
+
+
 

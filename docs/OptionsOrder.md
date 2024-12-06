@@ -1,8 +1,8 @@
 
+
 # OptionsOrder
 
 Options order detail
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **user** | **Integer** | User ID |  [optional] [readonly]
 **createTime** | **Double** | Creation time of order |  [optional] [readonly]
 **finishTime** | **Double** | Order finished time. Not returned if order is open |  [optional] [readonly]
-**finishAs** | [**FinishAsEnum**](#FinishAsEnum) | How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders  |  [optional] [readonly]
+**finishAs** | [**FinishAsEnum**](#FinishAsEnum) | 结束方式，包括：  - filled: 完全成交 - cancelled: 用户撤销 - liquidated: 强制平仓撤销 - ioc: 未立即完全成交，因为tif设置为ioc - auto_deleveraged: 自动减仓撤销 - reduce_only: 增持仓位撤销，因为设置reduce_only或平仓 - position_closed: 因为仓位平掉了，所以挂单被撤掉 - reduce_out: 只减仓被排除的不容易成交的挂单 - mmp_cancelled: MMP撤销 |  [optional] [readonly]
 **status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished |  [optional] [readonly]
 **contract** | **String** | Contract name | 
 **size** | **Long** | Order size. Specify positive number to make a bid, and negative number to ask | 
@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **reduceOnly** | **Boolean** | Set as &#x60;true&#x60; to be reduce-only order |  [optional]
 **isReduceOnly** | **Boolean** | Is the order reduce-only |  [optional] [readonly]
 **isLiq** | **Boolean** | Is the order for liquidation |  [optional] [readonly]
+**mmp** | **Boolean** | 设置为 true 的时候，为MMP委托 |  [optional]
+**isMmp** | **Boolean** | 是否为MMP委托。对应请求中的&#x60;mmp&#x60;。 |  [optional] [readonly]
 **tif** | [**TifEnum**](#TifEnum) | Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee |  [optional]
 **left** | **Long** | Size left to be traded |  [optional] [readonly]
 **fillPrice** | **String** | Fill price of the order |  [optional] [readonly]
@@ -30,6 +32,8 @@ Name | Type | Description | Notes
 **mkfr** | **String** | Maker fee |  [optional] [readonly]
 **refu** | **Integer** | Reference user ID |  [optional] [readonly]
 **refr** | **String** | Referrer rebate |  [optional] [readonly]
+
+
 
 ## Enum: FinishAsEnum
 
@@ -43,6 +47,9 @@ AUTO_DELEVERAGED | &quot;auto_deleveraged&quot;
 REDUCE_ONLY | &quot;reduce_only&quot;
 POSITION_CLOSED | &quot;position_closed&quot;
 REDUCE_OUT | &quot;reduce_out&quot;
+MMP_CANCELLED | &quot;mmp_cancelled&quot;
+
+
 
 ## Enum: StatusEnum
 
@@ -51,6 +58,8 @@ Name | Value
 OPEN | &quot;open&quot;
 FINISHED | &quot;finished&quot;
 
+
+
 ## Enum: TifEnum
 
 Name | Value
@@ -58,4 +67,6 @@ Name | Value
 GTC | &quot;gtc&quot;
 IOC | &quot;ioc&quot;
 POC | &quot;poc&quot;
+
+
 

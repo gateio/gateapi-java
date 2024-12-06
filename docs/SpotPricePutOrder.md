@@ -1,4 +1,5 @@
 
+
 # SpotPricePutOrder
 
 ## Properties
@@ -13,6 +14,8 @@ Name | Type | Description | Notes
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only  |  [optional]
 **text** | **String** | The source of the order, including: - web: web - api: api - app: app |  [optional]
 
+
+
 ## Enum: TypeEnum
 
 Name | Value
@@ -20,12 +23,16 @@ Name | Value
 LIMIT | &quot;limit&quot;
 MARKET | &quot;market&quot;
 
+
+
 ## Enum: SideEnum
 
 Name | Value
 ---- | -----
 BUY | &quot;buy&quot;
 SELL | &quot;sell&quot;
+
+
 
 ## Enum: AccountEnum
 
@@ -35,10 +42,14 @@ NORMAL | &quot;normal&quot;
 MARGIN | &quot;margin&quot;
 CROSS_MARGIN | &quot;cross_margin&quot;
 
+
+
 ## Enum: TimeInForceEnum
 
 Name | Value
 ---- | -----
 GTC | &quot;gtc&quot;
 IOC | &quot;ioc&quot;
+
+
 

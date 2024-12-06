@@ -1,4 +1,5 @@
 
+
 # SavedAddress
 
 ## Properties
@@ -11,4 +12,6 @@ Name | Type | Description | Notes
 **name** | **String** | Name |  [optional]
 **tag** | **String** | Tag |  [optional]
 **verified** | **String** | Whether to pass the verification 0-unverified, 1-verified |  [optional]
+
+
 

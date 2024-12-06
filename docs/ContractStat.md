@@ -1,4 +1,5 @@
 
+
 # ContractStat
 
 ## Properties
@@ -18,4 +19,6 @@ Name | Type | Description | Notes
 **openInterestUsd** | **Double** | Open interest volume(quote currency) |  [optional]
 **topLsrAccount** | **Double** | Top trader long/short account ratio |  [optional]
 **topLsrSize** | **Double** | Top trader long/short position ratio |  [optional]
+
+
 

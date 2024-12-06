@@ -1,8 +1,8 @@
 
+
 # FuturesPriceTriggeredOrder
 
 Futures order details
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **orderType** | **String** | Take-profit/stop-loss types, which include:  - &#x60;close-long-order&#x60;: order take-profit/stop-loss, close long position - &#x60;close-short-order&#x60;: order take-profit/stop-loss, close short position - &#x60;close-long-position&#x60;: position take-profit/stop-loss, close long position - &#x60;close-short-position&#x60;: position take-profit/stop-loss, close short position - &#x60;plan-close-long-position&#x60;: position planned take-profit/stop-loss, close long position - &#x60;plan-close-short-position&#x60;: position planned take-profit/stop-loss, close short position  The order take-profit/stop-loss can not be passed by request. These two types are read only. |  [optional]
 **meOrderId** | **Long** | Corresponding order ID of order take-profit/stop-loss. |  [optional] [readonly]
 
+
+
 ## Enum: StatusEnum
 
 Name | Value
@@ -29,6 +31,8 @@ FINISHED | &quot;finished&quot;
 INACTIVE | &quot;inactive&quot;
 INVALID | &quot;invalid&quot;
 
+
+
 ## Enum: FinishAsEnum
 
 Name | Value
@@ -37,4 +41,6 @@ CANCELLED | &quot;cancelled&quot;
 SUCCEEDED | &quot;succeeded&quot;
 FAILED | &quot;failed&quot;
 EXPIRED | &quot;expired&quot;
+
+
 

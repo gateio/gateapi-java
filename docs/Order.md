@@ -1,8 +1,8 @@
 
+
 # Order
 
 Spot order details
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -44,6 +44,8 @@ Name | Type | Description | Notes
 **finishAs** | [**FinishAsEnum**](#FinishAsEnum) | Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order strategy because tif is set to poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown |  [optional] [readonly]
 **actionMode** | **String** | Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default) |  [optional]
 
+
+
 ## Enum: StatusEnum
 
 Name | Value
@@ -52,6 +54,8 @@ OPEN | &quot;open&quot;
 CLOSED | &quot;closed&quot;
 CANCELLED | &quot;cancelled&quot;
 
+
+
 ## Enum: TypeEnum
 
 Name | Value
@@ -59,12 +63,16 @@ Name | Value
 LIMIT | &quot;limit&quot;
 MARKET | &quot;market&quot;
 
+
+
 ## Enum: SideEnum
 
 Name | Value
 ---- | -----
 BUY | &quot;buy&quot;
 SELL | &quot;sell&quot;
+
+
 
 ## Enum: TimeInForceEnum
 
@@ -75,6 +83,8 @@ IOC | &quot;ioc&quot;
 POC | &quot;poc&quot;
 FOK | &quot;fok&quot;
 
+
+
 ## Enum: StpActEnum
 
 Name | Value
@@ -83,6 +93,8 @@ CN | &quot;cn&quot;
 CO | &quot;co&quot;
 CB | &quot;cb&quot;
 MINUS | &quot;-&quot;
+
+
 
 ## Enum: FinishAsEnum
 
@@ -100,4 +112,6 @@ POC | &quot;poc&quot;
 FOK | &quot;fok&quot;
 STP | &quot;stp&quot;
 UNKNOWN | &quot;unknown&quot;
+
+
 

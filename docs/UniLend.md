@@ -1,8 +1,8 @@
 
+
 # UniLend
 
 Loan record
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,4 +17,6 @@ Name | Type | Description | Notes
 **reinvestLeftAmount** | **String** | Amount not reinvested |  [optional] [readonly]
 **createTime** | **Long** | Created time of the lending order |  [optional] [readonly]
 **updateTime** | **Long** | Upated time of the lending order |  [optional] [readonly]
+
+
 

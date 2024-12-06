@@ -1,4 +1,5 @@
 
+
 # CrossMarginAccount
 
 ## Properties
@@ -22,4 +23,6 @@ Name | Type | Description | Notes
 **portfolioMarginTotal** | **String** | Total amount of the portfolio margin account |  [optional]
 **portfolioMarginTotalLiab** | **String** | Total liabilities of the portfolio margin account |  [optional]
 **portfolioMarginTotalEquity** | **String** | Total equity of the portfolio margin account |  [optional]
+
+
 

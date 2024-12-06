@@ -1,4 +1,5 @@
 
+
 # PositionClose
 
 ## Properties
@@ -19,10 +20,14 @@ Name | Type | Description | Notes
 **longPrice** | **String** | When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price. |  [optional] [readonly]
 **shortPrice** | **String** | When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price |  [optional] [readonly]
 
+
+
 ## Enum: SideEnum
 
 Name | Value
 ---- | -----
 LONG | &quot;long&quot;
 SHORT | &quot;short&quot;
+
+
 

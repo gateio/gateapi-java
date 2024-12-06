@@ -1,4 +1,5 @@
 
+
 # FuturesAutoDeleverage
 
 ## Properties
@@ -15,4 +16,6 @@ Name | Type | Description | Notes
 **fillPrice** | **String** | Average fill price |  [optional] [readonly]
 **tradeSize** | **Long** | Trading size |  [optional] [readonly]
 **positionSize** | **Long** | Positions after auto-deleveraging |  [optional] [readonly]
+
+
 

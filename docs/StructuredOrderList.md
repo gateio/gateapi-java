@@ -1,8 +1,8 @@
 
+
 # StructuredOrderList
 
 Structured order
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,4 +14,6 @@ Name | Type | Description | Notes
 **status** | **String** | Status:   SUCCESS - SUCCESS  FAILED - FAILED DONE - DONE |  [optional]
 **income** | **String** | Income |  [optional]
 **createTime** | **Integer** | Created time |  [optional]
+
+
 

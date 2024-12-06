@@ -1,8 +1,8 @@
 
+
 # OptionsPosition
 
 Options position information
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -23,4 +23,6 @@ Name | Type | Description | Notes
 **gamma** | **String** | Gamma |  [optional] [readonly]
 **vega** | **String** | Vega |  [optional] [readonly]
 **theta** | **String** | Theta |  [optional] [readonly]
+
+
 

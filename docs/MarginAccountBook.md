@@ -1,4 +1,5 @@
 
+
 # MarginAccountBook
 
 ## Properties
@@ -13,4 +14,6 @@ Name | Type | Description | Notes
 **change** | **String** | Amount changed. Positive value means transferring in, while negative out |  [optional]
 **balance** | **String** | Balance after change |  [optional]
 **type** | **String** | Account book type.  Please refer to [account book type](#accountbook-type) for more detail |  [optional]
+
+
 

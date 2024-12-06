@@ -1,8 +1,8 @@
 
+
 # UnifiedPortfolioOutput
 
 The output of the portfolio margin calculator.
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,4 +11,6 @@ Name | Type | Description | Notes
 **initialMarginTotal** | **String** | Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, position + negative delta orders. |  [optional]
 **calculateTime** | **Long** | Calculate time |  [optional]
 **riskUnit** | [**List&lt;MockRiskUnit&gt;**](MockRiskUnit.md) | Risk unit |  [optional]
+
+
 

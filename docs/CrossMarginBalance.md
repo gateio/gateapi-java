@@ -1,4 +1,5 @@
 
+
 # CrossMarginBalance
 
 ## Properties
@@ -14,4 +15,6 @@ Name | Type | Description | Notes
 **equity** | **String** | Equity. Formula: available + freeze - borrowed + futures account&#39;s total + unrealized_pnl |  [optional]
 **totalFreeze** | **String** | Total freeze. Formula: freeze + position_initial_margin + order_margin |  [optional]
 **totalLiab** | **String** | Total liabilities. Formula: Max[Abs[Min[quity - total_freeze,0], borrowed]] - futures_pos_liab |  [optional]
+
+
 

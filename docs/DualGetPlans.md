@@ -1,4 +1,5 @@
 
+
 # DualGetPlans
 
 ## Properties
@@ -18,4 +19,6 @@ Name | Type | Description | Notes
 **startTime** | **Integer** | start time |  [optional]
 **endTime** | **Integer** | Finished time |  [optional]
 **status** | **String** | Status:   &#x60;NOTSTARTED&#x60;-not started  &#x60;ONGOING&#x60;-ongoing  &#x60;ENDED&#x60;-ended |  [optional]
+
+
 

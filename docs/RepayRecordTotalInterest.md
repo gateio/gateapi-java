@@ -1,4 +1,5 @@
 
+
 # RepayRecordTotalInterest
 
 ## Properties
@@ -9,4 +10,6 @@ Name | Type | Description | Notes
 **indexPrice** | **String** | Currency Index Price |  [optional]
 **amount** | **String** | Interest Amount |  [optional]
 **amountUsdt** | **String** | Interest amount converted to USDT |  [optional]
+
+
 

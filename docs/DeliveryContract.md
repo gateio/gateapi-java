@@ -1,8 +1,8 @@
 
+
 # DeliveryContract
 
 Futures contract details
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -46,6 +46,8 @@ Name | Type | Description | Notes
 **inDelisting** | **Boolean** | Contract is delisting |  [optional]
 **ordersLimit** | **Integer** | Maximum number of open orders |  [optional]
 
+
+
 ## Enum: CycleEnum
 
 Name | Value
@@ -55,6 +57,8 @@ BI_WEEKLY | &quot;BI-WEEKLY&quot;
 QUARTERLY | &quot;QUARTERLY&quot;
 BI_QUARTERLY | &quot;BI-QUARTERLY&quot;
 
+
+
 ## Enum: TypeEnum
 
 Name | Value
@@ -62,10 +66,14 @@ Name | Value
 INVERSE | &quot;inverse&quot;
 DIRECT | &quot;direct&quot;
 
+
+
 ## Enum: MarkTypeEnum
 
 Name | Value
 ---- | -----
 INTERNAL | &quot;internal&quot;
 INDEX | &quot;index&quot;
+
+
 

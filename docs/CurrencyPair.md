@@ -1,8 +1,8 @@
 
+
 # CurrencyPair
 
 Spot currency pair
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **sellStart** | **Long** | Sell start unix timestamp in seconds |  [optional]
 **buyStart** | **Long** | Buy start unix timestamp in seconds |  [optional]
 
+
+
 ## Enum: TradeStatusEnum
 
 Name | Value
@@ -29,4 +31,6 @@ UNTRADABLE | &quot;untradable&quot;
 BUYABLE | &quot;buyable&quot;
 SELLABLE | &quot;sellable&quot;
 TRADABLE | &quot;tradable&quot;
+
+
 

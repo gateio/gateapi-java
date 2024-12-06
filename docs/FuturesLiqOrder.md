@@ -1,4 +1,5 @@
 
+
 # FuturesLiqOrder
 
 ## Properties
@@ -11,4 +12,6 @@ Name | Type | Description | Notes
 **orderPrice** | **String** | Liquidation order price |  [optional] [readonly]
 **fillPrice** | **String** | Liquidation order average taker price |  [optional] [readonly]
 **left** | **Long** | System liquidation order maker size |  [optional] [readonly]
+
+
 

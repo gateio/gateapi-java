@@ -1,8 +1,8 @@
 
+
 # FuturesAccountHistory
 
 Statistical data
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,4 +17,6 @@ Name | Type | Description | Notes
 **pointRefr** | **String** | total amount of referrer rebates of point fee |  [optional]
 **bonusDnw** | **String** | total amount of perpetual contract bonus transfer |  [optional]
 **bonusOffset** | **String** | total amount of perpetual contract bonus deduction |  [optional]
+
+
 

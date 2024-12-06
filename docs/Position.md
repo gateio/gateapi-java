@@ -1,8 +1,8 @@
 
+
 # Position
 
 Futures position details
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -36,7 +36,10 @@ Name | Type | Description | Notes
 **mode** | [**ModeEnum**](#ModeEnum) | Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode |  [optional]
 **crossLeverageLimit** | **String** | Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) |  [optional]
 **updateTime** | **Long** | Last update time |  [optional] [readonly]
+**updateId** | **Long** | Update id. Each time the position is updated, the value will be +1. |  [optional] [readonly]
 **openTime** | **Long** | First Open Time |  [optional]
+
+
 
 ## Enum: ModeEnum
 
@@ -45,4 +48,6 @@ Name | Value
 SINGLE | &quot;single&quot;
 DUAL_LONG | &quot;dual_long&quot;
 DUAL_SHORT | &quot;dual_short&quot;
+
+
 

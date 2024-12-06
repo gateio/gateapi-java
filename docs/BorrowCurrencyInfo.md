@@ -1,4 +1,5 @@
 
+
 # BorrowCurrencyInfo
 
 ## Properties
@@ -10,4 +11,6 @@ Name | Type | Description | Notes
 **leftRepayPrincipal** | **String** | outstanding principal |  [optional]
 **leftRepayInterest** | **String** | outstanding interest |  [optional]
 **leftRepayUsdt** | **String** | Value of left total repayments amount in USDT |  [optional]
+
+
 

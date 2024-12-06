@@ -1,8 +1,8 @@
 
+
 # LoanRecord
 
 Margin loaned record details
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -22,10 +22,14 @@ Name | Type | Description | Notes
 **paidInterest** | **String** | Repaid interest |  [optional] [readonly]
 **unpaidInterest** | **String** | Outstanding interest yet to be paid |  [optional] [readonly]
 
+
+
 ## Enum: StatusEnum
 
 Name | Value
 ---- | -----
 LOANED | &quot;loaned&quot;
 FINISHED | &quot;finished&quot;
+
+
 

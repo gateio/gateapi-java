@@ -1,4 +1,5 @@
 
+
 # FuturesAccountBook
 
 ## Properties
@@ -12,6 +13,9 @@ Name | Type | Description | Notes
 **text** | **String** | Comment |  [optional]
 **contract** | **String** | Futures contract, the field is only available for data after 2023-10-30. |  [optional]
 **tradeId** | **String** | trade id |  [optional]
+**id** | **String** | 账户变更记录 id |  [optional]
+
+
 
 ## Enum: TypeEnum
 
@@ -26,4 +30,6 @@ POINT_DNW | &quot;point_dnw&quot;
 POINT_FEE | &quot;point_fee&quot;
 POINT_REFR | &quot;point_refr&quot;
 BONUS_OFFSET | &quot;bonus_offset&quot;
+
+
 
