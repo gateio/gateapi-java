@@ -1,5 +1,4 @@
 
-
 # CurrencyChain
 
 ## Properties
@@ -14,6 +13,4 @@ Name | Type | Description | Notes
 **isDepositDisabled** | **Integer** | Is deposit disabled. 0 means not |  [optional]
 **isWithdrawDisabled** | **Integer** | Is withdrawal disabled. 0 means not |  [optional]
 **decimal** | **String** | Withdrawal precision |  [optional]
-
-
 

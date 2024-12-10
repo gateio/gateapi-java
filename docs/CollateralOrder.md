@@ -1,8 +1,8 @@
 
-
 # CollateralOrder
 
 Collateral Order
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -23,6 +23,4 @@ Name | Type | Description | Notes
 **leftRepayTotal** | **String** | Outstanding principal and interest (outstanding principal + outstanding interest) |  [optional]
 **leftRepayPrincipal** | **String** | outstanding principal |  [optional]
 **leftRepayInterest** | **String** | outstanding interest |  [optional]
-
-
 

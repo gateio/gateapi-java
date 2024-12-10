@@ -1,5 +1,4 @@
 
-
 # RepayRecordRepaidCurrency
 
 ## Properties
@@ -12,6 +11,4 @@ Name | Type | Description | Notes
 **repaidPrincipal** | **String** | Principal |  [optional]
 **repaidInterest** | **String** | Interest |  [optional]
 **repaidAmountUsdt** | **String** | Value of the repayment amount in USDT |  [optional]
-
-
 

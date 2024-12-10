@@ -1,8 +1,8 @@
 
-
 # MultiCollateralRecord
 
 Multi-Collateral adjustment record.
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,6 +14,4 @@ Name | Type | Description | Notes
 **operateTime** | **Long** | Operation time, timestamp in seconds. |  [optional]
 **borrowCurrencies** | [**List&lt;MultiCollateralRecordCurrency&gt;**](MultiCollateralRecordCurrency.md) | Borrowing Currency List |  [optional]
 **collateralCurrencies** | [**List&lt;MultiCollateralRecordCurrency&gt;**](MultiCollateralRecordCurrency.md) | Collateral Currency List |  [optional]
-
-
 

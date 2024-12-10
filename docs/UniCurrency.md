@@ -1,8 +1,8 @@
 
-
 # UniCurrency
 
 Currency detail
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,6 +12,4 @@ Name | Type | Description | Notes
 **maxLendAmount** | **String** | The total maximum lending amount, in USDT |  [optional] [readonly]
 **maxRate** | **String** | Maximum rate (Hourly) |  [optional] [readonly]
 **minRate** | **String** | Minimum rate (Hourly) |  [optional] [readonly]
-
-
 

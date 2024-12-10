@@ -1,8 +1,8 @@
 
-
 # StructuredGetProjectList
 
 Structured Products
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,6 +19,4 @@ Name | Type | Description | Notes
 **startTime** | **Integer** | start time |  [optional]
 **endTime** | **Integer** | Finished time |  [optional]
 **status** | **String** | Status:   &#x60;in_process&#x60;-in progress  &#x60;will_begin&#x60;-will begin  &#x60;wait_settlement&#x60;-waiting for settlement  &#x60;done&#x60;-done |  [optional]
-
-
 

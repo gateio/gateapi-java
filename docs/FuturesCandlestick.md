@@ -1,8 +1,8 @@
 
-
 # FuturesCandlestick
 
 data point in every timestamp
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,6 +14,4 @@ Name | Type | Description | Notes
 **l** | **String** | Lowest price (quote currency) |  [optional]
 **o** | **String** | Open price (quote currency) |  [optional]
 **sum** | **String** | Trading volume (unit: Quote currency) |  [optional]
-
-
 

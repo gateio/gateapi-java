@@ -1,8 +1,8 @@
 
-
 # FuturesOrder
 
 Futures order details
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -35,8 +35,6 @@ Name | Type | Description | Notes
 **amendText** | **String** | The custom data that the user remarked when amending the order |  [optional] [readonly]
 **bizInfo** | **String** | Additional information |  [optional] [readonly]
 
-
-
 ## Enum: FinishAsEnum
 
 Name | Value
@@ -51,16 +49,12 @@ POSITION_CLOSED | &quot;position_closed&quot;
 REDUCE_OUT | &quot;reduce_out&quot;
 STP | &quot;stp&quot;
 
-
-
 ## Enum: StatusEnum
 
 Name | Value
 ---- | -----
 OPEN | &quot;open&quot;
 FINISHED | &quot;finished&quot;
-
-
 
 ## Enum: TifEnum
 
@@ -71,16 +65,12 @@ IOC | &quot;ioc&quot;
 POC | &quot;poc&quot;
 FOK | &quot;fok&quot;
 
-
-
 ## Enum: AutoSizeEnum
 
 Name | Value
 ---- | -----
 LONG | &quot;close_long&quot;
 SHORT | &quot;close_short&quot;
-
-
 
 ## Enum: StpActEnum
 
@@ -90,6 +80,4 @@ CO | &quot;co&quot;
 CN | &quot;cn&quot;
 CB | &quot;cb&quot;
 MINUS | &quot;-&quot;
-
-
 

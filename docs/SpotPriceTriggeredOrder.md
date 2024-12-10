@@ -1,8 +1,8 @@
 
-
 # SpotPriceTriggeredOrder
 
 Spot order detail
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,6 +17,4 @@ Name | Type | Description | Notes
 **firedOrderId** | **Long** | ID of the newly created order on condition triggered |  [optional] [readonly]
 **status** | **String** | Status  - open: open - cancelled: being manually cancelled - finish: successfully executed - failed: failed to execute - expired - expired  |  [optional] [readonly]
 **reason** | **String** | Additional remarks on how the order was finished |  [optional] [readonly]
-
-
 

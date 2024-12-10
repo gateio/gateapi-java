@@ -1,8 +1,8 @@
 
-
 # OptionsContract
 
 Options contract detail
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -32,6 +32,4 @@ Name | Type | Description | Notes
 **tradeSize** | **Long** | Historical accumulated trade size |  [optional]
 **positionSize** | **Long** | Current total long position size |  [optional]
 **ordersLimit** | **Integer** | Maximum number of open orders |  [optional]
-
-
 

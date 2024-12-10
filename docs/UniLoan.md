@@ -1,8 +1,8 @@
 
-
 # UniLoan
 
 Loan
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,6 +13,4 @@ Name | Type | Description | Notes
 **type** | **String** | Loan type, platform - platform, margin - margin |  [optional] [readonly]
 **createTime** | **Long** | Created time |  [optional] [readonly]
 **updateTime** | **Long** | Updated time |  [optional] [readonly]
-
-
 

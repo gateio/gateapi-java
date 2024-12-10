@@ -1,5 +1,4 @@
 
-
 # SubAccountTransfer
 
 ## Properties
@@ -15,6 +14,4 @@ Name | Type | Description | Notes
 **timest** | **String** | Transfer timestamp |  [optional] [readonly]
 **source** | **String** | Where the operation is initiated from |  [optional] [readonly]
 **subAccountType** | **String** | Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;delivery&#x60; - delivery account |  [optional]
-
-
 

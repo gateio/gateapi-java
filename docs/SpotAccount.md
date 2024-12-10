@@ -1,5 +1,4 @@
 
-
 # SpotAccount
 
 ## Properties
@@ -10,6 +9,4 @@ Name | Type | Description | Notes
 **available** | **String** | Available amount |  [optional]
 **locked** | **String** | Locked amount, used in trading |  [optional]
 **updateId** | **Integer** | Version number |  [optional]
-
-
 

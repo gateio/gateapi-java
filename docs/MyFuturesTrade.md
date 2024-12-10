@@ -1,5 +1,4 @@
 
-
 # MyFuturesTrade
 
 ## Properties
@@ -18,14 +17,10 @@ Name | Type | Description | Notes
 **fee** | **String** | Fee deducted |  [optional]
 **pointFee** | **String** | Points used to deduct fee |  [optional]
 
-
-
 ## Enum: RoleEnum
 
 Name | Value
 ---- | -----
 TAKER | &quot;taker&quot;
 MAKER | &quot;maker&quot;
-
-
 

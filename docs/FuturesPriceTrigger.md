@@ -1,5 +1,4 @@
 
-
 # FuturesPriceTrigger
 
 ## Properties
@@ -12,16 +11,12 @@ Name | Type | Description | Notes
 **rule** | [**RuleEnum**](#RuleEnum) | Trigger condition type  - &#x60;1&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &gt;&#x3D; &#x60;price&#x60; - &#x60;2&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &lt;&#x3D; &#x60;price&#x60; |  [optional]
 **expiration** | **Integer** | How long (in seconds) to wait for the condition to be triggered before cancelling the order. |  [optional]
 
-
-
 ## Enum: StrategyTypeEnum
 
 Name | Value
 ---- | -----
 NUMBER_0 | 0
 NUMBER_1 | 1
-
-
 
 ## Enum: PriceTypeEnum
 
@@ -31,14 +26,10 @@ NUMBER_0 | 0
 NUMBER_1 | 1
 NUMBER_2 | 2
 
-
-
 ## Enum: RuleEnum
 
 Name | Value
 ---- | -----
 NUMBER_1 | 1
 NUMBER_2 | 2
-
-
 

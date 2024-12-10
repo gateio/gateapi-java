@@ -1,8 +1,8 @@
 
-
 # OrderCancel
 
 Spot order details
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -47,8 +47,6 @@ Name | Type | Description | Notes
 **finishAs** | [**FinishAsEnum**](#FinishAsEnum) | How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention  |  [optional] [readonly]
 **actionMode** | **String** | Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default) |  [optional]
 
-
-
 ## Enum: StatusEnum
 
 Name | Value
@@ -57,8 +55,6 @@ OPEN | &quot;open&quot;
 CLOSED | &quot;closed&quot;
 CANCELLED | &quot;cancelled&quot;
 
-
-
 ## Enum: TypeEnum
 
 Name | Value
@@ -66,16 +62,12 @@ Name | Value
 LIMIT | &quot;limit&quot;
 MARKET | &quot;market&quot;
 
-
-
 ## Enum: SideEnum
 
 Name | Value
 ---- | -----
 BUY | &quot;buy&quot;
 SELL | &quot;sell&quot;
-
-
 
 ## Enum: TimeInForceEnum
 
@@ -86,8 +78,6 @@ IOC | &quot;ioc&quot;
 POC | &quot;poc&quot;
 FOK | &quot;fok&quot;
 
-
-
 ## Enum: StpActEnum
 
 Name | Value
@@ -96,8 +86,6 @@ CN | &quot;cn&quot;
 CO | &quot;co&quot;
 CB | &quot;cb&quot;
 MINUS | &quot;-&quot;
-
-
 
 ## Enum: FinishAsEnum
 
@@ -108,6 +96,4 @@ FILLED | &quot;filled&quot;
 CANCELLED | &quot;cancelled&quot;
 IOC | &quot;ioc&quot;
 STP | &quot;stp&quot;
-
-
 

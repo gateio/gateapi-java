@@ -1,5 +1,4 @@
 
-
 # WithdrawStatus
 
 ## Properties
@@ -18,6 +17,4 @@ Name | Type | Description | Notes
 **withdrawEachtimeLimit** | **String** | Maximum amount for each withdrawal |  [optional]
 **withdrawFixOnChains** | **Map&lt;String, String&gt;** | Fixed withdrawal fee on multiple chains |  [optional]
 **withdrawPercentOnChains** | **Map&lt;String, String&gt;** | Percentage withdrawal fee on multiple chains |  [optional]
-
-
 

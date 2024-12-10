@@ -1,5 +1,4 @@
 
-
 # UnifiedAccount
 
 ## Properties
@@ -25,6 +24,4 @@ Name | Type | Description | Notes
 **spotOrderLoss** | **String** | Total order loss, in USDT |  [optional]
 **spotHedge** | **Boolean** | Spot hedging status, true - enabled, false - not enabled. |  [optional]
 **useFunding** | **Boolean** | Whether to use funds as margin |  [optional]
-
-
 

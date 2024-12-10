@@ -25,47 +25,48 @@ Method | HTTP request | Description
 List Multi-Collateral Orders
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    Integer page = 1; // Integer | Page number
-    Integer limit = 10; // Integer | Maximum number of records to be returned in a single list
-    String sort = "ltv_asc"; // String | Sort types: time_desc - default sorting by creation time in descending order, ltv_asc - ascending order of ltv, ltv_desc - descending order of ltv.
-    String orderType = "current"; // String | Order type, current - query current orders, fixed - query fixed orders. If not specified, default to querying current orders
-    try {
-      List<MultiCollateralOrder> result = apiInstance.listMultiCollateralOrders()
-            .page(page)
-            .limit(limit)
-            .sort(sort)
-            .orderType(orderType)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#listMultiCollateralOrders");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        Integer page = 1; // Integer | Page number
+        Integer limit = 10; // Integer | Maximum number of records to be returned in a single list
+        String sort = "ltv_asc"; // String | Sort types: time_desc - default sorting by creation time in descending order, ltv_asc - ascending order of ltv, ltv_desc - descending order of ltv.
+        String orderType = "current"; // String | Order type, current - query current orders, fixed - query fixed orders. If not specified, default to querying current orders
+        try {
+            List<MultiCollateralOrder> result = apiInstance.listMultiCollateralOrders()
+                        .page(page)
+                        .limit(limit)
+                        .sort(sort)
+                        .orderType(orderType)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#listMultiCollateralOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -103,39 +104,40 @@ Name | Type | Description  | Notes
 Create Multi-Collateral Order
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    CreateMultiCollateralOrder createMultiCollateralOrder = new CreateMultiCollateralOrder(); // CreateMultiCollateralOrder | 
-    try {
-      OrderResp result = apiInstance.createMultiCollateral(createMultiCollateralOrder);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#createMultiCollateral");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        CreateMultiCollateralOrder createMultiCollateralOrder = new CreateMultiCollateralOrder(); // CreateMultiCollateralOrder | 
+        try {
+            OrderResp result = apiInstance.createMultiCollateral(createMultiCollateralOrder);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#createMultiCollateral");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -170,39 +172,40 @@ Name | Type | Description  | Notes
 Get Multi-Collateral Order Detail
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    String orderId = "12345"; // String | Order ID returned on successful order creation
-    try {
-      MultiCollateralOrder result = apiInstance.getMultiCollateralOrderDetail(orderId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#getMultiCollateralOrderDetail");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        String orderId = "12345"; // String | Order ID returned on successful order creation
+        try {
+            MultiCollateralOrder result = apiInstance.getMultiCollateralOrderDetail(orderId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#getMultiCollateralOrderDetail");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -237,50 +240,51 @@ Name | Type | Description  | Notes
 List Multi-Collateral Repay Records
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    String type = "repay"; // String | Operation type: repay - Regular repayment, liquidate - Liquidation
-    String borrowCurrency = "USDT"; // String | Borrowed currency
-    Integer page = 1; // Integer | Page number
-    Integer limit = 10; // Integer | Maximum number of records to be returned in a single list
-    Long from = 1609459200L; // Long | Start timestamp of the query
-    Long to = 1609459200L; // Long | Time range ending, default to current time
-    try {
-      List<MultiRepayRecord> result = apiInstance.listMultiRepayRecords(type)
-            .borrowCurrency(borrowCurrency)
-            .page(page)
-            .limit(limit)
-            .from(from)
-            .to(to)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#listMultiRepayRecords");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        String type = "repay"; // String | Operation type: repay - Regular repayment, liquidate - Liquidation
+        String borrowCurrency = "USDT"; // String | Borrowed currency
+        Integer page = 1; // Integer | Page number
+        Integer limit = 10; // Integer | Maximum number of records to be returned in a single list
+        Long from = 1609459200L; // Long | Start timestamp of the query
+        Long to = 1609459200L; // Long | Time range ending, default to current time
+        try {
+            List<MultiRepayRecord> result = apiInstance.listMultiRepayRecords(type)
+                        .borrowCurrency(borrowCurrency)
+                        .page(page)
+                        .limit(limit)
+                        .from(from)
+                        .to(to)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#listMultiRepayRecords");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -320,39 +324,40 @@ Name | Type | Description  | Notes
 Repay Multi-Collateral Loan
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    RepayMultiLoan repayMultiLoan = new RepayMultiLoan(); // RepayMultiLoan | 
-    try {
-      MultiRepayResp result = apiInstance.repayMultiCollateralLoan(repayMultiLoan);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#repayMultiCollateralLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        RepayMultiLoan repayMultiLoan = new RepayMultiLoan(); // RepayMultiLoan | 
+        try {
+            MultiRepayResp result = apiInstance.repayMultiCollateralLoan(repayMultiLoan);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#repayMultiCollateralLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -387,49 +392,50 @@ Name | Type | Description  | Notes
 Query collateral adjustment records
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    Integer page = 1; // Integer | Page number
-    Integer limit = 10; // Integer | Maximum number of records to be returned in a single list
-    Long from = 1609459200L; // Long | Start timestamp of the query
-    Long to = 1609459200L; // Long | Time range ending, default to current time
-    String collateralCurrency = "BTC"; // String | Collateral
-    try {
-      List<MultiCollateralRecord> result = apiInstance.listMultiCollateralRecords()
-            .page(page)
-            .limit(limit)
-            .from(from)
-            .to(to)
-            .collateralCurrency(collateralCurrency)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#listMultiCollateralRecords");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        Integer page = 1; // Integer | Page number
+        Integer limit = 10; // Integer | Maximum number of records to be returned in a single list
+        Long from = 1609459200L; // Long | Start timestamp of the query
+        Long to = 1609459200L; // Long | Time range ending, default to current time
+        String collateralCurrency = "BTC"; // String | Collateral
+        try {
+            List<MultiCollateralRecord> result = apiInstance.listMultiCollateralRecords()
+                        .page(page)
+                        .limit(limit)
+                        .from(from)
+                        .to(to)
+                        .collateralCurrency(collateralCurrency)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#listMultiCollateralRecords");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -468,39 +474,40 @@ Name | Type | Description  | Notes
 Operate Multi-Collateral
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    CollateralAdjust collateralAdjust = new CollateralAdjust(); // CollateralAdjust | 
-    try {
-      CollateralAdjustRes result = apiInstance.operateMultiCollateral(collateralAdjust);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#operateMultiCollateral");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        CollateralAdjust collateralAdjust = new CollateralAdjust(); // CollateralAdjust | 
+        try {
+            CollateralAdjustRes result = apiInstance.operateMultiCollateral(collateralAdjust);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#operateMultiCollateral");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -535,40 +542,41 @@ Name | Type | Description  | Notes
 List User Currency Quota
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    String type = "collateral"; // String | Currency types: collateral - collateral currency, borrow - borrowing currency.
-    String currency = "BTC"; // String | When specifying collateral currencies, you can use commas to separate multiple currencies; for borrowing currencies, only one currency can be provided.
-    try {
-      List<CurrencyQuota> result = apiInstance.listUserCurrencyQuota(type, currency);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#listUserCurrencyQuota");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        String type = "collateral"; // String | Currency types: collateral - collateral currency, borrow - borrowing currency.
+        String currency = "BTC"; // String | When specifying collateral currencies, you can use commas to separate multiple currencies; for borrowing currencies, only one currency can be provided.
+        try {
+            List<CurrencyQuota> result = apiInstance.listUserCurrencyQuota(type, currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#listUserCurrencyQuota");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -604,31 +612,35 @@ Name | Type | Description  | Notes
 Query supported borrowing and collateral currencies in Multi-Collateral 
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    try {
-      MultiCollateralCurrency result = apiInstance.listMultiCollateralCurrencies();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#listMultiCollateralCurrencies");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        try {
+            MultiCollateralCurrency result = apiInstance.listMultiCollateralCurrencies();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#listMultiCollateralCurrencies");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -662,31 +674,35 @@ Get Multi-Collateral ratio
 The Multi-Collateral ratio is fixed, irrespective of the currency.
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    try {
-      CollateralLtv result = apiInstance.getMultiCollateralLtv();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#getMultiCollateralLtv");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        try {
+            CollateralLtv result = apiInstance.getMultiCollateralLtv();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#getMultiCollateralLtv");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -718,31 +734,35 @@ No authorization required
 Query fixed interest rates for the currency for 7 days and 30 days
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    try {
-      List<CollateralFixRate> result = apiInstance.getMultiCollateralFixRate();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#getMultiCollateralFixRate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        try {
+            List<CollateralFixRate> result = apiInstance.getMultiCollateralFixRate();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#getMultiCollateralFixRate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -776,35 +796,39 @@ Query the current interest rate of the currency
 Query the current interest rate of the currency in the last hour. The current interest rate is updated every hour.
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MultiCollateralLoanApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-    List<String> currencies = Arrays.asList(); // List<String> | Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items.
-    String vipLevel = "\"0\""; // String | VIP level, defaults to 0 if not transferred
-    try {
-      List<CollateralCurrentRate> result = apiInstance.getMultiCollateralCurrentRate(currencies)
-            .vipLevel(vipLevel)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MultiCollateralLoanApi#getMultiCollateralCurrentRate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
+        List<String> currencies = Arrays.asList(); // List<String> | Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items.
+        String vipLevel = "\"0\""; // String | VIP level, defaults to 0 if not transferred
+        try {
+            List<CollateralCurrentRate> result = apiInstance.getMultiCollateralCurrentRate(currencies)
+                        .vipLevel(vipLevel)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MultiCollateralLoanApi#getMultiCollateralCurrentRate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 

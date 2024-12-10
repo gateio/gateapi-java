@@ -1,5 +1,4 @@
 
-
 # CrossMarginLoan
 
 ## Properties
@@ -17,8 +16,6 @@ Name | Type | Description | Notes
 **repaidInterest** | **String** | Repaid interest |  [optional] [readonly]
 **unpaidInterest** | **String** | Outstanding interest yet to be paid |  [optional] [readonly]
 
-
-
 ## Enum: StatusEnum
 
 Name | Value
@@ -26,6 +23,4 @@ Name | Value
 NUMBER_1 | 1
 NUMBER_2 | 2
 NUMBER_3 | 3
-
-
 

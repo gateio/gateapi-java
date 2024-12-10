@@ -1,5 +1,4 @@
 
-
 # OptionsAccount
 
 ## Properties
@@ -26,8 +25,6 @@ Name | Type | Description | Notes
 **ordersLimit** | **Integer** | 未完成订单数量上限 |  [optional]
 **positionNotionalLimit** | **Long** | 名义价值上限，包含仓位以及未完成订单的名义价值 |  [optional]
 
-
-
 ## Enum: MarginModeEnum
 
 Name | Value
@@ -35,6 +32,4 @@ Name | Value
 NUMBER_0 | 0
 NUMBER_1 | 1
 NUMBER_2 | 2
-
-
 

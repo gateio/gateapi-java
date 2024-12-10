@@ -1,5 +1,4 @@
 
-
 # OptionsMyTrade
 
 ## Properties
@@ -15,14 +14,10 @@ Name | Type | Description | Notes
 **underlyingPrice** | **String** | Underlying price (quote currency) |  [optional]
 **role** | [**RoleEnum**](#RoleEnum) | Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60; |  [optional]
 
-
-
 ## Enum: RoleEnum
 
 Name | Value
 ---- | -----
 TAKER | &quot;taker&quot;
 MAKER | &quot;maker&quot;
-
-
 

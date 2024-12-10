@@ -1,5 +1,4 @@
 
-
 # FuturesAccountBook
 
 ## Properties
@@ -15,8 +14,6 @@ Name | Type | Description | Notes
 **tradeId** | **String** | trade id |  [optional]
 **id** | **String** | 账户变更记录 id |  [optional]
 
-
-
 ## Enum: TypeEnum
 
 Name | Value
@@ -30,6 +27,4 @@ POINT_DNW | &quot;point_dnw&quot;
 POINT_FEE | &quot;point_fee&quot;
 POINT_REFR | &quot;point_refr&quot;
 BONUS_OFFSET | &quot;bonus_offset&quot;
-
-
 

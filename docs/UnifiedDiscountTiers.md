@@ -1,5 +1,4 @@
 
-
 # UnifiedDiscountTiers
 
 ## Properties
@@ -11,6 +10,4 @@ Name | Type | Description | Notes
 **lowerLimit** | **String** | Lower limit |  [optional]
 **upperLimit** | **String** | Upper limit,＋ indicates positive infinity |  [optional]
 **leverage** | **String** | Position leverage |  [optional]
-
-
 

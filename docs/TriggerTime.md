@@ -1,5 +1,4 @@
 
-
 # TriggerTime
 
 ## Properties
@@ -7,6 +6,4 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **triggerTime** | **Long** | Timestamp of the end of the countdown, in milliseconds |  [optional]
-
-
 

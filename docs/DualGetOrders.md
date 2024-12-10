@@ -1,5 +1,4 @@
 
-
 # DualGetOrders
 
 ## Properties
@@ -22,6 +21,4 @@ Name | Type | Description | Notes
 **apyDisplay** | **String** | APY |  [optional]
 **apySettlement** | **String** | Settlement APY |  [optional]
 **deliveryTime** | **Integer** | Settlement time |  [optional]
-
-
 

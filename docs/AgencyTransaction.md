@@ -1,5 +1,4 @@
 
-
 # AgencyTransaction
 
 ## Properties
@@ -15,6 +14,4 @@ Name | Type | Description | Notes
 **amount** | **String** | Commission Amount |  [optional]
 **amountAsset** | **String** | Commission Asset |  [optional]
 **source** | **String** | Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate |  [optional]
-
-
 

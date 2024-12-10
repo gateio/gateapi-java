@@ -1,5 +1,4 @@
 
-
 # MarginTiers
 
 ## Properties
@@ -11,6 +10,4 @@ Name | Type | Description | Notes
 **lowerLimit** | **String** | Lower limit |  [optional]
 **upperLimit** | **String** | Upper limit, \&quot;\&quot; indicates greater than (the last tier) |  [optional]
 **leverage** | **String** | Position leverage |  [optional]
-
-
 

@@ -1,5 +1,4 @@
 
-
 # TradeFee
 
 ## Properties
@@ -19,6 +18,4 @@ Name | Type | Description | Notes
 **deliveryTakerFee** | **String** | Delivery trading taker fee |  [optional]
 **deliveryMakerFee** | **String** | Delivery trading maker fee |  [optional]
 **debitFee** | **Integer** | Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates |  [optional]
-
-
 

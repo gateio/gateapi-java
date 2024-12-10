@@ -1,8 +1,8 @@
 
-
 # OptionsOrder
 
 Options order detail
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -33,8 +33,6 @@ Name | Type | Description | Notes
 **refu** | **Integer** | Reference user ID |  [optional] [readonly]
 **refr** | **String** | Referrer rebate |  [optional] [readonly]
 
-
-
 ## Enum: FinishAsEnum
 
 Name | Value
@@ -49,16 +47,12 @@ POSITION_CLOSED | &quot;position_closed&quot;
 REDUCE_OUT | &quot;reduce_out&quot;
 MMP_CANCELLED | &quot;mmp_cancelled&quot;
 
-
-
 ## Enum: StatusEnum
 
 Name | Value
 ---- | -----
 OPEN | &quot;open&quot;
 FINISHED | &quot;finished&quot;
-
-
 
 ## Enum: TifEnum
 
@@ -67,6 +61,4 @@ Name | Value
 GTC | &quot;gtc&quot;
 IOC | &quot;ioc&quot;
 POC | &quot;poc&quot;
-
-
 

@@ -1,5 +1,4 @@
 
-
 # FuturesAccount
 
 ## Properties
@@ -28,6 +27,4 @@ Name | Type | Description | Notes
 **enableNewDualMode** | **Boolean** | Whether to open a new two-way position mode |  [optional]
 **marginMode** | **Integer** | Margin mode, 0-classic margin mode, 1-cross-currency margin mode, 2-combined margin mode |  [optional]
 **history** | [**FuturesAccountHistory**](FuturesAccountHistory.md) |  |  [optional]
-
-
 

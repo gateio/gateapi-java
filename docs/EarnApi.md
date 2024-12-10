@@ -20,38 +20,39 @@ Method | HTTP request | Description
 ETH2 swap
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    EarnApi apiInstance = new EarnApi(defaultClient);
-    Eth2Swap eth2Swap = new Eth2Swap(); // Eth2Swap | 
-    try {
-      apiInstance.swapETH2(eth2Swap);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EarnApi#swapETH2");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        Eth2Swap eth2Swap = new Eth2Swap(); // Eth2Swap | 
+        try {
+            apiInstance.swapETH2(eth2Swap);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#swapETH2");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -86,31 +87,35 @@ null (empty response body)
 Dual Investment product list
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    EarnApi apiInstance = new EarnApi(defaultClient);
-    try {
-      List<DualGetPlans> result = apiInstance.listDualInvestmentPlans();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EarnApi#listDualInvestmentPlans");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        try {
+            List<DualGetPlans> result = apiInstance.listDualInvestmentPlans();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#listDualInvestmentPlans");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -142,38 +147,39 @@ No authorization required
 Dual Investment order list
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    EarnApi apiInstance = new EarnApi(defaultClient);
-    try {
-      List<DualGetOrders> result = apiInstance.listDualOrders();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EarnApi#listDualOrders");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        try {
+            List<DualGetOrders> result = apiInstance.listDualOrders();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#listDualOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -205,38 +211,39 @@ This endpoint does not need any parameter.
 Place Dual Investment order
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    EarnApi apiInstance = new EarnApi(defaultClient);
-    PlaceDualInvestmentOrder placeDualInvestmentOrder = new PlaceDualInvestmentOrder(); // PlaceDualInvestmentOrder | 
-    try {
-      apiInstance.placeDualOrder(placeDualInvestmentOrder);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EarnApi#placeDualOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        PlaceDualInvestmentOrder placeDualInvestmentOrder = new PlaceDualInvestmentOrder(); // PlaceDualInvestmentOrder | 
+        try {
+            apiInstance.placeDualOrder(placeDualInvestmentOrder);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#placeDualOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -271,39 +278,43 @@ null (empty response body)
 Structured Product List
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    EarnApi apiInstance = new EarnApi(defaultClient);
-    String status = "in_process"; // String | Status (default: all)  `in_process`-processing  `will_begin`-unstarted  `wait_settlement`-unsettled  `done`-finish
-    String type = "BullishSharkFin"; // String | Product Type (default all)  `SharkFin2.0`-SharkFin  `BullishSharkFin`-BullishSharkFin  `BearishSharkFin`-BearishSharkFin `DoubleNoTouch`-DoubleNoTouch `RangeAccrual`-RangeAccrual `SnowBall`-SnowBall
-    Integer page = 1; // Integer | Page number
-    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-    try {
-      List<StructuredGetProjectList> result = apiInstance.listStructuredProducts(status)
-            .type(type)
-            .page(page)
-            .limit(limit)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EarnApi#listStructuredProducts");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        String status = "in_process"; // String | Status (default: all)  `in_process`-processing  `will_begin`-unstarted  `wait_settlement`-unsettled  `done`-finish
+        String type = "BullishSharkFin"; // String | Product Type (default all)  `SharkFin2.0`-SharkFin  `BullishSharkFin`-BullishSharkFin  `BearishSharkFin`-BearishSharkFin `DoubleNoTouch`-DoubleNoTouch `RangeAccrual`-RangeAccrual `SnowBall`-SnowBall
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        try {
+            List<StructuredGetProjectList> result = apiInstance.listStructuredProducts(status)
+                        .type(type)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#listStructuredProducts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -341,47 +352,48 @@ No authorization required
 Structured Product Order List
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    EarnApi apiInstance = new EarnApi(defaultClient);
-    Long from = 1547706332L; // Long | Start timestamp
-    Long to = 1547706332L; // Long | End timestamp
-    Integer page = 1; // Integer | Page number
-    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-    try {
-      List<StructuredOrderList> result = apiInstance.listStructuredOrders()
-            .from(from)
-            .to(to)
-            .page(page)
-            .limit(limit)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EarnApi#listStructuredOrders");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        try {
+            List<StructuredOrderList> result = apiInstance.listStructuredOrders()
+                        .from(from)
+                        .to(to)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#listStructuredOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -419,38 +431,39 @@ Name | Type | Description  | Notes
 Place Structured Product Order
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.EarnApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    EarnApi apiInstance = new EarnApi(defaultClient);
-    StructuredBuy structuredBuy = new StructuredBuy(); // StructuredBuy | 
-    try {
-      apiInstance.placeStructuredOrder(structuredBuy);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EarnApi#placeStructuredOrder");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        StructuredBuy structuredBuy = new StructuredBuy(); // StructuredBuy | 
+        try {
+            apiInstance.placeStructuredOrder(structuredBuy);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#placeStructuredOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 

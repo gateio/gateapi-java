@@ -1,8 +1,8 @@
 
-
 # Position
 
 Futures position details
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -39,8 +39,6 @@ Name | Type | Description | Notes
 **updateId** | **Long** | Update id. Each time the position is updated, the value will be +1. |  [optional] [readonly]
 **openTime** | **Long** | First Open Time |  [optional]
 
-
-
 ## Enum: ModeEnum
 
 Name | Value
@@ -48,6 +46,4 @@ Name | Value
 SINGLE | &quot;single&quot;
 DUAL_LONG | &quot;dual_long&quot;
 DUAL_SHORT | &quot;dual_short&quot;
-
-
 

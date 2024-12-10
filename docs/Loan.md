@@ -1,8 +1,8 @@
 
-
 # Loan
 
 Margin loan details
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -26,8 +26,6 @@ Name | Type | Description | Notes
 **origId** | **String** | Original loan ID of the loan if auto-renewed, otherwise equals to id |  [optional]
 **text** | **String** | User defined custom ID |  [optional]
 
-
-
 ## Enum: StatusEnum
 
 Name | Value
@@ -37,14 +35,10 @@ LOANED | &quot;loaned&quot;
 FINISHED | &quot;finished&quot;
 AUTO_REPAID | &quot;auto_repaid&quot;
 
-
-
 ## Enum: SideEnum
 
 Name | Value
 ---- | -----
 LEND | &quot;lend&quot;
 BORROW | &quot;borrow&quot;
-
-
 

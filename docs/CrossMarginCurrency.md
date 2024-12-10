@@ -1,5 +1,4 @@
 
-
 # CrossMarginCurrency
 
 ## Properties
@@ -16,6 +15,4 @@ Name | Type | Description | Notes
 **price** | **String** | Price change between this currency and USDT |  [optional]
 **loanable** | **Boolean** | Whether currency is borrowed |  [optional]
 **status** | **Integer** | status  - &#x60;0&#x60; : disable  - &#x60;1&#x60; : enable |  [optional]
-
-
 

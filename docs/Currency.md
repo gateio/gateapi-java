@@ -1,5 +1,4 @@
 
-
 # Currency
 
 ## Properties
@@ -14,6 +13,4 @@ Name | Type | Description | Notes
 **tradeDisabled** | **Boolean** | Whether currency&#39;s trading is disabled |  [optional]
 **fixedRate** | **String** | Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies |  [optional]
 **chain** | **String** | Chain of currency |  [optional]
-
-
 

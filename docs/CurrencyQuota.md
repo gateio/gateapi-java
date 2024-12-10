@@ -1,8 +1,8 @@
 
-
 # CurrencyQuota
 
 Currency Quota
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,6 +12,4 @@ Name | Type | Description | Notes
 **minQuota** | **String** | Minimum borrowing/collateral quota for the currency |  [optional]
 **leftQuota** | **String** | Remaining borrowing/collateral limit for the currency |  [optional]
 **leftQuoteUsdt** | **String** | Remaining currency limit converted to USDT |  [optional]
-
-
 

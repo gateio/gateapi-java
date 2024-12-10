@@ -1,5 +1,4 @@
 
-
 # UnifiedBalance
 
 ## Properties
@@ -17,6 +16,4 @@ Name | Type | Description | Notes
 **spotInUse** | **String** | Spot hedging utilization |  [optional]
 **funding** | **String** | Quantity of funding |  [optional]
 **fundingVersion** | **String** | Funding version |  [optional]
-
-
 

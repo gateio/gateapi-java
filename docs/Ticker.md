@@ -1,5 +1,4 @@
 
-
 # Ticker
 
 ## Properties
@@ -23,6 +22,4 @@ Name | Type | Description | Notes
 **etfPreNetValue** | **String** | ETF previous net value at re-balancing time |  [optional]
 **etfPreTimestamp** | **Long** | ETF previous re-balancing time |  [optional]
 **etfLeverage** | **String** | ETF current leverage |  [optional]
-
-
 

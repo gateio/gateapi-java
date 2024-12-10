@@ -1,5 +1,4 @@
 
-
 # Repayment
 
 ## Properties
@@ -10,6 +9,4 @@ Name | Type | Description | Notes
 **createTime** | **String** | Repayment time |  [optional]
 **principal** | **String** | Repaid principal |  [optional]
 **interest** | **String** | Repaid interest |  [optional]
-
-
 

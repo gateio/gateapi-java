@@ -1,5 +1,4 @@
 
-
 # CreateCollateralOrder
 
 ## Properties
@@ -10,6 +9,4 @@ Name | Type | Description | Notes
 **collateralCurrency** | **String** | Collateral | 
 **borrowAmount** | **String** | Borrowing amount | 
 **borrowCurrency** | **String** | Borrowed currency | 
-
-
 

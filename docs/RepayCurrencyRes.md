@@ -1,5 +1,4 @@
 
-
 # RepayCurrencyRes
 
 ## Properties
@@ -12,6 +11,4 @@ Name | Type | Description | Notes
 **currency** | **String** | Repayment currency |  [optional]
 **repaidPrincipal** | **String** | Principal |  [optional]
 **repaidInterest** | **String** | Principal |  [optional]
-
-
 

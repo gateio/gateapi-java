@@ -1,5 +1,4 @@
 
-
 # FuturesTicker
 
 ## Properties
@@ -29,6 +28,4 @@ Name | Type | Description | Notes
 **lowestSize** | **String** | The latest seller&#39;s lowest price order quantity |  [optional]
 **highestBid** | **String** | Recent highest bid |  [optional]
 **highestSize** | **String** | The latest buyer&#39;s highest price order volume |  [optional]
-
-
 

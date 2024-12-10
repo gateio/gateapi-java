@@ -1,5 +1,4 @@
 
-
 # DeliverySettlement
 
 ## Properties
@@ -15,6 +14,4 @@ Name | Type | Description | Notes
 **settlePrice** | **String** | Settled price |  [optional] [readonly]
 **profit** | **String** | Profit |  [optional] [readonly]
 **fee** | **String** | Fee deducted |  [optional] [readonly]
-
-
 

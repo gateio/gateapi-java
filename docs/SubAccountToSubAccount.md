@@ -1,5 +1,4 @@
 
-
 # SubAccountToSubAccount
 
 ## Properties
@@ -13,6 +12,4 @@ Name | Type | Description | Notes
 **subAccountTo** | **String** | Transfer to the user id of the sub-account | 
 **subAccountToType** | **String** | The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account | 
 **amount** | **String** | Transfer amount | 
-
-
 

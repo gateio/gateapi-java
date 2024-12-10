@@ -1,5 +1,4 @@
 
-
 # FundingAccount
 
 ## Properties
@@ -11,6 +10,4 @@ Name | Type | Description | Notes
 **locked** | **String** | Locked amount. i.e. amount in &#x60;open&#x60; loans |  [optional]
 **lent** | **String** | Outstanding loan amount yet to be repaid |  [optional]
 **totalLent** | **String** | Amount used for lending. total_lent &#x3D; lent + locked |  [optional]
-
-
 

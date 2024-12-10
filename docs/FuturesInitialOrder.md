@@ -1,5 +1,4 @@
 
-
 # FuturesInitialOrder
 
 ## Properties
@@ -17,14 +16,10 @@ Name | Type | Description | Notes
 **isReduceOnly** | **Boolean** | Is the order reduce-only |  [optional] [readonly]
 **isClose** | **Boolean** | Is the order to close position |  [optional] [readonly]
 
-
-
 ## Enum: TifEnum
 
 Name | Value
 ---- | -----
 GTC | &quot;gtc&quot;
 IOC | &quot;ioc&quot;
-
-
 

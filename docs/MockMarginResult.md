@@ -1,8 +1,8 @@
 
-
 # MockMarginResult
 
 Margin result
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,6 +14,4 @@ Name | Type | Description | Notes
 **mr2** | **String** | Basis spread risk |  [optional]
 **mr3** | **String** | Volatility spread risk |  [optional]
 **mr4** | **String** | Option short risk |  [optional]
-
-
 

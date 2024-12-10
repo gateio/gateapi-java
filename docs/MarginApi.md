@@ -47,41 +47,42 @@ Method | HTTP request | Description
 Margin account list
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currencyPair = "BTC_USDT"; // String | Currency pair
-    try {
-      List<MarginAccount> result = apiInstance.listMarginAccounts()
-            .currencyPair(currencyPair)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listMarginAccounts");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        try {
+            List<MarginAccount> result = apiInstance.listMarginAccounts()
+                        .currencyPair(currencyPair)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listMarginAccounts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -118,53 +119,54 @@ List margin account balance change history
 Only transferals from and to margin account are provided for now. Time range allows 30 days at most
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "currency_example"; // String | List records related to specified currency only. If specified, `currency_pair` is also required.
-    String currencyPair = "currencyPair_example"; // String | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided
-    String type = "lend"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
-    Long from = 1627706330L; // Long | Start timestamp of the query
-    Long to = 1635329650L; // Long | Time range ending, default to current time
-    Integer page = 1; // Integer | Page number
-    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-    try {
-      List<MarginAccountBook> result = apiInstance.listMarginAccountBook()
-            .currency(currency)
-            .currencyPair(currencyPair)
-            .type(type)
-            .from(from)
-            .to(to)
-            .page(page)
-            .limit(limit)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listMarginAccountBook");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "currency_example"; // String | List records related to specified currency only. If specified, `currency_pair` is also required.
+        String currencyPair = "currencyPair_example"; // String | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided
+        String type = "lend"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
+        Long from = 1627706330L; // Long | Start timestamp of the query
+        Long to = 1635329650L; // Long | Time range ending, default to current time
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        try {
+            List<MarginAccountBook> result = apiInstance.listMarginAccountBook()
+                        .currency(currency)
+                        .currencyPair(currencyPair)
+                        .type(type)
+                        .from(from)
+                        .to(to)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listMarginAccountBook");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -205,41 +207,42 @@ Name | Type | Description  | Notes
 Funding account list
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    try {
-      List<FundingAccount> result = apiInstance.listFundingAccounts()
-            .currency(currency)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listFundingAccounts");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            List<FundingAccount> result = apiInstance.listFundingAccounts()
+                        .currency(currency)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listFundingAccounts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -274,38 +277,39 @@ Name | Type | Description  | Notes
 Retrieve user auto repayment setting
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    try {
-      AutoRepaySetting result = apiInstance.getAutoRepayStatus();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getAutoRepayStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        try {
+            AutoRepaySetting result = apiInstance.getAutoRepayStatus();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getAutoRepayStatus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -337,39 +341,40 @@ This endpoint does not need any parameter.
 Update user&#39;s auto repayment setting
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String status = "on"; // String | New auto repayment status. `on` - enabled, `off` - disabled
-    try {
-      AutoRepaySetting result = apiInstance.setAutoRepay(status);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#setAutoRepay");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String status = "on"; // String | New auto repayment status. `on` - enabled, `off` - disabled
+        try {
+            AutoRepaySetting result = apiInstance.setAutoRepay(status);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#setAutoRepay");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -404,42 +409,43 @@ Name | Type | Description  | Notes
 Get the max transferable amount for a specific margin currency
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    String currencyPair = "BTC_USDT"; // String | Currency pair
-    try {
-      MarginTransferable result = apiInstance.getMarginTransferable(currency)
-            .currencyPair(currencyPair)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getMarginTransferable");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        try {
+            MarginTransferable result = apiInstance.getMarginTransferable(currency)
+                        .currencyPair(currencyPair)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getMarginTransferable");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -475,31 +481,35 @@ Name | Type | Description  | Notes
 List all supported currency pairs supported in margin trading(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    try {
-      List<MarginCurrencyPair> result = apiInstance.listMarginCurrencyPairs();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listMarginCurrencyPairs");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        try {
+            List<MarginCurrencyPair> result = apiInstance.listMarginCurrencyPairs();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listMarginCurrencyPairs");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -531,32 +541,36 @@ No authorization required
 Query one single margin currency pair(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currencyPair = "BTC_USDT"; // String | Margin currency pair
-    try {
-      MarginCurrencyPair result = apiInstance.getMarginCurrencyPair(currencyPair);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getMarginCurrencyPair");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currencyPair = "BTC_USDT"; // String | Margin currency pair
+        try {
+            MarginCurrencyPair result = apiInstance.getMarginCurrencyPair(currencyPair);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getMarginCurrencyPair");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -591,32 +605,36 @@ No authorization required
 Order book of lending loans(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    try {
-      List<FundingBookItem> result = apiInstance.listFundingBook(currency);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listFundingBook");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            List<FundingBookItem> result = apiInstance.listFundingBook(currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listFundingBook");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -651,53 +669,54 @@ No authorization required
 List all loans(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String status = "open"; // String | Loan status
-    String side = "lend"; // String | Lend or borrow
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    String currencyPair = "BTC_USDT"; // String | Currency pair
-    String sortBy = "rate"; // String | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
-    Boolean reverseSort = false; // Boolean | Whether to sort in descending order. Default to `true`
-    Integer page = 1; // Integer | Page number
-    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-    try {
-      List<Loan> result = apiInstance.listLoans(status, side)
-            .currency(currency)
-            .currencyPair(currencyPair)
-            .sortBy(sortBy)
-            .reverseSort(reverseSort)
-            .page(page)
-            .limit(limit)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listLoans");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String status = "open"; // String | Loan status
+        String side = "lend"; // String | Lend or borrow
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        String sortBy = "rate"; // String | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time`
+        Boolean reverseSort = false; // Boolean | Whether to sort in descending order. Default to `true`
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        try {
+            List<Loan> result = apiInstance.listLoans(status, side)
+                        .currency(currency)
+                        .currencyPair(currencyPair)
+                        .sortBy(sortBy)
+                        .reverseSort(reverseSort)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listLoans");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -739,39 +758,40 @@ Name | Type | Description  | Notes
 Lend or borrow(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    Loan loan = new Loan(); // Loan | 
-    try {
-      Loan result = apiInstance.createLoan(loan);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#createLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        Loan loan = new Loan(); // Loan | 
+        try {
+            Loan result = apiInstance.createLoan(loan);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#createLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -806,40 +826,41 @@ Name | Type | Description  | Notes
 Merge multiple lending loans(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    String ids = "123,234,345"; // String | A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request
-    try {
-      Loan result = apiInstance.mergeLoans(currency, ids);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#mergeLoans");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String ids = "123,234,345"; // String | A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request
+        try {
+            Loan result = apiInstance.mergeLoans(currency, ids);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#mergeLoans");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -875,40 +896,41 @@ Name | Type | Description  | Notes
 Retrieve one single loan detail(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanId = "12345"; // String | Loan ID
-    String side = "lend"; // String | Lend or borrow
-    try {
-      Loan result = apiInstance.getLoan(loanId, side);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        String side = "lend"; // String | Lend or borrow
+        try {
+            Loan result = apiInstance.getLoan(loanId, side);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -946,40 +968,41 @@ Cancel lending loan(Deprecated)
 Only lent loans can be cancelled
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanId = "12345"; // String | Loan ID
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    try {
-      Loan result = apiInstance.cancelLoan(loanId, currency);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#cancelLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            Loan result = apiInstance.cancelLoan(loanId, currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#cancelLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1017,40 +1040,41 @@ Modify a loan(Deprecated)
 Only &#x60;auto_renew&#x60; modification is supported currently
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanId = "12345"; // String | Loan ID
-    LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
-    try {
-      Loan result = apiInstance.updateLoan(loanId, loanPatch);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#updateLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
+        try {
+            Loan result = apiInstance.updateLoan(loanId, loanPatch);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#updateLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1086,39 +1110,40 @@ Name | Type | Description  | Notes
 List loan repayment records(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanId = "12345"; // String | Loan ID
-    try {
-      List<Repayment> result = apiInstance.listLoanRepayments(loanId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listLoanRepayments");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        try {
+            List<Repayment> result = apiInstance.listLoanRepayments(loanId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listLoanRepayments");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1153,40 +1178,41 @@ Name | Type | Description  | Notes
 Repay a loan(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanId = "12345"; // String | Loan ID
-    RepayRequest repayRequest = new RepayRequest(); // RepayRequest | 
-    try {
-      Loan result = apiInstance.repayLoan(loanId, repayRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#repayLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        RepayRequest repayRequest = new RepayRequest(); // RepayRequest | 
+        try {
+            Loan result = apiInstance.repayLoan(loanId, repayRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#repayLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1222,46 +1248,47 @@ Name | Type | Description  | Notes
 List repayment records of a specific loan(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanId = "12345"; // String | Loan ID
-    String status = "loaned"; // String | Loan record status
-    Integer page = 1; // Integer | Page number
-    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-    try {
-      List<LoanRecord> result = apiInstance.listLoanRecords(loanId)
-            .status(status)
-            .page(page)
-            .limit(limit)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listLoanRecords");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Loan ID
+        String status = "loaned"; // String | Loan record status
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        try {
+            List<LoanRecord> result = apiInstance.listLoanRecords(loanId)
+                        .status(status)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listLoanRecords");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1299,40 +1326,41 @@ Name | Type | Description  | Notes
 Get one single loan record(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanRecordId = "12345"; // String | Loan record ID
-    String loanId = "12345"; // String | Loan ID
-    try {
-      LoanRecord result = apiInstance.getLoanRecord(loanRecordId, loanId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getLoanRecord");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanRecordId = "12345"; // String | Loan record ID
+        String loanId = "12345"; // String | Loan ID
+        try {
+            LoanRecord result = apiInstance.getLoanRecord(loanRecordId, loanId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getLoanRecord");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1370,40 +1398,41 @@ Modify a loan record(Deprecated)
 Only &#x60;auto_renew&#x60; modification is supported currently
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanRecordId = "12345"; // String | Loan record ID
-    LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
-    try {
-      LoanRecord result = apiInstance.updateLoanRecord(loanRecordId, loanPatch);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#updateLoanRecord");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanRecordId = "12345"; // String | Loan record ID
+        LoanPatch loanPatch = new LoanPatch(); // LoanPatch | 
+        try {
+            LoanRecord result = apiInstance.updateLoanRecord(loanRecordId, loanPatch);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#updateLoanRecord");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1439,42 +1468,43 @@ Name | Type | Description  | Notes
 Get the max borrowable amount for a specific margin currency(Deprecated)
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    String currencyPair = "BTC_USDT"; // String | Currency pair
-    try {
-      MarginBorrowable result = apiInstance.getMarginBorrowable(currency)
-            .currencyPair(currencyPair)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getMarginBorrowable");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        try {
+            MarginBorrowable result = apiInstance.getMarginBorrowable(currency)
+                        .currencyPair(currencyPair)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getMarginBorrowable");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1510,31 +1540,35 @@ Name | Type | Description  | Notes
 Currencies supported by cross margin.
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    try {
-      List<CrossMarginCurrency> result = apiInstance.listCrossMarginCurrencies();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listCrossMarginCurrencies");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        try {
+            List<CrossMarginCurrency> result = apiInstance.listCrossMarginCurrencies();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listCrossMarginCurrencies");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1566,32 +1600,36 @@ No authorization required
 Retrieve detail of one single currency supported by cross margin
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Currency name
-    try {
-      CrossMarginCurrency result = apiInstance.getCrossMarginCurrency(currency);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getCrossMarginCurrency");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Currency name
+        try {
+            CrossMarginCurrency result = apiInstance.getCrossMarginCurrency(currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginCurrency");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1626,38 +1664,39 @@ No authorization required
 Retrieve cross margin account
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    try {
-      CrossMarginAccount result = apiInstance.getCrossMarginAccount();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getCrossMarginAccount");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        try {
+            CrossMarginAccount result = apiInstance.getCrossMarginAccount();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginAccount");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1691,51 +1730,52 @@ Retrieve cross margin account change history
 Record time range cannot exceed 30 days
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "currency_example"; // String | Filter by currency
-    Long from = 1627706330L; // Long | Start timestamp of the query
-    Long to = 1635329650L; // Long | Time range ending, default to current time
-    Integer page = 1; // Integer | Page number
-    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-    String type = "borrow"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
-    try {
-      List<CrossMarginAccountBook> result = apiInstance.listCrossMarginAccountBook()
-            .currency(currency)
-            .from(from)
-            .to(to)
-            .page(page)
-            .limit(limit)
-            .type(type)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listCrossMarginAccountBook");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "currency_example"; // String | Filter by currency
+        Long from = 1627706330L; // Long | Start timestamp of the query
+        Long to = 1635329650L; // Long | Time range ending, default to current time
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        String type = "borrow"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
+        try {
+            List<CrossMarginAccountBook> result = apiInstance.listCrossMarginAccountBook()
+                        .currency(currency)
+                        .from(from)
+                        .to(to)
+                        .page(page)
+                        .limit(limit)
+                        .type(type)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listCrossMarginAccountBook");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1777,48 +1817,49 @@ List cross margin borrow history
 Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    Integer status = 56; // Integer | Filter by status. Supported values are 2 and 3. (deprecated.)
-    String currency = "currency_example"; // String | Filter by currency
-    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-    Integer offset = 0; // Integer | List offset, starting from 0
-    Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
-    try {
-      List<CrossMarginLoan> result = apiInstance.listCrossMarginLoans(status)
-            .currency(currency)
-            .limit(limit)
-            .offset(offset)
-            .reverse(reverse)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listCrossMarginLoans");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        Integer status = 56; // Integer | Filter by status. Supported values are 2 and 3. (deprecated.)
+        String currency = "currency_example"; // String | Filter by currency
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
+        try {
+            List<CrossMarginLoan> result = apiInstance.listCrossMarginLoans(status)
+                        .currency(currency)
+                        .limit(limit)
+                        .offset(offset)
+                        .reverse(reverse)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listCrossMarginLoans");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1859,39 +1900,40 @@ Create a cross margin borrow loan
 Borrow amount cannot be less than currency minimum borrow amount
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    CrossMarginLoan crossMarginLoan = new CrossMarginLoan(); // CrossMarginLoan | 
-    try {
-      CrossMarginLoan result = apiInstance.createCrossMarginLoan(crossMarginLoan);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#createCrossMarginLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        CrossMarginLoan crossMarginLoan = new CrossMarginLoan(); // CrossMarginLoan | 
+        try {
+            CrossMarginLoan result = apiInstance.createCrossMarginLoan(crossMarginLoan);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#createCrossMarginLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1926,39 +1968,40 @@ Name | Type | Description  | Notes
 Retrieve single borrow loan detail
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String loanId = "12345"; // String | Borrow loan ID
-    try {
-      CrossMarginLoan result = apiInstance.getCrossMarginLoan(loanId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getCrossMarginLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String loanId = "12345"; // String | Borrow loan ID
+        try {
+            CrossMarginLoan result = apiInstance.getCrossMarginLoan(loanId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -1995,49 +2038,50 @@ Retrieve cross margin repayments
 Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | 
-    String loanId = "12345"; // String | 
-    Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-    Integer offset = 0; // Integer | List offset, starting from 0
-    Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
-    try {
-      List<CrossMarginRepayment> result = apiInstance.listCrossMarginRepayments()
-            .currency(currency)
-            .loanId(loanId)
-            .limit(limit)
-            .offset(offset)
-            .reverse(reverse)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#listCrossMarginRepayments");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | 
+        String loanId = "12345"; // String | 
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
+        try {
+            List<CrossMarginRepayment> result = apiInstance.listCrossMarginRepayments()
+                        .currency(currency)
+                        .loanId(loanId)
+                        .limit(limit)
+                        .offset(offset)
+                        .reverse(reverse)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#listCrossMarginRepayments");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -2078,39 +2122,40 @@ Cross margin repayments
 When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    CrossMarginRepayRequest crossMarginRepayRequest = new CrossMarginRepayRequest(); // CrossMarginRepayRequest | 
-    try {
-      List<CrossMarginLoan> result = apiInstance.repayCrossMarginLoan(crossMarginRepayRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#repayCrossMarginLoan");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        CrossMarginRepayRequest crossMarginRepayRequest = new CrossMarginRepayRequest(); // CrossMarginRepayRequest | 
+        try {
+            List<CrossMarginLoan> result = apiInstance.repayCrossMarginLoan(crossMarginRepayRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#repayCrossMarginLoan");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -2145,49 +2190,50 @@ Name | Type | Description  | Notes
 Interest records for the cross margin account
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    Integer page = 1; // Integer | Page number
-    Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
-    Long from = 1547706332L; // Long | Start timestamp
-    Long to = 1547706332L; // Long | End timestamp
-    try {
-      List<UniLoanInterestRecord> result = apiInstance.getCrossMarginInterestRecords()
-            .currency(currency)
-            .page(page)
-            .limit(limit)
-            .from(from)
-            .to(to)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getCrossMarginInterestRecords");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+        Long from = 1547706332L; // Long | Start timestamp
+        Long to = 1547706332L; // Long | End timestamp
+        try {
+            List<UniLoanInterestRecord> result = apiInstance.getCrossMarginInterestRecords()
+                        .currency(currency)
+                        .page(page)
+                        .limit(limit)
+                        .from(from)
+                        .to(to)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginInterestRecords");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -2226,39 +2272,40 @@ Name | Type | Description  | Notes
 Get the max transferable amount for a specific cross margin currency
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    try {
-      CrossMarginTransferable result = apiInstance.getCrossMarginTransferable(currency);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getCrossMarginTransferable");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            CrossMarginTransferable result = apiInstance.getCrossMarginTransferable(currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginTransferable");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -2295,39 +2342,40 @@ Estimated interest rates
 Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    List<String> currencies = Arrays.asList(); // List<String> | An array of up to 10 specifying the currency name
-    try {
-      Map<String, String> result = apiInstance.getCrossMarginEstimateRate(currencies);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getCrossMarginEstimateRate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        List<String> currencies = Arrays.asList(); // List<String> | An array of up to 10 specifying the currency name
+        try {
+            Map<String, String> result = apiInstance.getCrossMarginEstimateRate(currencies);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginEstimateRate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -2362,39 +2410,40 @@ Name | Type | Description  | Notes
 Get the max borrowable amount for a specific cross margin currency
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.MarginApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    MarginApi apiInstance = new MarginApi(defaultClient);
-    String currency = "BTC"; // String | Retrieve data of the specified currency
-    try {
-      UnifiedBorrowable result = apiInstance.getCrossMarginBorrowable(currency);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MarginApi#getCrossMarginBorrowable");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        MarginApi apiInstance = new MarginApi(defaultClient);
+        String currency = "BTC"; // String | Retrieve data of the specified currency
+        try {
+            UnifiedBorrowable result = apiInstance.getCrossMarginBorrowable(currency);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MarginApi#getCrossMarginBorrowable");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 

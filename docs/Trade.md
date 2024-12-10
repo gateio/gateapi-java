@@ -1,5 +1,4 @@
 
-
 # Trade
 
 ## Properties
@@ -23,8 +22,6 @@ Name | Type | Description | Notes
 **sequenceId** | **String** | Represents a unique and consecutive trade ID within a single market. It is used to track and identify trades in the specific market |  [optional]
 **text** | **String** | User defined information. No value in public endpoints |  [optional]
 
-
-
 ## Enum: SideEnum
 
 Name | Value
@@ -32,14 +29,10 @@ Name | Value
 BUY | &quot;buy&quot;
 SELL | &quot;sell&quot;
 
-
-
 ## Enum: RoleEnum
 
 Name | Value
 ---- | -----
 TAKER | &quot;taker&quot;
 MAKER | &quot;maker&quot;
-
-
 

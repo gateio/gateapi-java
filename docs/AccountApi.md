@@ -22,38 +22,39 @@ Method | HTTP request | Description
 Get account detail
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    try {
-      AccountDetail result = apiInstance.getAccountDetail();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#getAccountDetail");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        try {
+            AccountDetail result = apiInstance.getAccountDetail();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#getAccountDetail");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -85,38 +86,39 @@ This endpoint does not need any parameter.
 Get user transaction rate limit information
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    try {
-      List<AccountRateLimit> result = apiInstance.getAccountRateLimit();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#getAccountRateLimit");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        try {
+            List<AccountRateLimit> result = apiInstance.getAccountRateLimit();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#getAccountRateLimit");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -150,41 +152,42 @@ List STP Groups
 Retrieve the list of STP groups created by the main account user only
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    String name = "group"; // String | Perform a fuzzy search based on the name
-    try {
-      List<StpGroup> result = apiInstance.listSTPGroups()
-            .name(name)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#listSTPGroups");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        String name = "group"; // String | Perform a fuzzy search based on the name
+        try {
+            List<StpGroup> result = apiInstance.listSTPGroups()
+                        .name(name)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#listSTPGroups");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -221,39 +224,40 @@ Create STP Group
 Only the main account is allowed to create a new STP user group
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    StpGroup stpGroup = new StpGroup(); // StpGroup | 
-    try {
-      StpGroup result = apiInstance.createSTPGroup(stpGroup);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#createSTPGroup");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        StpGroup stpGroup = new StpGroup(); // StpGroup | 
+        try {
+            StpGroup result = apiInstance.createSTPGroup(stpGroup);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#createSTPGroup");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -290,39 +294,40 @@ List users of the STP group
 Only the main account that created this STP group is allowed to list the user ID of the STP group
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    Long stpId = 1L; // Long | STP Group ID
-    try {
-      List<StpGroupUser> result = apiInstance.listSTPGroupsUsers(stpId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#listSTPGroupsUsers");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        Long stpId = 1L; // Long | STP Group ID
+        try {
+            List<StpGroupUser> result = apiInstance.listSTPGroupsUsers(stpId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#listSTPGroupsUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -359,40 +364,41 @@ Add users to the STP group
 - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    Long stpId = 1L; // Long | STP Group ID
-    List<Long> requestBody = Arrays.asList(); // List<Long> | User ID
-    try {
-      List<StpGroupUser> result = apiInstance.addSTPGroupUsers(stpId, requestBody);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#addSTPGroupUsers");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        Long stpId = 1L; // Long | STP Group ID
+        List<Long> requestBody = Arrays.asList(); // List<Long> | User ID
+        try {
+            List<StpGroupUser> result = apiInstance.addSTPGroupUsers(stpId, requestBody);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#addSTPGroupUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -430,40 +436,41 @@ Delete the user in the STP group
 - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    Long stpId = 1L; // Long | STP Group ID
-    Long userId = 1L; // Long | STP user ID, multiple can be separated by commas
-    try {
-      List<StpGroupUser> result = apiInstance.deleteSTPGroupUsers(stpId, userId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#deleteSTPGroupUsers");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        Long stpId = 1L; // Long | STP Group ID
+        Long userId = 1L; // Long | STP user ID, multiple can be separated by commas
+        try {
+            List<StpGroupUser> result = apiInstance.deleteSTPGroupUsers(stpId, userId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#deleteSTPGroupUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -501,38 +508,39 @@ Query GT deduction configuration.
 Query the current GT deduction configuration for the account.
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    try {
-      InlineResponse2001 result = apiInstance.getDebitFee();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#getDebitFee");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        try {
+            InlineResponse2001 result = apiInstance.getDebitFee();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#getDebitFee");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
@@ -566,38 +574,39 @@ Set GT deduction.
 Enable or disable GT deduction for the current account.
 
 ### Example
+
 ```java
 // Import classes:
 import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.AccountApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-    
-    // Configure API key authorization: apiv4
-    ApiKeyAuth apiv4 = (ApiKeyAuth) defaultClient.getAuthentication("apiv4");
-    apiv4.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //apiv4.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-    InlineObject inlineObject = new InlineObject(); // InlineObject | 
-    try {
-      apiInstance.setDebitFee(inlineObject);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AccountApi#setDebitFee");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        AccountApi apiInstance = new AccountApi(defaultClient);
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        try {
+            apiInstance.setDebitFee(inlineObject);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#setDebitFee");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 

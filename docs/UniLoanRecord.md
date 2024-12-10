@@ -1,8 +1,8 @@
 
-
 # UniLoanRecord
 
 Loan records
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,6 +12,4 @@ Name | Type | Description | Notes
 **currency** | **String** | Currency |  [optional] [readonly]
 **amount** | **String** | The amount of lending or repaying |  [optional] [readonly]
 **createTime** | **Long** | Created time |  [optional] [readonly]
-
-
 

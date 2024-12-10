@@ -1,5 +1,4 @@
 
-
 # StpGroup
 
 ## Properties
@@ -10,6 +9,4 @@ Name | Type | Description | Notes
 **name** | **String** | STP Group name | 
 **creatorId** | **Long** | Creator ID |  [optional]
 **createTime** | **Long** | Creation time |  [optional]
-
-
 

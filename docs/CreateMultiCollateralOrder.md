@@ -1,5 +1,4 @@
 
-
 # CreateMultiCollateralOrder
 
 ## Properties
@@ -15,6 +14,4 @@ Name | Type | Description | Notes
 **borrowCurrency** | **String** | Borrowed currency | 
 **borrowAmount** | **String** | Borrowing amount | 
 **collateralCurrencies** | [**List&lt;CollateralCurrency&gt;**](CollateralCurrency.md) | Collateral currency and amount |  [optional]
-
-
 

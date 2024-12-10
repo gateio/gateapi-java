@@ -1,5 +1,4 @@
 
-
 # AccountRateLimit
 
 ## Properties
@@ -10,6 +9,4 @@ Name | Type | Description | Notes
 **ratio** | **String** | Transaction rate |  [optional]
 **mainRatio** | **String** | Total transaction ratio of main account |  [optional]
 **updatedAt** | **String** | Update time |  [optional]
-
-
 
