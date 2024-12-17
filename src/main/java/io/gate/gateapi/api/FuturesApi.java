@@ -2395,7 +2395,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listFuturesAccountsCall(String settle, final ApiCallback _callback) throws ApiException {
@@ -2448,7 +2448,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
     public FuturesAccount listFuturesAccounts(String settle) throws ApiException {
@@ -2465,7 +2465,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesAccount> listFuturesAccountsWithHttpInfo(String settle) throws ApiException {
@@ -2484,7 +2484,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listFuturesAccountsAsync(String settle, final ApiCallback<FuturesAccount> _callback) throws ApiException {
