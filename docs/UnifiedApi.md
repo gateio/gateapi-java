@@ -5,8 +5,6 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**listUnifiedAccounts**](UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information
-[**listUnifiedAccountMode**](UnifiedApi.md#listUnifiedAccountMode) | **GET** /unified/account_mode | Inquire about unified account mode (deprecated)
-[**setUnifiedAccountMode**](UnifiedApi.md#setUnifiedAccountMode) | **POST** /unified/account_mode | Set unified account mode (deprecated)
 [**getUnifiedBorrowable**](UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query about the maximum borrowing for the unified account
 [**getUnifiedTransferable**](UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query about the maximum transferable for the unified account
 [**listUnifiedLoans**](UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | List loans
@@ -97,140 +95,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List retrieved |  -  |
-
-<a name="listUnifiedAccountMode"></a>
-# **listUnifiedAccountMode**
-> Map&lt;String, Boolean&gt; listUnifiedAccountMode()
-
-Inquire about unified account mode (deprecated)
-
-cross_margin - Spot full-margin trading, usdt_futures - USDT perpetual futures
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.UnifiedApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        try {
-            Map<String, Boolean> result = apiInstance.listUnifiedAccountMode();
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UnifiedApi#listUnifiedAccountMode");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-**Map&lt;String, Boolean&gt;**
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successfully retrieved |  -  |
-
-<a name="setUnifiedAccountMode"></a>
-# **setUnifiedAccountMode**
-> Map&lt;String, Boolean&gt; setUnifiedAccountMode(unifiedMode)
-
-Set unified account mode (deprecated)
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.UnifiedApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        UnifiedMode unifiedMode = new UnifiedMode(); // UnifiedMode | 
-        try {
-            Map<String, Boolean> result = apiInstance.setUnifiedAccountMode(unifiedMode);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UnifiedApi#setUnifiedAccountMode");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **unifiedMode** | [**UnifiedMode**](UnifiedMode.md)|  |
-
-### Return type
-
-**Map&lt;String, Boolean&gt;**
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
 
 <a name="getUnifiedBorrowable"></a>
 # **getUnifiedBorrowable**
@@ -816,7 +680,7 @@ This endpoint does not need any parameter.
 
 Set mode of the unified account
 
-每种账户模式的切换只需要传对应账户模式的参数，同时支持在切换账户模式时打开或关闭对应账户模式下的配置开关   - 开通经典账户模式时，mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - 开通跨币种保证金模式，mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通组合保证金模式时，mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通组合保证金模式时，mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+Switching each account mode only requires passing the parameters of the corresponding account mode, and supports turning on or off the configuration switch in the corresponding account mode when switching the account mode  - When opening the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - Open the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When the portfolio margin mode is enabled, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When the portfolio margin mode is enabled, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
 
 ### Example
 

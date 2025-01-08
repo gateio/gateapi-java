@@ -8,10 +8,10 @@ MMP Settings
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **underlying** | **String** | Underlying | 
-**window** | **Integer** | 时间窗口（毫秒），1-5000之间，0表示停用MMP | 
-**frozenPeriod** | **Integer** | 冻结时长（毫秒），0表示一直冻结，需要调用重置API解冻 | 
-**qtyLimit** | **String** | 成交量上限（正数，至多2位小数） | 
-**deltaLimit** | **String** | 净delta值上限（正数，至多2位小数） | 
-**triggerTimeMs** | **Long** | 触发冻结时间（毫秒），0表示没有触发冻结 |  [optional] [readonly]
-**frozenUntilMs** | **Long** | 解冻时间（毫秒），如果未配置冻结时长，触发冻结后无解冻时间 |  [optional] [readonly]
+**window** | **Integer** | Time window (milliseconds), between 1-5000, 0 means disabling MMP | 
+**frozenPeriod** | **Integer** | Freeze duration (milliseconds), 0 means always frozen, need to call reset API to unfreeze | 
+**qtyLimit** | **String** | Trading volume upper limit (positive number, up to 2 decimal places) | 
+**deltaLimit** | **String** | Upper limit of net delta value (positive number, up to 2 decimal places) | 
+**triggerTimeMs** | **Long** | Trigger freeze time (milliseconds), 0 means no freeze is triggered |  [optional] [readonly]
+**frozenUntilMs** | **Long** | Unfreeze time (milliseconds). If the freeze duration is not configured, there will be no unfreeze time after the freeze is triggered. |  [optional] [readonly]
 

@@ -75,7 +75,7 @@ public class OrderPatch {
     }
 
      /**
-     * 指定查询账户。
+     * Specify query account.
      * @return account
     **/
     @javax.annotation.Nullable

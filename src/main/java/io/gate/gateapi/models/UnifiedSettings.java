@@ -67,7 +67,7 @@ public class UnifiedSettings {
     }
 
      /**
-     * 现货对冲开关。
+     * Spot hedging switch. 
      * @return spotHedge
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,6 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import io.gate.gateapi.models.FlashSwapCurrency;
 import io.gate.gateapi.models.FlashSwapCurrencyPair;
 import io.gate.gateapi.models.FlashSwapOrder;
 import io.gate.gateapi.models.FlashSwapOrderPreview;
@@ -50,113 +49,6 @@ public class FlashSwapApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
-    }
-
-    /**
-     * Build call for listFlashSwapCurrencies
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call listFlashSwapCurrenciesCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/flash_swap/currencies";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listFlashSwapCurrenciesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listFlashSwapCurrenciesCall(_callback);
-        return localVarCall;
-    }
-
-    /**
-     * List All Supported Currencies In Flash Swap (deprecated)
-     * 
-     * @return List&lt;FlashSwapCurrency&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public List<FlashSwapCurrency> listFlashSwapCurrencies() throws ApiException {
-        ApiResponse<List<FlashSwapCurrency>> localVarResp = listFlashSwapCurrenciesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List All Supported Currencies In Flash Swap (deprecated)
-     * 
-     * @return ApiResponse&lt;List&lt;FlashSwapCurrency&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<List<FlashSwapCurrency>> listFlashSwapCurrenciesWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = listFlashSwapCurrenciesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<FlashSwapCurrency>>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List All Supported Currencies In Flash Swap (deprecated) (asynchronously)
-     * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call listFlashSwapCurrenciesAsync(final ApiCallback<List<FlashSwapCurrency>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listFlashSwapCurrenciesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<FlashSwapCurrency>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
     }
 
     private okhttp3.Call listFlashSwapCurrencyPairCall(String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {

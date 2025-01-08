@@ -63,7 +63,7 @@ public class SpotInsuranceHistory {
     }
 
      /**
-     * 余额
+     * balance
      * @return balance
     **/
     @javax.annotation.Nullable

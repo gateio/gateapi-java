@@ -176,7 +176,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 账户余额
+     * Account balance
      * @return total
     **/
     @javax.annotation.Nullable
@@ -196,7 +196,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 仓位价值，做多仓位价值为正，做空仓位价值为负
+     * Position value, long position value is positive, short position value is negative
      * @return positionValue
     **/
     @javax.annotation.Nullable
@@ -216,7 +216,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 账户权益，账户余额与仓位价值的和
+     * Account equity, the sum of account balance and position value
      * @return equity
     **/
     @javax.annotation.Nullable
@@ -256,7 +256,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 是否启用MMP
+     * Whether to enable MMP
      * @return mmpEnabled
     **/
     @javax.annotation.Nullable
@@ -276,7 +276,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 是否触发仓位强平
+     * Whether to trigger position liquidation
      * @return liqTriggered
     **/
     @javax.annotation.Nullable
@@ -396,7 +396,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 未完成卖单的保证金
+     * Margin for outstanding sell orders
      * @return askOrderMargin
     **/
     @javax.annotation.Nullable
@@ -416,7 +416,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 未完成买单的保证金
+     * Margin for outstanding buy orders
      * @return bidOrderMargin
     **/
     @javax.annotation.Nullable
@@ -496,7 +496,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 未完成订单数量上限
+     * Maximum number of outstanding orders
      * @return ordersLimit
     **/
     @javax.annotation.Nullable
@@ -516,7 +516,7 @@ public class OptionsAccount {
     }
 
      /**
-     * 名义价值上限，包含仓位以及未完成订单的名义价值
+     * Notional value upper limit, including the nominal value of positions and outstanding orders
      * @return positionNotionalLimit
     **/
     @javax.annotation.Nullable

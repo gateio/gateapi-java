@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.88.0
-- SDK version: 6.88.0
+- API version: 4.89.0
+- SDK version: 6.89.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.88.0</version>
+    <version>6.89.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.88.0"
+compile "io.gate:gate-api:6.89.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.88.0.jar`
+* `target/gate-api-6.89.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -206,7 +206,6 @@ Class | Method | HTTP request | Description
 *EarnUniApi* | [**listUniInterestRecords**](docs/EarnUniApi.md#listUniInterestRecords) | **GET** /earn/uni/interest_records | List interest records
 *EarnUniApi* | [**switchInterestReinvest**](docs/EarnUniApi.md#switchInterestReinvest) | **PUT** /earn/uni/interest_reinvest | Set interest reinvestment toggle
 *EarnUniApi* | [**getUniInterestStatus**](docs/EarnUniApi.md#getUniInterestStatus) | **GET** /earn/uni/interest_status/{currency} | query currency interest compounding status
-*FlashSwapApi* | [**listFlashSwapCurrencies**](docs/FlashSwapApi.md#listFlashSwapCurrencies) | **GET** /flash_swap/currencies | List All Supported Currencies In Flash Swap (deprecated)
 *FlashSwapApi* | [**listFlashSwapCurrencyPair**](docs/FlashSwapApi.md#listFlashSwapCurrencyPair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap
 *FlashSwapApi* | [**listFlashSwapOrders**](docs/FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders
 *FlashSwapApi* | [**createFlashSwapOrder**](docs/FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
@@ -265,21 +264,6 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**getAutoRepayStatus**](docs/MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 *MarginApi* | [**setAutoRepay**](docs/MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
 *MarginApi* | [**getMarginTransferable**](docs/MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
-*MarginApi* | [**listMarginCurrencyPairs**](docs/MarginApi.md#listMarginCurrencyPairs) | **GET** /margin/currency_pairs | List all supported currency pairs supported in margin trading(Deprecated)
-*MarginApi* | [**getMarginCurrencyPair**](docs/MarginApi.md#getMarginCurrencyPair) | **GET** /margin/currency_pairs/{currency_pair} | Query one single margin currency pair(Deprecated)
-*MarginApi* | [**listFundingBook**](docs/MarginApi.md#listFundingBook) | **GET** /margin/funding_book | Order book of lending loans(Deprecated)
-*MarginApi* | [**listLoans**](docs/MarginApi.md#listLoans) | **GET** /margin/loans | List all loans(Deprecated)
-*MarginApi* | [**createLoan**](docs/MarginApi.md#createLoan) | **POST** /margin/loans | Lend or borrow(Deprecated)
-*MarginApi* | [**mergeLoans**](docs/MarginApi.md#mergeLoans) | **POST** /margin/merged_loans | Merge multiple lending loans(Deprecated)
-*MarginApi* | [**getLoan**](docs/MarginApi.md#getLoan) | **GET** /margin/loans/{loan_id} | Retrieve one single loan detail(Deprecated)
-*MarginApi* | [**cancelLoan**](docs/MarginApi.md#cancelLoan) | **DELETE** /margin/loans/{loan_id} | Cancel lending loan(Deprecated)
-*MarginApi* | [**updateLoan**](docs/MarginApi.md#updateLoan) | **PATCH** /margin/loans/{loan_id} | Modify a loan(Deprecated)
-*MarginApi* | [**listLoanRepayments**](docs/MarginApi.md#listLoanRepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records(Deprecated)
-*MarginApi* | [**repayLoan**](docs/MarginApi.md#repayLoan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan(Deprecated)
-*MarginApi* | [**listLoanRecords**](docs/MarginApi.md#listLoanRecords) | **GET** /margin/loan_records | List repayment records of a specific loan(Deprecated)
-*MarginApi* | [**getLoanRecord**](docs/MarginApi.md#getLoanRecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record(Deprecated)
-*MarginApi* | [**updateLoanRecord**](docs/MarginApi.md#updateLoanRecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record(Deprecated)
-*MarginApi* | [**getMarginBorrowable**](docs/MarginApi.md#getMarginBorrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency(Deprecated)
 *MarginApi* | [**listCrossMarginCurrencies**](docs/MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 *MarginApi* | [**getCrossMarginCurrency**](docs/MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 *MarginApi* | [**getCrossMarginAccount**](docs/MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -393,8 +377,6 @@ Class | Method | HTTP request | Description
 *SubAccountApi* | [**unlockSubAccount**](docs/SubAccountApi.md#unlockSubAccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account
 *SubAccountApi* | [**listUnifiedMode**](docs/SubAccountApi.md#listUnifiedMode) | **GET** /sub_accounts/unified_mode | Get sub-account mode
 *UnifiedApi* | [**listUnifiedAccounts**](docs/UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information
-*UnifiedApi* | [**listUnifiedAccountMode**](docs/UnifiedApi.md#listUnifiedAccountMode) | **GET** /unified/account_mode | Inquire about unified account mode (deprecated)
-*UnifiedApi* | [**setUnifiedAccountMode**](docs/UnifiedApi.md#setUnifiedAccountMode) | **POST** /unified/account_mode | Set unified account mode (deprecated)
 *UnifiedApi* | [**getUnifiedBorrowable**](docs/UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query about the maximum borrowing for the unified account
 *UnifiedApi* | [**getUnifiedTransferable**](docs/UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query about the maximum transferable for the unified account
 *UnifiedApi* | [**listUnifiedLoans**](docs/UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | List loans
@@ -502,14 +484,12 @@ Class | Method | HTTP request | Description
  - [DualGetOrders](docs/DualGetOrders.md)
  - [DualGetPlans](docs/DualGetPlans.md)
  - [Eth2Swap](docs/Eth2Swap.md)
- - [FlashSwapCurrency](docs/FlashSwapCurrency.md)
  - [FlashSwapCurrencyPair](docs/FlashSwapCurrencyPair.md)
  - [FlashSwapOrder](docs/FlashSwapOrder.md)
  - [FlashSwapOrderPreview](docs/FlashSwapOrderPreview.md)
  - [FlashSwapOrderRequest](docs/FlashSwapOrderRequest.md)
  - [FlashSwapPreviewRequest](docs/FlashSwapPreviewRequest.md)
  - [FundingAccount](docs/FundingAccount.md)
- - [FundingBookItem](docs/FundingBookItem.md)
  - [FundingRateRecord](docs/FundingRateRecord.md)
  - [FutureCancelOrderResult](docs/FutureCancelOrderResult.md)
  - [FuturesAccount](docs/FuturesAccount.md)
@@ -540,14 +520,9 @@ Class | Method | HTTP request | Description
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [LiquidateOrder](docs/LiquidateOrder.md)
- - [Loan](docs/Loan.md)
- - [LoanPatch](docs/LoanPatch.md)
- - [LoanRecord](docs/LoanRecord.md)
  - [MarginAccount](docs/MarginAccount.md)
  - [MarginAccountBook](docs/MarginAccountBook.md)
  - [MarginAccountCurrency](docs/MarginAccountCurrency.md)
- - [MarginBorrowable](docs/MarginBorrowable.md)
- - [MarginCurrencyPair](docs/MarginCurrencyPair.md)
  - [MarginTiers](docs/MarginTiers.md)
  - [MarginTransferable](docs/MarginTransferable.md)
  - [MaxUniBorrowable](docs/MaxUniBorrowable.md)
@@ -612,9 +587,7 @@ Class | Method | HTTP request | Description
  - [RepayRecordLeftInterest](docs/RepayRecordLeftInterest.md)
  - [RepayRecordRepaidCurrency](docs/RepayRecordRepaidCurrency.md)
  - [RepayRecordTotalInterest](docs/RepayRecordTotalInterest.md)
- - [RepayRequest](docs/RepayRequest.md)
  - [RepayResp](docs/RepayResp.md)
- - [Repayment](docs/Repayment.md)
  - [RiskUnits](docs/RiskUnits.md)
  - [SavedAddress](docs/SavedAddress.md)
  - [SmallBalance](docs/SmallBalance.md)
@@ -677,7 +650,6 @@ Class | Method | HTTP request | Description
  - [UnifiedLoan](docs/UnifiedLoan.md)
  - [UnifiedLoanRecord](docs/UnifiedLoanRecord.md)
  - [UnifiedMarginTiers](docs/UnifiedMarginTiers.md)
- - [UnifiedMode](docs/UnifiedMode.md)
  - [UnifiedModeSet](docs/UnifiedModeSet.md)
  - [UnifiedPortfolioInput](docs/UnifiedPortfolioInput.md)
  - [UnifiedPortfolioOutput](docs/UnifiedPortfolioOutput.md)

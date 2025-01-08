@@ -72,7 +72,7 @@ public class OptionsMMPReset {
     }
 
      /**
-     * 时间窗口（毫秒），1-5000之间，0表示停用MMP
+     * Time window (milliseconds), between 1-5000, 0 means disabling MMP
      * @return window
     **/
     @javax.annotation.Nullable
@@ -82,7 +82,7 @@ public class OptionsMMPReset {
 
 
      /**
-     * 冻结时长（毫秒），0表示一直冻结，需要调用重置API解冻
+     * Freeze duration (milliseconds), 0 means always frozen, need to call reset API to unfreeze
      * @return frozenPeriod
     **/
     @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class OptionsMMPReset {
 
 
      /**
-     * 成交量上限（正数，至多2位小数）
+     * Trading volume upper limit (positive number, up to 2 decimal places)
      * @return qtyLimit
     **/
     @javax.annotation.Nullable
@@ -102,7 +102,7 @@ public class OptionsMMPReset {
 
 
      /**
-     * 净delta值上限（正数，至多2位小数）
+     * Upper limit of net delta value (positive number, up to 2 decimal places)
      * @return deltaLimit
     **/
     @javax.annotation.Nullable
@@ -112,7 +112,7 @@ public class OptionsMMPReset {
 
 
      /**
-     * 触发冻结时间（毫秒），0表示没有触发冻结
+     * Trigger freeze time (milliseconds), 0 means no freeze is triggered
      * @return triggerTimeMs
     **/
     @javax.annotation.Nullable
@@ -122,7 +122,7 @@ public class OptionsMMPReset {
 
 
      /**
-     * 解冻时间（毫秒），如果未配置冻结时长，触发冻结后无解冻时间
+     * Unfreeze time (milliseconds). If the freeze duration is not configured, there will be no unfreeze time after the freeze is triggered.
      * @return frozenUntilMs
     **/
     @javax.annotation.Nullable
