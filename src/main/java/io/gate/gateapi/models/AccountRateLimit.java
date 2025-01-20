@@ -47,7 +47,7 @@ public class AccountRateLimit {
     }
 
      /**
-     * Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#成交比率限频))
+     * Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#rate-limit-based-on-fill-ratio))
      * @return tier
     **/
     @javax.annotation.Nullable

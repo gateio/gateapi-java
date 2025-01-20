@@ -35,6 +35,10 @@ public class FuturesLiqOrder {
     @SerializedName(SERIALIZED_NAME_SIZE)
     private Long size;
 
+    public static final String SERIALIZED_NAME_ORDER_SIZE = "order_size";
+    @SerializedName(SERIALIZED_NAME_ORDER_SIZE)
+    private Long orderSize;
+
     public static final String SERIALIZED_NAME_ORDER_PRICE = "order_price";
     @SerializedName(SERIALIZED_NAME_ORDER_PRICE)
     private String orderPrice;
@@ -79,6 +83,16 @@ public class FuturesLiqOrder {
 
 
      /**
+     * Number of forced liquidation orders
+     * @return orderSize
+    **/
+    @javax.annotation.Nullable
+    public Long getOrderSize() {
+        return orderSize;
+    }
+
+
+     /**
      * Liquidation order price
      * @return orderPrice
     **/
@@ -119,6 +133,7 @@ public class FuturesLiqOrder {
         return Objects.equals(this.time, futuresLiqOrder.time) &&
                 Objects.equals(this.contract, futuresLiqOrder.contract) &&
                 Objects.equals(this.size, futuresLiqOrder.size) &&
+                Objects.equals(this.orderSize, futuresLiqOrder.orderSize) &&
                 Objects.equals(this.orderPrice, futuresLiqOrder.orderPrice) &&
                 Objects.equals(this.fillPrice, futuresLiqOrder.fillPrice) &&
                 Objects.equals(this.left, futuresLiqOrder.left);
@@ -126,7 +141,7 @@ public class FuturesLiqOrder {
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, contract, size, orderPrice, fillPrice, left);
+        return Objects.hash(time, contract, size, orderSize, orderPrice, fillPrice, left);
     }
 
 
@@ -137,6 +152,7 @@ public class FuturesLiqOrder {
         sb.append("      time: ").append(toIndentedString(time)).append("\n");
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
+        sb.append("      orderSize: ").append(toIndentedString(orderSize)).append("\n");
         sb.append("      orderPrice: ").append(toIndentedString(orderPrice)).append("\n");
         sb.append("      fillPrice: ").append(toIndentedString(fillPrice)).append("\n");
         sb.append("      left: ").append(toIndentedString(left)).append("\n");

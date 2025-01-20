@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **debit** | **String** | Current liabilities |  [optional]
 **availableMargin** | **String** | Available Margin |  [optional]
 **borrowable** | **String** | The current leverage you can choose is |  [optional]
-**exceptLeverageBorrowable** | **String** | The maximum amount of margin that can be borrowed and the maximum amount of Yubibao that can be borrowed, whichever is smaller |  [optional]
+**exceptLeverageBorrowable** | **String** | The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller |  [optional]
 

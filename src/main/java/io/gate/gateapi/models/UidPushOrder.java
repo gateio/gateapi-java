@@ -55,6 +55,10 @@ public class UidPushOrder {
     @SerializedName(SERIALIZED_NAME_MESSAGE)
     private String message;
 
+    public static final String SERIALIZED_NAME_TRANSACTION_TYPE = "transaction_type";
+    @SerializedName(SERIALIZED_NAME_TRANSACTION_TYPE)
+    private String transactionType;
+
 
     public UidPushOrder id(Long id) {
         
@@ -215,6 +219,26 @@ public class UidPushOrder {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public UidPushOrder transactionType(String transactionType) {
+        
+        this.transactionType = transactionType;
+        return this;
+    }
+
+     /**
+     * Order Type
+     * @return transactionType
+    **/
+    @javax.annotation.Nullable
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -231,12 +255,13 @@ public class UidPushOrder {
                 Objects.equals(this.amount, uidPushOrder.amount) &&
                 Objects.equals(this.createTime, uidPushOrder.createTime) &&
                 Objects.equals(this.status, uidPushOrder.status) &&
-                Objects.equals(this.message, uidPushOrder.message);
+                Objects.equals(this.message, uidPushOrder.message) &&
+                Objects.equals(this.transactionType, uidPushOrder.transactionType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, pushUid, receiveUid, currency, amount, createTime, status, message);
+        return Objects.hash(id, pushUid, receiveUid, currency, amount, createTime, status, message, transactionType);
     }
 
 
@@ -252,6 +277,7 @@ public class UidPushOrder {
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      transactionType: ").append(toIndentedString(transactionType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

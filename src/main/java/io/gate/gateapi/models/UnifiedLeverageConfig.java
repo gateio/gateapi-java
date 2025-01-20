@@ -179,7 +179,7 @@ public class UnifiedLeverageConfig {
     }
 
      /**
-     * The maximum amount of margin that can be borrowed and the maximum amount of Yubibao that can be borrowed, whichever is smaller
+     * The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller
      * @return exceptLeverageBorrowable
     **/
     @javax.annotation.Nullable

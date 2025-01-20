@@ -1894,7 +1894,7 @@ public class UnifiedApi {
     }
 
     /**
-     * The maximum and minimum leverage multiples that users can set for a currency type are:
+     * Minimum currency leverage that can be set
      * 
      * @param currency Currency (required)
      * @return UnifiedLeverageConfig
@@ -1911,7 +1911,7 @@ public class UnifiedApi {
     }
 
     /**
-     * The maximum and minimum leverage multiples that users can set for a currency type are:
+     * Minimum currency leverage that can be set
      * 
      * @param currency Currency (required)
      * @return ApiResponse&lt;UnifiedLeverageConfig&gt;
@@ -1929,7 +1929,7 @@ public class UnifiedApi {
     }
 
     /**
-     * The maximum and minimum leverage multiples that users can set for a currency type are: (asynchronously)
+     * Minimum currency leverage that can be set (asynchronously)
      * 
      * @param currency Currency (required)
      * @param _callback The callback to be executed when the API call finishes

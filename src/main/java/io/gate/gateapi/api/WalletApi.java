@@ -2967,7 +2967,7 @@ public class WalletApi {
         return new APIlistSmallBalanceHistoryRequest();
     }
 
-    private okhttp3.Call listPushOrdersCall(Integer id, Integer from, Integer to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPushOrdersCall(Integer id, Integer from, Integer to, Integer limit, Integer offset, String transactionType, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2995,6 +2995,10 @@ public class WalletApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
         }
 
+        if (transactionType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("transaction_type", transactionType));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -3017,20 +3021,20 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPushOrdersValidateBeforeCall(Integer id, Integer from, Integer to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listPushOrdersCall(id, from, to, limit, offset, _callback);
+    private okhttp3.Call listPushOrdersValidateBeforeCall(Integer id, Integer from, Integer to, Integer limit, Integer offset, String transactionType, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listPushOrdersCall(id, from, to, limit, offset, transactionType, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<UidPushOrder>> listPushOrdersWithHttpInfo(Integer id, Integer from, Integer to, Integer limit, Integer offset) throws ApiException {
-        okhttp3.Call localVarCall = listPushOrdersValidateBeforeCall(id, from, to, limit, offset, null);
+    private ApiResponse<List<UidPushOrder>> listPushOrdersWithHttpInfo(Integer id, Integer from, Integer to, Integer limit, Integer offset, String transactionType) throws ApiException {
+        okhttp3.Call localVarCall = listPushOrdersValidateBeforeCall(id, from, to, limit, offset, transactionType, null);
         Type localVarReturnType = new TypeToken<List<UidPushOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listPushOrdersAsync(Integer id, Integer from, Integer to, Integer limit, Integer offset, final ApiCallback<List<UidPushOrder>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listPushOrdersValidateBeforeCall(id, from, to, limit, offset, _callback);
+    private okhttp3.Call listPushOrdersAsync(Integer id, Integer from, Integer to, Integer limit, Integer offset, String transactionType, final ApiCallback<List<UidPushOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listPushOrdersValidateBeforeCall(id, from, to, limit, offset, transactionType, _callback);
         Type localVarReturnType = new TypeToken<List<UidPushOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3042,6 +3046,7 @@ public class WalletApi {
         private Integer to;
         private Integer limit;
         private Integer offset;
+        private String transactionType;
 
         private APIlistPushOrdersRequest() {
         }
@@ -3097,6 +3102,16 @@ public class WalletApi {
         }
 
         /**
+         * Set transactionType
+         * @param transactionType The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)
+         * @return APIlistPushOrdersRequest
+         */
+        public APIlistPushOrdersRequest transactionType(String transactionType) {
+            this.transactionType = transactionType;
+            return this;
+        }
+
+        /**
          * Build call for listPushOrders
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -3108,7 +3123,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listPushOrdersCall(id, from, to, limit, offset, _callback);
+            return listPushOrdersCall(id, from, to, limit, offset, transactionType, _callback);
         }
 
         /**
@@ -3122,7 +3137,7 @@ public class WalletApi {
          </table>
          */
         public List<UidPushOrder> execute() throws ApiException {
-            ApiResponse<List<UidPushOrder>> localVarResp = listPushOrdersWithHttpInfo(id, from, to, limit, offset);
+            ApiResponse<List<UidPushOrder>> localVarResp = listPushOrdersWithHttpInfo(id, from, to, limit, offset, transactionType);
             return localVarResp.getData();
         }
 
@@ -3137,7 +3152,7 @@ public class WalletApi {
          </table>
          */
         public ApiResponse<List<UidPushOrder>> executeWithHttpInfo() throws ApiException {
-            return listPushOrdersWithHttpInfo(id, from, to, limit, offset);
+            return listPushOrdersWithHttpInfo(id, from, to, limit, offset, transactionType);
         }
 
         /**
@@ -3152,7 +3167,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UidPushOrder>> _callback) throws ApiException {
-            return listPushOrdersAsync(id, from, to, limit, offset, _callback);
+            return listPushOrdersAsync(id, from, to, limit, offset, transactionType, _callback);
         }
     }
 

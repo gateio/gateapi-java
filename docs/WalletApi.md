@@ -1481,7 +1481,7 @@ Name | Type | Description  | Notes
 
 <a name="listPushOrders"></a>
 # **listPushOrders**
-> List&lt;UidPushOrder&gt; listPushOrders().id(id).from(from).to(to).limit(limit).offset(offset).execute();
+> List&lt;UidPushOrder&gt; listPushOrders().id(id).from(from).to(to).limit(limit).offset(offset).transactionType(transactionType).execute();
 
 Retrieve the UID transfer history
 
@@ -1511,6 +1511,7 @@ public class Example {
         Integer to = 56; // Integer | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds.
         Integer limit = 100; // Integer | The maximum number of items returned in the list, the default value is 100
         Integer offset = 0; // Integer | List offset, starting from 0
+        String transactionType = "\"withdraw\""; // String | The list returns the order type `withdraw`, `deposit`, the default is `withdraw`.
         try {
             List<UidPushOrder> result = apiInstance.listPushOrders()
                         .id(id)
@@ -1518,6 +1519,7 @@ public class Example {
                         .to(to)
                         .limit(limit)
                         .offset(offset)
+                        .transactionType(transactionType)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -1542,6 +1544,7 @@ Name | Type | Description  | Notes
  **to** | **Integer**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional]
  **limit** | **Integer**| The maximum number of items returned in the list, the default value is 100 | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **transactionType** | **String**| The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. | [optional] [default to &quot;withdraw&quot;]
 
 ### Return type
 

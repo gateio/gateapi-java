@@ -13,4 +13,5 @@ Name | Type | Description | Notes
 **createTime** | **Long** | Creation time |  [optional]
 **status** | **String** | Withdrawal Status  - CREATING: Creating - PENDING: Waiting for receiving(Please contact the other party to accept the transfer on the Gate official website) - CANCELLING: Cancelling - CANCELLED: Revoked - REFUSING: Rejection - REFUSED: Rejected - RECEIVING: Receiving - RECEIVED: Success |  [optional]
 **message** | **String** | PENDING Reason Tips |  [optional]
+**transactionType** | **String** | Order Type |  [optional]
 

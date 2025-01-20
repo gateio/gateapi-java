@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.89.0
-- SDK version: 6.89.0
+- API version: 4.90.0
+- SDK version: 6.90.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.89.0</version>
+    <version>6.90.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.89.0"
+compile "io.gate:gate-api:6.90.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.89.0.jar`
+* `target/gate-api-6.90.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -333,6 +333,7 @@ Class | Method | HTTP request | Description
 *RebateApi* | [**rebateBrokerCommissionHistory**](docs/RebateApi.md#rebateBrokerCommissionHistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records
 *RebateApi* | [**rebateBrokerTransactionHistory**](docs/RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history
 *RebateApi* | [**rebateUserInfo**](docs/RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User retrieves rebate information
+*RebateApi* | [**userSubRelation**](docs/RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User-subordinate relationship
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | List all currencies&#39; details
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | List all currency pairs supported
@@ -390,7 +391,7 @@ Class | Method | HTTP request | Description
 *UnifiedApi* | [**listCurrencyDiscountTiers**](docs/UnifiedApi.md#listCurrencyDiscountTiers) | **GET** /unified/currency_discount_tiers | List currency discount tiers
 *UnifiedApi* | [**listLoanMarginTiers**](docs/UnifiedApi.md#listLoanMarginTiers) | **GET** /unified/loan_margin_tiers | List loan margin tiers
 *UnifiedApi* | [**calculatePortfolioMargin**](docs/UnifiedApi.md#calculatePortfolioMargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
-*UnifiedApi* | [**getUserLeverageCurrencyConfig**](docs/UnifiedApi.md#getUserLeverageCurrencyConfig) | **GET** /unified/leverage/user_currency_config | The maximum and minimum leverage multiples that users can set for a currency type are:
+*UnifiedApi* | [**getUserLeverageCurrencyConfig**](docs/UnifiedApi.md#getUserLeverageCurrencyConfig) | **GET** /unified/leverage/user_currency_config | Minimum currency leverage that can be set
 *UnifiedApi* | [**getUserLeverageCurrencySetting**](docs/UnifiedApi.md#getUserLeverageCurrencySetting) | **GET** /unified/leverage/user_currency_setting | Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
 *UnifiedApi* | [**setUserLeverageCurrencySetting**](docs/UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage
 *UnifiedApi* | [**getHistoryLoanRate**](docs/UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | get historical lending rates
@@ -657,6 +658,8 @@ Class | Method | HTTP request | Description
  - [UnifiedSettings](docs/UnifiedSettings.md)
  - [UnifiedTransferable](docs/UnifiedTransferable.md)
  - [UserLtvInfo](docs/UserLtvInfo.md)
+ - [UserSub](docs/UserSub.md)
+ - [UserSubRelation](docs/UserSubRelation.md)
  - [UserTotalAmount](docs/UserTotalAmount.md)
  - [WithdrawStatus](docs/WithdrawStatus.md)
  - [WithdrawalRecord](docs/WithdrawalRecord.md)

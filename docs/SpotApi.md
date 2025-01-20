@@ -1965,7 +1965,6 @@ import io.gate.gateapi.ApiClient;
 import io.gate.gateapi.ApiException;
 import io.gate.gateapi.Configuration;
 import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
 import io.gate.gateapi.api.SpotApi;
 
@@ -1973,9 +1972,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String business = "margin"; // String | Leverage business, margin - position by position; unified - unified account
@@ -2020,7 +2016,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiv4](../README.md#apiv4)
+No authorization required
 
 ### HTTP request headers
 

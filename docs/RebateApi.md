@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**rebateBrokerCommissionHistory**](RebateApi.md#rebateBrokerCommissionHistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records
 [**rebateBrokerTransactionHistory**](RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history
 [**rebateUserInfo**](RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User retrieves rebate information
+[**userSubRelation**](RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User-subordinate relationship
 
 
 <a name="agencyTransactionHistory"></a>
@@ -671,4 +672,74 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
+
+<a name="userSubRelation"></a>
+# **userSubRelation**
+> UserSubRelation userSubRelation(userIdList)
+
+User-subordinate relationship
+
+Query whether the specified user is in the system
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.RebateApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        RebateApi apiInstance = new RebateApi(defaultClient);
+        String userIdList = "1, 2, 3"; // String | Query the user's ID list, split by,, if there are more than 100, take 100
+        try {
+            UserSubRelation result = apiInstance.userSubRelation(userIdList);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RebateApi#userSubRelation");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userIdList** | **String**| Query the user&#39;s ID list, split by,, if there are more than 100, take 100 |
+
+### Return type
+
+[**UserSubRelation**](UserSubRelation.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved |  -  |
 

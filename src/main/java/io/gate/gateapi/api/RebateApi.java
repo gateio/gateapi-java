@@ -28,6 +28,7 @@ import io.gate.gateapi.models.PartnerCommissionHistory;
 import io.gate.gateapi.models.PartnerSubList;
 import io.gate.gateapi.models.PartnerTransactionHistory;
 import io.gate.gateapi.models.RebateUserInfo;
+import io.gate.gateapi.models.UserSubRelation;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1599,6 +1600,117 @@ public class RebateApi {
     public okhttp3.Call rebateUserInfoAsync(final ApiCallback<List<RebateUserInfo>> _callback) throws ApiException {
         okhttp3.Call localVarCall = rebateUserInfoValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<List<RebateUserInfo>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for userSubRelation
+     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call userSubRelationCall(String userIdList, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/user/sub_relation";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (userIdList != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_id_list", userIdList));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call userSubRelationValidateBeforeCall(String userIdList, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userIdList' is set
+        if (userIdList == null) {
+            throw new ApiException("Missing the required parameter 'userIdList' when calling userSubRelation(Async)");
+        }
+
+        okhttp3.Call localVarCall = userSubRelationCall(userIdList, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * User-subordinate relationship
+     * Query whether the specified user is in the system
+     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @return UserSubRelation
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public UserSubRelation userSubRelation(String userIdList) throws ApiException {
+        ApiResponse<UserSubRelation> localVarResp = userSubRelationWithHttpInfo(userIdList);
+        return localVarResp.getData();
+    }
+
+    /**
+     * User-subordinate relationship
+     * Query whether the specified user is in the system
+     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @return ApiResponse&lt;UserSubRelation&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UserSubRelation> userSubRelationWithHttpInfo(String userIdList) throws ApiException {
+        okhttp3.Call localVarCall = userSubRelationValidateBeforeCall(userIdList, null);
+        Type localVarReturnType = new TypeToken<UserSubRelation>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * User-subordinate relationship (asynchronously)
+     * Query whether the specified user is in the system
+     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call userSubRelationAsync(String userIdList, final ApiCallback<UserSubRelation> _callback) throws ApiException {
+        okhttp3.Call localVarCall = userSubRelationValidateBeforeCall(userIdList, _callback);
+        Type localVarReturnType = new TypeToken<UserSubRelation>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

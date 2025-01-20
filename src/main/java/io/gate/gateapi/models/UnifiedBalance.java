@@ -287,7 +287,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Yubibao financial management amount, effective when Yubibao financial management is turned on as a unified account margin switch
+     * Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch
      * @return funding
     **/
     @javax.annotation.Nullable

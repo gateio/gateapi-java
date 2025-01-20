@@ -126,6 +126,10 @@ public class CurrencyPair {
     @SerializedName(SERIALIZED_NAME_BUY_START)
     private Long buyStart;
 
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
+
 
     public CurrencyPair id(String id) {
         
@@ -386,6 +390,26 @@ public class CurrencyPair {
     public void setBuyStart(Long buyStart) {
         this.buyStart = buyStart;
     }
+
+    public CurrencyPair type(String type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * Trading pair type, normal: normal, premarket: pre-market
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public String getType() {
+        return type;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -407,12 +431,13 @@ public class CurrencyPair {
                 Objects.equals(this.precision, currencyPair.precision) &&
                 Objects.equals(this.tradeStatus, currencyPair.tradeStatus) &&
                 Objects.equals(this.sellStart, currencyPair.sellStart) &&
-                Objects.equals(this.buyStart, currencyPair.buyStart);
+                Objects.equals(this.buyStart, currencyPair.buyStart) &&
+                Objects.equals(this.type, currencyPair.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart);
+        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, type);
     }
 
 
@@ -433,6 +458,7 @@ public class CurrencyPair {
         sb.append("      tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
         sb.append("      sellStart: ").append(toIndentedString(sellStart)).append("\n");
         sb.append("      buyStart: ").append(toIndentedString(buyStart)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
