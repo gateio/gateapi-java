@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse200
+ * TransferOrderStatus
  */
-public class InlineResponse200 {
+public class TransferOrderStatus {
     public static final String SERIALIZED_NAME_TX_ID = "tx_id";
     @SerializedName(SERIALIZED_NAME_TX_ID)
     private String txId;
@@ -32,7 +32,7 @@ public class InlineResponse200 {
     private String status;
 
 
-    public InlineResponse200 txId(String txId) {
+    public TransferOrderStatus txId(String txId) {
         
         this.txId = txId;
         return this;
@@ -52,7 +52,7 @@ public class InlineResponse200 {
         this.txId = txId;
     }
 
-    public InlineResponse200 status(String status) {
+    public TransferOrderStatus status(String status) {
         
         this.status = status;
         return this;
@@ -79,9 +79,9 @@ public class InlineResponse200 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-        return Objects.equals(this.txId, inlineResponse200.txId) &&
-                Objects.equals(this.status, inlineResponse200.status);
+        TransferOrderStatus transferOrderStatus = (TransferOrderStatus) o;
+        return Objects.equals(this.txId, transferOrderStatus.txId) &&
+                Objects.equals(this.status, transferOrderStatus.status);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class InlineResponse200 {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse200 {\n");
+        sb.append("class TransferOrderStatus {\n");
         sb.append("      txId: ").append(toIndentedString(txId)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");

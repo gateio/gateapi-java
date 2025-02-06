@@ -23,7 +23,6 @@ import com.google.gson.reflect.TypeToken;
 import io.gate.gateapi.models.ConvertSmallBalance;
 import io.gate.gateapi.models.CurrencyChain;
 import io.gate.gateapi.models.DepositAddress;
-import io.gate.gateapi.models.InlineResponse200;
 import io.gate.gateapi.models.LedgerRecord;
 import io.gate.gateapi.models.SavedAddress;
 import io.gate.gateapi.models.SmallBalance;
@@ -38,6 +37,7 @@ import io.gate.gateapi.models.TotalBalance;
 import io.gate.gateapi.models.TradeFee;
 import io.gate.gateapi.models.TransactionID;
 import io.gate.gateapi.models.Transfer;
+import io.gate.gateapi.models.TransferOrderStatus;
 import io.gate.gateapi.models.UidPushOrder;
 import io.gate.gateapi.models.WithdrawStatus;
 import io.gate.gateapi.models.WithdrawalRecord;
@@ -1263,15 +1263,15 @@ public class WalletApi {
     }
 
 
-    private ApiResponse<InlineResponse200> getTransferOrderStatusWithHttpInfo(String clientOrderId, String txId) throws ApiException {
+    private ApiResponse<TransferOrderStatus> getTransferOrderStatusWithHttpInfo(String clientOrderId, String txId) throws ApiException {
         okhttp3.Call localVarCall = getTransferOrderStatusValidateBeforeCall(clientOrderId, txId, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransferOrderStatus>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTransferOrderStatusAsync(String clientOrderId, String txId, final ApiCallback<InlineResponse200> _callback) throws ApiException {
+    private okhttp3.Call getTransferOrderStatusAsync(String clientOrderId, String txId, final ApiCallback<TransferOrderStatus> _callback) throws ApiException {
         okhttp3.Call localVarCall = getTransferOrderStatusValidateBeforeCall(clientOrderId, txId, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransferOrderStatus>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1320,7 +1320,7 @@ public class WalletApi {
 
         /**
          * Execute getTransferOrderStatus request
-         * @return InlineResponse200
+         * @return TransferOrderStatus
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1328,14 +1328,14 @@ public class WalletApi {
             <tr><td> 200 </td><td> Transfer status obtained successfully </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse200 execute() throws ApiException {
-            ApiResponse<InlineResponse200> localVarResp = getTransferOrderStatusWithHttpInfo(clientOrderId, txId);
+        public TransferOrderStatus execute() throws ApiException {
+            ApiResponse<TransferOrderStatus> localVarResp = getTransferOrderStatusWithHttpInfo(clientOrderId, txId);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTransferOrderStatus request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse200&gt;
+         * @return ApiResponse&lt;TransferOrderStatus&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1343,7 +1343,7 @@ public class WalletApi {
             <tr><td> 200 </td><td> Transfer status obtained successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse200> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<TransferOrderStatus> executeWithHttpInfo() throws ApiException {
             return getTransferOrderStatusWithHttpInfo(clientOrderId, txId);
         }
 
@@ -1358,7 +1358,7 @@ public class WalletApi {
             <tr><td> 200 </td><td> Transfer status obtained successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse200> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<TransferOrderStatus> _callback) throws ApiException {
             return getTransferOrderStatusAsync(clientOrderId, txId, _callback);
         }
     }

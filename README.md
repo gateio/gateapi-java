@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.90.0
-- SDK version: 6.90.0
+- API version: 4.90.1
+- SDK version: 6.90.1
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.90.0</version>
+    <version>6.90.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.90.0"
+compile "io.gate:gate-api:6.90.1"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.90.0.jar`
+* `target/gate-api-6.90.1.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -478,6 +478,7 @@ Class | Method | HTTP request | Description
  - [CurrencyChain](docs/CurrencyChain.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [CurrencyQuota](docs/CurrencyQuota.md)
+ - [DebitFee](docs/DebitFee.md)
  - [DeliveryCandlestick](docs/DeliveryCandlestick.md)
  - [DeliveryContract](docs/DeliveryContract.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)
@@ -515,9 +516,6 @@ Class | Method | HTTP request | Description
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
  - [IndexConstituent](docs/IndexConstituent.md)
- - [InlineObject](docs/InlineObject.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [LiquidateOrder](docs/LiquidateOrder.md)
@@ -623,6 +621,7 @@ Class | Method | HTTP request | Description
  - [TradeFee](docs/TradeFee.md)
  - [TransactionID](docs/TransactionID.md)
  - [Transfer](docs/Transfer.md)
+ - [TransferOrderStatus](docs/TransferOrderStatus.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
  - [TriggerTime](docs/TriggerTime.md)
  - [UidPushOrder](docs/UidPushOrder.md)

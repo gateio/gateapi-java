@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 
 <a name="getDebitFee"></a>
 # **getDebitFee**
-> InlineResponse2001 getDebitFee()
+> DebitFee getDebitFee()
 
 Query GT deduction configuration.
 
@@ -529,7 +529,7 @@ public class Example {
 
         AccountApi apiInstance = new AccountApi(defaultClient);
         try {
-            InlineResponse2001 result = apiInstance.getDebitFee();
+            DebitFee result = apiInstance.getDebitFee();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -549,7 +549,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**DebitFee**](DebitFee.md)
 
 ### Authorization
 
@@ -567,7 +567,7 @@ This endpoint does not need any parameter.
 
 <a name="setDebitFee"></a>
 # **setDebitFee**
-> setDebitFee(inlineObject)
+> setDebitFee(debitFee)
 
 Set GT deduction.
 
@@ -594,9 +594,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         AccountApi apiInstance = new AccountApi(defaultClient);
-        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        DebitFee debitFee = new DebitFee(); // DebitFee | 
         try {
-            apiInstance.setDebitFee(inlineObject);
+            apiInstance.setDebitFee(debitFee);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
@@ -614,7 +614,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  |
+ **debitFee** | [**DebitFee**](DebitFee.md)|  |
 
 ### Return type
 
