@@ -42,6 +42,7 @@ jobs:
 
     - name: Publish to Apache Maven Central
       run: |
+        mvn --version
         gpg --version
         mvn deploy
       env:
