@@ -22,8 +22,7 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.AccountDetail;
 import io.gate.gateapi.models.AccountRateLimit;
-import io.gate.gateapi.models.InlineObject;
-import io.gate.gateapi.models.InlineResponse2001;
+import io.gate.gateapi.models.DebitFee;
 import io.gate.gateapi.models.StpGroup;
 import io.gate.gateapi.models.StpGroupUser;
 
@@ -893,7 +892,7 @@ public class AccountApi {
     /**
      * Query GT deduction configuration.
      * Query the current GT deduction configuration for the account.
-     * @return InlineResponse2001
+     * @return DebitFee
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -901,15 +900,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2001 getDebitFee() throws ApiException {
-        ApiResponse<InlineResponse2001> localVarResp = getDebitFeeWithHttpInfo();
+    public DebitFee getDebitFee() throws ApiException {
+        ApiResponse<DebitFee> localVarResp = getDebitFeeWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Query GT deduction configuration.
      * Query the current GT deduction configuration for the account.
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;DebitFee&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -917,9 +916,9 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2001> getDebitFeeWithHttpInfo() throws ApiException {
+    public ApiResponse<DebitFee> getDebitFeeWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getDebitFeeValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<DebitFee>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -935,16 +934,16 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDebitFeeAsync(final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+    public okhttp3.Call getDebitFeeAsync(final ApiCallback<DebitFee> _callback) throws ApiException {
         okhttp3.Call localVarCall = getDebitFeeValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<DebitFee>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
      * Build call for setDebitFee
-     * @param inlineObject  (required)
+     * @param debitFee  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -954,8 +953,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setDebitFeeCall(InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject;
+    public okhttp3.Call setDebitFeeCall(DebitFee debitFee, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = debitFee;
 
         // create path and map variables
         String localVarPath = "/account/debit_fee";
@@ -984,20 +983,20 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call setDebitFeeValidateBeforeCall(InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'inlineObject' is set
-        if (inlineObject == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject' when calling setDebitFee(Async)");
+    private okhttp3.Call setDebitFeeValidateBeforeCall(DebitFee debitFee, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'debitFee' is set
+        if (debitFee == null) {
+            throw new ApiException("Missing the required parameter 'debitFee' when calling setDebitFee(Async)");
         }
 
-        okhttp3.Call localVarCall = setDebitFeeCall(inlineObject, _callback);
+        okhttp3.Call localVarCall = setDebitFeeCall(debitFee, _callback);
         return localVarCall;
     }
 
     /**
      * Set GT deduction.
      * Enable or disable GT deduction for the current account.
-     * @param inlineObject  (required)
+     * @param debitFee  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1005,14 +1004,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void setDebitFee(InlineObject inlineObject) throws ApiException {
-        setDebitFeeWithHttpInfo(inlineObject);
+    public void setDebitFee(DebitFee debitFee) throws ApiException {
+        setDebitFeeWithHttpInfo(debitFee);
     }
 
     /**
      * Set GT deduction.
      * Enable or disable GT deduction for the current account.
-     * @param inlineObject  (required)
+     * @param debitFee  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1021,15 +1020,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> setDebitFeeWithHttpInfo(InlineObject inlineObject) throws ApiException {
-        okhttp3.Call localVarCall = setDebitFeeValidateBeforeCall(inlineObject, null);
+    public ApiResponse<Void> setDebitFeeWithHttpInfo(DebitFee debitFee) throws ApiException {
+        okhttp3.Call localVarCall = setDebitFeeValidateBeforeCall(debitFee, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Set GT deduction. (asynchronously)
      * Enable or disable GT deduction for the current account.
-     * @param inlineObject  (required)
+     * @param debitFee  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1039,8 +1038,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setDebitFeeAsync(InlineObject inlineObject, final ApiCallback<Void> _callback) throws ApiException {
-        okhttp3.Call localVarCall = setDebitFeeValidateBeforeCall(inlineObject, _callback);
+    public okhttp3.Call setDebitFeeAsync(DebitFee debitFee, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = setDebitFeeValidateBeforeCall(debitFee, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

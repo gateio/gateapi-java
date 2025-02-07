@@ -20,15 +20,15 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse2001
+ * DebitFee
  */
-public class InlineResponse2001 {
+public class DebitFee {
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
 
-    public InlineResponse2001 enabled(Boolean enabled) {
+    public DebitFee enabled(Boolean enabled) {
         
         this.enabled = enabled;
         return this;
@@ -38,7 +38,6 @@ public class InlineResponse2001 {
      * Whether GT fee discount is used
      * @return enabled
     **/
-    @javax.annotation.Nullable
     public Boolean getEnabled() {
         return enabled;
     }
@@ -55,8 +54,8 @@ public class InlineResponse2001 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
-        return Objects.equals(this.enabled, inlineResponse2001.enabled);
+        DebitFee debitFee = (DebitFee) o;
+        return Objects.equals(this.enabled, debitFee.enabled);
     }
 
     @Override
@@ -68,7 +67,7 @@ public class InlineResponse2001 {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2001 {\n");
+        sb.append("class DebitFee {\n");
         sb.append("      enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -2093,7 +2093,7 @@ public class UnifiedApi {
 
     /**
      * Build call for setUserLeverageCurrencySetting
-     * @param unifiedLeverageSetting  (optional)
+     * @param unifiedLeverageSetting  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2134,6 +2134,11 @@ public class UnifiedApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call setUserLeverageCurrencySettingValidateBeforeCall(UnifiedLeverageSetting unifiedLeverageSetting, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'unifiedLeverageSetting' is set
+        if (unifiedLeverageSetting == null) {
+            throw new ApiException("Missing the required parameter 'unifiedLeverageSetting' when calling setUserLeverageCurrencySetting(Async)");
+        }
+
         okhttp3.Call localVarCall = setUserLeverageCurrencySettingCall(unifiedLeverageSetting, _callback);
         return localVarCall;
     }
@@ -2141,7 +2146,7 @@ public class UnifiedApi {
     /**
      * Set the loan currency leverage
      * 
-     * @param unifiedLeverageSetting  (optional)
+     * @param unifiedLeverageSetting  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2156,7 +2161,7 @@ public class UnifiedApi {
     /**
      * Set the loan currency leverage
      * 
-     * @param unifiedLeverageSetting  (optional)
+     * @param unifiedLeverageSetting  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2173,7 +2178,7 @@ public class UnifiedApi {
     /**
      * Set the loan currency leverage (asynchronously)
      * 
-     * @param unifiedLeverageSetting  (optional)
+     * @param unifiedLeverageSetting  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

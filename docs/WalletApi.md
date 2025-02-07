@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 
 <a name="getTransferOrderStatus"></a>
 # **getTransferOrderStatus**
-> InlineResponse200 getTransferOrderStatus().clientOrderId(clientOrderId).txId(txId).execute();
+> TransferOrderStatus getTransferOrderStatus().clientOrderId(clientOrderId).txId(txId).execute();
 
 Transfer status query
 
@@ -653,7 +653,7 @@ public class Example {
         String clientOrderId = "da3ce7a088c8b0372b741419c7829033"; // String | The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens '-', and underscores '_', with a length ranging from 1 to 64 characters.
         String txId = "59636381286"; // String | The transfer operation number and client_order_id cannot be empty at the same time
         try {
-            InlineResponse200 result = apiInstance.getTransferOrderStatus()
+            TransferOrderStatus result = apiInstance.getTransferOrderStatus()
                         .clientOrderId(clientOrderId)
                         .txId(txId)
                         .execute();
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TransferOrderStatus**](TransferOrderStatus.md)
 
 ### Authorization
 
