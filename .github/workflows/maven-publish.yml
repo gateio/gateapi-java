@@ -5,8 +5,8 @@ name: Maven Package
 
 on:
   push:
-    branches:
-      - revilwang-patch-1
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -41,10 +41,7 @@ jobs:
         gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
 
     - name: Publish to Apache Maven Central
-      run: |
-        mvn --version
-        gpg --version
-        mvn deploy
+      run: mvn deploy
       env:
         MAVEN_USERNAME: Cqjifrr7
         MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
