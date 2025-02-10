@@ -403,7 +403,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Indicative Funding rate in next period
+     * Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;)
      * @return fundingRateIndicative
     **/
     @javax.annotation.Nullable

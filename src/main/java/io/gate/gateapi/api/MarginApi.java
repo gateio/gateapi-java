@@ -953,7 +953,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listCrossMarginCurrenciesCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -983,6 +985,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCrossMarginCurrenciesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossMarginCurrenciesCall(_callback);
@@ -990,7 +993,7 @@ public class MarginApi {
     }
 
     /**
-     * Currencies supported by cross margin.
+     * Currencies supported by cross margin.(deprecated)
      * 
      * @return List&lt;CrossMarginCurrency&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -999,14 +1002,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public List<CrossMarginCurrency> listCrossMarginCurrencies() throws ApiException {
         ApiResponse<List<CrossMarginCurrency>> localVarResp = listCrossMarginCurrenciesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * Currencies supported by cross margin.
+     * Currencies supported by cross margin.(deprecated)
      * 
      * @return ApiResponse&lt;List&lt;CrossMarginCurrency&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1015,7 +1020,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<CrossMarginCurrency>> listCrossMarginCurrenciesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listCrossMarginCurrenciesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<CrossMarginCurrency>>(){}.getType();
@@ -1023,7 +1030,7 @@ public class MarginApi {
     }
 
     /**
-     * Currencies supported by cross margin. (asynchronously)
+     * Currencies supported by cross margin.(deprecated) (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1033,7 +1040,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listCrossMarginCurrenciesAsync(final ApiCallback<List<CrossMarginCurrency>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossMarginCurrenciesValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<List<CrossMarginCurrency>>(){}.getType();
@@ -1052,7 +1061,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginCurrencyCall(String currency, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -1083,6 +1094,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCrossMarginCurrencyValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currency' is set
@@ -1095,7 +1107,7 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve detail of one single currency supported by cross margin
+     * Retrieve detail of one single currency supported by cross margin. (deprecated)
      * 
      * @param currency Currency name (required)
      * @return CrossMarginCurrency
@@ -1105,14 +1117,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public CrossMarginCurrency getCrossMarginCurrency(String currency) throws ApiException {
         ApiResponse<CrossMarginCurrency> localVarResp = getCrossMarginCurrencyWithHttpInfo(currency);
         return localVarResp.getData();
     }
 
     /**
-     * Retrieve detail of one single currency supported by cross margin
+     * Retrieve detail of one single currency supported by cross margin. (deprecated)
      * 
      * @param currency Currency name (required)
      * @return ApiResponse&lt;CrossMarginCurrency&gt;
@@ -1122,7 +1136,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<CrossMarginCurrency> getCrossMarginCurrencyWithHttpInfo(String currency) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginCurrencyValidateBeforeCall(currency, null);
         Type localVarReturnType = new TypeToken<CrossMarginCurrency>(){}.getType();
@@ -1130,7 +1146,7 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve detail of one single currency supported by cross margin (asynchronously)
+     * Retrieve detail of one single currency supported by cross margin. (deprecated) (asynchronously)
      * 
      * @param currency Currency name (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1141,7 +1157,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginCurrencyAsync(String currency, final ApiCallback<CrossMarginCurrency> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginCurrencyValidateBeforeCall(currency, _callback);
         Type localVarReturnType = new TypeToken<CrossMarginCurrency>(){}.getType();
@@ -1159,7 +1177,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginAccountCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -1189,6 +1209,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCrossMarginAccountValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginAccountCall(_callback);
@@ -1196,7 +1217,7 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve cross margin account
+     * Retrieve cross margin account. (deprecated)
      * 
      * @return CrossMarginAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1205,14 +1226,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public CrossMarginAccount getCrossMarginAccount() throws ApiException {
         ApiResponse<CrossMarginAccount> localVarResp = getCrossMarginAccountWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * Retrieve cross margin account
+     * Retrieve cross margin account. (deprecated)
      * 
      * @return ApiResponse&lt;CrossMarginAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1221,7 +1244,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<CrossMarginAccount> getCrossMarginAccountWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginAccountValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<CrossMarginAccount>(){}.getType();
@@ -1229,7 +1254,7 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve cross margin account (asynchronously)
+     * Retrieve cross margin account. (deprecated) (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1239,7 +1264,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginAccountAsync(final ApiCallback<CrossMarginAccount> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginAccountValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<CrossMarginAccount>(){}.getType();
@@ -1300,6 +1327,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCrossMarginAccountBookValidateBeforeCall(String currency, Long from, Long to, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossMarginAccountBookCall(currency, from, to, page, limit, type, _callback);
@@ -1401,7 +1429,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
             return listCrossMarginAccountBookCall(currency, from, to, page, limit, type, _callback);
         }
@@ -1415,7 +1445,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public List<CrossMarginAccountBook> execute() throws ApiException {
             ApiResponse<List<CrossMarginAccountBook>> localVarResp = listCrossMarginAccountBookWithHttpInfo(currency, from, to, page, limit, type);
             return localVarResp.getData();
@@ -1430,7 +1462,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public ApiResponse<List<CrossMarginAccountBook>> executeWithHttpInfo() throws ApiException {
             return listCrossMarginAccountBookWithHttpInfo(currency, from, to, page, limit, type);
         }
@@ -1445,14 +1479,16 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call executeAsync(final ApiCallback<List<CrossMarginAccountBook>> _callback) throws ApiException {
             return listCrossMarginAccountBookAsync(currency, from, to, page, limit, type, _callback);
         }
     }
 
     /**
-     * Retrieve cross margin account change history
+     * Retrieve cross margin account change history. (deprecated)
      * The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
      * @return APIlistCrossMarginAccountBookRequest
      * @http.response.details
@@ -1460,7 +1496,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public APIlistCrossMarginAccountBookRequest listCrossMarginAccountBook() {
         return new APIlistCrossMarginAccountBookRequest();
     }
@@ -1514,6 +1552,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCrossMarginLoansValidateBeforeCall(Integer status, String currency, Integer limit, Integer offset, Boolean reverse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'status' is set
@@ -1600,7 +1639,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
             return listCrossMarginLoansCall(status, currency, limit, offset, reverse, _callback);
         }
@@ -1614,7 +1655,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public List<CrossMarginLoan> execute() throws ApiException {
             ApiResponse<List<CrossMarginLoan>> localVarResp = listCrossMarginLoansWithHttpInfo(status, currency, limit, offset, reverse);
             return localVarResp.getData();
@@ -1629,7 +1672,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public ApiResponse<List<CrossMarginLoan>> executeWithHttpInfo() throws ApiException {
             return listCrossMarginLoansWithHttpInfo(status, currency, limit, offset, reverse);
         }
@@ -1644,14 +1689,16 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call executeAsync(final ApiCallback<List<CrossMarginLoan>> _callback) throws ApiException {
             return listCrossMarginLoansAsync(status, currency, limit, offset, reverse, _callback);
         }
     }
 
     /**
-     * List cross margin borrow history
+     * List cross margin borrow history. (deprecated)
      * Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
      * @param status Filter by status. Supported values are 2 and 3. (deprecated.) (required)
      * @return APIlistCrossMarginLoansRequest
@@ -1660,7 +1707,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public APIlistCrossMarginLoansRequest listCrossMarginLoans(Integer status) {
         return new APIlistCrossMarginLoansRequest(status);
     }
@@ -1676,7 +1725,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully borrowed </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createCrossMarginLoanCall(CrossMarginLoan crossMarginLoan, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = crossMarginLoan;
 
@@ -1706,6 +1757,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createCrossMarginLoanValidateBeforeCall(CrossMarginLoan crossMarginLoan, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'crossMarginLoan' is set
@@ -1718,7 +1770,7 @@ public class MarginApi {
     }
 
     /**
-     * Create a cross margin borrow loan
+     * Create a cross margin borrow loan. (deprecated)
      * Borrow amount cannot be less than currency minimum borrow amount
      * @param crossMarginLoan  (required)
      * @return CrossMarginLoan
@@ -1728,14 +1780,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully borrowed </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public CrossMarginLoan createCrossMarginLoan(CrossMarginLoan crossMarginLoan) throws ApiException {
         ApiResponse<CrossMarginLoan> localVarResp = createCrossMarginLoanWithHttpInfo(crossMarginLoan);
         return localVarResp.getData();
     }
 
     /**
-     * Create a cross margin borrow loan
+     * Create a cross margin borrow loan. (deprecated)
      * Borrow amount cannot be less than currency minimum borrow amount
      * @param crossMarginLoan  (required)
      * @return ApiResponse&lt;CrossMarginLoan&gt;
@@ -1745,7 +1799,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully borrowed </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<CrossMarginLoan> createCrossMarginLoanWithHttpInfo(CrossMarginLoan crossMarginLoan) throws ApiException {
         okhttp3.Call localVarCall = createCrossMarginLoanValidateBeforeCall(crossMarginLoan, null);
         Type localVarReturnType = new TypeToken<CrossMarginLoan>(){}.getType();
@@ -1753,7 +1809,7 @@ public class MarginApi {
     }
 
     /**
-     * Create a cross margin borrow loan (asynchronously)
+     * Create a cross margin borrow loan. (deprecated) (asynchronously)
      * Borrow amount cannot be less than currency minimum borrow amount
      * @param crossMarginLoan  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1764,7 +1820,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully borrowed </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createCrossMarginLoanAsync(CrossMarginLoan crossMarginLoan, final ApiCallback<CrossMarginLoan> _callback) throws ApiException {
         okhttp3.Call localVarCall = createCrossMarginLoanValidateBeforeCall(crossMarginLoan, _callback);
         Type localVarReturnType = new TypeToken<CrossMarginLoan>(){}.getType();
@@ -1783,7 +1841,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginLoanCall(String loanId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -1814,6 +1874,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCrossMarginLoanValidateBeforeCall(String loanId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'loanId' is set
@@ -1826,7 +1887,7 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve single borrow loan detail
+     * Retrieve single borrow loan detail. (deprecated)
      * 
      * @param loanId Borrow loan ID (required)
      * @return CrossMarginLoan
@@ -1836,14 +1897,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public CrossMarginLoan getCrossMarginLoan(String loanId) throws ApiException {
         ApiResponse<CrossMarginLoan> localVarResp = getCrossMarginLoanWithHttpInfo(loanId);
         return localVarResp.getData();
     }
 
     /**
-     * Retrieve single borrow loan detail
+     * Retrieve single borrow loan detail. (deprecated)
      * 
      * @param loanId Borrow loan ID (required)
      * @return ApiResponse&lt;CrossMarginLoan&gt;
@@ -1853,7 +1916,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<CrossMarginLoan> getCrossMarginLoanWithHttpInfo(String loanId) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginLoanValidateBeforeCall(loanId, null);
         Type localVarReturnType = new TypeToken<CrossMarginLoan>(){}.getType();
@@ -1861,7 +1926,7 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve single borrow loan detail (asynchronously)
+     * Retrieve single borrow loan detail. (deprecated) (asynchronously)
      * 
      * @param loanId Borrow loan ID (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1872,7 +1937,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginLoanAsync(String loanId, final ApiCallback<CrossMarginLoan> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginLoanValidateBeforeCall(loanId, _callback);
         Type localVarReturnType = new TypeToken<CrossMarginLoan>(){}.getType();
@@ -1929,6 +1996,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCrossMarginRepaymentsValidateBeforeCall(String currency, String loanId, Integer limit, Integer offset, Boolean reverse, final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossMarginRepaymentsCall(currency, loanId, limit, offset, reverse, _callback);
@@ -2019,7 +2087,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
             return listCrossMarginRepaymentsCall(currency, loanId, limit, offset, reverse, _callback);
         }
@@ -2033,7 +2103,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public List<CrossMarginRepayment> execute() throws ApiException {
             ApiResponse<List<CrossMarginRepayment>> localVarResp = listCrossMarginRepaymentsWithHttpInfo(currency, loanId, limit, offset, reverse);
             return localVarResp.getData();
@@ -2048,7 +2120,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public ApiResponse<List<CrossMarginRepayment>> executeWithHttpInfo() throws ApiException {
             return listCrossMarginRepaymentsWithHttpInfo(currency, loanId, limit, offset, reverse);
         }
@@ -2063,14 +2137,16 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call executeAsync(final ApiCallback<List<CrossMarginRepayment>> _callback) throws ApiException {
             return listCrossMarginRepaymentsAsync(currency, loanId, limit, offset, reverse, _callback);
         }
     }
 
     /**
-     * Retrieve cross margin repayments
+     * Retrieve cross margin repayments. (deprecated)
      * Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
      * @return APIlistCrossMarginRepaymentsRequest
      * @http.response.details
@@ -2078,7 +2154,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public APIlistCrossMarginRepaymentsRequest listCrossMarginRepayments() {
         return new APIlistCrossMarginRepaymentsRequest();
     }
@@ -2094,7 +2172,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Loan repaid </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call repayCrossMarginLoanCall(CrossMarginRepayRequest crossMarginRepayRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = crossMarginRepayRequest;
 
@@ -2124,6 +2204,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call repayCrossMarginLoanValidateBeforeCall(CrossMarginRepayRequest crossMarginRepayRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'crossMarginRepayRequest' is set
@@ -2136,7 +2217,7 @@ public class MarginApi {
     }
 
     /**
-     * Cross margin repayments
+     * Cross margin repayments. (deprecated)
      * When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
      * @param crossMarginRepayRequest  (required)
      * @return List&lt;CrossMarginLoan&gt;
@@ -2146,14 +2227,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Loan repaid </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public List<CrossMarginLoan> repayCrossMarginLoan(CrossMarginRepayRequest crossMarginRepayRequest) throws ApiException {
         ApiResponse<List<CrossMarginLoan>> localVarResp = repayCrossMarginLoanWithHttpInfo(crossMarginRepayRequest);
         return localVarResp.getData();
     }
 
     /**
-     * Cross margin repayments
+     * Cross margin repayments. (deprecated)
      * When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
      * @param crossMarginRepayRequest  (required)
      * @return ApiResponse&lt;List&lt;CrossMarginLoan&gt;&gt;
@@ -2163,7 +2246,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Loan repaid </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<CrossMarginLoan>> repayCrossMarginLoanWithHttpInfo(CrossMarginRepayRequest crossMarginRepayRequest) throws ApiException {
         okhttp3.Call localVarCall = repayCrossMarginLoanValidateBeforeCall(crossMarginRepayRequest, null);
         Type localVarReturnType = new TypeToken<List<CrossMarginLoan>>(){}.getType();
@@ -2171,7 +2256,7 @@ public class MarginApi {
     }
 
     /**
-     * Cross margin repayments (asynchronously)
+     * Cross margin repayments. (deprecated) (asynchronously)
      * When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
      * @param crossMarginRepayRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2182,7 +2267,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Loan repaid </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call repayCrossMarginLoanAsync(CrossMarginRepayRequest crossMarginRepayRequest, final ApiCallback<List<CrossMarginLoan>> _callback) throws ApiException {
         okhttp3.Call localVarCall = repayCrossMarginLoanValidateBeforeCall(crossMarginRepayRequest, _callback);
         Type localVarReturnType = new TypeToken<List<CrossMarginLoan>>(){}.getType();
@@ -2239,6 +2326,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCrossMarginInterestRecordsValidateBeforeCall(String currency, Integer page, Integer limit, Long from, Long to, final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginInterestRecordsCall(currency, page, limit, from, to, _callback);
@@ -2329,7 +2417,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
             return getCrossMarginInterestRecordsCall(currency, page, limit, from, to, _callback);
         }
@@ -2343,7 +2433,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public List<UniLoanInterestRecord> execute() throws ApiException {
             ApiResponse<List<UniLoanInterestRecord>> localVarResp = getCrossMarginInterestRecordsWithHttpInfo(currency, page, limit, from, to);
             return localVarResp.getData();
@@ -2358,7 +2450,9 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public ApiResponse<List<UniLoanInterestRecord>> executeWithHttpInfo() throws ApiException {
             return getCrossMarginInterestRecordsWithHttpInfo(currency, page, limit, from, to);
         }
@@ -2373,14 +2467,16 @@ public class MarginApi {
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
          </table>
+         * @deprecated
          */
+        @Deprecated
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
             return getCrossMarginInterestRecordsAsync(currency, page, limit, from, to, _callback);
         }
     }
 
     /**
-     * Interest records for the cross margin account
+     * Interest records for the cross margin account. (deprecated)
      * 
      * @return APIgetCrossMarginInterestRecordsRequest
      * @http.response.details
@@ -2388,7 +2484,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public APIgetCrossMarginInterestRecordsRequest getCrossMarginInterestRecords() {
         return new APIgetCrossMarginInterestRecordsRequest();
     }
@@ -2404,7 +2502,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginTransferableCall(String currency, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -2438,6 +2538,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCrossMarginTransferableValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currency' is set
@@ -2450,7 +2551,7 @@ public class MarginApi {
     }
 
     /**
-     * Get the max transferable amount for a specific cross margin currency
+     * Get the max transferable amount for a specific cross margin currency. (deprecated)
      * 
      * @param currency Retrieve data of the specified currency (required)
      * @return CrossMarginTransferable
@@ -2460,14 +2561,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public CrossMarginTransferable getCrossMarginTransferable(String currency) throws ApiException {
         ApiResponse<CrossMarginTransferable> localVarResp = getCrossMarginTransferableWithHttpInfo(currency);
         return localVarResp.getData();
     }
 
     /**
-     * Get the max transferable amount for a specific cross margin currency
+     * Get the max transferable amount for a specific cross margin currency. (deprecated)
      * 
      * @param currency Retrieve data of the specified currency (required)
      * @return ApiResponse&lt;CrossMarginTransferable&gt;
@@ -2477,7 +2580,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<CrossMarginTransferable> getCrossMarginTransferableWithHttpInfo(String currency) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginTransferableValidateBeforeCall(currency, null);
         Type localVarReturnType = new TypeToken<CrossMarginTransferable>(){}.getType();
@@ -2485,7 +2590,7 @@ public class MarginApi {
     }
 
     /**
-     * Get the max transferable amount for a specific cross margin currency (asynchronously)
+     * Get the max transferable amount for a specific cross margin currency. (deprecated) (asynchronously)
      * 
      * @param currency Retrieve data of the specified currency (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2496,7 +2601,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginTransferableAsync(String currency, final ApiCallback<CrossMarginTransferable> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginTransferableValidateBeforeCall(currency, _callback);
         Type localVarReturnType = new TypeToken<CrossMarginTransferable>(){}.getType();
@@ -2515,7 +2622,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginEstimateRateCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -2549,6 +2658,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCrossMarginEstimateRateValidateBeforeCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currencies' is set
@@ -2561,7 +2671,7 @@ public class MarginApi {
     }
 
     /**
-     * Estimated interest rates
+     * Estimated interest rates. (deprecated)
      * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
      * @param currencies An array of up to 10 specifying the currency name (required)
      * @return Map&lt;String, String&gt;
@@ -2571,14 +2681,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public Map<String, String> getCrossMarginEstimateRate(List<String> currencies) throws ApiException {
         ApiResponse<Map<String, String>> localVarResp = getCrossMarginEstimateRateWithHttpInfo(currencies);
         return localVarResp.getData();
     }
 
     /**
-     * Estimated interest rates
+     * Estimated interest rates. (deprecated)
      * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
      * @param currencies An array of up to 10 specifying the currency name (required)
      * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
@@ -2588,7 +2700,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Map<String, String>> getCrossMarginEstimateRateWithHttpInfo(List<String> currencies) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginEstimateRateValidateBeforeCall(currencies, null);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
@@ -2596,7 +2710,7 @@ public class MarginApi {
     }
 
     /**
-     * Estimated interest rates (asynchronously)
+     * Estimated interest rates. (deprecated) (asynchronously)
      * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
      * @param currencies An array of up to 10 specifying the currency name (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2607,7 +2721,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginEstimateRateAsync(List<String> currencies, final ApiCallback<Map<String, String>> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginEstimateRateValidateBeforeCall(currencies, _callback);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
@@ -2626,7 +2742,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginBorrowableCall(String currency, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -2660,6 +2778,7 @@ public class MarginApi {
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCrossMarginBorrowableValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'currency' is set
@@ -2672,7 +2791,7 @@ public class MarginApi {
     }
 
     /**
-     * Get the max borrowable amount for a specific cross margin currency
+     * Get the max borrowable amount for a specific cross margin currency. (deprecated)
      * 
      * @param currency Retrieve data of the specified currency (required)
      * @return UnifiedBorrowable
@@ -2682,14 +2801,16 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public UnifiedBorrowable getCrossMarginBorrowable(String currency) throws ApiException {
         ApiResponse<UnifiedBorrowable> localVarResp = getCrossMarginBorrowableWithHttpInfo(currency);
         return localVarResp.getData();
     }
 
     /**
-     * Get the max borrowable amount for a specific cross margin currency
+     * Get the max borrowable amount for a specific cross margin currency. (deprecated)
      * 
      * @param currency Retrieve data of the specified currency (required)
      * @return ApiResponse&lt;UnifiedBorrowable&gt;
@@ -2699,7 +2820,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<UnifiedBorrowable> getCrossMarginBorrowableWithHttpInfo(String currency) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginBorrowableValidateBeforeCall(currency, null);
         Type localVarReturnType = new TypeToken<UnifiedBorrowable>(){}.getType();
@@ -2707,7 +2830,7 @@ public class MarginApi {
     }
 
     /**
-     * Get the max borrowable amount for a specific cross margin currency (asynchronously)
+     * Get the max borrowable amount for a specific cross margin currency. (deprecated) (asynchronously)
      * 
      * @param currency Retrieve data of the specified currency (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2718,7 +2841,9 @@ public class MarginApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCrossMarginBorrowableAsync(String currency, final ApiCallback<UnifiedBorrowable> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossMarginBorrowableValidateBeforeCall(currency, _callback);
         Type localVarReturnType = new TypeToken<UnifiedBorrowable>(){}.getType();

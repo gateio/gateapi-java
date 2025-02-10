@@ -10,19 +10,19 @@ Method | HTTP request | Description
 [**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
 [**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
-[**listCrossMarginCurrencies**](MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
-[**getCrossMarginCurrency**](MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
-[**getCrossMarginAccount**](MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
-[**listCrossMarginAccountBook**](MarginApi.md#listCrossMarginAccountBook) | **GET** /margin/cross/account_book | Retrieve cross margin account change history
-[**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history
-[**createCrossMarginLoan**](MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
-[**getCrossMarginLoan**](MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
-[**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
-[**repayCrossMarginLoan**](MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Cross margin repayments
-[**getCrossMarginInterestRecords**](MarginApi.md#getCrossMarginInterestRecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account
-[**getCrossMarginTransferable**](MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
-[**getCrossMarginEstimateRate**](MarginApi.md#getCrossMarginEstimateRate) | **GET** /margin/cross/estimate_rate | Estimated interest rates
-[**getCrossMarginBorrowable**](MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
+[**listCrossMarginCurrencies**](MarginApi.md#listCrossMarginCurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.(deprecated)
+[**getCrossMarginCurrency**](MarginApi.md#getCrossMarginCurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin. (deprecated)
+[**getCrossMarginAccount**](MarginApi.md#getCrossMarginAccount) | **GET** /margin/cross/accounts | Retrieve cross margin account. (deprecated)
+[**listCrossMarginAccountBook**](MarginApi.md#listCrossMarginAccountBook) | **GET** /margin/cross/account_book | Retrieve cross margin account change history. (deprecated)
+[**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history. (deprecated)
+[**createCrossMarginLoan**](MarginApi.md#createCrossMarginLoan) | **POST** /margin/cross/loans | Create a cross margin borrow loan. (deprecated)
+[**getCrossMarginLoan**](MarginApi.md#getCrossMarginLoan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail. (deprecated)
+[**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments. (deprecated)
+[**repayCrossMarginLoan**](MarginApi.md#repayCrossMarginLoan) | **POST** /margin/cross/repayments | Cross margin repayments. (deprecated)
+[**getCrossMarginInterestRecords**](MarginApi.md#getCrossMarginInterestRecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account. (deprecated)
+[**getCrossMarginTransferable**](MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency. (deprecated)
+[**getCrossMarginEstimateRate**](MarginApi.md#getCrossMarginEstimateRate) | **GET** /margin/cross/estimate_rate | Estimated interest rates. (deprecated)
+[**getCrossMarginBorrowable**](MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency. (deprecated)
 
 
 <a name="listMarginAccounts"></a>
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 # **listCrossMarginCurrencies**
 > List&lt;CrossMarginCurrency&gt; listCrossMarginCurrencies()
 
-Currencies supported by cross margin.
+Currencies supported by cross margin.(deprecated)
 
 ### Example
 
@@ -523,7 +523,7 @@ No authorization required
 # **getCrossMarginCurrency**
 > CrossMarginCurrency getCrossMarginCurrency(currency)
 
-Retrieve detail of one single currency supported by cross margin
+Retrieve detail of one single currency supported by cross margin. (deprecated)
 
 ### Example
 
@@ -587,7 +587,7 @@ No authorization required
 # **getCrossMarginAccount**
 > CrossMarginAccount getCrossMarginAccount()
 
-Retrieve cross margin account
+Retrieve cross margin account. (deprecated)
 
 ### Example
 
@@ -651,7 +651,7 @@ This endpoint does not need any parameter.
 # **listCrossMarginAccountBook**
 > List&lt;CrossMarginAccountBook&gt; listCrossMarginAccountBook().currency(currency).from(from).to(to).page(page).limit(limit).type(type).execute();
 
-Retrieve cross margin account change history
+Retrieve cross margin account change history. (deprecated)
 
 The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
 
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 # **listCrossMarginLoans**
 > List&lt;CrossMarginLoan&gt; listCrossMarginLoans(status).currency(currency).limit(limit).offset(offset).reverse(reverse).execute();
 
-List cross margin borrow history
+List cross margin borrow history. (deprecated)
 
 Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
 
@@ -821,7 +821,7 @@ Name | Type | Description  | Notes
 # **createCrossMarginLoan**
 > CrossMarginLoan createCrossMarginLoan(crossMarginLoan)
 
-Create a cross margin borrow loan
+Create a cross margin borrow loan. (deprecated)
 
 Borrow amount cannot be less than currency minimum borrow amount
 
@@ -891,7 +891,7 @@ Name | Type | Description  | Notes
 # **getCrossMarginLoan**
 > CrossMarginLoan getCrossMarginLoan(loanId)
 
-Retrieve single borrow loan detail
+Retrieve single borrow loan detail. (deprecated)
 
 ### Example
 
@@ -959,7 +959,7 @@ Name | Type | Description  | Notes
 # **listCrossMarginRepayments**
 > List&lt;CrossMarginRepayment&gt; listCrossMarginRepayments().currency(currency).loanId(loanId).limit(limit).offset(offset).reverse(reverse).execute();
 
-Retrieve cross margin repayments
+Retrieve cross margin repayments. (deprecated)
 
 Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
 
@@ -1043,7 +1043,7 @@ Name | Type | Description  | Notes
 # **repayCrossMarginLoan**
 > List&lt;CrossMarginLoan&gt; repayCrossMarginLoan(crossMarginRepayRequest)
 
-Cross margin repayments
+Cross margin repayments. (deprecated)
 
 When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
 
@@ -1113,7 +1113,7 @@ Name | Type | Description  | Notes
 # **getCrossMarginInterestRecords**
 > List&lt;UniLoanInterestRecord&gt; getCrossMarginInterestRecords().currency(currency).page(page).limit(limit).from(from).to(to).execute();
 
-Interest records for the cross margin account
+Interest records for the cross margin account. (deprecated)
 
 ### Example
 
@@ -1195,7 +1195,7 @@ Name | Type | Description  | Notes
 # **getCrossMarginTransferable**
 > CrossMarginTransferable getCrossMarginTransferable(currency)
 
-Get the max transferable amount for a specific cross margin currency
+Get the max transferable amount for a specific cross margin currency. (deprecated)
 
 ### Example
 
@@ -1263,7 +1263,7 @@ Name | Type | Description  | Notes
 # **getCrossMarginEstimateRate**
 > Map&lt;String, String&gt; getCrossMarginEstimateRate(currencies)
 
-Estimated interest rates
+Estimated interest rates. (deprecated)
 
 Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
 
@@ -1333,7 +1333,7 @@ Name | Type | Description  | Notes
 # **getCrossMarginBorrowable**
 > UnifiedBorrowable getCrossMarginBorrowable(currency)
 
-Get the max borrowable amount for a specific cross margin currency
+Get the max borrowable amount for a specific cross margin currency. (deprecated)
 
 ### Example
 
