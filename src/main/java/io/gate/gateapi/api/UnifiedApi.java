@@ -62,7 +62,7 @@ public class UnifiedApi {
         this.localVarApiClient = apiClient;
     }
 
-    private okhttp3.Call listUnifiedAccountsCall(String currency, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUnifiedAccountsCall(String currency, String subUid, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -72,6 +72,10 @@ public class UnifiedApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (currency != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (subUid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sub_uid", subUid));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -96,20 +100,20 @@ public class UnifiedApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUnifiedAccountsValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedAccountsCall(currency, _callback);
+    private okhttp3.Call listUnifiedAccountsValidateBeforeCall(String currency, String subUid, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedAccountsCall(currency, subUid, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<UnifiedAccount> listUnifiedAccountsWithHttpInfo(String currency) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedAccountsValidateBeforeCall(currency, null);
+    private ApiResponse<UnifiedAccount> listUnifiedAccountsWithHttpInfo(String currency, String subUid) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedAccountsValidateBeforeCall(currency, subUid, null);
         Type localVarReturnType = new TypeToken<UnifiedAccount>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listUnifiedAccountsAsync(String currency, final ApiCallback<UnifiedAccount> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listUnifiedAccountsValidateBeforeCall(currency, _callback);
+    private okhttp3.Call listUnifiedAccountsAsync(String currency, String subUid, final ApiCallback<UnifiedAccount> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedAccountsValidateBeforeCall(currency, subUid, _callback);
         Type localVarReturnType = new TypeToken<UnifiedAccount>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -117,6 +121,7 @@ public class UnifiedApi {
 
     public class APIlistUnifiedAccountsRequest {
         private String currency;
+        private String subUid;
 
         private APIlistUnifiedAccountsRequest() {
         }
@@ -132,6 +137,16 @@ public class UnifiedApi {
         }
 
         /**
+         * Set subUid
+         * @param subUid Sub account user ID (optional)
+         * @return APIlistUnifiedAccountsRequest
+         */
+        public APIlistUnifiedAccountsRequest subUid(String subUid) {
+            this.subUid = subUid;
+            return this;
+        }
+
+        /**
          * Build call for listUnifiedAccounts
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -143,7 +158,7 @@ public class UnifiedApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listUnifiedAccountsCall(currency, _callback);
+            return listUnifiedAccountsCall(currency, subUid, _callback);
         }
 
         /**
@@ -157,7 +172,7 @@ public class UnifiedApi {
          </table>
          */
         public UnifiedAccount execute() throws ApiException {
-            ApiResponse<UnifiedAccount> localVarResp = listUnifiedAccountsWithHttpInfo(currency);
+            ApiResponse<UnifiedAccount> localVarResp = listUnifiedAccountsWithHttpInfo(currency, subUid);
             return localVarResp.getData();
         }
 
@@ -172,7 +187,7 @@ public class UnifiedApi {
          </table>
          */
         public ApiResponse<UnifiedAccount> executeWithHttpInfo() throws ApiException {
-            return listUnifiedAccountsWithHttpInfo(currency);
+            return listUnifiedAccountsWithHttpInfo(currency, subUid);
         }
 
         /**
@@ -187,7 +202,7 @@ public class UnifiedApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<UnifiedAccount> _callback) throws ApiException {
-            return listUnifiedAccountsAsync(currency, _callback);
+            return listUnifiedAccountsAsync(currency, subUid, _callback);
         }
     }
 

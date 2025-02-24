@@ -97,7 +97,7 @@ public class BatchAmendItem {
     }
 
      /**
-     * Default to spot, portfolio, and margin accounts if not specified. Use &#39;cross_margin&#39; to query cross margin accounts. Only &#39;cross_margin&#39; can be specified for portfolio margin accounts.
+     * Default spot, unified account and warehouse-by-store leverage account.
      * @return account
     **/
     @javax.annotation.Nullable

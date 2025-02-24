@@ -27,6 +27,10 @@ public class Currency {
     @SerializedName(SERIALIZED_NAME_CURRENCY)
     private String currency;
 
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
+
     public static final String SERIALIZED_NAME_DELISTED = "delisted";
     @SerializedName(SERIALIZED_NAME_DELISTED)
     private Boolean delisted;
@@ -63,7 +67,7 @@ public class Currency {
     }
 
      /**
-     * Currency name
+     * Currency symbol
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -74,6 +78,26 @@ public class Currency {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public Currency name(String name) {
+        
+        this.name = name;
+        return this;
+    }
+
+     /**
+     * Currency name
+     * @return name
+    **/
+    @javax.annotation.Nullable
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Currency delisted(Boolean delisted) {
@@ -225,6 +249,7 @@ public class Currency {
         }
         Currency currency = (Currency) o;
         return Objects.equals(this.currency, currency.currency) &&
+                Objects.equals(this.name, currency.name) &&
                 Objects.equals(this.delisted, currency.delisted) &&
                 Objects.equals(this.withdrawDisabled, currency.withdrawDisabled) &&
                 Objects.equals(this.withdrawDelayed, currency.withdrawDelayed) &&
@@ -236,7 +261,7 @@ public class Currency {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain);
+        return Objects.hash(currency, name, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain);
     }
 
 
@@ -245,6 +270,7 @@ public class Currency {
         StringBuilder sb = new StringBuilder();
         sb.append("class Currency {\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("      name: ").append(toIndentedString(name)).append("\n");
         sb.append("      delisted: ").append(toIndentedString(delisted)).append("\n");
         sb.append("      withdrawDisabled: ").append(toIndentedString(withdrawDisabled)).append("\n");
         sb.append("      withdrawDelayed: ").append(toIndentedString(withdrawDelayed)).append("\n");

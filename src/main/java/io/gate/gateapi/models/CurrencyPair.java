@@ -31,9 +31,17 @@ public class CurrencyPair {
     @SerializedName(SERIALIZED_NAME_BASE)
     private String base;
 
+    public static final String SERIALIZED_NAME_BASE_NAME = "base_name";
+    @SerializedName(SERIALIZED_NAME_BASE_NAME)
+    private String baseName;
+
     public static final String SERIALIZED_NAME_QUOTE = "quote";
     @SerializedName(SERIALIZED_NAME_QUOTE)
     private String quote;
+
+    public static final String SERIALIZED_NAME_QUOTE_NAME = "quote_name";
+    @SerializedName(SERIALIZED_NAME_QUOTE_NAME)
+    private String quoteName;
 
     public static final String SERIALIZED_NAME_FEE = "fee";
     @SerializedName(SERIALIZED_NAME_FEE)
@@ -171,6 +179,26 @@ public class CurrencyPair {
         this.base = base;
     }
 
+    public CurrencyPair baseName(String baseName) {
+        
+        this.baseName = baseName;
+        return this;
+    }
+
+     /**
+     * Transaction currency name
+     * @return baseName
+    **/
+    @javax.annotation.Nullable
+    public String getBaseName() {
+        return baseName;
+    }
+
+
+    public void setBaseName(String baseName) {
+        this.baseName = baseName;
+    }
+
     public CurrencyPair quote(String quote) {
         
         this.quote = quote;
@@ -189,6 +217,26 @@ public class CurrencyPair {
 
     public void setQuote(String quote) {
         this.quote = quote;
+    }
+
+    public CurrencyPair quoteName(String quoteName) {
+        
+        this.quoteName = quoteName;
+        return this;
+    }
+
+     /**
+     * Name of the denominated currency
+     * @return quoteName
+    **/
+    @javax.annotation.Nullable
+    public String getQuoteName() {
+        return quoteName;
+    }
+
+
+    public void setQuoteName(String quoteName) {
+        this.quoteName = quoteName;
     }
 
     public CurrencyPair fee(String fee) {
@@ -421,7 +469,9 @@ public class CurrencyPair {
         CurrencyPair currencyPair = (CurrencyPair) o;
         return Objects.equals(this.id, currencyPair.id) &&
                 Objects.equals(this.base, currencyPair.base) &&
+                Objects.equals(this.baseName, currencyPair.baseName) &&
                 Objects.equals(this.quote, currencyPair.quote) &&
+                Objects.equals(this.quoteName, currencyPair.quoteName) &&
                 Objects.equals(this.fee, currencyPair.fee) &&
                 Objects.equals(this.minBaseAmount, currencyPair.minBaseAmount) &&
                 Objects.equals(this.minQuoteAmount, currencyPair.minQuoteAmount) &&
@@ -437,7 +487,7 @@ public class CurrencyPair {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, quote, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, type);
+        return Objects.hash(id, base, baseName, quote, quoteName, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, type);
     }
 
 
@@ -447,7 +497,9 @@ public class CurrencyPair {
         sb.append("class CurrencyPair {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      base: ").append(toIndentedString(base)).append("\n");
+        sb.append("      baseName: ").append(toIndentedString(baseName)).append("\n");
         sb.append("      quote: ").append(toIndentedString(quote)).append("\n");
+        sb.append("      quoteName: ").append(toIndentedString(quoteName)).append("\n");
         sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("      minBaseAmount: ").append(toIndentedString(minBaseAmount)).append("\n");
         sb.append("      minQuoteAmount: ").append(toIndentedString(minQuoteAmount)).append("\n");

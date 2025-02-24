@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 <a name="listUnifiedAccounts"></a>
 # **listUnifiedAccounts**
-> UnifiedAccount listUnifiedAccounts().currency(currency).execute();
+> UnifiedAccount listUnifiedAccounts().currency(currency).subUid(subUid).execute();
 
 Get unified account information
 
@@ -54,9 +54,11 @@ public class Example {
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
         String currency = "BTC"; // String | Retrieve data of the specified currency
+        String subUid = "10001"; // String | Sub account user ID
         try {
             UnifiedAccount result = apiInstance.listUnifiedAccounts()
                         .currency(currency)
+                        .subUid(subUid)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -77,6 +79,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**| Retrieve data of the specified currency | [optional]
+ **subUid** | **String**| Sub account user ID | [optional]
 
 ### Return type
 

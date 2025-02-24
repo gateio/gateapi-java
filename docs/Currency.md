@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** | Currency name |  [optional]
+**currency** | **String** | Currency symbol |  [optional]
+**name** | **String** | Currency name |  [optional]
 **delisted** | **Boolean** | Whether currency is de-listed |  [optional]
 **withdrawDisabled** | **Boolean** | Whether currency&#39;s withdrawal is disabled |  [optional]
 **withdrawDelayed** | **Boolean** | Whether currency&#39;s withdrawal is delayed |  [optional]

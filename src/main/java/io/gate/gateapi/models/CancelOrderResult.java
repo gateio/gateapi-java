@@ -179,7 +179,7 @@ public class CancelOrderResult {
     }
 
      /**
-     * Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;
+     * Default is empty (deprecated)
      * @return account
     **/
     @javax.annotation.Nullable

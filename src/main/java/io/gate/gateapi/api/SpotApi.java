@@ -1041,7 +1041,7 @@ public class SpotApi {
 
     /**
      * Retrieve market trades
-     * Supports specifying &#x60;from&#x60; and &#x60;to&#x60; to query by time range or paging query based on &#x60;last_id&#x60;. The default query is by time range, and the query range is the last 30 days.  The query method based on &#x60;last_id&#x60; paging is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameter will be ignored.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
+     * Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
      * @param currencyPair Currency pair (required)
      * @return APIlistTradesRequest
      * @http.response.details
@@ -1868,7 +1868,7 @@ public class SpotApi {
 
     /**
      * Query account book
-     * The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
+     * Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
      * @return APIlistSpotAccountBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2086,7 +2086,7 @@ public class SpotApi {
 
         /**
          * Set account
-         * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+         * @param account Specify query account. (optional)
          * @return APIlistAllOpenOrdersRequest
          */
         public APIlistAllOpenOrdersRequest account(String account) {
@@ -2156,7 +2156,7 @@ public class SpotApi {
 
     /**
      * List all open orders
-     * List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+     * Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
      * @return APIlistAllOpenOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2403,7 +2403,7 @@ public class SpotApi {
 
         /**
          * Set account
-         * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+         * @param account Specify query account. (optional)
          * @return APIlistOrdersRequest
          */
         public APIlistOrdersRequest account(String account) {
@@ -2503,7 +2503,7 @@ public class SpotApi {
 
     /**
      * List orders
-     * Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+     * Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
      * @param currencyPair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  (required)
      * @return APIlistOrdersRequest
@@ -2576,7 +2576,7 @@ public class SpotApi {
 
     /**
      * Create an order
-     * Supports spot, margin, leverage, and cross margin orders. Use different accounts through the &#x60;account&#x60; field, the default is &#x60;spot&#x60;, that is, use the spot account to place orders, if the user is &#x60;unified&#x60; account, the default is to use the unified account to place orders  When using margin account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, When the account balance is insufficient, the system automatically executes &#x60;POST marginuniloans&#x60; to borrow the insufficient amount. Whether the assets obtained after placing a margin order are automatically used to return the borrowing order of the isolated margin account depends on the automatic repayment settings of the user&#39;s isolated margin account, The automatic repayment settings of this account can be queried and set through &#x60;marginauto_repay&#x60;.  When using cross margin account trading, that is, when &#x60;account&#x60; is set to &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; To realize the automatic borrowing of the insufficient part, but unlike the isolated margin account, whether the entrustment of the cross margin account is automatically repaid depends on the time when the order is placed &#x60;auto_repay&#x60; setting, this setting only takes effect for the current order, that is, only the assets obtained after the order is completed will be used to repay the borrowing order of the cross margin account. Placing orders on cross margin accounts currently supports enabling &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Automatic repayment will be triggered when the order ends, that is, the &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60;.  Delegation status  The order status in the pending order is &#x60;open&#x60; and remains &#x60;open&#x60; until all the quantities are filled. If all are filled, the order ends and the status becomes &#x60;closed&#x60;. If the order is canceled before all transactions are completed, the status will change to &#x60;cancelled&#x60; regardless of whether there is partial execution or not.  Iceberg Commission  &#x60;iceberg&#x60; is used to set the number of iceberg orders displayed. If you need to hide it completely, set it to &#x60;-1&#x60;. Note that when hiding partial transactions, follow the instructions The taker&#39;s handling fee is charged.  Restrict users to self-transact  Set &#x60;stp_act&#x60; to decide to use a strategy that limits users&#39; self-transactions
+     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return Order
@@ -2594,7 +2594,7 @@ public class SpotApi {
 
     /**
      * Create an order
-     * Supports spot, margin, leverage, and cross margin orders. Use different accounts through the &#x60;account&#x60; field, the default is &#x60;spot&#x60;, that is, use the spot account to place orders, if the user is &#x60;unified&#x60; account, the default is to use the unified account to place orders  When using margin account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, When the account balance is insufficient, the system automatically executes &#x60;POST marginuniloans&#x60; to borrow the insufficient amount. Whether the assets obtained after placing a margin order are automatically used to return the borrowing order of the isolated margin account depends on the automatic repayment settings of the user&#39;s isolated margin account, The automatic repayment settings of this account can be queried and set through &#x60;marginauto_repay&#x60;.  When using cross margin account trading, that is, when &#x60;account&#x60; is set to &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; To realize the automatic borrowing of the insufficient part, but unlike the isolated margin account, whether the entrustment of the cross margin account is automatically repaid depends on the time when the order is placed &#x60;auto_repay&#x60; setting, this setting only takes effect for the current order, that is, only the assets obtained after the order is completed will be used to repay the borrowing order of the cross margin account. Placing orders on cross margin accounts currently supports enabling &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Automatic repayment will be triggered when the order ends, that is, the &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60;.  Delegation status  The order status in the pending order is &#x60;open&#x60; and remains &#x60;open&#x60; until all the quantities are filled. If all are filled, the order ends and the status becomes &#x60;closed&#x60;. If the order is canceled before all transactions are completed, the status will change to &#x60;cancelled&#x60; regardless of whether there is partial execution or not.  Iceberg Commission  &#x60;iceberg&#x60; is used to set the number of iceberg orders displayed. If you need to hide it completely, set it to &#x60;-1&#x60;. Note that when hiding partial transactions, follow the instructions The taker&#39;s handling fee is charged.  Restrict users to self-transact  Set &#x60;stp_act&#x60; to decide to use a strategy that limits users&#39; self-transactions
+     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;Order&gt;
@@ -2613,7 +2613,7 @@ public class SpotApi {
 
     /**
      * Create an order (asynchronously)
-     * Supports spot, margin, leverage, and cross margin orders. Use different accounts through the &#x60;account&#x60; field, the default is &#x60;spot&#x60;, that is, use the spot account to place orders, if the user is &#x60;unified&#x60; account, the default is to use the unified account to place orders  When using margin account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, When the account balance is insufficient, the system automatically executes &#x60;POST marginuniloans&#x60; to borrow the insufficient amount. Whether the assets obtained after placing a margin order are automatically used to return the borrowing order of the isolated margin account depends on the automatic repayment settings of the user&#39;s isolated margin account, The automatic repayment settings of this account can be queried and set through &#x60;marginauto_repay&#x60;.  When using cross margin account trading, that is, when &#x60;account&#x60; is set to &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; To realize the automatic borrowing of the insufficient part, but unlike the isolated margin account, whether the entrustment of the cross margin account is automatically repaid depends on the time when the order is placed &#x60;auto_repay&#x60; setting, this setting only takes effect for the current order, that is, only the assets obtained after the order is completed will be used to repay the borrowing order of the cross margin account. Placing orders on cross margin accounts currently supports enabling &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Automatic repayment will be triggered when the order ends, that is, the &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60;.  Delegation status  The order status in the pending order is &#x60;open&#x60; and remains &#x60;open&#x60; until all the quantities are filled. If all are filled, the order ends and the status becomes &#x60;closed&#x60;. If the order is canceled before all transactions are completed, the status will change to &#x60;cancelled&#x60; regardless of whether there is partial execution or not.  Iceberg Commission  &#x60;iceberg&#x60; is used to set the number of iceberg orders displayed. If you need to hide it completely, set it to &#x60;-1&#x60;. Note that when hiding partial transactions, follow the instructions The taker&#39;s handling fee is charged.  Restrict users to self-transact  Set &#x60;stp_act&#x60; to decide to use a strategy that limits users&#39; self-transactions
+     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2636,7 +2636,7 @@ public class SpotApi {
      * Build call for cancelOrders
      * @param currencyPair Currency pair (optional)
      * @param side All bids or asks. Both included if not specified (optional)
-     * @param account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -2705,10 +2705,10 @@ public class SpotApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders in specified currency pair
-     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
+     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
      * @param currencyPair Currency pair (optional)
      * @param side All bids or asks. Both included if not specified (optional)
-     * @param account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;OrderCancel&gt;
@@ -2726,10 +2726,10 @@ public class SpotApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders in specified currency pair
-     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
+     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
      * @param currencyPair Currency pair (optional)
      * @param side All bids or asks. Both included if not specified (optional)
-     * @param account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;OrderCancel&gt;&gt;
@@ -2748,10 +2748,10 @@ public class SpotApi {
 
     /**
      * Cancel all &#x60;open&#x60; orders in specified currency pair (asynchronously)
-     * If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
+     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
      * @param currencyPair Currency pair (optional)
      * @param side All bids or asks. Both included if not specified (optional)
-     * @param account Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)
+     * @param account Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2887,9 +2887,9 @@ public class SpotApi {
 
     /**
      * Build call for getOrder
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2955,10 +2955,10 @@ public class SpotApi {
 
     /**
      * Get a single order
-     * Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2974,10 +2974,10 @@ public class SpotApi {
 
     /**
      * Get a single order
-     * Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2994,10 +2994,10 @@ public class SpotApi {
 
     /**
      * Get a single order (asynchronously)
-     * Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3016,9 +3016,9 @@ public class SpotApi {
 
     /**
      * Build call for cancelOrder
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param currencyPair Currency pair (required)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -3094,10 +3094,10 @@ public class SpotApi {
 
     /**
      * Cancel a single order
-     * Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default, orders for spot, unified accounts and leveraged accounts are revoked.
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param currencyPair Currency pair (required)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return Order
@@ -3115,10 +3115,10 @@ public class SpotApi {
 
     /**
      * Cancel a single order
-     * Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default, orders for spot, unified accounts and leveraged accounts are revoked.
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param currencyPair Currency pair (required)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;Order&gt;
@@ -3137,10 +3137,10 @@ public class SpotApi {
 
     /**
      * Cancel a single order (asynchronously)
-     * Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default, orders for spot, unified accounts and leveraged accounts are revoked.
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param currencyPair Currency pair (required)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3161,10 +3161,10 @@ public class SpotApi {
 
     /**
      * Build call for amendOrder
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param orderPatch  (required)
      * @param currencyPair Currency pair (optional)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3235,11 +3235,11 @@ public class SpotApi {
 
     /**
      * Amend an order
-     * By default, orders for spot, margin and isolated margin accounts are modified. If you need to modify orders for cross margin accounts, you must specify &#x60;account&#x60; as &#x60;cross_margin&#x60; and unify the account.&#x60;account&#x60; can only be specified as &#x60;cross_margin&#x60;.  Currently both the request body and query support currency_pair and account parameters, but the request body has a higher priority  currency_pair must be filled in either the request body or query  Currently only supports modifying price or quantity (choose one of the two)  About speed limit: Modify orders and create orders to share speed limit rules  About matching priority: only modifying the quantity to make it smaller will not affect the matching priority. If you modify the price or modify the quantity to become larger, the priority will be adjusted to the end of the new price  Note: The modified quantity is smaller than the completed quantity, which will trigger the order cancellation operation
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default modify orders for spot, unified account and leverage account.  At present, both the request body and query support currency_pair and account parameters, but the request body has higher priority  currency_pair must be filled in the request body or query   Currently, only the price or quantity modification (choose one of two)  About speed limit: Modify orders and create orders to share speed limit rules  About matching priority: Only modifying the quantity will become smaller and will not affect the priority of matching. If the price is modified or the quantity is modified, the priority will be adjusted to the end of the new price   Precautions: Modification quantity is less than the transaction quantity will trigger the order cancellation operation
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param orderPatch  (required)
      * @param currencyPair Currency pair (optional)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3256,11 +3256,11 @@ public class SpotApi {
 
     /**
      * Amend an order
-     * By default, orders for spot, margin and isolated margin accounts are modified. If you need to modify orders for cross margin accounts, you must specify &#x60;account&#x60; as &#x60;cross_margin&#x60; and unify the account.&#x60;account&#x60; can only be specified as &#x60;cross_margin&#x60;.  Currently both the request body and query support currency_pair and account parameters, but the request body has a higher priority  currency_pair must be filled in either the request body or query  Currently only supports modifying price or quantity (choose one of the two)  About speed limit: Modify orders and create orders to share speed limit rules  About matching priority: only modifying the quantity to make it smaller will not affect the matching priority. If you modify the price or modify the quantity to become larger, the priority will be adjusted to the end of the new price  Note: The modified quantity is smaller than the completed quantity, which will trigger the order cancellation operation
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default modify orders for spot, unified account and leverage account.  At present, both the request body and query support currency_pair and account parameters, but the request body has higher priority  currency_pair must be filled in the request body or query   Currently, only the price or quantity modification (choose one of two)  About speed limit: Modify orders and create orders to share speed limit rules  About matching priority: Only modifying the quantity will become smaller and will not affect the priority of matching. If the price is modified or the quantity is modified, the priority will be adjusted to the end of the new price   Precautions: Modification quantity is less than the transaction quantity will trigger the order cancellation operation
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param orderPatch  (required)
      * @param currencyPair Currency pair (optional)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3278,11 +3278,11 @@ public class SpotApi {
 
     /**
      * Amend an order (asynchronously)
-     * By default, orders for spot, margin and isolated margin accounts are modified. If you need to modify orders for cross margin accounts, you must specify &#x60;account&#x60; as &#x60;cross_margin&#x60; and unify the account.&#x60;account&#x60; can only be specified as &#x60;cross_margin&#x60;.  Currently both the request body and query support currency_pair and account parameters, but the request body has a higher priority  currency_pair must be filled in either the request body or query  Currently only supports modifying price or quantity (choose one of the two)  About speed limit: Modify orders and create orders to share speed limit rules  About matching priority: only modifying the quantity to make it smaller will not affect the matching priority. If you modify the price or modify the quantity to become larger, the priority will be adjusted to the end of the new price  Note: The modified quantity is smaller than the completed quantity, which will trigger the order cancellation operation
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. (required)
+     * By default modify orders for spot, unified account and leverage account.  At present, both the request body and query support currency_pair and account parameters, but the request body has higher priority  currency_pair must be filled in the request body or query   Currently, only the price or quantity modification (choose one of two)  About speed limit: Modify orders and create orders to share speed limit rules  About matching priority: Only modifying the quantity will become smaller and will not affect the priority of matching. If the price is modified or the quantity is modified, the priority will be adjusted to the end of the new price   Precautions: Modification quantity is less than the transaction quantity will trigger the order cancellation operation
+     * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param orderPatch  (required)
      * @param currencyPair Currency pair (optional)
-     * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+     * @param account Specify query account. (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3431,7 +3431,7 @@ public class SpotApi {
 
         /**
          * Set account
-         * @param account Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)
+         * @param account Specify query account. (optional)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest account(String account) {
@@ -3521,7 +3521,7 @@ public class SpotApi {
 
     /**
      * List personal trading history
-     * Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time. When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit * page - 1) &lt;&#x3D; 100000.
+     * By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
      * @return APIlistMyTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3797,7 +3797,7 @@ public class SpotApi {
 
     /**
      * Batch modification of orders
-     * Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+     * By default modify orders for spot, unified account and leverage account. Currently, only the price or quantity modification (choose one of two) Modify unfinished orders, up to 5 orders can be modified in batches at a time. The request parameters should be passed in array format. When the order modification fails during batch modification, the modification of the order will continue to be executed. After execution, the failure information of the corresponding order will be carried The order of calling the batch modification order is consistent with the order list The order of return content of batch modification orders is consistent with the order list
      * @param batchAmendItem  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;BatchOrder&gt;
@@ -3815,7 +3815,7 @@ public class SpotApi {
 
     /**
      * Batch modification of orders
-     * Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+     * By default modify orders for spot, unified account and leverage account. Currently, only the price or quantity modification (choose one of two) Modify unfinished orders, up to 5 orders can be modified in batches at a time. The request parameters should be passed in array format. When the order modification fails during batch modification, the modification of the order will continue to be executed. After execution, the failure information of the corresponding order will be carried The order of calling the batch modification order is consistent with the order list The order of return content of batch modification orders is consistent with the order list
      * @param batchAmendItem  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;BatchOrder&gt;&gt;
@@ -3834,7 +3834,7 @@ public class SpotApi {
 
     /**
      * Batch modification of orders (asynchronously)
-     * Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+     * By default modify orders for spot, unified account and leverage account. Currently, only the price or quantity modification (choose one of two) Modify unfinished orders, up to 5 orders can be modified in batches at a time. The request parameters should be passed in array format. When the order modification fails during batch modification, the modification of the order will continue to be executed. After execution, the failure information of the corresponding order will be carried The order of calling the batch modification order is consistent with the order list The order of return content of batch modification orders is consistent with the order list
      * @param batchAmendItem  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -4156,7 +4156,7 @@ public class SpotApi {
 
         /**
          * Set account
-         * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+         * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
          * @return APIlistSpotPriceTriggeredOrdersRequest
          */
         public APIlistSpotPriceTriggeredOrdersRequest account(String account) {
@@ -4369,7 +4369,7 @@ public class SpotApi {
     /**
      * Build call for cancelSpotPriceTriggeredOrderList
      * @param market Currency pair (optional)
-     * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4426,7 +4426,7 @@ public class SpotApi {
      * Cancel all open orders
      * 
      * @param market Currency pair (optional)
-     * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @return List&lt;SpotPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4444,7 +4444,7 @@ public class SpotApi {
      * Cancel all open orders
      * 
      * @param market Currency pair (optional)
-     * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @return ApiResponse&lt;List&lt;SpotPriceTriggeredOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4463,7 +4463,7 @@ public class SpotApi {
      * Cancel all open orders (asynchronously)
      * 
      * @param market Currency pair (optional)
-     * @param account Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)
+     * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -674,7 +674,7 @@ public class OrderCancel {
     }
 
      /**
-     * Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.  Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;
+     * Account type, spot - spot account, margin - leveraged account, unified - unified account
      * @return account
     **/
     @javax.annotation.Nullable

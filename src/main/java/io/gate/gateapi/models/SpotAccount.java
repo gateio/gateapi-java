@@ -37,7 +37,7 @@ public class SpotAccount {
 
     public static final String SERIALIZED_NAME_UPDATE_ID = "update_id";
     @SerializedName(SERIALIZED_NAME_UPDATE_ID)
-    private Integer updateId;
+    private Long updateId;
 
 
     public SpotAccount currency(String currency) {
@@ -100,7 +100,7 @@ public class SpotAccount {
         this.locked = locked;
     }
 
-    public SpotAccount updateId(Integer updateId) {
+    public SpotAccount updateId(Long updateId) {
         
         this.updateId = updateId;
         return this;
@@ -111,12 +111,12 @@ public class SpotAccount {
      * @return updateId
     **/
     @javax.annotation.Nullable
-    public Integer getUpdateId() {
+    public Long getUpdateId() {
         return updateId;
     }
 
 
-    public void setUpdateId(Integer updateId) {
+    public void setUpdateId(Long updateId) {
         this.updateId = updateId;
     }
     @Override

@@ -134,7 +134,7 @@ public class SpotPricePutOrder {
     private String amount;
 
     /**
-     * Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading 
+     * Trading account type.  Portfolio margin account must set to &#x60;unified&#x60;  - normal: spot trading - margin: margin trading - unified: unified trading 
      */
     @JsonAdapter(AccountEnum.Adapter.class)
     public enum AccountEnum {
@@ -142,7 +142,7 @@ public class SpotPricePutOrder {
         
         MARGIN("margin"),
         
-        CROSS_MARGIN("cross_margin");
+        UNIFIED("unified");
 
         private String value;
 
@@ -237,6 +237,14 @@ public class SpotPricePutOrder {
     @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
     private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
 
+    public static final String SERIALIZED_NAME_AUTO_BORROW = "auto_borrow";
+    @SerializedName(SERIALIZED_NAME_AUTO_BORROW)
+    private Boolean autoBorrow = false;
+
+    public static final String SERIALIZED_NAME_AUTO_REPAY = "auto_repay";
+    @SerializedName(SERIALIZED_NAME_AUTO_REPAY)
+    private Boolean autoRepay = false;
+
     public static final String SERIALIZED_NAME_TEXT = "text";
     @SerializedName(SERIALIZED_NAME_TEXT)
     private String text;
@@ -326,7 +334,7 @@ public class SpotPricePutOrder {
     }
 
      /**
-     * Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading 
+     * Trading account type.  Portfolio margin account must set to &#x60;unified&#x60;  - normal: spot trading - margin: margin trading - unified: unified trading 
      * @return account
     **/
     public AccountEnum getAccount() {
@@ -356,6 +364,46 @@ public class SpotPricePutOrder {
 
     public void setTimeInForce(TimeInForceEnum timeInForce) {
         this.timeInForce = timeInForce;
+    }
+
+    public SpotPricePutOrder autoBorrow(Boolean autoBorrow) {
+        
+        this.autoBorrow = autoBorrow;
+        return this;
+    }
+
+     /**
+     * Whether to borrow coins automatically
+     * @return autoBorrow
+    **/
+    @javax.annotation.Nullable
+    public Boolean getAutoBorrow() {
+        return autoBorrow;
+    }
+
+
+    public void setAutoBorrow(Boolean autoBorrow) {
+        this.autoBorrow = autoBorrow;
+    }
+
+    public SpotPricePutOrder autoRepay(Boolean autoRepay) {
+        
+        this.autoRepay = autoRepay;
+        return this;
+    }
+
+     /**
+     * Whether to repay the loan automatically
+     * @return autoRepay
+    **/
+    @javax.annotation.Nullable
+    public Boolean getAutoRepay() {
+        return autoRepay;
+    }
+
+
+    public void setAutoRepay(Boolean autoRepay) {
+        this.autoRepay = autoRepay;
     }
 
     public SpotPricePutOrder text(String text) {
@@ -392,12 +440,14 @@ public class SpotPricePutOrder {
                 Objects.equals(this.amount, spotPricePutOrder.amount) &&
                 Objects.equals(this.account, spotPricePutOrder.account) &&
                 Objects.equals(this.timeInForce, spotPricePutOrder.timeInForce) &&
+                Objects.equals(this.autoBorrow, spotPricePutOrder.autoBorrow) &&
+                Objects.equals(this.autoRepay, spotPricePutOrder.autoRepay) &&
                 Objects.equals(this.text, spotPricePutOrder.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, side, price, amount, account, timeInForce, text);
+        return Objects.hash(type, side, price, amount, account, timeInForce, autoBorrow, autoRepay, text);
     }
 
 
@@ -411,6 +461,8 @@ public class SpotPricePutOrder {
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      account: ").append(toIndentedString(account)).append("\n");
         sb.append("      timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+        sb.append("      autoBorrow: ").append(toIndentedString(autoBorrow)).append("\n");
+        sb.append("      autoRepay: ").append(toIndentedString(autoRepay)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
