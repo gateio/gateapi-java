@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.91.0
-- SDK version: 6.91.0
+- API version: 4.92.1
+- SDK version: 6.92.1
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.91.0</version>
+    <version>6.92.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.91.0"
+compile "io.gate:gate-api:6.92.1"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.91.0.jar`
+* `target/gate-api-6.92.1.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -593,6 +593,7 @@ Class | Method | HTTP request | Description
  - [SmallBalanceHistory](docs/SmallBalanceHistory.md)
  - [SpotAccount](docs/SpotAccount.md)
  - [SpotAccountBook](docs/SpotAccountBook.md)
+ - [SpotCurrencyChain](docs/SpotCurrencyChain.md)
  - [SpotFee](docs/SpotFee.md)
  - [SpotInsuranceHistory](docs/SpotInsuranceHistory.md)
  - [SpotPricePutOrder](docs/SpotPricePutOrder.md)

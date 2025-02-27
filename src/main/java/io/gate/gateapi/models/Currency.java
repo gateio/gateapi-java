@@ -17,7 +17,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.SpotCurrencyChain;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Currency
@@ -58,6 +61,10 @@ public class Currency {
     public static final String SERIALIZED_NAME_CHAIN = "chain";
     @SerializedName(SERIALIZED_NAME_CHAIN)
     private String chain;
+
+    public static final String SERIALIZED_NAME_CHAINS = "chains";
+    @SerializedName(SERIALIZED_NAME_CHAINS)
+    private List<SpotCurrencyChain> chains = null;
 
 
     public Currency currency(String currency) {
@@ -127,7 +134,7 @@ public class Currency {
     }
 
      /**
-     * Whether currency&#39;s withdrawal is disabled
+     * Whether currency&#39;s withdrawal is disabled (deprecated)
      * @return withdrawDisabled
     **/
     @javax.annotation.Nullable
@@ -147,7 +154,7 @@ public class Currency {
     }
 
      /**
-     * Whether currency&#39;s withdrawal is delayed
+     * Whether currency&#39;s withdrawal is delayed (deprecated)
      * @return withdrawDelayed
     **/
     @javax.annotation.Nullable
@@ -167,7 +174,7 @@ public class Currency {
     }
 
      /**
-     * Whether currency&#39;s deposit is disabled
+     * Whether currency&#39;s deposit is disabled (deprecated)
      * @return depositDisabled
     **/
     @javax.annotation.Nullable
@@ -227,7 +234,7 @@ public class Currency {
     }
 
      /**
-     * Chain of currency
+     * The main chain corresponding to the coin
      * @return chain
     **/
     @javax.annotation.Nullable
@@ -238,6 +245,34 @@ public class Currency {
 
     public void setChain(String chain) {
         this.chain = chain;
+    }
+
+    public Currency chains(List<SpotCurrencyChain> chains) {
+        
+        this.chains = chains;
+        return this;
+    }
+
+    public Currency addChainsItem(SpotCurrencyChain chainsItem) {
+        if (this.chains == null) {
+            this.chains = new ArrayList<>();
+        }
+        this.chains.add(chainsItem);
+        return this;
+    }
+
+     /**
+     * All links corresponding to coins
+     * @return chains
+    **/
+    @javax.annotation.Nullable
+    public List<SpotCurrencyChain> getChains() {
+        return chains;
+    }
+
+
+    public void setChains(List<SpotCurrencyChain> chains) {
+        this.chains = chains;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -256,12 +291,13 @@ public class Currency {
                 Objects.equals(this.depositDisabled, currency.depositDisabled) &&
                 Objects.equals(this.tradeDisabled, currency.tradeDisabled) &&
                 Objects.equals(this.fixedRate, currency.fixedRate) &&
-                Objects.equals(this.chain, currency.chain);
+                Objects.equals(this.chain, currency.chain) &&
+                Objects.equals(this.chains, currency.chains);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, name, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain);
+        return Objects.hash(currency, name, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain, chains);
     }
 
 
@@ -278,6 +314,7 @@ public class Currency {
         sb.append("      tradeDisabled: ").append(toIndentedString(tradeDisabled)).append("\n");
         sb.append("      fixedRate: ").append(toIndentedString(fixedRate)).append("\n");
         sb.append("      chain: ").append(toIndentedString(chain)).append("\n");
+        sb.append("      chains: ").append(toIndentedString(chains)).append("\n");
         sb.append("}");
         return sb.toString();
     }
