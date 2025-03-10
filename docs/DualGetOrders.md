@@ -21,4 +21,5 @@ Name | Type | Description | Notes
 **apyDisplay** | **String** | APY |  [optional]
 **apySettlement** | **String** | Settlement APY |  [optional]
 **deliveryTime** | **Integer** | Settlement time |  [optional]
+**text** | **String** | Custom order information |  [optional]
 

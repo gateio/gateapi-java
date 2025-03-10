@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **crossBalance** | **String** | Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode |  [optional]
 **isoBalance** | **String** | Isolated margin balance is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode |  [optional]
 **im** | **String** | Full-position initial margin is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode |  [optional]
-**mm** | **String** | Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode |  [optional]
+**mm** | **String** | The full position maintains margin, which is valid in the single currency margin mode, and other cross-currency margin combination margin mode is 0. |  [optional]
 **imr** | **String** | Full-position initial margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode |  [optional]
 **mmr** | **String** | Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode |  [optional]
 **marginBalance** | **String** | Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode |  [optional]

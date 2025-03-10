@@ -5,6 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**swapETH2**](EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap
+[**rateListETH2**](EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query
 [**listDualInvestmentPlans**](EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 [**listDualOrders**](EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
 [**placeDualOrder**](EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
@@ -80,9 +81,75 @@ null (empty response body)
 |-------------|-------------|------------------|
 **200** | swap success |  -  |
 
+<a name="rateListETH2"></a>
+# **rateListETH2**
+> List&lt;Eth2RateList&gt; rateListETH2()
+
+ETH2 historical rate of return query
+
+Check the ETH earnings rate record for the last 31 days
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        try {
+            List<Eth2RateList> result = apiInstance.rateListETH2();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#rateListETH2");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Eth2RateList&gt;**](Eth2RateList.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful |  -  |
+
 <a name="listDualInvestmentPlans"></a>
 # **listDualInvestmentPlans**
-> List&lt;DualGetPlans&gt; listDualInvestmentPlans()
+> List&lt;DualGetPlans&gt; listDualInvestmentPlans().planId(planId).execute();
 
 Dual Investment product list
 
@@ -103,8 +170,11 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
+        Long planId = 1L; // Long | Financial project id
         try {
-            List<DualGetPlans> result = apiInstance.listDualInvestmentPlans();
+            List<DualGetPlans> result = apiInstance.listDualInvestmentPlans()
+                        .planId(planId)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -120,7 +190,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **planId** | **Long**| Financial project id | [optional]
 
 ### Return type
 
@@ -142,7 +215,7 @@ No authorization required
 
 <a name="listDualOrders"></a>
 # **listDualOrders**
-> List&lt;DualGetOrders&gt; listDualOrders()
+> List&lt;DualGetOrders&gt; listDualOrders().from(from).to(to).page(page).limit(limit).execute();
 
 Dual Investment order list
 
@@ -167,8 +240,17 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
+        Long from = 1740727000L; // Long | Start checkout time
+        Long to = 1740729000L; // Long | End settlement time
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
-            List<DualGetOrders> result = apiInstance.listDualOrders();
+            List<DualGetOrders> result = apiInstance.listDualOrders()
+                        .from(from)
+                        .to(to)
+                        .page(page)
+                        .limit(limit)
+                        .execute();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -184,7 +266,13 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **from** | **Long**| Start checkout time | [optional]
+ **to** | **Long**| End settlement time | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 

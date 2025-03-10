@@ -22,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.DualGetOrders;
 import io.gate.gateapi.models.DualGetPlans;
+import io.gate.gateapi.models.Eth2RateList;
 import io.gate.gateapi.models.Eth2Swap;
 import io.gate.gateapi.models.PlaceDualInvestmentOrder;
 import io.gate.gateapi.models.StructuredBuy;
@@ -157,7 +158,7 @@ public class EarnApi {
     }
 
     /**
-     * Build call for listDualInvestmentPlans
+     * Build call for rateListETH2
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -167,109 +168,11 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDualInvestmentPlansCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call rateListETH2Call(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/earn/dual/investment_plan";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDualInvestmentPlansValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listDualInvestmentPlansCall(_callback);
-        return localVarCall;
-    }
-
-    /**
-     * Dual Investment product list
-     * 
-     * @return List&lt;DualGetPlans&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<DualGetPlans> listDualInvestmentPlans() throws ApiException {
-        ApiResponse<List<DualGetPlans>> localVarResp = listDualInvestmentPlansWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Dual Investment product list
-     * 
-     * @return ApiResponse&lt;List&lt;DualGetPlans&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<DualGetPlans>> listDualInvestmentPlansWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = listDualInvestmentPlansValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<DualGetPlans>>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Dual Investment product list (asynchronously)
-     * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listDualInvestmentPlansAsync(final ApiCallback<List<DualGetPlans>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listDualInvestmentPlansValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<DualGetPlans>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for listDualOrders
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call listDualOrdersCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/earn/dual/orders";
+        String localVarPath = "/earn/staking/eth2/rate_records";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -295,15 +198,15 @@ public class EarnApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDualOrdersValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listDualOrdersCall(_callback);
+    private okhttp3.Call rateListETH2ValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = rateListETH2Call(_callback);
         return localVarCall;
     }
 
     /**
-     * Dual Investment order list
-     * 
-     * @return List&lt;DualGetOrders&gt;
+     * ETH2 historical rate of return query
+     * Check the ETH earnings rate record for the last 31 days
+     * @return List&lt;Eth2RateList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -311,15 +214,15 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
      </table>
      */
-    public List<DualGetOrders> listDualOrders() throws ApiException {
-        ApiResponse<List<DualGetOrders>> localVarResp = listDualOrdersWithHttpInfo();
+    public List<Eth2RateList> rateListETH2() throws ApiException {
+        ApiResponse<List<Eth2RateList>> localVarResp = rateListETH2WithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * Dual Investment order list
-     * 
-     * @return ApiResponse&lt;List&lt;DualGetOrders&gt;&gt;
+     * ETH2 historical rate of return query
+     * Check the ETH earnings rate record for the last 31 days
+     * @return ApiResponse&lt;List&lt;Eth2RateList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -327,15 +230,15 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<DualGetOrders>> listDualOrdersWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = listDualOrdersValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<DualGetOrders>>(){}.getType();
+    public ApiResponse<List<Eth2RateList>> rateListETH2WithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = rateListETH2ValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<Eth2RateList>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Dual Investment order list (asynchronously)
-     * 
+     * ETH2 historical rate of return query (asynchronously)
+     * Check the ETH earnings rate record for the last 31 days
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -345,11 +248,342 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDualOrdersAsync(final ApiCallback<List<DualGetOrders>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listDualOrdersValidateBeforeCall(_callback);
+    public okhttp3.Call rateListETH2Async(final ApiCallback<List<Eth2RateList>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = rateListETH2ValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<Eth2RateList>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listDualInvestmentPlansCall(Long planId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/dual/investment_plan";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (planId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("plan_id", planId));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDualInvestmentPlansValidateBeforeCall(Long planId, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listDualInvestmentPlansCall(planId, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<DualGetPlans>> listDualInvestmentPlansWithHttpInfo(Long planId) throws ApiException {
+        okhttp3.Call localVarCall = listDualInvestmentPlansValidateBeforeCall(planId, null);
+        Type localVarReturnType = new TypeToken<List<DualGetPlans>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listDualInvestmentPlansAsync(Long planId, final ApiCallback<List<DualGetPlans>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listDualInvestmentPlansValidateBeforeCall(planId, _callback);
+        Type localVarReturnType = new TypeToken<List<DualGetPlans>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistDualInvestmentPlansRequest {
+        private Long planId;
+
+        private APIlistDualInvestmentPlansRequest() {
+        }
+
+        /**
+         * Set planId
+         * @param planId Financial project id (optional)
+         * @return APIlistDualInvestmentPlansRequest
+         */
+        public APIlistDualInvestmentPlansRequest planId(Long planId) {
+            this.planId = planId;
+            return this;
+        }
+
+        /**
+         * Build call for listDualInvestmentPlans
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDualInvestmentPlansCall(planId, _callback);
+        }
+
+        /**
+         * Execute listDualInvestmentPlans request
+         * @return List&lt;DualGetPlans&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<DualGetPlans> execute() throws ApiException {
+            ApiResponse<List<DualGetPlans>> localVarResp = listDualInvestmentPlansWithHttpInfo(planId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDualInvestmentPlans request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DualGetPlans&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<DualGetPlans>> executeWithHttpInfo() throws ApiException {
+            return listDualInvestmentPlansWithHttpInfo(planId);
+        }
+
+        /**
+         * Execute listDualInvestmentPlans request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DualGetPlans>> _callback) throws ApiException {
+            return listDualInvestmentPlansAsync(planId, _callback);
+        }
+    }
+
+    /**
+     * Dual Investment product list
+     * 
+     * @return APIlistDualInvestmentPlansRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistDualInvestmentPlansRequest listDualInvestmentPlans() {
+        return new APIlistDualInvestmentPlansRequest();
+    }
+
+    private okhttp3.Call listDualOrdersCall(Long from, Long to, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/dual/orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDualOrdersValidateBeforeCall(Long from, Long to, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listDualOrdersCall(from, to, page, limit, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<DualGetOrders>> listDualOrdersWithHttpInfo(Long from, Long to, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listDualOrdersValidateBeforeCall(from, to, page, limit, null);
+        Type localVarReturnType = new TypeToken<List<DualGetOrders>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listDualOrdersAsync(Long from, Long to, Integer page, Integer limit, final ApiCallback<List<DualGetOrders>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listDualOrdersValidateBeforeCall(from, to, page, limit, _callback);
         Type localVarReturnType = new TypeToken<List<DualGetOrders>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIlistDualOrdersRequest {
+        private Long from;
+        private Long to;
+        private Integer page;
+        private Integer limit;
+
+        private APIlistDualOrdersRequest() {
+        }
+
+        /**
+         * Set from
+         * @param from Start checkout time (optional)
+         * @return APIlistDualOrdersRequest
+         */
+        public APIlistDualOrdersRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End settlement time (optional)
+         * @return APIlistDualOrdersRequest
+         */
+        public APIlistDualOrdersRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistDualOrdersRequest
+         */
+        public APIlistDualOrdersRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @return APIlistDualOrdersRequest
+         */
+        public APIlistDualOrdersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listDualOrders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDualOrdersCall(from, to, page, limit, _callback);
+        }
+
+        /**
+         * Execute listDualOrders request
+         * @return List&lt;DualGetOrders&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<DualGetOrders> execute() throws ApiException {
+            ApiResponse<List<DualGetOrders>> localVarResp = listDualOrdersWithHttpInfo(from, to, page, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDualOrders request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DualGetOrders&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<DualGetOrders>> executeWithHttpInfo() throws ApiException {
+            return listDualOrdersWithHttpInfo(from, to, page, limit);
+        }
+
+        /**
+         * Execute listDualOrders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DualGetOrders>> _callback) throws ApiException {
+            return listDualOrdersAsync(from, to, page, limit, _callback);
+        }
+    }
+
+    /**
+     * Dual Investment order list
+     * 
+     * @return APIlistDualOrdersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistDualOrdersRequest listDualOrders() {
+        return new APIlistDualOrdersRequest();
     }
 
     /**

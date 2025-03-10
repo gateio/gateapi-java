@@ -39,6 +39,10 @@ public class PlaceDualInvestmentOrder {
     @SerializedName(SERIALIZED_NAME_AMOUNT)
     private String amount;
 
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
 
     public PlaceDualInvestmentOrder planId(String planId) {
         
@@ -117,6 +121,26 @@ public class PlaceDualInvestmentOrder {
     public void setAmount(String amount) {
         this.amount = amount;
     }
+
+    public PlaceDualInvestmentOrder text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) 
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -129,12 +153,13 @@ public class PlaceDualInvestmentOrder {
         return Objects.equals(this.planId, placeDualInvestmentOrder.planId) &&
                 Objects.equals(this.copies, placeDualInvestmentOrder.copies) &&
                 Objects.equals(this.isMax, placeDualInvestmentOrder.isMax) &&
-                Objects.equals(this.amount, placeDualInvestmentOrder.amount);
+                Objects.equals(this.amount, placeDualInvestmentOrder.amount) &&
+                Objects.equals(this.text, placeDualInvestmentOrder.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(planId, copies, isMax, amount);
+        return Objects.hash(planId, copies, isMax, amount, text);
     }
 
 
@@ -146,6 +171,7 @@ public class PlaceDualInvestmentOrder {
         sb.append("      copies: ").append(toIndentedString(copies)).append("\n");
         sb.append("      isMax: ").append(toIndentedString(isMax)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

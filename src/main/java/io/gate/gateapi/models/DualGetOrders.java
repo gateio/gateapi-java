@@ -87,6 +87,10 @@ public class DualGetOrders {
     @SerializedName(SERIALIZED_NAME_DELIVERY_TIME)
     private Integer deliveryTime;
 
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
 
     public DualGetOrders id(Integer id) {
         
@@ -407,6 +411,26 @@ public class DualGetOrders {
     public void setDeliveryTime(Integer deliveryTime) {
         this.deliveryTime = deliveryTime;
     }
+
+    public DualGetOrders text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * Custom order information
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -431,12 +455,13 @@ public class DualGetOrders {
                 Objects.equals(this.settlementCurrency, dualGetOrders.settlementCurrency) &&
                 Objects.equals(this.apyDisplay, dualGetOrders.apyDisplay) &&
                 Objects.equals(this.apySettlement, dualGetOrders.apySettlement) &&
-                Objects.equals(this.deliveryTime, dualGetOrders.deliveryTime);
+                Objects.equals(this.deliveryTime, dualGetOrders.deliveryTime) &&
+                Objects.equals(this.text, dualGetOrders.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, planId, copies, investAmount, settlementAmount, createTime, completeTime, status, investCurrency, exerciseCurrency, exercisePrice, settlementPrice, settlementCurrency, apyDisplay, apySettlement, deliveryTime);
+        return Objects.hash(id, planId, copies, investAmount, settlementAmount, createTime, completeTime, status, investCurrency, exerciseCurrency, exercisePrice, settlementPrice, settlementCurrency, apyDisplay, apySettlement, deliveryTime, text);
     }
 
 
@@ -460,6 +485,7 @@ public class DualGetOrders {
         sb.append("      apyDisplay: ").append(toIndentedString(apyDisplay)).append("\n");
         sb.append("      apySettlement: ").append(toIndentedString(apySettlement)).append("\n");
         sb.append("      deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

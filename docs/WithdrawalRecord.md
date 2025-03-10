@@ -15,24 +15,6 @@ Name | Type | Description | Notes
 **currency** | **String** | Currency name | 
 **address** | **String** | Withdrawal address. Required for withdrawals |  [optional]
 **memo** | **String** | Additional remarks with regards to the withdrawal |  [optional]
-**status** | [**StatusEnum**](#StatusEnum) | Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - SPLITPEND: cny withdrawal is greater than 50,000, orders will be split automatically |  [optional] [readonly]
+**status** | **String** | Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review |  [optional] [readonly]
 **chain** | **String** | Name of the chain used in withdrawals | 
-
-## Enum: StatusEnum
-
-Name | Value
----- | -----
-DONE | &quot;DONE&quot;
-CANCEL | &quot;CANCEL&quot;
-REQUEST | &quot;REQUEST&quot;
-MANUAL | &quot;MANUAL&quot;
-BCODE | &quot;BCODE&quot;
-EXTPEND | &quot;EXTPEND&quot;
-FAIL | &quot;FAIL&quot;
-INVALID | &quot;INVALID&quot;
-VERIFY | &quot;VERIFY&quot;
-PROCES | &quot;PROCES&quot;
-PEND | &quot;PEND&quot;
-DMOVE | &quot;DMOVE&quot;
-SPLITPEND | &quot;SPLITPEND&quot;
 

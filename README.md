@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.92.2
-- SDK version: 6.92.2
+- API version: 4.93.0
+- SDK version: 6.93.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.92.2</version>
+    <version>6.93.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.92.2"
+compile "io.gate:gate-api:6.93.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.92.2.jar`
+* `target/gate-api-6.93.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -190,6 +190,7 @@ Class | Method | HTTP request | Description
 *DeliveryApi* | [**getPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a price-triggered order
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order
 *EarnApi* | [**swapETH2**](docs/EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap
+*EarnApi* | [**rateListETH2**](docs/EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query
 *EarnApi* | [**listDualInvestmentPlans**](docs/EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 *EarnApi* | [**listDualOrders**](docs/EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
 *EarnApi* | [**placeDualOrder**](docs/EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
@@ -485,6 +486,7 @@ Class | Method | HTTP request | Description
  - [DepositAddress](docs/DepositAddress.md)
  - [DualGetOrders](docs/DualGetOrders.md)
  - [DualGetPlans](docs/DualGetPlans.md)
+ - [Eth2RateList](docs/Eth2RateList.md)
  - [Eth2Swap](docs/Eth2Swap.md)
  - [FlashSwapCurrencyPair](docs/FlashSwapCurrencyPair.md)
  - [FlashSwapOrder](docs/FlashSwapOrder.md)
