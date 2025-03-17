@@ -24,6 +24,7 @@ import io.gate.gateapi.models.UniLoan;
 import io.gate.gateapi.models.UniLoanInterestRecord;
 import io.gate.gateapi.models.UnifiedAccount;
 import io.gate.gateapi.models.UnifiedBorrowable;
+import io.gate.gateapi.models.UnifiedCurrency;
 import io.gate.gateapi.models.UnifiedDiscount;
 import io.gate.gateapi.models.UnifiedHistoryLoanRate;
 import io.gate.gateapi.models.UnifiedLeverageConfig;
@@ -2207,6 +2208,149 @@ public class UnifiedApi {
         okhttp3.Call localVarCall = setUserLeverageCurrencySettingValidateBeforeCall(unifiedLeverageSetting, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
+    }
+
+    private okhttp3.Call listUnifiedCurrenciesCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/currencies";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listUnifiedCurrenciesValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedCurrenciesCall(currency, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<UnifiedCurrency>> listUnifiedCurrenciesWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedCurrenciesValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<List<UnifiedCurrency>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listUnifiedCurrenciesAsync(String currency, final ApiCallback<List<UnifiedCurrency>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listUnifiedCurrenciesValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<List<UnifiedCurrency>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistUnifiedCurrenciesRequest {
+        private String currency;
+
+        private APIlistUnifiedCurrenciesRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency Currency (optional)
+         * @return APIlistUnifiedCurrenciesRequest
+         */
+        public APIlistUnifiedCurrenciesRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Build call for listUnifiedCurrencies
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listUnifiedCurrenciesCall(currency, _callback);
+        }
+
+        /**
+         * Execute listUnifiedCurrencies request
+         * @return List&lt;UnifiedCurrency&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<UnifiedCurrency> execute() throws ApiException {
+            ApiResponse<List<UnifiedCurrency>> localVarResp = listUnifiedCurrenciesWithHttpInfo(currency);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listUnifiedCurrencies request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;UnifiedCurrency&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<UnifiedCurrency>> executeWithHttpInfo() throws ApiException {
+            return listUnifiedCurrenciesWithHttpInfo(currency);
+        }
+
+        /**
+         * Execute listUnifiedCurrencies request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<UnifiedCurrency>> _callback) throws ApiException {
+            return listUnifiedCurrenciesAsync(currency, _callback);
+        }
+    }
+
+    /**
+     * List of loan currencies supported by unified account
+     * 
+     * @return APIlistUnifiedCurrenciesRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistUnifiedCurrenciesRequest listUnifiedCurrencies() {
+        return new APIlistUnifiedCurrenciesRequest();
     }
 
     private okhttp3.Call getHistoryLoanRateCall(String currency, String tier, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
