@@ -4423,7 +4423,7 @@ public class SpotApi {
     }
 
     /**
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      * 
      * @param market Currency pair (optional)
      * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
@@ -4441,7 +4441,7 @@ public class SpotApi {
     }
 
     /**
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      * 
      * @param market Currency pair (optional)
      * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
@@ -4460,7 +4460,7 @@ public class SpotApi {
     }
 
     /**
-     * Cancel all open orders (asynchronously)
+     * Cancel All Price-triggered Orders (asynchronously)
      * 
      * @param market Currency pair (optional)
      * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)

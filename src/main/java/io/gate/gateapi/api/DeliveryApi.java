@@ -3954,7 +3954,7 @@ public class DeliveryApi {
     }
 
     /**
-     * List all auto orders
+     * List All Price-triggered Orders
      * 
      * @param settle Settle currency (required)
      * @param status Only list the orders with this status (required)
@@ -4150,7 +4150,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4168,7 +4168,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Cancel all open orders
+     * Cancel All Price-triggered Orders
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4187,7 +4187,7 @@ public class DeliveryApi {
     }
 
     /**
-     * Cancel all open orders (asynchronously)
+     * Cancel All Price-triggered Orders (asynchronously)
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
