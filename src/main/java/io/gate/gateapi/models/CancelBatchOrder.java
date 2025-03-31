@@ -31,6 +31,10 @@ public class CancelBatchOrder {
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
 
+    public static final String SERIALIZED_NAME_ACCOUNT = "account";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT)
+    private String account;
+
     public static final String SERIALIZED_NAME_ACTION_MODE = "action_mode";
     @SerializedName(SERIALIZED_NAME_ACTION_MODE)
     private String actionMode;
@@ -74,6 +78,26 @@ public class CancelBatchOrder {
         this.id = id;
     }
 
+    public CancelBatchOrder account(String account) {
+        
+        this.account = account;
+        return this;
+    }
+
+     /**
+     * If the canceled order is a unified account apikey, this field must be specified and set to &#x60;unified&#x60;
+     * @return account
+    **/
+    @javax.annotation.Nullable
+    public String getAccount() {
+        return account;
+    }
+
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
     public CancelBatchOrder actionMode(String actionMode) {
         
         this.actionMode = actionMode;
@@ -104,12 +128,13 @@ public class CancelBatchOrder {
         CancelBatchOrder cancelBatchOrder = (CancelBatchOrder) o;
         return Objects.equals(this.currencyPair, cancelBatchOrder.currencyPair) &&
                 Objects.equals(this.id, cancelBatchOrder.id) &&
+                Objects.equals(this.account, cancelBatchOrder.account) &&
                 Objects.equals(this.actionMode, cancelBatchOrder.actionMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, id, actionMode);
+        return Objects.hash(currencyPair, id, account, actionMode);
     }
 
 
@@ -119,6 +144,7 @@ public class CancelBatchOrder {
         sb.append("class CancelBatchOrder {\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      account: ").append(toIndentedString(account)).append("\n");
         sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
         sb.append("}");
         return sb.toString();

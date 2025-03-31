@@ -28,6 +28,14 @@ public class MarginAccount {
     @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
     private String currencyPair;
 
+    public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "account_type";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
+    private String accountType;
+
+    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
+    @SerializedName(SERIALIZED_NAME_LEVERAGE)
+    private String leverage;
+
     public static final String SERIALIZED_NAME_LOCKED = "locked";
     @SerializedName(SERIALIZED_NAME_LOCKED)
     private Boolean locked;
@@ -35,6 +43,10 @@ public class MarginAccount {
     public static final String SERIALIZED_NAME_RISK = "risk";
     @SerializedName(SERIALIZED_NAME_RISK)
     private String risk;
+
+    public static final String SERIALIZED_NAME_MMR = "mmr";
+    @SerializedName(SERIALIZED_NAME_MMR)
+    private String mmr;
 
     public static final String SERIALIZED_NAME_BASE = "base";
     @SerializedName(SERIALIZED_NAME_BASE)
@@ -65,6 +77,46 @@ public class MarginAccount {
         this.currencyPair = currencyPair;
     }
 
+    public MarginAccount accountType(String accountType) {
+        
+        this.accountType = accountType;
+        return this;
+    }
+
+     /**
+     * Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated
+     * @return accountType
+    **/
+    @javax.annotation.Nullable
+    public String getAccountType() {
+        return accountType;
+    }
+
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public MarginAccount leverage(String leverage) {
+        
+        this.leverage = leverage;
+        return this;
+    }
+
+     /**
+     * User current market leverage multiple
+     * @return leverage
+    **/
+    @javax.annotation.Nullable
+    public String getLeverage() {
+        return leverage;
+    }
+
+
+    public void setLeverage(String leverage) {
+        this.leverage = leverage;
+    }
+
     public MarginAccount locked(Boolean locked) {
         
         this.locked = locked;
@@ -92,7 +144,7 @@ public class MarginAccount {
     }
 
      /**
-     * Current risk rate of margin account
+     * Leveraged Account Current Risk Rate (Returned when the Account is a Risk Rate Account)
      * @return risk
     **/
     @javax.annotation.Nullable
@@ -103,6 +155,26 @@ public class MarginAccount {
 
     public void setRisk(String risk) {
         this.risk = risk;
+    }
+
+    public MarginAccount mmr(String mmr) {
+        
+        this.mmr = mmr;
+        return this;
+    }
+
+     /**
+     * Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account)
+     * @return mmr
+    **/
+    @javax.annotation.Nullable
+    public String getMmr() {
+        return mmr;
+    }
+
+
+    public void setMmr(String mmr) {
+        this.mmr = mmr;
     }
 
     public MarginAccount base(MarginAccountCurrency base) {
@@ -154,15 +226,18 @@ public class MarginAccount {
         }
         MarginAccount marginAccount = (MarginAccount) o;
         return Objects.equals(this.currencyPair, marginAccount.currencyPair) &&
+                Objects.equals(this.accountType, marginAccount.accountType) &&
+                Objects.equals(this.leverage, marginAccount.leverage) &&
                 Objects.equals(this.locked, marginAccount.locked) &&
                 Objects.equals(this.risk, marginAccount.risk) &&
+                Objects.equals(this.mmr, marginAccount.mmr) &&
                 Objects.equals(this.base, marginAccount.base) &&
                 Objects.equals(this.quote, marginAccount.quote);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, locked, risk, base, quote);
+        return Objects.hash(currencyPair, accountType, leverage, locked, risk, mmr, base, quote);
     }
 
 
@@ -171,8 +246,11 @@ public class MarginAccount {
         StringBuilder sb = new StringBuilder();
         sb.append("class MarginAccount {\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
+        sb.append("      accountType: ").append(toIndentedString(accountType)).append("\n");
+        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("      locked: ").append(toIndentedString(locked)).append("\n");
         sb.append("      risk: ").append(toIndentedString(risk)).append("\n");
+        sb.append("      mmr: ").append(toIndentedString(mmr)).append("\n");
         sb.append("      base: ").append(toIndentedString(base)).append("\n");
         sb.append("      quote: ").append(toIndentedString(quote)).append("\n");
         sb.append("}");

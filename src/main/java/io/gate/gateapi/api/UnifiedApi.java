@@ -20,6 +20,7 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.TransferablesResult;
 import io.gate.gateapi.models.UniLoan;
 import io.gate.gateapi.models.UniLoanInterestRecord;
 import io.gate.gateapi.models.UnifiedAccount;
@@ -439,6 +440,117 @@ public class UnifiedApi {
     public okhttp3.Call getUnifiedTransferableAsync(String currency, final ApiCallback<UnifiedTransferable> _callback) throws ApiException {
         okhttp3.Call localVarCall = getUnifiedTransferableValidateBeforeCall(currency, _callback);
         Type localVarReturnType = new TypeToken<UnifiedTransferable>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getUnifiedTransferables
+     * @param currencies Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedTransferablesCall(String currencies, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/transferables";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencies != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currencies", currencies));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUnifiedTransferablesValidateBeforeCall(String currencies, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currencies' is set
+        if (currencies == null) {
+            throw new ApiException("Missing the required parameter 'currencies' when calling getUnifiedTransferables(Async)");
+        }
+
+        okhttp3.Call localVarCall = getUnifiedTransferablesCall(currencies, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
+     * 
+     * @param currencies Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (required)
+     * @return List&lt;TransferablesResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<TransferablesResult> getUnifiedTransferables(String currencies) throws ApiException {
+        ApiResponse<List<TransferablesResult>> localVarResp = getUnifiedTransferablesWithHttpInfo(currencies);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
+     * 
+     * @param currencies Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (required)
+     * @return ApiResponse&lt;List&lt;TransferablesResult&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<TransferablesResult>> getUnifiedTransferablesWithHttpInfo(String currencies) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedTransferablesValidateBeforeCall(currencies, null);
+        Type localVarReturnType = new TypeToken<List<TransferablesResult>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed. (asynchronously)
+     * 
+     * @param currencies Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedTransferablesAsync(String currencies, final ApiCallback<List<TransferablesResult>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedTransferablesValidateBeforeCall(currencies, _callback);
+        Type localVarReturnType = new TypeToken<List<TransferablesResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

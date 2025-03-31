@@ -811,7 +811,7 @@ Name | Type | Description  | Notes
 
 <a name="listSpotAccountBook"></a>
 # **listSpotAccountBook**
-> List&lt;SpotAccountBook&gt; listSpotAccountBook().currency(currency).from(from).to(to).page(page).limit(limit).type(type).execute();
+> List&lt;SpotAccountBook&gt; listSpotAccountBook().currency(currency).from(from).to(to).page(page).limit(limit).type(type).code(code).execute();
 
 Query account book
 
@@ -844,6 +844,7 @@ public class Example {
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         String type = "lend"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
+        String code = "code_example"; // String | Specify account change code query, if not specified, all change types are included, and the priority is higher than `type`
         try {
             List<SpotAccountBook> result = apiInstance.listSpotAccountBook()
                         .currency(currency)
@@ -852,6 +853,7 @@ public class Example {
                         .page(page)
                         .limit(limit)
                         .type(type)
+                        .code(code)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -877,6 +879,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **type** | **String**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
+ **code** | **String**| Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; | [optional]
 
 ### Return type
 

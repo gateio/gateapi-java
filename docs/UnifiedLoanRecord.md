@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Long** | id |  [optional] [readonly]
 **type** | **String** | type: borrow - borrow, repay - repay |  [optional] [readonly]
-**repaymentType** | **String** | Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation |  [optional] [readonly]
+**repaymentType** | **String** | Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment |  [optional] [readonly]
 **borrowType** | **String** | Loan type, returned when querying loan records. manual_borrow - Manual repayment , auto_borrow - Automatic repayment |  [optional]
 **currencyPair** | **String** | Currency pair |  [optional] [readonly]
 **currency** | **String** | Currency |  [optional] [readonly]

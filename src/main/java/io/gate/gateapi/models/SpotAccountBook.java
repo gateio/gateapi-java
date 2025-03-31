@@ -47,6 +47,10 @@ public class SpotAccountBook {
     @SerializedName(SERIALIZED_NAME_TYPE)
     private String type;
 
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private String code;
+
     public static final String SERIALIZED_NAME_TEXT = "text";
     @SerializedName(SERIALIZED_NAME_TEXT)
     private String text;
@@ -172,6 +176,26 @@ public class SpotAccountBook {
         this.type = type;
     }
 
+    public SpotAccountBook code(String code) {
+        
+        this.code = code;
+        return this;
+    }
+
+     /**
+     * Account change code, see [Asset Record Code] (Asset Record Code)
+     * @return code
+    **/
+    @javax.annotation.Nullable
+    public String getCode() {
+        return code;
+    }
+
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public SpotAccountBook text(String text) {
         
         this.text = text;
@@ -206,12 +230,13 @@ public class SpotAccountBook {
                 Objects.equals(this.change, spotAccountBook.change) &&
                 Objects.equals(this.balance, spotAccountBook.balance) &&
                 Objects.equals(this.type, spotAccountBook.type) &&
+                Objects.equals(this.code, spotAccountBook.code) &&
                 Objects.equals(this.text, spotAccountBook.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, time, currency, change, balance, type, text);
+        return Objects.hash(id, time, currency, change, balance, type, code, text);
     }
 
 
@@ -225,6 +250,7 @@ public class SpotAccountBook {
         sb.append("      change: ").append(toIndentedString(change)).append("\n");
         sb.append("      balance: ").append(toIndentedString(balance)).append("\n");
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();

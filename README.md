@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.94.2
-- SDK version: 6.94.2
+- API version: 4.95.0
+- SDK version: 6.95.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.94.2</version>
+    <version>6.95.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.94.2"
+compile "io.gate:gate-api:6.95.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.94.2.jar`
+* `target/gate-api-6.95.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -278,6 +278,10 @@ Class | Method | HTTP request | Description
 *MarginApi* | [**getCrossMarginTransferable**](docs/MarginApi.md#getCrossMarginTransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency. (deprecated)
 *MarginApi* | [**getCrossMarginEstimateRate**](docs/MarginApi.md#getCrossMarginEstimateRate) | **GET** /margin/cross/estimate_rate | Estimated interest rates. (deprecated)
 *MarginApi* | [**getCrossMarginBorrowable**](docs/MarginApi.md#getCrossMarginBorrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency. (deprecated)
+*MarginApi* | [**getUserMarginTier**](docs/MarginApi.md#getUserMarginTier) | **GET** /margin/user/loan_margin_tiers | Check the user&#39;s own leverage lending gradient in the current market
+*MarginApi* | [**getMarketMarginTier**](docs/MarginApi.md#getMarketMarginTier) | **GET** /margin/loan_margin_tiers | Query the current market leverage lending gradient
+*MarginApi* | [**setUserMarketLeverage**](docs/MarginApi.md#setUserMarketLeverage) | **POST** /margin/leverage/user_market_setting | Set the user market leverage multiple
+*MarginApi* | [**listMarginUserAccount**](docs/MarginApi.md#listMarginUserAccount) | **GET** /margin/user/account | Query the user&#39;s leverage account list
 *MarginUniApi* | [**listUniCurrencyPairs**](docs/MarginUniApi.md#listUniCurrencyPairs) | **GET** /margin/uni/currency_pairs | List lending markets
 *MarginUniApi* | [**getUniCurrencyPair**](docs/MarginUniApi.md#getUniCurrencyPair) | **GET** /margin/uni/currency_pairs/{currency_pair} | Get detail of lending market
 *MarginUniApi* | [**getMarginUniEstimateRate**](docs/MarginUniApi.md#getMarginUniEstimateRate) | **GET** /margin/uni/estimate_rate | Estimate interest Rate
@@ -381,6 +385,7 @@ Class | Method | HTTP request | Description
 *UnifiedApi* | [**listUnifiedAccounts**](docs/UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information
 *UnifiedApi* | [**getUnifiedBorrowable**](docs/UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query about the maximum borrowing for the unified account
 *UnifiedApi* | [**getUnifiedTransferable**](docs/UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query about the maximum transferable for the unified account
+*UnifiedApi* | [**getUnifiedTransferables**](docs/UnifiedApi.md#getUnifiedTransferables) | **GET** /unified/transferables | Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
 *UnifiedApi* | [**listUnifiedLoans**](docs/UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | List loans
 *UnifiedApi* | [**createUnifiedLoan**](docs/UnifiedApi.md#createUnifiedLoan) | **POST** /unified/loans | Borrow or repay
 *UnifiedApi* | [**listUnifiedLoanRecords**](docs/UnifiedApi.md#listUnifiedLoanRecords) | **GET** /unified/loan_records | Get load records
@@ -525,6 +530,8 @@ Class | Method | HTTP request | Description
  - [MarginAccount](docs/MarginAccount.md)
  - [MarginAccountBook](docs/MarginAccountBook.md)
  - [MarginAccountCurrency](docs/MarginAccountCurrency.md)
+ - [MarginLeverageTier](docs/MarginLeverageTier.md)
+ - [MarginMarketLeverage](docs/MarginMarketLeverage.md)
  - [MarginTiers](docs/MarginTiers.md)
  - [MarginTransferable](docs/MarginTransferable.md)
  - [MaxUniBorrowable](docs/MaxUniBorrowable.md)
@@ -626,6 +633,7 @@ Class | Method | HTTP request | Description
  - [TransactionID](docs/TransactionID.md)
  - [Transfer](docs/Transfer.md)
  - [TransferOrderStatus](docs/TransferOrderStatus.md)
+ - [TransferablesResult](docs/TransferablesResult.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
  - [TriggerTime](docs/TriggerTime.md)
  - [UidPushOrder](docs/UidPushOrder.md)

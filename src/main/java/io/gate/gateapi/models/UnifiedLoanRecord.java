@@ -77,7 +77,7 @@ public class UnifiedLoanRecord {
 
 
      /**
-     * Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation
+     * Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment
      * @return repaymentType
     **/
     @javax.annotation.Nullable

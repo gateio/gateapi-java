@@ -1662,7 +1662,7 @@ public class SpotApi {
         return new APIlistSpotAccountsRequest();
     }
 
-    private okhttp3.Call listSpotAccountBookCall(String currency, Long from, Long to, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSpotAccountBookCall(String currency, Long from, Long to, Integer page, Integer limit, String type, String code, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1694,6 +1694,10 @@ public class SpotApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
         }
 
+        if (code != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("code", code));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -1716,20 +1720,20 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSpotAccountBookValidateBeforeCall(String currency, Long from, Long to, Integer page, Integer limit, String type, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSpotAccountBookCall(currency, from, to, page, limit, type, _callback);
+    private okhttp3.Call listSpotAccountBookValidateBeforeCall(String currency, Long from, Long to, Integer page, Integer limit, String type, String code, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSpotAccountBookCall(currency, from, to, page, limit, type, code, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<SpotAccountBook>> listSpotAccountBookWithHttpInfo(String currency, Long from, Long to, Integer page, Integer limit, String type) throws ApiException {
-        okhttp3.Call localVarCall = listSpotAccountBookValidateBeforeCall(currency, from, to, page, limit, type, null);
+    private ApiResponse<List<SpotAccountBook>> listSpotAccountBookWithHttpInfo(String currency, Long from, Long to, Integer page, Integer limit, String type, String code) throws ApiException {
+        okhttp3.Call localVarCall = listSpotAccountBookValidateBeforeCall(currency, from, to, page, limit, type, code, null);
         Type localVarReturnType = new TypeToken<List<SpotAccountBook>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listSpotAccountBookAsync(String currency, Long from, Long to, Integer page, Integer limit, String type, final ApiCallback<List<SpotAccountBook>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSpotAccountBookValidateBeforeCall(currency, from, to, page, limit, type, _callback);
+    private okhttp3.Call listSpotAccountBookAsync(String currency, Long from, Long to, Integer page, Integer limit, String type, String code, final ApiCallback<List<SpotAccountBook>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSpotAccountBookValidateBeforeCall(currency, from, to, page, limit, type, code, _callback);
         Type localVarReturnType = new TypeToken<List<SpotAccountBook>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1742,6 +1746,7 @@ public class SpotApi {
         private Integer page;
         private Integer limit;
         private String type;
+        private String code;
 
         private APIlistSpotAccountBookRequest() {
         }
@@ -1807,6 +1812,16 @@ public class SpotApi {
         }
 
         /**
+         * Set code
+         * @param code Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)
+         * @return APIlistSpotAccountBookRequest
+         */
+        public APIlistSpotAccountBookRequest code(String code) {
+            this.code = code;
+            return this;
+        }
+
+        /**
          * Build call for listSpotAccountBook
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -1818,7 +1833,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listSpotAccountBookCall(currency, from, to, page, limit, type, _callback);
+            return listSpotAccountBookCall(currency, from, to, page, limit, type, code, _callback);
         }
 
         /**
@@ -1832,7 +1847,7 @@ public class SpotApi {
          </table>
          */
         public List<SpotAccountBook> execute() throws ApiException {
-            ApiResponse<List<SpotAccountBook>> localVarResp = listSpotAccountBookWithHttpInfo(currency, from, to, page, limit, type);
+            ApiResponse<List<SpotAccountBook>> localVarResp = listSpotAccountBookWithHttpInfo(currency, from, to, page, limit, type, code);
             return localVarResp.getData();
         }
 
@@ -1847,7 +1862,7 @@ public class SpotApi {
          </table>
          */
         public ApiResponse<List<SpotAccountBook>> executeWithHttpInfo() throws ApiException {
-            return listSpotAccountBookWithHttpInfo(currency, from, to, page, limit, type);
+            return listSpotAccountBookWithHttpInfo(currency, from, to, page, limit, type, code);
         }
 
         /**
@@ -1862,7 +1877,7 @@ public class SpotApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SpotAccountBook>> _callback) throws ApiException {
-            return listSpotAccountBookAsync(currency, from, to, page, limit, type, _callback);
+            return listSpotAccountBookAsync(currency, from, to, page, limit, type, code, _callback);
         }
     }
 
