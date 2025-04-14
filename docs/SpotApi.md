@@ -929,7 +929,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         List<Order> order = Arrays.asList(); // List<Order> | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             List<BatchOrder> result = apiInstance.createBatchOrders(order, xGateExptime);
             System.out.println(result);
@@ -951,7 +951,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**List&lt;Order&gt;**](Order.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1240,7 +1240,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         Order order = new Order(); // Order | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             Order result = apiInstance.createOrder(order, xGateExptime);
             System.out.println(result);
@@ -1262,7 +1262,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**Order**](Order.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1315,7 +1315,7 @@ public class Example {
         String side = "sell"; // String | All bids or asks. Both included if not specified
         String account = "spot"; // String | Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify `unified`
         String actionMode = "ACK"; // String | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             List<OrderCancel> result = apiInstance.cancelOrders(currencyPair, side, account, actionMode, xGateExptime);
             System.out.println(result);
@@ -1340,7 +1340,7 @@ Name | Type | Description  | Notes
  **side** | **String**| All bids or asks. Both included if not specified | [optional]
  **account** | **String**| Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; | [optional]
  **actionMode** | **String**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1390,7 +1390,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         List<CancelBatchOrder> cancelBatchOrder = Arrays.asList(); // List<CancelBatchOrder> | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             List<CancelOrderResult> result = apiInstance.cancelBatchOrders(cancelBatchOrder, xGateExptime);
             System.out.println(result);
@@ -1412,7 +1412,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cancelBatchOrder** | [**List&lt;CancelBatchOrder&gt;**](CancelBatchOrder.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1539,7 +1539,7 @@ public class Example {
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String account = "spot"; // String | Specify query account.
         String actionMode = "ACK"; // String | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default)
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             Order result = apiInstance.cancelOrder(orderId, currencyPair, account, actionMode, xGateExptime);
             System.out.println(result);
@@ -1564,7 +1564,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **String**| Currency pair |
  **account** | **String**| Specify query account. | [optional]
  **actionMode** | **String**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional]
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1617,7 +1617,7 @@ public class Example {
         OrderPatch orderPatch = new OrderPatch(); // OrderPatch | 
         String currencyPair = "BTC_USDT"; // String | Currency pair
         String account = "spot"; // String | Specify query account.
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             Order result = apiInstance.amendOrder(orderId, orderPatch, currencyPair, account, xGateExptime);
             System.out.println(result);
@@ -1642,7 +1642,7 @@ Name | Type | Description  | Notes
  **orderPatch** | [**OrderPatch**](OrderPatch.md)|  |
  **currencyPair** | **String**| Currency pair | [optional]
  **account** | **String**| Specify query account. | [optional]
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -1912,7 +1912,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         List<BatchAmendItem> batchAmendItem = Arrays.asList(); // List<BatchAmendItem> | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             List<BatchOrder> result = apiInstance.amendBatchOrders(batchAmendItem, xGateExptime);
             System.out.println(result);
@@ -1934,7 +1934,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batchAmendItem** | [**List&lt;BatchAmendItem&gt;**](BatchAmendItem.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 

@@ -4354,7 +4354,7 @@ public class FuturesApi {
         <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFuturesOrderCall(String settle, FuturesOrder futuresOrder, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createFuturesOrderCall(String settle, FuturesOrder futuresOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = futuresOrder;
 
         // create path and map variables
@@ -4389,7 +4389,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFuturesOrderValidateBeforeCall(String settle, FuturesOrder futuresOrder, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFuturesOrderValidateBeforeCall(String settle, FuturesOrder futuresOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling createFuturesOrder(Async)");
@@ -4418,7 +4418,7 @@ public class FuturesApi {
         <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public FuturesOrder createFuturesOrder(String settle, FuturesOrder futuresOrder, Long xGateExptime) throws ApiException {
+    public FuturesOrder createFuturesOrder(String settle, FuturesOrder futuresOrder, String xGateExptime) throws ApiException {
         ApiResponse<FuturesOrder> localVarResp = createFuturesOrderWithHttpInfo(settle, futuresOrder, xGateExptime);
         return localVarResp.getData();
     }
@@ -4437,7 +4437,7 @@ public class FuturesApi {
         <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FuturesOrder> createFuturesOrderWithHttpInfo(String settle, FuturesOrder futuresOrder, Long xGateExptime) throws ApiException {
+    public ApiResponse<FuturesOrder> createFuturesOrderWithHttpInfo(String settle, FuturesOrder futuresOrder, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = createFuturesOrderValidateBeforeCall(settle, futuresOrder, xGateExptime, null);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4458,7 +4458,7 @@ public class FuturesApi {
         <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFuturesOrderAsync(String settle, FuturesOrder futuresOrder, Long xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
+    public okhttp3.Call createFuturesOrderAsync(String settle, FuturesOrder futuresOrder, String xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = createFuturesOrderValidateBeforeCall(settle, futuresOrder, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -4470,7 +4470,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param side All bids or asks. Both included if not specified (optional)
+     * @param side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4480,7 +4480,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> All orders matched cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrdersCall(String settle, String contract, Long xGateExptime, String side, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelFuturesOrdersCall(String settle, String contract, String xGateExptime, String side, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4523,7 +4523,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelFuturesOrdersValidateBeforeCall(String settle, String contract, Long xGateExptime, String side, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelFuturesOrdersValidateBeforeCall(String settle, String contract, String xGateExptime, String side, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling cancelFuturesOrders(Async)");
@@ -4544,7 +4544,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param side All bids or asks. Both included if not specified (optional)
+     * @param side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      * @return List&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4553,7 +4553,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> All orders matched cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public List<FuturesOrder> cancelFuturesOrders(String settle, String contract, Long xGateExptime, String side) throws ApiException {
+    public List<FuturesOrder> cancelFuturesOrders(String settle, String contract, String xGateExptime, String side) throws ApiException {
         ApiResponse<List<FuturesOrder>> localVarResp = cancelFuturesOrdersWithHttpInfo(settle, contract, xGateExptime, side);
         return localVarResp.getData();
     }
@@ -4564,7 +4564,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param side All bids or asks. Both included if not specified (optional)
+     * @param side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      * @return ApiResponse&lt;List&lt;FuturesOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4573,7 +4573,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> All orders matched cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<FuturesOrder>> cancelFuturesOrdersWithHttpInfo(String settle, String contract, Long xGateExptime, String side) throws ApiException {
+    public ApiResponse<List<FuturesOrder>> cancelFuturesOrdersWithHttpInfo(String settle, String contract, String xGateExptime, String side) throws ApiException {
         okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, contract, xGateExptime, side, null);
         Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4585,7 +4585,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param side All bids or asks. Both included if not specified (optional)
+     * @param side Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4595,7 +4595,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> All orders matched cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrdersAsync(String settle, String contract, Long xGateExptime, String side, final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
+    public okhttp3.Call cancelFuturesOrdersAsync(String settle, String contract, String xGateExptime, String side, final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, contract, xGateExptime, side, _callback);
         Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -4828,7 +4828,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBatchFuturesOrderCall(String settle, List<FuturesOrder> futuresOrder, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBatchFuturesOrderCall(String settle, List<FuturesOrder> futuresOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = futuresOrder;
 
         // create path and map variables
@@ -4863,7 +4863,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBatchFuturesOrderValidateBeforeCall(String settle, List<FuturesOrder> futuresOrder, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createBatchFuturesOrderValidateBeforeCall(String settle, List<FuturesOrder> futuresOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling createBatchFuturesOrder(Async)");
@@ -4892,7 +4892,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public List<BatchFuturesOrder> createBatchFuturesOrder(String settle, List<FuturesOrder> futuresOrder, Long xGateExptime) throws ApiException {
+    public List<BatchFuturesOrder> createBatchFuturesOrder(String settle, List<FuturesOrder> futuresOrder, String xGateExptime) throws ApiException {
         ApiResponse<List<BatchFuturesOrder>> localVarResp = createBatchFuturesOrderWithHttpInfo(settle, futuresOrder, xGateExptime);
         return localVarResp.getData();
     }
@@ -4911,7 +4911,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<BatchFuturesOrder>> createBatchFuturesOrderWithHttpInfo(String settle, List<FuturesOrder> futuresOrder, Long xGateExptime) throws ApiException {
+    public ApiResponse<List<BatchFuturesOrder>> createBatchFuturesOrderWithHttpInfo(String settle, List<FuturesOrder> futuresOrder, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = createBatchFuturesOrderValidateBeforeCall(settle, futuresOrder, xGateExptime, null);
         Type localVarReturnType = new TypeToken<List<BatchFuturesOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4932,7 +4932,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBatchFuturesOrderAsync(String settle, List<FuturesOrder> futuresOrder, Long xGateExptime, final ApiCallback<List<BatchFuturesOrder>> _callback) throws ApiException {
+    public okhttp3.Call createBatchFuturesOrderAsync(String settle, List<FuturesOrder> futuresOrder, String xGateExptime, final ApiCallback<List<BatchFuturesOrder>> _callback) throws ApiException {
         okhttp3.Call localVarCall = createBatchFuturesOrderValidateBeforeCall(settle, futuresOrder, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<List<BatchFuturesOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -5072,7 +5072,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendFuturesOrderCall(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call amendFuturesOrderCall(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = futuresOrderAmendment;
 
         // create path and map variables
@@ -5108,7 +5108,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call amendFuturesOrderValidateBeforeCall(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call amendFuturesOrderValidateBeforeCall(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling amendFuturesOrder(Async)");
@@ -5143,7 +5143,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public FuturesOrder amendFuturesOrder(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, Long xGateExptime) throws ApiException {
+    public FuturesOrder amendFuturesOrder(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime) throws ApiException {
         ApiResponse<FuturesOrder> localVarResp = amendFuturesOrderWithHttpInfo(settle, orderId, futuresOrderAmendment, xGateExptime);
         return localVarResp.getData();
     }
@@ -5163,7 +5163,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FuturesOrder> amendFuturesOrderWithHttpInfo(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, Long xGateExptime) throws ApiException {
+    public ApiResponse<FuturesOrder> amendFuturesOrderWithHttpInfo(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = amendFuturesOrderValidateBeforeCall(settle, orderId, futuresOrderAmendment, xGateExptime, null);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5185,7 +5185,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendFuturesOrderAsync(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, Long xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
+    public okhttp3.Call amendFuturesOrderAsync(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = amendFuturesOrderValidateBeforeCall(settle, orderId, futuresOrderAmendment, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -5206,7 +5206,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrderCall(String settle, String orderId, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelFuturesOrderCall(String settle, String orderId, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5242,7 +5242,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelFuturesOrderValidateBeforeCall(String settle, String orderId, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelFuturesOrderValidateBeforeCall(String settle, String orderId, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling cancelFuturesOrder(Async)");
@@ -5271,7 +5271,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public FuturesOrder cancelFuturesOrder(String settle, String orderId, Long xGateExptime) throws ApiException {
+    public FuturesOrder cancelFuturesOrder(String settle, String orderId, String xGateExptime) throws ApiException {
         ApiResponse<FuturesOrder> localVarResp = cancelFuturesOrderWithHttpInfo(settle, orderId, xGateExptime);
         return localVarResp.getData();
     }
@@ -5290,7 +5290,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FuturesOrder> cancelFuturesOrderWithHttpInfo(String settle, String orderId, Long xGateExptime) throws ApiException {
+    public ApiResponse<FuturesOrder> cancelFuturesOrderWithHttpInfo(String settle, String orderId, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = cancelFuturesOrderValidateBeforeCall(settle, orderId, xGateExptime, null);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5311,7 +5311,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrderAsync(String settle, String orderId, Long xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
+    public okhttp3.Call cancelFuturesOrderAsync(String settle, String orderId, String xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelFuturesOrderValidateBeforeCall(settle, orderId, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -6646,7 +6646,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order cancellation operation completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelBatchFutureOrdersCall(String settle, List<String> requestBody, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelBatchFutureOrdersCall(String settle, List<String> requestBody, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = requestBody;
 
         // create path and map variables
@@ -6681,7 +6681,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelBatchFutureOrdersValidateBeforeCall(String settle, List<String> requestBody, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelBatchFutureOrdersValidateBeforeCall(String settle, List<String> requestBody, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling cancelBatchFutureOrders(Async)");
@@ -6710,7 +6710,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order cancellation operation completed </td><td>  -  </td></tr>
      </table>
      */
-    public List<FutureCancelOrderResult> cancelBatchFutureOrders(String settle, List<String> requestBody, Long xGateExptime) throws ApiException {
+    public List<FutureCancelOrderResult> cancelBatchFutureOrders(String settle, List<String> requestBody, String xGateExptime) throws ApiException {
         ApiResponse<List<FutureCancelOrderResult>> localVarResp = cancelBatchFutureOrdersWithHttpInfo(settle, requestBody, xGateExptime);
         return localVarResp.getData();
     }
@@ -6729,7 +6729,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order cancellation operation completed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<FutureCancelOrderResult>> cancelBatchFutureOrdersWithHttpInfo(String settle, List<String> requestBody, Long xGateExptime) throws ApiException {
+    public ApiResponse<List<FutureCancelOrderResult>> cancelBatchFutureOrdersWithHttpInfo(String settle, List<String> requestBody, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = cancelBatchFutureOrdersValidateBeforeCall(settle, requestBody, xGateExptime, null);
         Type localVarReturnType = new TypeToken<List<FutureCancelOrderResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6750,7 +6750,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order cancellation operation completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelBatchFutureOrdersAsync(String settle, List<String> requestBody, Long xGateExptime, final ApiCallback<List<FutureCancelOrderResult>> _callback) throws ApiException {
+    public okhttp3.Call cancelBatchFutureOrdersAsync(String settle, List<String> requestBody, String xGateExptime, final ApiCallback<List<FutureCancelOrderResult>> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelBatchFutureOrdersValidateBeforeCall(settle, requestBody, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<List<FutureCancelOrderResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -6771,7 +6771,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendBatchFutureOrdersCall(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call amendBatchFutureOrdersCall(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = batchAmendOrderReq;
 
         // create path and map variables
@@ -6806,7 +6806,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call amendBatchFutureOrdersValidateBeforeCall(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call amendBatchFutureOrdersValidateBeforeCall(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling amendBatchFutureOrders(Async)");
@@ -6835,7 +6835,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public List<BatchFuturesOrder> amendBatchFutureOrders(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, Long xGateExptime) throws ApiException {
+    public List<BatchFuturesOrder> amendBatchFutureOrders(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime) throws ApiException {
         ApiResponse<List<BatchFuturesOrder>> localVarResp = amendBatchFutureOrdersWithHttpInfo(settle, batchAmendOrderReq, xGateExptime);
         return localVarResp.getData();
     }
@@ -6854,7 +6854,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<BatchFuturesOrder>> amendBatchFutureOrdersWithHttpInfo(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, Long xGateExptime) throws ApiException {
+    public ApiResponse<List<BatchFuturesOrder>> amendBatchFutureOrdersWithHttpInfo(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = amendBatchFutureOrdersValidateBeforeCall(settle, batchAmendOrderReq, xGateExptime, null);
         Type localVarReturnType = new TypeToken<List<BatchFuturesOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -6875,7 +6875,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendBatchFutureOrdersAsync(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, Long xGateExptime, final ApiCallback<List<BatchFuturesOrder>> _callback) throws ApiException {
+    public okhttp3.Call amendBatchFutureOrdersAsync(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime, final ApiCallback<List<BatchFuturesOrder>> _callback) throws ApiException {
         okhttp3.Call localVarCall = amendBatchFutureOrdersValidateBeforeCall(settle, batchAmendOrderReq, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<List<BatchFuturesOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);

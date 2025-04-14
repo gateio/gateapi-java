@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 <a name="createUnifiedLoan"></a>
 # **createUnifiedLoan**
-> createUnifiedLoan(unifiedLoan)
+> UnifiedLoanResult createUnifiedLoan(unifiedLoan)
 
 Borrow or repay
 
@@ -415,7 +415,8 @@ public class Example {
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
         UnifiedLoan unifiedLoan = new UnifiedLoan(); // UnifiedLoan | 
         try {
-            apiInstance.createUnifiedLoan(unifiedLoan);
+            UnifiedLoanResult result = apiInstance.createUnifiedLoan(unifiedLoan);
+            System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
@@ -437,7 +438,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**UnifiedLoanResult**](UnifiedLoanResult.md)
 
 ### Authorization
 
@@ -446,12 +447,12 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Operated successfully |  -  |
+**200** | Operated successfully |  -  |
 
 <a name="listUnifiedLoanRecords"></a>
 # **listUnifiedLoanRecords**

@@ -2024,7 +2024,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         FuturesOrder futuresOrder = new FuturesOrder(); // FuturesOrder | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             FuturesOrder result = apiInstance.createFuturesOrder(settle, futuresOrder, xGateExptime);
             System.out.println(result);
@@ -2047,7 +2047,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -2098,8 +2098,8 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
-        String side = "ask"; // String | All bids or asks. Both included if not specified
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String side = "ask"; // String | Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask
         try {
             List<FuturesOrder> result = apiInstance.cancelFuturesOrders(settle, contract, xGateExptime, side);
             System.out.println(result);
@@ -2122,8 +2122,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
- **side** | **String**| All bids or asks. Both included if not specified | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **side** | **String**| Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask | [optional]
 
 ### Return type
 
@@ -2258,7 +2258,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         List<FuturesOrder> futuresOrder = Arrays.asList(); // List<FuturesOrder> | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             List<BatchFuturesOrder> result = apiInstance.createBatchFuturesOrder(settle, futuresOrder, xGateExptime);
             System.out.println(result);
@@ -2281,7 +2281,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **futuresOrder** | [**List&lt;FuturesOrder&gt;**](FuturesOrder.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -2403,7 +2403,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
         FuturesOrderAmendment futuresOrderAmendment = new FuturesOrderAmendment(); // FuturesOrderAmendment | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             FuturesOrder result = apiInstance.amendFuturesOrder(settle, orderId, futuresOrderAmendment, xGateExptime);
             System.out.println(result);
@@ -2427,7 +2427,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. |
  **futuresOrderAmendment** | [**FuturesOrderAmendment**](FuturesOrderAmendment.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -2476,7 +2476,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String orderId = "12345"; // String | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             FuturesOrder result = apiInstance.cancelFuturesOrder(settle, orderId, xGateExptime);
             System.out.println(result);
@@ -2499,7 +2499,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **orderId** | **String**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -3113,7 +3113,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         List<String> requestBody = Arrays.asList(); // List<String> | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             List<FutureCancelOrderResult> result = apiInstance.cancelBatchFutureOrders(settle, requestBody, xGateExptime);
             System.out.println(result);
@@ -3136,7 +3136,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **requestBody** | [**List&lt;String&gt;**](String.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 
@@ -3187,7 +3187,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         List<BatchAmendOrderReq> batchAmendOrderReq = Arrays.asList(); // List<BatchAmendOrderReq> | 
-        Long xGateExptime = 1689560679123L; // Long | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
             List<BatchFuturesOrder> result = apiInstance.amendBatchFutureOrders(settle, batchAmendOrderReq, xGateExptime);
             System.out.println(result);
@@ -3210,7 +3210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **batchAmendOrderReq** | [**List&lt;BatchAmendOrderReq&gt;**](BatchAmendOrderReq.md)|  |
- **xGateExptime** | **Long**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
 ### Return type
 

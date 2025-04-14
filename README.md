@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.95.0
-- SDK version: 6.95.0
+- API version: 4.96.0
+- SDK version: 6.96.0
 
 Welcome to Gate.io API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.95.0</version>
+    <version>6.96.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.95.0"
+compile "io.gate:gate-api:6.96.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.95.0.jar`
+* `target/gate-api-6.96.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -662,6 +662,7 @@ Class | Method | HTTP request | Description
  - [UnifiedLeverageSetting](docs/UnifiedLeverageSetting.md)
  - [UnifiedLoan](docs/UnifiedLoan.md)
  - [UnifiedLoanRecord](docs/UnifiedLoanRecord.md)
+ - [UnifiedLoanResult](docs/UnifiedLoanResult.md)
  - [UnifiedMarginTiers](docs/UnifiedMarginTiers.md)
  - [UnifiedModeSet](docs/UnifiedModeSet.md)
  - [UnifiedPortfolioInput](docs/UnifiedPortfolioInput.md)

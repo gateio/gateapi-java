@@ -96,6 +96,18 @@ public class FuturesAccount {
     @SerializedName(SERIALIZED_NAME_CROSS_AVAILABLE)
     private String crossAvailable;
 
+    public static final String SERIALIZED_NAME_CROSS_MARGIN_BALANCE = "cross_margin_balance";
+    @SerializedName(SERIALIZED_NAME_CROSS_MARGIN_BALANCE)
+    private String crossMarginBalance;
+
+    public static final String SERIALIZED_NAME_CROSS_MMR = "cross_mmr";
+    @SerializedName(SERIALIZED_NAME_CROSS_MMR)
+    private String crossMmr;
+
+    public static final String SERIALIZED_NAME_CROSS_IMR = "cross_imr";
+    @SerializedName(SERIALIZED_NAME_CROSS_IMR)
+    private String crossImr;
+
     public static final String SERIALIZED_NAME_ISOLATED_POSITION_MARGIN = "isolated_position_margin";
     @SerializedName(SERIALIZED_NAME_ISOLATED_POSITION_MARGIN)
     private String isolatedPositionMargin;
@@ -473,6 +485,66 @@ public class FuturesAccount {
         this.crossAvailable = crossAvailable;
     }
 
+    public FuturesAccount crossMarginBalance(String crossMarginBalance) {
+        
+        this.crossMarginBalance = crossMarginBalance;
+        return this;
+    }
+
+     /**
+     * Full margin balance, suitable for the new classic account margin model
+     * @return crossMarginBalance
+    **/
+    @javax.annotation.Nullable
+    public String getCrossMarginBalance() {
+        return crossMarginBalance;
+    }
+
+
+    public void setCrossMarginBalance(String crossMarginBalance) {
+        this.crossMarginBalance = crossMarginBalance;
+    }
+
+    public FuturesAccount crossMmr(String crossMmr) {
+        
+        this.crossMmr = crossMmr;
+        return this;
+    }
+
+     /**
+     * Maintain margin ratio for the full position, suitable for the new classic account margin model
+     * @return crossMmr
+    **/
+    @javax.annotation.Nullable
+    public String getCrossMmr() {
+        return crossMmr;
+    }
+
+
+    public void setCrossMmr(String crossMmr) {
+        this.crossMmr = crossMmr;
+    }
+
+    public FuturesAccount crossImr(String crossImr) {
+        
+        this.crossImr = crossImr;
+        return this;
+    }
+
+     /**
+     * The initial margin rate of the full position is suitable for the new classic account margin model
+     * @return crossImr
+    **/
+    @javax.annotation.Nullable
+    public String getCrossImr() {
+        return crossImr;
+    }
+
+
+    public void setCrossImr(String crossImr) {
+        this.crossImr = crossImr;
+    }
+
     public FuturesAccount isolatedPositionMargin(String isolatedPositionMargin) {
         
         this.isolatedPositionMargin = isolatedPositionMargin;
@@ -579,6 +651,9 @@ public class FuturesAccount {
                 Objects.equals(this.crossMaintenanceMargin, futuresAccount.crossMaintenanceMargin) &&
                 Objects.equals(this.crossUnrealisedPnl, futuresAccount.crossUnrealisedPnl) &&
                 Objects.equals(this.crossAvailable, futuresAccount.crossAvailable) &&
+                Objects.equals(this.crossMarginBalance, futuresAccount.crossMarginBalance) &&
+                Objects.equals(this.crossMmr, futuresAccount.crossMmr) &&
+                Objects.equals(this.crossImr, futuresAccount.crossImr) &&
                 Objects.equals(this.isolatedPositionMargin, futuresAccount.isolatedPositionMargin) &&
                 Objects.equals(this.enableNewDualMode, futuresAccount.enableNewDualMode) &&
                 Objects.equals(this.marginMode, futuresAccount.marginMode) &&
@@ -587,7 +662,7 @@ public class FuturesAccount {
 
     @Override
     public int hashCode() {
-        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode, enableCredit, positionInitialMargin, maintenanceMargin, bonus, enableEvolvedClassic, crossOrderMargin, crossInitialMargin, crossMaintenanceMargin, crossUnrealisedPnl, crossAvailable, isolatedPositionMargin, enableNewDualMode, marginMode, history);
+        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode, enableCredit, positionInitialMargin, maintenanceMargin, bonus, enableEvolvedClassic, crossOrderMargin, crossInitialMargin, crossMaintenanceMargin, crossUnrealisedPnl, crossAvailable, crossMarginBalance, crossMmr, crossImr, isolatedPositionMargin, enableNewDualMode, marginMode, history);
     }
 
 
@@ -613,6 +688,9 @@ public class FuturesAccount {
         sb.append("      crossMaintenanceMargin: ").append(toIndentedString(crossMaintenanceMargin)).append("\n");
         sb.append("      crossUnrealisedPnl: ").append(toIndentedString(crossUnrealisedPnl)).append("\n");
         sb.append("      crossAvailable: ").append(toIndentedString(crossAvailable)).append("\n");
+        sb.append("      crossMarginBalance: ").append(toIndentedString(crossMarginBalance)).append("\n");
+        sb.append("      crossMmr: ").append(toIndentedString(crossMmr)).append("\n");
+        sb.append("      crossImr: ").append(toIndentedString(crossImr)).append("\n");
         sb.append("      isolatedPositionMargin: ").append(toIndentedString(isolatedPositionMargin)).append("\n");
         sb.append("      enableNewDualMode: ").append(toIndentedString(enableNewDualMode)).append("\n");
         sb.append("      marginMode: ").append(toIndentedString(marginMode)).append("\n");

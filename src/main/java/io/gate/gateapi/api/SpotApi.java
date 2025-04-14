@@ -1908,7 +1908,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBatchOrdersCall(List<Order> order, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBatchOrdersCall(List<Order> order, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = order;
 
         // create path and map variables
@@ -1942,7 +1942,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBatchOrdersValidateBeforeCall(List<Order> order, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createBatchOrdersValidateBeforeCall(List<Order> order, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'order' is set
         if (order == null) {
             throw new ApiException("Missing the required parameter 'order' when calling createBatchOrders(Async)");
@@ -1965,7 +1965,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public List<BatchOrder> createBatchOrders(List<Order> order, Long xGateExptime) throws ApiException {
+    public List<BatchOrder> createBatchOrders(List<Order> order, String xGateExptime) throws ApiException {
         ApiResponse<List<BatchOrder>> localVarResp = createBatchOrdersWithHttpInfo(order, xGateExptime);
         return localVarResp.getData();
     }
@@ -1983,7 +1983,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<BatchOrder>> createBatchOrdersWithHttpInfo(List<Order> order, Long xGateExptime) throws ApiException {
+    public ApiResponse<List<BatchOrder>> createBatchOrdersWithHttpInfo(List<Order> order, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = createBatchOrdersValidateBeforeCall(order, xGateExptime, null);
         Type localVarReturnType = new TypeToken<List<BatchOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2003,7 +2003,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBatchOrdersAsync(List<Order> order, Long xGateExptime, final ApiCallback<List<BatchOrder>> _callback) throws ApiException {
+    public okhttp3.Call createBatchOrdersAsync(List<Order> order, String xGateExptime, final ApiCallback<List<BatchOrder>> _callback) throws ApiException {
         okhttp3.Call localVarCall = createBatchOrdersValidateBeforeCall(order, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<List<BatchOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -2545,7 +2545,7 @@ public class SpotApi {
         <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrderCall(Order order, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOrderCall(Order order, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = order;
 
         // create path and map variables
@@ -2579,7 +2579,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOrderValidateBeforeCall(Order order, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createOrderValidateBeforeCall(Order order, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'order' is set
         if (order == null) {
             throw new ApiException("Missing the required parameter 'order' when calling createOrder(Async)");
@@ -2602,7 +2602,7 @@ public class SpotApi {
         <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
-    public Order createOrder(Order order, Long xGateExptime) throws ApiException {
+    public Order createOrder(Order order, String xGateExptime) throws ApiException {
         ApiResponse<Order> localVarResp = createOrderWithHttpInfo(order, xGateExptime);
         return localVarResp.getData();
     }
@@ -2620,7 +2620,7 @@ public class SpotApi {
         <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Order> createOrderWithHttpInfo(Order order, Long xGateExptime) throws ApiException {
+    public ApiResponse<Order> createOrderWithHttpInfo(Order order, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = createOrderValidateBeforeCall(order, xGateExptime, null);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2640,7 +2640,7 @@ public class SpotApi {
         <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrderAsync(Order order, Long xGateExptime, final ApiCallback<Order> _callback) throws ApiException {
+    public okhttp3.Call createOrderAsync(Order order, String xGateExptime, final ApiCallback<Order> _callback) throws ApiException {
         okhttp3.Call localVarCall = createOrderValidateBeforeCall(order, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -2663,7 +2663,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOrdersCall(String currencyPair, String side, String account, String actionMode, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelOrdersCall(String currencyPair, String side, String account, String actionMode, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2713,7 +2713,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelOrdersValidateBeforeCall(String currencyPair, String side, String account, String actionMode, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelOrdersValidateBeforeCall(String currencyPair, String side, String account, String actionMode, String xGateExptime, final ApiCallback _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelOrdersCall(currencyPair, side, account, actionMode, xGateExptime, _callback);
         return localVarCall;
     }
@@ -2734,7 +2734,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
      </table>
      */
-    public List<OrderCancel> cancelOrders(String currencyPair, String side, String account, String actionMode, Long xGateExptime) throws ApiException {
+    public List<OrderCancel> cancelOrders(String currencyPair, String side, String account, String actionMode, String xGateExptime) throws ApiException {
         ApiResponse<List<OrderCancel>> localVarResp = cancelOrdersWithHttpInfo(currencyPair, side, account, actionMode, xGateExptime);
         return localVarResp.getData();
     }
@@ -2755,7 +2755,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OrderCancel>> cancelOrdersWithHttpInfo(String currencyPair, String side, String account, String actionMode, Long xGateExptime) throws ApiException {
+    public ApiResponse<List<OrderCancel>> cancelOrdersWithHttpInfo(String currencyPair, String side, String account, String actionMode, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = cancelOrdersValidateBeforeCall(currencyPair, side, account, actionMode, xGateExptime, null);
         Type localVarReturnType = new TypeToken<List<OrderCancel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2778,7 +2778,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOrdersAsync(String currencyPair, String side, String account, String actionMode, Long xGateExptime, final ApiCallback<List<OrderCancel>> _callback) throws ApiException {
+    public okhttp3.Call cancelOrdersAsync(String currencyPair, String side, String account, String actionMode, String xGateExptime, final ApiCallback<List<OrderCancel>> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelOrdersValidateBeforeCall(currencyPair, side, account, actionMode, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<List<OrderCancel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -2798,7 +2798,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelBatchOrdersCall(List<CancelBatchOrder> cancelBatchOrder, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelBatchOrdersCall(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = cancelBatchOrder;
 
         // create path and map variables
@@ -2832,7 +2832,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelBatchOrdersValidateBeforeCall(List<CancelBatchOrder> cancelBatchOrder, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelBatchOrdersValidateBeforeCall(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'cancelBatchOrder' is set
         if (cancelBatchOrder == null) {
             throw new ApiException("Missing the required parameter 'cancelBatchOrder' when calling cancelBatchOrders(Async)");
@@ -2855,7 +2855,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation completed </td><td>  -  </td></tr>
      </table>
      */
-    public List<CancelOrderResult> cancelBatchOrders(List<CancelBatchOrder> cancelBatchOrder, Long xGateExptime) throws ApiException {
+    public List<CancelOrderResult> cancelBatchOrders(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime) throws ApiException {
         ApiResponse<List<CancelOrderResult>> localVarResp = cancelBatchOrdersWithHttpInfo(cancelBatchOrder, xGateExptime);
         return localVarResp.getData();
     }
@@ -2873,7 +2873,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation completed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CancelOrderResult>> cancelBatchOrdersWithHttpInfo(List<CancelBatchOrder> cancelBatchOrder, Long xGateExptime) throws ApiException {
+    public ApiResponse<List<CancelOrderResult>> cancelBatchOrdersWithHttpInfo(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = cancelBatchOrdersValidateBeforeCall(cancelBatchOrder, xGateExptime, null);
         Type localVarReturnType = new TypeToken<List<CancelOrderResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2893,7 +2893,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Batch cancellation completed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelBatchOrdersAsync(List<CancelBatchOrder> cancelBatchOrder, Long xGateExptime, final ApiCallback<List<CancelOrderResult>> _callback) throws ApiException {
+    public okhttp3.Call cancelBatchOrdersAsync(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime, final ApiCallback<List<CancelOrderResult>> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelBatchOrdersValidateBeforeCall(cancelBatchOrder, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<List<CancelOrderResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -3045,7 +3045,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOrderCall(String orderId, String currencyPair, String account, String actionMode, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelOrderCall(String orderId, String currencyPair, String account, String actionMode, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3092,7 +3092,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelOrderValidateBeforeCall(String orderId, String currencyPair, String account, String actionMode, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelOrderValidateBeforeCall(String orderId, String currencyPair, String account, String actionMode, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling cancelOrder(Async)");
@@ -3123,7 +3123,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public Order cancelOrder(String orderId, String currencyPair, String account, String actionMode, Long xGateExptime) throws ApiException {
+    public Order cancelOrder(String orderId, String currencyPair, String account, String actionMode, String xGateExptime) throws ApiException {
         ApiResponse<Order> localVarResp = cancelOrderWithHttpInfo(orderId, currencyPair, account, actionMode, xGateExptime);
         return localVarResp.getData();
     }
@@ -3144,7 +3144,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Order> cancelOrderWithHttpInfo(String orderId, String currencyPair, String account, String actionMode, Long xGateExptime) throws ApiException {
+    public ApiResponse<Order> cancelOrderWithHttpInfo(String orderId, String currencyPair, String account, String actionMode, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = cancelOrderValidateBeforeCall(orderId, currencyPair, account, actionMode, xGateExptime, null);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3167,7 +3167,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOrderAsync(String orderId, String currencyPair, String account, String actionMode, Long xGateExptime, final ApiCallback<Order> _callback) throws ApiException {
+    public okhttp3.Call cancelOrderAsync(String orderId, String currencyPair, String account, String actionMode, String xGateExptime, final ApiCallback<Order> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelOrderValidateBeforeCall(orderId, currencyPair, account, actionMode, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -3190,7 +3190,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendOrderCall(String orderId, OrderPatch orderPatch, String currencyPair, String account, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call amendOrderCall(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = orderPatch;
 
         // create path and map variables
@@ -3233,7 +3233,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call amendOrderValidateBeforeCall(String orderId, OrderPatch orderPatch, String currencyPair, String account, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call amendOrderValidateBeforeCall(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling amendOrder(Async)");
@@ -3264,7 +3264,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
      </table>
      */
-    public Order amendOrder(String orderId, OrderPatch orderPatch, String currencyPair, String account, Long xGateExptime) throws ApiException {
+    public Order amendOrder(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime) throws ApiException {
         ApiResponse<Order> localVarResp = amendOrderWithHttpInfo(orderId, orderPatch, currencyPair, account, xGateExptime);
         return localVarResp.getData();
     }
@@ -3285,7 +3285,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Order> amendOrderWithHttpInfo(String orderId, OrderPatch orderPatch, String currencyPair, String account, Long xGateExptime) throws ApiException {
+    public ApiResponse<Order> amendOrderWithHttpInfo(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = amendOrderValidateBeforeCall(orderId, orderPatch, currencyPair, account, xGateExptime, null);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3308,7 +3308,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendOrderAsync(String orderId, OrderPatch orderPatch, String currencyPair, String account, Long xGateExptime, final ApiCallback<Order> _callback) throws ApiException {
+    public okhttp3.Call amendOrderAsync(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime, final ApiCallback<Order> _callback) throws ApiException {
         okhttp3.Call localVarCall = amendOrderValidateBeforeCall(orderId, orderPatch, currencyPair, account, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<Order>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -3766,7 +3766,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendBatchOrdersCall(List<BatchAmendItem> batchAmendItem, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call amendBatchOrdersCall(List<BatchAmendItem> batchAmendItem, String xGateExptime, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = batchAmendItem;
 
         // create path and map variables
@@ -3800,7 +3800,7 @@ public class SpotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call amendBatchOrdersValidateBeforeCall(List<BatchAmendItem> batchAmendItem, Long xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call amendBatchOrdersValidateBeforeCall(List<BatchAmendItem> batchAmendItem, String xGateExptime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'batchAmendItem' is set
         if (batchAmendItem == null) {
             throw new ApiException("Missing the required parameter 'batchAmendItem' when calling amendBatchOrders(Async)");
@@ -3823,7 +3823,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public List<BatchOrder> amendBatchOrders(List<BatchAmendItem> batchAmendItem, Long xGateExptime) throws ApiException {
+    public List<BatchOrder> amendBatchOrders(List<BatchAmendItem> batchAmendItem, String xGateExptime) throws ApiException {
         ApiResponse<List<BatchOrder>> localVarResp = amendBatchOrdersWithHttpInfo(batchAmendItem, xGateExptime);
         return localVarResp.getData();
     }
@@ -3841,7 +3841,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<BatchOrder>> amendBatchOrdersWithHttpInfo(List<BatchAmendItem> batchAmendItem, Long xGateExptime) throws ApiException {
+    public ApiResponse<List<BatchOrder>> amendBatchOrdersWithHttpInfo(List<BatchAmendItem> batchAmendItem, String xGateExptime) throws ApiException {
         okhttp3.Call localVarCall = amendBatchOrdersValidateBeforeCall(batchAmendItem, xGateExptime, null);
         Type localVarReturnType = new TypeToken<List<BatchOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3861,7 +3861,7 @@ public class SpotApi {
         <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendBatchOrdersAsync(List<BatchAmendItem> batchAmendItem, Long xGateExptime, final ApiCallback<List<BatchOrder>> _callback) throws ApiException {
+    public okhttp3.Call amendBatchOrdersAsync(List<BatchAmendItem> batchAmendItem, String xGateExptime, final ApiCallback<List<BatchOrder>> _callback) throws ApiException {
         okhttp3.Call localVarCall = amendBatchOrdersValidateBeforeCall(batchAmendItem, xGateExptime, _callback);
         Type localVarReturnType = new TypeToken<List<BatchOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);

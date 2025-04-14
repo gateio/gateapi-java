@@ -40,7 +40,7 @@ public class FuturesInitialOrder {
     private Boolean close = false;
 
     /**
-     * Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+     * Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
      */
     @JsonAdapter(TifEnum.Adapter.class)
     public enum TifEnum {
@@ -137,7 +137,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position
+     * Represents the number of contracts that need to be closed, full closing: size&#x3D;0 Partial closing: plan-close-short-position size&gt;0  Partial closing: plan-close-long-position size&lt;0
      * @return size
     **/
     @javax.annotation.Nullable
@@ -176,7 +176,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Set to true if trying to close the position
+     * When all positions are closed in a single position mode, it must be set to true to perform the closing operation When partially closed positions in single-store mode/double-store mode, you can not set close, or close&#x3D;false
      * @return close
     **/
     @javax.annotation.Nullable
@@ -196,7 +196,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+     * Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
      * @return tif
     **/
     @javax.annotation.Nullable
@@ -236,7 +236,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Set to true to create a reduce-only order
+     * When set to true, perform automatic position reduction operation. Set to true to ensure that the order will not open a new position, and is only used to close or reduce positions
      * @return reduceOnly
     **/
     @javax.annotation.Nullable
@@ -256,7 +256,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
+     * Do not set auto_size When the dual-position mode is closed all positions (size&#x3D;0), auto_size, close_long, close_short, short When the double-storey mode partially closes the position (size ≠ 0), there is no need to set auto_size
      * @return autoSize
     **/
     @javax.annotation.Nullable

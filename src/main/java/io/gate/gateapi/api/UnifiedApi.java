@@ -32,6 +32,7 @@ import io.gate.gateapi.models.UnifiedLeverageConfig;
 import io.gate.gateapi.models.UnifiedLeverageSetting;
 import io.gate.gateapi.models.UnifiedLoan;
 import io.gate.gateapi.models.UnifiedLoanRecord;
+import io.gate.gateapi.models.UnifiedLoanResult;
 import io.gate.gateapi.models.UnifiedMarginTiers;
 import io.gate.gateapi.models.UnifiedModeSet;
 import io.gate.gateapi.models.UnifiedPortfolioInput;
@@ -752,7 +753,7 @@ public class UnifiedApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUnifiedLoanCall(UnifiedLoan unifiedLoan, final ApiCallback _callback) throws ApiException {
@@ -767,7 +768,7 @@ public class UnifiedApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -799,32 +800,35 @@ public class UnifiedApi {
      * Borrow or repay
      * When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
      * @param unifiedLoan  (required)
+     * @return UnifiedLoanResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public void createUnifiedLoan(UnifiedLoan unifiedLoan) throws ApiException {
-        createUnifiedLoanWithHttpInfo(unifiedLoan);
+    public UnifiedLoanResult createUnifiedLoan(UnifiedLoan unifiedLoan) throws ApiException {
+        ApiResponse<UnifiedLoanResult> localVarResp = createUnifiedLoanWithHttpInfo(unifiedLoan);
+        return localVarResp.getData();
     }
 
     /**
      * Borrow or repay
      * When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
      * @param unifiedLoan  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;UnifiedLoanResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> createUnifiedLoanWithHttpInfo(UnifiedLoan unifiedLoan) throws ApiException {
+    public ApiResponse<UnifiedLoanResult> createUnifiedLoanWithHttpInfo(UnifiedLoan unifiedLoan) throws ApiException {
         okhttp3.Call localVarCall = createUnifiedLoanValidateBeforeCall(unifiedLoan, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<UnifiedLoanResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -837,12 +841,13 @@ public class UnifiedApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createUnifiedLoanAsync(UnifiedLoan unifiedLoan, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call createUnifiedLoanAsync(UnifiedLoan unifiedLoan, final ApiCallback<UnifiedLoanResult> _callback) throws ApiException {
         okhttp3.Call localVarCall = createUnifiedLoanValidateBeforeCall(unifiedLoan, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<UnifiedLoanResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
