@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * FuturesTicker
+ * DeliveryTicker
  */
-public class FuturesTicker {
+public class DeliveryTicker {
     public static final String SERIALIZED_NAME_CONTRACT = "contract";
     @SerializedName(SERIALIZED_NAME_CONTRACT)
     private String contract;
@@ -91,6 +91,14 @@ public class FuturesTicker {
     @SerializedName(SERIALIZED_NAME_QUANTO_BASE_RATE)
     private String quantoBaseRate;
 
+    public static final String SERIALIZED_NAME_BASIS_RATE = "basis_rate";
+    @SerializedName(SERIALIZED_NAME_BASIS_RATE)
+    private String basisRate;
+
+    public static final String SERIALIZED_NAME_BASIS_VALUE = "basis_value";
+    @SerializedName(SERIALIZED_NAME_BASIS_VALUE)
+    private String basisValue;
+
     public static final String SERIALIZED_NAME_LOWEST_ASK = "lowest_ask";
     @SerializedName(SERIALIZED_NAME_LOWEST_ASK)
     private String lowestAsk;
@@ -108,7 +116,7 @@ public class FuturesTicker {
     private String highestSize;
 
 
-    public FuturesTicker contract(String contract) {
+    public DeliveryTicker contract(String contract) {
         
         this.contract = contract;
         return this;
@@ -128,7 +136,7 @@ public class FuturesTicker {
         this.contract = contract;
     }
 
-    public FuturesTicker last(String last) {
+    public DeliveryTicker last(String last) {
         
         this.last = last;
         return this;
@@ -148,7 +156,7 @@ public class FuturesTicker {
         this.last = last;
     }
 
-    public FuturesTicker changePercentage(String changePercentage) {
+    public DeliveryTicker changePercentage(String changePercentage) {
         
         this.changePercentage = changePercentage;
         return this;
@@ -168,7 +176,7 @@ public class FuturesTicker {
         this.changePercentage = changePercentage;
     }
 
-    public FuturesTicker totalSize(String totalSize) {
+    public DeliveryTicker totalSize(String totalSize) {
         
         this.totalSize = totalSize;
         return this;
@@ -188,7 +196,7 @@ public class FuturesTicker {
         this.totalSize = totalSize;
     }
 
-    public FuturesTicker low24h(String low24h) {
+    public DeliveryTicker low24h(String low24h) {
         
         this.low24h = low24h;
         return this;
@@ -208,7 +216,7 @@ public class FuturesTicker {
         this.low24h = low24h;
     }
 
-    public FuturesTicker high24h(String high24h) {
+    public DeliveryTicker high24h(String high24h) {
         
         this.high24h = high24h;
         return this;
@@ -228,7 +236,7 @@ public class FuturesTicker {
         this.high24h = high24h;
     }
 
-    public FuturesTicker volume24h(String volume24h) {
+    public DeliveryTicker volume24h(String volume24h) {
         
         this.volume24h = volume24h;
         return this;
@@ -248,7 +256,7 @@ public class FuturesTicker {
         this.volume24h = volume24h;
     }
 
-    public FuturesTicker volume24hBtc(String volume24hBtc) {
+    public DeliveryTicker volume24hBtc(String volume24hBtc) {
         
         this.volume24hBtc = volume24hBtc;
         return this;
@@ -268,7 +276,7 @@ public class FuturesTicker {
         this.volume24hBtc = volume24hBtc;
     }
 
-    public FuturesTicker volume24hUsd(String volume24hUsd) {
+    public DeliveryTicker volume24hUsd(String volume24hUsd) {
         
         this.volume24hUsd = volume24hUsd;
         return this;
@@ -288,7 +296,7 @@ public class FuturesTicker {
         this.volume24hUsd = volume24hUsd;
     }
 
-    public FuturesTicker volume24hBase(String volume24hBase) {
+    public DeliveryTicker volume24hBase(String volume24hBase) {
         
         this.volume24hBase = volume24hBase;
         return this;
@@ -308,7 +316,7 @@ public class FuturesTicker {
         this.volume24hBase = volume24hBase;
     }
 
-    public FuturesTicker volume24hQuote(String volume24hQuote) {
+    public DeliveryTicker volume24hQuote(String volume24hQuote) {
         
         this.volume24hQuote = volume24hQuote;
         return this;
@@ -328,7 +336,7 @@ public class FuturesTicker {
         this.volume24hQuote = volume24hQuote;
     }
 
-    public FuturesTicker volume24hSettle(String volume24hSettle) {
+    public DeliveryTicker volume24hSettle(String volume24hSettle) {
         
         this.volume24hSettle = volume24hSettle;
         return this;
@@ -348,7 +356,7 @@ public class FuturesTicker {
         this.volume24hSettle = volume24hSettle;
     }
 
-    public FuturesTicker markPrice(String markPrice) {
+    public DeliveryTicker markPrice(String markPrice) {
         
         this.markPrice = markPrice;
         return this;
@@ -368,7 +376,7 @@ public class FuturesTicker {
         this.markPrice = markPrice;
     }
 
-    public FuturesTicker fundingRate(String fundingRate) {
+    public DeliveryTicker fundingRate(String fundingRate) {
         
         this.fundingRate = fundingRate;
         return this;
@@ -388,7 +396,7 @@ public class FuturesTicker {
         this.fundingRate = fundingRate;
     }
 
-    public FuturesTicker fundingRateIndicative(String fundingRateIndicative) {
+    public DeliveryTicker fundingRateIndicative(String fundingRateIndicative) {
         
         this.fundingRateIndicative = fundingRateIndicative;
         return this;
@@ -408,7 +416,7 @@ public class FuturesTicker {
         this.fundingRateIndicative = fundingRateIndicative;
     }
 
-    public FuturesTicker indexPrice(String indexPrice) {
+    public DeliveryTicker indexPrice(String indexPrice) {
         
         this.indexPrice = indexPrice;
         return this;
@@ -428,7 +436,7 @@ public class FuturesTicker {
         this.indexPrice = indexPrice;
     }
 
-    public FuturesTicker quantoBaseRate(String quantoBaseRate) {
+    public DeliveryTicker quantoBaseRate(String quantoBaseRate) {
         
         this.quantoBaseRate = quantoBaseRate;
         return this;
@@ -448,7 +456,47 @@ public class FuturesTicker {
         this.quantoBaseRate = quantoBaseRate;
     }
 
-    public FuturesTicker lowestAsk(String lowestAsk) {
+    public DeliveryTicker basisRate(String basisRate) {
+        
+        this.basisRate = basisRate;
+        return this;
+    }
+
+     /**
+     * Basis rate
+     * @return basisRate
+    **/
+    @javax.annotation.Nullable
+    public String getBasisRate() {
+        return basisRate;
+    }
+
+
+    public void setBasisRate(String basisRate) {
+        this.basisRate = basisRate;
+    }
+
+    public DeliveryTicker basisValue(String basisValue) {
+        
+        this.basisValue = basisValue;
+        return this;
+    }
+
+     /**
+     * Basis value
+     * @return basisValue
+    **/
+    @javax.annotation.Nullable
+    public String getBasisValue() {
+        return basisValue;
+    }
+
+
+    public void setBasisValue(String basisValue) {
+        this.basisValue = basisValue;
+    }
+
+    public DeliveryTicker lowestAsk(String lowestAsk) {
         
         this.lowestAsk = lowestAsk;
         return this;
@@ -468,7 +516,7 @@ public class FuturesTicker {
         this.lowestAsk = lowestAsk;
     }
 
-    public FuturesTicker lowestSize(String lowestSize) {
+    public DeliveryTicker lowestSize(String lowestSize) {
         
         this.lowestSize = lowestSize;
         return this;
@@ -488,7 +536,7 @@ public class FuturesTicker {
         this.lowestSize = lowestSize;
     }
 
-    public FuturesTicker highestBid(String highestBid) {
+    public DeliveryTicker highestBid(String highestBid) {
         
         this.highestBid = highestBid;
         return this;
@@ -508,7 +556,7 @@ public class FuturesTicker {
         this.highestBid = highestBid;
     }
 
-    public FuturesTicker highestSize(String highestSize) {
+    public DeliveryTicker highestSize(String highestSize) {
         
         this.highestSize = highestSize;
         return this;
@@ -535,40 +583,42 @@ public class FuturesTicker {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        FuturesTicker futuresTicker = (FuturesTicker) o;
-        return Objects.equals(this.contract, futuresTicker.contract) &&
-                Objects.equals(this.last, futuresTicker.last) &&
-                Objects.equals(this.changePercentage, futuresTicker.changePercentage) &&
-                Objects.equals(this.totalSize, futuresTicker.totalSize) &&
-                Objects.equals(this.low24h, futuresTicker.low24h) &&
-                Objects.equals(this.high24h, futuresTicker.high24h) &&
-                Objects.equals(this.volume24h, futuresTicker.volume24h) &&
-                Objects.equals(this.volume24hBtc, futuresTicker.volume24hBtc) &&
-                Objects.equals(this.volume24hUsd, futuresTicker.volume24hUsd) &&
-                Objects.equals(this.volume24hBase, futuresTicker.volume24hBase) &&
-                Objects.equals(this.volume24hQuote, futuresTicker.volume24hQuote) &&
-                Objects.equals(this.volume24hSettle, futuresTicker.volume24hSettle) &&
-                Objects.equals(this.markPrice, futuresTicker.markPrice) &&
-                Objects.equals(this.fundingRate, futuresTicker.fundingRate) &&
-                Objects.equals(this.fundingRateIndicative, futuresTicker.fundingRateIndicative) &&
-                Objects.equals(this.indexPrice, futuresTicker.indexPrice) &&
-                Objects.equals(this.quantoBaseRate, futuresTicker.quantoBaseRate) &&
-                Objects.equals(this.lowestAsk, futuresTicker.lowestAsk) &&
-                Objects.equals(this.lowestSize, futuresTicker.lowestSize) &&
-                Objects.equals(this.highestBid, futuresTicker.highestBid) &&
-                Objects.equals(this.highestSize, futuresTicker.highestSize);
+        DeliveryTicker deliveryTicker = (DeliveryTicker) o;
+        return Objects.equals(this.contract, deliveryTicker.contract) &&
+                Objects.equals(this.last, deliveryTicker.last) &&
+                Objects.equals(this.changePercentage, deliveryTicker.changePercentage) &&
+                Objects.equals(this.totalSize, deliveryTicker.totalSize) &&
+                Objects.equals(this.low24h, deliveryTicker.low24h) &&
+                Objects.equals(this.high24h, deliveryTicker.high24h) &&
+                Objects.equals(this.volume24h, deliveryTicker.volume24h) &&
+                Objects.equals(this.volume24hBtc, deliveryTicker.volume24hBtc) &&
+                Objects.equals(this.volume24hUsd, deliveryTicker.volume24hUsd) &&
+                Objects.equals(this.volume24hBase, deliveryTicker.volume24hBase) &&
+                Objects.equals(this.volume24hQuote, deliveryTicker.volume24hQuote) &&
+                Objects.equals(this.volume24hSettle, deliveryTicker.volume24hSettle) &&
+                Objects.equals(this.markPrice, deliveryTicker.markPrice) &&
+                Objects.equals(this.fundingRate, deliveryTicker.fundingRate) &&
+                Objects.equals(this.fundingRateIndicative, deliveryTicker.fundingRateIndicative) &&
+                Objects.equals(this.indexPrice, deliveryTicker.indexPrice) &&
+                Objects.equals(this.quantoBaseRate, deliveryTicker.quantoBaseRate) &&
+                Objects.equals(this.basisRate, deliveryTicker.basisRate) &&
+                Objects.equals(this.basisValue, deliveryTicker.basisValue) &&
+                Objects.equals(this.lowestAsk, deliveryTicker.lowestAsk) &&
+                Objects.equals(this.lowestSize, deliveryTicker.lowestSize) &&
+                Objects.equals(this.highestBid, deliveryTicker.highestBid) &&
+                Objects.equals(this.highestSize, deliveryTicker.highestSize);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contract, last, changePercentage, totalSize, low24h, high24h, volume24h, volume24hBtc, volume24hUsd, volume24hBase, volume24hQuote, volume24hSettle, markPrice, fundingRate, fundingRateIndicative, indexPrice, quantoBaseRate, lowestAsk, lowestSize, highestBid, highestSize);
+        return Objects.hash(contract, last, changePercentage, totalSize, low24h, high24h, volume24h, volume24hBtc, volume24hUsd, volume24hBase, volume24hQuote, volume24hSettle, markPrice, fundingRate, fundingRateIndicative, indexPrice, quantoBaseRate, basisRate, basisValue, lowestAsk, lowestSize, highestBid, highestSize);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FuturesTicker {\n");
+        sb.append("class DeliveryTicker {\n");
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      last: ").append(toIndentedString(last)).append("\n");
         sb.append("      changePercentage: ").append(toIndentedString(changePercentage)).append("\n");
@@ -586,6 +636,8 @@ public class FuturesTicker {
         sb.append("      fundingRateIndicative: ").append(toIndentedString(fundingRateIndicative)).append("\n");
         sb.append("      indexPrice: ").append(toIndentedString(indexPrice)).append("\n");
         sb.append("      quantoBaseRate: ").append(toIndentedString(quantoBaseRate)).append("\n");
+        sb.append("      basisRate: ").append(toIndentedString(basisRate)).append("\n");
+        sb.append("      basisValue: ").append(toIndentedString(basisValue)).append("\n");
         sb.append("      lowestAsk: ").append(toIndentedString(lowestAsk)).append("\n");
         sb.append("      lowestSize: ").append(toIndentedString(lowestSize)).append("\n");
         sb.append("      highestBid: ").append(toIndentedString(highestBid)).append("\n");

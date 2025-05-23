@@ -2,10 +2,10 @@
 
 Gate API v4
 
-- API version: 4.97.2
-- SDK version: 6.97.2
+- API version: 4.97.4
+- SDK version: 6.97.4
 
-Welcome to Gate.io API
+Welcome to Gate API
 
 APIv4 provides spot, margin and futures trading operations. There are public APIs to retrieve the real-time market statistics, and private APIs which needs authentication to trade on user's behalf.
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.97.2</version>
+    <version>6.97.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.97.2"
+compile "io.gate:gate-api:6.97.4"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.97.2.jar`
+* `target/gate-api-6.97.4.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -492,6 +492,7 @@ Class | Method | HTTP request | Description
  - [DeliveryCandlestick](docs/DeliveryCandlestick.md)
  - [DeliveryContract](docs/DeliveryContract.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)
+ - [DeliveryTicker](docs/DeliveryTicker.md)
  - [DepositAddress](docs/DepositAddress.md)
  - [DepositRecord](docs/DepositRecord.md)
  - [DualGetOrders](docs/DualGetOrders.md)

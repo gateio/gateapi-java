@@ -405,7 +405,7 @@ No authorization required
 
 <a name="listDeliveryTickers"></a>
 # **listDeliveryTickers**
-> List&lt;FuturesTicker&gt; listDeliveryTickers(settle).contract(contract).execute();
+> List&lt;DeliveryTicker&gt; listDeliveryTickers(settle).contract(contract).execute();
 
 List futures tickers
 
@@ -429,7 +429,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         try {
-            List<FuturesTicker> result = apiInstance.listDeliveryTickers(settle)
+            List<DeliveryTicker> result = apiInstance.listDeliveryTickers(settle)
                         .contract(contract)
                         .execute();
             System.out.println(result);
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesTicker&gt;**](FuturesTicker.md)
+[**List&lt;DeliveryTicker&gt;**](DeliveryTicker.md)
 
 ### Authorization
 
