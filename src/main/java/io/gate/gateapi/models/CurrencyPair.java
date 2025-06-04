@@ -134,9 +134,17 @@ public class CurrencyPair {
     @SerializedName(SERIALIZED_NAME_BUY_START)
     private Long buyStart;
 
+    public static final String SERIALIZED_NAME_DELISTING_TIME = "delisting_time";
+    @SerializedName(SERIALIZED_NAME_DELISTING_TIME)
+    private Long delistingTime;
+
     public static final String SERIALIZED_NAME_TYPE = "type";
     @SerializedName(SERIALIZED_NAME_TYPE)
     private String type;
+
+    public static final String SERIALIZED_NAME_TRADE_URL = "trade_url";
+    @SerializedName(SERIALIZED_NAME_TRADE_URL)
+    private String tradeUrl;
 
 
     public CurrencyPair id(String id) {
@@ -439,6 +447,26 @@ public class CurrencyPair {
         this.buyStart = buyStart;
     }
 
+    public CurrencyPair delistingTime(Long delistingTime) {
+        
+        this.delistingTime = delistingTime;
+        return this;
+    }
+
+     /**
+     * Expected time to remove the shelves, Unix timestamp in seconds
+     * @return delistingTime
+    **/
+    @javax.annotation.Nullable
+    public Long getDelistingTime() {
+        return delistingTime;
+    }
+
+
+    public void setDelistingTime(Long delistingTime) {
+        this.delistingTime = delistingTime;
+    }
+
     public CurrencyPair type(String type) {
         
         this.type = type;
@@ -457,6 +485,26 @@ public class CurrencyPair {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public CurrencyPair tradeUrl(String tradeUrl) {
+        
+        this.tradeUrl = tradeUrl;
+        return this;
+    }
+
+     /**
+     * Transaction link
+     * @return tradeUrl
+    **/
+    @javax.annotation.Nullable
+    public String getTradeUrl() {
+        return tradeUrl;
+    }
+
+
+    public void setTradeUrl(String tradeUrl) {
+        this.tradeUrl = tradeUrl;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -482,12 +530,14 @@ public class CurrencyPair {
                 Objects.equals(this.tradeStatus, currencyPair.tradeStatus) &&
                 Objects.equals(this.sellStart, currencyPair.sellStart) &&
                 Objects.equals(this.buyStart, currencyPair.buyStart) &&
-                Objects.equals(this.type, currencyPair.type);
+                Objects.equals(this.delistingTime, currencyPair.delistingTime) &&
+                Objects.equals(this.type, currencyPair.type) &&
+                Objects.equals(this.tradeUrl, currencyPair.tradeUrl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, baseName, quote, quoteName, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, type);
+        return Objects.hash(id, base, baseName, quote, quoteName, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, delistingTime, type, tradeUrl);
     }
 
 
@@ -510,7 +560,9 @@ public class CurrencyPair {
         sb.append("      tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
         sb.append("      sellStart: ").append(toIndentedString(sellStart)).append("\n");
         sb.append("      buyStart: ").append(toIndentedString(buyStart)).append("\n");
+        sb.append("      delistingTime: ").append(toIndentedString(delistingTime)).append("\n");
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      tradeUrl: ").append(toIndentedString(tradeUrl)).append("\n");
         sb.append("}");
         return sb.toString();
     }

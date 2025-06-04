@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **amount** | **String** | Currency amount | 
 **fee** | **String** | fee |  [optional] [readonly]
 **currency** | **String** | Currency name | 
-**address** | **String** | 提现地址 |  [optional]
+**address** | **String** | Withdrawal address |  [optional]
 **failReason** | **String** | The reason for withdrawal failure is that there is a value when status &#x3D; CANCEL, and the rest of the state is empty |  [optional]
 **timestamp2** | **String** | The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status &#x3D; CANCEL, the corresponding cancel time When status &#x3D; DONE and block_number &gt; 0, it is the time to withdrawal success |  [optional]
 **memo** | **String** | Additional remarks with regards to the withdrawal |  [optional]

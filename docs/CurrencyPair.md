@@ -22,7 +22,9 @@ Name | Type | Description | Notes
 **tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold |  [optional]
 **sellStart** | **Long** | Sell start unix timestamp in seconds |  [optional]
 **buyStart** | **Long** | Buy start unix timestamp in seconds |  [optional]
+**delistingTime** | **Long** | Expected time to remove the shelves, Unix timestamp in seconds |  [optional]
 **type** | **String** | Trading pair type, normal: normal, premarket: pre-market |  [optional]
+**tradeUrl** | **String** | Transaction link |  [optional]
 
 ## Enum: TradeStatusEnum
 

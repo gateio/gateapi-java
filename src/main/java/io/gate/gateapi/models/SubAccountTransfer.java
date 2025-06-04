@@ -23,61 +23,66 @@ import java.io.IOException;
  * SubAccountTransfer
  */
 public class SubAccountTransfer {
-    public static final String SERIALIZED_NAME_CURRENCY = "currency";
-    @SerializedName(SERIALIZED_NAME_CURRENCY)
-    private String currency;
-
-    public static final String SERIALIZED_NAME_SUB_ACCOUNT = "sub_account";
-    @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT)
-    private String subAccount;
-
-    public static final String SERIALIZED_NAME_DIRECTION = "direction";
-    @SerializedName(SERIALIZED_NAME_DIRECTION)
-    private String direction;
-
-    public static final String SERIALIZED_NAME_AMOUNT = "amount";
-    @SerializedName(SERIALIZED_NAME_AMOUNT)
-    private String amount;
+    public static final String SERIALIZED_NAME_TIMEST = "timest";
+    @SerializedName(SERIALIZED_NAME_TIMEST)
+    private String timest;
 
     public static final String SERIALIZED_NAME_UID = "uid";
     @SerializedName(SERIALIZED_NAME_UID)
     private String uid;
 
-    public static final String SERIALIZED_NAME_CLIENT_ORDER_ID = "client_order_id";
-    @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID)
-    private String clientOrderId;
-
-    public static final String SERIALIZED_NAME_TIMEST = "timest";
-    @SerializedName(SERIALIZED_NAME_TIMEST)
-    private String timest;
-
-    public static final String SERIALIZED_NAME_SOURCE = "source";
-    @SerializedName(SERIALIZED_NAME_SOURCE)
-    private String source;
+    public static final String SERIALIZED_NAME_SUB_ACCOUNT = "sub_account";
+    @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT)
+    private String subAccount;
 
     public static final String SERIALIZED_NAME_SUB_ACCOUNT_TYPE = "sub_account_type";
     @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT_TYPE)
     private String subAccountType = "spot";
 
+    public static final String SERIALIZED_NAME_CURRENCY = "currency";
+    @SerializedName(SERIALIZED_NAME_CURRENCY)
+    private String currency;
 
-    public SubAccountTransfer currency(String currency) {
-        
-        this.currency = currency;
-        return this;
-    }
+    public static final String SERIALIZED_NAME_AMOUNT = "amount";
+    @SerializedName(SERIALIZED_NAME_AMOUNT)
+    private String amount;
+
+    public static final String SERIALIZED_NAME_DIRECTION = "direction";
+    @SerializedName(SERIALIZED_NAME_DIRECTION)
+    private String direction;
+
+    public static final String SERIALIZED_NAME_SOURCE = "source";
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    private String source;
+
+    public static final String SERIALIZED_NAME_CLIENT_ORDER_ID = "client_order_id";
+    @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID)
+    private String clientOrderId;
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private String status;
+
 
      /**
-     * Transfer currency name
-     * @return currency
+     * Transfer timestamp
+     * @return timest
     **/
-    public String getCurrency() {
-        return currency;
+    @javax.annotation.Nullable
+    public String getTimest() {
+        return timest;
     }
 
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+     /**
+     * Main account user ID
+     * @return uid
+    **/
+    @javax.annotation.Nullable
+    public String getUid() {
+        return uid;
     }
+
 
     public SubAccountTransfer subAccount(String subAccount) {
         
@@ -98,23 +103,43 @@ public class SubAccountTransfer {
         this.subAccount = subAccount;
     }
 
-    public SubAccountTransfer direction(String direction) {
+    public SubAccountTransfer subAccountType(String subAccountType) {
         
-        this.direction = direction;
+        this.subAccountType = subAccountType;
         return this;
     }
 
      /**
-     * Transfer direction. to - transfer into sub account; from - transfer out from sub account
-     * @return direction
+     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;delivery&#x60; - delivery account
+     * @return subAccountType
     **/
-    public String getDirection() {
-        return direction;
+    @javax.annotation.Nullable
+    public String getSubAccountType() {
+        return subAccountType;
     }
 
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setSubAccountType(String subAccountType) {
+        this.subAccountType = subAccountType;
+    }
+
+    public SubAccountTransfer currency(String currency) {
+        
+        this.currency = currency;
+        return this;
+    }
+
+     /**
+     * Transfer currency name
+     * @return currency
+    **/
+    public String getCurrency() {
+        return currency;
+    }
+
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public SubAccountTransfer amount(String amount) {
@@ -136,13 +161,32 @@ public class SubAccountTransfer {
         this.amount = amount;
     }
 
+    public SubAccountTransfer direction(String direction) {
+        
+        this.direction = direction;
+        return this;
+    }
+
      /**
-     * Main account user ID
-     * @return uid
+     * Transfer direction. to - transfer into sub account; from - transfer out from sub account
+     * @return direction
+    **/
+    public String getDirection() {
+        return direction;
+    }
+
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
+     /**
+     * Where the operation is initiated from
+     * @return source
     **/
     @javax.annotation.Nullable
-    public String getUid() {
-        return uid;
+    public String getSource() {
+        return source;
     }
 
 
@@ -166,44 +210,24 @@ public class SubAccountTransfer {
         this.clientOrderId = clientOrderId;
     }
 
-     /**
-     * Transfer timestamp
-     * @return timest
-    **/
-    @javax.annotation.Nullable
-    public String getTimest() {
-        return timest;
-    }
-
-
-     /**
-     * Where the operation is initiated from
-     * @return source
-    **/
-    @javax.annotation.Nullable
-    public String getSource() {
-        return source;
-    }
-
-
-    public SubAccountTransfer subAccountType(String subAccountType) {
+    public SubAccountTransfer status(String status) {
         
-        this.subAccountType = subAccountType;
+        this.status = status;
         return this;
     }
 
      /**
-     * Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;delivery&#x60; - delivery account
-     * @return subAccountType
+     * Sub-account transfer record status, currently only success
+     * @return status
     **/
     @javax.annotation.Nullable
-    public String getSubAccountType() {
-        return subAccountType;
+    public String getStatus() {
+        return status;
     }
 
 
-    public void setSubAccountType(String subAccountType) {
-        this.subAccountType = subAccountType;
+    public void setStatus(String status) {
+        this.status = status;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -214,20 +238,21 @@ public class SubAccountTransfer {
             return false;
         }
         SubAccountTransfer subAccountTransfer = (SubAccountTransfer) o;
-        return Objects.equals(this.currency, subAccountTransfer.currency) &&
-                Objects.equals(this.subAccount, subAccountTransfer.subAccount) &&
-                Objects.equals(this.direction, subAccountTransfer.direction) &&
-                Objects.equals(this.amount, subAccountTransfer.amount) &&
+        return Objects.equals(this.timest, subAccountTransfer.timest) &&
                 Objects.equals(this.uid, subAccountTransfer.uid) &&
-                Objects.equals(this.clientOrderId, subAccountTransfer.clientOrderId) &&
-                Objects.equals(this.timest, subAccountTransfer.timest) &&
+                Objects.equals(this.subAccount, subAccountTransfer.subAccount) &&
+                Objects.equals(this.subAccountType, subAccountTransfer.subAccountType) &&
+                Objects.equals(this.currency, subAccountTransfer.currency) &&
+                Objects.equals(this.amount, subAccountTransfer.amount) &&
+                Objects.equals(this.direction, subAccountTransfer.direction) &&
                 Objects.equals(this.source, subAccountTransfer.source) &&
-                Objects.equals(this.subAccountType, subAccountTransfer.subAccountType);
+                Objects.equals(this.clientOrderId, subAccountTransfer.clientOrderId) &&
+                Objects.equals(this.status, subAccountTransfer.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, subAccount, direction, amount, uid, clientOrderId, timest, source, subAccountType);
+        return Objects.hash(timest, uid, subAccount, subAccountType, currency, amount, direction, source, clientOrderId, status);
     }
 
 
@@ -235,15 +260,16 @@ public class SubAccountTransfer {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class SubAccountTransfer {\n");
-        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("      subAccount: ").append(toIndentedString(subAccount)).append("\n");
-        sb.append("      direction: ").append(toIndentedString(direction)).append("\n");
-        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("      uid: ").append(toIndentedString(uid)).append("\n");
-        sb.append("      clientOrderId: ").append(toIndentedString(clientOrderId)).append("\n");
         sb.append("      timest: ").append(toIndentedString(timest)).append("\n");
-        sb.append("      source: ").append(toIndentedString(source)).append("\n");
+        sb.append("      uid: ").append(toIndentedString(uid)).append("\n");
+        sb.append("      subAccount: ").append(toIndentedString(subAccount)).append("\n");
         sb.append("      subAccountType: ").append(toIndentedString(subAccountType)).append("\n");
+        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("      direction: ").append(toIndentedString(direction)).append("\n");
+        sb.append("      source: ").append(toIndentedString(source)).append("\n");
+        sb.append("      clientOrderId: ").append(toIndentedString(clientOrderId)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }

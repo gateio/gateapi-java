@@ -195,7 +195,7 @@ public class WithdrawalRecord {
     }
 
      /**
-     * 提现地址
+     * Withdrawal address
      * @return address
     **/
     @javax.annotation.Nullable

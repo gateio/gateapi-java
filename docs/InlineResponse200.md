@@ -6,5 +6,5 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **time** | **Long** |  |  [optional]
-**vaule** | **String** |  |  [optional]
+**value** | **String** |  |  [optional]
 

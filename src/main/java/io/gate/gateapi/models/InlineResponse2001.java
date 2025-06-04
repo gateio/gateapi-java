@@ -20,56 +20,56 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse200
+ * InlineResponse2001
  */
-public class InlineResponse200 {
-    public static final String SERIALIZED_NAME_TIME = "time";
-    @SerializedName(SERIALIZED_NAME_TIME)
-    private Long time;
+public class InlineResponse2001 {
+    public static final String SERIALIZED_NAME_CURRENCY = "currency";
+    @SerializedName(SERIALIZED_NAME_CURRENCY)
+    private String currency;
 
-    public static final String SERIALIZED_NAME_VALUE = "value";
-    @SerializedName(SERIALIZED_NAME_VALUE)
-    private String value;
+    public static final String SERIALIZED_NAME_EST_RATE = "est_rate";
+    @SerializedName(SERIALIZED_NAME_EST_RATE)
+    private String estRate;
 
 
-    public InlineResponse200 time(Long time) {
+    public InlineResponse2001 currency(String currency) {
         
-        this.time = time;
+        this.currency = currency;
         return this;
     }
 
      /**
-     * Get time
-     * @return time
+     * Get currency
+     * @return currency
     **/
     @javax.annotation.Nullable
-    public Long getTime() {
-        return time;
+    public String getCurrency() {
+        return currency;
     }
 
 
-    public void setTime(Long time) {
-        this.time = time;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public InlineResponse200 value(String value) {
+    public InlineResponse2001 estRate(String estRate) {
         
-        this.value = value;
+        this.estRate = estRate;
         return this;
     }
 
      /**
-     * Get value
-     * @return value
+     * Unconverted percentage
+     * @return estRate
     **/
     @javax.annotation.Nullable
-    public String getValue() {
-        return value;
+    public String getEstRate() {
+        return estRate;
     }
 
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setEstRate(String estRate) {
+        this.estRate = estRate;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,23 +79,23 @@ public class InlineResponse200 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-        return Objects.equals(this.time, inlineResponse200.time) &&
-                Objects.equals(this.value, inlineResponse200.value);
+        InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
+        return Objects.equals(this.currency, inlineResponse2001.currency) &&
+                Objects.equals(this.estRate, inlineResponse2001.estRate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, value);
+        return Objects.hash(currency, estRate);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse200 {\n");
-        sb.append("      time: ").append(toIndentedString(time)).append("\n");
-        sb.append("      value: ").append(toIndentedString(value)).append("\n");
+        sb.append("class InlineResponse2001 {\n");
+        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("      estRate: ").append(toIndentedString(estRate)).append("\n");
         sb.append("}");
         return sb.toString();
     }

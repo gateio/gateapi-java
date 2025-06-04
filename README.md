@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.97.4
-- SDK version: 6.97.4
+- API version: 4.98.0
+- SDK version: 6.98.0
 
 Welcome to Gate API
 
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.97.4</version>
+    <version>6.98.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.97.4"
+compile "io.gate:gate-api:6.98.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.97.4.jar`
+* `target/gate-api-6.98.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -208,6 +208,7 @@ Class | Method | HTTP request | Description
 *EarnUniApi* | [**switchInterestReinvest**](docs/EarnUniApi.md#switchInterestReinvest) | **PUT** /earn/uni/interest_reinvest | Set interest reinvestment toggle
 *EarnUniApi* | [**getUniInterestStatus**](docs/EarnUniApi.md#getUniInterestStatus) | **GET** /earn/uni/interest_status/{currency} | query currency interest compounding status
 *EarnUniApi* | [**listUniChart**](docs/EarnUniApi.md#listUniChart) | **GET** /earn/uni/chart | UniLoan currency annualized trend chart
+*EarnUniApi* | [**listUniRate**](docs/EarnUniApi.md#listUniRate) | **GET** /earn/uni/rate | Currency estimate annualized interest rate
 *FlashSwapApi* | [**listFlashSwapCurrencyPair**](docs/FlashSwapApi.md#listFlashSwapCurrencyPair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap
 *FlashSwapApi* | [**listFlashSwapOrders**](docs/FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders
 *FlashSwapApi* | [**createFlashSwapOrder**](docs/FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
@@ -531,6 +532,7 @@ Class | Method | HTTP request | Description
  - [IndexConstituent](docs/IndexConstituent.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [LiquidateOrder](docs/LiquidateOrder.md)
