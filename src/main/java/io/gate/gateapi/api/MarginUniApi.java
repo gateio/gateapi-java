@@ -150,225 +150,6 @@ public class MarginUniApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getUniCurrencyPair
-     * @param currencyPair Currency pair (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getUniCurrencyPairCall(String currencyPair, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/margin/uni/currency_pairs/{currency_pair}"
-            .replaceAll("\\{" + "currency_pair" + "\\}", localVarApiClient.escapeString(currencyPair));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUniCurrencyPairValidateBeforeCall(String currencyPair, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'currencyPair' is set
-        if (currencyPair == null) {
-            throw new ApiException("Missing the required parameter 'currencyPair' when calling getUniCurrencyPair(Async)");
-        }
-
-        okhttp3.Call localVarCall = getUniCurrencyPairCall(currencyPair, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Get detail of lending market
-     * 
-     * @param currencyPair Currency pair (required)
-     * @return UniCurrencyPair
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public UniCurrencyPair getUniCurrencyPair(String currencyPair) throws ApiException {
-        ApiResponse<UniCurrencyPair> localVarResp = getUniCurrencyPairWithHttpInfo(currencyPair);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get detail of lending market
-     * 
-     * @param currencyPair Currency pair (required)
-     * @return ApiResponse&lt;UniCurrencyPair&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<UniCurrencyPair> getUniCurrencyPairWithHttpInfo(String currencyPair) throws ApiException {
-        okhttp3.Call localVarCall = getUniCurrencyPairValidateBeforeCall(currencyPair, null);
-        Type localVarReturnType = new TypeToken<UniCurrencyPair>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get detail of lending market (asynchronously)
-     * 
-     * @param currencyPair Currency pair (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getUniCurrencyPairAsync(String currencyPair, final ApiCallback<UniCurrencyPair> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getUniCurrencyPairValidateBeforeCall(currencyPair, _callback);
-        Type localVarReturnType = new TypeToken<UniCurrencyPair>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for getMarginUniEstimateRate
-     * @param currencies An array of up to 10 specifying the currency name (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getMarginUniEstimateRateCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/margin/uni/estimate_rate";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (currencies != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "currencies", currencies));
-        }
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMarginUniEstimateRateValidateBeforeCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'currencies' is set
-        if (currencies == null) {
-            throw new ApiException("Missing the required parameter 'currencies' when calling getMarginUniEstimateRate(Async)");
-        }
-
-        okhttp3.Call localVarCall = getMarginUniEstimateRateCall(currencies, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Estimate interest Rate
-     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
-     * @param currencies An array of up to 10 specifying the currency name (required)
-     * @return Map&lt;String, String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public Map<String, String> getMarginUniEstimateRate(List<String> currencies) throws ApiException {
-        ApiResponse<Map<String, String>> localVarResp = getMarginUniEstimateRateWithHttpInfo(currencies);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Estimate interest Rate
-     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
-     * @param currencies An array of up to 10 specifying the currency name (required)
-     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Map<String, String>> getMarginUniEstimateRateWithHttpInfo(List<String> currencies) throws ApiException {
-        okhttp3.Call localVarCall = getMarginUniEstimateRateValidateBeforeCall(currencies, null);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Estimate interest Rate (asynchronously)
-     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
-     * @param currencies An array of up to 10 specifying the currency name (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getMarginUniEstimateRateAsync(List<String> currencies, final ApiCallback<Map<String, String>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getMarginUniEstimateRateValidateBeforeCall(currencies, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
     private okhttp3.Call listUniLoansCall(String currencyPair, String currency, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -657,6 +438,349 @@ public class MarginUniApi {
     public okhttp3.Call createUniLoanAsync(CreateUniLoan createUniLoan, final ApiCallback<Void> _callback) throws ApiException {
         okhttp3.Call localVarCall = createUniLoanValidateBeforeCall(createUniLoan, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getUniBorrowable
+     * @param currency Retrieve data of the specified currency (required)
+     * @param currencyPair Currency pair (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUniBorrowableCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/uni/borrowable";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (currencyPair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUniBorrowableValidateBeforeCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currency' is set
+        if (currency == null) {
+            throw new ApiException("Missing the required parameter 'currency' when calling getUniBorrowable(Async)");
+        }
+
+        // verify the required parameter 'currencyPair' is set
+        if (currencyPair == null) {
+            throw new ApiException("Missing the required parameter 'currencyPair' when calling getUniBorrowable(Async)");
+        }
+
+        okhttp3.Call localVarCall = getUniBorrowableCall(currency, currencyPair, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get maximum borrowable
+     * 
+     * @param currency Retrieve data of the specified currency (required)
+     * @param currencyPair Currency pair (required)
+     * @return MaxUniBorrowable
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public MaxUniBorrowable getUniBorrowable(String currency, String currencyPair) throws ApiException {
+        ApiResponse<MaxUniBorrowable> localVarResp = getUniBorrowableWithHttpInfo(currency, currencyPair);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get maximum borrowable
+     * 
+     * @param currency Retrieve data of the specified currency (required)
+     * @param currencyPair Currency pair (required)
+     * @return ApiResponse&lt;MaxUniBorrowable&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MaxUniBorrowable> getUniBorrowableWithHttpInfo(String currency, String currencyPair) throws ApiException {
+        okhttp3.Call localVarCall = getUniBorrowableValidateBeforeCall(currency, currencyPair, null);
+        Type localVarReturnType = new TypeToken<MaxUniBorrowable>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get maximum borrowable (asynchronously)
+     * 
+     * @param currency Retrieve data of the specified currency (required)
+     * @param currencyPair Currency pair (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUniBorrowableAsync(String currency, String currencyPair, final ApiCallback<MaxUniBorrowable> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUniBorrowableValidateBeforeCall(currency, currencyPair, _callback);
+        Type localVarReturnType = new TypeToken<MaxUniBorrowable>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getUniCurrencyPair
+     * @param currencyPair Currency pair (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUniCurrencyPairCall(String currencyPair, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/uni/currency_pairs/{currency_pair}"
+            .replaceAll("\\{" + "currency_pair" + "\\}", localVarApiClient.escapeString(currencyPair));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUniCurrencyPairValidateBeforeCall(String currencyPair, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currencyPair' is set
+        if (currencyPair == null) {
+            throw new ApiException("Missing the required parameter 'currencyPair' when calling getUniCurrencyPair(Async)");
+        }
+
+        okhttp3.Call localVarCall = getUniCurrencyPairCall(currencyPair, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get detail of lending market
+     * 
+     * @param currencyPair Currency pair (required)
+     * @return UniCurrencyPair
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public UniCurrencyPair getUniCurrencyPair(String currencyPair) throws ApiException {
+        ApiResponse<UniCurrencyPair> localVarResp = getUniCurrencyPairWithHttpInfo(currencyPair);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get detail of lending market
+     * 
+     * @param currencyPair Currency pair (required)
+     * @return ApiResponse&lt;UniCurrencyPair&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UniCurrencyPair> getUniCurrencyPairWithHttpInfo(String currencyPair) throws ApiException {
+        okhttp3.Call localVarCall = getUniCurrencyPairValidateBeforeCall(currencyPair, null);
+        Type localVarReturnType = new TypeToken<UniCurrencyPair>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get detail of lending market (asynchronously)
+     * 
+     * @param currencyPair Currency pair (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUniCurrencyPairAsync(String currencyPair, final ApiCallback<UniCurrencyPair> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUniCurrencyPairValidateBeforeCall(currencyPair, _callback);
+        Type localVarReturnType = new TypeToken<UniCurrencyPair>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getMarginUniEstimateRate
+     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getMarginUniEstimateRateCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/margin/uni/estimate_rate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencies != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "currencies", currencies));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMarginUniEstimateRateValidateBeforeCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currencies' is set
+        if (currencies == null) {
+            throw new ApiException("Missing the required parameter 'currencies' when calling getMarginUniEstimateRate(Async)");
+        }
+
+        okhttp3.Call localVarCall = getMarginUniEstimateRateCall(currencies, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Estimate interest Rate
+     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @return Map&lt;String, String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public Map<String, String> getMarginUniEstimateRate(List<String> currencies) throws ApiException {
+        ApiResponse<Map<String, String>> localVarResp = getMarginUniEstimateRateWithHttpInfo(currencies);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Estimate interest Rate
+     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Map<String, String>> getMarginUniEstimateRateWithHttpInfo(List<String> currencies) throws ApiException {
+        okhttp3.Call localVarCall = getMarginUniEstimateRateValidateBeforeCall(currencies, null);
+        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Estimate interest Rate (asynchronously)
+     * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getMarginUniEstimateRateAsync(List<String> currencies, final ApiCallback<Map<String, String>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getMarginUniEstimateRateValidateBeforeCall(currencies, _callback);
+        Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
@@ -1079,130 +1203,6 @@ public class MarginUniApi {
      */
     public APIlistUniLoanInterestRecordsRequest listUniLoanInterestRecords() {
         return new APIlistUniLoanInterestRecordsRequest();
-    }
-
-    /**
-     * Build call for getUniBorrowable
-     * @param currency Retrieve data of the specified currency (required)
-     * @param currencyPair Currency pair (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getUniBorrowableCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/margin/uni/borrowable";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (currency != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
-        }
-
-        if (currencyPair != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
-        }
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUniBorrowableValidateBeforeCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'currency' is set
-        if (currency == null) {
-            throw new ApiException("Missing the required parameter 'currency' when calling getUniBorrowable(Async)");
-        }
-
-        // verify the required parameter 'currencyPair' is set
-        if (currencyPair == null) {
-            throw new ApiException("Missing the required parameter 'currencyPair' when calling getUniBorrowable(Async)");
-        }
-
-        okhttp3.Call localVarCall = getUniBorrowableCall(currency, currencyPair, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Get maximum borrowable
-     * 
-     * @param currency Retrieve data of the specified currency (required)
-     * @param currencyPair Currency pair (required)
-     * @return MaxUniBorrowable
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public MaxUniBorrowable getUniBorrowable(String currency, String currencyPair) throws ApiException {
-        ApiResponse<MaxUniBorrowable> localVarResp = getUniBorrowableWithHttpInfo(currency, currencyPair);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get maximum borrowable
-     * 
-     * @param currency Retrieve data of the specified currency (required)
-     * @param currencyPair Currency pair (required)
-     * @return ApiResponse&lt;MaxUniBorrowable&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<MaxUniBorrowable> getUniBorrowableWithHttpInfo(String currency, String currencyPair) throws ApiException {
-        okhttp3.Call localVarCall = getUniBorrowableValidateBeforeCall(currency, currencyPair, null);
-        Type localVarReturnType = new TypeToken<MaxUniBorrowable>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get maximum borrowable (asynchronously)
-     * 
-     * @param currency Retrieve data of the specified currency (required)
-     * @param currencyPair Currency pair (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getUniBorrowableAsync(String currency, String currencyPair, final ApiCallback<MaxUniBorrowable> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getUniBorrowableValidateBeforeCall(currency, currencyPair, _callback);
-        Type localVarReturnType = new TypeToken<MaxUniBorrowable>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
     }
 
 }

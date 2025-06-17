@@ -26,7 +26,6 @@ import io.gate.gateapi.models.InlineResponse2001;
 import io.gate.gateapi.models.PatchUniLend;
 import io.gate.gateapi.models.UniCurrency;
 import io.gate.gateapi.models.UniCurrencyInterest;
-import io.gate.gateapi.models.UniInterestMode;
 import io.gate.gateapi.models.UniInterestRecord;
 import io.gate.gateapi.models.UniLend;
 import io.gate.gateapi.models.UniLendInterest;
@@ -1172,109 +1171,6 @@ public class EarnUniApi {
     }
 
     /**
-     * Build call for switchInterestReinvest
-     * @param uniInterestMode  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call switchInterestReinvestCall(UniInterestMode uniInterestMode, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = uniInterestMode;
-
-        // create path and map variables
-        String localVarPath = "/earn/uni/interest_reinvest";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call switchInterestReinvestValidateBeforeCall(UniInterestMode uniInterestMode, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'uniInterestMode' is set
-        if (uniInterestMode == null) {
-            throw new ApiException("Missing the required parameter 'uniInterestMode' when calling switchInterestReinvest(Async)");
-        }
-
-        okhttp3.Call localVarCall = switchInterestReinvestCall(uniInterestMode, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Set interest reinvestment toggle
-     * 
-     * @param uniInterestMode  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public void switchInterestReinvest(UniInterestMode uniInterestMode) throws ApiException {
-        switchInterestReinvestWithHttpInfo(uniInterestMode);
-    }
-
-    /**
-     * Set interest reinvestment toggle
-     * 
-     * @param uniInterestMode  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> switchInterestReinvestWithHttpInfo(UniInterestMode uniInterestMode) throws ApiException {
-        okhttp3.Call localVarCall = switchInterestReinvestValidateBeforeCall(uniInterestMode, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Set interest reinvestment toggle (asynchronously)
-     * 
-     * @param uniInterestMode  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call switchInterestReinvestAsync(UniInterestMode uniInterestMode, final ApiCallback<Void> _callback) throws ApiException {
-        okhttp3.Call localVarCall = switchInterestReinvestValidateBeforeCall(uniInterestMode, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-
-    /**
      * Build call for getUniInterestStatus
      * @param currency Currency (required)
      * @param _callback Callback for upload/download progress
@@ -1393,7 +1289,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniChartCall(Long from, Long to, String asset, final ApiCallback _callback) throws ApiException {
@@ -1460,7 +1356,7 @@ public class EarnUniApi {
 
     /**
      * UniLoan currency annualized trend chart
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @param from Start timestamp, unit s, maximum span of 30 days (required)
      * @param to End timestamp, unit s, maximum span of 30 days (required)
      * @param asset Currency name (required)
@@ -1469,7 +1365,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public List<InlineResponse200> listUniChart(Long from, Long to, String asset) throws ApiException {
@@ -1479,7 +1375,7 @@ public class EarnUniApi {
 
     /**
      * UniLoan currency annualized trend chart
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @param from Start timestamp, unit s, maximum span of 30 days (required)
      * @param to End timestamp, unit s, maximum span of 30 days (required)
      * @param asset Currency name (required)
@@ -1488,7 +1384,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<InlineResponse200>> listUniChartWithHttpInfo(Long from, Long to, String asset) throws ApiException {
@@ -1499,7 +1395,7 @@ public class EarnUniApi {
 
     /**
      * UniLoan currency annualized trend chart (asynchronously)
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @param from Start timestamp, unit s, maximum span of 30 days (required)
      * @param to End timestamp, unit s, maximum span of 30 days (required)
      * @param asset Currency name (required)
@@ -1509,7 +1405,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniChartAsync(Long from, Long to, String asset, final ApiCallback<List<InlineResponse200>> _callback) throws ApiException {
@@ -1527,7 +1423,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniRateCall(final ApiCallback _callback) throws ApiException {
@@ -1567,13 +1463,13 @@ public class EarnUniApi {
 
     /**
      * Currency estimate annualized interest rate
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @return List&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public List<InlineResponse2001> listUniRate() throws ApiException {
@@ -1583,13 +1479,13 @@ public class EarnUniApi {
 
     /**
      * Currency estimate annualized interest rate
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @return ApiResponse&lt;List&lt;InlineResponse2001&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<InlineResponse2001>> listUniRateWithHttpInfo() throws ApiException {
@@ -1600,14 +1496,14 @@ public class EarnUniApi {
 
     /**
      * Currency estimate annualized interest rate (asynchronously)
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-04 01:35+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-06-17 09:53+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;LL@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D; 1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniRateAsync(final ApiCallback<List<InlineResponse2001>> _callback) throws ApiException {

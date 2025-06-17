@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.CrossMarginBalance1;
+import io.gate.gateapi.models.CrossMarginBalance;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -37,7 +37,7 @@ public class SubCrossMarginAccount {
 
     public static final String SERIALIZED_NAME_BALANCES = "balances";
     @SerializedName(SERIALIZED_NAME_BALANCES)
-    private Map<String, CrossMarginBalance1> balances = null;
+    private Map<String, CrossMarginBalance> balances = null;
 
     public static final String SERIALIZED_NAME_TOTAL = "total";
     @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -132,13 +132,13 @@ public class SubCrossMarginAccount {
         this.locked = locked;
     }
 
-    public SubCrossMarginAccount balances(Map<String, CrossMarginBalance1> balances) {
+    public SubCrossMarginAccount balances(Map<String, CrossMarginBalance> balances) {
         
         this.balances = balances;
         return this;
     }
 
-    public SubCrossMarginAccount putBalancesItem(String key, CrossMarginBalance1 balancesItem) {
+    public SubCrossMarginAccount putBalancesItem(String key, CrossMarginBalance balancesItem) {
         if (this.balances == null) {
             this.balances = new HashMap<>();
         }
@@ -151,12 +151,12 @@ public class SubCrossMarginAccount {
      * @return balances
     **/
     @javax.annotation.Nullable
-    public Map<String, CrossMarginBalance1> getBalances() {
+    public Map<String, CrossMarginBalance> getBalances() {
         return balances;
     }
 
 
-    public void setBalances(Map<String, CrossMarginBalance1> balances) {
+    public void setBalances(Map<String, CrossMarginBalance> balances) {
         this.balances = balances;
     }
 
