@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 <a name="listSubAccountTransfers"></a>
 # **listSubAccountTransfers**
-> List&lt;SubAccountTransfer&gt; listSubAccountTransfers().subUid(subUid).from(from).to(to).limit(limit).offset(offset).execute();
+> List&lt;SubAccountTransferRecordItem&gt; listSubAccountTransfers().subUid(subUid).from(from).to(to).limit(limit).offset(offset).execute();
 
 Retrieve transfer records between main and sub accounts
 
@@ -441,7 +441,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
-            List<SubAccountTransfer> result = apiInstance.listSubAccountTransfers()
+            List<SubAccountTransferRecordItem> result = apiInstance.listSubAccountTransfers()
                         .subUid(subUid)
                         .from(from)
                         .to(to)
@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;SubAccountTransfer&gt;**](SubAccountTransfer.md)
+[**List&lt;SubAccountTransferRecordItem&gt;**](SubAccountTransferRecordItem.md)
 
 ### Authorization
 

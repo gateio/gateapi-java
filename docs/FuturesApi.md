@@ -1476,7 +1476,7 @@ Name | Type | Description  | Notes
 
 <a name="updatePositionCrossMode"></a>
 # **updatePositionCrossMode**
-> Position updatePositionCrossMode(settle, inlineObject)
+> Position updatePositionCrossMode(settle, futuresPositionCrossMode)
 
 Switch to the full position-by-store mode
 
@@ -1502,9 +1502,9 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        FuturesPositionCrossMode futuresPositionCrossMode = new FuturesPositionCrossMode(); // FuturesPositionCrossMode | 
         try {
-            Position result = apiInstance.updatePositionCrossMode(settle, inlineObject);
+            Position result = apiInstance.updatePositionCrossMode(settle, futuresPositionCrossMode);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1524,7 +1524,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **inlineObject** | [**InlineObject**](InlineObject.md)|  |
+ **futuresPositionCrossMode** | [**FuturesPositionCrossMode**](FuturesPositionCrossMode.md)|  |
 
 ### Return type
 
