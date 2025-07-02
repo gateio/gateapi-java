@@ -5,7 +5,7 @@
     <artifactId>gate-api</artifactId>
     <packaging>jar</packaging>
     <name>gate-api</name>
-    <version>6.100.1</version>
+    <version>6.100.2</version>
     <url>https://github.com/gateio/gateapi-java.git</url>
     <description>Java client for gateapi</description>
     <scm>
@@ -185,12 +185,16 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://ossrh-staging-api.central.sonatype.com</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <stagingProgressTimeoutMinutes>20</stagingProgressTimeoutMinutes>
+                    <stagingProgressPauseDurationSeconds>10</stagingProgressPauseDurationSeconds>
+                    <keepStagingRepositoryOnCloseRuleFailure>true</keepStagingRepositoryOnCloseRuleFailure>
+                    <keepStagingRepositoryOnFailure>true</keepStagingRepositoryOnFailure>
                 </configuration>
             </plugin>
             <plugin>
