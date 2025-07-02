@@ -24,4 +24,5 @@ Name | Type | Description | Notes
 **mmr** | **String** | Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode |  [optional]
 **marginBalance** | **String** | Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode |  [optional]
 **availableMargin** | **String** | Full margin available for full position is valid in single currency margin mode, and is 0 in other modes such as cross-currency margin/combined margin mode |  [optional]
+**enabledCollateral** | **Boolean** | 币种开启作为保证金，true - 启用，false - 未启用 |  [optional]
 

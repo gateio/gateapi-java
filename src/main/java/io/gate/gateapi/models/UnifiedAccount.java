@@ -103,6 +103,10 @@ public class UnifiedAccount {
     @SerializedName(SERIALIZED_NAME_USE_FUNDING)
     private Boolean useFunding;
 
+    public static final String SERIALIZED_NAME_IS_ALL_COLLATERAL = "is_all_collateral";
+    @SerializedName(SERIALIZED_NAME_IS_ALL_COLLATERAL)
+    private Boolean isAllCollateral;
+
 
     public UnifiedAccount userId(Long userId) {
         
@@ -481,6 +485,26 @@ public class UnifiedAccount {
     public void setUseFunding(Boolean useFunding) {
         this.useFunding = useFunding;
     }
+
+    public UnifiedAccount isAllCollateral(Boolean isAllCollateral) {
+        
+        this.isAllCollateral = isAllCollateral;
+        return this;
+    }
+
+     /**
+     * 是否所有币种均作为保证金，true - 所有币种作为保证金，false - 否
+     * @return isAllCollateral
+    **/
+    @javax.annotation.Nullable
+    public Boolean getIsAllCollateral() {
+        return isAllCollateral;
+    }
+
+
+    public void setIsAllCollateral(Boolean isAllCollateral) {
+        this.isAllCollateral = isAllCollateral;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -508,12 +532,13 @@ public class UnifiedAccount {
                 Objects.equals(this.leverage, unifiedAccount.leverage) &&
                 Objects.equals(this.spotOrderLoss, unifiedAccount.spotOrderLoss) &&
                 Objects.equals(this.spotHedge, unifiedAccount.spotHedge) &&
-                Objects.equals(this.useFunding, unifiedAccount.useFunding);
+                Objects.equals(this.useFunding, unifiedAccount.useFunding) &&
+                Objects.equals(this.isAllCollateral, unifiedAccount.isAllCollateral);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, refreshTime, locked, balances, total, borrowed, totalInitialMargin, totalMarginBalance, totalMaintenanceMargin, totalInitialMarginRate, totalMaintenanceMarginRate, totalAvailableMargin, unifiedAccountTotal, unifiedAccountTotalLiab, unifiedAccountTotalEquity, leverage, spotOrderLoss, spotHedge, useFunding);
+        return Objects.hash(userId, refreshTime, locked, balances, total, borrowed, totalInitialMargin, totalMarginBalance, totalMaintenanceMargin, totalInitialMarginRate, totalMaintenanceMarginRate, totalAvailableMargin, unifiedAccountTotal, unifiedAccountTotalLiab, unifiedAccountTotalEquity, leverage, spotOrderLoss, spotHedge, useFunding, isAllCollateral);
     }
 
 
@@ -540,6 +565,7 @@ public class UnifiedAccount {
         sb.append("      spotOrderLoss: ").append(toIndentedString(spotOrderLoss)).append("\n");
         sb.append("      spotHedge: ").append(toIndentedString(spotHedge)).append("\n");
         sb.append("      useFunding: ").append(toIndentedString(useFunding)).append("\n");
+        sb.append("      isAllCollateral: ").append(toIndentedString(isAllCollateral)).append("\n");
         sb.append("}");
         return sb.toString();
     }

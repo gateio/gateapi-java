@@ -39,10 +39,6 @@ public class SpotAccount {
     @SerializedName(SERIALIZED_NAME_UPDATE_ID)
     private Long updateId;
 
-    public static final String SERIALIZED_NAME_REFRESH_TIME = "refresh_time";
-    @SerializedName(SERIALIZED_NAME_REFRESH_TIME)
-    private Long refreshTime;
-
 
     public SpotAccount currency(String currency) {
         
@@ -123,26 +119,6 @@ public class SpotAccount {
     public void setUpdateId(Long updateId) {
         this.updateId = updateId;
     }
-
-    public SpotAccount refreshTime(Long refreshTime) {
-        
-        this.refreshTime = refreshTime;
-        return this;
-    }
-
-     /**
-     * Asset Refresh Time (ms)
-     * @return refreshTime
-    **/
-    @javax.annotation.Nullable
-    public Long getRefreshTime() {
-        return refreshTime;
-    }
-
-
-    public void setRefreshTime(Long refreshTime) {
-        this.refreshTime = refreshTime;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -155,13 +131,12 @@ public class SpotAccount {
         return Objects.equals(this.currency, spotAccount.currency) &&
                 Objects.equals(this.available, spotAccount.available) &&
                 Objects.equals(this.locked, spotAccount.locked) &&
-                Objects.equals(this.updateId, spotAccount.updateId) &&
-                Objects.equals(this.refreshTime, spotAccount.refreshTime);
+                Objects.equals(this.updateId, spotAccount.updateId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, available, locked, updateId, refreshTime);
+        return Objects.hash(currency, available, locked, updateId);
     }
 
 
@@ -173,7 +148,6 @@ public class SpotAccount {
         sb.append("      available: ").append(toIndentedString(available)).append("\n");
         sb.append("      locked: ").append(toIndentedString(locked)).append("\n");
         sb.append("      updateId: ").append(toIndentedString(updateId)).append("\n");
-        sb.append("      refreshTime: ").append(toIndentedString(refreshTime)).append("\n");
         sb.append("}");
         return sb.toString();
     }

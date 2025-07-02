@@ -26,6 +26,8 @@ import io.gate.gateapi.models.UniLoanInterestRecord;
 import io.gate.gateapi.models.UnifiedAccount;
 import io.gate.gateapi.models.UnifiedBorrowable;
 import io.gate.gateapi.models.UnifiedBorrowable1;
+import io.gate.gateapi.models.UnifiedCollateralReq;
+import io.gate.gateapi.models.UnifiedCollateralRes;
 import io.gate.gateapi.models.UnifiedCurrency;
 import io.gate.gateapi.models.UnifiedDiscount;
 import io.gate.gateapi.models.UnifiedHistoryLoanRate;
@@ -1619,7 +1621,7 @@ public class UnifiedApi {
 
     /**
      * Set mode of the unified account
-     * Switching each account mode only requires passing the parameters of the corresponding account mode, and supports turning on or off the configuration switch in the corresponding account mode when switching the account mode  - When opening the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - Open the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When the portfolio margin mode is enabled, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When opening a single currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
+     * 每种账户模式的切换只需要传对应账户模式的参数，同时支持在切换账户模式时打开或关闭对应账户模式下的配置开关 - 开通经典账户模式时，mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - 开通跨币种保证金模式，mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通组合保证金模式时，mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通单币种保证金模式时，mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
      * @param unifiedModeSet  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1634,7 +1636,7 @@ public class UnifiedApi {
 
     /**
      * Set mode of the unified account
-     * Switching each account mode only requires passing the parameters of the corresponding account mode, and supports turning on or off the configuration switch in the corresponding account mode when switching the account mode  - When opening the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - Open the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When the portfolio margin mode is enabled, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When opening a single currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
+     * 每种账户模式的切换只需要传对应账户模式的参数，同时支持在切换账户模式时打开或关闭对应账户模式下的配置开关 - 开通经典账户模式时，mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - 开通跨币种保证金模式，mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通组合保证金模式时，mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通单币种保证金模式时，mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
      * @param unifiedModeSet  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1651,7 +1653,7 @@ public class UnifiedApi {
 
     /**
      * Set mode of the unified account (asynchronously)
-     * Switching each account mode only requires passing the parameters of the corresponding account mode, and supports turning on or off the configuration switch in the corresponding account mode when switching the account mode  - When opening the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - Open the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When the portfolio margin mode is enabled, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When opening a single currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
+     * 每种账户模式的切换只需要传对应账户模式的参数，同时支持在切换账户模式时打开或关闭对应账户模式下的配置开关 - 开通经典账户模式时，mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - 开通跨币种保证金模式，mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通组合保证金模式时，mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通单币种保证金模式时，mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
      * @param unifiedModeSet  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2765,6 +2767,113 @@ public class UnifiedApi {
      */
     public APIgetHistoryLoanRateRequest getHistoryLoanRate(String currency) {
         return new APIgetHistoryLoanRateRequest(currency);
+    }
+
+    /**
+     * Build call for setUnifiedCollateral
+     * @param unifiedCollateralReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 更新成功 </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUnifiedCollateralCall(UnifiedCollateralReq unifiedCollateralReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = unifiedCollateralReq;
+
+        // create path and map variables
+        String localVarPath = "/unified/collateral_currencies";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setUnifiedCollateralValidateBeforeCall(UnifiedCollateralReq unifiedCollateralReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'unifiedCollateralReq' is set
+        if (unifiedCollateralReq == null) {
+            throw new ApiException("Missing the required parameter 'unifiedCollateralReq' when calling setUnifiedCollateral(Async)");
+        }
+
+        okhttp3.Call localVarCall = setUnifiedCollateralCall(unifiedCollateralReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * 设置抵押币种
+     * 
+     * @param unifiedCollateralReq  (required)
+     * @return UnifiedCollateralRes
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 更新成功 </td><td>  -  </td></tr>
+     </table>
+     */
+    public UnifiedCollateralRes setUnifiedCollateral(UnifiedCollateralReq unifiedCollateralReq) throws ApiException {
+        ApiResponse<UnifiedCollateralRes> localVarResp = setUnifiedCollateralWithHttpInfo(unifiedCollateralReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 设置抵押币种
+     * 
+     * @param unifiedCollateralReq  (required)
+     * @return ApiResponse&lt;UnifiedCollateralRes&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 更新成功 </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UnifiedCollateralRes> setUnifiedCollateralWithHttpInfo(UnifiedCollateralReq unifiedCollateralReq) throws ApiException {
+        okhttp3.Call localVarCall = setUnifiedCollateralValidateBeforeCall(unifiedCollateralReq, null);
+        Type localVarReturnType = new TypeToken<UnifiedCollateralRes>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * 设置抵押币种 (asynchronously)
+     * 
+     * @param unifiedCollateralReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 更新成功 </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUnifiedCollateralAsync(UnifiedCollateralReq unifiedCollateralReq, final ApiCallback<UnifiedCollateralRes> _callback) throws ApiException {
+        okhttp3.Call localVarCall = setUnifiedCollateralValidateBeforeCall(unifiedCollateralReq, _callback);
+        Type localVarReturnType = new TypeToken<UnifiedCollateralRes>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
 }

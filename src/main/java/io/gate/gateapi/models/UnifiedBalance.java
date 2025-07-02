@@ -99,6 +99,10 @@ public class UnifiedBalance {
     @SerializedName(SERIALIZED_NAME_AVAILABLE_MARGIN)
     private String availableMargin;
 
+    public static final String SERIALIZED_NAME_ENABLED_COLLATERAL = "enabled_collateral";
+    @SerializedName(SERIALIZED_NAME_ENABLED_COLLATERAL)
+    private Boolean enabledCollateral;
+
 
     public UnifiedBalance available(String available) {
         
@@ -479,6 +483,26 @@ public class UnifiedBalance {
     public void setAvailableMargin(String availableMargin) {
         this.availableMargin = availableMargin;
     }
+
+    public UnifiedBalance enabledCollateral(Boolean enabledCollateral) {
+        
+        this.enabledCollateral = enabledCollateral;
+        return this;
+    }
+
+     /**
+     * 币种开启作为保证金，true - 启用，false - 未启用
+     * @return enabledCollateral
+    **/
+    @javax.annotation.Nullable
+    public Boolean getEnabledCollateral() {
+        return enabledCollateral;
+    }
+
+
+    public void setEnabledCollateral(Boolean enabledCollateral) {
+        this.enabledCollateral = enabledCollateral;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -506,12 +530,13 @@ public class UnifiedBalance {
                 Objects.equals(this.imr, unifiedBalance.imr) &&
                 Objects.equals(this.mmr, unifiedBalance.mmr) &&
                 Objects.equals(this.marginBalance, unifiedBalance.marginBalance) &&
-                Objects.equals(this.availableMargin, unifiedBalance.availableMargin);
+                Objects.equals(this.availableMargin, unifiedBalance.availableMargin) &&
+                Objects.equals(this.enabledCollateral, unifiedBalance.enabledCollateral);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(available, freeze, borrowed, negativeLiab, futuresPosLiab, equity, totalFreeze, totalLiab, spotInUse, funding, fundingVersion, crossBalance, isoBalance, im, mm, imr, mmr, marginBalance, availableMargin);
+        return Objects.hash(available, freeze, borrowed, negativeLiab, futuresPosLiab, equity, totalFreeze, totalLiab, spotInUse, funding, fundingVersion, crossBalance, isoBalance, im, mm, imr, mmr, marginBalance, availableMargin, enabledCollateral);
     }
 
 
@@ -538,6 +563,7 @@ public class UnifiedBalance {
         sb.append("      mmr: ").append(toIndentedString(mmr)).append("\n");
         sb.append("      marginBalance: ").append(toIndentedString(marginBalance)).append("\n");
         sb.append("      availableMargin: ").append(toIndentedString(availableMargin)).append("\n");
+        sb.append("      enabledCollateral: ").append(toIndentedString(enabledCollateral)).append("\n");
         sb.append("}");
         return sb.toString();
     }

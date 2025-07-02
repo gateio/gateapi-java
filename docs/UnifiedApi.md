@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**setUserLeverageCurrencySetting**](UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage
 [**listUnifiedCurrencies**](UnifiedApi.md#listUnifiedCurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account
 [**getHistoryLoanRate**](UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | get historical lending rates
+[**setUnifiedCollateral**](UnifiedApi.md#setUnifiedCollateral) | **POST** /unified/collateral_currencies | 设置抵押币种
 
 
 <a name="listUnifiedAccounts"></a>
@@ -825,7 +826,7 @@ This endpoint does not need any parameter.
 
 Set mode of the unified account
 
-Switching each account mode only requires passing the parameters of the corresponding account mode, and supports turning on or off the configuration switch in the corresponding account mode when switching the account mode  - When opening the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - Open the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When the portfolio margin mode is enabled, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When opening a single currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
+每种账户模式的切换只需要传对应账户模式的参数，同时支持在切换账户模式时打开或关闭对应账户模式下的配置开关 - 开通经典账户模式时，mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - 开通跨币种保证金模式，mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通组合保证金模式时，mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - 开通单币种保证金模式时，mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
 
 ### Example
 
@@ -1490,4 +1491,72 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
+
+<a name="setUnifiedCollateral"></a>
+# **setUnifiedCollateral**
+> UnifiedCollateralRes setUnifiedCollateral(unifiedCollateralReq)
+
+设置抵押币种
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.UnifiedApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        UnifiedApi apiInstance = new UnifiedApi(defaultClient);
+        UnifiedCollateralReq unifiedCollateralReq = new UnifiedCollateralReq(); // UnifiedCollateralReq | 
+        try {
+            UnifiedCollateralRes result = apiInstance.setUnifiedCollateral(unifiedCollateralReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UnifiedApi#setUnifiedCollateral");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **unifiedCollateralReq** | [**UnifiedCollateralReq**](UnifiedCollateralReq.md)|  |
+
+### Return type
+
+[**UnifiedCollateralRes**](UnifiedCollateralRes.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 更新成功 |  -  |
 

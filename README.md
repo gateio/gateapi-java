@@ -2,8 +2,8 @@
 
 Gate API v4
 
-- API version: 4.100.0
-- SDK version: 6.100.0
+- API version: 4.100.1
+- SDK version: 6.100.1
 
 Welcome to Gate API
 
@@ -54,7 +54,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.100.0</version>
+    <version>6.100.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -64,7 +64,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.100.0"
+compile "io.gate:gate-api:6.100.1"
 ```
 
 ### Others
@@ -77,7 +77,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.100.0.jar`
+* `target/gate-api-6.100.1.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -151,14 +151,6 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**deleteSTPGroupUsers**](docs/AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete the user in the STP group
 *AccountApi* | [**getDebitFee**](docs/AccountApi.md#getDebitFee) | **GET** /account/debit_fee | Query GT deduction configuration.
 *AccountApi* | [**setDebitFee**](docs/AccountApi.md#setDebitFee) | **POST** /account/debit_fee | Set GT deduction.
-*AlphaApi* | [**listAlphaAccounts**](docs/AlphaApi.md#listAlphaAccounts) | **GET** /alpha/accounts | API for Alpha Accounts
-*AlphaApi* | [**listAlphaAccountBook**](docs/AlphaApi.md#listAlphaAccountBook) | **GET** /alpha/account_book | Alpha Asset Transaction API
-*AlphaApi* | [**quoteAlphaOrder**](docs/AlphaApi.md#quoteAlphaOrder) | **POST** /alpha/quote | Alpha Quotation API
-*AlphaApi* | [**listAlphaOrder**](docs/AlphaApi.md#listAlphaOrder) | **GET** /alpha/orders | Alpha 查询订单列表接口
-*AlphaApi* | [**placeAlphaOrder**](docs/AlphaApi.md#placeAlphaOrder) | **POST** /alpha/orders | Alpha Order Placement API
-*AlphaApi* | [**getAlphaOrder**](docs/AlphaApi.md#getAlphaOrder) | **GET** /alpha/order | Alpha 查询单个订单接口
-*AlphaApi* | [**listAlphaCurrencies**](docs/AlphaApi.md#listAlphaCurrencies) | **GET** /alpha/currencies | 查询币种信息
-*AlphaApi* | [**listAlphaTickers**](docs/AlphaApi.md#listAlphaTickers) | **GET** /alpha/tickers | 查询币种ticker
 *CollateralLoanApi* | [**listCollateralLoanOrders**](docs/CollateralLoanApi.md#listCollateralLoanOrders) | **GET** /loan/collateral/orders | List Orders
 *CollateralLoanApi* | [**createCollateralLoan**](docs/CollateralLoanApi.md#createCollateralLoan) | **POST** /loan/collateral/orders | Place order
 *CollateralLoanApi* | [**getCollateralLoanOrderDetail**](docs/CollateralLoanApi.md#getCollateralLoanOrderDetail) | **GET** /loan/collateral/orders/{order_id} | Get a single order
@@ -405,6 +397,7 @@ Class | Method | HTTP request | Description
 *UnifiedApi* | [**setUserLeverageCurrencySetting**](docs/UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage
 *UnifiedApi* | [**listUnifiedCurrencies**](docs/UnifiedApi.md#listUnifiedCurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account
 *UnifiedApi* | [**getHistoryLoanRate**](docs/UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | get historical lending rates
+*UnifiedApi* | [**setUnifiedCollateral**](docs/UnifiedApi.md#setUnifiedCollateral) | **POST** /unified/collateral_currencies | 设置抵押币种
 *WalletApi* | [**listCurrencyChains**](docs/WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | List chains supported for specified currency
 *WalletApi* | [**getDepositAddress**](docs/WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
 *WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
@@ -434,11 +427,9 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AccountBalance](docs/AccountBalance.md)
- - [AccountBookResponse](docs/AccountBookResponse.md)
  - [AccountDetail](docs/AccountDetail.md)
  - [AccountDetailKey](docs/AccountDetailKey.md)
  - [AccountRateLimit](docs/AccountRateLimit.md)
- - [AccountsResponse](docs/AccountsResponse.md)
  - [AgencyCommission](docs/AgencyCommission.md)
  - [AgencyCommissionHistory](docs/AgencyCommissionHistory.md)
  - [AgencyTransaction](docs/AgencyTransaction.md)
@@ -482,7 +473,6 @@ Class | Method | HTTP request | Description
  - [CrossMarginLoan](docs/CrossMarginLoan.md)
  - [CrossMarginRepayment](docs/CrossMarginRepayment.md)
  - [Currency](docs/Currency.md)
- - [Currency2](docs/Currency2.md)
  - [CurrencyChain](docs/CurrencyChain.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [CurrencyQuota](docs/CurrencyQuota.md)
@@ -584,21 +574,16 @@ Class | Method | HTTP request | Description
  - [OrderCancel](docs/OrderCancel.md)
  - [OrderPatch](docs/OrderPatch.md)
  - [OrderResp](docs/OrderResp.md)
- - [OrderResponse](docs/OrderResponse.md)
  - [PartnerCommissionHistory](docs/PartnerCommissionHistory.md)
  - [PartnerSub](docs/PartnerSub.md)
  - [PartnerSubList](docs/PartnerSubList.md)
  - [PartnerTransactionHistory](docs/PartnerTransactionHistory.md)
  - [PatchUniLend](docs/PatchUniLend.md)
  - [PlaceDualInvestmentOrder](docs/PlaceDualInvestmentOrder.md)
- - [PlaceOrderRequest](docs/PlaceOrderRequest.md)
- - [PlaceOrderResponse](docs/PlaceOrderResponse.md)
  - [Position](docs/Position.md)
  - [PositionClose](docs/PositionClose.md)
  - [PositionCloseOrder](docs/PositionCloseOrder.md)
  - [ProfitLossRange](docs/ProfitLossRange.md)
- - [QuoteRequest](docs/QuoteRequest.md)
- - [QuoteResponse](docs/QuoteResponse.md)
  - [RebateUserInfo](docs/RebateUserInfo.md)
  - [RepayCurrencyRes](docs/RepayCurrencyRes.md)
  - [RepayLoan](docs/RepayLoan.md)
@@ -641,7 +626,6 @@ Class | Method | HTTP request | Description
  - [SwapCoin](docs/SwapCoin.md)
  - [SystemTime](docs/SystemTime.md)
  - [Ticker](docs/Ticker.md)
- - [Ticker2](docs/Ticker2.md)
  - [TotalBalance](docs/TotalBalance.md)
  - [Trade](docs/Trade.md)
  - [TradeFee](docs/TradeFee.md)
@@ -668,6 +652,8 @@ Class | Method | HTTP request | Description
  - [UnifiedBalance](docs/UnifiedBalance.md)
  - [UnifiedBorrowable](docs/UnifiedBorrowable.md)
  - [UnifiedBorrowable1](docs/UnifiedBorrowable1.md)
+ - [UnifiedCollateralReq](docs/UnifiedCollateralReq.md)
+ - [UnifiedCollateralRes](docs/UnifiedCollateralRes.md)
  - [UnifiedCurrency](docs/UnifiedCurrency.md)
  - [UnifiedDiscount](docs/UnifiedDiscount.md)
  - [UnifiedDiscountTiers](docs/UnifiedDiscountTiers.md)
