@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **subAccountFrom** | **String** | Transfer from the user id of the sub-account | 
 **subAccountFromType** | **String** | The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account. | 
 **subAccountTo** | **String** | Transfer to the user id of the sub-account | 
-**subAccountToType** | **String** | The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account | 
+**subAccountToType** | **String** | Transferred sub-account trading account: spot - spot account, futures - perpetual contract account, delivery - delivery contract account | 
 **amount** | **String** | Transfer amount | 
 

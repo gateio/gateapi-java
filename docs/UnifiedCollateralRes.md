@@ -1,11 +1,11 @@
 
 # UnifiedCollateralRes
 
-统一账户抵押模式设置返回
+Return of unified account collateral mode settings
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**isSuccess** | **Boolean** | 是否设置成功 |  [optional]
+**isSuccess** | **Boolean** | Whether the setting was successful |  [optional]
 

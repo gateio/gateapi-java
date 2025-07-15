@@ -7,7 +7,7 @@ Loan records
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Long** | id |  [optional] [readonly]
+**id** | **Long** | ID |  [optional] [readonly]
 **type** | **String** | type: borrow - borrow, repay - repay |  [optional] [readonly]
 **repaymentType** | **String** | Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment |  [optional] [readonly]
 **borrowType** | **String** | Loan type, returned when querying loan records. manual_borrow - Manual repayment , auto_borrow - Automatic repayment |  [optional]

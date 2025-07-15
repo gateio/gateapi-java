@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **text** | **String** | Comment |  [optional]
 **contract** | **String** | Futures contract, the field is only available for data after 2023-10-30. |  [optional]
 **tradeId** | **String** | trade id |  [optional]
-**id** | **String** | 账户变更记录 id |  [optional]
+**id** | **String** | Account change record ID |  [optional]
 
 ## Enum: TypeEnum
 

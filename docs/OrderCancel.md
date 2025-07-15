@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **updateTimeMs** | **Long** | Last modification time of order (in milliseconds) |  [optional] [readonly]
 **status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled |  [optional] [readonly]
 **currencyPair** | **String** | Currency pair | 
-**type** | [**TypeEnum**](#TypeEnum) | Order Type    - limit : Limit Order - market : Market Order |  [optional]
+**type** | [**TypeEnum**](#TypeEnum) | Order Type   - limit : Limit Order - market : Market Order |  [optional]
 **account** | **String** | Account type, spot - spot account, margin - leveraged account, unified - unified account |  [optional]
-**side** | [**SideEnum**](#SideEnum) | Order side | 
+**side** | [**SideEnum**](#SideEnum) | Buy or sell order | 
 **amount** | **String** | When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  | 
 **price** | **String** | Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60; |  [optional]
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60; |  [optional]

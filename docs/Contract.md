@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **riskLimitMax** | **String** | Maximum risk limit the contract allowed,deprecated,It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits. |  [optional]
 **orderSizeMin** | **Long** | Minimum order size the contract allowed |  [optional]
 **orderSizeMax** | **Long** | Maximum order size the contract allowed |  [optional]
-**orderPriceDeviate** | **String** | deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate |  [optional]
+**orderPriceDeviate** | **String** | deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:   abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate |  [optional]
 **refDiscountRate** | **String** | Referral fee rate discount |  [optional]
 **refRebateRate** | **String** | Referrer commission rate |  [optional]
 **orderbookId** | **Long** | Current orderbook ID |  [optional]
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **createTime** | **Double** | Created time of the contract |  [optional]
 **fundingCapRatio** | **String** | The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio |  [optional]
 **status** | **String** | Contract Status Types include:  prelaunch,  trading, delisting,  delisted  |  [optional]
-**launchTime** | **Long** | 合约开盘时间 |  [optional]
+**launchTime** | **Long** | Contract expiry timestamp |  [optional]
 
 ## Enum: TypeEnum
 

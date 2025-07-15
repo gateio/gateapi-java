@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **riskLimitMax** | **String** | Maximum risk limit the contract allowed |  [optional]
 **orderSizeMin** | **Long** | Minimum order size the contract allowed |  [optional]
 **orderSizeMax** | **Long** | Maximum order size the contract allowed |  [optional]
-**orderPriceDeviate** | **String** | deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate |  [optional]
+**orderPriceDeviate** | **String** | deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:   abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate |  [optional]
 **refDiscountRate** | **String** | Referral fee rate discount |  [optional]
 **refRebateRate** | **String** | Referrer commission rate |  [optional]
 **orderbookId** | **Long** | Current orderbook ID |  [optional]

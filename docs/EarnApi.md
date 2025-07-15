@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**listStructuredProducts**](EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List
 [**listStructuredOrders**](EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List
 [**placeStructuredOrder**](EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
-[**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | 链上赚币币种
+[**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking Coins
 [**swapStakingCoin**](EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain Token Swap for Earned Coins
 
 
@@ -384,8 +384,8 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
-        String status = "in_process"; // String | Status (default: all)  `in_process`-processing  `will_begin`-unstarted  `wait_settlement`-unsettled  `done`-finish
-        String type = "BullishSharkFin"; // String | Product Type (default all)  `SharkFin2.0`-SharkFin  `BullishSharkFin`-BullishSharkFin  `BearishSharkFin`-BearishSharkFin `DoubleNoTouch`-DoubleNoTouch `RangeAccrual`-RangeAccrual `SnowBall`-SnowBall
+        String status = "in_process"; // String | Status (Default empty to query all)  `in_process`-In progress `will_begin`-Not started `wait_settlement`-Pending settlement `done`-Completed 
+        String type = "BullishSharkFin"; // String | Product Type (Default empty to query all)  `SharkFin2.0`-Shark Fin `BullishSharkFin`-Bullish Treasure `BearishSharkFin`-Bearish Treasure `DoubleNoTouch`-Volatility Treasure `RangeAccrual`-Range Smart Yield `SnowBall`-Snowball 
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
@@ -412,8 +412,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish |
- **type** | **String**| Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall | [optional]
+ **status** | **String**| Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed  |
+ **type** | **String**| Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
@@ -462,8 +462,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
@@ -491,8 +491,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
@@ -585,7 +585,7 @@ null (empty response body)
 # **findCoin**
 > List&lt;String&gt; findCoin(findCoin)
 
-链上赚币币种
+Staking Coins
 
 ### Example
 
@@ -651,7 +651,7 @@ Name | Type | Description  | Notes
 
 <a name="swapStakingCoin"></a>
 # **swapStakingCoin**
-> swapStakingCoin(swapCoin)
+> SwapCoinStruct swapStakingCoin(swapCoin)
 
 On-chain Token Swap for Earned Coins
 
@@ -678,7 +678,8 @@ public class Example {
         EarnApi apiInstance = new EarnApi(defaultClient);
         SwapCoin swapCoin = new SwapCoin(); // SwapCoin | 
         try {
-            apiInstance.swapStakingCoin(swapCoin);
+            SwapCoinStruct result = apiInstance.swapStakingCoin(swapCoin);
+            System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
@@ -700,7 +701,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**SwapCoinStruct**](SwapCoinStruct.md)
 
 ### Authorization
 
@@ -709,7 +710,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

@@ -695,7 +695,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        String loanCurrency = "BTC"; // String | The parameter loan_currency is used to specify the borrowing currency. If loan_currency is not provided, the API will return all supported borrowing currencies. If loan_currency is provided, the API will return an array of collateral currencies supported for the specified borrowing currency.
+        String loanCurrency = "BTC"; // String | The parameter loan_currency is used to specify the borrowing currency. If loan_currency is not provided, the API will return all supported borrowing currencies.
         try {
             List<CollateralLoanCurrency> result = apiInstance.listCollateralCurrencies()
                         .loanCurrency(loanCurrency)
@@ -718,7 +718,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loanCurrency** | **String**| The parameter loan_currency is used to specify the borrowing currency. If loan_currency is not provided, the API will return all supported borrowing currencies. If loan_currency is provided, the API will return an array of collateral currencies supported for the specified borrowing currency. | [optional]
+ **loanCurrency** | **String**| The parameter loan_currency is used to specify the borrowing currency. If loan_currency is not provided, the API will return all supported borrowing currencies. | [optional]
 
 ### Return type
 

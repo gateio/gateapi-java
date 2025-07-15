@@ -316,8 +316,8 @@ public class Example {
         String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
             List<OptionsSettlement> result = apiInstance.listOptionsSettlements(underlying)
                         .limit(limit)
@@ -346,8 +346,8 @@ Name | Type | Description  | Notes
  **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -466,8 +466,8 @@ public class Example {
         String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
             List<OptionsMySettlements> result = apiInstance.listMyOptionsSettlements(underlying)
                         .contract(contract)
@@ -498,8 +498,8 @@ Name | Type | Description  | Notes
  **contract** | **String**| Options contract name | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -547,7 +547,7 @@ public class Example {
         String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
         String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0
         Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
-        Boolean withId = false; // Boolean | Whether the order book update ID will be returned. This ID increases by 1 on every order book update
+        Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time.
         try {
             FuturesOrderBook result = apiInstance.listOptionsOrderBook(contract)
                         .interval(interval)
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
  **contract** | **String**| Options contract name |
  **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
- **withId** | **Boolean**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
+ **withId** | **Boolean**| Whether to return depth update ID. This ID increments by 1 each time. | [optional] [default to false]
 
 ### Return type
 
@@ -593,7 +593,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Order book retrieved |  -  |
+**200** | Depth query successful |  -  |
 
 <a name="listOptionsTickers"></a>
 # **listOptionsTickers**
@@ -748,8 +748,8 @@ public class Example {
         OptionsApi apiInstance = new OptionsApi(defaultClient);
         String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         String interval = "5m"; // String | Interval time between data points
         try {
             List<OptionsCandlestick> result = apiInstance.listOptionsCandlesticks(contract)
@@ -778,8 +778,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contract** | **String**| Options contract name |
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **interval** | **String**| Interval time between data points | [optional] [default to 5m] [enum: 1m, 5m, 15m, 30m, 1h]
 
 ### Return type
@@ -825,8 +825,8 @@ public class Example {
         OptionsApi apiInstance = new OptionsApi(defaultClient);
         String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         String interval = "5m"; // String | Interval time between data points
         try {
             List<FuturesCandlestick> result = apiInstance.listOptionsUnderlyingCandlesticks(underlying)
@@ -855,8 +855,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **interval** | **String**| Interval time between data points | [optional] [default to 5m] [enum: 1m, 5m, 15m, 30m, 1h]
 
 ### Return type
@@ -904,8 +904,8 @@ public class Example {
         String type = "1546935600"; // String | `C` is call, while `P` is put
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
             List<FuturesTrade> result = apiInstance.listOptionsTrades()
                         .contract(contract)
@@ -937,8 +937,8 @@ Name | Type | Description  | Notes
  **type** | **String**| &#x60;C&#x60; is call, while &#x60;P&#x60; is put | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -1051,8 +1051,8 @@ public class Example {
         OptionsApi apiInstance = new OptionsApi(defaultClient);
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL 
         try {
             List<OptionsAccountBook> result = apiInstance.listOptionsAccountBook()
@@ -1082,8 +1082,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **type** | **String**| Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  | [optional] [enum: dnw, prem, fee, refr, set]
 
 ### Return type
@@ -1346,8 +1346,8 @@ public class Example {
         String underlying = "BTC_USDT"; // String | Underlying
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
             List<OptionsOrder> result = apiInstance.listOptionsOrders(status)
                         .contract(contract)
@@ -1380,8 +1380,8 @@ Name | Type | Description  | Notes
  **underlying** | **String**| Underlying | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -1778,8 +1778,8 @@ public class Example {
         String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
             List<OptionsMyTrade> result = apiInstance.listMyOptionsTrades(underlying)
                         .contract(contract)
@@ -1810,8 +1810,8 @@ Name | Type | Description  | Notes
  **contract** | **String**| Options contract name | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 

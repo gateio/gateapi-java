@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **currency** | **String** | Currency |  [optional] [readonly]
 **actualRate** | **String** | Actual Rate |  [optional] [readonly]
 **interest** | **String** | Interest |  [optional] [readonly]
-**interestStatus** | **String** | Interest status: interest_dividend - regular dividend, interest_reinvest - interest reinvestment |  [optional] [readonly]
+**interestStatus** | **String** | Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment |  [optional] [readonly]
 **createTime** | **Long** | Created time |  [optional] [readonly]
 

@@ -47,8 +47,8 @@ public class Example {
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
         Integer page = 1; // Integer | Page number
         Integer limit = 10; // Integer | Maximum number of records to be returned in a single list
-        String sort = "ltv_asc"; // String | Sort types: time_desc - default sorting by creation time in descending order, ltv_asc - ascending order of ltv, ltv_desc - descending order of ltv.
-        String orderType = "current"; // String | Order type, current - query current orders, fixed - query fixed orders. If not specified, default to querying current orders
+        String sort = "ltv_asc"; // String | Query the current interest rate of the currency in the previous hour
+        String orderType = "current"; // String | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
         try {
             List<MultiCollateralOrder> result = apiInstance.listMultiCollateralOrders()
                         .page(page)
@@ -76,8 +76,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 10]
- **sort** | **String**| Sort types: time_desc - default sorting by creation time in descending order, ltv_asc - ascending order of ltv, ltv_desc - descending order of ltv. | [optional]
- **orderType** | **String**| Order type, current - query current orders, fixed - query fixed orders. If not specified, default to querying current orders | [optional]
+ **sort** | **String**| Query the current interest rate of the currency in the previous hour | [optional]
+ **orderType** | **String**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
 
 ### Return type
 
@@ -562,8 +562,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        String type = "collateral"; // String | Currency types: collateral - collateral currency, borrow - borrowing currency.
-        String currency = "BTC"; // String | When specifying collateral currencies, you can use commas to separate multiple currencies; for borrowing currencies, only one currency can be provided.
+        String type = "collateral"; // String | Currency type: collateral - Collateral currency, borrow - Borrowing 
+        String currency = "BTC"; // String | When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc
         try {
             List<CurrencyQuota> result = apiInstance.listUserCurrencyQuota(type, currency);
             System.out.println(result);
@@ -584,8 +584,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| Currency types: collateral - collateral currency, borrow - borrowing currency. |
- **currency** | **String**| When specifying collateral currencies, you can use commas to separate multiple currencies; for borrowing currencies, only one currency can be provided. |
+ **type** | **String**| Currency type: collateral - Collateral currency, borrow - Borrowing  |
+ **currency** | **String**| When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc |
 
 ### Return type
 
@@ -793,7 +793,7 @@ No authorization required
 
 Query the current interest rate of the currency
 
-Query the current interest rate of the currency in the last hour. The current interest rate is updated every hour.
+Query the current interest rate of the currency in the previous hour.
 
 ### Example
 
@@ -812,7 +812,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        List<String> currencies = Arrays.asList(); // List<String> | Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items.
+        List<String> currencies = Arrays.asList(); // List<String> | Specify currency name query array, separated by commas, maximum 100items.
         String vipLevel = "\"0\""; // String | VIP level, defaults to 0 if not transferred
         try {
             List<CollateralCurrentRate> result = apiInstance.getMultiCollateralCurrentRate(currencies)
@@ -836,7 +836,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**List&lt;String&gt;**](String.md)| Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items. |
+ **currencies** | [**List&lt;String&gt;**](String.md)| Specify currency name query array, separated by commas, maximum 100items. |
  **vipLevel** | **String**| VIP level, defaults to 0 if not transferred | [optional] [default to &quot;0&quot;]
 
 ### Return type

@@ -38,6 +38,8 @@ Name | Type | Description | Notes
 **updateTime** | **Long** | Last update time |  [optional] [readonly]
 **updateId** | **Long** | Update id. Each time the position is updated, the value will be +1. |  [optional] [readonly]
 **openTime** | **Long** | First Open Time |  [optional]
+**riskLimitTable** | **String** | Risk limit table ID |  [optional] [readonly]
+**averageMaintenanceRate** | **String** | Average maintenance margin rate |  [optional] [readonly]
 
 ## Enum: ModeEnum
 

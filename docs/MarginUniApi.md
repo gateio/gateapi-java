@@ -467,8 +467,8 @@ public class Example {
         String currency = "BTC"; // String | Retrieve data of the specified currency
         Integer page = 1; // Integer | Page number
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
             List<UniLoanInterestRecord> result = apiInstance.listUniLoanInterestRecords()
                         .currencyPair(currencyPair)
@@ -500,8 +500,8 @@ Name | Type | Description  | Notes
  **currency** | **String**| Retrieve data of the specified currency | [optional]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 

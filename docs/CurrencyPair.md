@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **delistingTime** | **Long** | Expected time to remove the shelves, Unix timestamp in seconds |  [optional]
 **type** | **String** | Trading pair type, normal: normal, premarket: pre-market |  [optional]
 **tradeUrl** | **String** | Transaction link |  [optional]
+**stTag** | **Boolean** | Whether the trading pair is in ST risk assessment, false - No, true - Yes |  [optional]
 
 ## Enum: TradeStatusEnum
 

@@ -47,6 +47,7 @@ Method | HTTP request | Description
 [**getFuturesFee**](FuturesApi.md#getFuturesFee) | **GET** /futures/{settle}/fee | Query user trading fee rates
 [**cancelBatchFutureOrders**](FuturesApi.md#cancelBatchFutureOrders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel a batch of orders with an ID list
 [**amendBatchFutureOrders**](FuturesApi.md#amendBatchFutureOrders) | **POST** /futures/{settle}/batch_amend_orders | Batch modify orders with specified IDs
+[**getFuturesRiskLimitTable**](FuturesApi.md#getFuturesRiskLimitTable) | **GET** /futures/{settle}/risk_limit_table | Query risk limit table by table_id
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | List All Price-triggered Orders
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 [**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel All Price-triggered Orders
@@ -220,7 +221,7 @@ public class Example {
         String contract = "BTC_USDT"; // String | Futures contract
         String interval = "\"0\""; // String | Order depth. 0 means no aggregation is applied. default to 0
         Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids
-        Boolean withId = false; // Boolean | Whether the order book update ID will be returned. This ID increases by 1 on every order book update
+        Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time.
         try {
             FuturesOrderBook result = apiInstance.listFuturesOrderBook(settle, contract)
                         .interval(interval)
@@ -249,7 +250,7 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract |
  **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &quot;0&quot;]
  **limit** | **Integer**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
- **withId** | **Boolean**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
+ **withId** | **Boolean**| Whether to return depth update ID. This ID increments by 1 each time. | [optional] [default to false]
 
 ### Return type
 
@@ -267,7 +268,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Order book retrieved |  -  |
+**200** | Depth query successful |  -  |
 
 <a name="listFuturesTrades"></a>
 # **listFuturesTrades**
@@ -379,7 +380,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
-        Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
+        Long to = 1546935600L; // Long | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second 
         Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
         String interval = "\"5m\""; // String | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days
         try {
@@ -410,7 +411,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
- **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
+ **to** | **Long**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  | [optional]
  **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **interval** | **String**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days | [optional] [default to &quot;5m&quot;]
 
@@ -460,7 +461,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
-        Long to = 1546935600L; // Long | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time
+        Long to = 1546935600L; // Long | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second 
         Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
         String interval = "\"5m\""; // String | Interval time between data points
         try {
@@ -491,7 +492,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
- **to** | **Long**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional]
+ **to** | **Long**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  | [optional]
  **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **interval** | **String**| Interval time between data points | [optional] [default to &quot;5m&quot;]
 
@@ -607,8 +608,8 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
             List<FundingRateRecord> result = apiInstance.listFuturesFundingRateHistory(settle, contract)
                         .limit(limit)
@@ -636,8 +637,8 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
 ### Return type
 
@@ -873,7 +874,7 @@ No authorization required
 
 Retrieve liquidation history
 
-Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+The maximum time interval between &#x60;from&#x60; and &#x60;to&#x60; is **3600 seconds**. Certain private fields will **not be returned** in public endpoints; refer to individual field descriptions for details.
 
 ### Example
 
@@ -894,8 +895,8 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         try {
             List<FuturesLiqOrder> result = apiInstance.listLiquidatedOrders(settle)
@@ -924,8 +925,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
@@ -1096,7 +1097,7 @@ Name | Type | Description  | Notes
 
 Query account book
 
-If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
+If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。 2023-10-30 can be filtered。 2023-10-30 can be filtered。 
 
 ### Example
 
@@ -1123,8 +1124,8 @@ public class Example {
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         String type = "dnw"; // String | Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
         try {
             List<FuturesAccountBook> result = apiInstance.listFuturesAccountBook(settle)
@@ -1157,8 +1158,8 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **type** | **String**| Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction | [optional]
 
 ### Return type
@@ -1357,7 +1358,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
-        String change = "0.01"; // String | Margin change. Use positive number to increase margin, negative number otherwise.
+        String change = "0.01"; // String | Margin change amount, positive number increases, negative number 
         try {
             Position result = apiInstance.updatePositionMargin(settle, contract, change);
             System.out.println(result);
@@ -1380,7 +1381,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
- **change** | **String**| Margin change. Use positive number to increase margin, negative number otherwise. |
+ **change** | **String**| Margin change amount, positive number increases, negative number  |
 
 ### Return type
 
@@ -1622,7 +1623,7 @@ Name | Type | Description  | Notes
 
 Enable or disable dual mode
 
-Before setting dual mode, make sure all positions are closed and no orders are open
+The prerequisite for changing mode is that all positions have no holdings
 
 ### Example
 
@@ -1788,7 +1789,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
-        String change = "0.01"; // String | Margin change. Use positive number to increase margin, negative number otherwise.
+        String change = "0.01"; // String | Margin change amount, positive number increases, negative number 
         String dualSide = "dual_long"; // String | Long or short position
         try {
             List<Position> result = apiInstance.updateDualModePositionMargin(settle, contract, change, dualSide);
@@ -1812,7 +1813,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
- **change** | **String**| Margin change. Use positive number to increase margin, negative number otherwise. |
+ **change** | **String**| Margin change amount, positive number increases, negative number  |
  **dualSide** | **String**| Long or short position |
 
 ### Return type
@@ -2013,7 +2014,7 @@ public class Example {
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        String lastId = "12345"; // String | Specify list staring point using the `id` of last record in previous list-query results
+        String lastId = "12345"; // String | Specify the currency name to query in batches, and support up to 100 pass parameters at a time.
         try {
             List<FuturesOrder> result = apiInstance.listFuturesOrders(settle, status)
                         .contract(contract)
@@ -2044,7 +2045,7 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **lastId** | **String**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional]
+ **lastId** | **String**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time. | [optional]
 
 ### Return type
 
@@ -2170,7 +2171,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
-        String side = "ask"; // String | Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask
+        String side = "ask"; // String | Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell ordersspecified. Set to bid to cancel all buy orders, set to ask to cancel all 
         try {
             List<FuturesOrder> result = apiInstance.cancelFuturesOrders(settle, contract, xGateExptime, side);
             System.out.println(result);
@@ -2194,7 +2195,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
- **side** | **String**| Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask | [optional]
+ **side** | **String**| Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell ordersspecified. Set to bid to cancel all buy orders, set to ask to cancel all  | [optional]
 
 ### Return type
 
@@ -2243,8 +2244,8 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
@@ -2275,8 +2276,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
@@ -2705,8 +2706,8 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         String role = "maker"; // String | Query role, maker or taker.
@@ -2739,8 +2740,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **role** | **String**| Query role, maker or taker. | [optional]
@@ -2794,8 +2795,8 @@ public class Example {
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
-        Long from = 1547706332L; // Long | Start timestamp
-        Long to = 1547706332L; // Long | End timestamp
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         String side = "short"; // String | Query side.  long or shot
         String pnl = "profit"; // String | Query profit or loss
         try {
@@ -2830,8 +2831,8 @@ Name | Type | Description  | Notes
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
- **from** | **Long**| Start timestamp | [optional]
- **to** | **Long**| End timestamp | [optional]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **side** | **String**| Query side.  long or shot | [optional]
  **pnl** | **String**| Query profit or loss | [optional]
 
@@ -3015,7 +3016,7 @@ Name | Type | Description  | Notes
 
 Countdown cancel orders
 
-When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
 
 ### Example
 
@@ -3159,7 +3160,7 @@ Name | Type | Description  | Notes
 
 Cancel a batch of orders with an ID list
 
-Multiple distinct order ID list can be specified。Each request can cancel a maximum of 20 records.
+Multiple different order IDs can be specified. A maximum of 20 records 
 
 ### Example
 
@@ -3233,7 +3234,7 @@ Name | Type | Description  | Notes
 
 Batch modify orders with specified IDs
 
-You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+Multiple different order IDs can be specified. A maximum of 10 orders can
 
 ### Example
 
@@ -3300,6 +3301,74 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Request is completed |  -  |
+
+<a name="getFuturesRiskLimitTable"></a>
+# **getFuturesRiskLimitTable**
+> List&lt;FuturesRiskLimitTier&gt; getFuturesRiskLimitTable(settle, tableId)
+
+Query risk limit table by table_id
+
+Just pass table_id.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String tableId = "CYBER_USDT_20241122"; // String | Risk limit table ID
+        try {
+            List<FuturesRiskLimitTier> result = apiInstance.getFuturesRiskLimitTable(settle, tableId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#getFuturesRiskLimitTable");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **tableId** | **String**| Risk limit table ID |
+
+### Return type
+
+[**List&lt;FuturesRiskLimitTier&gt;**](FuturesRiskLimitTier.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
 
 <a name="listPriceTriggeredOrders"></a>
 # **listPriceTriggeredOrders**

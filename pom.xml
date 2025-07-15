@@ -5,7 +5,7 @@
     <artifactId>gate-api</artifactId>
     <packaging>jar</packaging>
     <name>gate-api</name>
-    <version>6.100.2</version>
+    <version>6.102.0</version>
     <url>https://github.com/gateio/gateapi-java.git</url>
     <description>Java client for gateapi</description>
     <scm>
@@ -27,7 +27,7 @@
             <name>Gate</name>
             <email>support@mail.gate.com</email>
             <organization>Gate</organization>
-            <organizationUrl>https://www.gate.io</organizationUrl>
+            <organizationUrl>https://www.gate.com</organizationUrl>
         </developer>
     </developers>
 

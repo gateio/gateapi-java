@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**collateralType** | [**CollateralTypeEnum**](#CollateralTypeEnum) | 用户设置抵押物模式 0(all)-全部币种作为抵押物,1(custom)-自定义币种作为抵押物,collateral_type为0(all)时，enable_list与disable_list参数无效 |  [optional]
-**enableList** | **List&lt;String&gt;** | 币种列表，collateral_type&#x3D;1(custom)表示追加的逻辑 |  [optional]
-**disableList** | **List&lt;String&gt;** | 取消列表，表示取消的逻辑 |  [optional]
+**collateralType** | [**CollateralTypeEnum**](#CollateralTypeEnum) | User-set collateral mode0(all)-All currencies used as collateral, 1(custom)-Custom currencies used as collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid |  [optional]
+**enableList** | **List&lt;String&gt;** | Currency list, where collateral_type&#x3D;1(custom) indicates the logic of addition |  [optional]
+**disableList** | **List&lt;String&gt;** | Cancellation list, indicating the logic of cancellation |  [optional]
 
 ## Enum: CollateralTypeEnum
 

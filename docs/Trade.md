@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **createTime** | **String** | Trading time |  [optional]
 **createTimeMs** | **String** | Trading time, with millisecond precision |  [optional]
 **currencyPair** | **String** | Currency pair |  [optional]
-**side** | [**SideEnum**](#SideEnum) | Order side |  [optional]
+**side** | [**SideEnum**](#SideEnum) | Buy or sell order |  [optional]
 **role** | [**RoleEnum**](#RoleEnum) | Trade role. No value in public endpoints |  [optional]
 **amount** | **String** | Trade amount |  [optional]
 **price** | **String** | Order price |  [optional]
