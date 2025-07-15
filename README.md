@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.102.0
-- SDK version: 6.102.0
+- API version: v4.102.1
+- SDK version: 6.102.1
 
 Welcome to Gate API
  APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.102.0</version>
+    <version>6.102.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.102.0"
+compile "io.gate:gate-api:6.102.1"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.102.0.jar`
+* `target/gate-api-6.102.1.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
