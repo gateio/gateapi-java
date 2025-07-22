@@ -47,7 +47,7 @@ public class StpGroup {
     }
 
      /**
-     * STP Group ID
+     * STP Group ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class StpGroup {
     }
 
      /**
-     * STP Group name
+     * STP Group name.
      * @return name
     **/
     public String getName() {
@@ -86,7 +86,7 @@ public class StpGroup {
     }
 
      /**
-     * Creator ID
+     * Creator ID.
      * @return creatorId
     **/
     @javax.annotation.Nullable
@@ -106,7 +106,7 @@ public class StpGroup {
     }
 
      /**
-     * Creation time
+     * Creation time.
      * @return createTime
     **/
     @javax.annotation.Nullable

@@ -27,6 +27,10 @@ public class SwapCoinStruct {
     @SerializedName(SERIALIZED_NAME_ID)
     private Integer id;
 
+    public static final String SERIALIZED_NAME_PID = "pid";
+    @SerializedName(SERIALIZED_NAME_PID)
+    private Integer pid;
+
     public static final String SERIALIZED_NAME_UID = "uid";
     @SerializedName(SERIALIZED_NAME_UID)
     private Integer uid;
@@ -39,6 +43,10 @@ public class SwapCoinStruct {
     @SerializedName(SERIALIZED_NAME_TYPE)
     private Integer type;
 
+    public static final String SERIALIZED_NAME_SUBTYPE = "subtype";
+    @SerializedName(SERIALIZED_NAME_SUBTYPE)
+    private String subtype;
+
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
     @SerializedName(SERIALIZED_NAME_AMOUNT)
     private String amount;
@@ -47,17 +55,33 @@ public class SwapCoinStruct {
     @SerializedName(SERIALIZED_NAME_EXCHANGE_RATE)
     private String exchangeRate;
 
-    public static final String SERIALIZED_NAME_PID = "pid";
-    @SerializedName(SERIALIZED_NAME_PID)
-    private Integer pid;
+    public static final String SERIALIZED_NAME_EXCHANGE_AMOUNT = "exchange_amount";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_AMOUNT)
+    private String exchangeAmount;
+
+    public static final String SERIALIZED_NAME_UPDATE_STAMP = "updateStamp";
+    @SerializedName(SERIALIZED_NAME_UPDATE_STAMP)
+    private Integer updateStamp;
+
+    public static final String SERIALIZED_NAME_CREATE_STAMP = "createStamp";
+    @SerializedName(SERIALIZED_NAME_CREATE_STAMP)
+    private Integer createStamp;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
     @SerializedName(SERIALIZED_NAME_STATUS)
     private Integer status;
 
-    public static final String SERIALIZED_NAME_CREATE_STAMP = "createStamp";
-    @SerializedName(SERIALIZED_NAME_CREATE_STAMP)
-    private Integer createStamp;
+    public static final String SERIALIZED_NAME_PROTOCOL_TYPE = "protocol_type";
+    @SerializedName(SERIALIZED_NAME_PROTOCOL_TYPE)
+    private Integer protocolType;
+
+    public static final String SERIALIZED_NAME_CLIENT_ORDER_ID = "client_order_id";
+    @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID)
+    private String clientOrderId;
+
+    public static final String SERIALIZED_NAME_SOURCE = "source";
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    private String source;
 
 
     public SwapCoinStruct id(Integer id) {
@@ -67,7 +91,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -80,6 +104,26 @@ public class SwapCoinStruct {
         this.id = id;
     }
 
+    public SwapCoinStruct pid(Integer pid) {
+        
+        this.pid = pid;
+        return this;
+    }
+
+     /**
+     * Plan ID.
+     * @return pid
+    **/
+    @javax.annotation.Nullable
+    public Integer getPid() {
+        return pid;
+    }
+
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
     public SwapCoinStruct uid(Integer uid) {
         
         this.uid = uid;
@@ -87,7 +131,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return uid
     **/
     @javax.annotation.Nullable
@@ -107,7 +151,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return coin
     **/
     @javax.annotation.Nullable
@@ -127,7 +171,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * Type: 0-Lock, 1-Certificate
+     * 类型 0-质押 1-赎回
      * @return type
     **/
     @javax.annotation.Nullable
@@ -140,6 +184,26 @@ public class SwapCoinStruct {
         this.type = type;
     }
 
+    public SwapCoinStruct subtype(String subtype) {
+        
+        this.subtype = subtype;
+        return this;
+    }
+
+     /**
+     * 子类型
+     * @return subtype
+    **/
+    @javax.annotation.Nullable
+    public String getSubtype() {
+        return subtype;
+    }
+
+
+    public void setSubtype(String subtype) {
+        this.subtype = subtype;
+    }
+
     public SwapCoinStruct amount(String amount) {
         
         this.amount = amount;
@@ -147,7 +211,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * Amount
+     * Amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -167,7 +231,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * Exchange Ratio
+     * Exchange Ratio.
      * @return exchangeRate
     **/
     @javax.annotation.Nullable
@@ -180,24 +244,64 @@ public class SwapCoinStruct {
         this.exchangeRate = exchangeRate;
     }
 
-    public SwapCoinStruct pid(Integer pid) {
+    public SwapCoinStruct exchangeAmount(String exchangeAmount) {
         
-        this.pid = pid;
+        this.exchangeAmount = exchangeAmount;
         return this;
     }
 
      /**
-     * Plan ID
-     * @return pid
+     * 兑换金额
+     * @return exchangeAmount
     **/
     @javax.annotation.Nullable
-    public Integer getPid() {
-        return pid;
+    public String getExchangeAmount() {
+        return exchangeAmount;
     }
 
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setExchangeAmount(String exchangeAmount) {
+        this.exchangeAmount = exchangeAmount;
+    }
+
+    public SwapCoinStruct updateStamp(Integer updateStamp) {
+        
+        this.updateStamp = updateStamp;
+        return this;
+    }
+
+     /**
+     * 更新时间戳
+     * @return updateStamp
+    **/
+    @javax.annotation.Nullable
+    public Integer getUpdateStamp() {
+        return updateStamp;
+    }
+
+
+    public void setUpdateStamp(Integer updateStamp) {
+        this.updateStamp = updateStamp;
+    }
+
+    public SwapCoinStruct createStamp(Integer createStamp) {
+        
+        this.createStamp = createStamp;
+        return this;
+    }
+
+     /**
+     * Transaction timestamp.
+     * @return createStamp
+    **/
+    @javax.annotation.Nullable
+    public Integer getCreateStamp() {
+        return createStamp;
+    }
+
+
+    public void setCreateStamp(Integer createStamp) {
+        this.createStamp = createStamp;
     }
 
     public SwapCoinStruct status(Integer status) {
@@ -207,7 +311,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * status 1-success
+     * status 1-success.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -220,24 +324,64 @@ public class SwapCoinStruct {
         this.status = status;
     }
 
-    public SwapCoinStruct createStamp(Integer createStamp) {
+    public SwapCoinStruct protocolType(Integer protocolType) {
         
-        this.createStamp = createStamp;
+        this.protocolType = protocolType;
         return this;
     }
 
      /**
-     * Transaction timestamp
-     * @return createStamp
+     * DEFI协议类型
+     * @return protocolType
     **/
     @javax.annotation.Nullable
-    public Integer getCreateStamp() {
-        return createStamp;
+    public Integer getProtocolType() {
+        return protocolType;
     }
 
 
-    public void setCreateStamp(Integer createStamp) {
-        this.createStamp = createStamp;
+    public void setProtocolType(Integer protocolType) {
+        this.protocolType = protocolType;
+    }
+
+    public SwapCoinStruct clientOrderId(String clientOrderId) {
+        
+        this.clientOrderId = clientOrderId;
+        return this;
+    }
+
+     /**
+     * 参考ID
+     * @return clientOrderId
+    **/
+    @javax.annotation.Nullable
+    public String getClientOrderId() {
+        return clientOrderId;
+    }
+
+
+    public void setClientOrderId(String clientOrderId) {
+        this.clientOrderId = clientOrderId;
+    }
+
+    public SwapCoinStruct source(String source) {
+        
+        this.source = source;
+        return this;
+    }
+
+     /**
+     * Order source.
+     * @return source
+    **/
+    @javax.annotation.Nullable
+    public String getSource() {
+        return source;
+    }
+
+
+    public void setSource(String source) {
+        this.source = source;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -249,19 +393,25 @@ public class SwapCoinStruct {
         }
         SwapCoinStruct swapCoinStruct = (SwapCoinStruct) o;
         return Objects.equals(this.id, swapCoinStruct.id) &&
+                Objects.equals(this.pid, swapCoinStruct.pid) &&
                 Objects.equals(this.uid, swapCoinStruct.uid) &&
                 Objects.equals(this.coin, swapCoinStruct.coin) &&
                 Objects.equals(this.type, swapCoinStruct.type) &&
+                Objects.equals(this.subtype, swapCoinStruct.subtype) &&
                 Objects.equals(this.amount, swapCoinStruct.amount) &&
                 Objects.equals(this.exchangeRate, swapCoinStruct.exchangeRate) &&
-                Objects.equals(this.pid, swapCoinStruct.pid) &&
+                Objects.equals(this.exchangeAmount, swapCoinStruct.exchangeAmount) &&
+                Objects.equals(this.updateStamp, swapCoinStruct.updateStamp) &&
+                Objects.equals(this.createStamp, swapCoinStruct.createStamp) &&
                 Objects.equals(this.status, swapCoinStruct.status) &&
-                Objects.equals(this.createStamp, swapCoinStruct.createStamp);
+                Objects.equals(this.protocolType, swapCoinStruct.protocolType) &&
+                Objects.equals(this.clientOrderId, swapCoinStruct.clientOrderId) &&
+                Objects.equals(this.source, swapCoinStruct.source);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, uid, coin, type, amount, exchangeRate, pid, status, createStamp);
+        return Objects.hash(id, pid, uid, coin, type, subtype, amount, exchangeRate, exchangeAmount, updateStamp, createStamp, status, protocolType, clientOrderId, source);
     }
 
 
@@ -270,14 +420,20 @@ public class SwapCoinStruct {
         StringBuilder sb = new StringBuilder();
         sb.append("class SwapCoinStruct {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
         sb.append("      uid: ").append(toIndentedString(uid)).append("\n");
         sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      subtype: ").append(toIndentedString(subtype)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
-        sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
-        sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      exchangeAmount: ").append(toIndentedString(exchangeAmount)).append("\n");
+        sb.append("      updateStamp: ").append(toIndentedString(updateStamp)).append("\n");
         sb.append("      createStamp: ").append(toIndentedString(createStamp)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      protocolType: ").append(toIndentedString(protocolType)).append("\n");
+        sb.append("      clientOrderId: ").append(toIndentedString(clientOrderId)).append("\n");
+        sb.append("      source: ").append(toIndentedString(source)).append("\n");
         sb.append("}");
         return sb.toString();
     }

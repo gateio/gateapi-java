@@ -55,7 +55,7 @@ public class SavedAddress {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class SavedAddress {
     }
 
      /**
-     * Chain name
+     * Chain name.
      * @return chain
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class SavedAddress {
     }
 
      /**
-     * Address
+     * Address.
      * @return address
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class SavedAddress {
     }
 
      /**
-     * Name
+     * Name.
      * @return name
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class SavedAddress {
     }
 
      /**
-     * Tag
+     * Tag.
      * @return tag
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class SavedAddress {
     }
 
      /**
-     * Whether to pass the verification 0-unverified, 1-verified
+     * Whether to pass the verification 0-unverified, 1-verified.
      * @return verified
     **/
     @javax.annotation.Nullable

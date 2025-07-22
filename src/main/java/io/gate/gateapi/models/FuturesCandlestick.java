@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * data point in every timestamp
+ * data point in every timestamp.
  */
 public class FuturesCandlestick {
     public static final String SERIALIZED_NAME_T = "t";
@@ -59,7 +59,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Unix timestamp in seconds
+     * Unix timestamp in seconds.
      * @return t
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed
+     * size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed.
      * @return v
     **/
     @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Close price (quote currency)
+     * Close price (quote currency).
      * @return c
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Highest price (quote currency)
+     * Highest price (quote currency).
      * @return h
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Lowest price (quote currency)
+     * Lowest price (quote currency).
      * @return l
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Open price (quote currency)
+     * Open price (quote currency).
      * @return o
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class FuturesCandlestick {
     }
 
      /**
-     * Trading volume (unit: Quote currency)
+     * Trading volume (unit: Quote currency).
      * @return sum
     **/
     @javax.annotation.Nullable

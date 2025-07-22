@@ -47,7 +47,7 @@ public class CollateralCurrencyInfo {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class CollateralCurrencyInfo {
     }
 
      /**
-     * Currency Index Price
+     * Currency Index Price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class CollateralCurrencyInfo {
     }
 
      /**
-     * Left Collateral Amount
+     * Left Collateral Amount.
      * @return leftCollateral
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class CollateralCurrencyInfo {
     }
 
      /**
-     * Value of left collateral amount in USDT
+     * Value of left collateral amount in USDT.
      * @return leftCollateralUsdt
     **/
     @javax.annotation.Nullable

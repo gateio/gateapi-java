@@ -1,7 +1,7 @@
 
 # MockFuturesPosition
 
-Futures positions
+Futures positions.
 
 ## Properties
 

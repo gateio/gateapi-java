@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Batch order details
+ * Batch order details.
  */
 public class BatchOrder {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -231,7 +231,7 @@ public class BatchOrder {
     private AccountEnum account = AccountEnum.SPOT;
 
     /**
-     * Buy or sell order
+     * Buy or sell order.
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -409,7 +409,7 @@ public class BatchOrder {
     private Integer stpId;
 
     /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      */
     @JsonAdapter(StpActEnum.Adapter.class)
     public enum StpActEnum {
@@ -528,7 +528,7 @@ public class BatchOrder {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -548,7 +548,7 @@ public class BatchOrder {
     }
 
      /**
-     * The custom data that the user remarked when amending the order
+     * The custom data that the user remarked when amending the order.
      * @return amendText
     **/
     @javax.annotation.Nullable
@@ -588,7 +588,7 @@ public class BatchOrder {
     }
 
      /**
-     * Whether the batch of orders succeeded
+     * Whether the batch of orders succeeded.
      * @return succeeded
     **/
     @javax.annotation.Nullable
@@ -608,7 +608,7 @@ public class BatchOrder {
     }
 
      /**
-     * Error label, if any, otherwise an empty string
+     * Error label, if any, otherwise an empty string.
      * @return label
     **/
     @javax.annotation.Nullable
@@ -628,7 +628,7 @@ public class BatchOrder {
     }
 
      /**
-     * Detailed error message, if any, otherwise an empty string
+     * Detailed error message, if any, otherwise an empty string.
      * @return message
     **/
     @javax.annotation.Nullable
@@ -642,7 +642,7 @@ public class BatchOrder {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -652,7 +652,7 @@ public class BatchOrder {
 
 
      /**
-     * Creation time of order
+     * Creation time of order.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -662,7 +662,7 @@ public class BatchOrder {
 
 
      /**
-     * Last modification time of order
+     * Last modification time of order.
      * @return updateTime
     **/
     @javax.annotation.Nullable
@@ -672,7 +672,7 @@ public class BatchOrder {
 
 
      /**
-     * Creation time of order (in milliseconds)
+     * Creation time of order (in milliseconds).
      * @return createTimeMs
     **/
     @javax.annotation.Nullable
@@ -682,7 +682,7 @@ public class BatchOrder {
 
 
      /**
-     * Last modification time of order (in milliseconds)
+     * Last modification time of order (in milliseconds).
      * @return updateTimeMs
     **/
     @javax.annotation.Nullable
@@ -708,7 +708,7 @@ public class BatchOrder {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -768,7 +768,7 @@ public class BatchOrder {
     }
 
      /**
-     * Buy or sell order
+     * Buy or sell order.
      * @return side
     **/
     @javax.annotation.Nullable
@@ -788,7 +788,7 @@ public class BatchOrder {
     }
 
      /**
-     * Trade amount
+     * Trade amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -808,7 +808,7 @@ public class BatchOrder {
     }
 
      /**
-     * Order price
+     * Order price.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -848,7 +848,7 @@ public class BatchOrder {
     }
 
      /**
-     * Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
+     * Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported.
      * @return iceberg
     **/
     @javax.annotation.Nullable
@@ -902,7 +902,7 @@ public class BatchOrder {
     }
 
      /**
-     * Amount left to fill
+     * Amount left to fill.
      * @return left
     **/
     @javax.annotation.Nullable
@@ -912,7 +912,7 @@ public class BatchOrder {
 
 
      /**
-     * Amount traded to fill 
+     * Amount traded to fill.
      * @return filledAmount
     **/
     @javax.annotation.Nullable
@@ -922,7 +922,7 @@ public class BatchOrder {
 
 
      /**
-     * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
+     * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;.
      * @return fillPrice
     **/
     @javax.annotation.Nullable
@@ -932,7 +932,7 @@ public class BatchOrder {
 
 
      /**
-     * Total filled in quote currency
+     * Total filled in quote currency.
      * @return filledTotal
     **/
     @javax.annotation.Nullable
@@ -942,7 +942,7 @@ public class BatchOrder {
 
 
      /**
-     * Average fill price
+     * Average fill price.
      * @return avgDealPrice
     **/
     @javax.annotation.Nullable
@@ -952,7 +952,7 @@ public class BatchOrder {
 
 
      /**
-     * Fee deducted
+     * Fee deducted.
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -962,7 +962,7 @@ public class BatchOrder {
 
 
      /**
-     * Fee currency unit
+     * Fee currency unit.
      * @return feeCurrency
     **/
     @javax.annotation.Nullable
@@ -972,7 +972,7 @@ public class BatchOrder {
 
 
      /**
-     * Points used to deduct fee
+     * Points used to deduct fee.
      * @return pointFee
     **/
     @javax.annotation.Nullable
@@ -982,7 +982,7 @@ public class BatchOrder {
 
 
      /**
-     * GT used to deduct fee
+     * GT used to deduct fee.
      * @return gtFee
     **/
     @javax.annotation.Nullable
@@ -992,7 +992,7 @@ public class BatchOrder {
 
 
      /**
-     * Whether GT fee discount is used
+     * Whether GT fee discount is used.
      * @return gtDiscount
     **/
     @javax.annotation.Nullable
@@ -1002,7 +1002,7 @@ public class BatchOrder {
 
 
      /**
-     * Rebated fee
+     * Rebated fee.
      * @return rebatedFee
     **/
     @javax.annotation.Nullable
@@ -1012,7 +1012,7 @@ public class BatchOrder {
 
 
      /**
-     * Rebated fee currency unit
+     * Rebated fee currency unit.
      * @return rebatedFeeCurrency
     **/
     @javax.annotation.Nullable
@@ -1038,7 +1038,7 @@ public class BatchOrder {
     }
 
      /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      * @return stpAct
     **/
     @javax.annotation.Nullable

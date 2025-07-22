@@ -67,7 +67,7 @@ public class UidPushOrder {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class UidPushOrder {
     }
 
      /**
-     * Initiator User ID
+     * Initiator User ID.
      * @return pushUid
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class UidPushOrder {
     }
 
      /**
-     * Recipient User ID
+     * Recipient User ID.
      * @return receiveUid
     **/
     @javax.annotation.Nullable
@@ -127,7 +127,7 @@ public class UidPushOrder {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -147,7 +147,7 @@ public class UidPushOrder {
     }
 
      /**
-     * Transfer amount
+     * Transfer amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -167,7 +167,7 @@ public class UidPushOrder {
     }
 
      /**
-     * Creation time
+     * Creation time.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -207,7 +207,7 @@ public class UidPushOrder {
     }
 
      /**
-     * PENDING Reason Tips
+     * PENDING Reason Tips.
      * @return message
     **/
     @javax.annotation.Nullable
@@ -227,7 +227,7 @@ public class UidPushOrder {
     }
 
      /**
-     * Order Type
+     * Order Type.
      * @return transactionType
     **/
     @javax.annotation.Nullable

@@ -55,7 +55,7 @@ public class MultiCollateralRecordCurrency {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class MultiCollateralRecordCurrency {
     }
 
      /**
-     * Currency Index Price
+     * Currency Index Price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class MultiCollateralRecordCurrency {
     }
 
      /**
-     * Amount before the operation
+     * Amount before the operation.
      * @return beforeAmount
     **/
     @javax.annotation.Nullable

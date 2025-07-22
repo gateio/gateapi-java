@@ -55,7 +55,7 @@ public class RepayRecordCurrency {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class RepayRecordCurrency {
     }
 
      /**
-     * Currency Index Price
+     * Currency Index Price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class RepayRecordCurrency {
     }
 
      /**
-     * Amount before the operation
+     * Amount before the operation.
      * @return beforeAmount
     **/
     @javax.annotation.Nullable

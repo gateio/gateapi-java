@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Unified margin tiers
+ * Unified margin tiers.
  */
 public class UnifiedMarginTiers {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -42,7 +42,7 @@ public class UnifiedMarginTiers {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class UnifiedMarginTiers {
     }
 
      /**
-     * Margin tiers
+     * Margin tiers.
      * @return marginTiers
     **/
     @javax.annotation.Nullable

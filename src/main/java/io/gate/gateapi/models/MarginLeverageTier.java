@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Market gradient information
+ * Market gradient information.
  */
 public class MarginLeverageTier {
     public static final String SERIALIZED_NAME_UPPER_LIMIT = "upper_limit";
@@ -43,7 +43,7 @@ public class MarginLeverageTier {
     }
 
      /**
-     * Maximum loan limit
+     * Maximum loan limit.
      * @return upperLimit
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class MarginLeverageTier {
     }
 
      /**
-     * Maintenance margin rate
+     * Maintenance margin rate.
      * @return mmr
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class MarginLeverageTier {
     }
 
      /**
-     * Maximum leverage multiple
+     * Maximum leverage multiple.
      * @return leverage
     **/
     @javax.annotation.Nullable

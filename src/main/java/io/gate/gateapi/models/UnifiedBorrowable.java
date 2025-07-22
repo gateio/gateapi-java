@@ -39,7 +39,7 @@ public class UnifiedBorrowable {
     }
 
      /**
-     * Currency detail
+     * Currency detail.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class UnifiedBorrowable {
     }
 
      /**
-     * Max borrowable amount
+     * Max borrowable amount.
      * @return amount
     **/
     @javax.annotation.Nullable

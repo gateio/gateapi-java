@@ -32,7 +32,7 @@ public class OptionsPositionClose {
     private String contract;
 
     /**
-     * Position side, long or short
+     * Position side, long or short.
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -96,7 +96,7 @@ public class OptionsPositionClose {
 
 
      /**
-     * Position close time
+     * Position close time.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -106,7 +106,7 @@ public class OptionsPositionClose {
 
 
      /**
-     * Options contract name
+     * Options contract name.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -116,7 +116,7 @@ public class OptionsPositionClose {
 
 
      /**
-     * Position side, long or short
+     * Position side, long or short.
      * @return side
     **/
     @javax.annotation.Nullable
@@ -126,7 +126,7 @@ public class OptionsPositionClose {
 
 
      /**
-     * PNL
+     * PNL.
      * @return pnl
     **/
     @javax.annotation.Nullable
@@ -136,7 +136,7 @@ public class OptionsPositionClose {
 
 
      /**
-     * Text of close order
+     * Text of close order.
      * @return text
     **/
     @javax.annotation.Nullable
@@ -146,7 +146,7 @@ public class OptionsPositionClose {
 
 
      /**
-     * settlement size
+     * settlement size.
      * @return settleSize
     **/
     @javax.annotation.Nullable

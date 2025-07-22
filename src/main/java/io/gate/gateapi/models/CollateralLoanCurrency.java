@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Supported borrowing and collateral currencies
+ * Supported borrowing and collateral currencies.
  */
 public class CollateralLoanCurrency {
     public static final String SERIALIZED_NAME_LOAN_CURRENCY = "loan_currency";
@@ -41,7 +41,7 @@ public class CollateralLoanCurrency {
     }
 
      /**
-     * Borrowed currency
+     * Borrowed currency.
      * @return loanCurrency
     **/
     @javax.annotation.Nullable
@@ -69,7 +69,7 @@ public class CollateralLoanCurrency {
     }
 
      /**
-     * List of supported collateral currencies
+     * List of supported collateral currencies.
      * @return collateralCurrency
     **/
     @javax.annotation.Nullable

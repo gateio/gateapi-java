@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Risk unit
+ * Risk unit.
  */
 public class MockRiskUnit {
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
@@ -70,7 +70,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Risk unit name
+     * Risk unit name.
      * @return symbol
     **/
     @javax.annotation.Nullable
@@ -90,7 +90,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Spot usage
+     * Spot usage.
      * @return spotInUse
     **/
     @javax.annotation.Nullable
@@ -110,7 +110,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Maintenance margin
+     * Maintenance margin.
      * @return maintainMargin
     **/
     @javax.annotation.Nullable
@@ -130,7 +130,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Initial margin
+     * Initial margin.
      * @return initialMargin
     **/
     @javax.annotation.Nullable
@@ -158,7 +158,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Margin result
+     * Margin result.
      * @return marginResult
     **/
     @javax.annotation.Nullable
@@ -178,7 +178,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Total Delta of risk unit
+     * Total Delta of risk unit.
      * @return delta
     **/
     @javax.annotation.Nullable
@@ -198,7 +198,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Total Gamma of risk unit
+     * Total Gamma of risk unit.
      * @return gamma
     **/
     @javax.annotation.Nullable
@@ -218,7 +218,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Total Theta of risk unit
+     * Total Theta of risk unit.
      * @return theta
     **/
     @javax.annotation.Nullable
@@ -238,7 +238,7 @@ public class MockRiskUnit {
     }
 
      /**
-     * Total Vega of risk unit
+     * Total Vega of risk unit.
      * @return vega
     **/
     @javax.annotation.Nullable

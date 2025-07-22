@@ -41,7 +41,7 @@ public class IndexConstituent {
     }
 
      /**
-     * Exchange
+     * Exchange.
      * @return exchange
     **/
     @javax.annotation.Nullable
@@ -69,7 +69,7 @@ public class IndexConstituent {
     }
 
      /**
-     * Symbol list
+     * Symbol list.
      * @return symbols
     **/
     @javax.annotation.Nullable

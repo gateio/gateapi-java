@@ -35,7 +35,7 @@ public class DebitFee {
     }
 
      /**
-     * Whether GT fee discount is used
+     * Whether GT fee discount is used.
      * @return enabled
     **/
     public Boolean getEnabled() {

@@ -64,7 +64,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniCurrenciesCall(final ApiCallback _callback) throws ApiException {
@@ -103,14 +103,14 @@ public class EarnUniApi {
     }
 
     /**
-     * List currencies for lending
+     * List currencies for lending.
      * 
      * @return List&lt;UniCurrency&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<UniCurrency> listUniCurrencies() throws ApiException {
@@ -119,14 +119,14 @@ public class EarnUniApi {
     }
 
     /**
-     * List currencies for lending
+     * List currencies for lending.
      * 
      * @return ApiResponse&lt;List&lt;UniCurrency&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<UniCurrency>> listUniCurrenciesWithHttpInfo() throws ApiException {
@@ -136,7 +136,7 @@ public class EarnUniApi {
     }
 
     /**
-     * List currencies for lending (asynchronously)
+     * List currencies for lending. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -144,7 +144,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniCurrenciesAsync(final ApiCallback<List<UniCurrency>> _callback) throws ApiException {
@@ -156,14 +156,14 @@ public class EarnUniApi {
 
     /**
      * Build call for getUniCurrency
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniCurrencyCall(String currency, final ApiCallback _callback) throws ApiException {
@@ -208,15 +208,15 @@ public class EarnUniApi {
     }
 
     /**
-     * Get currency detail for lending
+     * Get currency detail for lending.
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @return UniCurrency
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public UniCurrency getUniCurrency(String currency) throws ApiException {
@@ -225,15 +225,15 @@ public class EarnUniApi {
     }
 
     /**
-     * Get currency detail for lending
+     * Get currency detail for lending.
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @return ApiResponse&lt;UniCurrency&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UniCurrency> getUniCurrencyWithHttpInfo(String currency) throws ApiException {
@@ -243,16 +243,16 @@ public class EarnUniApi {
     }
 
     /**
-     * Get currency detail for lending (asynchronously)
+     * Get currency detail for lending. (asynchronously)
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniCurrencyAsync(String currency, final ApiCallback<UniCurrency> _callback) throws ApiException {
@@ -333,7 +333,7 @@ public class EarnUniApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistUserUniLendsRequest
          */
         public APIlistUserUniLendsRequest currency(String currency) {
@@ -343,7 +343,7 @@ public class EarnUniApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistUserUniLendsRequest
          */
         public APIlistUserUniLendsRequest page(Integer page) {
@@ -353,7 +353,7 @@ public class EarnUniApi {
 
         /**
          * Set limit
-         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+         * @param limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
          * @return APIlistUserUniLendsRequest
          */
         public APIlistUserUniLendsRequest limit(Integer limit) {
@@ -369,7 +369,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -383,7 +383,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<UniLend> execute() throws ApiException {
@@ -398,7 +398,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<UniLend>> executeWithHttpInfo() throws ApiException {
@@ -413,7 +413,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLend>> _callback) throws ApiException {
@@ -422,13 +422,13 @@ public class EarnUniApi {
     }
 
     /**
-     * List user&#39;s lending orders
+     * List user&#39;s lending orders.
      * 
      * @return APIlistUserUniLendsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistUserUniLendsRequest listUserUniLends() {
@@ -444,7 +444,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUniLendCall(CreateUniLend createUniLend, final ApiCallback _callback) throws ApiException {
@@ -488,14 +488,14 @@ public class EarnUniApi {
     }
 
     /**
-     * Lend or redeem
-     * Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+     * Lend or redeem.
+     * Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
      * @param createUniLend  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public void createUniLend(CreateUniLend createUniLend) throws ApiException {
@@ -503,15 +503,15 @@ public class EarnUniApi {
     }
 
     /**
-     * Lend or redeem
-     * Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+     * Lend or redeem.
+     * Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
      * @param createUniLend  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> createUniLendWithHttpInfo(CreateUniLend createUniLend) throws ApiException {
@@ -520,8 +520,8 @@ public class EarnUniApi {
     }
 
     /**
-     * Lend or redeem (asynchronously)
-     * Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+     * Lend or redeem. (asynchronously)
+     * Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
      * @param createUniLend  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -529,7 +529,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUniLendAsync(CreateUniLend createUniLend, final ApiCallback<Void> _callback) throws ApiException {
@@ -547,7 +547,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call changeUniLendCall(PatchUniLend patchUniLend, final ApiCallback _callback) throws ApiException {
@@ -591,14 +591,14 @@ public class EarnUniApi {
     }
 
     /**
-     * Amend lending order
-     * Currently only supports amending the minimum interest rate (hour)
+     * Amend lending order.
+     * Currently only supports amending the minimum interest rate (hour).
      * @param patchUniLend  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public void changeUniLend(PatchUniLend patchUniLend) throws ApiException {
@@ -606,15 +606,15 @@ public class EarnUniApi {
     }
 
     /**
-     * Amend lending order
-     * Currently only supports amending the minimum interest rate (hour)
+     * Amend lending order.
+     * Currently only supports amending the minimum interest rate (hour).
      * @param patchUniLend  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> changeUniLendWithHttpInfo(PatchUniLend patchUniLend) throws ApiException {
@@ -623,8 +623,8 @@ public class EarnUniApi {
     }
 
     /**
-     * Amend lending order (asynchronously)
-     * Currently only supports amending the minimum interest rate (hour)
+     * Amend lending order. (asynchronously)
+     * Currently only supports amending the minimum interest rate (hour).
      * @param patchUniLend  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -632,7 +632,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call changeUniLendAsync(PatchUniLend patchUniLend, final ApiCallback<Void> _callback) throws ApiException {
@@ -727,7 +727,7 @@ public class EarnUniApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistUniLendRecordsRequest
          */
         public APIlistUniLendRecordsRequest currency(String currency) {
@@ -737,7 +737,7 @@ public class EarnUniApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistUniLendRecordsRequest
          */
         public APIlistUniLendRecordsRequest page(Integer page) {
@@ -747,7 +747,7 @@ public class EarnUniApi {
 
         /**
          * Set limit
-         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+         * @param limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
          * @return APIlistUniLendRecordsRequest
          */
         public APIlistUniLendRecordsRequest limit(Integer limit) {
@@ -777,7 +777,7 @@ public class EarnUniApi {
 
         /**
          * Set type
-         * @param type type: lend - lend, redeem - redeem (optional)
+         * @param type type: lend - lend, redeem - redeem. (optional)
          * @return APIlistUniLendRecordsRequest
          */
         public APIlistUniLendRecordsRequest type(String type) {
@@ -793,7 +793,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -807,7 +807,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<UniLendRecord> execute() throws ApiException {
@@ -822,7 +822,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<UniLendRecord>> executeWithHttpInfo() throws ApiException {
@@ -837,7 +837,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLendRecord>> _callback) throws ApiException {
@@ -846,13 +846,13 @@ public class EarnUniApi {
     }
 
     /**
-     * List records of lending
+     * List records of lending.
      * 
      * @return APIlistUniLendRecordsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistUniLendRecordsRequest listUniLendRecords() {
@@ -861,14 +861,14 @@ public class EarnUniApi {
 
     /**
      * Build call for getUniInterest
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniInterestCall(String currency, final ApiCallback _callback) throws ApiException {
@@ -913,15 +913,15 @@ public class EarnUniApi {
     }
 
     /**
-     * Get the user&#39;s total interest income of specified currency
+     * Get the user&#39;s total interest income of specified currency.
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @return UniLendInterest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public UniLendInterest getUniInterest(String currency) throws ApiException {
@@ -930,15 +930,15 @@ public class EarnUniApi {
     }
 
     /**
-     * Get the user&#39;s total interest income of specified currency
+     * Get the user&#39;s total interest income of specified currency.
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @return ApiResponse&lt;UniLendInterest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UniLendInterest> getUniInterestWithHttpInfo(String currency) throws ApiException {
@@ -948,16 +948,16 @@ public class EarnUniApi {
     }
 
     /**
-     * Get the user&#39;s total interest income of specified currency (asynchronously)
+     * Get the user&#39;s total interest income of specified currency. (asynchronously)
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniInterestAsync(String currency, final ApiCallback<UniLendInterest> _callback) throws ApiException {
@@ -1048,7 +1048,7 @@ public class EarnUniApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistUniInterestRecordsRequest
          */
         public APIlistUniInterestRecordsRequest currency(String currency) {
@@ -1058,7 +1058,7 @@ public class EarnUniApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistUniInterestRecordsRequest
          */
         public APIlistUniInterestRecordsRequest page(Integer page) {
@@ -1068,7 +1068,7 @@ public class EarnUniApi {
 
         /**
          * Set limit
-         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+         * @param limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
          * @return APIlistUniInterestRecordsRequest
          */
         public APIlistUniInterestRecordsRequest limit(Integer limit) {
@@ -1104,7 +1104,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1118,7 +1118,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<UniInterestRecord> execute() throws ApiException {
@@ -1133,7 +1133,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<UniInterestRecord>> executeWithHttpInfo() throws ApiException {
@@ -1148,7 +1148,7 @@ public class EarnUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniInterestRecord>> _callback) throws ApiException {
@@ -1157,13 +1157,13 @@ public class EarnUniApi {
     }
 
     /**
-     * List interest records
+     * List interest records.
      * 
      * @return APIlistUniInterestRecordsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistUniInterestRecordsRequest listUniInterestRecords() {
@@ -1172,14 +1172,14 @@ public class EarnUniApi {
 
     /**
      * Build call for getUniInterestStatus
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniInterestStatusCall(String currency, final ApiCallback _callback) throws ApiException {
@@ -1224,15 +1224,15 @@ public class EarnUniApi {
     }
 
     /**
-     * query currency interest compounding status
+     * query currency interest compounding status.
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @return UniCurrencyInterest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public UniCurrencyInterest getUniInterestStatus(String currency) throws ApiException {
@@ -1241,15 +1241,15 @@ public class EarnUniApi {
     }
 
     /**
-     * query currency interest compounding status
+     * query currency interest compounding status.
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @return ApiResponse&lt;UniCurrencyInterest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UniCurrencyInterest> getUniInterestStatusWithHttpInfo(String currency) throws ApiException {
@@ -1259,16 +1259,16 @@ public class EarnUniApi {
     }
 
     /**
-     * query currency interest compounding status (asynchronously)
+     * query currency interest compounding status. (asynchronously)
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniInterestStatusAsync(String currency, final ApiCallback<UniCurrencyInterest> _callback) throws ApiException {
@@ -1280,16 +1280,16 @@ public class EarnUniApi {
 
     /**
      * Build call for listUniChart
-     * @param from Start timestamp, unit s, maximum span of 30 days (required)
-     * @param to End timestamp, unit s, maximum span of 30 days (required)
-     * @param asset Currency name (required)
+     * @param from Start timestamp, unit s, maximum span of 30 days. (required)
+     * @param to End timestamp, unit s, maximum span of 30 days. (required)
+     * @param asset Currency name. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniChartCall(Long from, Long to, String asset, final ApiCallback _callback) throws ApiException {
@@ -1355,17 +1355,17 @@ public class EarnUniApi {
     }
 
     /**
-     * UniLoan currency annualized trend chart
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-     * @param from Start timestamp, unit s, maximum span of 30 days (required)
-     * @param to End timestamp, unit s, maximum span of 30 days (required)
-     * @param asset Currency name (required)
+     * UniLoan currency annualized trend chart.
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * @param from Start timestamp, unit s, maximum span of 30 days. (required)
+     * @param to End timestamp, unit s, maximum span of 30 days. (required)
+     * @param asset Currency name. (required)
      * @return List&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public List<InlineResponse200> listUniChart(Long from, Long to, String asset) throws ApiException {
@@ -1374,17 +1374,17 @@ public class EarnUniApi {
     }
 
     /**
-     * UniLoan currency annualized trend chart
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-     * @param from Start timestamp, unit s, maximum span of 30 days (required)
-     * @param to End timestamp, unit s, maximum span of 30 days (required)
-     * @param asset Currency name (required)
+     * UniLoan currency annualized trend chart.
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * @param from Start timestamp, unit s, maximum span of 30 days. (required)
+     * @param to End timestamp, unit s, maximum span of 30 days. (required)
+     * @param asset Currency name. (required)
      * @return ApiResponse&lt;List&lt;InlineResponse200&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<InlineResponse200>> listUniChartWithHttpInfo(Long from, Long to, String asset) throws ApiException {
@@ -1394,18 +1394,18 @@ public class EarnUniApi {
     }
 
     /**
-     * UniLoan currency annualized trend chart (asynchronously)
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-     * @param from Start timestamp, unit s, maximum span of 30 days (required)
-     * @param to End timestamp, unit s, maximum span of 30 days (required)
-     * @param asset Currency name (required)
+     * UniLoan currency annualized trend chart. (asynchronously)
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * @param from Start timestamp, unit s, maximum span of 30 days. (required)
+     * @param to End timestamp, unit s, maximum span of 30 days. (required)
+     * @param asset Currency name. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniChartAsync(Long from, Long to, String asset, final ApiCallback<List<InlineResponse200>> _callback) throws ApiException {
@@ -1423,7 +1423,7 @@ public class EarnUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniRateCall(final ApiCallback _callback) throws ApiException {
@@ -1462,14 +1462,14 @@ public class EarnUniApi {
     }
 
     /**
-     * Currency estimate annualized interest rate
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Currency estimate annualized interest rate.
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @return List&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public List<InlineResponse2001> listUniRate() throws ApiException {
@@ -1478,14 +1478,14 @@ public class EarnUniApi {
     }
 
     /**
-     * Currency estimate annualized interest rate
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Currency estimate annualized interest rate.
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @return ApiResponse&lt;List&lt;InlineResponse2001&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<InlineResponse2001>> listUniRateWithHttpInfo() throws ApiException {
@@ -1495,15 +1495,15 @@ public class EarnUniApi {
     }
 
     /**
-     * Currency estimate annualized interest rate (asynchronously)
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * Currency estimate annualized interest rate. (asynchronously)
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:48+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniRateAsync(final ApiCallback<List<InlineResponse2001>> _callback) throws ApiException {

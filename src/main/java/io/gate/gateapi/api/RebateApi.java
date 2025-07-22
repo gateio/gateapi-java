@@ -141,7 +141,7 @@ public class RebateApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Specify the currency pair, if not specified, return all currency pairs (optional)
+         * @param currencyPair Specify the currency pair, if not specified, return all currency pairs. (optional)
          * @return APIagencyTransactionHistoryRequest
          */
         public APIagencyTransactionHistoryRequest currencyPair(String currencyPair) {
@@ -151,7 +151,7 @@ public class RebateApi {
 
         /**
          * Set userId
-         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @param userId User ID. If not specified, all user records will be returned. (optional)
          * @return APIagencyTransactionHistoryRequest
          */
         public APIagencyTransactionHistoryRequest userId(Long userId) {
@@ -161,7 +161,7 @@ public class RebateApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Time range beginning, default to 7 days before current time. (optional)
          * @return APIagencyTransactionHistoryRequest
          */
         public APIagencyTransactionHistoryRequest from(Long from) {
@@ -171,7 +171,7 @@ public class RebateApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIagencyTransactionHistoryRequest
          */
         public APIagencyTransactionHistoryRequest to(Long to) {
@@ -181,7 +181,7 @@ public class RebateApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIagencyTransactionHistoryRequest
          */
         public APIagencyTransactionHistoryRequest limit(Integer limit) {
@@ -191,7 +191,7 @@ public class RebateApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIagencyTransactionHistoryRequest
          */
         public APIagencyTransactionHistoryRequest offset(Integer offset) {
@@ -207,7 +207,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -221,7 +221,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<AgencyTransactionHistory> execute() throws ApiException {
@@ -236,7 +236,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<AgencyTransactionHistory>> executeWithHttpInfo() throws ApiException {
@@ -251,7 +251,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<AgencyTransactionHistory>> _callback) throws ApiException {
@@ -260,13 +260,13 @@ public class RebateApi {
     }
 
     /**
-     * The agency obtains the transaction history of the recommended user
-     * Record time range cannot exceed 30 days
+     * The agency obtains the transaction history of the recommended user.
+     * Record time range cannot exceed 30 days.
      * @return APIagencyTransactionHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIagencyTransactionHistoryRequest agencyTransactionHistory() {
@@ -359,7 +359,7 @@ public class RebateApi {
 
         /**
          * Set currency
-         * @param currency Filter by currency. Return all currency records if not specified (optional)
+         * @param currency Filter by currency. Return all currency records if not specified. (optional)
          * @return APIagencyCommissionsHistoryRequest
          */
         public APIagencyCommissionsHistoryRequest currency(String currency) {
@@ -369,7 +369,7 @@ public class RebateApi {
 
         /**
          * Set userId
-         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @param userId User ID. If not specified, all user records will be returned. (optional)
          * @return APIagencyCommissionsHistoryRequest
          */
         public APIagencyCommissionsHistoryRequest userId(Long userId) {
@@ -379,7 +379,7 @@ public class RebateApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Time range beginning, default to 7 days before current time. (optional)
          * @return APIagencyCommissionsHistoryRequest
          */
         public APIagencyCommissionsHistoryRequest from(Long from) {
@@ -389,7 +389,7 @@ public class RebateApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIagencyCommissionsHistoryRequest
          */
         public APIagencyCommissionsHistoryRequest to(Long to) {
@@ -399,7 +399,7 @@ public class RebateApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIagencyCommissionsHistoryRequest
          */
         public APIagencyCommissionsHistoryRequest limit(Integer limit) {
@@ -409,7 +409,7 @@ public class RebateApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIagencyCommissionsHistoryRequest
          */
         public APIagencyCommissionsHistoryRequest offset(Integer offset) {
@@ -425,7 +425,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -439,7 +439,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<AgencyCommissionHistory> execute() throws ApiException {
@@ -454,7 +454,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<AgencyCommissionHistory>> executeWithHttpInfo() throws ApiException {
@@ -469,7 +469,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<AgencyCommissionHistory>> _callback) throws ApiException {
@@ -478,13 +478,13 @@ public class RebateApi {
     }
 
     /**
-     * The agency obtains the commission history of the recommended user
-     * Record time range cannot exceed 30 days
+     * The agency obtains the commission history of the recommended user.
+     * Record time range cannot exceed 30 days.
      * @return APIagencyCommissionsHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIagencyCommissionsHistoryRequest agencyCommissionsHistory() {
@@ -577,7 +577,7 @@ public class RebateApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Specify the currency pair, if not specified, return all currency pairs (optional)
+         * @param currencyPair Specify the currency pair, if not specified, return all currency pairs. (optional)
          * @return APIpartnerTransactionHistoryRequest
          */
         public APIpartnerTransactionHistoryRequest currencyPair(String currencyPair) {
@@ -587,7 +587,7 @@ public class RebateApi {
 
         /**
          * Set userId
-         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @param userId User ID. If not specified, all user records will be returned. (optional)
          * @return APIpartnerTransactionHistoryRequest
          */
         public APIpartnerTransactionHistoryRequest userId(Long userId) {
@@ -597,7 +597,7 @@ public class RebateApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Time range beginning, default to 7 days before current time. (optional)
          * @return APIpartnerTransactionHistoryRequest
          */
         public APIpartnerTransactionHistoryRequest from(Long from) {
@@ -607,7 +607,7 @@ public class RebateApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIpartnerTransactionHistoryRequest
          */
         public APIpartnerTransactionHistoryRequest to(Long to) {
@@ -617,7 +617,7 @@ public class RebateApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIpartnerTransactionHistoryRequest
          */
         public APIpartnerTransactionHistoryRequest limit(Integer limit) {
@@ -627,7 +627,7 @@ public class RebateApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIpartnerTransactionHistoryRequest
          */
         public APIpartnerTransactionHistoryRequest offset(Integer offset) {
@@ -643,7 +643,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -657,7 +657,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public PartnerTransactionHistory execute() throws ApiException {
@@ -672,7 +672,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<PartnerTransactionHistory> executeWithHttpInfo() throws ApiException {
@@ -687,7 +687,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PartnerTransactionHistory> _callback) throws ApiException {
@@ -696,13 +696,13 @@ public class RebateApi {
     }
 
     /**
-     * Partner obtains transaction records of recommended users
-     * Record time range cannot exceed 30 days
+     * Partner obtains transaction records of recommended users.
+     * Record time range cannot exceed 30 days.
      * @return APIpartnerTransactionHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIpartnerTransactionHistoryRequest partnerTransactionHistory() {
@@ -795,7 +795,7 @@ public class RebateApi {
 
         /**
          * Set currency
-         * @param currency Filter by currency. Return all currency records if not specified (optional)
+         * @param currency Filter by currency. Return all currency records if not specified. (optional)
          * @return APIpartnerCommissionsHistoryRequest
          */
         public APIpartnerCommissionsHistoryRequest currency(String currency) {
@@ -805,7 +805,7 @@ public class RebateApi {
 
         /**
          * Set userId
-         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @param userId User ID. If not specified, all user records will be returned. (optional)
          * @return APIpartnerCommissionsHistoryRequest
          */
         public APIpartnerCommissionsHistoryRequest userId(Long userId) {
@@ -815,7 +815,7 @@ public class RebateApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Time range beginning, default to 7 days before current time. (optional)
          * @return APIpartnerCommissionsHistoryRequest
          */
         public APIpartnerCommissionsHistoryRequest from(Long from) {
@@ -825,7 +825,7 @@ public class RebateApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIpartnerCommissionsHistoryRequest
          */
         public APIpartnerCommissionsHistoryRequest to(Long to) {
@@ -835,7 +835,7 @@ public class RebateApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIpartnerCommissionsHistoryRequest
          */
         public APIpartnerCommissionsHistoryRequest limit(Integer limit) {
@@ -845,7 +845,7 @@ public class RebateApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIpartnerCommissionsHistoryRequest
          */
         public APIpartnerCommissionsHistoryRequest offset(Integer offset) {
@@ -861,7 +861,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -875,7 +875,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public PartnerCommissionHistory execute() throws ApiException {
@@ -890,7 +890,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<PartnerCommissionHistory> executeWithHttpInfo() throws ApiException {
@@ -905,7 +905,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PartnerCommissionHistory> _callback) throws ApiException {
@@ -914,13 +914,13 @@ public class RebateApi {
     }
 
     /**
-     * Partner obtains commission records of recommended users
-     * Record time range cannot exceed 30 days
+     * Partner obtains commission records of recommended users.
+     * Record time range cannot exceed 30 days.
      * @return APIpartnerCommissionsHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIpartnerCommissionsHistoryRequest partnerCommissionsHistory() {
@@ -998,7 +998,7 @@ public class RebateApi {
 
         /**
          * Set userId
-         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @param userId User ID. If not specified, all user records will be returned. (optional)
          * @return APIpartnerSubListRequest
          */
         public APIpartnerSubListRequest userId(Long userId) {
@@ -1008,7 +1008,7 @@ public class RebateApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIpartnerSubListRequest
          */
         public APIpartnerSubListRequest limit(Integer limit) {
@@ -1018,7 +1018,7 @@ public class RebateApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIpartnerSubListRequest
          */
         public APIpartnerSubListRequest offset(Integer offset) {
@@ -1034,7 +1034,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1048,7 +1048,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public PartnerSubList execute() throws ApiException {
@@ -1063,7 +1063,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<PartnerSubList> executeWithHttpInfo() throws ApiException {
@@ -1078,7 +1078,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PartnerSubList> _callback) throws ApiException {
@@ -1087,13 +1087,13 @@ public class RebateApi {
     }
 
     /**
-     * Partner subordinate list
-     * Including sub-agents, direct customers, indirect customers
+     * Partner subordinate list.
+     * Including sub-agents, direct customers, indirect customers.
      * @return APIpartnerSubListRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIpartnerSubListRequest partnerSubList() {
@@ -1181,7 +1181,7 @@ public class RebateApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIrebateBrokerCommissionHistoryRequest
          */
         public APIrebateBrokerCommissionHistoryRequest limit(Integer limit) {
@@ -1191,7 +1191,7 @@ public class RebateApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIrebateBrokerCommissionHistoryRequest
          */
         public APIrebateBrokerCommissionHistoryRequest offset(Integer offset) {
@@ -1201,7 +1201,7 @@ public class RebateApi {
 
         /**
          * Set userId
-         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @param userId User ID. If not specified, all user records will be returned. (optional)
          * @return APIrebateBrokerCommissionHistoryRequest
          */
         public APIrebateBrokerCommissionHistoryRequest userId(Long userId) {
@@ -1221,7 +1221,7 @@ public class RebateApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIrebateBrokerCommissionHistoryRequest
          */
         public APIrebateBrokerCommissionHistoryRequest to(Long to) {
@@ -1237,7 +1237,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1251,7 +1251,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<BrokerCommission> execute() throws ApiException {
@@ -1266,7 +1266,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<BrokerCommission>> executeWithHttpInfo() throws ApiException {
@@ -1281,7 +1281,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<BrokerCommission>> _callback) throws ApiException {
@@ -1290,13 +1290,13 @@ public class RebateApi {
     }
 
     /**
-     * The broker obtains the user&#39;s commission rebate records
-     * Record time range cannot exceed 30 days
+     * The broker obtains the user&#39;s commission rebate records.
+     * Record time range cannot exceed 30 days.
      * @return APIrebateBrokerCommissionHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIrebateBrokerCommissionHistoryRequest rebateBrokerCommissionHistory() {
@@ -1384,7 +1384,7 @@ public class RebateApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIrebateBrokerTransactionHistoryRequest
          */
         public APIrebateBrokerTransactionHistoryRequest limit(Integer limit) {
@@ -1394,7 +1394,7 @@ public class RebateApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIrebateBrokerTransactionHistoryRequest
          */
         public APIrebateBrokerTransactionHistoryRequest offset(Integer offset) {
@@ -1404,7 +1404,7 @@ public class RebateApi {
 
         /**
          * Set userId
-         * @param userId User ID. If not specified, all user records will be returned (optional)
+         * @param userId User ID. If not specified, all user records will be returned. (optional)
          * @return APIrebateBrokerTransactionHistoryRequest
          */
         public APIrebateBrokerTransactionHistoryRequest userId(Long userId) {
@@ -1424,7 +1424,7 @@ public class RebateApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIrebateBrokerTransactionHistoryRequest
          */
         public APIrebateBrokerTransactionHistoryRequest to(Long to) {
@@ -1440,7 +1440,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1454,7 +1454,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<BrokerTransaction> execute() throws ApiException {
@@ -1469,7 +1469,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<BrokerTransaction>> executeWithHttpInfo() throws ApiException {
@@ -1484,7 +1484,7 @@ public class RebateApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<BrokerTransaction>> _callback) throws ApiException {
@@ -1493,13 +1493,13 @@ public class RebateApi {
     }
 
     /**
-     * The broker obtains the user&#39;s trading history
-     * Record time range cannot exceed 30 days
+     * The broker obtains the user&#39;s trading history.
+     * Record time range cannot exceed 30 days.
      * @return APIrebateBrokerTransactionHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIrebateBrokerTransactionHistoryRequest rebateBrokerTransactionHistory() {
@@ -1514,7 +1514,7 @@ public class RebateApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call rebateUserInfoCall(final ApiCallback _callback) throws ApiException {
@@ -1553,14 +1553,14 @@ public class RebateApi {
     }
 
     /**
-     * User retrieves rebate information
+     * User retrieves rebate information.
      * 
      * @return List&lt;RebateUserInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<RebateUserInfo> rebateUserInfo() throws ApiException {
@@ -1569,14 +1569,14 @@ public class RebateApi {
     }
 
     /**
-     * User retrieves rebate information
+     * User retrieves rebate information.
      * 
      * @return ApiResponse&lt;List&lt;RebateUserInfo&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<RebateUserInfo>> rebateUserInfoWithHttpInfo() throws ApiException {
@@ -1586,7 +1586,7 @@ public class RebateApi {
     }
 
     /**
-     * User retrieves rebate information (asynchronously)
+     * User retrieves rebate information. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1594,7 +1594,7 @@ public class RebateApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call rebateUserInfoAsync(final ApiCallback<List<RebateUserInfo>> _callback) throws ApiException {
@@ -1606,14 +1606,14 @@ public class RebateApi {
 
     /**
      * Build call for userSubRelation
-     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call userSubRelationCall(String userIdList, final ApiCallback _callback) throws ApiException {
@@ -1661,15 +1661,15 @@ public class RebateApi {
     }
 
     /**
-     * User-subordinate relationship
-     * Query whether the specified user is in the system
-     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * User-subordinate relationship.
+     * Query whether the specified user is in the system.
+     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      * @return UserSubRelation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public UserSubRelation userSubRelation(String userIdList) throws ApiException {
@@ -1678,15 +1678,15 @@ public class RebateApi {
     }
 
     /**
-     * User-subordinate relationship
-     * Query whether the specified user is in the system
-     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * User-subordinate relationship.
+     * Query whether the specified user is in the system.
+     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      * @return ApiResponse&lt;UserSubRelation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UserSubRelation> userSubRelationWithHttpInfo(String userIdList) throws ApiException {
@@ -1696,16 +1696,16 @@ public class RebateApi {
     }
 
     /**
-     * User-subordinate relationship (asynchronously)
-     * Query whether the specified user is in the system
-     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100 (required)
+     * User-subordinate relationship. (asynchronously)
+     * Query whether the specified user is in the system.
+     * @param userIdList Query the user&#39;s ID list, split by,, if there are more than 100, take 100. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call userSubRelationAsync(String userIdList, final ApiCallback<UserSubRelation> _callback) throws ApiException {

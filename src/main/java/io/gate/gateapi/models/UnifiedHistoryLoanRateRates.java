@@ -39,7 +39,7 @@ public class UnifiedHistoryLoanRateRates {
     }
 
      /**
-     * The hourly timestamp corresponding to the interest rate, in milliseconds
+     * The hourly timestamp corresponding to the interest rate, in milliseconds.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class UnifiedHistoryLoanRateRates {
     }
 
      /**
-     * Historical interest rates for this hour
+     * Historical interest rates for this hour.
      * @return rate
     **/
     @javax.annotation.Nullable

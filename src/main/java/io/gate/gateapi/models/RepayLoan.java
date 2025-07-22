@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Repay
+ * Repay.
  */
 public class RepayLoan {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -43,7 +43,7 @@ public class RepayLoan {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     public Long getOrderId() {
@@ -62,7 +62,7 @@ public class RepayLoan {
     }
 
      /**
-     * Repayment amount, it is mandatory when making partial repayments
+     * Repayment amount, it is mandatory when making partial repayments.
      * @return repayAmount
     **/
     public String getRepayAmount() {
@@ -81,7 +81,7 @@ public class RepayLoan {
     }
 
      /**
-     * Repayment method, set to &#x60;true&#x60; for full repayment, and &#x60;false&#x60; for partial repayment; When set to false for partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user. 
+     * Repayment method, set to &#x60;true&#x60; for full repayment, and &#x60;false&#x60; for partial repayment; When partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user. 
      * @return repaidAll
     **/
     public Boolean getRepaidAll() {

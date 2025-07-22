@@ -70,7 +70,7 @@ public class UnifiedPortfolioOutput {
     }
 
      /**
-     * Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, position + negative delta orders.
+     * Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, orders.
      * @return initialMarginTotal
     **/
     @javax.annotation.Nullable
@@ -90,7 +90,7 @@ public class UnifiedPortfolioOutput {
     }
 
      /**
-     * Calculate time
+     * Calculate time.
      * @return calculateTime
     **/
     @javax.annotation.Nullable
@@ -118,7 +118,7 @@ public class UnifiedPortfolioOutput {
     }
 
      /**
-     * Risk unit
+     * Risk unit.
      * @return riskUnit
     **/
     @javax.annotation.Nullable

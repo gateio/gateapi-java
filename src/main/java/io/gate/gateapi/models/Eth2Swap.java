@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * ETH2 Staking
+ * ETH2 Staking.
  */
 public class Eth2Swap {
     public static final String SERIALIZED_NAME_SIDE = "side";
@@ -39,7 +39,7 @@ public class Eth2Swap {
     }
 
      /**
-     * 1-Forward Swap（ETH -&gt; ETH2）, 2-Reverse Swap（ETH2 -&gt; ETH）
+     * 1-Forward Swap（ETH -&gt; ETH2）, 2-Reverse Swap（ETH2 -&gt; ETH）.
      * @return side
     **/
     public String getSide() {
@@ -58,7 +58,7 @@ public class Eth2Swap {
     }
 
      /**
-     * amount
+     * amount.
      * @return amount
     **/
     public String getAmount() {

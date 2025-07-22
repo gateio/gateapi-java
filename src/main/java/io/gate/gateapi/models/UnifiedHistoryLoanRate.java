@@ -50,7 +50,7 @@ public class UnifiedHistoryLoanRate {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class UnifiedHistoryLoanRate {
     }
 
      /**
-     * The VIP level of the floating rate required
+     * The VIP level of the floating rate required.
      * @return tier
     **/
     @javax.annotation.Nullable
@@ -90,7 +90,7 @@ public class UnifiedHistoryLoanRate {
     }
 
      /**
-     * VIP level corresponding floating rate
+     * VIP level corresponding floating rate.
      * @return tierUpRate
     **/
     @javax.annotation.Nullable

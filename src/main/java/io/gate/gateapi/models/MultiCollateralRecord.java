@@ -62,7 +62,7 @@ public class MultiCollateralRecord {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -82,7 +82,7 @@ public class MultiCollateralRecord {
     }
 
      /**
-     * Collateral record ID
+     * Collateral record ID.
      * @return recordId
     **/
     @javax.annotation.Nullable
@@ -102,7 +102,7 @@ public class MultiCollateralRecord {
     }
 
      /**
-     * The collateral ratio before adjustment
+     * The collateral ratio before adjustment.
      * @return beforeLtv
     **/
     @javax.annotation.Nullable
@@ -122,7 +122,7 @@ public class MultiCollateralRecord {
     }
 
      /**
-     * The collateral ratio before adjustment
+     * The collateral ratio before adjustment.
      * @return afterLtv
     **/
     @javax.annotation.Nullable
@@ -170,7 +170,7 @@ public class MultiCollateralRecord {
     }
 
      /**
-     * Borrowing Currency List
+     * Borrowing Currency List.
      * @return borrowCurrencies
     **/
     @javax.annotation.Nullable
@@ -198,7 +198,7 @@ public class MultiCollateralRecord {
     }
 
      /**
-     * Collateral Currency List
+     * Collateral Currency List.
      * @return collateralCurrencies
     **/
     @javax.annotation.Nullable

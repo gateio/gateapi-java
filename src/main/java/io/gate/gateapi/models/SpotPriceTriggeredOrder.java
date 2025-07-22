@@ -22,7 +22,7 @@ import io.gate.gateapi.models.SpotPriceTrigger;
 import java.io.IOException;
 
 /**
- * Spot order detail
+ * Spot order detail.
  */
 public class SpotPriceTriggeredOrder {
     public static final String SERIALIZED_NAME_TRIGGER = "trigger";
@@ -105,7 +105,7 @@ public class SpotPriceTriggeredOrder {
     }
 
      /**
-     * Auto order ID
+     * Auto order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class SpotPriceTriggeredOrder {
 
 
      /**
-     * User ID
+     * User ID.
      * @return user
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class SpotPriceTriggeredOrder {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return market
     **/
     public String getMarket() {
@@ -144,7 +144,7 @@ public class SpotPriceTriggeredOrder {
     }
 
      /**
-     * Creation time
+     * Creation time.
      * @return ctime
     **/
     @javax.annotation.Nullable
@@ -154,7 +154,7 @@ public class SpotPriceTriggeredOrder {
 
 
      /**
-     * Finished time
+     * Finished time.
      * @return ftime
     **/
     @javax.annotation.Nullable
@@ -164,7 +164,7 @@ public class SpotPriceTriggeredOrder {
 
 
      /**
-     * ID of the newly created order on condition triggered
+     * ID of the newly created order on condition triggered.
      * @return firedOrderId
     **/
     @javax.annotation.Nullable
@@ -184,7 +184,7 @@ public class SpotPriceTriggeredOrder {
 
 
      /**
-     * Additional remarks on how the order was finished
+     * Additional remarks on how the order was finished.
      * @return reason
     **/
     @javax.annotation.Nullable

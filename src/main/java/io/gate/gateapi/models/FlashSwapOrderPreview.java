@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Initiate a flash swap order preview
+ * Initiate a flash swap order preview.
  */
 public class FlashSwapOrderPreview {
     public static final String SERIALIZED_NAME_PREVIEW_ID = "preview_id";
@@ -55,7 +55,7 @@ public class FlashSwapOrderPreview {
     }
 
      /**
-     * Preview result ID
+     * Preview result ID.
      * @return previewId
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class FlashSwapOrderPreview {
     }
 
      /**
-     * Amount to sell
+     * Amount to sell.
      * @return sellAmount
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class FlashSwapOrderPreview {
     }
 
      /**
-     * Amount to buy
+     * Amount to buy.
      * @return buyAmount
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class FlashSwapOrderPreview {
     }
 
      /**
-     * Price
+     * Price.
      * @return price
     **/
     @javax.annotation.Nullable

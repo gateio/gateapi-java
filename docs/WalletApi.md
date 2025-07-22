@@ -4,34 +4,34 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listCurrencyChains**](WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | List chains supported for specified currency
-[**getDepositAddress**](WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
-[**listWithdrawals**](WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
-[**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records
-[**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
-[**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
-[**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
-[**subAccountToSubAccount**](WalletApi.md#subAccountToSubAccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account
-[**getTransferOrderStatus**](WalletApi.md#getTransferOrderStatus) | **GET** /wallet/order_status | Transfer status query
-[**listWithdrawStatus**](WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
-[**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
-[**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
-[**listSubAccountFuturesBalances**](WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
-[**listSubAccountCrossMarginBalances**](WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info
-[**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
-[**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee
-[**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
-[**listSmallBalance**](WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | List small balance
-[**convertSmallBalance**](WalletApi.md#convertSmallBalance) | **POST** /wallet/small_balance | Convert small balance
-[**listSmallBalanceHistory**](WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | List small balance history
-[**listPushOrders**](WalletApi.md#listPushOrders) | **GET** /wallet/push | Retrieve the UID transfer history
+[**listCurrencyChains**](WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | List chains supported for specified currency.
+[**getDepositAddress**](WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address.
+[**listWithdrawals**](WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records.
+[**listDeposits**](WalletApi.md#listDeposits) | **GET** /wallet/deposits | Retrieve deposit records.
+[**transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts.
+[**listSubAccountTransfers**](WalletApi.md#listSubAccountTransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts.
+[**transferWithSubAccount**](WalletApi.md#transferWithSubAccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts.
+[**subAccountToSubAccount**](WalletApi.md#subAccountToSubAccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account.
+[**getTransferOrderStatus**](WalletApi.md#getTransferOrderStatus) | **GET** /wallet/order_status | Transfer status query.
+[**listWithdrawStatus**](WalletApi.md#listWithdrawStatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status.
+[**listSubAccountBalances**](WalletApi.md#listSubAccountBalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances.
+[**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances.
+[**listSubAccountFuturesBalances**](WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances.
+[**listSubAccountCrossMarginBalances**](WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info.
+[**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address.
+[**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Retrieve personal trading fee.
+[**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances.
+[**listSmallBalance**](WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | List small balance.
+[**convertSmallBalance**](WalletApi.md#convertSmallBalance) | **POST** /wallet/small_balance | Convert small balance.
+[**listSmallBalanceHistory**](WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | List small balance history.
+[**listPushOrders**](WalletApi.md#listPushOrders) | **GET** /wallet/push | Retrieve the UID transfer history.
 
 
 <a name="listCurrencyChains"></a>
 # **listCurrencyChains**
 > List&lt;CurrencyChain&gt; listCurrencyChains(currency)
 
-List chains supported for specified currency
+List chains supported for specified currency.
 
 ### Example
 
@@ -50,7 +50,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String currency = "GT"; // String | Currency name
+        String currency = "GT"; // String | Currency name.
         try {
             List<CurrencyChain> result = apiInstance.listCurrencyChains(currency);
             System.out.println(result);
@@ -71,7 +71,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency name |
+ **currency** | **String**| Currency name. |
 
 ### Return type
 
@@ -89,13 +89,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved |  -  |
+**200** | Successfully retrieved. |  -  |
 
 <a name="getDepositAddress"></a>
 # **getDepositAddress**
 > DepositAddress getDepositAddress(currency)
 
-Generate currency deposit address
+Generate currency deposit address.
 
 ### Example
 
@@ -118,7 +118,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String currency = "USDT"; // String | Currency name
+        String currency = "USDT"; // String | Currency name.
         try {
             DepositAddress result = apiInstance.getDepositAddress(currency);
             System.out.println(result);
@@ -139,7 +139,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency name |
+ **currency** | **String**| Currency name. |
 
 ### Return type
 
@@ -157,15 +157,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Address successfully generated |  -  |
+**200** | Address successfully generated. |  -  |
 
 <a name="listWithdrawals"></a>
 # **listWithdrawals**
 > List&lt;WithdrawalRecord&gt; listWithdrawals().currency(currency).withdrawId(withdrawId).assetClass(assetClass).withdrawOrderId(withdrawOrderId).from(from).to(to).limit(limit).offset(offset).execute();
 
-Retrieve withdrawal records
+Retrieve withdrawal records.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 
@@ -188,14 +188,14 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
+        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified.
         String withdrawId = "withdrawId_example"; // String | The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time
         String assetClass = "assetClass_example"; // String | The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone
         String withdrawOrderId = "withdrawOrderId_example"; // String | User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 1602123600L; // Long | Time range ending, default to current time
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
+        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time.
+        Long to = 1602123600L; // Long | Time range ending, default to current time.
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
+        Integer offset = 0; // Integer | List offset, starting from 0.
         try {
             List<WithdrawalRecord> result = apiInstance.listWithdrawals()
                         .currency(currency)
@@ -225,14 +225,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Filter by currency. Return all currency records if not specified | [optional]
+ **currency** | **String**| Filter by currency. Return all currency records if not specified. | [optional]
  **withdrawId** | **String**| The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time | [optional]
  **assetClass** | **String**| The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone | [optional]
  **withdrawOrderId** | **String**| User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
- **to** | **Long**| Time range ending, default to current time | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **Long**| Time range beginning, default to 7 days before current time. | [optional]
+ **to** | **Long**| Time range ending, default to current time. | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -250,15 +250,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="listDeposits"></a>
 # **listDeposits**
 > List&lt;DepositRecord&gt; listDeposits().currency(currency).from(from).to(to).limit(limit).offset(offset).execute();
 
-Retrieve deposit records
+Retrieve deposit records.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 
@@ -281,11 +281,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 1602123600L; // Long | Time range ending, default to current time
+        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified.
+        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time.
+        Long to = 1602123600L; // Long | Time range ending, default to current time.
         Integer limit = 100; // Integer | The maximum number of entries returned in the list is limited to 500 transactions.
-        Integer offset = 0; // Integer | List offset, starting from 0
+        Integer offset = 0; // Integer | List offset, starting from 0.
         try {
             List<DepositRecord> result = apiInstance.listDeposits()
                         .currency(currency)
@@ -312,11 +312,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Filter by currency. Return all currency records if not specified | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
- **to** | **Long**| Time range ending, default to current time | [optional]
+ **currency** | **String**| Filter by currency. Return all currency records if not specified. | [optional]
+ **from** | **Long**| Time range beginning, default to 7 days before current time. | [optional]
+ **to** | **Long**| Time range ending, default to current time. | [optional]
  **limit** | **Integer**| The maximum number of entries returned in the list is limited to 500 transactions. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -334,15 +334,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="transfer"></a>
 # **transfer**
 > TransactionID transfer(transfer)
 
-Transfer between trading accounts
+Transfer between trading accounts.
 
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
+Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. options
 
 ### Example
 
@@ -404,13 +404,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Balance transferred |  -  |
+**200** | Balance transferred. |  -  |
 
 <a name="listSubAccountTransfers"></a>
 # **listSubAccountTransfers**
 > List&lt;SubAccountTransferRecordItem&gt; listSubAccountTransfers().subUid(subUid).from(from).to(to).limit(limit).offset(offset).execute();
 
-Retrieve transfer records between main and sub accounts
+Retrieve transfer records between main and sub accounts.
 
 Record time range cannot exceed 30 days  &gt; Note: only records after 20-04-10can be retrieved
 
@@ -436,10 +436,10 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String subUid = "10003"; // String | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time
-        Long to = 1602123600L; // Long | Time range ending, default to current time
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
-        Integer offset = 0; // Integer | List offset, starting from 0
+        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time.
+        Long to = 1602123600L; // Long | Time range ending, default to current time.
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
+        Integer offset = 0; // Integer | List offset, starting from 0.
         try {
             List<SubAccountTransferRecordItem> result = apiInstance.listSubAccountTransfers()
                         .subUid(subUid)
@@ -467,10 +467,10 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subUid** | **String**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time | [optional]
- **to** | **Long**| Time range ending, default to current time | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **Long**| Time range beginning, default to 7 days before current time. | [optional]
+ **to** | **Long**| Time range ending, default to current time. | [optional]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -488,13 +488,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="transferWithSubAccount"></a>
 # **transferWithSubAccount**
 > TransactionID transferWithSubAccount(subAccountTransfer)
 
-Transfer between main and sub accounts
+Transfer between main and sub accounts.
 
 Support transferring with sub user&#39;s spot or futures account. Note that only main user&#39;s spot account is used no matter which sub user&#39;s account is operated.
 
@@ -558,15 +558,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Balance transferred |  -  |
+**200** | Balance transferred. |  -  |
 
 <a name="subAccountToSubAccount"></a>
 # **subAccountToSubAccount**
 > TransactionID subAccountToSubAccount(subAccountToSubAccount)
 
-Sub-account transfers to sub-account
+Sub-account transfers to sub-account.
 
-It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
+It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account sub-account to initiate the transfer.
 
 ### Example
 
@@ -628,13 +628,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Balance transferred |  -  |
+**200** | Balance transferred. |  -  |
 
 <a name="getTransferOrderStatus"></a>
 # **getTransferOrderStatus**
 > TransferOrderStatus getTransferOrderStatus().clientOrderId(clientOrderId).txId(txId).execute();
 
-Transfer status query
+Transfer status query.
 
 Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
 
@@ -703,13 +703,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Transfer status obtained successfully |  -  |
+**200** | Transfer status obtained successfully. |  -  |
 
 <a name="listWithdrawStatus"></a>
 # **listWithdrawStatus**
 > List&lt;WithdrawStatus&gt; listWithdrawStatus().currency(currency).execute();
 
-Retrieve withdrawal status
+Retrieve withdrawal status.
 
 ### Example
 
@@ -732,7 +732,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency
+        String currency = "BTC"; // String | Retrieve data of the specified currency.
         try {
             List<WithdrawStatus> result = apiInstance.listWithdrawStatus()
                         .currency(currency)
@@ -755,7 +755,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency | [optional]
+ **currency** | **String**| Retrieve data of the specified currency. | [optional]
 
 ### Return type
 
@@ -773,13 +773,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="listSubAccountBalances"></a>
 # **listSubAccountBalances**
 > List&lt;SubAccountBalance&gt; listSubAccountBalances().subUid(subUid).execute();
 
-Retrieve sub account balances
+Retrieve sub account balances.
 
 ### Example
 
@@ -843,13 +843,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="listSubAccountMarginBalances"></a>
 # **listSubAccountMarginBalances**
 > List&lt;SubAccountMarginBalance&gt; listSubAccountMarginBalances().subUid(subUid).execute();
 
-Query sub accounts&#39; margin balances
+Query sub accounts&#39; margin balances.
 
 ### Example
 
@@ -913,13 +913,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="listSubAccountFuturesBalances"></a>
 # **listSubAccountFuturesBalances**
 > List&lt;SubAccountFuturesBalance&gt; listSubAccountFuturesBalances().subUid(subUid).settle(settle).execute();
 
-Query sub accounts&#39; futures account balances
+Query sub accounts&#39; futures account balances.
 
 ### Example
 
@@ -943,7 +943,7 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String subUid = "10003"; // String | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts
-        String settle = "usdt"; // String | Query only balances of specified settle currency
+        String settle = "usdt"; // String | Query only balances of specified settle currency.
         try {
             List<SubAccountFuturesBalance> result = apiInstance.listSubAccountFuturesBalances()
                         .subUid(subUid)
@@ -968,7 +968,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subUid** | **String**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional]
- **settle** | **String**| Query only balances of specified settle currency | [optional]
+ **settle** | **String**| Query only balances of specified settle currency. | [optional]
 
 ### Return type
 
@@ -986,13 +986,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="listSubAccountCrossMarginBalances"></a>
 # **listSubAccountCrossMarginBalances**
 > List&lt;SubAccountCrossMarginBalance&gt; listSubAccountCrossMarginBalances().subUid(subUid).execute();
 
-Query subaccount&#39;s cross_margin account info
+Query subaccount&#39;s cross_margin account info.
 
 ### Example
 
@@ -1056,13 +1056,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="listSavedAddress"></a>
 # **listSavedAddress**
 > List&lt;SavedAddress&gt; listSavedAddress(currency).chain(chain).limit(limit).page(page).execute();
 
-Query saved address
+Query saved address.
 
 ### Example
 
@@ -1085,10 +1085,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String currency = "USDT"; // String | Currency
-        String chain = "\"\""; // String | Chain name
-        String limit = "\"50\""; // String | Maximum number returned, 100 at most
-        Integer page = 1; // Integer | Page number
+        String currency = "USDT"; // String | Currency.
+        String chain = "\"\""; // String | Chain name.
+        String limit = "\"50\""; // String | Maximum number returned, 100 at most.
+        Integer page = 1; // Integer | Page number.
         try {
             List<SavedAddress> result = apiInstance.listSavedAddress(currency)
                         .chain(chain)
@@ -1113,10 +1113,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency |
- **chain** | **String**| Chain name | [optional] [default to &quot;&quot;]
- **limit** | **String**| Maximum number returned, 100 at most | [optional] [default to &quot;50&quot;]
- **page** | **Integer**| Page number | [optional] [default to 1]
+ **currency** | **String**| Currency. |
+ **chain** | **String**| Chain name. | [optional] [default to &quot;&quot;]
+ **limit** | **String**| Maximum number returned, 100 at most. | [optional] [default to &quot;50&quot;]
+ **page** | **Integer**| Page number. | [optional] [default to 1]
 
 ### Return type
 
@@ -1134,13 +1134,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="getTradeFee"></a>
 # **getTradeFee**
 > TradeFee getTradeFee().currencyPair(currencyPair).settle(settle).execute();
 
-Retrieve personal trading fee
+Retrieve personal trading fee.
 
 ### Example
 
@@ -1207,15 +1207,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved |  -  |
+**200** | Successfully retrieved. |  -  |
 
 <a name="getTotalBalance"></a>
 # **getTotalBalance**
 > TotalBalance getTotalBalance().currency(currency).execute();
 
-Retrieve user&#39;s total balances
+Retrieve user&#39;s total balances.
 
-This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
+This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; /futures/{settle}/accounts&#x60; to query futures account balance
 
 ### Example
 
@@ -1279,13 +1279,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Request is valid and is successfully responded |  -  |
+**200** | Request is valid and is successfully responded. |  -  |
 
 <a name="listSmallBalance"></a>
 # **listSmallBalance**
 > List&lt;SmallBalance&gt; listSmallBalance()
 
-List small balance
+List small balance.
 
 ### Example
 
@@ -1343,13 +1343,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Success. |  -  |
 
 <a name="convertSmallBalance"></a>
 # **convertSmallBalance**
 > convertSmallBalance(convertSmallBalance)
 
-Convert small balance
+Convert small balance.
 
 ### Example
 
@@ -1410,13 +1410,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Success. |  -  |
 
 <a name="listSmallBalanceHistory"></a>
 # **listSmallBalanceHistory**
 > List&lt;SmallBalanceHistory&gt; listSmallBalanceHistory().currency(currency).page(page).limit(limit).execute();
 
-List small balance history
+List small balance history.
 
 ### Example
 
@@ -1439,9 +1439,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        String currency = "currency_example"; // String | Currency
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum response items.  Default: 100, minimum: 1, Maximum: 100
+        String currency = "currency_example"; // String | Currency.
+        Integer page = 1; // Integer | Page number.
+        Integer limit = 100; // Integer | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
         try {
             List<SmallBalanceHistory> result = apiInstance.listSmallBalanceHistory()
                         .currency(currency)
@@ -1466,9 +1466,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency | [optional]
- **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **currency** | **String**| Currency. | [optional]
+ **page** | **Integer**| Page number. | [optional] [default to 1]
+ **limit** | **Integer**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
 
 ### Return type
 
@@ -1486,13 +1486,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Success. |  -  |
 
 <a name="listPushOrders"></a>
 # **listPushOrders**
 > List&lt;UidPushOrder&gt; listPushOrders().id(id).from(from).to(to).limit(limit).offset(offset).transactionType(transactionType).execute();
 
-Retrieve the UID transfer history
+Retrieve the UID transfer history.
 
 ### Example
 
@@ -1515,11 +1515,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         WalletApi apiInstance = new WalletApi(defaultClient);
-        Integer id = 56; // Integer | Order ID
+        Integer id = 56; // Integer | Order ID.
         Integer from = 56; // Integer | The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp
         Integer to = 56; // Integer | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds.
-        Integer limit = 100; // Integer | The maximum number of items returned in the list, the default value is 100
-        Integer offset = 0; // Integer | List offset, starting from 0
+        Integer limit = 100; // Integer | The maximum number of items returned in the list, the default value is 100.
+        Integer offset = 0; // Integer | List offset, starting from 0.
         String transactionType = "\"withdraw\""; // String | The list returns the order type `withdraw`, `deposit`, the default is `withdraw`.
         try {
             List<UidPushOrder> result = apiInstance.listPushOrders()
@@ -1548,11 +1548,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| Order ID | [optional]
+ **id** | **Integer**| Order ID. | [optional]
  **from** | **Integer**| The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp | [optional]
  **to** | **Integer**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional]
- **limit** | **Integer**| The maximum number of items returned in the list, the default value is 100 | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **limit** | **Integer**| The maximum number of items returned in the list, the default value is 100. | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
  **transactionType** | **String**| The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. | [optional] [default to &quot;withdraw&quot;]
 
 ### Return type
@@ -1571,5 +1571,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Success. |  -  |
 

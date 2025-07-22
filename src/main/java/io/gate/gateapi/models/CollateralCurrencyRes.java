@@ -51,7 +51,7 @@ public class CollateralCurrencyRes {
     }
 
      /**
-     * Update success status
+     * Update success status.
      * @return succeeded
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class CollateralCurrencyRes {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable

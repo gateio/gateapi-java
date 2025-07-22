@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Interest Record
+ * Interest Record.
  */
 public class UniLendRecord {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -53,7 +53,7 @@ public class UniLendRecord {
 
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class UniLendRecord {
 
 
      /**
-     * current amount
+     * current amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -73,7 +73,7 @@ public class UniLendRecord {
 
 
      /**
-     * Last wallet amount
+     * Last wallet amount.
      * @return lastWalletAmount
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class UniLendRecord {
 
 
      /**
-     * Last lent amount
+     * Last lent amount.
      * @return lastLentAmount
     **/
     @javax.annotation.Nullable
@@ -93,7 +93,7 @@ public class UniLendRecord {
 
 
      /**
-     * Last frozen amount
+     * Last frozen amount.
      * @return lastFrozenAmount
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class UniLendRecord {
 
 
      /**
-     * Record type: lend - lend, redeem - redeem
+     * Record type: lend - lend, redeem - redeem.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class UniLendRecord {
 
 
      /**
-     * Created time
+     * Created time.
      * @return createTime
     **/
     @javax.annotation.Nullable

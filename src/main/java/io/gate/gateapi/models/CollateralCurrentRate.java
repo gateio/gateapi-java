@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Multi-currency pledge current interest rate
+ * Multi-currency pledge current interest rate.
  */
 public class CollateralCurrentRate {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -39,7 +39,7 @@ public class CollateralCurrentRate {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class CollateralCurrentRate {
     }
 
      /**
-     * Currency current interest rate
+     * Currency current interest rate.
      * @return currentRate
     **/
     @javax.annotation.Nullable

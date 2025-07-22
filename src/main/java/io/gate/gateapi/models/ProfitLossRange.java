@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Profit and loss range
+ * Profit and loss range.
  */
 public class ProfitLossRange {
     public static final String SERIALIZED_NAME_PRICE_PERCENTAGE = "price_percentage";
@@ -43,7 +43,7 @@ public class ProfitLossRange {
     }
 
      /**
-     * Percentage change in price
+     * Percentage change in price.
      * @return pricePercentage
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class ProfitLossRange {
     }
 
      /**
-     * Percentage change in implied volatility
+     * Percentage change in implied volatility.
      * @return impliedVolatilityPercentage
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class ProfitLossRange {
     }
 
      /**
-     * PNL
+     * PNL.
      * @return profitLoss
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Market leverage settings
+ * Market leverage settings.
  */
 public class MarginMarketLeverage {
     public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -39,7 +39,7 @@ public class MarginMarketLeverage {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class MarginMarketLeverage {
     }
 
      /**
-     * Position leverage
+     * Position leverage.
      * @return leverage
     **/
     public String getLeverage() {

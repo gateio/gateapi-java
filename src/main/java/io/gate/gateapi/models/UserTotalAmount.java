@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Total borrowed amount and pledged collateral amount by the user
+ * Total borrowed amount and pledged collateral amount by the user.
  */
 public class UserTotalAmount {
     public static final String SERIALIZED_NAME_BORROW_AMOUNT = "borrow_amount";
@@ -39,7 +39,7 @@ public class UserTotalAmount {
     }
 
      /**
-     * Total borrowing amount, calculated in USDT
+     * Total borrowing amount, calculated in USDT.
      * @return borrowAmount
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class UserTotalAmount {
     }
 
      /**
-     * Total collateral amount, calculated in USDT
+     * Total collateral amount, calculated in USDT.
      * @return collateralAmount
     **/
     @javax.annotation.Nullable

@@ -43,7 +43,7 @@ public class PartnerSub {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class PartnerSub {
     }
 
      /**
-     * The time when the user joined the system, in seconds Unix timestamp
+     * The time when the user joined the system, in seconds Unix timestamp.
      * @return userJoinTime
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class PartnerSub {
     }
 
      /**
-     * Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer)
+     * Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer).
      * @return type
     **/
     @javax.annotation.Nullable

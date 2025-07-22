@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Info of order to be cancelled
+ * Info of order to be cancelled.
  */
 public class CancelBatchOrder {
     public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -47,7 +47,7 @@ public class CancelBatchOrder {
     }
 
      /**
-     * Order currency pair
+     * Order currency pair.
      * @return currencyPair
     **/
     public String getCurrencyPair() {

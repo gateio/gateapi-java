@@ -67,7 +67,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Transaction Time. (unix timestamp)
+     * Transaction Time. (unix timestamp).
      * @return transactionTime
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Group name
+     * Group name.
      * @return groupName
     **/
     @javax.annotation.Nullable
@@ -127,7 +127,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Fee
+     * Fee.
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -147,7 +147,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Fee currency
+     * Fee currency.
      * @return feeAsset
     **/
     @javax.annotation.Nullable
@@ -167,7 +167,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -187,7 +187,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Commission Amount
+     * Commission Amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -207,7 +207,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Commission Asset
+     * Commission Asset.
      * @return amountAsset
     **/
     @javax.annotation.Nullable
@@ -227,7 +227,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate
+     * Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate.
      * @return source
     **/
     @javax.annotation.Nullable

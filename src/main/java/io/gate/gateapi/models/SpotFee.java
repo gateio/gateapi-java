@@ -71,7 +71,7 @@ public class SpotFee {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class SpotFee {
     }
 
      /**
-     * taker fee rate
+     * taker fee rate.
      * @return takerFee
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class SpotFee {
     }
 
      /**
-     * maker fee rate
+     * maker fee rate.
      * @return makerFee
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class SpotFee {
     }
 
      /**
-     * If GT deduction is enabled
+     * If GT deduction is enabled.
      * @return gtDiscount
     **/
     @javax.annotation.Nullable
@@ -191,7 +191,7 @@ public class SpotFee {
     }
 
      /**
-     * Loan fee rate of margin lending
+     * Loan fee rate of margin lending.
      * @return loanFee
     **/
     @javax.annotation.Nullable
@@ -211,7 +211,7 @@ public class SpotFee {
     }
 
      /**
-     * Point type. 0 - Initial version. 1 - new version since 202009
+     * Point type. 0 - Initial version. 1 - new version since 202009.
      * @return pointType
     **/
     @javax.annotation.Nullable
@@ -231,7 +231,7 @@ public class SpotFee {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable

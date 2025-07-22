@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Currency discount tiers
+ * Currency discount tiers.
  */
 public class UnifiedDiscount {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -42,7 +42,7 @@ public class UnifiedDiscount {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class UnifiedDiscount {
     }
 
      /**
-     * Tiered discount
+     * Tiered discount.
      * @return discountTiers
     **/
     @javax.annotation.Nullable

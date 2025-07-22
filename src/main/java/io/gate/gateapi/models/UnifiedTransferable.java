@@ -39,7 +39,7 @@ public class UnifiedTransferable {
     }
 
      /**
-     * Currency detail
+     * Currency detail.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class UnifiedTransferable {
     }
 
      /**
-     * The maximum amount that can be transferred out
+     * The maximum amount that can be transferred out.
      * @return amount
     **/
     @javax.annotation.Nullable

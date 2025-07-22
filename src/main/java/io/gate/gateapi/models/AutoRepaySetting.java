@@ -24,7 +24,7 @@ import java.io.IOException;
  */
 public class AutoRepaySetting {
     /**
-     * Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled
+     * Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled.
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -82,7 +82,7 @@ public class AutoRepaySetting {
     }
 
      /**
-     * Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled
+     * Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled.
      * @return status
     **/
     @javax.annotation.Nullable

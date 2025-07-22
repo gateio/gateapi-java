@@ -35,7 +35,7 @@ public class OrderResp {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable

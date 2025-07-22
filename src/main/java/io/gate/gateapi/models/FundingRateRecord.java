@@ -39,7 +39,7 @@ public class FundingRateRecord {
     }
 
      /**
-     * Unix timestamp in seconds
+     * Unix timestamp in seconds.
      * @return t
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class FundingRateRecord {
     }
 
      /**
-     * Funding rate
+     * Funding rate.
      * @return r
     **/
     @javax.annotation.Nullable

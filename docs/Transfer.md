@@ -8,10 +8,10 @@ Accounts available to transfer:  - `spot`: spot account - `margin`: margin accou
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **String** | Transfer currency. For futures account, &#x60;currency&#x60; can be set to &#x60;POINT&#x60; or settle currency | 
-**from** | [**FromEnum**](#FromEnum) | Account to transfer from | 
-**to** | [**ToEnum**](#ToEnum) | Account to transfer to | 
-**amount** | **String** | Transfer amount | 
-**currencyPair** | **String** | Margin currency pair. Required if transfer from or to margin account |  [optional]
+**from** | [**FromEnum**](#FromEnum) | Account to transfer from. | 
+**to** | [**ToEnum**](#ToEnum) | Account to transfer to. | 
+**amount** | **String** | Transfer amount. | 
+**currencyPair** | **String** | Margin currency pair. Required if transfer from or to margin account. |  [optional]
 **settle** | **String** | Futures settle currency. Required if transferring from or to futures account |  [optional]
 
 ## Enum: FromEnum

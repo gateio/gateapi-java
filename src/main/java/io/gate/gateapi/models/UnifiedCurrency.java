@@ -55,7 +55,7 @@ public class UnifiedCurrency {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return name
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class UnifiedCurrency {
     }
 
      /**
-     * Currency precision
+     * Currency precision.
      * @return prec
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class UnifiedCurrency {
     }
 
      /**
-     * The minimum debit limit is the unit of currency
+     * The minimum debit limit is the unit of currency.
      * @return minBorrowAmount
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class UnifiedCurrency {
     }
 
      /**
-     * The minimum debit limit is the unit of currency
+     * The minimum debit limit is the unit of currency.
      * @return userMaxBorrowAmount
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class UnifiedCurrency {
     }
 
      /**
-     * The maximum debit limit for the platform is USDT
+     * The maximum debit limit for the platform is USDT.
      * @return totalMaxBorrowAmount
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Structured order
+ * Structured order.
  */
 public class StructuredOrderList {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -59,7 +59,7 @@ public class StructuredOrderList {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class StructuredOrderList {
     }
 
      /**
-     * Plan ID
+     * Plan ID.
      * @return pid
     **/
     @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class StructuredOrderList {
     }
 
      /**
-     * Locked coin
+     * Locked coin.
      * @return lockCoin
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class StructuredOrderList {
     }
 
      /**
-     * Locked amount
+     * Locked amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class StructuredOrderList {
     }
 
      /**
-     * Income
+     * Income.
      * @return income
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class StructuredOrderList {
     }
 
      /**
-     * Created time
+     * Created time.
      * @return createTime
     **/
     @javax.annotation.Nullable

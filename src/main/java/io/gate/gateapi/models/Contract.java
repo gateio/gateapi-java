@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Futures contract details
+ * Futures contract details.
  */
 public class Contract {
     public static final String SERIALIZED_NAME_NAME = "name";
@@ -28,7 +28,7 @@ public class Contract {
     private String name;
 
     /**
-     * Futures contract type
+     * Futures contract type.
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -95,7 +95,7 @@ public class Contract {
     private String maintenanceRate;
 
     /**
-     * Mark price type, internal - based on internal trading, index - based on external index price
+     * Mark price type, internal - based on internal trading, external index price
      */
     @JsonAdapter(MarkTypeEnum.Adapter.class)
     public enum MarkTypeEnum {
@@ -277,7 +277,7 @@ public class Contract {
     }
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return name
     **/
     @javax.annotation.Nullable
@@ -297,7 +297,7 @@ public class Contract {
     }
 
      /**
-     * Futures contract type
+     * Futures contract type.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -317,7 +317,7 @@ public class Contract {
     }
 
      /**
-     * Multiplier used in converting from invoicing to settlement currency
+     * Multiplier used in converting from invoicing to settlement currency.
      * @return quantoMultiplier
     **/
     @javax.annotation.Nullable
@@ -337,7 +337,7 @@ public class Contract {
     }
 
      /**
-     * Minimum leverage
+     * Minimum leverage.
      * @return leverageMin
     **/
     @javax.annotation.Nullable
@@ -357,7 +357,7 @@ public class Contract {
     }
 
      /**
-     * Maximum leverage
+     * Maximum leverage.
      * @return leverageMax
     **/
     @javax.annotation.Nullable
@@ -377,7 +377,7 @@ public class Contract {
     }
 
      /**
-     * Maintenance rate of margin
+     * Maintenance rate of margin.
      * @return maintenanceRate
     **/
     @javax.annotation.Nullable
@@ -397,7 +397,7 @@ public class Contract {
     }
 
      /**
-     * Mark price type, internal - based on internal trading, index - based on external index price
+     * Mark price type, internal - based on internal trading, external index price
      * @return markType
     **/
     @javax.annotation.Nullable
@@ -417,7 +417,7 @@ public class Contract {
     }
 
      /**
-     * Current mark price
+     * Current mark price.
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -437,7 +437,7 @@ public class Contract {
     }
 
      /**
-     * Current index price
+     * Current index price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -457,7 +457,7 @@ public class Contract {
     }
 
      /**
-     * Last trading price
+     * Last trading price.
      * @return lastPrice
     **/
     @javax.annotation.Nullable
@@ -477,7 +477,7 @@ public class Contract {
     }
 
      /**
-     * Maker fee rate, where negative means rebate
+     * Maker fee rate, where negative means rebate.
      * @return makerFeeRate
     **/
     @javax.annotation.Nullable
@@ -497,7 +497,7 @@ public class Contract {
     }
 
      /**
-     * Taker fee rate
+     * Taker fee rate.
      * @return takerFeeRate
     **/
     @javax.annotation.Nullable
@@ -517,7 +517,7 @@ public class Contract {
     }
 
      /**
-     * Minimum order price increment
+     * Minimum order price increment.
      * @return orderPriceRound
     **/
     @javax.annotation.Nullable
@@ -537,7 +537,7 @@ public class Contract {
     }
 
      /**
-     * Minimum mark price increment
+     * Minimum mark price increment.
      * @return markPriceRound
     **/
     @javax.annotation.Nullable
@@ -557,7 +557,7 @@ public class Contract {
     }
 
      /**
-     * Current funding rate
+     * Current funding rate.
      * @return fundingRate
     **/
     @javax.annotation.Nullable
@@ -577,7 +577,7 @@ public class Contract {
     }
 
      /**
-     * Funding application interval, unit in seconds
+     * Funding application interval, unit in seconds.
      * @return fundingInterval
     **/
     @javax.annotation.Nullable
@@ -597,7 +597,7 @@ public class Contract {
     }
 
      /**
-     * Next funding time
+     * Next funding time.
      * @return fundingNextApply
     **/
     @javax.annotation.Nullable
@@ -617,7 +617,7 @@ public class Contract {
     }
 
      /**
-     * Risk limit base,deprecated
+     * Risk limit base,deprecated.
      * @return riskLimitBase
     **/
     @javax.annotation.Nullable
@@ -637,7 +637,7 @@ public class Contract {
     }
 
      /**
-     * Step of adjusting risk limit,deprecated
+     * Step of adjusting risk limit,deprecated.
      * @return riskLimitStep
     **/
     @javax.annotation.Nullable
@@ -677,7 +677,7 @@ public class Contract {
     }
 
      /**
-     * Minimum order size the contract allowed
+     * Minimum order size the contract allowed.
      * @return orderSizeMin
     **/
     @javax.annotation.Nullable
@@ -697,7 +697,7 @@ public class Contract {
     }
 
      /**
-     * Maximum order size the contract allowed
+     * Maximum order size the contract allowed.
      * @return orderSizeMax
     **/
     @javax.annotation.Nullable
@@ -737,7 +737,7 @@ public class Contract {
     }
 
      /**
-     * Referral fee rate discount
+     * Referral fee rate discount.
      * @return refDiscountRate
     **/
     @javax.annotation.Nullable
@@ -757,7 +757,7 @@ public class Contract {
     }
 
      /**
-     * Referrer commission rate
+     * Referrer commission rate.
      * @return refRebateRate
     **/
     @javax.annotation.Nullable
@@ -777,7 +777,7 @@ public class Contract {
     }
 
      /**
-     * Current orderbook ID
+     * Current orderbook ID.
      * @return orderbookId
     **/
     @javax.annotation.Nullable
@@ -797,7 +797,7 @@ public class Contract {
     }
 
      /**
-     * Current trade ID
+     * Current trade ID.
      * @return tradeId
     **/
     @javax.annotation.Nullable
@@ -817,7 +817,7 @@ public class Contract {
     }
 
      /**
-     * Historical accumulated trade size
+     * Historical accumulated trade size.
      * @return tradeSize
     **/
     @javax.annotation.Nullable
@@ -837,7 +837,7 @@ public class Contract {
     }
 
      /**
-     * Current total long position size
+     * Current total long position size.
      * @return positionSize
     **/
     @javax.annotation.Nullable
@@ -857,7 +857,7 @@ public class Contract {
     }
 
      /**
-     * Last changed time of configuration
+     * Last changed time of configuration.
      * @return configChangeTime
     **/
     @javax.annotation.Nullable
@@ -877,7 +877,7 @@ public class Contract {
     }
 
      /**
-     * &#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; And when position_size&#x3D;0, it means the contract is offline
+     * &#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; contract is offline
      * @return inDelisting
     **/
     @javax.annotation.Nullable
@@ -897,7 +897,7 @@ public class Contract {
     }
 
      /**
-     * Maximum number of open orders
+     * Maximum number of open orders.
      * @return ordersLimit
     **/
     @javax.annotation.Nullable
@@ -917,7 +917,7 @@ public class Contract {
     }
 
      /**
-     * Whether bouns is enabled
+     * Whether bouns is enabled.
      * @return enableBonus
     **/
     @javax.annotation.Nullable
@@ -937,7 +937,7 @@ public class Contract {
     }
 
      /**
-     * Whether portfolio margin account is enabled
+     * Whether portfolio margin account is enabled.
      * @return enableCredit
     **/
     @javax.annotation.Nullable
@@ -957,7 +957,7 @@ public class Contract {
     }
 
      /**
-     * Created time of the contract
+     * Created time of the contract.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -997,7 +997,7 @@ public class Contract {
     }
 
      /**
-     * Contract Status Types include:  prelaunch,  trading, delisting,  delisted 
+     * Contract Status Types include: prelaunch, trading, delisting, delisted.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -1017,7 +1017,7 @@ public class Contract {
     }
 
      /**
-     * Contract expiry timestamp
+     * Contract expiry timestamp.
      * @return launchTime
     **/
     @javax.annotation.Nullable

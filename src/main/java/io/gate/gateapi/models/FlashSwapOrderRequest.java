@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Parameters of flash swap order creation
+ * Parameters of flash swap order creation.
  */
 public class FlashSwapOrderRequest {
     public static final String SERIALIZED_NAME_PREVIEW_ID = "preview_id";
@@ -51,7 +51,7 @@ public class FlashSwapOrderRequest {
     }
 
      /**
-     * Preview result ID
+     * Preview result ID.
      * @return previewId
     **/
     public String getPreviewId() {
@@ -89,7 +89,7 @@ public class FlashSwapOrderRequest {
     }
 
      /**
-     * Amount to sell (based on the preview result)
+     * Amount to sell (based on the preview result).
      * @return sellAmount
     **/
     public String getSellAmount() {
@@ -127,7 +127,7 @@ public class FlashSwapOrderRequest {
     }
 
      /**
-     * Amount to buy (based on the preview result)
+     * Amount to buy (based on the preview result).
      * @return buyAmount
     **/
     public String getBuyAmount() {

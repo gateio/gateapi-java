@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Collateral Ratio
+ * Collateral Ratio.
  */
 public class CollateralLtv {
     public static final String SERIALIZED_NAME_INIT_LTV = "init_ltv";
@@ -43,7 +43,7 @@ public class CollateralLtv {
     }
 
      /**
-     * The initial collateralization rate
+     * The initial collateralization rate.
      * @return initLtv
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class CollateralLtv {
     }
 
      /**
-     * Warning collateralization ratio
+     * Warning collateralization ratio.
      * @return alertLtv
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class CollateralLtv {
     }
 
      /**
-     * The liquidation collateralization rate
+     * The liquidation collateralization rate.
      * @return liquidateLtv
     **/
     @javax.annotation.Nullable

@@ -119,7 +119,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Whether account is locked
+     * Whether account is locked.
      * @return locked
     **/
     @javax.annotation.Nullable
@@ -207,7 +207,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Total borrowed value in USDT * borrowed factor
+     * Total borrowed value in USDT * borrowed factor.
      * @return borrowedNet
     **/
     @javax.annotation.Nullable
@@ -227,7 +227,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Total net assets in USDT
+     * Total net assets in USDT.
      * @return net
     **/
     @javax.annotation.Nullable
@@ -247,7 +247,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Position leverage
+     * Position leverage.
      * @return leverage
     **/
     @javax.annotation.Nullable
@@ -307,7 +307,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Total initial margin
+     * Total initial margin.
      * @return totalInitialMargin
     **/
     @javax.annotation.Nullable
@@ -327,7 +327,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Total margin balance
+     * Total margin balance.
      * @return totalMarginBalance
     **/
     @javax.annotation.Nullable
@@ -347,7 +347,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Total maintenance margin
+     * Total maintenance margin.
      * @return totalMaintenanceMargin
     **/
     @javax.annotation.Nullable
@@ -367,7 +367,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Total initial margin rate
+     * Total initial margin rate.
      * @return totalInitialMarginRate
     **/
     @javax.annotation.Nullable
@@ -387,7 +387,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Total maintenance margin rate
+     * Total maintenance margin rate.
      * @return totalMaintenanceMarginRate
     **/
     @javax.annotation.Nullable
@@ -407,7 +407,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Total available margin
+     * Total available margin.
      * @return totalAvailableMargin
     **/
     @javax.annotation.Nullable

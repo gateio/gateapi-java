@@ -47,7 +47,7 @@ public class SpotAccount {
     }
 
      /**
-     * Currency detail
+     * Currency detail.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class SpotAccount {
     }
 
      /**
-     * Available amount
+     * Available amount.
      * @return available
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class SpotAccount {
     }
 
      /**
-     * Locked amount, used in trading
+     * Locked amount, used in trading.
      * @return locked
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class SpotAccount {
     }
 
      /**
-     * Version number
+     * Version number.
      * @return updateId
     **/
     @javax.annotation.Nullable

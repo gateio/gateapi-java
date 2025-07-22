@@ -52,7 +52,7 @@ public class MyFuturesTrade {
     private String price;
 
     /**
-     * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
+     * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.
      */
     @JsonAdapter(RoleEnum.Adapter.class)
     public enum RoleEnum {
@@ -122,7 +122,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Trade ID
+     * Trade ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -142,7 +142,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Trading time
+     * Trading time.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -162,7 +162,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -182,7 +182,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Order ID related
+     * Order ID related.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -202,7 +202,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Trading size
+     * Trading size.
      * @return size
     **/
     @javax.annotation.Nullable
@@ -222,7 +222,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0       Open long position close_size&#x3D;0 &amp;&amp; size＜0       Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close short postion close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position
+     * Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0 Open long position close_size&#x3D;0 &amp;&amp; size＜0 Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position
      * @return closeSize
     **/
     @javax.annotation.Nullable
@@ -242,7 +242,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Trading price
+     * Trading price.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -262,7 +262,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
+     * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.
      * @return role
     **/
     @javax.annotation.Nullable
@@ -282,7 +282,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * User defined information
+     * User defined information.
      * @return text
     **/
     @javax.annotation.Nullable
@@ -302,7 +302,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Fee deducted
+     * Fee deducted.
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -322,7 +322,7 @@ public class MyFuturesTrade {
     }
 
      /**
-     * Points used to deduct fee
+     * Points used to deduct fee.
      * @return pointFee
     **/
     @javax.annotation.Nullable

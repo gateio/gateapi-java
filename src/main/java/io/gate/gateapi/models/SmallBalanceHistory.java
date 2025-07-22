@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Convert Small Balance
+ * Convert Small Balance.
  */
 public class SmallBalanceHistory {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -45,7 +45,7 @@ public class SmallBalanceHistory {
 
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -55,7 +55,7 @@ public class SmallBalanceHistory {
 
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -65,7 +65,7 @@ public class SmallBalanceHistory {
 
 
      /**
-     * amount
+     * amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class SmallBalanceHistory {
 
 
      /**
-     * GT amount
+     * GT amount.
      * @return gtAmount
     **/
     @javax.annotation.Nullable
@@ -85,7 +85,7 @@ public class SmallBalanceHistory {
 
 
      /**
-     * Exchange time (in seconds)
+     * Exchange time (in seconds).
      * @return createTime
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Collateral Order
+ * Collateral Order.
  */
 public class CollateralOrder {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -95,7 +95,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Collateral
+     * Collateral.
      * @return collateralCurrency
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Collateral amount
+     * Collateral amount.
      * @return collateralAmount
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Borrowed currency
+     * Borrowed currency.
      * @return borrowCurrency
     **/
     @javax.annotation.Nullable
@@ -175,7 +175,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Borrowing amount
+     * Borrowing amount.
      * @return borrowAmount
     **/
     @javax.annotation.Nullable
@@ -195,7 +195,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Repaid amount
+     * Repaid amount.
      * @return repaidAmount
     **/
     @javax.annotation.Nullable
@@ -215,7 +215,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Repaid principal
+     * Repaid principal.
      * @return repaidPrincipal
     **/
     @javax.annotation.Nullable
@@ -235,7 +235,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Repaid interest
+     * Repaid interest.
      * @return repaidInterest
     **/
     @javax.annotation.Nullable
@@ -255,7 +255,7 @@ public class CollateralOrder {
     }
 
      /**
-     * The initial collateralization rate
+     * The initial collateralization rate.
      * @return initLtv
     **/
     @javax.annotation.Nullable
@@ -275,7 +275,7 @@ public class CollateralOrder {
     }
 
      /**
-     * The current collateralization rate
+     * The current collateralization rate.
      * @return currentLtv
     **/
     @javax.annotation.Nullable
@@ -295,7 +295,7 @@ public class CollateralOrder {
     }
 
      /**
-     * The liquidation collateralization rate
+     * The liquidation collateralization rate.
      * @return liquidateLtv
     **/
     @javax.annotation.Nullable
@@ -335,7 +335,7 @@ public class CollateralOrder {
     }
 
      /**
-     * Borrowing time, timestamp in seconds
+     * Borrowing time, timestamp in seconds.
      * @return borrowTime
     **/
     @javax.annotation.Nullable
@@ -375,7 +375,7 @@ public class CollateralOrder {
     }
 
      /**
-     * outstanding principal
+     * outstanding principal.
      * @return leftRepayPrincipal
     **/
     @javax.annotation.Nullable
@@ -395,7 +395,7 @@ public class CollateralOrder {
     }
 
      /**
-     * outstanding interest
+     * outstanding interest.
      * @return leftRepayInterest
     **/
     @javax.annotation.Nullable

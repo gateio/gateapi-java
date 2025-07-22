@@ -21,7 +21,7 @@ import io.gate.gateapi.models.OptionsPositionCloseOrder;
 import java.io.IOException;
 
 /**
- * Options position information
+ * Options position information.
  */
 public class OptionsPosition {
     public static final String SERIALIZED_NAME_USER = "user";
@@ -90,7 +90,7 @@ public class OptionsPosition {
 
 
      /**
-     * User ID
+     * User ID.
      * @return user
     **/
     @javax.annotation.Nullable
@@ -100,7 +100,7 @@ public class OptionsPosition {
 
 
      /**
-     * Underlying
+     * Underlying.
      * @return underlying
     **/
     @javax.annotation.Nullable
@@ -110,7 +110,7 @@ public class OptionsPosition {
 
 
      /**
-     * Underlying price (quote currency)
+     * Underlying price (quote currency).
      * @return underlyingPrice
     **/
     @javax.annotation.Nullable
@@ -120,7 +120,7 @@ public class OptionsPosition {
 
 
      /**
-     * Options contract name
+     * Options contract name.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -130,7 +130,7 @@ public class OptionsPosition {
 
 
      /**
-     * Position size (contract size)
+     * Position size (contract size).
      * @return size
     **/
     @javax.annotation.Nullable
@@ -140,7 +140,7 @@ public class OptionsPosition {
 
 
      /**
-     * Entry size (quote currency)
+     * Entry size (quote currency).
      * @return entryPrice
     **/
     @javax.annotation.Nullable
@@ -150,7 +150,7 @@ public class OptionsPosition {
 
 
      /**
-     * Current mark price (quote currency)
+     * Current mark price (quote currency).
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -160,7 +160,7 @@ public class OptionsPosition {
 
 
      /**
-     * Implied volatility
+     * Implied volatility.
      * @return markIv
     **/
     @javax.annotation.Nullable
@@ -170,7 +170,7 @@ public class OptionsPosition {
 
 
      /**
-     * Realized PNL
+     * Realized PNL.
      * @return realisedPnl
     **/
     @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class OptionsPosition {
 
 
      /**
-     * Unrealized PNL
+     * Unrealized PNL.
      * @return unrealisedPnl
     **/
     @javax.annotation.Nullable
@@ -190,7 +190,7 @@ public class OptionsPosition {
 
 
      /**
-     * Current open orders
+     * Current open orders.
      * @return pendingOrders
     **/
     @javax.annotation.Nullable
@@ -220,7 +220,7 @@ public class OptionsPosition {
     }
 
      /**
-     * Delta
+     * Delta.
      * @return delta
     **/
     @javax.annotation.Nullable
@@ -230,7 +230,7 @@ public class OptionsPosition {
 
 
      /**
-     * Gamma
+     * Gamma.
      * @return gamma
     **/
     @javax.annotation.Nullable
@@ -240,7 +240,7 @@ public class OptionsPosition {
 
 
      /**
-     * Vega
+     * Vega.
      * @return vega
     **/
     @javax.annotation.Nullable
@@ -250,7 +250,7 @@ public class OptionsPosition {
 
 
      /**
-     * Theta
+     * Theta.
      * @return theta
     **/
     @javax.annotation.Nullable

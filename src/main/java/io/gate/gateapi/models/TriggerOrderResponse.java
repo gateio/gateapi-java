@@ -35,7 +35,7 @@ public class TriggerOrderResponse {
     }
 
      /**
-     * Auto order ID
+     * Auto order ID.
      * @return id
     **/
     @javax.annotation.Nullable

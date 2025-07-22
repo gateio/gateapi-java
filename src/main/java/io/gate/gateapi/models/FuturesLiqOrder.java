@@ -53,7 +53,7 @@ public class FuturesLiqOrder {
 
 
      /**
-     * Liquidation time
+     * Liquidation time.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class FuturesLiqOrder {
 
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -73,7 +73,7 @@ public class FuturesLiqOrder {
 
 
      /**
-     * User position size
+     * User position size.
      * @return size
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class FuturesLiqOrder {
 
 
      /**
-     * Number of forced liquidation orders
+     * Number of forced liquidation orders.
      * @return orderSize
     **/
     @javax.annotation.Nullable
@@ -93,7 +93,7 @@ public class FuturesLiqOrder {
 
 
      /**
-     * Liquidation order price
+     * Liquidation order price.
      * @return orderPrice
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class FuturesLiqOrder {
 
 
      /**
-     * Liquidation order average taker price
+     * Liquidation order average taker price.
      * @return fillPrice
     **/
     @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class FuturesLiqOrder {
 
 
      /**
-     * System liquidation order maker size
+     * System liquidation order maker size.
      * @return left
     **/
     @javax.annotation.Nullable

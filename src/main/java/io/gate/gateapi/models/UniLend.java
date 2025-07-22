@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Loan record
+ * Loan record.
  */
 public class UniLend {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -65,7 +65,7 @@ public class UniLend {
 
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class UniLend {
 
 
      /**
-     * Current amount
+     * Current amount.
      * @return currentAmount
     **/
     @javax.annotation.Nullable
@@ -85,7 +85,7 @@ public class UniLend {
 
 
      /**
-     * Total amount
+     * Total amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class UniLend {
 
 
      /**
-     * Lent amount
+     * Lent amount.
      * @return lentAmount
     **/
     @javax.annotation.Nullable
@@ -105,7 +105,7 @@ public class UniLend {
 
 
      /**
-     * Frozen amount
+     * Frozen amount.
      * @return frozenAmount
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class UniLend {
 
 
      /**
-     * Minimum interest rate
+     * Minimum interest rate.
      * @return minRate
     **/
     @javax.annotation.Nullable
@@ -125,7 +125,7 @@ public class UniLend {
 
 
      /**
-     * Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+     * Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
      * @return interestStatus
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class UniLend {
 
 
      /**
-     * Amount not reinvested
+     * Amount not reinvested.
      * @return reinvestLeftAmount
     **/
     @javax.annotation.Nullable
@@ -145,7 +145,7 @@ public class UniLend {
 
 
      /**
-     * Created time of the lending order
+     * Created time of the lending order.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class UniLend {
 
 
      /**
-     * Upated time of the lending order
+     * Upated time of the lending order.
      * @return updateTime
     **/
     @javax.annotation.Nullable

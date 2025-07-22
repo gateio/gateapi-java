@@ -28,7 +28,7 @@ public class Transfer {
     private String currency;
 
     /**
-     * Account to transfer from
+     * Account to transfer from.
      */
     @JsonAdapter(FromEnum.Adapter.class)
     public enum FromEnum {
@@ -85,7 +85,7 @@ public class Transfer {
     private FromEnum from;
 
     /**
-     * Account to transfer to
+     * Account to transfer to.
      */
     @JsonAdapter(ToEnum.Adapter.class)
     public enum ToEnum {
@@ -180,7 +180,7 @@ public class Transfer {
     }
 
      /**
-     * Account to transfer from
+     * Account to transfer from.
      * @return from
     **/
     public FromEnum getFrom() {
@@ -199,7 +199,7 @@ public class Transfer {
     }
 
      /**
-     * Account to transfer to
+     * Account to transfer to.
      * @return to
     **/
     public ToEnum getTo() {
@@ -218,7 +218,7 @@ public class Transfer {
     }
 
      /**
-     * Transfer amount
+     * Transfer amount.
      * @return amount
     **/
     public String getAmount() {
@@ -237,7 +237,7 @@ public class Transfer {
     }
 
      /**
-     * Margin currency pair. Required if transfer from or to margin account
+     * Margin currency pair. Required if transfer from or to margin account.
      * @return currencyPair
     **/
     @javax.annotation.Nullable

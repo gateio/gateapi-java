@@ -99,7 +99,7 @@ public class Ticker {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class Ticker {
     }
 
      /**
-     * Last trading price
+     * Last trading price.
      * @return last
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class Ticker {
     }
 
      /**
-     * Recent lowest ask
+     * Recent lowest ask.
      * @return lowestAsk
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class Ticker {
     }
 
      /**
-     * Recent highest bid
+     * Recent highest bid.
      * @return highestBid
     **/
     @javax.annotation.Nullable
@@ -219,7 +219,7 @@ public class Ticker {
     }
 
      /**
-     * Change percentage in the last 24h
+     * Change percentage in the last 24h.
      * @return changePercentage
     **/
     @javax.annotation.Nullable
@@ -239,7 +239,7 @@ public class Ticker {
     }
 
      /**
-     * utc0 timezone, the percentage change in the last 24 hours
+     * utc0 timezone, the percentage change in the last 24 hours.
      * @return changeUtc0
     **/
     @javax.annotation.Nullable
@@ -259,7 +259,7 @@ public class Ticker {
     }
 
      /**
-     * utc8 timezone, the percentage change in the last 24 hours
+     * utc8 timezone, the percentage change in the last 24 hours.
      * @return changeUtc8
     **/
     @javax.annotation.Nullable
@@ -279,7 +279,7 @@ public class Ticker {
     }
 
      /**
-     * Base currency trade volume in the last 24h
+     * Base currency trade volume in the last 24h.
      * @return baseVolume
     **/
     @javax.annotation.Nullable
@@ -299,7 +299,7 @@ public class Ticker {
     }
 
      /**
-     * Quote currency trade volume in the last 24h
+     * Quote currency trade volume in the last 24h.
      * @return quoteVolume
     **/
     @javax.annotation.Nullable
@@ -319,7 +319,7 @@ public class Ticker {
     }
 
      /**
-     * Highest price in 24h
+     * Highest price in 24h.
      * @return high24h
     **/
     @javax.annotation.Nullable
@@ -339,7 +339,7 @@ public class Ticker {
     }
 
      /**
-     * Lowest price in 24h
+     * Lowest price in 24h.
      * @return low24h
     **/
     @javax.annotation.Nullable
@@ -359,7 +359,7 @@ public class Ticker {
     }
 
      /**
-     * ETF net value
+     * ETF net value.
      * @return etfNetValue
     **/
     @javax.annotation.Nullable
@@ -379,7 +379,7 @@ public class Ticker {
     }
 
      /**
-     * ETF previous net value at re-balancing time
+     * ETF previous net value at re-balancing time.
      * @return etfPreNetValue
     **/
     @javax.annotation.Nullable
@@ -399,7 +399,7 @@ public class Ticker {
     }
 
      /**
-     * ETF previous re-balancing time
+     * ETF previous re-balancing time.
      * @return etfPreTimestamp
     **/
     @javax.annotation.Nullable
@@ -419,7 +419,7 @@ public class Ticker {
     }
 
      /**
-     * ETF current leverage
+     * ETF current leverage.
      * @return etfLeverage
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Loan currency leverage
+ * Loan currency leverage.
  */
 public class UnifiedLeverageSetting {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -39,7 +39,7 @@ public class UnifiedLeverageSetting {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     public String getCurrency() {
@@ -58,7 +58,7 @@ public class UnifiedLeverageSetting {
     }
 
      /**
-     * multiple
+     * multiple.
      * @return leverage
     **/
     public String getLeverage() {

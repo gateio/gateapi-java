@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Order cancellation result
+ * Order cancellation result.
  */
 public class FutureCancelOrderResult {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -47,7 +47,7 @@ public class FutureCancelOrderResult {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class FutureCancelOrderResult {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class FutureCancelOrderResult {
     }
 
      /**
-     * Whether cancellation succeeded
+     * Whether cancellation succeeded.
      * @return succeeded
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class FutureCancelOrderResult {
     }
 
      /**
-     * Error message when failed to cancel the order; empty if succeeded
+     * Error message when failed to cancel the order; empty if succeeded.
      * @return message
     **/
     @javax.annotation.Nullable

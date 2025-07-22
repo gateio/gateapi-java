@@ -59,7 +59,7 @@ public class FuturesTrade {
     }
 
      /**
-     * Trade ID
+     * Trade ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class FuturesTrade {
     }
 
      /**
-     * Trading time
+     * Trading time.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class FuturesTrade {
     }
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class FuturesTrade {
     }
 
      /**
-     * Trading size
+     * Trading size.
      * @return size
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class FuturesTrade {
     }
 
      /**
-     * Trading price (quote currency)
+     * Trading price (quote currency).
      * @return price
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class FuturesTrade {
     }
 
      /**
-     * Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned.
+     * Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. an internal trade, this field will not be returned.
      * @return isInternal
     **/
     @javax.annotation.Nullable

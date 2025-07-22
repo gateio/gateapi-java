@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * User&#39;s balance in all accounts
+ * User&#39;s balance in all accounts.
  */
 public class TotalBalance {
     public static final String SERIALIZED_NAME_TOTAL = "total";

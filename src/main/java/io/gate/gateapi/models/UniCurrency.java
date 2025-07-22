@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Currency detail
+ * Currency detail.
  */
 public class UniCurrency {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -45,7 +45,7 @@ public class UniCurrency {
 
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -65,7 +65,7 @@ public class UniCurrency {
 
 
      /**
-     * The total maximum lending amount, in USDT
+     * The total maximum lending amount, in USDT.
      * @return maxLendAmount
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class UniCurrency {
 
 
      /**
-     * Maximum rate (Hourly)
+     * Maximum rate (Hourly).
      * @return maxRate
     **/
     @javax.annotation.Nullable
@@ -85,7 +85,7 @@ public class UniCurrency {
 
 
      /**
-     * Minimum rate (Hourly)
+     * Minimum rate (Hourly).
      * @return minRate
     **/
     @javax.annotation.Nullable

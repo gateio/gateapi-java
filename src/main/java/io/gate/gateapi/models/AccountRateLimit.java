@@ -67,7 +67,7 @@ public class AccountRateLimit {
     }
 
      /**
-     * Transaction rate
+     * Transaction rate.
      * @return ratio
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class AccountRateLimit {
     }
 
      /**
-     * Total transaction ratio of main account
+     * Total transaction ratio of main account.
      * @return mainRatio
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class AccountRateLimit {
     }
 
      /**
-     * Update time
+     * Update time.
      * @return updatedAt
     **/
     @javax.annotation.Nullable

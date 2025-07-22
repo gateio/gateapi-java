@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Multi-collateral fixed interest rate
+ * Multi-collateral fixed interest rate.
  */
 public class CollateralFixRate {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -47,7 +47,7 @@ public class CollateralFixRate {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class CollateralFixRate {
     }
 
      /**
-     * Fixed interest rate for a lending period of 7 days
+     * Fixed interest rate for a lending period of 7 days.
      * @return rate7d
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class CollateralFixRate {
     }
 
      /**
-     * Fixed interest rate for a lending period of 30 days
+     * Fixed interest rate for a lending period of 30 days.
      * @return rate30d
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class CollateralFixRate {
     }
 
      /**
-     * Update time, timestamp, unit in seconds
+     * Update time, timestamp, unit in seconds.
      * @return updateTime
     **/
     @javax.annotation.Nullable

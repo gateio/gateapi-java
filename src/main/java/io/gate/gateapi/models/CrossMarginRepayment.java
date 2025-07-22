@@ -59,7 +59,7 @@ public class CrossMarginRepayment {
     }
 
      /**
-     * Loan record ID
+     * Loan record ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class CrossMarginRepayment {
     }
 
      /**
-     * Repayment time
+     * Repayment time.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class CrossMarginRepayment {
     }
 
      /**
-     * Loan record ID
+     * Loan record ID.
      * @return loanId
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class CrossMarginRepayment {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class CrossMarginRepayment {
     }
 
      /**
-     * Repaid principal
+     * Repaid principal.
      * @return principal
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class CrossMarginRepayment {
     }
 
      /**
-     * Repaid interest
+     * Repaid interest.
      * @return interest
     **/
     @javax.annotation.Nullable
@@ -173,7 +173,7 @@ public class CrossMarginRepayment {
     }
 
      /**
-     * Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation
+     * Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment after cancellation
      * @return repaymentType
     **/
     @javax.annotation.Nullable

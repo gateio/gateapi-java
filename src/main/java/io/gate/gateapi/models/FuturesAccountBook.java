@@ -36,7 +36,7 @@ public class FuturesAccountBook {
     private String balance;
 
     /**
-     * Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
+     * Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -124,7 +124,7 @@ public class FuturesAccountBook {
     }
 
      /**
-     * Change time
+     * Change time.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -144,7 +144,7 @@ public class FuturesAccountBook {
     }
 
      /**
-     * Change amount
+     * Change amount.
      * @return change
     **/
     @javax.annotation.Nullable
@@ -164,7 +164,7 @@ public class FuturesAccountBook {
     }
 
      /**
-     * Balance after change
+     * Balance after change.
      * @return balance
     **/
     @javax.annotation.Nullable
@@ -184,7 +184,7 @@ public class FuturesAccountBook {
     }
 
      /**
-     * Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
+     * Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
      * @return type
     **/
     @javax.annotation.Nullable
@@ -204,7 +204,7 @@ public class FuturesAccountBook {
     }
 
      /**
-     * Comment
+     * Comment.
      * @return text
     **/
     @javax.annotation.Nullable
@@ -244,7 +244,7 @@ public class FuturesAccountBook {
     }
 
      /**
-     * trade id
+     * trade id.
      * @return tradeId
     **/
     @javax.annotation.Nullable
@@ -264,7 +264,7 @@ public class FuturesAccountBook {
     }
 
      /**
-     * Account change record ID
+     * Account change record ID.
      * @return id
     **/
     @javax.annotation.Nullable

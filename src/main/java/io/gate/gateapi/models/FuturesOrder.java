@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Futures order details
+ * Futures order details.
  */
 public class FuturesOrder {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -40,7 +40,7 @@ public class FuturesOrder {
     private Double finishTime;
 
     /**
-     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
+     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
      */
     @JsonAdapter(FinishAsEnum.Adapter.class)
     public enum FinishAsEnum {
@@ -326,7 +326,7 @@ public class FuturesOrder {
     private Integer stpId;
 
     /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      */
     @JsonAdapter(StpActEnum.Adapter.class)
     public enum StpActEnum {
@@ -384,13 +384,9 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
-    public static final String SERIALIZED_NAME_BIZ_INFO = "biz_info";
-    @SerializedName(SERIALIZED_NAME_BIZ_INFO)
-    private String bizInfo;
-
 
      /**
-     * Futures order ID
+     * Futures order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -400,7 +396,7 @@ public class FuturesOrder {
 
 
      /**
-     * User ID
+     * User ID.
      * @return user
     **/
     @javax.annotation.Nullable
@@ -410,7 +406,7 @@ public class FuturesOrder {
 
 
      /**
-     * Creation time of order
+     * Creation time of order.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -420,7 +416,7 @@ public class FuturesOrder {
 
 
      /**
-     * Order finished time. Not returned if order is open
+     * Order finished time. Not returned if order is open.
      * @return finishTime
     **/
     @javax.annotation.Nullable
@@ -430,7 +426,7 @@ public class FuturesOrder {
 
 
      /**
-     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
+     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
      * @return finishAs
     **/
     @javax.annotation.Nullable
@@ -456,7 +452,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     public String getContract() {
@@ -514,7 +510,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;
+     * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -534,7 +530,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0
+     * Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0.
      * @return close
     **/
     @javax.annotation.Nullable
@@ -548,7 +544,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Is the order to close position
+     * Is the order to close position.
      * @return isClose
     **/
     @javax.annotation.Nullable
@@ -564,7 +560,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Set as &#x60;true&#x60; to be reduce-only order
+     * Set as &#x60;true&#x60; to be reduce-only order.
      * @return reduceOnly
     **/
     @javax.annotation.Nullable
@@ -578,7 +574,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Is the order reduce-only
+     * Is the order reduce-only.
      * @return isReduceOnly
     **/
     @javax.annotation.Nullable
@@ -588,7 +584,7 @@ public class FuturesOrder {
 
 
      /**
-     * Is the order for liquidation
+     * Is the order for liquidation.
      * @return isLiq
     **/
     @javax.annotation.Nullable
@@ -618,7 +614,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Size left to be traded
+     * Size left to be traded.
      * @return left
     **/
     @javax.annotation.Nullable
@@ -628,7 +624,7 @@ public class FuturesOrder {
 
 
      /**
-     * Fill price of the order
+     * Fill price of the order.
      * @return fillPrice
     **/
     @javax.annotation.Nullable
@@ -644,7 +640,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Order custom information, users can use this field to set a custom ID, and the user-defined field must meet the following conditions:  1. Must start with &#x60;t-&#x60; 2. If &#x60;t-&#x60; is not calculated, the length cannot exceed 28 bytes 3. The input content can only contain numbers, letters, underscores (_), midscores (-) or dots (.)  In addition to user-defined information, the following are internal reserved fields that identifies the source of the order:  - web: web page - api: API call - app: mobile terminal - auto_deleveraging: Automatic position reduction - liquidation: Liquidation under the classic account’s old liquidation mode - liq-xxx: a. Liquidation under the classic account’s new liquidation mode (isolated, cross margin one-way mode, non-hedging part of cross margin hedge mode) b. Liquidation under isolated margin in unified account single currency margin mode  - hedge-liq-xxx: Liquidation under the new liquidation mode of the classic account hedge mode, the cross margin hedged part undergoes liquidation, meaning both long and short positions are liquidated simultaneously. - pm_liquidate: Unified account multi-currency margin mode liquidation - comb_margin_liquidate: Unified account portfolio margin mode liquidation - scm_liquidate: Unified account single currency margin mode liquidation - insurance: insurance
+     * Order custom information, users can use this field to set a custom ID, and the user-defined field must meet the following conditions:  1. Must start with &#x60;t-&#x60; 2. If &#x60;t-&#x60; is not calculated, the length cannot exceed 28 bytes 3. The input content can only contain numbers, letters, underscores (_), midscores (-) or dots (.)  In addition to user-defined information, the following are internal reserved fields that identifies the source of the order:  - web: web page - api: API call - app: mobile terminal - auto_deleveraging: Automatic position reduction - liquidation: Liquidation under the classic account’s old liquidation mode - liq-x: new liquidation mode (isolated, cross margin one-way mode, non-hedging part of cross margin hedge mode) b. Liquidation under isolated margin in unified account single currency margin mode  - hedge-liq-x: Liquidation under the new liquidation mode of the classic account hedge mode, the cross margin hedged part undergoes liquidation, meaning both long and short positions are liquidated simultaneously. - pm_liquidate: Unified account multi-currency margin mode liquidation - comb_margin_liquidate: Unified account portfolio margin mode liquidation - scm_liquidate: Unified account single currency margin mode liquidation - insurance: insurance
      * @return text
     **/
     @javax.annotation.Nullable
@@ -658,7 +654,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Taker fee
+     * Taker fee.
      * @return tkfr
     **/
     @javax.annotation.Nullable
@@ -668,7 +664,7 @@ public class FuturesOrder {
 
 
      /**
-     * Maker fee
+     * Maker fee.
      * @return mkfr
     **/
     @javax.annotation.Nullable
@@ -678,7 +674,7 @@ public class FuturesOrder {
 
 
      /**
-     * Reference user ID
+     * Reference user ID.
      * @return refu
     **/
     @javax.annotation.Nullable
@@ -724,7 +720,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      * @return stpAct
     **/
     @javax.annotation.Nullable
@@ -738,22 +734,12 @@ public class FuturesOrder {
     }
 
      /**
-     * The custom data that the user remarked when amending the order
+     * The custom data that the user remarked when amending the order.
      * @return amendText
     **/
     @javax.annotation.Nullable
     public String getAmendText() {
         return amendText;
-    }
-
-
-     /**
-     * Additional information
-     * @return bizInfo
-    **/
-    @javax.annotation.Nullable
-    public String getBizInfo() {
-        return bizInfo;
     }
 
     @Override
@@ -790,13 +776,12 @@ public class FuturesOrder {
                 Objects.equals(this.autoSize, futuresOrder.autoSize) &&
                 Objects.equals(this.stpId, futuresOrder.stpId) &&
                 Objects.equals(this.stpAct, futuresOrder.stpAct) &&
-                Objects.equals(this.amendText, futuresOrder.amendText) &&
-                Objects.equals(this.bizInfo, futuresOrder.bizInfo);
+                Objects.equals(this.amendText, futuresOrder.amendText);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, bizInfo);
+        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText);
     }
 
 
@@ -830,7 +815,6 @@ public class FuturesOrder {
         sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
-        sb.append("      bizInfo: ").append(toIndentedString(bizInfo)).append("\n");
         sb.append("}");
         return sb.toString();
     }

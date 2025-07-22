@@ -73,7 +73,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Liquidation time
+     * Liquidation time.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Position size
+     * Position size.
      * @return size
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Liquidation order price
+     * Liquidation order price.
      * @return orderPrice
     **/
     @javax.annotation.Nullable
@@ -173,7 +173,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Liquidation order average taker price
+     * Liquidation order average taker price.
      * @return fillPrice
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class FuturesLiquidate {
 
 
      /**
-     * Liquidation order maker size
+     * Liquidation order maker size.
      * @return left
     **/
     @javax.annotation.Nullable

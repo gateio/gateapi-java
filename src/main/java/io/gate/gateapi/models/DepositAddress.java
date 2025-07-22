@@ -46,7 +46,7 @@ public class DepositAddress {
     }
 
      /**
-     * Currency detail
+     * Currency detail.
      * @return currency
     **/
     public String getCurrency() {
@@ -65,7 +65,7 @@ public class DepositAddress {
     }
 
      /**
-     * Deposit address
+     * Deposit address.
      * @return address
     **/
     public String getAddress() {

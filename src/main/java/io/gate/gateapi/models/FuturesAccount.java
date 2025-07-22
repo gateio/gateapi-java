@@ -156,7 +156,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Unrealized PNL
+     * Unrealized PNL.
      * @return unrealisedPnl
     **/
     @javax.annotation.Nullable
@@ -176,7 +176,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Position margin
+     * Position margin.
      * @return positionMargin
     **/
     @javax.annotation.Nullable
@@ -196,7 +196,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Order margin of unfinished orders
+     * Order margin of unfinished orders.
      * @return orderMargin
     **/
     @javax.annotation.Nullable
@@ -216,7 +216,7 @@ public class FuturesAccount {
     }
 
      /**
-     * The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus)
+     * The available balance for transferring or trading(including bonus. Bonus can&#39;t be withdrawn. The transfer amount needs to deduct the bonus)
      * @return available
     **/
     @javax.annotation.Nullable
@@ -236,7 +236,7 @@ public class FuturesAccount {
     }
 
      /**
-     * POINT amount
+     * POINT amount.
      * @return point
     **/
     @javax.annotation.Nullable
@@ -256,7 +256,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Settle currency
+     * Settle currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -276,7 +276,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Whether dual mode is enabled
+     * Whether dual mode is enabled.
      * @return inDualMode
     **/
     @javax.annotation.Nullable
@@ -296,7 +296,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Whether portfolio margin account mode is enabled
+     * Whether portfolio margin account mode is enabled.
      * @return enableCredit
     **/
     @javax.annotation.Nullable
@@ -316,7 +316,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Initial margin position, applicable to the portfolio margin account model
+     * Initial margin position, applicable to the portfolio margin account model.
      * @return positionInitialMargin
     **/
     @javax.annotation.Nullable
@@ -356,7 +356,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Perpetual Contract Bonus
+     * Perpetual Contract Bonus.
      * @return bonus
     **/
     @javax.annotation.Nullable
@@ -376,7 +376,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Classic account margin mode, true-new mode, false-old mode
+     * Classic account margin mode, true-new mode, false-old mode.
      * @return enableEvolvedClassic
     **/
     @javax.annotation.Nullable
@@ -496,7 +496,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Full margin balance, suitable for the new classic account margin model
+     * Full margin balance, suitable for the new classic account margin model.
      * @return crossMarginBalance
     **/
     @javax.annotation.Nullable
@@ -556,7 +556,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Ware -position margin, suitable for the new classic account margin model
+     * Ware -position margin, suitable for the new classic account margin model.
      * @return isolatedPositionMargin
     **/
     @javax.annotation.Nullable
@@ -576,7 +576,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Whether to open a new two-way position mode
+     * Whether to open a new two-way position mode.
      * @return enableNewDualMode
     **/
     @javax.annotation.Nullable
@@ -616,7 +616,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Whether to enable tiered maintenance margin calculation
+     * Whether to enable tiered maintenance margin calculation.
      * @return enableTieredMm
     **/
     @javax.annotation.Nullable

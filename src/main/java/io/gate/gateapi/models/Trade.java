@@ -40,7 +40,7 @@ public class Trade {
     private String currencyPair;
 
     /**
-     * Buy or sell order
+     * Buy or sell order.
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -91,7 +91,7 @@ public class Trade {
     private SideEnum side;
 
     /**
-     * Trade role. No value in public endpoints
+     * Trade role. No value in public endpoints.
      */
     @JsonAdapter(RoleEnum.Adapter.class)
     public enum RoleEnum {
@@ -189,7 +189,7 @@ public class Trade {
     }
 
      /**
-     * Trade ID
+     * Trade ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -209,7 +209,7 @@ public class Trade {
     }
 
      /**
-     * Trading time
+     * Trading time.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -229,7 +229,7 @@ public class Trade {
     }
 
      /**
-     * Trading time, with millisecond precision
+     * Trading time, with millisecond precision.
      * @return createTimeMs
     **/
     @javax.annotation.Nullable
@@ -249,7 +249,7 @@ public class Trade {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -269,7 +269,7 @@ public class Trade {
     }
 
      /**
-     * Buy or sell order
+     * Buy or sell order.
      * @return side
     **/
     @javax.annotation.Nullable
@@ -289,7 +289,7 @@ public class Trade {
     }
 
      /**
-     * Trade role. No value in public endpoints
+     * Trade role. No value in public endpoints.
      * @return role
     **/
     @javax.annotation.Nullable
@@ -309,7 +309,7 @@ public class Trade {
     }
 
      /**
-     * Trade amount
+     * Trade amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -329,7 +329,7 @@ public class Trade {
     }
 
      /**
-     * Order price
+     * Order price.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -349,7 +349,7 @@ public class Trade {
     }
 
      /**
-     * Related order ID. No value in public endpoints
+     * Related order ID. No value in public endpoints.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -369,7 +369,7 @@ public class Trade {
     }
 
      /**
-     * Fee deducted. No value in public endpoints
+     * Fee deducted. No value in public endpoints.
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -389,7 +389,7 @@ public class Trade {
     }
 
      /**
-     * Fee currency unit. No value in public endpoints
+     * Fee currency unit. No value in public endpoints.
      * @return feeCurrency
     **/
     @javax.annotation.Nullable
@@ -409,7 +409,7 @@ public class Trade {
     }
 
      /**
-     * Points used to deduct fee. No value in public endpoints
+     * Points used to deduct fee. No value in public endpoints.
      * @return pointFee
     **/
     @javax.annotation.Nullable
@@ -429,7 +429,7 @@ public class Trade {
     }
 
      /**
-     * GT used to deduct fee. No value in public endpoints
+     * GT used to deduct fee. No value in public endpoints.
      * @return gtFee
     **/
     @javax.annotation.Nullable
@@ -449,7 +449,7 @@ public class Trade {
     }
 
      /**
-     * The custom data that the user remarked when amending the order
+     * The custom data that the user remarked when amending the order.
      * @return amendText
     **/
     @javax.annotation.Nullable
@@ -489,7 +489,7 @@ public class Trade {
     }
 
      /**
-     * User defined information. No value in public endpoints
+     * User defined information. No value in public endpoints.
      * @return text
     **/
     @javax.annotation.Nullable

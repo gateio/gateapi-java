@@ -1,12 +1,12 @@
 
 # UnifiedLeverageSetting
 
-Loan currency leverage
+Loan currency leverage.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** | Currency name | 
-**leverage** | **String** | multiple | 
+**currency** | **String** | Currency name. | 
+**leverage** | **String** | multiple. | 
 

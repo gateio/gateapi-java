@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Options order detail
+ * Options order detail.
  */
 public class OptionsOrder {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -40,7 +40,7 @@ public class OptionsOrder {
     private Double finishTime;
 
     /**
-     * Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, because reduce_only is set or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
+     * Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
      */
     @JsonAdapter(FinishAsEnum.Adapter.class)
     public enum FinishAsEnum {
@@ -282,7 +282,7 @@ public class OptionsOrder {
 
 
      /**
-     * Options order ID
+     * Options order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -292,7 +292,7 @@ public class OptionsOrder {
 
 
      /**
-     * User ID
+     * User ID.
      * @return user
     **/
     @javax.annotation.Nullable
@@ -302,7 +302,7 @@ public class OptionsOrder {
 
 
      /**
-     * Creation time of order
+     * Creation time of order.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -312,7 +312,7 @@ public class OptionsOrder {
 
 
      /**
-     * Order finished time. Not returned if order is open
+     * Order finished time. Not returned if order is open.
      * @return finishTime
     **/
     @javax.annotation.Nullable
@@ -322,7 +322,7 @@ public class OptionsOrder {
 
 
      /**
-     * Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, because reduce_only is set or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
+     * Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
      * @return finishAs
     **/
     @javax.annotation.Nullable
@@ -348,7 +348,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Contract name
+     * Contract name.
      * @return contract
     **/
     public String getContract() {
@@ -406,7 +406,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT)
+     * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT).
      * @return price
     **/
     @javax.annotation.Nullable
@@ -426,7 +426,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0
+     * Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0.
      * @return close
     **/
     @javax.annotation.Nullable
@@ -440,7 +440,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Is the order to close position
+     * Is the order to close position.
      * @return isClose
     **/
     @javax.annotation.Nullable
@@ -456,7 +456,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Set as &#x60;true&#x60; to be reduce-only order
+     * Set as &#x60;true&#x60; to be reduce-only order.
      * @return reduceOnly
     **/
     @javax.annotation.Nullable
@@ -470,7 +470,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Is the order reduce-only
+     * Is the order reduce-only.
      * @return isReduceOnly
     **/
     @javax.annotation.Nullable
@@ -480,7 +480,7 @@ public class OptionsOrder {
 
 
      /**
-     * Is the order for liquidation
+     * Is the order for liquidation.
      * @return isLiq
     **/
     @javax.annotation.Nullable
@@ -496,7 +496,7 @@ public class OptionsOrder {
     }
 
      /**
-     * When set to true, delegate to MMP
+     * When set to true, delegate to MMP.
      * @return mmp
     **/
     @javax.annotation.Nullable
@@ -540,7 +540,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Size left to be traded
+     * Size left to be traded.
      * @return left
     **/
     @javax.annotation.Nullable
@@ -550,7 +550,7 @@ public class OptionsOrder {
 
 
      /**
-     * Fill price of the order
+     * Fill price of the order.
      * @return fillPrice
     **/
     @javax.annotation.Nullable
@@ -580,7 +580,7 @@ public class OptionsOrder {
     }
 
      /**
-     * Taker fee
+     * Taker fee.
      * @return tkfr
     **/
     @javax.annotation.Nullable
@@ -590,7 +590,7 @@ public class OptionsOrder {
 
 
      /**
-     * Maker fee
+     * Maker fee.
      * @return mkfr
     **/
     @javax.annotation.Nullable
@@ -600,7 +600,7 @@ public class OptionsOrder {
 
 
      /**
-     * Reference user ID
+     * Reference user ID.
      * @return refu
     **/
     @javax.annotation.Nullable
@@ -610,7 +610,7 @@ public class OptionsOrder {
 
 
      /**
-     * Referrer rebate
+     * Referrer rebate.
      * @return refr
     **/
     @javax.annotation.Nullable

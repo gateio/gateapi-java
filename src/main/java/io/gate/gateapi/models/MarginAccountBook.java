@@ -63,7 +63,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * Balance change record ID
+     * Balance change record ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * Balance changed timestamp
+     * Balance changed timestamp.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * The timestamp of the change (in milliseconds)
+     * The timestamp of the change (in milliseconds).
      * @return timeMs
     **/
     @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * Currency changed
+     * Currency changed.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * Account currency pair
+     * Account currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * Amount changed. Positive value means transferring in, while negative out
+     * Amount changed. Positive value means transferring in, while negative out.
      * @return change
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * Balance after change
+     * Balance after change.
      * @return balance
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class MarginAccountBook {
     }
 
      /**
-     * Account book type.  Please refer to [account book type](#accountbook-type) for more detail
+     * Account book type. Please refer to [account book type](#accountbook-type) for more detail
      * @return type
     **/
     @javax.annotation.Nullable

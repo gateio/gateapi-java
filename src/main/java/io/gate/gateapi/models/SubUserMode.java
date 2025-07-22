@@ -43,7 +43,7 @@ public class SubUserMode {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class SubUserMode {
     }
 
      /**
-     * Is it a unified account?
+     * Is it a unified account?.
      * @return isUnified
     **/
     @javax.annotation.Nullable

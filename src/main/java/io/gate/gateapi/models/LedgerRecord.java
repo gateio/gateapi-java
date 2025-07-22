@@ -73,7 +73,7 @@ public class LedgerRecord {
 
 
      /**
-     * Record ID
+     * Record ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class LedgerRecord {
 
 
      /**
-     * Hash record of the withdrawal
+     * Hash record of the withdrawal.
      * @return txid
     **/
     @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Operation time
+     * Operation time.
      * @return timestamp
     **/
     @javax.annotation.Nullable
@@ -129,7 +129,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Currency amount
+     * Currency amount.
      * @return amount
     **/
     public String getAmount() {
@@ -148,7 +148,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     public String getCurrency() {
@@ -167,7 +167,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Withdrawal address. Required for withdrawals
+     * Withdrawal address. Required for withdrawals.
      * @return address
     **/
     @javax.annotation.Nullable
@@ -187,7 +187,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Additional remarks with regards to the withdrawal
+     * Additional remarks with regards to the withdrawal.
      * @return memo
     **/
     @javax.annotation.Nullable
@@ -257,7 +257,7 @@ public class LedgerRecord {
     }
 
      /**
-     * Name of the chain used in withdrawals
+     * Name of the chain used in withdrawals.
      * @return chain
     **/
     public String getChain() {

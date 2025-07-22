@@ -47,7 +47,7 @@ public class RepayRecordTotalInterest {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class RepayRecordTotalInterest {
     }
 
      /**
-     * Currency Index Price
+     * Currency Index Price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class RepayRecordTotalInterest {
     }
 
      /**
-     * Interest Amount
+     * Interest Amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class RepayRecordTotalInterest {
     }
 
      /**
-     * Interest amount converted to USDT
+     * Interest amount converted to USDT.
      * @return amountUsdt
     **/
     @javax.annotation.Nullable

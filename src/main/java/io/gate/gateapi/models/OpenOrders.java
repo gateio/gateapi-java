@@ -46,7 +46,7 @@ public class OpenOrders {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable

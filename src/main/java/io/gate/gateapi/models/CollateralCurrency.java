@@ -39,7 +39,7 @@ public class CollateralCurrency {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class CollateralCurrency {
     }
 
      /**
-     * Size
+     * Size.
      * @return amount
     **/
     @javax.annotation.Nullable

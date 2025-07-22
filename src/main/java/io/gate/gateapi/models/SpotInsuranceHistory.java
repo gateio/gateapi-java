@@ -43,7 +43,7 @@ public class SpotInsuranceHistory {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class SpotInsuranceHistory {
     }
 
      /**
-     * balance
+     * balance.
      * @return balance
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class SpotInsuranceHistory {
     }
 
      /**
-     * Creation time, timestamp, milliseconds
+     * Creation time, timestamp, milliseconds.
      * @return time
     **/
     @javax.annotation.Nullable

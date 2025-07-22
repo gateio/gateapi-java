@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Loan records
+ * Loan records.
  */
 public class UnifiedLoanRecord {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -57,7 +57,7 @@ public class UnifiedLoanRecord {
 
 
      /**
-     * ID
+     * ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class UnifiedLoanRecord {
 
 
      /**
-     * type: borrow - borrow, repay - repay
+     * type: borrow - borrow, repay - repay.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -77,7 +77,7 @@ public class UnifiedLoanRecord {
 
 
      /**
-     * Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment
+     * Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment
      * @return repaymentType
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class UnifiedLoanRecord {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -117,7 +117,7 @@ public class UnifiedLoanRecord {
 
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -127,7 +127,7 @@ public class UnifiedLoanRecord {
 
 
      /**
-     * The amount of lending or repaying
+     * The amount of lending or repaying.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -137,7 +137,7 @@ public class UnifiedLoanRecord {
 
 
      /**
-     * Created time
+     * Created time.
      * @return createTime
     **/
     @javax.annotation.Nullable

@@ -63,7 +63,7 @@ public class CurrencyChain {
     }
 
      /**
-     * Chain name
+     * Chain name.
      * @return chain
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class CurrencyChain {
     }
 
      /**
-     * Chain name in Chinese
+     * Chain name in Chinese.
      * @return nameCn
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class CurrencyChain {
     }
 
      /**
-     * Chain name in English
+     * Chain name in English.
      * @return nameEn
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class CurrencyChain {
     }
 
      /**
-     * If it is disabled. 0 means NOT being disabled
+     * If it is disabled. 0 means NOT being disabled.
      * @return isDisabled
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class CurrencyChain {
     }
 
      /**
-     * Is deposit disabled. 0 means not
+     * Is deposit disabled. 0 means not.
      * @return isDepositDisabled
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class CurrencyChain {
     }
 
      /**
-     * Is withdrawal disabled. 0 means not
+     * Is withdrawal disabled. 0 means not.
      * @return isWithdrawDisabled
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class CurrencyChain {
     }
 
      /**
-     * Withdrawal precision
+     * Withdrawal precision.
      * @return decimal
     **/
     @javax.annotation.Nullable

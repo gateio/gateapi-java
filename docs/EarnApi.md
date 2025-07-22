@@ -4,23 +4,23 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**swapETH2**](EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap
-[**rateListETH2**](EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query
-[**listDualInvestmentPlans**](EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
-[**listDualOrders**](EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
-[**placeDualOrder**](EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
-[**listStructuredProducts**](EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List
-[**listStructuredOrders**](EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List
-[**placeStructuredOrder**](EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
-[**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking Coins
-[**swapStakingCoin**](EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain Token Swap for Earned Coins
+[**swapETH2**](EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap.
+[**rateListETH2**](EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query.
+[**listDualInvestmentPlans**](EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list.
+[**listDualOrders**](EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list.
+[**placeDualOrder**](EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order.
+[**listStructuredProducts**](EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List.
+[**listStructuredOrders**](EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List.
+[**placeStructuredOrder**](EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order.
+[**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking Coins.
+[**swapStakingCoin**](EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain Token Swap for Earned Coins.
 
 
 <a name="swapETH2"></a>
 # **swapETH2**
 > swapETH2(eth2Swap)
 
-ETH2 swap
+ETH2 swap.
 
 ### Example
 
@@ -81,15 +81,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | swap success |  -  |
+**200** | swap success. |  -  |
 
 <a name="rateListETH2"></a>
 # **rateListETH2**
 > List&lt;Eth2RateList&gt; rateListETH2()
 
-ETH2 historical rate of return query
+ETH2 historical rate of return query.
 
-Check the ETH earnings rate record for the last 31 days
+Check the ETH earnings rate record for the last 31 days.
 
 ### Example
 
@@ -147,13 +147,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful |  -  |
+**200** | Successful. |  -  |
 
 <a name="listDualInvestmentPlans"></a>
 # **listDualInvestmentPlans**
 > List&lt;DualGetPlans&gt; listDualInvestmentPlans().planId(planId).execute();
 
-Dual Investment product list
+Dual Investment product list.
 
 ### Example
 
@@ -172,7 +172,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
-        Long planId = 1L; // Long | Financial project id
+        Long planId = 1L; // Long | Financial project id.
         try {
             List<DualGetPlans> result = apiInstance.listDualInvestmentPlans()
                         .planId(planId)
@@ -195,7 +195,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **planId** | **Long**| Financial project id | [optional]
+ **planId** | **Long**| Financial project id. | [optional]
 
 ### Return type
 
@@ -213,13 +213,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful |  -  |
+**200** | Successful. |  -  |
 
 <a name="listDualOrders"></a>
 # **listDualOrders**
 > List&lt;DualGetOrders&gt; listDualOrders().from(from).to(to).page(page).limit(limit).execute();
 
-Dual Investment order list
+Dual Investment order list.
 
 ### Example
 
@@ -242,10 +242,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
-        Long from = 1740727000L; // Long | Start checkout time
-        Long to = 1740729000L; // Long | End settlement time
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Long from = 1740727000L; // Long | Start checkout time.
+        Long to = 1740729000L; // Long | End settlement time.
+        Integer page = 1; // Integer | Page number.
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
         try {
             List<DualGetOrders> result = apiInstance.listDualOrders()
                         .from(from)
@@ -271,10 +271,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **Long**| Start checkout time | [optional]
- **to** | **Long**| End settlement time | [optional]
- **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **from** | **Long**| Start checkout time. | [optional]
+ **to** | **Long**| End settlement time. | [optional]
+ **page** | **Integer**| Page number. | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
 
 ### Return type
 
@@ -292,13 +292,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful |  -  |
+**200** | Successful. |  -  |
 
 <a name="placeDualOrder"></a>
 # **placeDualOrder**
 > placeDualOrder(placeDualInvestmentOrder)
 
-Place Dual Investment order
+Place Dual Investment order.
 
 ### Example
 
@@ -359,13 +359,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Success. |  -  |
 
 <a name="listStructuredProducts"></a>
 # **listStructuredProducts**
 > List&lt;StructuredGetProjectList&gt; listStructuredProducts(status).type(type).page(page).limit(limit).execute();
 
-Structured Product List
+Structured Product List.
 
 ### Example
 
@@ -386,8 +386,8 @@ public class Example {
         EarnApi apiInstance = new EarnApi(defaultClient);
         String status = "in_process"; // String | Status (Default empty to query all)  `in_process`-In progress `will_begin`-Not started `wait_settlement`-Pending settlement `done`-Completed 
         String type = "BullishSharkFin"; // String | Product Type (Default empty to query all)  `SharkFin2.0`-Shark Fin `BullishSharkFin`-Bullish Treasure `BearishSharkFin`-Bearish Treasure `DoubleNoTouch`-Volatility Treasure `RangeAccrual`-Range Smart Yield `SnowBall`-Snowball 
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer page = 1; // Integer | Page number.
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
         try {
             List<StructuredGetProjectList> result = apiInstance.listStructuredProducts(status)
                         .type(type)
@@ -414,8 +414,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **String**| Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed  |
  **type** | **String**| Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  | [optional]
- **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **page** | **Integer**| Page number. | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
 
 ### Return type
 
@@ -433,13 +433,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful |  -  |
+**200** | Successful. |  -  |
 
 <a name="listStructuredOrders"></a>
 # **listStructuredOrders**
 > List&lt;StructuredOrderList&gt; listStructuredOrders().from(from).to(to).page(page).limit(limit).execute();
 
-Structured Product Order List
+Structured Product Order List.
 
 ### Example
 
@@ -464,8 +464,8 @@ public class Example {
         EarnApi apiInstance = new EarnApi(defaultClient);
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        Integer page = 1; // Integer | Page number
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list
+        Integer page = 1; // Integer | Page number.
+        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
         try {
             List<StructuredOrderList> result = apiInstance.listStructuredOrders()
                         .from(from)
@@ -493,8 +493,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **page** | **Integer**| Page number | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **page** | **Integer**| Page number. | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
 
 ### Return type
 
@@ -512,13 +512,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful |  -  |
+**200** | Successful. |  -  |
 
 <a name="placeStructuredOrder"></a>
 # **placeStructuredOrder**
 > placeStructuredOrder(structuredBuy)
 
-Place Structured Product Order
+Place Structured Product Order.
 
 ### Example
 
@@ -579,13 +579,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Success. |  -  |
 
 <a name="findCoin"></a>
 # **findCoin**
 > List&lt;String&gt; findCoin(findCoin)
 
-Staking Coins
+Staking Coins.
 
 ### Example
 
@@ -647,13 +647,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful |  -  |
+**200** | Successful. |  -  |
 
 <a name="swapStakingCoin"></a>
 # **swapStakingCoin**
 > SwapCoinStruct swapStakingCoin(swapCoin)
 
-On-chain Token Swap for Earned Coins
+On-chain Token Swap for Earned Coins.
 
 ### Example
 
@@ -715,5 +715,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | swap success |  -  |
+**200** | swap success. |  -  |
 

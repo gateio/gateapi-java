@@ -35,7 +35,7 @@ public class SystemTime {
     }
 
      /**
-     * Server current time(ms)
+     * Server current time(ms).
      * @return serverTime
     **/
     @javax.annotation.Nullable

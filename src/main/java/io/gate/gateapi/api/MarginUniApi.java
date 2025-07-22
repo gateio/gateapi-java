@@ -60,7 +60,7 @@ public class MarginUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniCurrencyPairsCall(final ApiCallback _callback) throws ApiException {
@@ -99,14 +99,14 @@ public class MarginUniApi {
     }
 
     /**
-     * List lending markets
+     * List lending markets.
      * 
      * @return List&lt;UniCurrencyPair&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<UniCurrencyPair> listUniCurrencyPairs() throws ApiException {
@@ -115,14 +115,14 @@ public class MarginUniApi {
     }
 
     /**
-     * List lending markets
+     * List lending markets.
      * 
      * @return ApiResponse&lt;List&lt;UniCurrencyPair&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<UniCurrencyPair>> listUniCurrencyPairsWithHttpInfo() throws ApiException {
@@ -132,7 +132,7 @@ public class MarginUniApi {
     }
 
     /**
-     * List lending markets (asynchronously)
+     * List lending markets. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -140,7 +140,7 @@ public class MarginUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUniCurrencyPairsAsync(final ApiCallback<List<UniCurrencyPair>> _callback) throws ApiException {
@@ -152,14 +152,14 @@ public class MarginUniApi {
 
     /**
      * Build call for getUniCurrencyPair
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniCurrencyPairCall(String currencyPair, final ApiCallback _callback) throws ApiException {
@@ -204,15 +204,15 @@ public class MarginUniApi {
     }
 
     /**
-     * Get detail of lending market
+     * Get detail of lending market.
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return UniCurrencyPair
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public UniCurrencyPair getUniCurrencyPair(String currencyPair) throws ApiException {
@@ -221,15 +221,15 @@ public class MarginUniApi {
     }
 
     /**
-     * Get detail of lending market
+     * Get detail of lending market.
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return ApiResponse&lt;UniCurrencyPair&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UniCurrencyPair> getUniCurrencyPairWithHttpInfo(String currencyPair) throws ApiException {
@@ -239,16 +239,16 @@ public class MarginUniApi {
     }
 
     /**
-     * Get detail of lending market (asynchronously)
+     * Get detail of lending market. (asynchronously)
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniCurrencyPairAsync(String currencyPair, final ApiCallback<UniCurrencyPair> _callback) throws ApiException {
@@ -260,14 +260,14 @@ public class MarginUniApi {
 
     /**
      * Build call for getMarginUniEstimateRate
-     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @param currencies An array of up to 10 specifying the currency name. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMarginUniEstimateRateCall(List<String> currencies, final ApiCallback _callback) throws ApiException {
@@ -315,15 +315,15 @@ public class MarginUniApi {
     }
 
     /**
-     * Estimate interest Rate
+     * Estimate interest Rate.
      * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
-     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @param currencies An array of up to 10 specifying the currency name. (required)
      * @return Map&lt;String, String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public Map<String, String> getMarginUniEstimateRate(List<String> currencies) throws ApiException {
@@ -332,15 +332,15 @@ public class MarginUniApi {
     }
 
     /**
-     * Estimate interest Rate
+     * Estimate interest Rate.
      * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
-     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @param currencies An array of up to 10 specifying the currency name. (required)
      * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Map<String, String>> getMarginUniEstimateRateWithHttpInfo(List<String> currencies) throws ApiException {
@@ -350,16 +350,16 @@ public class MarginUniApi {
     }
 
     /**
-     * Estimate interest Rate (asynchronously)
+     * Estimate interest Rate. (asynchronously)
      * Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
-     * @param currencies An array of up to 10 specifying the currency name (required)
+     * @param currencies An array of up to 10 specifying the currency name. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMarginUniEstimateRateAsync(List<String> currencies, final ApiCallback<Map<String, String>> _callback) throws ApiException {
@@ -445,7 +445,7 @@ public class MarginUniApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Currency pair (optional)
+         * @param currencyPair Currency pair. (optional)
          * @return APIlistUniLoansRequest
          */
         public APIlistUniLoansRequest currencyPair(String currencyPair) {
@@ -455,7 +455,7 @@ public class MarginUniApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistUniLoansRequest
          */
         public APIlistUniLoansRequest currency(String currency) {
@@ -465,7 +465,7 @@ public class MarginUniApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistUniLoansRequest
          */
         public APIlistUniLoansRequest page(Integer page) {
@@ -475,7 +475,7 @@ public class MarginUniApi {
 
         /**
          * Set limit
-         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+         * @param limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
          * @return APIlistUniLoansRequest
          */
         public APIlistUniLoansRequest limit(Integer limit) {
@@ -491,7 +491,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -505,7 +505,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<UniLoan> execute() throws ApiException {
@@ -520,7 +520,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<UniLoan>> executeWithHttpInfo() throws ApiException {
@@ -535,7 +535,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLoan>> _callback) throws ApiException {
@@ -544,13 +544,13 @@ public class MarginUniApi {
     }
 
     /**
-     * List loans
+     * List loans.
      * 
      * @return APIlistUniLoansRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistUniLoansRequest listUniLoans() {
@@ -566,7 +566,7 @@ public class MarginUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUniLoanCall(CreateUniLoan createUniLoan, final ApiCallback _callback) throws ApiException {
@@ -610,14 +610,14 @@ public class MarginUniApi {
     }
 
     /**
-     * Borrow or repay
+     * Borrow or repay.
      * 
      * @param createUniLoan  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public void createUniLoan(CreateUniLoan createUniLoan) throws ApiException {
@@ -625,7 +625,7 @@ public class MarginUniApi {
     }
 
     /**
-     * Borrow or repay
+     * Borrow or repay.
      * 
      * @param createUniLoan  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -633,7 +633,7 @@ public class MarginUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> createUniLoanWithHttpInfo(CreateUniLoan createUniLoan) throws ApiException {
@@ -642,7 +642,7 @@ public class MarginUniApi {
     }
 
     /**
-     * Borrow or repay (asynchronously)
+     * Borrow or repay. (asynchronously)
      * 
      * @param createUniLoan  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -651,7 +651,7 @@ public class MarginUniApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createUniLoanAsync(CreateUniLoan createUniLoan, final ApiCallback<Void> _callback) throws ApiException {
@@ -741,7 +741,7 @@ public class MarginUniApi {
 
         /**
          * Set type
-         * @param type type: borrow - borrow, repay - repay (optional)
+         * @param type type: borrow - borrow, repay - repay. (optional)
          * @return APIlistUniLoanRecordsRequest
          */
         public APIlistUniLoanRecordsRequest type(String type) {
@@ -751,7 +751,7 @@ public class MarginUniApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistUniLoanRecordsRequest
          */
         public APIlistUniLoanRecordsRequest currency(String currency) {
@@ -761,7 +761,7 @@ public class MarginUniApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Currency pair (optional)
+         * @param currencyPair Currency pair. (optional)
          * @return APIlistUniLoanRecordsRequest
          */
         public APIlistUniLoanRecordsRequest currencyPair(String currencyPair) {
@@ -771,7 +771,7 @@ public class MarginUniApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistUniLoanRecordsRequest
          */
         public APIlistUniLoanRecordsRequest page(Integer page) {
@@ -781,7 +781,7 @@ public class MarginUniApi {
 
         /**
          * Set limit
-         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+         * @param limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
          * @return APIlistUniLoanRecordsRequest
          */
         public APIlistUniLoanRecordsRequest limit(Integer limit) {
@@ -797,7 +797,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -811,7 +811,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<UniLoanRecord> execute() throws ApiException {
@@ -826,7 +826,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<UniLoanRecord>> executeWithHttpInfo() throws ApiException {
@@ -841,7 +841,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLoanRecord>> _callback) throws ApiException {
@@ -850,13 +850,13 @@ public class MarginUniApi {
     }
 
     /**
-     * Get load records
+     * Get load records.
      * 
      * @return APIlistUniLoanRecordsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistUniLoanRecordsRequest listUniLoanRecords() {
@@ -949,7 +949,7 @@ public class MarginUniApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Currency pair (optional)
+         * @param currencyPair Currency pair. (optional)
          * @return APIlistUniLoanInterestRecordsRequest
          */
         public APIlistUniLoanInterestRecordsRequest currencyPair(String currencyPair) {
@@ -959,7 +959,7 @@ public class MarginUniApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistUniLoanInterestRecordsRequest
          */
         public APIlistUniLoanInterestRecordsRequest currency(String currency) {
@@ -969,7 +969,7 @@ public class MarginUniApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistUniLoanInterestRecordsRequest
          */
         public APIlistUniLoanInterestRecordsRequest page(Integer page) {
@@ -979,7 +979,7 @@ public class MarginUniApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistUniLoanInterestRecordsRequest
          */
         public APIlistUniLoanInterestRecordsRequest limit(Integer limit) {
@@ -1015,7 +1015,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1029,7 +1029,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<UniLoanInterestRecord> execute() throws ApiException {
@@ -1044,7 +1044,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<UniLoanInterestRecord>> executeWithHttpInfo() throws ApiException {
@@ -1059,7 +1059,7 @@ public class MarginUniApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UniLoanInterestRecord>> _callback) throws ApiException {
@@ -1068,13 +1068,13 @@ public class MarginUniApi {
     }
 
     /**
-     * List interest records
+     * List interest records.
      * 
      * @return APIlistUniLoanInterestRecordsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistUniLoanInterestRecordsRequest listUniLoanInterestRecords() {
@@ -1083,15 +1083,15 @@ public class MarginUniApi {
 
     /**
      * Build call for getUniBorrowable
-     * @param currency Retrieve data of the specified currency (required)
-     * @param currencyPair Currency pair (required)
+     * @param currency Retrieve data of the specified currency. (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniBorrowableCall(String currency, String currencyPair, final ApiCallback _callback) throws ApiException {
@@ -1148,16 +1148,16 @@ public class MarginUniApi {
     }
 
     /**
-     * Get maximum borrowable
+     * Get maximum borrowable.
      * 
-     * @param currency Retrieve data of the specified currency (required)
-     * @param currencyPair Currency pair (required)
+     * @param currency Retrieve data of the specified currency. (required)
+     * @param currencyPair Currency pair. (required)
      * @return MaxUniBorrowable
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public MaxUniBorrowable getUniBorrowable(String currency, String currencyPair) throws ApiException {
@@ -1166,16 +1166,16 @@ public class MarginUniApi {
     }
 
     /**
-     * Get maximum borrowable
+     * Get maximum borrowable.
      * 
-     * @param currency Retrieve data of the specified currency (required)
-     * @param currencyPair Currency pair (required)
+     * @param currency Retrieve data of the specified currency. (required)
+     * @param currencyPair Currency pair. (required)
      * @return ApiResponse&lt;MaxUniBorrowable&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<MaxUniBorrowable> getUniBorrowableWithHttpInfo(String currency, String currencyPair) throws ApiException {
@@ -1185,17 +1185,17 @@ public class MarginUniApi {
     }
 
     /**
-     * Get maximum borrowable (asynchronously)
+     * Get maximum borrowable. (asynchronously)
      * 
-     * @param currency Retrieve data of the specified currency (required)
-     * @param currencyPair Currency pair (required)
+     * @param currency Retrieve data of the specified currency. (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUniBorrowableAsync(String currency, String currencyPair, final ApiCallback<MaxUniBorrowable> _callback) throws ApiException {

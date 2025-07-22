@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Current close order if any, or &#x60;null&#x60;
+ * Current close order if any, or &#x60;null&#x60;.
  */
 public class OptionsPositionCloseOrder {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -43,7 +43,7 @@ public class OptionsPositionCloseOrder {
     }
 
      /**
-     * Close order ID
+     * Close order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class OptionsPositionCloseOrder {
     }
 
      /**
-     * Close order price （quote currency)
+     * Close order price （quote currency).
      * @return price
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class OptionsPositionCloseOrder {
     }
 
      /**
-     * Is the close order from liquidation
+     * Is the close order from liquidation.
      * @return isLiq
     **/
     @javax.annotation.Nullable

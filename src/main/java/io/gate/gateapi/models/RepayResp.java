@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Repay
+ * Repay.
  */
 public class RepayResp {
     public static final String SERIALIZED_NAME_REPAID_PRINCIPAL = "repaid_principal";
@@ -39,7 +39,7 @@ public class RepayResp {
     }
 
      /**
-     * Principal
+     * Principal.
      * @return repaidPrincipal
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class RepayResp {
     }
 
      /**
-     * Interest
+     * Interest.
      * @return repaidInterest
     **/
     @javax.annotation.Nullable

@@ -63,7 +63,7 @@ public class SubAccount {
     }
 
      /**
-     * custom text
+     * custom text.
      * @return remark
     **/
     @javax.annotation.Nullable
@@ -102,7 +102,7 @@ public class SubAccount {
     }
 
      /**
-     * The sub-account&#39;s password. (Default: the same as main account&#39;s password)
+     * The sub-account&#39;s password. (Default: the same as main account&#39;s password).
      * @return password
     **/
     @javax.annotation.Nullable
@@ -136,7 +136,7 @@ public class SubAccount {
     }
 
      /**
-     * State: 1-normal, 2-locked\&quot;
+     * State: 1-normal, 2-locked\&quot;.
      * @return state
     **/
     @javax.annotation.Nullable
@@ -146,7 +146,7 @@ public class SubAccount {
 
 
      /**
-     * \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account
+     * \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -156,7 +156,7 @@ public class SubAccount {
 
 
      /**
-     * The user id of the sub-account
+     * The user id of the sub-account.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -166,7 +166,7 @@ public class SubAccount {
 
 
      /**
-     * Created time
+     * Created time.
      * @return createTime
     **/
     @javax.annotation.Nullable

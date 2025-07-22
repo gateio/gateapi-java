@@ -115,7 +115,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Last trading price
+     * Last trading price.
      * @return last
     **/
     @javax.annotation.Nullable
@@ -175,7 +175,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Contract total size
+     * Contract total size.
      * @return totalSize
     **/
     @javax.annotation.Nullable
@@ -195,7 +195,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Lowest trading price in recent 24h
+     * Lowest trading price in recent 24h.
      * @return low24h
     **/
     @javax.annotation.Nullable
@@ -215,7 +215,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Highest trading price in recent 24h
+     * Highest trading price in recent 24h.
      * @return high24h
     **/
     @javax.annotation.Nullable
@@ -235,7 +235,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Trade size in recent 24h
+     * Trade size in recent 24h.
      * @return volume24h
     **/
     @javax.annotation.Nullable
@@ -295,7 +295,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Trade volume in recent 24h, in base currency
+     * Trade volume in recent 24h, in base currency.
      * @return volume24hBase
     **/
     @javax.annotation.Nullable
@@ -315,7 +315,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Trade volume in recent 24h, in quote currency
+     * Trade volume in recent 24h, in quote currency.
      * @return volume24hQuote
     **/
     @javax.annotation.Nullable
@@ -335,7 +335,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Trade volume in recent 24h, in settle currency
+     * Trade volume in recent 24h, in settle currency.
      * @return volume24hSettle
     **/
     @javax.annotation.Nullable
@@ -355,7 +355,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Recent mark price
+     * Recent mark price.
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -375,7 +375,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Funding rate
+     * Funding rate.
      * @return fundingRate
     **/
     @javax.annotation.Nullable
@@ -395,7 +395,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;)
+     * Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;).
      * @return fundingRateIndicative
     **/
     @javax.annotation.Nullable
@@ -415,7 +415,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Index price
+     * Index price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -455,7 +455,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Recent lowest ask
+     * Recent lowest ask.
      * @return lowestAsk
     **/
     @javax.annotation.Nullable
@@ -475,7 +475,7 @@ public class FuturesTicker {
     }
 
      /**
-     * The latest seller&#39;s lowest price order quantity
+     * The latest seller&#39;s lowest price order quantity.
      * @return lowestSize
     **/
     @javax.annotation.Nullable
@@ -495,7 +495,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Recent highest bid
+     * Recent highest bid.
      * @return highestBid
     **/
     @javax.annotation.Nullable
@@ -515,7 +515,7 @@ public class FuturesTicker {
     }
 
      /**
-     * The latest buyer&#39;s highest price order volume
+     * The latest buyer&#39;s highest price order volume.
      * @return highestSize
     **/
     @javax.annotation.Nullable

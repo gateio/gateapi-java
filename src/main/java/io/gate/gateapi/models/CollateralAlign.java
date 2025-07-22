@@ -47,7 +47,7 @@ public class CollateralAlign {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     public Long getOrderId() {
@@ -66,7 +66,7 @@ public class CollateralAlign {
     }
 
      /**
-     * Collateral
+     * Collateral.
      * @return collateralCurrency
     **/
     public String getCollateralCurrency() {
@@ -85,7 +85,7 @@ public class CollateralAlign {
     }
 
      /**
-     * Collateral amount
+     * Collateral amount.
      * @return collateralAmount
     **/
     public String getCollateralAmount() {

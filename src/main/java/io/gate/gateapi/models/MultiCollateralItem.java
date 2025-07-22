@@ -43,7 +43,7 @@ public class MultiCollateralItem {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class MultiCollateralItem {
     }
 
      /**
-     * Currency Index Price
+     * Currency Index Price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class MultiCollateralItem {
     }
 
      /**
-     * Discount
+     * Discount.
      * @return discount
     **/
     @javax.annotation.Nullable

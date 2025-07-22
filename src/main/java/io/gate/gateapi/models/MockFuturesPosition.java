@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Futures positions
+ * Futures positions.
  */
 public class MockFuturesPosition {
     public static final String SERIALIZED_NAME_CONTRACT = "contract";

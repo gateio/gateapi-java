@@ -51,7 +51,7 @@ public class OptionsAccountBook {
     }
 
      /**
-     * Change time
+     * Change time.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class OptionsAccountBook {
     }
 
      /**
-     * Amount changed (USDT)
+     * Amount changed (USDT).
      * @return change
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class OptionsAccountBook {
     }
 
      /**
-     * Account total balance after change (USDT)
+     * Account total balance after change (USDT).
      * @return balance
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class OptionsAccountBook {
     }
 
      /**
-     * Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+     * Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
      * @return type
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class OptionsAccountBook {
     }
 
      /**
-     * custom text
+     * custom text.
      * @return text
     **/
     @javax.annotation.Nullable

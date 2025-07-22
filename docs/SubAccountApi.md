@@ -4,24 +4,24 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listSubAccounts**](SubAccountApi.md#listSubAccounts) | **GET** /sub_accounts | List sub-accounts
-[**createSubAccounts**](SubAccountApi.md#createSubAccounts) | **POST** /sub_accounts | Create a new sub-account
-[**getSubAccount**](SubAccountApi.md#getSubAccount) | **GET** /sub_accounts/{user_id} | Get the sub-account
-[**listSubAccountKeys**](SubAccountApi.md#listSubAccountKeys) | **GET** /sub_accounts/{user_id}/keys | List all API Key of the sub-account
-[**createSubAccountKeys**](SubAccountApi.md#createSubAccountKeys) | **POST** /sub_accounts/{user_id}/keys | Create API Key of the sub-account
-[**getSubAccountKey**](SubAccountApi.md#getSubAccountKey) | **GET** /sub_accounts/{user_id}/keys/{key} | Get the API Key of the sub-account
-[**updateSubAccountKeys**](SubAccountApi.md#updateSubAccountKeys) | **PUT** /sub_accounts/{user_id}/keys/{key} | Update API key of the sub-account
-[**deleteSubAccountKeys**](SubAccountApi.md#deleteSubAccountKeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account
-[**lockSubAccount**](SubAccountApi.md#lockSubAccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account
-[**unlockSubAccount**](SubAccountApi.md#unlockSubAccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account
-[**listUnifiedMode**](SubAccountApi.md#listUnifiedMode) | **GET** /sub_accounts/unified_mode | Get sub-account mode
+[**listSubAccounts**](SubAccountApi.md#listSubAccounts) | **GET** /sub_accounts | List sub-accounts.
+[**createSubAccounts**](SubAccountApi.md#createSubAccounts) | **POST** /sub_accounts | Create a new sub-account.
+[**getSubAccount**](SubAccountApi.md#getSubAccount) | **GET** /sub_accounts/{user_id} | Get the sub-account.
+[**listSubAccountKeys**](SubAccountApi.md#listSubAccountKeys) | **GET** /sub_accounts/{user_id}/keys | List all API Key of the sub-account.
+[**createSubAccountKeys**](SubAccountApi.md#createSubAccountKeys) | **POST** /sub_accounts/{user_id}/keys | Create API Key of the sub-account.
+[**getSubAccountKey**](SubAccountApi.md#getSubAccountKey) | **GET** /sub_accounts/{user_id}/keys/{key} | Get the API Key of the sub-account.
+[**updateSubAccountKeys**](SubAccountApi.md#updateSubAccountKeys) | **PUT** /sub_accounts/{user_id}/keys/{key} | Update API key of the sub-account.
+[**deleteSubAccountKeys**](SubAccountApi.md#deleteSubAccountKeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account.
+[**lockSubAccount**](SubAccountApi.md#lockSubAccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account.
+[**unlockSubAccount**](SubAccountApi.md#unlockSubAccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account.
+[**listUnifiedMode**](SubAccountApi.md#listUnifiedMode) | **GET** /sub_accounts/unified_mode | Get sub-account mode.
 
 
 <a name="listSubAccounts"></a>
 # **listSubAccounts**
 > List&lt;SubAccount&gt; listSubAccounts().type(type).execute();
 
-List sub-accounts
+List sub-accounts.
 
 ### Example
 
@@ -85,13 +85,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="createSubAccounts"></a>
 # **createSubAccounts**
 > SubAccount createSubAccounts(subAccount)
 
-Create a new sub-account
+Create a new sub-account.
 
 ### Example
 
@@ -153,13 +153,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Created Successfully |  -  |
+**201** | Created Successfully. |  -  |
 
 <a name="getSubAccount"></a>
 # **getSubAccount**
 > SubAccount getSubAccount(userId)
 
-Get the sub-account
+Get the sub-account.
 
 ### Example
 
@@ -182,7 +182,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
-        Long userId = 56L; // Long | Sub-account user id
+        Long userId = 56L; // Long | Sub-account user id.
         try {
             SubAccount result = apiInstance.getSubAccount(userId);
             System.out.println(result);
@@ -203,7 +203,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Long**| Sub-account user id |
+ **userId** | **Long**| Sub-account user id. |
 
 ### Return type
 
@@ -221,13 +221,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful |  -  |
+**200** | Successful. |  -  |
 
 <a name="listSubAccountKeys"></a>
 # **listSubAccountKeys**
 > List&lt;SubAccountKey&gt; listSubAccountKeys(userId)
 
-List all API Key of the sub-account
+List all API Key of the sub-account.
 
 ### Example
 
@@ -250,7 +250,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
-        Integer userId = 56; // Integer | Sub-account user id
+        Integer userId = 56; // Integer | Sub-account user id.
         try {
             List<SubAccountKey> result = apiInstance.listSubAccountKeys(userId);
             System.out.println(result);
@@ -271,7 +271,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| Sub-account user id |
+ **userId** | **Integer**| Sub-account user id. |
 
 ### Return type
 
@@ -289,13 +289,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved |  -  |
+**200** | List retrieved. |  -  |
 
 <a name="createSubAccountKeys"></a>
 # **createSubAccountKeys**
 > SubAccountKey createSubAccountKeys(userId, subAccountKey)
 
-Create API Key of the sub-account
+Create API Key of the sub-account.
 
 ### Example
 
@@ -318,7 +318,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
-        Long userId = 56L; // Long | Sub-account user id
+        Long userId = 56L; // Long | Sub-account user id.
         SubAccountKey subAccountKey = new SubAccountKey(); // SubAccountKey | 
         try {
             SubAccountKey result = apiInstance.createSubAccountKeys(userId, subAccountKey);
@@ -340,7 +340,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Long**| Sub-account user id |
+ **userId** | **Long**| Sub-account user id. |
  **subAccountKey** | [**SubAccountKey**](SubAccountKey.md)|  |
 
 ### Return type
@@ -359,13 +359,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Created Successfully |  -  |
+**200** | Created Successfully. |  -  |
 
 <a name="getSubAccountKey"></a>
 # **getSubAccountKey**
 > SubAccountKey getSubAccountKey(userId, key)
 
-Get the API Key of the sub-account
+Get the API Key of the sub-account.
 
 ### Example
 
@@ -388,8 +388,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
-        Integer userId = 56; // Integer | Sub-account user id
-        String key = "key_example"; // String | The API Key of the sub-account
+        Integer userId = 56; // Integer | Sub-account user id.
+        String key = "key_example"; // String | The API Key of the sub-account.
         try {
             SubAccountKey result = apiInstance.getSubAccountKey(userId, key);
             System.out.println(result);
@@ -410,8 +410,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| Sub-account user id |
- **key** | **String**| The API Key of the sub-account |
+ **userId** | **Integer**| Sub-account user id. |
+ **key** | **String**| The API Key of the sub-account. |
 
 ### Return type
 
@@ -429,13 +429,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful |  -  |
+**200** | Successful. |  -  |
 
 <a name="updateSubAccountKeys"></a>
 # **updateSubAccountKeys**
 > updateSubAccountKeys(userId, key, subAccountKey)
 
-Update API key of the sub-account
+Update API key of the sub-account.
 
 ### Example
 
@@ -458,8 +458,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
-        Integer userId = 56; // Integer | Sub-account user id
-        String key = "key_example"; // String | The API Key of the sub-account
+        Integer userId = 56; // Integer | Sub-account user id.
+        String key = "key_example"; // String | The API Key of the sub-account.
         SubAccountKey subAccountKey = new SubAccountKey(); // SubAccountKey | 
         try {
             apiInstance.updateSubAccountKeys(userId, key, subAccountKey);
@@ -480,8 +480,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| Sub-account user id |
- **key** | **String**| The API Key of the sub-account |
+ **userId** | **Integer**| Sub-account user id. |
+ **key** | **String**| The API Key of the sub-account. |
  **subAccountKey** | [**SubAccountKey**](SubAccountKey.md)|  |
 
 ### Return type
@@ -500,13 +500,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Updated |  -  |
+**204** | Updated. |  -  |
 
 <a name="deleteSubAccountKeys"></a>
 # **deleteSubAccountKeys**
 > deleteSubAccountKeys(userId, key)
 
-Delete API key of the sub-account
+Delete API key of the sub-account.
 
 ### Example
 
@@ -529,8 +529,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
-        Integer userId = 56; // Integer | Sub-account user id
-        String key = "key_example"; // String | The API Key of the sub-account
+        Integer userId = 56; // Integer | Sub-account user id.
+        String key = "key_example"; // String | The API Key of the sub-account.
         try {
             apiInstance.deleteSubAccountKeys(userId, key);
         } catch (GateApiException e) {
@@ -550,8 +550,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Integer**| Sub-account user id |
- **key** | **String**| The API Key of the sub-account |
+ **userId** | **Integer**| Sub-account user id. |
+ **key** | **String**| The API Key of the sub-account. |
 
 ### Return type
 
@@ -569,13 +569,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Delete successfully |  -  |
+**204** | Delete successfully. |  -  |
 
 <a name="lockSubAccount"></a>
 # **lockSubAccount**
 > lockSubAccount(userId)
 
-Lock the sub-account
+Lock the sub-account.
 
 ### Example
 
@@ -598,7 +598,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
-        Long userId = 56L; // Long | The user id of the sub-account
+        Long userId = 56L; // Long | The user id of the sub-account.
         try {
             apiInstance.lockSubAccount(userId);
         } catch (GateApiException e) {
@@ -618,7 +618,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Long**| The user id of the sub-account |
+ **userId** | **Long**| The user id of the sub-account. |
 
 ### Return type
 
@@ -636,13 +636,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Lock successfully |  -  |
+**204** | Lock successfully. |  -  |
 
 <a name="unlockSubAccount"></a>
 # **unlockSubAccount**
 > unlockSubAccount(userId)
 
-Unlock the sub-account
+Unlock the sub-account.
 
 ### Example
 
@@ -665,7 +665,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         SubAccountApi apiInstance = new SubAccountApi(defaultClient);
-        Long userId = 56L; // Long | The user id of the sub-account
+        Long userId = 56L; // Long | The user id of the sub-account.
         try {
             apiInstance.unlockSubAccount(userId);
         } catch (GateApiException e) {
@@ -685,7 +685,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Long**| The user id of the sub-account |
+ **userId** | **Long**| The user id of the sub-account. |
 
 ### Return type
 
@@ -703,13 +703,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Unlock successfully |  -  |
+**204** | Unlock successfully. |  -  |
 
 <a name="listUnifiedMode"></a>
 # **listUnifiedMode**
 > List&lt;SubUserMode&gt; listUnifiedMode()
 
-Get sub-account mode
+Get sub-account mode.
 
 Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
 
@@ -769,5 +769,5 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved |  -  |
+**200** | Successfully retrieved. |  -  |
 

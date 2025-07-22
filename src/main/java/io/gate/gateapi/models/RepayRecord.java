@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Repayment record
+ * Repayment record.
  */
 public class RepayRecord {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -83,7 +83,7 @@ public class RepayRecord {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class RepayRecord {
     }
 
      /**
-     * Repayment record ID
+     * Repayment record ID.
      * @return recordId
     **/
     @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class RepayRecord {
     }
 
      /**
-     * Repayment amount
+     * Repayment amount.
      * @return repaidAmount
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class RepayRecord {
     }
 
      /**
-     * Borrowed currency
+     * Borrowed currency.
      * @return borrowCurrency
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class RepayRecord {
     }
 
      /**
-     * Collateral
+     * Collateral.
      * @return collateralCurrency
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class RepayRecord {
     }
 
      /**
-     * The initial collateralization rate
+     * The initial collateralization rate.
      * @return initLtv
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class RepayRecord {
     }
 
      /**
-     * Borrowing time, timestamp
+     * Borrowing time, timestamp.
      * @return borrowTime
     **/
     @javax.annotation.Nullable
@@ -223,7 +223,7 @@ public class RepayRecord {
     }
 
      /**
-     * Repayment time, timestamp
+     * Repayment time, timestamp.
      * @return repayTime
     **/
     @javax.annotation.Nullable
@@ -243,7 +243,7 @@ public class RepayRecord {
     }
 
      /**
-     * Total interest
+     * Total interest.
      * @return totalInterest
     **/
     @javax.annotation.Nullable
@@ -263,7 +263,7 @@ public class RepayRecord {
     }
 
      /**
-     * Principal to be repaid before repayment
+     * Principal to be repaid before repayment.
      * @return beforeLeftPrincipal
     **/
     @javax.annotation.Nullable
@@ -283,7 +283,7 @@ public class RepayRecord {
     }
 
      /**
-     * Principal to be repaid after repayment
+     * Principal to be repaid after repayment.
      * @return afterLeftPrincipal
     **/
     @javax.annotation.Nullable
@@ -303,7 +303,7 @@ public class RepayRecord {
     }
 
      /**
-     * Collateral quantity before repayment
+     * Collateral quantity before repayment.
      * @return beforeLeftCollateral
     **/
     @javax.annotation.Nullable
@@ -323,7 +323,7 @@ public class RepayRecord {
     }
 
      /**
-     * Collateral quantity after repayment
+     * Collateral quantity after repayment.
      * @return afterLeftCollateral
     **/
     @javax.annotation.Nullable

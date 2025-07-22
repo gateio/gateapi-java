@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Collateral record
+ * Collateral record.
  */
 public class CollateralRecord {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -71,7 +71,7 @@ public class CollateralRecord {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class CollateralRecord {
     }
 
      /**
-     * Collateral record ID
+     * Collateral record ID.
      * @return recordId
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class CollateralRecord {
     }
 
      /**
-     * Borrowed currency
+     * Borrowed currency.
      * @return borrowCurrency
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class CollateralRecord {
     }
 
      /**
-     * Borrowing amount
+     * Borrowing amount.
      * @return borrowAmount
     **/
     @javax.annotation.Nullable
@@ -151,7 +151,7 @@ public class CollateralRecord {
     }
 
      /**
-     * Collateral
+     * Collateral.
      * @return collateralCurrency
     **/
     @javax.annotation.Nullable
@@ -171,7 +171,7 @@ public class CollateralRecord {
     }
 
      /**
-     * The collateral amount before adjustment
+     * The collateral amount before adjustment.
      * @return beforeCollateral
     **/
     @javax.annotation.Nullable
@@ -191,7 +191,7 @@ public class CollateralRecord {
     }
 
      /**
-     * The collateral amount after adjustment
+     * The collateral amount after adjustment.
      * @return afterCollateral
     **/
     @javax.annotation.Nullable
@@ -211,7 +211,7 @@ public class CollateralRecord {
     }
 
      /**
-     * The collateral ratio before adjustment
+     * The collateral ratio before adjustment.
      * @return beforeLtv
     **/
     @javax.annotation.Nullable
@@ -231,7 +231,7 @@ public class CollateralRecord {
     }
 
      /**
-     * The collateral ratio after adjustment
+     * The collateral ratio after adjustment.
      * @return afterLtv
     **/
     @javax.annotation.Nullable
@@ -251,7 +251,7 @@ public class CollateralRecord {
     }
 
      /**
-     * Timestamp of the operation, in seconds
+     * Timestamp of the operation, in seconds.
      * @return operateTime
     **/
     @javax.annotation.Nullable

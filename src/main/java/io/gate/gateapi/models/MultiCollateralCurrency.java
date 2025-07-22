@@ -51,7 +51,7 @@ public class MultiCollateralCurrency {
     }
 
      /**
-     * List of supported borrowing currencies
+     * List of supported borrowing currencies.
      * @return loanCurrencies
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class MultiCollateralCurrency {
     }
 
      /**
-     * List of supported collateral currencies
+     * List of supported collateral currencies.
      * @return collateralCurrencies
     **/
     @javax.annotation.Nullable

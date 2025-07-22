@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Account detail
+ * Account detail.
  */
 public class AccountDetail {
     public static final String SERIALIZED_NAME_IP_WHITELIST = "ip_whitelist";
@@ -66,7 +66,7 @@ public class AccountDetail {
     }
 
      /**
-     * IP whitelist
+     * IP whitelist.
      * @return ipWhitelist
     **/
     @javax.annotation.Nullable
@@ -94,7 +94,7 @@ public class AccountDetail {
     }
 
      /**
-     * CurrencyPair whitelisting
+     * CurrencyPair whitelisting.
      * @return currencyPairs
     **/
     @javax.annotation.Nullable
@@ -114,7 +114,7 @@ public class AccountDetail {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -134,7 +134,7 @@ public class AccountDetail {
     }
 
      /**
-     * User VIP level
+     * User VIP level.
      * @return tier
     **/
     @javax.annotation.Nullable
@@ -174,7 +174,7 @@ public class AccountDetail {
     }
 
      /**
-     * User role: 0 - Normal user 1 - Copy trading leader 2 - Copy trading follower 3 - Both leader and follower 
+     * User role: 0 - Normal user, 1 - Copy trading leader, follower, 3 - Both leader and follower
      * @return copyTradingRole
     **/
     @javax.annotation.Nullable

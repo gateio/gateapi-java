@@ -39,7 +39,7 @@ public class TransferOrderStatus {
     }
 
      /**
-     * Order id
+     * Order id.
      * @return txId
     **/
     @javax.annotation.Nullable

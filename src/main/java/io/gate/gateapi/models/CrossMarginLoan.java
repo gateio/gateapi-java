@@ -114,7 +114,7 @@ public class CrossMarginLoan {
 
 
      /**
-     * Loan record ID
+     * Loan record ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -124,7 +124,7 @@ public class CrossMarginLoan {
 
 
      /**
-     * Creation timestamp, in milliseconds
+     * Creation timestamp, in milliseconds.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -134,7 +134,7 @@ public class CrossMarginLoan {
 
 
      /**
-     * Update timestamp, in milliseconds
+     * Update timestamp, in milliseconds.
      * @return updateTime
     **/
     @javax.annotation.Nullable
@@ -150,7 +150,7 @@ public class CrossMarginLoan {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     public String getCurrency() {
@@ -169,7 +169,7 @@ public class CrossMarginLoan {
     }
 
      /**
-     * Borrowed amount
+     * Borrowed amount.
      * @return amount
     **/
     public String getAmount() {
@@ -188,7 +188,7 @@ public class CrossMarginLoan {
     }
 
      /**
-     * User defined custom ID
+     * User defined custom ID.
      * @return text
     **/
     @javax.annotation.Nullable
@@ -212,7 +212,7 @@ public class CrossMarginLoan {
 
 
      /**
-     * Repaid amount
+     * Repaid amount.
      * @return repaid
     **/
     @javax.annotation.Nullable
@@ -222,7 +222,7 @@ public class CrossMarginLoan {
 
 
      /**
-     * Repaid interest
+     * Repaid interest.
      * @return repaidInterest
     **/
     @javax.annotation.Nullable
@@ -232,7 +232,7 @@ public class CrossMarginLoan {
 
 
      /**
-     * Outstanding interest yet to be paid
+     * Outstanding interest yet to be paid.
      * @return unpaidInterest
     **/
     @javax.annotation.Nullable

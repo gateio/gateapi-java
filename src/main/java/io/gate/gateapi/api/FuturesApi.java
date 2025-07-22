@@ -152,7 +152,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistFuturesContractsRequest
          */
         public APIlistFuturesContractsRequest limit(Integer limit) {
@@ -162,7 +162,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistFuturesContractsRequest
          */
         public APIlistFuturesContractsRequest offset(Integer offset) {
@@ -178,7 +178,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -192,7 +192,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<Contract> execute() throws ApiException {
@@ -207,7 +207,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<Contract>> executeWithHttpInfo() throws ApiException {
@@ -222,7 +222,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Contract>> _callback) throws ApiException {
@@ -231,14 +231,14 @@ public class FuturesApi {
     }
 
     /**
-     * List all futures contracts
+     * List all futures contracts.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIlistFuturesContractsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesContractsRequest listFuturesContracts(String settle) {
@@ -247,15 +247,15 @@ public class FuturesApi {
 
     /**
      * Build call for getFuturesContract
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Contract information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Contract information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFuturesContractCall(String settle, String contract, final ApiCallback _callback) throws ApiException {
@@ -306,16 +306,16 @@ public class FuturesApi {
     }
 
     /**
-     * Get a single contract
+     * Get a single contract.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return Contract
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Contract information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Contract information. </td><td>  -  </td></tr>
      </table>
      */
     public Contract getFuturesContract(String settle, String contract) throws ApiException {
@@ -324,16 +324,16 @@ public class FuturesApi {
     }
 
     /**
-     * Get a single contract
+     * Get a single contract.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return ApiResponse&lt;Contract&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Contract information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Contract information. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Contract> getFuturesContractWithHttpInfo(String settle, String contract) throws ApiException {
@@ -343,17 +343,17 @@ public class FuturesApi {
     }
 
     /**
-     * Get a single contract (asynchronously)
+     * Get a single contract. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Contract information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Contract information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFuturesContractAsync(String settle, String contract, final ApiCallback<Contract> _callback) throws ApiException {
@@ -453,7 +453,7 @@ public class FuturesApi {
 
         /**
          * Set interval
-         * @param interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)
+         * @param interval Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)
          * @return APIlistFuturesOrderBookRequest
          */
         public APIlistFuturesOrderBookRequest interval(String interval) {
@@ -463,7 +463,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of order depth data in asks or bids (optional, default to 10)
+         * @param limit Maximum number of order depth data in asks or bids. (optional, default to 10)
          * @return APIlistFuturesOrderBookRequest
          */
         public APIlistFuturesOrderBookRequest limit(Integer limit) {
@@ -489,7 +489,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Depth query successful </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Depth query successful. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -503,7 +503,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Depth query successful </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Depth query successful. </td><td>  -  </td></tr>
          </table>
          */
         public FuturesOrderBook execute() throws ApiException {
@@ -518,7 +518,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Depth query successful </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Depth query successful. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<FuturesOrderBook> executeWithHttpInfo() throws ApiException {
@@ -533,7 +533,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Depth query successful </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Depth query successful. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
@@ -542,15 +542,15 @@ public class FuturesApi {
     }
 
     /**
-     * Futures order book
-     * Bids will be sorted by price from high to low, while asks sorted reversely
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * Futures order book.
+     * Bids will be sorted by price from high to low, while asks sorted reversely.
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return APIlistFuturesOrderBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Depth query successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Depth query successful. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesOrderBookRequest listFuturesOrderBook(String settle, String contract) {
@@ -657,7 +657,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistFuturesTradesRequest
          */
         public APIlistFuturesTradesRequest limit(Integer limit) {
@@ -667,7 +667,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistFuturesTradesRequest
          */
         public APIlistFuturesTradesRequest offset(Integer offset) {
@@ -697,7 +697,7 @@ public class FuturesApi {
 
         /**
          * Set to
-         * @param to Specify end time in Unix seconds, default to current time (optional)
+         * @param to Specify end time in Unix seconds, default to current time. (optional)
          * @return APIlistFuturesTradesRequest
          */
         public APIlistFuturesTradesRequest to(Long to) {
@@ -713,7 +713,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -727,7 +727,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesTrade> execute() throws ApiException {
@@ -742,7 +742,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesTrade>> executeWithHttpInfo() throws ApiException {
@@ -757,7 +757,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesTrade>> _callback) throws ApiException {
@@ -766,15 +766,15 @@ public class FuturesApi {
     }
 
     /**
-     * Futures trading history
+     * Futures trading history.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return APIlistFuturesTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesTradesRequest listFuturesTrades(String settle, String contract) {
@@ -886,7 +886,7 @@ public class FuturesApi {
 
         /**
          * Set to
-         * @param to Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)
+         * @param to Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)
          * @return APIlistFuturesCandlesticksRequest
          */
         public APIlistFuturesCandlesticksRequest to(Long to) {
@@ -906,7 +906,7 @@ public class FuturesApi {
 
         /**
          * Set interval
-         * @param interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days (optional, default to &quot;5m&quot;)
+         * @param interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 1 natual month, not 30 days (optional, default to &quot;5m&quot;)
          * @return APIlistFuturesCandlesticksRequest
          */
         public APIlistFuturesCandlesticksRequest interval(String interval) {
@@ -922,7 +922,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -936,7 +936,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesCandlestick> execute() throws ApiException {
@@ -951,7 +951,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesCandlestick>> executeWithHttpInfo() throws ApiException {
@@ -966,7 +966,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
@@ -975,15 +975,15 @@ public class FuturesApi {
     }
 
     /**
-     * Get futures candlesticks
+     * Get futures candlesticks.
      * Return specified contract candlesticks. If prefix &#x60;contract&#x60; with &#x60;mark_&#x60;, the contract&#39;s mark price candlesticks are returned; if prefix with &#x60;index_&#x60;, index price candlesticks will be returned.  Maximum of 2000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return APIlistFuturesCandlesticksRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesCandlesticksRequest listFuturesCandlesticks(String settle, String contract) {
@@ -1095,7 +1095,7 @@ public class FuturesApi {
 
         /**
          * Set to
-         * @param to Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)
+         * @param to Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)
          * @return APIlistFuturesPremiumIndexRequest
          */
         public APIlistFuturesPremiumIndexRequest to(Long to) {
@@ -1115,7 +1115,7 @@ public class FuturesApi {
 
         /**
          * Set interval
-         * @param interval Interval time between data points (optional, default to &quot;5m&quot;)
+         * @param interval Interval time between data points. (optional, default to &quot;5m&quot;)
          * @return APIlistFuturesPremiumIndexRequest
          */
         public APIlistFuturesPremiumIndexRequest interval(String interval) {
@@ -1131,7 +1131,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1145,7 +1145,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesPremiumIndex> execute() throws ApiException {
@@ -1160,7 +1160,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesPremiumIndex>> executeWithHttpInfo() throws ApiException {
@@ -1175,7 +1175,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesPremiumIndex>> _callback) throws ApiException {
@@ -1184,15 +1184,15 @@ public class FuturesApi {
     }
 
     /**
-     * Premium Index K-Line
+     * Premium Index K-Line.
      * Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return APIlistFuturesPremiumIndexRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesPremiumIndexRequest listFuturesPremiumIndex(String settle, String contract) {
@@ -1268,7 +1268,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistFuturesTickersRequest
          */
         public APIlistFuturesTickersRequest contract(String contract) {
@@ -1284,7 +1284,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1298,7 +1298,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesTicker> execute() throws ApiException {
@@ -1313,7 +1313,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesTicker>> executeWithHttpInfo() throws ApiException {
@@ -1328,7 +1328,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesTicker>> _callback) throws ApiException {
@@ -1337,14 +1337,14 @@ public class FuturesApi {
     }
 
     /**
-     * List futures tickers
+     * List futures tickers.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIlistFuturesTickersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesTickersRequest listFuturesTickers(String settle) {
@@ -1441,7 +1441,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistFuturesFundingRateHistoryRequest
          */
         public APIlistFuturesFundingRateHistoryRequest limit(Integer limit) {
@@ -1477,7 +1477,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> History retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> History retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1491,7 +1491,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> History retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> History retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FundingRateRecord> execute() throws ApiException {
@@ -1506,7 +1506,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> History retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> History retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FundingRateRecord>> executeWithHttpInfo() throws ApiException {
@@ -1521,7 +1521,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> History retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> History retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FundingRateRecord>> _callback) throws ApiException {
@@ -1530,15 +1530,15 @@ public class FuturesApi {
     }
 
     /**
-     * Funding rate history
+     * Funding rate history.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return APIlistFuturesFundingRateHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> History retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> History retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesFundingRateHistoryRequest listFuturesFundingRateHistory(String settle, String contract) {
@@ -1614,7 +1614,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistFuturesInsuranceLedgerRequest
          */
         public APIlistFuturesInsuranceLedgerRequest limit(Integer limit) {
@@ -1630,7 +1630,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1644,7 +1644,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<InsuranceRecord> execute() throws ApiException {
@@ -1659,7 +1659,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<InsuranceRecord>> executeWithHttpInfo() throws ApiException {
@@ -1674,7 +1674,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<InsuranceRecord>> _callback) throws ApiException {
@@ -1683,14 +1683,14 @@ public class FuturesApi {
     }
 
     /**
-     * Futures insurance balance history
+     * Futures insurance balance history.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIlistFuturesInsuranceLedgerRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesInsuranceLedgerRequest listFuturesInsuranceLedger(String settle) {
@@ -1787,7 +1787,7 @@ public class FuturesApi {
 
         /**
          * Set from
-         * @param from Start timestamp (optional)
+         * @param from Start timestamp. (optional)
          * @return APIlistContractStatsRequest
          */
         public APIlistContractStatsRequest from(Long from) {
@@ -1823,7 +1823,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1837,7 +1837,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<ContractStat> execute() throws ApiException {
@@ -1852,7 +1852,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<ContractStat>> executeWithHttpInfo() throws ApiException {
@@ -1867,7 +1867,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<ContractStat>> _callback) throws ApiException {
@@ -1876,15 +1876,15 @@ public class FuturesApi {
     }
 
     /**
-     * Futures stats
+     * Futures stats.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return APIlistContractStatsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistContractStatsRequest listContractStats(String settle, String contract) {
@@ -1893,15 +1893,15 @@ public class FuturesApi {
 
     /**
      * Build call for getIndexConstituents
-     * @param settle Settle currency (required)
-     * @param index Index name (required)
+     * @param settle Settle currency. (required)
+     * @param index Index name. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getIndexConstituentsCall(String settle, String index, final ApiCallback _callback) throws ApiException {
@@ -1952,16 +1952,16 @@ public class FuturesApi {
     }
 
     /**
-     * Get index constituents
+     * Get index constituents.
      * 
-     * @param settle Settle currency (required)
-     * @param index Index name (required)
+     * @param settle Settle currency. (required)
+     * @param index Index name. (required)
      * @return FuturesIndexConstituents
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesIndexConstituents getIndexConstituents(String settle, String index) throws ApiException {
@@ -1970,16 +1970,16 @@ public class FuturesApi {
     }
 
     /**
-     * Get index constituents
+     * Get index constituents.
      * 
-     * @param settle Settle currency (required)
-     * @param index Index name (required)
+     * @param settle Settle currency. (required)
+     * @param index Index name. (required)
      * @return ApiResponse&lt;FuturesIndexConstituents&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesIndexConstituents> getIndexConstituentsWithHttpInfo(String settle, String index) throws ApiException {
@@ -1989,17 +1989,17 @@ public class FuturesApi {
     }
 
     /**
-     * Get index constituents (asynchronously)
+     * Get index constituents. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param index Index name (required)
+     * @param settle Settle currency. (required)
+     * @param index Index name. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getIndexConstituentsAsync(String settle, String index, final ApiCallback<FuturesIndexConstituents> _callback) throws ApiException {
@@ -2093,7 +2093,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistLiquidatedOrdersRequest
          */
         public APIlistLiquidatedOrdersRequest contract(String contract) {
@@ -2123,7 +2123,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistLiquidatedOrdersRequest
          */
         public APIlistLiquidatedOrdersRequest limit(Integer limit) {
@@ -2139,7 +2139,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2153,7 +2153,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesLiqOrder> execute() throws ApiException {
@@ -2168,7 +2168,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesLiqOrder>> executeWithHttpInfo() throws ApiException {
@@ -2183,7 +2183,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesLiqOrder>> _callback) throws ApiException {
@@ -2192,14 +2192,14 @@ public class FuturesApi {
     }
 
     /**
-     * Retrieve liquidation history
-     * The maximum time interval between &#x60;from&#x60; and &#x60;to&#x60; is **3600 seconds**. Certain private fields will **not be returned** in public endpoints; refer to individual field descriptions for details.
-     * @param settle Settle currency (required)
+     * Retrieve liquidation history.
+     * The time interval between from and to is maximum 3600. Some private fields are not returned by public interfaces, refer to field descriptions for interfaces, refer to field descriptions for details
+     * @param settle Settle currency. (required)
      * @return APIlistLiquidatedOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistLiquidatedOrdersRequest listLiquidatedOrders(String settle) {
@@ -2285,7 +2285,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistFuturesRiskLimitTiersRequest
          */
         public APIlistFuturesRiskLimitTiersRequest contract(String contract) {
@@ -2295,7 +2295,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistFuturesRiskLimitTiersRequest
          */
         public APIlistFuturesRiskLimitTiersRequest limit(Integer limit) {
@@ -2305,7 +2305,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistFuturesRiskLimitTiersRequest
          */
         public APIlistFuturesRiskLimitTiersRequest offset(Integer offset) {
@@ -2321,7 +2321,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2335,7 +2335,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesLimitRiskTiers> execute() throws ApiException {
@@ -2350,7 +2350,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesLimitRiskTiers>> executeWithHttpInfo() throws ApiException {
@@ -2365,7 +2365,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesLimitRiskTiers>> _callback) throws ApiException {
@@ -2374,14 +2374,14 @@ public class FuturesApi {
     }
 
     /**
-     * List risk limit tiers
-     * When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
-     * @param settle Settle currency (required)
+     * List risk limit tiers.
+     * When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect empty.
+     * @param settle Settle currency. (required)
      * @return APIlistFuturesRiskLimitTiersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesRiskLimitTiersRequest listFuturesRiskLimitTiers(String settle) {
@@ -2390,14 +2390,14 @@ public class FuturesApi {
 
     /**
      * Build call for listFuturesAccounts
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listFuturesAccountsCall(String settle, final ApiCallback _callback) throws ApiException {
@@ -2442,15 +2442,15 @@ public class FuturesApi {
     }
 
     /**
-     * Query futures account
+     * Query futures account.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return FuturesAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesAccount listFuturesAccounts(String settle) throws ApiException {
@@ -2459,15 +2459,15 @@ public class FuturesApi {
     }
 
     /**
-     * Query futures account
+     * Query futures account.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return ApiResponse&lt;FuturesAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesAccount> listFuturesAccountsWithHttpInfo(String settle) throws ApiException {
@@ -2477,16 +2477,16 @@ public class FuturesApi {
     }
 
     /**
-     * Query futures account (asynchronously)
+     * Query futures account. (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listFuturesAccountsAsync(String settle, final ApiCallback<FuturesAccount> _callback) throws ApiException {
@@ -2590,7 +2590,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistFuturesAccountBookRequest
          */
         public APIlistFuturesAccountBookRequest contract(String contract) {
@@ -2600,7 +2600,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistFuturesAccountBookRequest
          */
         public APIlistFuturesAccountBookRequest limit(Integer limit) {
@@ -2610,7 +2610,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistFuturesAccountBookRequest
          */
         public APIlistFuturesAccountBookRequest offset(Integer offset) {
@@ -2640,7 +2640,7 @@ public class FuturesApi {
 
         /**
          * Set type
-         * @param type Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction (optional)
+         * @param type Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction (optional)
          * @return APIlistFuturesAccountBookRequest
          */
         public APIlistFuturesAccountBookRequest type(String type) {
@@ -2656,7 +2656,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2670,7 +2670,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesAccountBook> execute() throws ApiException {
@@ -2685,7 +2685,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesAccountBook>> executeWithHttpInfo() throws ApiException {
@@ -2700,7 +2700,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesAccountBook>> _callback) throws ApiException {
@@ -2709,14 +2709,14 @@ public class FuturesApi {
     }
 
     /**
-     * Query account book
-     * If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。 2023-10-30 can be filtered。 2023-10-30 can be filtered。 
-     * @param settle Settle currency (required)
+     * Query account book.
+     * If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。 2023-10-30 can be filtered.
+     * @param settle Settle currency. (required)
      * @return APIlistFuturesAccountBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFuturesAccountBookRequest listFuturesAccountBook(String settle) {
@@ -2812,7 +2812,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistPositionsRequest
          */
         public APIlistPositionsRequest limit(Integer limit) {
@@ -2822,7 +2822,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistPositionsRequest
          */
         public APIlistPositionsRequest offset(Integer offset) {
@@ -2838,7 +2838,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2852,7 +2852,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<Position> execute() throws ApiException {
@@ -2867,7 +2867,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<Position>> executeWithHttpInfo() throws ApiException {
@@ -2882,7 +2882,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Position>> _callback) throws ApiException {
@@ -2891,14 +2891,14 @@ public class FuturesApi {
     }
 
     /**
-     * List all positions of a user
+     * List all positions of a user.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIlistPositionsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistPositionsRequest listPositions(String settle) {
@@ -2983,7 +2983,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2997,7 +2997,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
          </table>
          */
         public Position execute() throws ApiException {
@@ -3012,7 +3012,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<Position> executeWithHttpInfo() throws ApiException {
@@ -3027,7 +3027,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Position> _callback) throws ApiException {
@@ -3036,15 +3036,15 @@ public class FuturesApi {
     }
 
     /**
-     * Get single position
+     * Get single position.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return APIgetPositionRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetPositionRequest getPosition(String settle, String contract) {
@@ -3053,16 +3053,16 @@ public class FuturesApi {
 
     /**
      * Build call for updatePositionMargin
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param change Margin change amount, positive number increases, negative number  (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param change Margin change amount, positive number increases, negative number. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updatePositionMarginCall(String settle, String contract, String change, final ApiCallback _callback) throws ApiException {
@@ -3122,17 +3122,17 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin
+     * Update position margin.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param change Margin change amount, positive number increases, negative number  (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param change Margin change amount, positive number increases, negative number. (required)
      * @return Position
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public Position updatePositionMargin(String settle, String contract, String change) throws ApiException {
@@ -3141,17 +3141,17 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin
+     * Update position margin.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param change Margin change amount, positive number increases, negative number  (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param change Margin change amount, positive number increases, negative number. (required)
      * @return ApiResponse&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Position> updatePositionMarginWithHttpInfo(String settle, String contract, String change) throws ApiException {
@@ -3161,18 +3161,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin (asynchronously)
+     * Update position margin. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param change Margin change amount, positive number increases, negative number  (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param change Margin change amount, positive number increases, negative number. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updatePositionMarginAsync(String settle, String contract, String change, final ApiCallback<Position> _callback) throws ApiException {
@@ -3184,17 +3184,17 @@ public class FuturesApi {
 
     /**
      * Build call for updatePositionLeverage
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param leverage New position leverage. (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updatePositionLeverageCall(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback _callback) throws ApiException {
@@ -3258,18 +3258,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage
+     * Update position leverage.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param leverage New position leverage. (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0). (optional)
      * @return Position
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public Position updatePositionLeverage(String settle, String contract, String leverage, String crossLeverageLimit) throws ApiException {
@@ -3278,18 +3278,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage
+     * Update position leverage.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param leverage New position leverage. (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0). (optional)
      * @return ApiResponse&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Position> updatePositionLeverageWithHttpInfo(String settle, String contract, String leverage, String crossLeverageLimit) throws ApiException {
@@ -3299,19 +3299,19 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage (asynchronously)
+     * Update position leverage. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param leverage New position leverage. (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updatePositionLeverageAsync(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback<Position> _callback) throws ApiException {
@@ -3323,7 +3323,7 @@ public class FuturesApi {
 
     /**
      * Build call for updatePositionCrossMode
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresPositionCrossMode  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3331,7 +3331,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updatePositionCrossModeCall(String settle, FuturesPositionCrossMode futuresPositionCrossMode, final ApiCallback _callback) throws ApiException {
@@ -3381,16 +3381,16 @@ public class FuturesApi {
     }
 
     /**
-     * Switch to the full position-by-store mode
+     * Switch to the full position-by-store mode.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresPositionCrossMode  (required)
      * @return Position
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public Position updatePositionCrossMode(String settle, FuturesPositionCrossMode futuresPositionCrossMode) throws ApiException {
@@ -3399,16 +3399,16 @@ public class FuturesApi {
     }
 
     /**
-     * Switch to the full position-by-store mode
+     * Switch to the full position-by-store mode.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresPositionCrossMode  (required)
      * @return ApiResponse&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Position> updatePositionCrossModeWithHttpInfo(String settle, FuturesPositionCrossMode futuresPositionCrossMode) throws ApiException {
@@ -3418,9 +3418,9 @@ public class FuturesApi {
     }
 
     /**
-     * Switch to the full position-by-store mode (asynchronously)
+     * Switch to the full position-by-store mode. (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresPositionCrossMode  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3428,7 +3428,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updatePositionCrossModeAsync(String settle, FuturesPositionCrossMode futuresPositionCrossMode, final ApiCallback<Position> _callback) throws ApiException {
@@ -3440,16 +3440,16 @@ public class FuturesApi {
 
     /**
      * Build call for updatePositionRiskLimit
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param riskLimit New Risk Limit Value (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param riskLimit New Risk Limit Value. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updatePositionRiskLimitCall(String settle, String contract, String riskLimit, final ApiCallback _callback) throws ApiException {
@@ -3509,17 +3509,17 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit
+     * Update position risk limit.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param riskLimit New Risk Limit Value (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param riskLimit New Risk Limit Value. (required)
      * @return Position
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public Position updatePositionRiskLimit(String settle, String contract, String riskLimit) throws ApiException {
@@ -3528,17 +3528,17 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit
+     * Update position risk limit.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param riskLimit New Risk Limit Value (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param riskLimit New Risk Limit Value. (required)
      * @return ApiResponse&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Position> updatePositionRiskLimitWithHttpInfo(String settle, String contract, String riskLimit) throws ApiException {
@@ -3548,18 +3548,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit (asynchronously)
+     * Update position risk limit. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param riskLimit New Risk Limit Value (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param riskLimit New Risk Limit Value. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Position information </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Position information. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updatePositionRiskLimitAsync(String settle, String contract, String riskLimit, final ApiCallback<Position> _callback) throws ApiException {
@@ -3571,15 +3571,15 @@ public class FuturesApi {
 
     /**
      * Build call for setDualMode
-     * @param settle Settle currency (required)
-     * @param dualMode Whether to enable dual mode (required)
+     * @param settle Settle currency. (required)
+     * @param dualMode Whether to enable dual mode. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setDualModeCall(String settle, Boolean dualMode, final ApiCallback _callback) throws ApiException {
@@ -3633,16 +3633,16 @@ public class FuturesApi {
     }
 
     /**
-     * Enable or disable dual mode
-     * The prerequisite for changing mode is that all positions have no holdings
-     * @param settle Settle currency (required)
-     * @param dualMode Whether to enable dual mode (required)
+     * Enable or disable dual mode.
+     * The prerequisite for changing mode is that all positions have no holdings.
+     * @param settle Settle currency. (required)
+     * @param dualMode Whether to enable dual mode. (required)
      * @return FuturesAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesAccount setDualMode(String settle, Boolean dualMode) throws ApiException {
@@ -3651,16 +3651,16 @@ public class FuturesApi {
     }
 
     /**
-     * Enable or disable dual mode
-     * The prerequisite for changing mode is that all positions have no holdings
-     * @param settle Settle currency (required)
-     * @param dualMode Whether to enable dual mode (required)
+     * Enable or disable dual mode.
+     * The prerequisite for changing mode is that all positions have no holdings.
+     * @param settle Settle currency. (required)
+     * @param dualMode Whether to enable dual mode. (required)
      * @return ApiResponse&lt;FuturesAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesAccount> setDualModeWithHttpInfo(String settle, Boolean dualMode) throws ApiException {
@@ -3670,17 +3670,17 @@ public class FuturesApi {
     }
 
     /**
-     * Enable or disable dual mode (asynchronously)
-     * The prerequisite for changing mode is that all positions have no holdings
-     * @param settle Settle currency (required)
-     * @param dualMode Whether to enable dual mode (required)
+     * Enable or disable dual mode. (asynchronously)
+     * The prerequisite for changing mode is that all positions have no holdings.
+     * @param settle Settle currency. (required)
+     * @param dualMode Whether to enable dual mode. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setDualModeAsync(String settle, Boolean dualMode, final ApiCallback<FuturesAccount> _callback) throws ApiException {
@@ -3768,7 +3768,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3782,7 +3782,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<Position> execute() throws ApiException {
@@ -3797,7 +3797,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<Position>> executeWithHttpInfo() throws ApiException {
@@ -3812,7 +3812,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Position>> _callback) throws ApiException {
@@ -3821,15 +3821,15 @@ public class FuturesApi {
     }
 
     /**
-     * Retrieve position detail in dual mode
+     * Retrieve position detail in dual mode.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @return APIgetDualModePositionRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetDualModePositionRequest getDualModePosition(String settle, String contract) {
@@ -3838,17 +3838,17 @@ public class FuturesApi {
 
     /**
      * Build call for updateDualModePositionMargin
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param change Margin change amount, positive number increases, negative number  (required)
-     * @param dualSide Long or short position (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param change Margin change amount, positive number increases, negative number. (required)
+     * @param dualSide Long or short position. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateDualModePositionMarginCall(String settle, String contract, String change, String dualSide, final ApiCallback _callback) throws ApiException {
@@ -3917,18 +3917,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin in dual mode
+     * Update position margin in dual mode.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param change Margin change amount, positive number increases, negative number  (required)
-     * @param dualSide Long or short position (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param change Margin change amount, positive number increases, negative number. (required)
+     * @param dualSide Long or short position. (required)
      * @return List&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<Position> updateDualModePositionMargin(String settle, String contract, String change, String dualSide) throws ApiException {
@@ -3937,18 +3937,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin in dual mode
+     * Update position margin in dual mode.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param change Margin change amount, positive number increases, negative number  (required)
-     * @param dualSide Long or short position (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param change Margin change amount, positive number increases, negative number. (required)
+     * @param dualSide Long or short position. (required)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Position>> updateDualModePositionMarginWithHttpInfo(String settle, String contract, String change, String dualSide) throws ApiException {
@@ -3958,19 +3958,19 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin in dual mode (asynchronously)
+     * Update position margin in dual mode. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param change Margin change amount, positive number increases, negative number  (required)
-     * @param dualSide Long or short position (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param change Margin change amount, positive number increases, negative number. (required)
+     * @param dualSide Long or short position. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateDualModePositionMarginAsync(String settle, String contract, String change, String dualSide, final ApiCallback<List<Position>> _callback) throws ApiException {
@@ -3982,17 +3982,17 @@ public class FuturesApi {
 
     /**
      * Build call for updateDualModePositionLeverage
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param leverage New position leverage. (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0). (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateDualModePositionLeverageCall(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback _callback) throws ApiException {
@@ -4056,18 +4056,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage in dual mode
+     * Update position leverage in dual mode.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param leverage New position leverage. (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0). (optional)
      * @return List&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<Position> updateDualModePositionLeverage(String settle, String contract, String leverage, String crossLeverageLimit) throws ApiException {
@@ -4076,18 +4076,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage in dual mode
+     * Update position leverage in dual mode.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param leverage New position leverage. (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0). (optional)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Position>> updateDualModePositionLeverageWithHttpInfo(String settle, String contract, String leverage, String crossLeverageLimit) throws ApiException {
@@ -4097,19 +4097,19 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage in dual mode (asynchronously)
+     * Update position leverage in dual mode. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param leverage New position leverage. (required)
+     * @param crossLeverageLimit Cross margin leverage(valid only when &#x60;leverage&#x60; is 0). (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateDualModePositionLeverageAsync(String settle, String contract, String leverage, String crossLeverageLimit, final ApiCallback<List<Position>> _callback) throws ApiException {
@@ -4121,16 +4121,16 @@ public class FuturesApi {
 
     /**
      * Build call for updateDualModePositionRiskLimit
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param riskLimit New Risk Limit Value (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param riskLimit New Risk Limit Value. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateDualModePositionRiskLimitCall(String settle, String contract, String riskLimit, final ApiCallback _callback) throws ApiException {
@@ -4190,17 +4190,17 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit in dual mode
+     * Update position risk limit in dual mode.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param riskLimit New Risk Limit Value (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param riskLimit New Risk Limit Value. (required)
      * @return List&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<Position> updateDualModePositionRiskLimit(String settle, String contract, String riskLimit) throws ApiException {
@@ -4209,17 +4209,17 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit in dual mode
+     * Update position risk limit in dual mode.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param riskLimit New Risk Limit Value (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param riskLimit New Risk Limit Value. (required)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Position>> updateDualModePositionRiskLimitWithHttpInfo(String settle, String contract, String riskLimit) throws ApiException {
@@ -4229,18 +4229,18 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit in dual mode (asynchronously)
+     * Update position risk limit in dual mode. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
-     * @param riskLimit New Risk Limit Value (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
+     * @param riskLimit New Risk Limit Value. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateDualModePositionRiskLimitAsync(String settle, String contract, String riskLimit, final ApiCallback<List<Position>> _callback) throws ApiException {
@@ -4345,7 +4345,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistFuturesOrdersRequest
          */
         public APIlistFuturesOrdersRequest contract(String contract) {
@@ -4355,7 +4355,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistFuturesOrdersRequest
          */
         public APIlistFuturesOrdersRequest limit(Integer limit) {
@@ -4365,7 +4365,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistFuturesOrdersRequest
          */
         public APIlistFuturesOrdersRequest offset(Integer offset) {
@@ -4391,7 +4391,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -4405,7 +4405,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public List<FuturesOrder> execute() throws ApiException {
@@ -4420,7 +4420,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesOrder>> executeWithHttpInfo() throws ApiException {
@@ -4435,7 +4435,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
@@ -4444,15 +4444,15 @@ public class FuturesApi {
     }
 
     /**
-     * List futures orders
+     * List futures orders.
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
-     * @param settle Settle currency (required)
-     * @param status Only list the orders with this status (required)
+     * @param settle Settle currency. (required)
+     * @param status Only list the orders with this status. (required)
      * @return APIlistFuturesOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
      </table>
      */
     public APIlistFuturesOrdersRequest listFuturesOrders(String settle, String status) {
@@ -4461,7 +4461,7 @@ public class FuturesApi {
 
     /**
      * Build call for createFuturesOrder
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -4470,7 +4470,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createFuturesOrderCall(String settle, FuturesOrder futuresOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -4524,9 +4524,9 @@ public class FuturesApi {
     }
 
     /**
-     * Create a futures order
-     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add position: reduce_only&#x3D;false, size is a positive number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
-     * @param settle Settle currency (required)
+     * Create a futures order.
+     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
+     * @param settle Settle currency. (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return FuturesOrder
@@ -4534,7 +4534,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesOrder createFuturesOrder(String settle, FuturesOrder futuresOrder, String xGateExptime) throws ApiException {
@@ -4543,9 +4543,9 @@ public class FuturesApi {
     }
 
     /**
-     * Create a futures order
-     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add position: reduce_only&#x3D;false, size is a positive number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
-     * @param settle Settle currency (required)
+     * Create a futures order.
+     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
+     * @param settle Settle currency. (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -4553,7 +4553,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesOrder> createFuturesOrderWithHttpInfo(String settle, FuturesOrder futuresOrder, String xGateExptime) throws ApiException {
@@ -4563,9 +4563,9 @@ public class FuturesApi {
     }
 
     /**
-     * Create a futures order (asynchronously)
-     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add position: reduce_only&#x3D;false, size is a positive number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
-     * @param settle Settle currency (required)
+     * Create a futures order. (asynchronously)
+     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
+     * @param settle Settle currency. (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -4574,7 +4574,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createFuturesOrderAsync(String settle, FuturesOrder futuresOrder, String xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
@@ -4586,17 +4586,17 @@ public class FuturesApi {
 
     /**
      * Build call for cancelFuturesOrders
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell ordersspecified. Set to bid to cancel all buy orders, set to ask to cancel all  (optional)
+     * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell orders (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> All orders matched cancelled </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> All orders matched cancelled. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelFuturesOrdersCall(String settle, String contract, String xGateExptime, String side, final ApiCallback _callback) throws ApiException {
@@ -4658,18 +4658,18 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel all &#x60;open&#x60; orders matched
-     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * Cancel all &#x60;open&#x60; orders matched.
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation.
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell ordersspecified. Set to bid to cancel all buy orders, set to ask to cancel all  (optional)
+     * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell orders (optional)
      * @return List&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> All orders matched cancelled </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> All orders matched cancelled. </td><td>  -  </td></tr>
      </table>
      */
     public List<FuturesOrder> cancelFuturesOrders(String settle, String contract, String xGateExptime, String side) throws ApiException {
@@ -4678,18 +4678,18 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel all &#x60;open&#x60; orders matched
-     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * Cancel all &#x60;open&#x60; orders matched.
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation.
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell ordersspecified. Set to bid to cancel all buy orders, set to ask to cancel all  (optional)
+     * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell orders (optional)
      * @return ApiResponse&lt;List&lt;FuturesOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> All orders matched cancelled </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> All orders matched cancelled. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FuturesOrder>> cancelFuturesOrdersWithHttpInfo(String settle, String contract, String xGateExptime, String side) throws ApiException {
@@ -4699,19 +4699,19 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel all &#x60;open&#x60; orders matched (asynchronously)
-     * Zero-filled order cannot be retrieved 10 minutes after order cancellation
-     * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
+     * Cancel all &#x60;open&#x60; orders matched. (asynchronously)
+     * Zero-filled order cannot be retrieved 10 minutes after order cancellation.
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
-     * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell ordersspecified. Set to bid to cancel all buy orders, set to ask to cancel all  (optional)
+     * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell ordersspecified. Set to bid, set to ask to cancel all sell orders (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> All orders matched cancelled </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> All orders matched cancelled. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelFuturesOrdersAsync(String settle, String contract, String xGateExptime, String side, final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
@@ -4810,7 +4810,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIgetOrdersWithTimeRangeRequest
          */
         public APIgetOrdersWithTimeRangeRequest contract(String contract) {
@@ -4840,7 +4840,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIgetOrdersWithTimeRangeRequest
          */
         public APIgetOrdersWithTimeRangeRequest limit(Integer limit) {
@@ -4850,7 +4850,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIgetOrdersWithTimeRangeRequest
          */
         public APIgetOrdersWithTimeRangeRequest offset(Integer offset) {
@@ -4866,7 +4866,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -4880,7 +4880,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public List<FuturesOrder> execute() throws ApiException {
@@ -4895,7 +4895,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesOrder>> executeWithHttpInfo() throws ApiException {
@@ -4910,7 +4910,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
@@ -4919,14 +4919,14 @@ public class FuturesApi {
     }
 
     /**
-     * List Futures Orders By Time Range
+     * List Futures Orders By Time Range.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIgetOrdersWithTimeRangeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
      </table>
      */
     public APIgetOrdersWithTimeRangeRequest getOrdersWithTimeRange(String settle) {
@@ -4935,7 +4935,7 @@ public class FuturesApi {
 
     /**
      * Build call for createBatchFuturesOrder
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -4944,7 +4944,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createBatchFuturesOrderCall(String settle, List<FuturesOrder> futuresOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -4998,9 +4998,9 @@ public class FuturesApi {
     }
 
     /**
-     * Create a batch of futures orders
+     * Create a batch of futures orders.
      * - Up to 10 orders per request - If any of the order&#39;s parameters are missing or in the wrong format, all of them will not be executed, and a http status 400 error will be returned directly - If the parameters are checked and passed, all are executed. Even if there is a business logic error in the middle (such as insufficient funds), it will not affect other execution orders - The returned result is in array format, and the order corresponds to the orders in the request body - In the returned result, the &#x60;succeeded&#x60; field of type bool indicates whether the execution was successful or not - If the execution is successful, the normal order content is included; if the execution fails, the &#x60;label&#x60; field is included to indicate the cause of the error - In the rate limiting, each order is counted individually
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;BatchFuturesOrder&gt;
@@ -5008,7 +5008,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public List<BatchFuturesOrder> createBatchFuturesOrder(String settle, List<FuturesOrder> futuresOrder, String xGateExptime) throws ApiException {
@@ -5017,9 +5017,9 @@ public class FuturesApi {
     }
 
     /**
-     * Create a batch of futures orders
+     * Create a batch of futures orders.
      * - Up to 10 orders per request - If any of the order&#39;s parameters are missing or in the wrong format, all of them will not be executed, and a http status 400 error will be returned directly - If the parameters are checked and passed, all are executed. Even if there is a business logic error in the middle (such as insufficient funds), it will not affect other execution orders - The returned result is in array format, and the order corresponds to the orders in the request body - In the returned result, the &#x60;succeeded&#x60; field of type bool indicates whether the execution was successful or not - If the execution is successful, the normal order content is included; if the execution fails, the &#x60;label&#x60; field is included to indicate the cause of the error - In the rate limiting, each order is counted individually
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;BatchFuturesOrder&gt;&gt;
@@ -5027,7 +5027,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<BatchFuturesOrder>> createBatchFuturesOrderWithHttpInfo(String settle, List<FuturesOrder> futuresOrder, String xGateExptime) throws ApiException {
@@ -5037,9 +5037,9 @@ public class FuturesApi {
     }
 
     /**
-     * Create a batch of futures orders (asynchronously)
+     * Create a batch of futures orders. (asynchronously)
      * - Up to 10 orders per request - If any of the order&#39;s parameters are missing or in the wrong format, all of them will not be executed, and a http status 400 error will be returned directly - If the parameters are checked and passed, all are executed. Even if there is a business logic error in the middle (such as insufficient funds), it will not affect other execution orders - The returned result is in array format, and the order corresponds to the orders in the request body - In the returned result, the &#x60;succeeded&#x60; field of type bool indicates whether the execution was successful or not - If the execution is successful, the normal order content is included; if the execution fails, the &#x60;label&#x60; field is included to indicate the cause of the error - In the rate limiting, each order is counted individually
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5048,7 +5048,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createBatchFuturesOrderAsync(String settle, List<FuturesOrder> futuresOrder, String xGateExptime, final ApiCallback<List<BatchFuturesOrder>> _callback) throws ApiException {
@@ -5060,15 +5060,15 @@ public class FuturesApi {
 
     /**
      * Build call for getFuturesOrder
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFuturesOrderCall(String settle, String orderId, final ApiCallback _callback) throws ApiException {
@@ -5119,16 +5119,16 @@ public class FuturesApi {
     }
 
     /**
-     * Get a single order
+     * Get a single order.
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesOrder getFuturesOrder(String settle, String orderId) throws ApiException {
@@ -5137,16 +5137,16 @@ public class FuturesApi {
     }
 
     /**
-     * Get a single order
+     * Get a single order.
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesOrder> getFuturesOrderWithHttpInfo(String settle, String orderId) throws ApiException {
@@ -5156,17 +5156,17 @@ public class FuturesApi {
     }
 
     /**
-     * Get a single order (asynchronously)
+     * Get a single order. (asynchronously)
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFuturesOrderAsync(String settle, String orderId, final ApiCallback<FuturesOrder> _callback) throws ApiException {
@@ -5178,8 +5178,8 @@ public class FuturesApi {
 
     /**
      * Build call for amendFuturesOrder
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -5188,7 +5188,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call amendFuturesOrderCall(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -5248,10 +5248,10 @@ public class FuturesApi {
     }
 
     /**
-     * Amend an order
+     * Amend an order.
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return FuturesOrder
@@ -5259,7 +5259,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesOrder amendFuturesOrder(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime) throws ApiException {
@@ -5268,10 +5268,10 @@ public class FuturesApi {
     }
 
     /**
-     * Amend an order
+     * Amend an order.
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -5279,7 +5279,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesOrder> amendFuturesOrderWithHttpInfo(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime) throws ApiException {
@@ -5289,10 +5289,10 @@ public class FuturesApi {
     }
 
     /**
-     * Amend an order (asynchronously)
+     * Amend an order. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5301,7 +5301,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call amendFuturesOrderAsync(String settle, String orderId, FuturesOrderAmendment futuresOrderAmendment, String xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
@@ -5313,8 +5313,8 @@ public class FuturesApi {
 
     /**
      * Build call for cancelFuturesOrder
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -5322,7 +5322,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelFuturesOrderCall(String settle, String orderId, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -5377,17 +5377,17 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel a single order
+     * Cancel a single order.
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesOrder cancelFuturesOrder(String settle, String orderId, String xGateExptime) throws ApiException {
@@ -5396,17 +5396,17 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel a single order
+     * Cancel a single order.
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesOrder> cancelFuturesOrderWithHttpInfo(String settle, String orderId, String xGateExptime) throws ApiException {
@@ -5416,10 +5416,10 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel a single order (asynchronously)
+     * Cancel a single order. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5427,7 +5427,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order details. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelFuturesOrderAsync(String settle, String orderId, String xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
@@ -5526,7 +5526,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIgetMyTradesRequest
          */
         public APIgetMyTradesRequest contract(String contract) {
@@ -5536,7 +5536,7 @@ public class FuturesApi {
 
         /**
          * Set order
-         * @param order Futures order ID, return related data only if specified (optional)
+         * @param order Futures order ID, return related data only if specified. (optional)
          * @return APIgetMyTradesRequest
          */
         public APIgetMyTradesRequest order(Long order) {
@@ -5546,7 +5546,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIgetMyTradesRequest
          */
         public APIgetMyTradesRequest limit(Integer limit) {
@@ -5556,7 +5556,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIgetMyTradesRequest
          */
         public APIgetMyTradesRequest offset(Integer offset) {
@@ -5582,7 +5582,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -5596,7 +5596,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public List<MyFuturesTrade> execute() throws ApiException {
@@ -5611,7 +5611,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public ApiResponse<List<MyFuturesTrade>> executeWithHttpInfo() throws ApiException {
@@ -5626,7 +5626,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MyFuturesTrade>> _callback) throws ApiException {
@@ -5635,14 +5635,14 @@ public class FuturesApi {
     }
 
     /**
-     * List personal trading history
+     * List personal trading history.
      * By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIgetMyTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
      </table>
      */
     public APIgetMyTradesRequest getMyTrades(String settle) {
@@ -5743,7 +5743,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIgetMyTradesWithTimeRangeRequest
          */
         public APIgetMyTradesWithTimeRangeRequest contract(String contract) {
@@ -5773,7 +5773,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIgetMyTradesWithTimeRangeRequest
          */
         public APIgetMyTradesWithTimeRangeRequest limit(Integer limit) {
@@ -5783,7 +5783,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIgetMyTradesWithTimeRangeRequest
          */
         public APIgetMyTradesWithTimeRangeRequest offset(Integer offset) {
@@ -5809,7 +5809,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -5823,7 +5823,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public List<MyFuturesTradeTimeRange> execute() throws ApiException {
@@ -5838,7 +5838,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public ApiResponse<List<MyFuturesTradeTimeRange>> executeWithHttpInfo() throws ApiException {
@@ -5853,7 +5853,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MyFuturesTradeTimeRange>> _callback) throws ApiException {
@@ -5862,14 +5862,14 @@ public class FuturesApi {
     }
 
     /**
-     * List personal trading history by time range
+     * List personal trading history by time range.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIgetMyTradesWithTimeRangeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  </td></tr>
      </table>
      */
     public APIgetMyTradesWithTimeRangeRequest getMyTradesWithTimeRange(String settle) {
@@ -5975,7 +5975,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistPositionCloseRequest
          */
         public APIlistPositionCloseRequest contract(String contract) {
@@ -5985,7 +5985,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistPositionCloseRequest
          */
         public APIlistPositionCloseRequest limit(Integer limit) {
@@ -5995,7 +5995,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistPositionCloseRequest
          */
         public APIlistPositionCloseRequest offset(Integer offset) {
@@ -6025,7 +6025,7 @@ public class FuturesApi {
 
         /**
          * Set side
-         * @param side Query side.  long or shot (optional)
+         * @param side Query side. long or shot. (optional)
          * @return APIlistPositionCloseRequest
          */
         public APIlistPositionCloseRequest side(String side) {
@@ -6035,7 +6035,7 @@ public class FuturesApi {
 
         /**
          * Set pnl
-         * @param pnl Query profit or loss (optional)
+         * @param pnl Query profit or loss. (optional)
          * @return APIlistPositionCloseRequest
          */
         public APIlistPositionCloseRequest pnl(String pnl) {
@@ -6051,7 +6051,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -6065,7 +6065,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<PositionClose> execute() throws ApiException {
@@ -6080,7 +6080,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<PositionClose>> executeWithHttpInfo() throws ApiException {
@@ -6095,7 +6095,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<PositionClose>> _callback) throws ApiException {
@@ -6104,14 +6104,14 @@ public class FuturesApi {
     }
 
     /**
-     * List position close history
+     * List position close history.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIlistPositionCloseRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistPositionCloseRequest listPositionClose(String settle) {
@@ -6197,7 +6197,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistLiquidatesRequest
          */
         public APIlistLiquidatesRequest contract(String contract) {
@@ -6207,7 +6207,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistLiquidatesRequest
          */
         public APIlistLiquidatesRequest limit(Integer limit) {
@@ -6217,7 +6217,7 @@ public class FuturesApi {
 
         /**
          * Set at
-         * @param at Specify a liquidation timestamp (optional, default to 0)
+         * @param at Specify a liquidation timestamp. (optional, default to 0)
          * @return APIlistLiquidatesRequest
          */
         public APIlistLiquidatesRequest at(Integer at) {
@@ -6233,7 +6233,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -6247,7 +6247,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesLiquidate> execute() throws ApiException {
@@ -6262,7 +6262,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesLiquidate>> executeWithHttpInfo() throws ApiException {
@@ -6277,7 +6277,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesLiquidate>> _callback) throws ApiException {
@@ -6286,14 +6286,14 @@ public class FuturesApi {
     }
 
     /**
-     * List liquidation history
+     * List liquidation history.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIlistLiquidatesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistLiquidatesRequest listLiquidates(String settle) {
@@ -6379,7 +6379,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistAutoDeleveragesRequest
          */
         public APIlistAutoDeleveragesRequest contract(String contract) {
@@ -6389,7 +6389,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistAutoDeleveragesRequest
          */
         public APIlistAutoDeleveragesRequest limit(Integer limit) {
@@ -6399,7 +6399,7 @@ public class FuturesApi {
 
         /**
          * Set at
-         * @param at Specify an auto-deleveraging timestamp (optional, default to 0)
+         * @param at Specify an auto-deleveraging timestamp. (optional, default to 0)
          * @return APIlistAutoDeleveragesRequest
          */
         public APIlistAutoDeleveragesRequest at(Integer at) {
@@ -6415,7 +6415,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -6429,7 +6429,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesAutoDeleverage> execute() throws ApiException {
@@ -6444,7 +6444,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesAutoDeleverage>> executeWithHttpInfo() throws ApiException {
@@ -6459,7 +6459,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesAutoDeleverage>> _callback) throws ApiException {
@@ -6468,14 +6468,14 @@ public class FuturesApi {
     }
 
     /**
-     * List Auto-Deleveraging History
+     * List Auto-Deleveraging History.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIlistAutoDeleveragesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistAutoDeleveragesRequest listAutoDeleverages(String settle) {
@@ -6484,7 +6484,7 @@ public class FuturesApi {
 
     /**
      * Build call for countdownCancelAllFutures
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param countdownCancelAllFuturesTask  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6492,7 +6492,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call countdownCancelAllFuturesCall(String settle, CountdownCancelAllFuturesTask countdownCancelAllFuturesTask, final ApiCallback _callback) throws ApiException {
@@ -6542,16 +6542,16 @@ public class FuturesApi {
     }
 
     /**
-     * Countdown cancel orders
-     * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
-     * @param settle Settle currency (required)
+     * Countdown cancel orders.
+     * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
+     * @param settle Settle currency. (required)
      * @param countdownCancelAllFuturesTask  (required)
      * @return TriggerTime
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully. </td><td>  -  </td></tr>
      </table>
      */
     public TriggerTime countdownCancelAllFutures(String settle, CountdownCancelAllFuturesTask countdownCancelAllFuturesTask) throws ApiException {
@@ -6560,16 +6560,16 @@ public class FuturesApi {
     }
 
     /**
-     * Countdown cancel orders
-     * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
-     * @param settle Settle currency (required)
+     * Countdown cancel orders.
+     * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
+     * @param settle Settle currency. (required)
      * @param countdownCancelAllFuturesTask  (required)
      * @return ApiResponse&lt;TriggerTime&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TriggerTime> countdownCancelAllFuturesWithHttpInfo(String settle, CountdownCancelAllFuturesTask countdownCancelAllFuturesTask) throws ApiException {
@@ -6579,9 +6579,9 @@ public class FuturesApi {
     }
 
     /**
-     * Countdown cancel orders (asynchronously)
-     * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
-     * @param settle Settle currency (required)
+     * Countdown cancel orders. (asynchronously)
+     * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
+     * @param settle Settle currency. (required)
      * @param countdownCancelAllFuturesTask  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6589,7 +6589,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call countdownCancelAllFuturesAsync(String settle, CountdownCancelAllFuturesTask countdownCancelAllFuturesTask, final ApiCallback<TriggerTime> _callback) throws ApiException {
@@ -6668,7 +6668,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIgetFuturesFeeRequest
          */
         public APIgetFuturesFeeRequest contract(String contract) {
@@ -6684,7 +6684,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -6698,7 +6698,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public Map<String, FuturesFee> execute() throws ApiException {
@@ -6713,7 +6713,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<Map<String, FuturesFee>> executeWithHttpInfo() throws ApiException {
@@ -6728,7 +6728,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Map<String, FuturesFee>> _callback) throws ApiException {
@@ -6737,14 +6737,14 @@ public class FuturesApi {
     }
 
     /**
-     * Query user trading fee rates
+     * Query user trading fee rates.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @return APIgetFuturesFeeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetFuturesFeeRequest getFuturesFee(String settle) {
@@ -6753,7 +6753,7 @@ public class FuturesApi {
 
     /**
      * Build call for cancelBatchFutureOrders
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -6762,7 +6762,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order cancellation operation completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order cancellation operation completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelBatchFutureOrdersCall(String settle, List<String> requestBody, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -6816,9 +6816,9 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel a batch of orders with an ID list
-     * Multiple different order IDs can be specified. A maximum of 20 records 
-     * @param settle Settle currency (required)
+     * Cancel a batch of orders with an ID list.
+     * Multiple different order IDs can be specified. A maximum of 20 records.
+     * @param settle Settle currency. (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;FutureCancelOrderResult&gt;
@@ -6826,7 +6826,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order cancellation operation completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order cancellation operation completed. </td><td>  -  </td></tr>
      </table>
      */
     public List<FutureCancelOrderResult> cancelBatchFutureOrders(String settle, List<String> requestBody, String xGateExptime) throws ApiException {
@@ -6835,9 +6835,9 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel a batch of orders with an ID list
-     * Multiple different order IDs can be specified. A maximum of 20 records 
-     * @param settle Settle currency (required)
+     * Cancel a batch of orders with an ID list.
+     * Multiple different order IDs can be specified. A maximum of 20 records.
+     * @param settle Settle currency. (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;FutureCancelOrderResult&gt;&gt;
@@ -6845,7 +6845,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order cancellation operation completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order cancellation operation completed. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FutureCancelOrderResult>> cancelBatchFutureOrdersWithHttpInfo(String settle, List<String> requestBody, String xGateExptime) throws ApiException {
@@ -6855,9 +6855,9 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel a batch of orders with an ID list (asynchronously)
-     * Multiple different order IDs can be specified. A maximum of 20 records 
-     * @param settle Settle currency (required)
+     * Cancel a batch of orders with an ID list. (asynchronously)
+     * Multiple different order IDs can be specified. A maximum of 20 records.
+     * @param settle Settle currency. (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -6866,7 +6866,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order cancellation operation completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order cancellation operation completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelBatchFutureOrdersAsync(String settle, List<String> requestBody, String xGateExptime, final ApiCallback<List<FutureCancelOrderResult>> _callback) throws ApiException {
@@ -6878,7 +6878,7 @@ public class FuturesApi {
 
     /**
      * Build call for amendBatchFutureOrders
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -6887,7 +6887,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call amendBatchFutureOrdersCall(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -6941,9 +6941,9 @@ public class FuturesApi {
     }
 
     /**
-     * Batch modify orders with specified IDs
-     * Multiple different order IDs can be specified. A maximum of 10 orders can
-     * @param settle Settle currency (required)
+     * Batch modify orders with specified IDs.
+     * Multiple different order IDs can be specified. A maximum of 10 orders can.
+     * @param settle Settle currency. (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;BatchFuturesOrder&gt;
@@ -6951,7 +6951,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public List<BatchFuturesOrder> amendBatchFutureOrders(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime) throws ApiException {
@@ -6960,9 +6960,9 @@ public class FuturesApi {
     }
 
     /**
-     * Batch modify orders with specified IDs
-     * Multiple different order IDs can be specified. A maximum of 10 orders can
-     * @param settle Settle currency (required)
+     * Batch modify orders with specified IDs.
+     * Multiple different order IDs can be specified. A maximum of 10 orders can.
+     * @param settle Settle currency. (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;BatchFuturesOrder&gt;&gt;
@@ -6970,7 +6970,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<BatchFuturesOrder>> amendBatchFutureOrdersWithHttpInfo(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime) throws ApiException {
@@ -6980,9 +6980,9 @@ public class FuturesApi {
     }
 
     /**
-     * Batch modify orders with specified IDs (asynchronously)
-     * Multiple different order IDs can be specified. A maximum of 10 orders can
-     * @param settle Settle currency (required)
+     * Batch modify orders with specified IDs. (asynchronously)
+     * Multiple different order IDs can be specified. A maximum of 10 orders can.
+     * @param settle Settle currency. (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -6991,7 +6991,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call amendBatchFutureOrdersAsync(String settle, List<BatchAmendOrderReq> batchAmendOrderReq, String xGateExptime, final ApiCallback<List<BatchFuturesOrder>> _callback) throws ApiException {
@@ -7003,15 +7003,15 @@ public class FuturesApi {
 
     /**
      * Build call for getFuturesRiskLimitTable
-     * @param settle Settle currency (required)
-     * @param tableId Risk limit table ID (required)
+     * @param settle Settle currency. (required)
+     * @param tableId Risk limit table ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFuturesRiskLimitTableCall(String settle, String tableId, final ApiCallback _callback) throws ApiException {
@@ -7065,16 +7065,16 @@ public class FuturesApi {
     }
 
     /**
-     * Query risk limit table by table_id
+     * Query risk limit table by table_id.
      * Just pass table_id.
-     * @param settle Settle currency (required)
-     * @param tableId Risk limit table ID (required)
+     * @param settle Settle currency. (required)
+     * @param tableId Risk limit table ID. (required)
      * @return List&lt;FuturesRiskLimitTier&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<FuturesRiskLimitTier> getFuturesRiskLimitTable(String settle, String tableId) throws ApiException {
@@ -7083,16 +7083,16 @@ public class FuturesApi {
     }
 
     /**
-     * Query risk limit table by table_id
+     * Query risk limit table by table_id.
      * Just pass table_id.
-     * @param settle Settle currency (required)
-     * @param tableId Risk limit table ID (required)
+     * @param settle Settle currency. (required)
+     * @param tableId Risk limit table ID. (required)
      * @return ApiResponse&lt;List&lt;FuturesRiskLimitTier&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FuturesRiskLimitTier>> getFuturesRiskLimitTableWithHttpInfo(String settle, String tableId) throws ApiException {
@@ -7102,17 +7102,17 @@ public class FuturesApi {
     }
 
     /**
-     * Query risk limit table by table_id (asynchronously)
+     * Query risk limit table by table_id. (asynchronously)
      * Just pass table_id.
-     * @param settle Settle currency (required)
-     * @param tableId Risk limit table ID (required)
+     * @param settle Settle currency. (required)
+     * @param tableId Risk limit table ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFuturesRiskLimitTableAsync(String settle, String tableId, final ApiCallback<List<FuturesRiskLimitTier>> _callback) throws ApiException {
@@ -7212,7 +7212,7 @@ public class FuturesApi {
 
         /**
          * Set contract
-         * @param contract Futures contract, return related data only if specified (optional)
+         * @param contract Futures contract, return related data only if specified. (optional)
          * @return APIlistPriceTriggeredOrdersRequest
          */
         public APIlistPriceTriggeredOrdersRequest contract(String contract) {
@@ -7222,7 +7222,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistPriceTriggeredOrdersRequest
          */
         public APIlistPriceTriggeredOrdersRequest limit(Integer limit) {
@@ -7232,7 +7232,7 @@ public class FuturesApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistPriceTriggeredOrdersRequest
          */
         public APIlistPriceTriggeredOrdersRequest offset(Integer offset) {
@@ -7248,7 +7248,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -7262,7 +7262,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FuturesPriceTriggeredOrder> execute() throws ApiException {
@@ -7277,7 +7277,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FuturesPriceTriggeredOrder>> executeWithHttpInfo() throws ApiException {
@@ -7292,7 +7292,7 @@ public class FuturesApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesPriceTriggeredOrder>> _callback) throws ApiException {
@@ -7301,15 +7301,15 @@ public class FuturesApi {
     }
 
     /**
-     * List All Price-triggered Orders
+     * List All Price-triggered Orders.
      * 
-     * @param settle Settle currency (required)
-     * @param status Only list the orders with this status (required)
+     * @param settle Settle currency. (required)
+     * @param status Only list the orders with this status. (required)
      * @return APIlistPriceTriggeredOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistPriceTriggeredOrdersRequest listPriceTriggeredOrders(String settle, String status) {
@@ -7318,7 +7318,7 @@ public class FuturesApi {
 
     /**
      * Build call for createPriceTriggeredOrder
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresPriceTriggeredOrder  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -7326,7 +7326,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createPriceTriggeredOrderCall(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
@@ -7376,16 +7376,16 @@ public class FuturesApi {
     }
 
     /**
-     * Create a price-triggered order
+     * Create a price-triggered order.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresPriceTriggeredOrder  (required)
      * @return TriggerOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
     public TriggerOrderResponse createPriceTriggeredOrder(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder) throws ApiException {
@@ -7394,16 +7394,16 @@ public class FuturesApi {
     }
 
     /**
-     * Create a price-triggered order
+     * Create a price-triggered order.
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresPriceTriggeredOrder  (required)
      * @return ApiResponse&lt;TriggerOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TriggerOrderResponse> createPriceTriggeredOrderWithHttpInfo(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder) throws ApiException {
@@ -7413,9 +7413,9 @@ public class FuturesApi {
     }
 
     /**
-     * Create a price-triggered order (asynchronously)
+     * Create a price-triggered order. (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Settle currency. (required)
      * @param futuresPriceTriggeredOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7423,7 +7423,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createPriceTriggeredOrderAsync(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
@@ -7435,15 +7435,15 @@ public class FuturesApi {
 
     /**
      * Build call for cancelPriceTriggeredOrderList
-     * @param settle Settle currency (required)
-     * @param contract Futures contract, return related data only if specified (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract, return related data only if specified. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelPriceTriggeredOrderListCall(String settle, String contract, final ApiCallback _callback) throws ApiException {
@@ -7492,16 +7492,16 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel All Price-triggered Orders
+     * Cancel All Price-triggered Orders.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract, return related data only if specified (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract, return related data only if specified. (optional)
      * @return List&lt;FuturesPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public List<FuturesPriceTriggeredOrder> cancelPriceTriggeredOrderList(String settle, String contract) throws ApiException {
@@ -7510,16 +7510,16 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel All Price-triggered Orders
+     * Cancel All Price-triggered Orders.
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract, return related data only if specified (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract, return related data only if specified. (optional)
      * @return ApiResponse&lt;List&lt;FuturesPriceTriggeredOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FuturesPriceTriggeredOrder>> cancelPriceTriggeredOrderListWithHttpInfo(String settle, String contract) throws ApiException {
@@ -7529,17 +7529,17 @@ public class FuturesApi {
     }
 
     /**
-     * Cancel All Price-triggered Orders (asynchronously)
+     * Cancel All Price-triggered Orders. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param contract Futures contract, return related data only if specified (optional)
+     * @param settle Settle currency. (required)
+     * @param contract Futures contract, return related data only if specified. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelPriceTriggeredOrderListAsync(String settle, String contract, final ApiCallback<List<FuturesPriceTriggeredOrder>> _callback) throws ApiException {
@@ -7551,15 +7551,15 @@ public class FuturesApi {
 
     /**
      * Build call for getPriceTriggeredOrder
-     * @param settle Settle currency (required)
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPriceTriggeredOrderCall(String settle, String orderId, final ApiCallback _callback) throws ApiException {
@@ -7610,16 +7610,16 @@ public class FuturesApi {
     }
 
     /**
-     * Get a price-triggered order
+     * Get a price-triggered order.
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @return FuturesPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesPriceTriggeredOrder getPriceTriggeredOrder(String settle, String orderId) throws ApiException {
@@ -7628,16 +7628,16 @@ public class FuturesApi {
     }
 
     /**
-     * Get a price-triggered order
+     * Get a price-triggered order.
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @return ApiResponse&lt;FuturesPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesPriceTriggeredOrder> getPriceTriggeredOrderWithHttpInfo(String settle, String orderId) throws ApiException {
@@ -7647,17 +7647,17 @@ public class FuturesApi {
     }
 
     /**
-     * Get a price-triggered order (asynchronously)
+     * Get a price-triggered order. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPriceTriggeredOrderAsync(String settle, String orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
@@ -7669,15 +7669,15 @@ public class FuturesApi {
 
     /**
      * Build call for cancelPriceTriggeredOrder
-     * @param settle Settle currency (required)
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelPriceTriggeredOrderCall(String settle, String orderId, final ApiCallback _callback) throws ApiException {
@@ -7728,16 +7728,16 @@ public class FuturesApi {
     }
 
     /**
-     * cancel a price-triggered order
+     * cancel a price-triggered order.
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @return FuturesPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(String settle, String orderId) throws ApiException {
@@ -7746,16 +7746,16 @@ public class FuturesApi {
     }
 
     /**
-     * cancel a price-triggered order
+     * cancel a price-triggered order.
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @return ApiResponse&lt;FuturesPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesPriceTriggeredOrder> cancelPriceTriggeredOrderWithHttpInfo(String settle, String orderId) throws ApiException {
@@ -7765,17 +7765,17 @@ public class FuturesApi {
     }
 
     /**
-     * cancel a price-triggered order (asynchronously)
+     * cancel a price-triggered order. (asynchronously)
      * 
-     * @param settle Settle currency (required)
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param settle Settle currency. (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelPriceTriggeredOrderAsync(String settle, String orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Retrieve user rebate information
+ * Retrieve user rebate information.
  */
 public class RebateUserInfo {
     public static final String SERIALIZED_NAME_INVITE_UID = "invite_uid";
@@ -35,7 +35,7 @@ public class RebateUserInfo {
     }
 
      /**
-     * My inviter&#39;s UID
+     * My inviter&#39;s UID.
      * @return inviteUid
     **/
     @javax.annotation.Nullable

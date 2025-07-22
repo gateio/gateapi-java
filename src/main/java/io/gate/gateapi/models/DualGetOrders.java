@@ -99,7 +99,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Plan ID
+     * Plan ID.
      * @return planId
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Copies
+     * Copies.
      * @return copies
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Investment Amount
+     * Investment Amount.
      * @return investAmount
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Settlement Amount
+     * Settlement Amount.
      * @return settlementAmount
     **/
     @javax.annotation.Nullable
@@ -199,7 +199,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Creation time
+     * Creation time.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -219,7 +219,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Completion Time
+     * Completion Time.
      * @return completeTime
     **/
     @javax.annotation.Nullable
@@ -259,7 +259,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Investment Currency
+     * Investment Currency.
      * @return investCurrency
     **/
     @javax.annotation.Nullable
@@ -279,7 +279,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Strike Currency
+     * Strike Currency.
      * @return exerciseCurrency
     **/
     @javax.annotation.Nullable
@@ -299,7 +299,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Strike price
+     * Strike price.
      * @return exercisePrice
     **/
     @javax.annotation.Nullable
@@ -319,7 +319,7 @@ public class DualGetOrders {
     }
 
      /**
-     * settlement price
+     * settlement price.
      * @return settlementPrice
     **/
     @javax.annotation.Nullable
@@ -339,7 +339,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Settle currency
+     * Settle currency.
      * @return settlementCurrency
     **/
     @javax.annotation.Nullable
@@ -359,7 +359,7 @@ public class DualGetOrders {
     }
 
      /**
-     * APY
+     * APY.
      * @return apyDisplay
     **/
     @javax.annotation.Nullable
@@ -379,7 +379,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Settlement APY
+     * Settlement APY.
      * @return apySettlement
     **/
     @javax.annotation.Nullable
@@ -399,7 +399,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Settlement time
+     * Settlement time.
      * @return deliveryTime
     **/
     @javax.annotation.Nullable
@@ -419,7 +419,7 @@ public class DualGetOrders {
     }
 
      /**
-     * Custom order information
+     * Custom order information.
      * @return text
     **/
     @javax.annotation.Nullable

@@ -51,7 +51,7 @@ public class SpotCurrencyChain {
     }
 
      /**
-     * Chain name
+     * Chain name.
      * @return name
     **/
     @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class SpotCurrencyChain {
     }
 
      /**
-     * token address
+     * token address.
      * @return addr
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class SpotCurrencyChain {
     }
 
      /**
-     * Whether currency&#39;s withdrawal is disabled
+     * Whether currency&#39;s withdrawal is disabled.
      * @return withdrawDisabled
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class SpotCurrencyChain {
     }
 
      /**
-     * Whether currency&#39;s withdrawal is delayed
+     * Whether currency&#39;s withdrawal is delayed.
      * @return withdrawDelayed
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class SpotCurrencyChain {
     }
 
      /**
-     * Whether currency&#39;s deposit is disabled
+     * Whether currency&#39;s deposit is disabled.
      * @return depositDisabled
     **/
     @javax.annotation.Nullable

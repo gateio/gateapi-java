@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Result of multi-collateral adjustment
+ * Result of multi-collateral adjustment.
  */
 public class CollateralAdjustRes {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -42,7 +42,7 @@ public class CollateralAdjustRes {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class CollateralAdjustRes {
     }
 
      /**
-     * Collateral Currency Information
+     * Collateral Currency Information.
      * @return collateralCurrencies
     **/
     @javax.annotation.Nullable

@@ -77,7 +77,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listCurrenciesCall(final ApiCallback _callback) throws ApiException {
@@ -116,14 +116,14 @@ public class SpotApi {
     }
 
     /**
-     * List all currencies&#39; details
+     * List all currencies&#39; details.
      * When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
      * @return List&lt;Currency&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<Currency> listCurrencies() throws ApiException {
@@ -132,14 +132,14 @@ public class SpotApi {
     }
 
     /**
-     * List all currencies&#39; details
+     * List all currencies&#39; details.
      * When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
      * @return ApiResponse&lt;List&lt;Currency&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Currency>> listCurrenciesWithHttpInfo() throws ApiException {
@@ -149,7 +149,7 @@ public class SpotApi {
     }
 
     /**
-     * List all currencies&#39; details (asynchronously)
+     * List all currencies&#39; details. (asynchronously)
      * When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -157,7 +157,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listCurrenciesAsync(final ApiCallback<List<Currency>> _callback) throws ApiException {
@@ -169,14 +169,14 @@ public class SpotApi {
 
     /**
      * Build call for getCurrency
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getCurrencyCall(String currency, final ApiCallback _callback) throws ApiException {
@@ -221,15 +221,15 @@ public class SpotApi {
     }
 
     /**
-     * Get details of a specific currency
+     * Get details of a specific currency.
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @return Currency
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public Currency getCurrency(String currency) throws ApiException {
@@ -238,15 +238,15 @@ public class SpotApi {
     }
 
     /**
-     * Get details of a specific currency
+     * Get details of a specific currency.
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @return ApiResponse&lt;Currency&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Currency> getCurrencyWithHttpInfo(String currency) throws ApiException {
@@ -256,16 +256,16 @@ public class SpotApi {
     }
 
     /**
-     * Get details of a specific currency (asynchronously)
+     * Get details of a specific currency. (asynchronously)
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getCurrencyAsync(String currency, final ApiCallback<Currency> _callback) throws ApiException {
@@ -283,7 +283,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> All currency pairs retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> All currency pairs retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listCurrencyPairsCall(final ApiCallback _callback) throws ApiException {
@@ -322,14 +322,14 @@ public class SpotApi {
     }
 
     /**
-     * List all currency pairs supported
+     * List all currency pairs supported.
      * 
      * @return List&lt;CurrencyPair&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> All currency pairs retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> All currency pairs retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<CurrencyPair> listCurrencyPairs() throws ApiException {
@@ -338,14 +338,14 @@ public class SpotApi {
     }
 
     /**
-     * List all currency pairs supported
+     * List all currency pairs supported.
      * 
      * @return ApiResponse&lt;List&lt;CurrencyPair&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> All currency pairs retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> All currency pairs retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CurrencyPair>> listCurrencyPairsWithHttpInfo() throws ApiException {
@@ -355,7 +355,7 @@ public class SpotApi {
     }
 
     /**
-     * List all currency pairs supported (asynchronously)
+     * List all currency pairs supported. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -363,7 +363,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> All currency pairs retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> All currency pairs retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listCurrencyPairsAsync(final ApiCallback<List<CurrencyPair>> _callback) throws ApiException {
@@ -375,14 +375,14 @@ public class SpotApi {
 
     /**
      * Build call for getCurrencyPair
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getCurrencyPairCall(String currencyPair, final ApiCallback _callback) throws ApiException {
@@ -427,15 +427,15 @@ public class SpotApi {
     }
 
     /**
-     * Get details of a specifc currency pair
+     * Get details of a specifc currency pair.
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return CurrencyPair
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public CurrencyPair getCurrencyPair(String currencyPair) throws ApiException {
@@ -444,15 +444,15 @@ public class SpotApi {
     }
 
     /**
-     * Get details of a specifc currency pair
+     * Get details of a specifc currency pair.
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return ApiResponse&lt;CurrencyPair&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CurrencyPair> getCurrencyPairWithHttpInfo(String currencyPair) throws ApiException {
@@ -462,16 +462,16 @@ public class SpotApi {
     }
 
     /**
-     * Get details of a specifc currency pair (asynchronously)
+     * Get details of a specifc currency pair. (asynchronously)
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getCurrencyPairAsync(String currencyPair, final ApiCallback<CurrencyPair> _callback) throws ApiException {
@@ -547,7 +547,7 @@ public class SpotApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Currency pair (optional)
+         * @param currencyPair Currency pair. (optional)
          * @return APIlistTickersRequest
          */
         public APIlistTickersRequest currencyPair(String currencyPair) {
@@ -557,7 +557,7 @@ public class SpotApi {
 
         /**
          * Set timezone
-         * @param timezone Timezone (optional)
+         * @param timezone Timezone. (optional)
          * @return APIlistTickersRequest
          */
         public APIlistTickersRequest timezone(String timezone) {
@@ -573,7 +573,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -587,7 +587,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<Ticker> execute() throws ApiException {
@@ -602,7 +602,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<Ticker>> executeWithHttpInfo() throws ApiException {
@@ -617,7 +617,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Ticker>> _callback) throws ApiException {
@@ -626,13 +626,13 @@ public class SpotApi {
     }
 
     /**
-     * Retrieve ticker information
+     * Retrieve ticker information.
      * Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
      * @return APIlistTickersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistTickersRequest listTickers() {
@@ -721,7 +721,7 @@ public class SpotApi {
 
         /**
          * Set interval
-         * @param interval Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)
+         * @param interval Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)
          * @return APIlistOrderBookRequest
          */
         public APIlistOrderBookRequest interval(String interval) {
@@ -731,7 +731,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of order depth data in asks or bids (optional, default to 10)
+         * @param limit Maximum number of order depth data in asks or bids. (optional, default to 10)
          * @return APIlistOrderBookRequest
          */
         public APIlistOrderBookRequest limit(Integer limit) {
@@ -741,7 +741,7 @@ public class SpotApi {
 
         /**
          * Set withId
-         * @param withId Return order book ID (optional, default to false)
+         * @param withId Return order book ID. (optional, default to false)
          * @return APIlistOrderBookRequest
          */
         public APIlistOrderBookRequest withId(Boolean withId) {
@@ -757,7 +757,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -771,7 +771,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public OrderBook execute() throws ApiException {
@@ -786,7 +786,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<OrderBook> executeWithHttpInfo() throws ApiException {
@@ -801,7 +801,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<OrderBook> _callback) throws ApiException {
@@ -810,14 +810,14 @@ public class SpotApi {
     }
 
     /**
-     * Retrieve order book
-     * Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
-     * @param currencyPair Currency pair (required)
+     * Retrieve order book.
+     * Market depth buy orders are sorted by price from high to low, sell orders are reversed
+     * @param currencyPair Currency pair. (required)
      * @return APIlistOrderBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistOrderBookRequest listOrderBook(String currencyPair) {
@@ -921,7 +921,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest limit(Integer limit) {
@@ -951,7 +951,7 @@ public class SpotApi {
 
         /**
          * Set from
-         * @param from Start timestamp of the query (optional)
+         * @param from Start timestamp of the query. (optional)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest from(Long from) {
@@ -961,7 +961,7 @@ public class SpotApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest to(Long to) {
@@ -971,7 +971,7 @@ public class SpotApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest page(Integer page) {
@@ -987,7 +987,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1001,7 +1001,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<Trade> execute() throws ApiException {
@@ -1016,7 +1016,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<Trade>> executeWithHttpInfo() throws ApiException {
@@ -1031,7 +1031,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Trade>> _callback) throws ApiException {
@@ -1040,14 +1040,14 @@ public class SpotApi {
     }
 
     /**
-     * Retrieve market trades
-     * Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
-     * @param currencyPair Currency pair (required)
+     * Retrieve market trades.
+     * Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
+     * @param currencyPair Currency pair. (required)
      * @return APIlistTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistTradesRequest listTrades(String currencyPair) {
@@ -1161,7 +1161,7 @@ public class SpotApi {
 
         /**
          * Set to
-         * @param to Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)
+         * @param to Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)
          * @return APIlistCandlesticksRequest
          */
         public APIlistCandlesticksRequest to(Long to) {
@@ -1187,7 +1187,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1201,7 +1201,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<List<String>> execute() throws ApiException {
@@ -1216,7 +1216,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<List<String>>> executeWithHttpInfo() throws ApiException {
@@ -1231,7 +1231,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<List<String>>> _callback) throws ApiException {
@@ -1240,14 +1240,14 @@ public class SpotApi {
     }
 
     /**
-     * Market candlesticks
+     * Market candlesticks.
      * Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return APIlistCandlesticksRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistCandlesticksRequest listCandlesticks(String currencyPair) {
@@ -1332,7 +1332,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1348,7 +1348,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1365,7 +1365,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1382,7 +1382,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1393,13 +1393,13 @@ public class SpotApi {
     }
 
     /**
-     * Query user trading fee rates
+     * Query user trading fee rates.
      * This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
      * @return APIgetFeeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1410,14 +1410,14 @@ public class SpotApi {
 
     /**
      * Build call for getBatchSpotFee
-     * @param currencyPairs A request can only query up to 50 currency pairs (required)
+     * @param currencyPairs A request can only query up to 50 currency pairs. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getBatchSpotFeeCall(String currencyPairs, final ApiCallback _callback) throws ApiException {
@@ -1465,15 +1465,15 @@ public class SpotApi {
     }
 
     /**
-     * Query a batch of user trading fee rates
+     * Query a batch of user trading fee rates.
      * 
-     * @param currencyPairs A request can only query up to 50 currency pairs (required)
+     * @param currencyPairs A request can only query up to 50 currency pairs. (required)
      * @return Map&lt;String, SpotFee&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public Map<String, SpotFee> getBatchSpotFee(String currencyPairs) throws ApiException {
@@ -1482,15 +1482,15 @@ public class SpotApi {
     }
 
     /**
-     * Query a batch of user trading fee rates
+     * Query a batch of user trading fee rates.
      * 
-     * @param currencyPairs A request can only query up to 50 currency pairs (required)
+     * @param currencyPairs A request can only query up to 50 currency pairs. (required)
      * @return ApiResponse&lt;Map&lt;String, SpotFee&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Map<String, SpotFee>> getBatchSpotFeeWithHttpInfo(String currencyPairs) throws ApiException {
@@ -1500,16 +1500,16 @@ public class SpotApi {
     }
 
     /**
-     * Query a batch of user trading fee rates (asynchronously)
+     * Query a batch of user trading fee rates. (asynchronously)
      * 
-     * @param currencyPairs A request can only query up to 50 currency pairs (required)
+     * @param currencyPairs A request can only query up to 50 currency pairs. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getBatchSpotFeeAsync(String currencyPairs, final ApiCallback<Map<String, SpotFee>> _callback) throws ApiException {
@@ -1580,7 +1580,7 @@ public class SpotApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistSpotAccountsRequest
          */
         public APIlistSpotAccountsRequest currency(String currency) {
@@ -1596,7 +1596,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1610,7 +1610,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SpotAccount> execute() throws ApiException {
@@ -1625,7 +1625,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SpotAccount>> executeWithHttpInfo() throws ApiException {
@@ -1640,7 +1640,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SpotAccount>> _callback) throws ApiException {
@@ -1649,13 +1649,13 @@ public class SpotApi {
     }
 
     /**
-     * List spot accounts
+     * List spot accounts.
      * 
      * @return APIlistSpotAccountsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSpotAccountsRequest listSpotAccounts() {
@@ -1753,7 +1753,7 @@ public class SpotApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistSpotAccountBookRequest
          */
         public APIlistSpotAccountBookRequest currency(String currency) {
@@ -1763,7 +1763,7 @@ public class SpotApi {
 
         /**
          * Set from
-         * @param from Start timestamp of the query (optional)
+         * @param from Start timestamp of the query. (optional)
          * @return APIlistSpotAccountBookRequest
          */
         public APIlistSpotAccountBookRequest from(Long from) {
@@ -1773,7 +1773,7 @@ public class SpotApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistSpotAccountBookRequest
          */
         public APIlistSpotAccountBookRequest to(Long to) {
@@ -1783,7 +1783,7 @@ public class SpotApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistSpotAccountBookRequest
          */
         public APIlistSpotAccountBookRequest page(Integer page) {
@@ -1793,7 +1793,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistSpotAccountBookRequest
          */
         public APIlistSpotAccountBookRequest limit(Integer limit) {
@@ -1829,7 +1829,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1843,7 +1843,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SpotAccountBook> execute() throws ApiException {
@@ -1858,7 +1858,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SpotAccountBook>> executeWithHttpInfo() throws ApiException {
@@ -1873,7 +1873,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SpotAccountBook>> _callback) throws ApiException {
@@ -1882,13 +1882,13 @@ public class SpotApi {
     }
 
     /**
-     * Query account book
-     * Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+     * Query account book.
+     * Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
      * @return APIlistSpotAccountBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSpotAccountBookRequest listSpotAccountBook() {
@@ -1905,7 +1905,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createBatchOrdersCall(List<Order> order, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -1953,7 +1953,7 @@ public class SpotApi {
     }
 
     /**
-     * Create a batch of orders
+     * Create a batch of orders.
      * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -1962,7 +1962,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public List<BatchOrder> createBatchOrders(List<Order> order, String xGateExptime) throws ApiException {
@@ -1971,7 +1971,7 @@ public class SpotApi {
     }
 
     /**
-     * Create a batch of orders
+     * Create a batch of orders.
      * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -1980,7 +1980,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<BatchOrder>> createBatchOrdersWithHttpInfo(List<Order> order, String xGateExptime) throws ApiException {
@@ -1990,7 +1990,7 @@ public class SpotApi {
     }
 
     /**
-     * Create a batch of orders (asynchronously)
+     * Create a batch of orders. (asynchronously)
      * Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2000,7 +2000,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createBatchOrdersAsync(List<Order> order, String xGateExptime, final ApiCallback<List<BatchOrder>> _callback) throws ApiException {
@@ -2081,7 +2081,7 @@ public class SpotApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistAllOpenOrdersRequest
          */
         public APIlistAllOpenOrdersRequest page(Integer page) {
@@ -2091,7 +2091,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in one page in each currency pair (optional, default to 100)
+         * @param limit Maximum number of records returned in one page in each currency pair. (optional, default to 100)
          * @return APIlistAllOpenOrdersRequest
          */
         public APIlistAllOpenOrdersRequest limit(Integer limit) {
@@ -2117,7 +2117,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2131,7 +2131,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<OpenOrders> execute() throws ApiException {
@@ -2146,7 +2146,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<OpenOrders>> executeWithHttpInfo() throws ApiException {
@@ -2161,7 +2161,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<OpenOrders>> _callback) throws ApiException {
@@ -2170,13 +2170,13 @@ public class SpotApi {
     }
 
     /**
-     * List all open orders
-     * Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+     * List all open orders.
+     * Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
      * @return APIlistAllOpenOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistAllOpenOrdersRequest listAllOpenOrders() {
@@ -2192,7 +2192,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> order created. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCrossLiquidateOrderCall(LiquidateOrder liquidateOrder, final ApiCallback _callback) throws ApiException {
@@ -2236,7 +2236,7 @@ public class SpotApi {
     }
 
     /**
-     * close position when cross-currency is disabled
+     * close position when cross-currency is disabled.
      * Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
      * @param liquidateOrder  (required)
      * @return Order
@@ -2244,7 +2244,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> order created. </td><td>  -  </td></tr>
      </table>
      */
     public Order createCrossLiquidateOrder(LiquidateOrder liquidateOrder) throws ApiException {
@@ -2253,7 +2253,7 @@ public class SpotApi {
     }
 
     /**
-     * close position when cross-currency is disabled
+     * close position when cross-currency is disabled.
      * Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
      * @param liquidateOrder  (required)
      * @return ApiResponse&lt;Order&gt;
@@ -2261,7 +2261,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> order created. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Order> createCrossLiquidateOrderWithHttpInfo(LiquidateOrder liquidateOrder) throws ApiException {
@@ -2271,7 +2271,7 @@ public class SpotApi {
     }
 
     /**
-     * close position when cross-currency is disabled (asynchronously)
+     * close position when cross-currency is disabled. (asynchronously)
      * Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
      * @param liquidateOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2280,7 +2280,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> order created. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCrossLiquidateOrderAsync(LiquidateOrder liquidateOrder, final ApiCallback<Order> _callback) throws ApiException {
@@ -2398,7 +2398,7 @@ public class SpotApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistOrdersRequest
          */
         public APIlistOrdersRequest page(Integer page) {
@@ -2428,7 +2428,7 @@ public class SpotApi {
 
         /**
          * Set from
-         * @param from Start timestamp of the query (optional)
+         * @param from Start timestamp of the query. (optional)
          * @return APIlistOrdersRequest
          */
         public APIlistOrdersRequest from(Long from) {
@@ -2438,7 +2438,7 @@ public class SpotApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistOrdersRequest
          */
         public APIlistOrdersRequest to(Long to) {
@@ -2448,7 +2448,7 @@ public class SpotApi {
 
         /**
          * Set side
-         * @param side All bids or asks. Both included if not specified (optional)
+         * @param side All bids or asks. Both included if not specified. (optional)
          * @return APIlistOrdersRequest
          */
         public APIlistOrdersRequest side(String side) {
@@ -2464,7 +2464,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2478,7 +2478,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<Order> execute() throws ApiException {
@@ -2493,7 +2493,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<Order>> executeWithHttpInfo() throws ApiException {
@@ -2508,7 +2508,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Order>> _callback) throws ApiException {
@@ -2517,15 +2517,15 @@ public class SpotApi {
     }
 
     /**
-     * List orders
-     * Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+     * List orders.
+     * Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
      * @param currencyPair Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. (required)
      * @param status List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  (required)
      * @return APIlistOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistOrdersRequest listOrders(String currencyPair, String status) {
@@ -2590,8 +2590,8 @@ public class SpotApi {
     }
 
     /**
-     * Create an order
-     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+     * Create an order.
+     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return Order
@@ -2608,8 +2608,8 @@ public class SpotApi {
     }
 
     /**
-     * Create an order
-     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+     * Create an order.
+     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;Order&gt;
@@ -2627,8 +2627,8 @@ public class SpotApi {
     }
 
     /**
-     * Create an order (asynchronously)
-     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+     * Create an order. (asynchronously)
+     * Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2649,8 +2649,8 @@ public class SpotApi {
 
     /**
      * Build call for cancelOrders
-     * @param currencyPair Currency pair (optional)
-     * @param side All bids or asks. Both included if not specified (optional)
+     * @param currencyPair Currency pair. (optional)
+     * @param side All bids or asks. Both included if not specified. (optional)
      * @param account Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2660,7 +2660,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelOrdersCall(String currencyPair, String side, String account, String actionMode, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -2719,10 +2719,10 @@ public class SpotApi {
     }
 
     /**
-     * Cancel all &#x60;open&#x60; orders in specified currency pair
-     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
-     * @param currencyPair Currency pair (optional)
-     * @param side All bids or asks. Both included if not specified (optional)
+     * Cancel all &#x60;open&#x60; orders in specified currency pair.
+     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+     * @param currencyPair Currency pair. (optional)
+     * @param side All bids or asks. Both included if not specified. (optional)
      * @param account Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2731,7 +2731,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public List<OrderCancel> cancelOrders(String currencyPair, String side, String account, String actionMode, String xGateExptime) throws ApiException {
@@ -2740,10 +2740,10 @@ public class SpotApi {
     }
 
     /**
-     * Cancel all &#x60;open&#x60; orders in specified currency pair
-     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
-     * @param currencyPair Currency pair (optional)
-     * @param side All bids or asks. Both included if not specified (optional)
+     * Cancel all &#x60;open&#x60; orders in specified currency pair.
+     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+     * @param currencyPair Currency pair. (optional)
+     * @param side All bids or asks. Both included if not specified. (optional)
      * @param account Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2752,7 +2752,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<OrderCancel>> cancelOrdersWithHttpInfo(String currencyPair, String side, String account, String actionMode, String xGateExptime) throws ApiException {
@@ -2762,10 +2762,10 @@ public class SpotApi {
     }
 
     /**
-     * Cancel all &#x60;open&#x60; orders in specified currency pair (asynchronously)
-     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
-     * @param currencyPair Currency pair (optional)
-     * @param side All bids or asks. Both included if not specified (optional)
+     * Cancel all &#x60;open&#x60; orders in specified currency pair. (asynchronously)
+     * When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+     * @param currencyPair Currency pair. (optional)
+     * @param side All bids or asks. Both included if not specified. (optional)
      * @param account Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2775,7 +2775,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelOrdersAsync(String currencyPair, String side, String account, String actionMode, String xGateExptime, final ApiCallback<List<OrderCancel>> _callback) throws ApiException {
@@ -2795,7 +2795,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelBatchOrdersCall(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -2843,7 +2843,7 @@ public class SpotApi {
     }
 
     /**
-     * Cancel a batch of orders with an ID list
+     * Cancel a batch of orders with an ID list.
      * Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
      * @param cancelBatchOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2852,7 +2852,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation completed. </td><td>  -  </td></tr>
      </table>
      */
     public List<CancelOrderResult> cancelBatchOrders(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime) throws ApiException {
@@ -2861,7 +2861,7 @@ public class SpotApi {
     }
 
     /**
-     * Cancel a batch of orders with an ID list
+     * Cancel a batch of orders with an ID list.
      * Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
      * @param cancelBatchOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2870,7 +2870,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation completed. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CancelOrderResult>> cancelBatchOrdersWithHttpInfo(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime) throws ApiException {
@@ -2880,7 +2880,7 @@ public class SpotApi {
     }
 
     /**
-     * Cancel a batch of orders with an ID list (asynchronously)
+     * Cancel a batch of orders with an ID list. (asynchronously)
      * Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
      * @param cancelBatchOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2890,7 +2890,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation completed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation completed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelBatchOrdersAsync(List<CancelBatchOrder> cancelBatchOrder, String xGateExptime, final ApiCallback<List<CancelOrderResult>> _callback) throws ApiException {
@@ -2903,7 +2903,7 @@ public class SpotApi {
     /**
      * Build call for getOrder
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
-     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank. (required)
      * @param account Specify query account. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2911,7 +2911,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Detail retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Detail retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getOrderCall(String orderId, String currencyPair, String account, final ApiCallback _callback) throws ApiException {
@@ -2969,17 +2969,17 @@ public class SpotApi {
     }
 
     /**
-     * Get a single order
+     * Get a single order.
      * By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
-     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank. (required)
      * @param account Specify query account. (optional)
      * @return Order
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Detail retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Detail retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public Order getOrder(String orderId, String currencyPair, String account) throws ApiException {
@@ -2988,17 +2988,17 @@ public class SpotApi {
     }
 
     /**
-     * Get a single order
+     * Get a single order.
      * By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
-     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank. (required)
      * @param account Specify query account. (optional)
      * @return ApiResponse&lt;Order&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Detail retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Detail retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Order> getOrderWithHttpInfo(String orderId, String currencyPair, String account) throws ApiException {
@@ -3008,10 +3008,10 @@ public class SpotApi {
     }
 
     /**
-     * Get a single order (asynchronously)
+     * Get a single order. (asynchronously)
      * By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
-     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. (required)
+     * @param currencyPair Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank. (required)
      * @param account Specify query account. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3019,7 +3019,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Detail retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Detail retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getOrderAsync(String orderId, String currencyPair, String account, final ApiCallback<Order> _callback) throws ApiException {
@@ -3032,7 +3032,7 @@ public class SpotApi {
     /**
      * Build call for cancelOrder
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param account Specify query account. (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -3042,7 +3042,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order cancelled. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelOrderCall(String orderId, String currencyPair, String account, String actionMode, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -3108,10 +3108,10 @@ public class SpotApi {
     }
 
     /**
-     * Cancel a single order
+     * Cancel a single order.
      * By default, orders for spot, unified accounts and leveraged accounts are revoked.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param account Specify query account. (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -3120,7 +3120,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order cancelled. </td><td>  -  </td></tr>
      </table>
      */
     public Order cancelOrder(String orderId, String currencyPair, String account, String actionMode, String xGateExptime) throws ApiException {
@@ -3129,10 +3129,10 @@ public class SpotApi {
     }
 
     /**
-     * Cancel a single order
+     * Cancel a single order.
      * By default, orders for spot, unified accounts and leveraged accounts are revoked.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param account Specify query account. (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -3141,7 +3141,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order cancelled. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Order> cancelOrderWithHttpInfo(String orderId, String currencyPair, String account, String actionMode, String xGateExptime) throws ApiException {
@@ -3151,10 +3151,10 @@ public class SpotApi {
     }
 
     /**
-     * Cancel a single order (asynchronously)
+     * Cancel a single order. (asynchronously)
      * By default, orders for spot, unified accounts and leveraged accounts are revoked.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param account Specify query account. (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -3164,7 +3164,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order cancelled. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelOrderAsync(String orderId, String currencyPair, String account, String actionMode, String xGateExptime, final ApiCallback<Order> _callback) throws ApiException {
@@ -3178,7 +3178,7 @@ public class SpotApi {
      * Build call for amendOrder
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param orderPatch  (required)
-     * @param currencyPair Currency pair (optional)
+     * @param currencyPair Currency pair. (optional)
      * @param account Specify query account. (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -3187,7 +3187,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call amendOrderCall(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -3249,11 +3249,11 @@ public class SpotApi {
     }
 
     /**
-     * Amend an order
-     * Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+     * Amend an order.
+     * Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param orderPatch  (required)
-     * @param currencyPair Currency pair (optional)
+     * @param currencyPair Currency pair. (optional)
      * @param account Specify query account. (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return Order
@@ -3261,7 +3261,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public Order amendOrder(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime) throws ApiException {
@@ -3270,11 +3270,11 @@ public class SpotApi {
     }
 
     /**
-     * Amend an order
-     * Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+     * Amend an order.
+     * Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param orderPatch  (required)
-     * @param currencyPair Currency pair (optional)
+     * @param currencyPair Currency pair. (optional)
      * @param account Specify query account. (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;Order&gt;
@@ -3282,7 +3282,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Order> amendOrderWithHttpInfo(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime) throws ApiException {
@@ -3292,11 +3292,11 @@ public class SpotApi {
     }
 
     /**
-     * Amend an order (asynchronously)
-     * Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+     * Amend an order. (asynchronously)
+     * Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
      * @param orderId The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel) (required)
      * @param orderPatch  (required)
-     * @param currencyPair Currency pair (optional)
+     * @param currencyPair Currency pair. (optional)
      * @param account Specify query account. (optional)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3305,7 +3305,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Updated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Updated. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call amendOrderAsync(String orderId, OrderPatch orderPatch, String currencyPair, String account, String xGateExptime, final ApiCallback<Order> _callback) throws ApiException {
@@ -3406,7 +3406,7 @@ public class SpotApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Retrieve results with specified currency pair (optional)
+         * @param currencyPair Retrieve results with specified currency pair. (optional)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest currencyPair(String currencyPair) {
@@ -3416,7 +3416,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest limit(Integer limit) {
@@ -3426,7 +3426,7 @@ public class SpotApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest page(Integer page) {
@@ -3456,7 +3456,7 @@ public class SpotApi {
 
         /**
          * Set from
-         * @param from Start timestamp of the query (optional)
+         * @param from Start timestamp of the query. (optional)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest from(Long from) {
@@ -3466,7 +3466,7 @@ public class SpotApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest to(Long to) {
@@ -3482,7 +3482,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3496,7 +3496,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<Trade> execute() throws ApiException {
@@ -3511,7 +3511,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<Trade>> executeWithHttpInfo() throws ApiException {
@@ -3526,7 +3526,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<Trade>> _callback) throws ApiException {
@@ -3535,13 +3535,13 @@ public class SpotApi {
     }
 
     /**
-     * List personal trading history
-     * By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+     * List personal trading history.
+     * By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
      * @return APIlistMyTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistMyTradesRequest listMyTrades() {
@@ -3556,7 +3556,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSystemTimeCall(final ApiCallback _callback) throws ApiException {
@@ -3595,14 +3595,14 @@ public class SpotApi {
     }
 
     /**
-     * Get server current time
+     * Get server current time.
      * 
      * @return SystemTime
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public SystemTime getSystemTime() throws ApiException {
@@ -3611,14 +3611,14 @@ public class SpotApi {
     }
 
     /**
-     * Get server current time
+     * Get server current time.
      * 
      * @return ApiResponse&lt;SystemTime&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<SystemTime> getSystemTimeWithHttpInfo() throws ApiException {
@@ -3628,7 +3628,7 @@ public class SpotApi {
     }
 
     /**
-     * Get server current time (asynchronously)
+     * Get server current time. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3636,7 +3636,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSystemTimeAsync(final ApiCallback<SystemTime> _callback) throws ApiException {
@@ -3655,7 +3655,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call countdownCancelAllSpotCall(CountdownCancelAllSpotTask countdownCancelAllSpotTask, final ApiCallback _callback) throws ApiException {
@@ -3699,15 +3699,15 @@ public class SpotApi {
     }
 
     /**
-     * Countdown cancel orders
-     * Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+     * Countdown cancel orders.
+     * Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
      * @param countdownCancelAllSpotTask  (required)
      * @return TriggerTime
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully. </td><td>  -  </td></tr>
      </table>
      */
     public TriggerTime countdownCancelAllSpot(CountdownCancelAllSpotTask countdownCancelAllSpotTask) throws ApiException {
@@ -3716,15 +3716,15 @@ public class SpotApi {
     }
 
     /**
-     * Countdown cancel orders
-     * Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+     * Countdown cancel orders.
+     * Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
      * @param countdownCancelAllSpotTask  (required)
      * @return ApiResponse&lt;TriggerTime&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TriggerTime> countdownCancelAllSpotWithHttpInfo(CountdownCancelAllSpotTask countdownCancelAllSpotTask) throws ApiException {
@@ -3734,8 +3734,8 @@ public class SpotApi {
     }
 
     /**
-     * Countdown cancel orders (asynchronously)
-     * Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+     * Countdown cancel orders. (asynchronously)
+     * Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
      * @param countdownCancelAllSpotTask  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3743,7 +3743,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Set countdown successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Set countdown successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call countdownCancelAllSpotAsync(CountdownCancelAllSpotTask countdownCancelAllSpotTask, final ApiCallback<TriggerTime> _callback) throws ApiException {
@@ -3763,7 +3763,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order modification executed successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call amendBatchOrdersCall(List<BatchAmendItem> batchAmendItem, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -3811,8 +3811,8 @@ public class SpotApi {
     }
 
     /**
-     * Batch modification of orders
-     * Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+     * Batch modification of orders.
+     * Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
      * @param batchAmendItem  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;BatchOrder&gt;
@@ -3820,7 +3820,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order modification executed successfully. </td><td>  -  </td></tr>
      </table>
      */
     public List<BatchOrder> amendBatchOrders(List<BatchAmendItem> batchAmendItem, String xGateExptime) throws ApiException {
@@ -3829,8 +3829,8 @@ public class SpotApi {
     }
 
     /**
-     * Batch modification of orders
-     * Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+     * Batch modification of orders.
+     * Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
      * @param batchAmendItem  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;BatchOrder&gt;&gt;
@@ -3838,7 +3838,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order modification executed successfully. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<BatchOrder>> amendBatchOrdersWithHttpInfo(List<BatchAmendItem> batchAmendItem, String xGateExptime) throws ApiException {
@@ -3848,8 +3848,8 @@ public class SpotApi {
     }
 
     /**
-     * Batch modification of orders (asynchronously)
-     * Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+     * Batch modification of orders. (asynchronously)
+     * Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
      * @param batchAmendItem  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3858,7 +3858,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Order modification executed successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Order modification executed successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call amendBatchOrdersAsync(List<BatchAmendItem> batchAmendItem, String xGateExptime, final ApiCallback<List<BatchOrder>> _callback) throws ApiException {
@@ -3978,7 +3978,7 @@ public class SpotApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIgetSpotInsuranceHistoryRequest
          */
         public APIgetSpotInsuranceHistoryRequest page(Integer page) {
@@ -3988,7 +3988,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit The maximum number of items returned in the list, the default value is 30 (optional, default to 30)
+         * @param limit The maximum number of items returned in the list, the default value is 30. (optional, default to 30)
          * @return APIgetSpotInsuranceHistoryRequest
          */
         public APIgetSpotInsuranceHistoryRequest limit(Integer limit) {
@@ -4004,7 +4004,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -4018,7 +4018,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SpotInsuranceHistory> execute() throws ApiException {
@@ -4033,7 +4033,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SpotInsuranceHistory>> executeWithHttpInfo() throws ApiException {
@@ -4048,7 +4048,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SpotInsuranceHistory>> _callback) throws ApiException {
@@ -4057,17 +4057,17 @@ public class SpotApi {
     }
 
     /**
-     * Query spot insurance fund historical data
+     * Query spot insurance fund historical data.
      * 
      * @param business Leverage business, margin - position by position; unified - unified account (required)
-     * @param currency Currency (required)
-     * @param from Start timestamp, seconds (required)
-     * @param to End timestamp, in seconds (required)
+     * @param currency Currency. (required)
+     * @param from Start timestamp, seconds. (required)
+     * @param to End timestamp, in seconds. (required)
      * @return APIgetSpotInsuranceHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetSpotInsuranceHistoryRequest getSpotInsuranceHistory(String business, String currency, Long from, Long to) {
@@ -4161,7 +4161,7 @@ public class SpotApi {
 
         /**
          * Set market
-         * @param market Currency pair (optional)
+         * @param market Currency pair. (optional)
          * @return APIlistSpotPriceTriggeredOrdersRequest
          */
         public APIlistSpotPriceTriggeredOrdersRequest market(String market) {
@@ -4171,7 +4171,7 @@ public class SpotApi {
 
         /**
          * Set account
-         * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
+         * @param account Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)
          * @return APIlistSpotPriceTriggeredOrdersRequest
          */
         public APIlistSpotPriceTriggeredOrdersRequest account(String account) {
@@ -4181,7 +4181,7 @@ public class SpotApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistSpotPriceTriggeredOrdersRequest
          */
         public APIlistSpotPriceTriggeredOrdersRequest limit(Integer limit) {
@@ -4191,7 +4191,7 @@ public class SpotApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistSpotPriceTriggeredOrdersRequest
          */
         public APIlistSpotPriceTriggeredOrdersRequest offset(Integer offset) {
@@ -4207,7 +4207,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -4221,7 +4221,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SpotPriceTriggeredOrder> execute() throws ApiException {
@@ -4236,7 +4236,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SpotPriceTriggeredOrder>> executeWithHttpInfo() throws ApiException {
@@ -4251,7 +4251,7 @@ public class SpotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SpotPriceTriggeredOrder>> _callback) throws ApiException {
@@ -4260,14 +4260,14 @@ public class SpotApi {
     }
 
     /**
-     * Retrieve running auto order list
+     * Retrieve running auto order list.
      * 
-     * @param status Only list the orders with this status (required)
+     * @param status Only list the orders with this status. (required)
      * @return APIlistSpotPriceTriggeredOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSpotPriceTriggeredOrdersRequest listSpotPriceTriggeredOrders(String status) {
@@ -4283,7 +4283,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSpotPriceTriggeredOrderCall(SpotPriceTriggeredOrder spotPriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
@@ -4327,7 +4327,7 @@ public class SpotApi {
     }
 
     /**
-     * Create a price-triggered order
+     * Create a price-triggered order.
      * 
      * @param spotPriceTriggeredOrder  (required)
      * @return TriggerOrderResponse
@@ -4335,7 +4335,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
     public TriggerOrderResponse createSpotPriceTriggeredOrder(SpotPriceTriggeredOrder spotPriceTriggeredOrder) throws ApiException {
@@ -4344,7 +4344,7 @@ public class SpotApi {
     }
 
     /**
-     * Create a price-triggered order
+     * Create a price-triggered order.
      * 
      * @param spotPriceTriggeredOrder  (required)
      * @return ApiResponse&lt;TriggerOrderResponse&gt;
@@ -4352,7 +4352,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TriggerOrderResponse> createSpotPriceTriggeredOrderWithHttpInfo(SpotPriceTriggeredOrder spotPriceTriggeredOrder) throws ApiException {
@@ -4362,7 +4362,7 @@ public class SpotApi {
     }
 
     /**
-     * Create a price-triggered order (asynchronously)
+     * Create a price-triggered order. (asynchronously)
      * 
      * @param spotPriceTriggeredOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4371,7 +4371,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Order created </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Order created. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSpotPriceTriggeredOrderAsync(SpotPriceTriggeredOrder spotPriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
@@ -4383,15 +4383,15 @@ public class SpotApi {
 
     /**
      * Build call for cancelSpotPriceTriggeredOrderList
-     * @param market Currency pair (optional)
-     * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
+     * @param market Currency pair. (optional)
+     * @param account Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelSpotPriceTriggeredOrderListCall(String market, String account, final ApiCallback _callback) throws ApiException {
@@ -4438,16 +4438,16 @@ public class SpotApi {
     }
 
     /**
-     * Cancel All Price-triggered Orders
+     * Cancel All Price-triggered Orders.
      * 
-     * @param market Currency pair (optional)
-     * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
+     * @param market Currency pair. (optional)
+     * @param account Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)
      * @return List&lt;SpotPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public List<SpotPriceTriggeredOrder> cancelSpotPriceTriggeredOrderList(String market, String account) throws ApiException {
@@ -4456,16 +4456,16 @@ public class SpotApi {
     }
 
     /**
-     * Cancel All Price-triggered Orders
+     * Cancel All Price-triggered Orders.
      * 
-     * @param market Currency pair (optional)
-     * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
+     * @param market Currency pair. (optional)
+     * @param account Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)
      * @return ApiResponse&lt;List&lt;SpotPriceTriggeredOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<SpotPriceTriggeredOrder>> cancelSpotPriceTriggeredOrderListWithHttpInfo(String market, String account) throws ApiException {
@@ -4475,17 +4475,17 @@ public class SpotApi {
     }
 
     /**
-     * Cancel All Price-triggered Orders (asynchronously)
+     * Cancel All Price-triggered Orders. (asynchronously)
      * 
-     * @param market Currency pair (optional)
-     * @param account Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)
+     * @param market Currency pair. (optional)
+     * @param account Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancellation request accepted. Query order status by listing orders. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelSpotPriceTriggeredOrderListAsync(String market, String account, final ApiCallback<List<SpotPriceTriggeredOrder>> _callback) throws ApiException {
@@ -4497,14 +4497,14 @@ public class SpotApi {
 
     /**
      * Build call for getSpotPriceTriggeredOrder
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSpotPriceTriggeredOrderCall(String orderId, final ApiCallback _callback) throws ApiException {
@@ -4549,15 +4549,15 @@ public class SpotApi {
     }
 
     /**
-     * Get a price-triggered order
+     * Get a price-triggered order.
      * 
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @return SpotPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public SpotPriceTriggeredOrder getSpotPriceTriggeredOrder(String orderId) throws ApiException {
@@ -4566,15 +4566,15 @@ public class SpotApi {
     }
 
     /**
-     * Get a price-triggered order
+     * Get a price-triggered order.
      * 
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @return ApiResponse&lt;SpotPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<SpotPriceTriggeredOrder> getSpotPriceTriggeredOrderWithHttpInfo(String orderId) throws ApiException {
@@ -4584,16 +4584,16 @@ public class SpotApi {
     }
 
     /**
-     * Get a price-triggered order (asynchronously)
+     * Get a price-triggered order. (asynchronously)
      * 
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSpotPriceTriggeredOrderAsync(String orderId, final ApiCallback<SpotPriceTriggeredOrder> _callback) throws ApiException {
@@ -4605,14 +4605,14 @@ public class SpotApi {
 
     /**
      * Build call for cancelSpotPriceTriggeredOrder
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelSpotPriceTriggeredOrderCall(String orderId, final ApiCallback _callback) throws ApiException {
@@ -4657,15 +4657,15 @@ public class SpotApi {
     }
 
     /**
-     * cancel a price-triggered order
+     * cancel a price-triggered order.
      * 
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @return SpotPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public SpotPriceTriggeredOrder cancelSpotPriceTriggeredOrder(String orderId) throws ApiException {
@@ -4674,15 +4674,15 @@ public class SpotApi {
     }
 
     /**
-     * cancel a price-triggered order
+     * cancel a price-triggered order.
      * 
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @return ApiResponse&lt;SpotPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<SpotPriceTriggeredOrder> cancelSpotPriceTriggeredOrderWithHttpInfo(String orderId) throws ApiException {
@@ -4692,16 +4692,16 @@ public class SpotApi {
     }
 
     /**
-     * cancel a price-triggered order (asynchronously)
+     * cancel a price-triggered order. (asynchronously)
      * 
-     * @param orderId Retrieve the data of the order with the specified ID (required)
+     * @param orderId Retrieve the data of the order with the specified ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order detail </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Auto order detail. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelSpotPriceTriggeredOrderAsync(String orderId, final ApiCallback<SpotPriceTriggeredOrder> _callback) throws ApiException {

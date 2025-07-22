@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Lend or redeem
+ * Lend or redeem.
  */
 public class CreateUniLend {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -32,7 +32,7 @@ public class CreateUniLend {
     private String amount;
 
     /**
-     * type: lend - lend, redeem - redeem
+     * type: lend - lend, redeem - redeem.
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -94,7 +94,7 @@ public class CreateUniLend {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     public String getCurrency() {
@@ -113,7 +113,7 @@ public class CreateUniLend {
     }
 
      /**
-     * The amount of currency could be lent
+     * The amount of currency could be lent.
      * @return amount
     **/
     public String getAmount() {
@@ -132,7 +132,7 @@ public class CreateUniLend {
     }
 
      /**
-     * type: lend - lend, redeem - redeem
+     * type: lend - lend, redeem - redeem.
      * @return type
     **/
     public TypeEnum getType() {

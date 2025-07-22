@@ -67,7 +67,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Settlement time
+     * Settlement time.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Underlying
+     * Underlying.
      * @return underlying
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Options contract name
+     * Options contract name.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -127,7 +127,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Strike price (quote currency)
+     * Strike price (quote currency).
      * @return strikePrice
     **/
     @javax.annotation.Nullable
@@ -147,7 +147,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Settlement price (quote currency)
+     * Settlement price (quote currency).
      * @return settlePrice
     **/
     @javax.annotation.Nullable
@@ -167,7 +167,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Size
+     * Size.
      * @return size
     **/
     @javax.annotation.Nullable
@@ -187,7 +187,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Settlement profit (quote currency)
+     * Settlement profit (quote currency).
      * @return settleProfit
     **/
     @javax.annotation.Nullable
@@ -207,7 +207,7 @@ public class OptionsMySettlements {
     }
 
      /**
-     * Fee (quote currency)
+     * Fee (quote currency).
      * @return fee
     **/
     @javax.annotation.Nullable

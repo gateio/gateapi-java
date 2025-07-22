@@ -43,7 +43,7 @@ public class UidPushWithdrawal {
     }
 
      /**
-     * Recipient UID
+     * Recipient UID.
      * @return receiveUid
     **/
     public Long getReceiveUid() {
@@ -62,7 +62,7 @@ public class UidPushWithdrawal {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     public String getCurrency() {
@@ -81,7 +81,7 @@ public class UidPushWithdrawal {
     }
 
      /**
-     * Transfer amount
+     * Transfer amount.
      * @return amount
     **/
     public String getAmount() {

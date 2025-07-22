@@ -64,6 +64,10 @@ public class BrokerCommission1 {
     @SerializedName(SERIALIZED_NAME_SUB_BROKER_INFO)
     private BrokerCommissionSubBrokerInfo subBrokerInfo;
 
+    public static final String SERIALIZED_NAME_ALPHA_CONTRACT_ADDR = "alpha_contract_addr";
+    @SerializedName(SERIALIZED_NAME_ALPHA_CONTRACT_ADDR)
+    private String alphaContractAddr;
+
 
     public BrokerCommission1 commissionTime(Long commissionTime) {
         
@@ -72,7 +76,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * Commission Time. (unix timestamp)
+     * Commission Time. (unix timestamp).
      * @return commissionTime
     **/
     @javax.annotation.Nullable
@@ -92,7 +96,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -112,7 +116,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * Group name
+     * Group name.
      * @return groupName
     **/
     @javax.annotation.Nullable
@@ -132,7 +136,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * The amount of commission rebates
+     * The amount of commission rebates.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -152,7 +156,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * Fee
+     * Fee.
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -172,7 +176,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * Fee currency
+     * Fee currency.
      * @return feeAsset
     **/
     @javax.annotation.Nullable
@@ -192,7 +196,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * The income from rebates, converted to USDT
+     * The income from rebates, converted to USDT.
      * @return rebateFee
     **/
     @javax.annotation.Nullable
@@ -212,7 +216,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * Rebate Type: Spot、Futures、Options
+     * Rebate Type: Spot、Futures、Options.、Alpha
      * @return source
     **/
     @javax.annotation.Nullable
@@ -232,7 +236,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -264,6 +268,26 @@ public class BrokerCommission1 {
     public void setSubBrokerInfo(BrokerCommissionSubBrokerInfo subBrokerInfo) {
         this.subBrokerInfo = subBrokerInfo;
     }
+
+    public BrokerCommission1 alphaContractAddr(String alphaContractAddr) {
+        
+        this.alphaContractAddr = alphaContractAddr;
+        return this;
+    }
+
+     /**
+     * Alpha token address
+     * @return alphaContractAddr
+    **/
+    @javax.annotation.Nullable
+    public String getAlphaContractAddr() {
+        return alphaContractAddr;
+    }
+
+
+    public void setAlphaContractAddr(String alphaContractAddr) {
+        this.alphaContractAddr = alphaContractAddr;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -282,12 +306,13 @@ public class BrokerCommission1 {
                 Objects.equals(this.rebateFee, brokerCommission1.rebateFee) &&
                 Objects.equals(this.source, brokerCommission1.source) &&
                 Objects.equals(this.currencyPair, brokerCommission1.currencyPair) &&
-                Objects.equals(this.subBrokerInfo, brokerCommission1.subBrokerInfo);
+                Objects.equals(this.subBrokerInfo, brokerCommission1.subBrokerInfo) &&
+                Objects.equals(this.alphaContractAddr, brokerCommission1.alphaContractAddr);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(commissionTime, userId, groupName, amount, fee, feeAsset, rebateFee, source, currencyPair, subBrokerInfo);
+        return Objects.hash(commissionTime, userId, groupName, amount, fee, feeAsset, rebateFee, source, currencyPair, subBrokerInfo, alphaContractAddr);
     }
 
 
@@ -305,6 +330,7 @@ public class BrokerCommission1 {
         sb.append("      source: ").append(toIndentedString(source)).append("\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      subBrokerInfo: ").append(toIndentedString(subBrokerInfo)).append("\n");
+        sb.append("      alphaContractAddr: ").append(toIndentedString(alphaContractAddr)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -59,7 +59,7 @@ public class UnifiedLeverageConfig {
     }
 
      /**
-     * Current leverage ratio
+     * Current leverage ratio.
      * @return currentLeverage
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class UnifiedLeverageConfig {
     }
 
      /**
-     * Minimum adjustable leverage ratio
+     * Minimum adjustable leverage ratio.
      * @return minLeverage
     **/
     @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class UnifiedLeverageConfig {
     }
 
      /**
-     * Maximum adjustable leverage ratio
+     * Maximum adjustable leverage ratio.
      * @return maxLeverage
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class UnifiedLeverageConfig {
     }
 
      /**
-     * Current liabilities
+     * Current liabilities.
      * @return debit
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class UnifiedLeverageConfig {
     }
 
      /**
-     * Available Margin
+     * Available Margin.
      * @return availableMargin
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class UnifiedLeverageConfig {
     }
 
      /**
-     * The current leverage you can choose is
+     * The current leverage you can choose is.
      * @return borrowable
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class UnifiedLeverageConfig {
     }
 
      /**
-     * The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller
+     * The maximum amount of margin that can be borrowed and the be borrowed, whichever is smaller
      * @return exceptLeverageBorrowable
     **/
     @javax.annotation.Nullable

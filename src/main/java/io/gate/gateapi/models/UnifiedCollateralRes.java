@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Return of unified account collateral mode settings
+ * Return of unified account collateral mode settings.
  */
 public class UnifiedCollateralRes {
     public static final String SERIALIZED_NAME_IS_SUCCESS = "is_success";
@@ -35,7 +35,7 @@ public class UnifiedCollateralRes {
     }
 
      /**
-     * Whether the setting was successful
+     * Whether the setting was successful.
      * @return isSuccess
     **/
     @javax.annotation.Nullable

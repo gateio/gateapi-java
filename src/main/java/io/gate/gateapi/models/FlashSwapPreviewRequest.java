@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Parameters of flash swap order creation
+ * Parameters of flash swap order creation.
  */
 public class FlashSwapPreviewRequest {
     public static final String SERIALIZED_NAME_SELL_CURRENCY = "sell_currency";

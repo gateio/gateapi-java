@@ -51,7 +51,7 @@ public class UnifiedDiscountTiers {
     }
 
      /**
-     * Tier
+     * Tier.
      * @return tier
     **/
     @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class UnifiedDiscountTiers {
     }
 
      /**
-     * Discount
+     * Discount.
      * @return discount
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class UnifiedDiscountTiers {
     }
 
      /**
-     * Lower limit
+     * Lower limit.
      * @return lowerLimit
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class UnifiedDiscountTiers {
     }
 
      /**
-     * Upper limit,＋ indicates positive infinity
+     * Upper limit,＋ indicates positive infinity.
      * @return upperLimit
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class UnifiedDiscountTiers {
     }
 
      /**
-     * Position leverage
+     * Position leverage.
      * @return leverage
     **/
     @javax.annotation.Nullable

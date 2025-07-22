@@ -42,7 +42,7 @@ public class PartnerSubList {
     }
 
      /**
-     * Total
+     * Total.
      * @return total
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class PartnerSubList {
     }
 
      /**
-     * Subordinate list
+     * Subordinate list.
      * @return list
     **/
     @javax.annotation.Nullable

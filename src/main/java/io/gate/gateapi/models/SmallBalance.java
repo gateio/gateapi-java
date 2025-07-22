@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Convert Small Balance
+ * Convert Small Balance.
  */
 public class SmallBalance {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -47,7 +47,7 @@ public class SmallBalance {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class SmallBalance {
     }
 
      /**
-     * Available balance
+     * Available balance.
      * @return availableBalance
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class SmallBalance {
     }
 
      /**
-     * Estimated as BTC
+     * Estimated as BTC.
      * @return estimatedAsBtc
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class SmallBalance {
     }
 
      /**
-     * Estimated conversion to GT
+     * Estimated conversion to GT.
      * @return convertibleToGt
     **/
     @javax.annotation.Nullable

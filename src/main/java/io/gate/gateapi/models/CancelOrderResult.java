@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Order cancellation result
+ * Order cancellation result.
  */
 public class CancelOrderResult {
     public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -59,7 +59,7 @@ public class CancelOrderResult {
     }
 
      /**
-     * Order currency pair
+     * Order currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class CancelOrderResult {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class CancelOrderResult {
     }
 
      /**
-     * Custom order information
+     * Custom order information.
      * @return text
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class CancelOrderResult {
     }
 
      /**
-     * Whether cancellation succeeded
+     * Whether cancellation succeeded.
      * @return succeeded
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class CancelOrderResult {
     }
 
      /**
-     * Error label when failed to cancel the order; emtpy if succeeded
+     * Error label when failed to cancel the order; emtpy if succeeded.
      * @return label
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class CancelOrderResult {
     }
 
      /**
-     * Error message when failed to cancel the order; empty if succeeded
+     * Error message when failed to cancel the order; empty if succeeded.
      * @return message
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class CancelOrderResult {
     }
 
      /**
-     * Default is empty (deprecated)
+     * Default is empty (deprecated).
      * @return account
     **/
     @javax.annotation.Nullable

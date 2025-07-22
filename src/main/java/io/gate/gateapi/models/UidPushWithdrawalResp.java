@@ -35,7 +35,7 @@ public class UidPushWithdrawalResp {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable

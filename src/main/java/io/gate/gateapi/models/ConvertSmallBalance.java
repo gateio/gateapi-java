@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Convert Small Balance
+ * Convert Small Balance.
  */
 public class ConvertSmallBalance {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -49,7 +49,7 @@ public class ConvertSmallBalance {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -69,7 +69,7 @@ public class ConvertSmallBalance {
     }
 
      /**
-     * Whether to exchange all
+     * Whether to exchange all.
      * @return isAll
     **/
     @javax.annotation.Nullable

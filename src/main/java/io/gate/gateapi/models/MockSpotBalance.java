@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Spot
+ * Spot.
  */
 public class MockSpotBalance {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -39,7 +39,7 @@ public class MockSpotBalance {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     public String getCurrency() {

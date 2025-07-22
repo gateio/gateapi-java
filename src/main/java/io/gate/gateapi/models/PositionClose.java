@@ -32,7 +32,7 @@ public class PositionClose {
     private String contract;
 
     /**
-     * Position side, long or short
+     * Position side, long or short.
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -124,7 +124,7 @@ public class PositionClose {
 
 
      /**
-     * Position close time
+     * Position close time.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -134,7 +134,7 @@ public class PositionClose {
 
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -144,7 +144,7 @@ public class PositionClose {
 
 
      /**
-     * Position side, long or short
+     * Position side, long or short.
      * @return side
     **/
     @javax.annotation.Nullable
@@ -154,7 +154,7 @@ public class PositionClose {
 
 
      /**
-     * PNL
+     * PNL.
      * @return pnl
     **/
     @javax.annotation.Nullable
@@ -164,7 +164,7 @@ public class PositionClose {
 
 
      /**
-     * PNL - Position P/L
+     * PNL - Position P/L.
      * @return pnlPnl
     **/
     @javax.annotation.Nullable
@@ -174,7 +174,7 @@ public class PositionClose {
 
 
      /**
-     * PNL - Funding Fees
+     * PNL - Funding Fees.
      * @return pnlFund
     **/
     @javax.annotation.Nullable
@@ -184,7 +184,7 @@ public class PositionClose {
 
 
      /**
-     * PNL - Transaction Fees
+     * PNL - Transaction Fees.
      * @return pnlFee
     **/
     @javax.annotation.Nullable
@@ -194,7 +194,7 @@ public class PositionClose {
 
 
      /**
-     * Text of close order
+     * Text of close order.
      * @return text
     **/
     @javax.annotation.Nullable
@@ -204,7 +204,7 @@ public class PositionClose {
 
 
      /**
-     * Max Trade Size
+     * Max Trade Size.
      * @return maxSize
     **/
     @javax.annotation.Nullable
@@ -214,7 +214,7 @@ public class PositionClose {
 
 
      /**
-     * Cumulative closed position volume
+     * Cumulative closed position volume.
      * @return accumSize
     **/
     @javax.annotation.Nullable
@@ -224,7 +224,7 @@ public class PositionClose {
 
 
      /**
-     * First Open Time
+     * First Open Time.
      * @return firstOpenTime
     **/
     @javax.annotation.Nullable
@@ -234,7 +234,7 @@ public class PositionClose {
 
 
      /**
-     * When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price.
+     * When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when closing average price.
      * @return longPrice
     **/
     @javax.annotation.Nullable
@@ -244,7 +244,7 @@ public class PositionClose {
 
 
      /**
-     * When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price
+     * When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when closing average price
      * @return shortPrice
     **/
     @javax.annotation.Nullable

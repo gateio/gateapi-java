@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Margin result
+ * Margin result.
  */
 public class MockMarginResult {
     public static final String SERIALIZED_NAME_TYPE = "type";
@@ -62,7 +62,7 @@ public class MockMarginResult {
     }
 
      /**
-     * Position combination type &#x60;original_position&#x60; - Original position &#x60;long_delta_original_position&#x60; - Positive delta + Original position &#x60;short_delta_original_position&#x60; - Negative delta + Original position
+     * Position combination type &#x60;original_position&#x60; - Original position &#x60;long_delta_original_position&#x60; - Positive delta + Original position &#x60;short_delta_original_position&#x60; position
      * @return type
     **/
     @javax.annotation.Nullable
@@ -90,7 +90,7 @@ public class MockMarginResult {
     }
 
      /**
-     * The results of 33 pressure scenarios for MR1
+     * The results of 3 pressure scenarios for MR1.
      * @return profitLossRanges
     **/
     @javax.annotation.Nullable
@@ -130,7 +130,7 @@ public class MockMarginResult {
     }
 
      /**
-     * Stress testing
+     * Stress testing.
      * @return mr1
     **/
     @javax.annotation.Nullable
@@ -150,7 +150,7 @@ public class MockMarginResult {
     }
 
      /**
-     * Basis spread risk
+     * Basis spread risk.
      * @return mr2
     **/
     @javax.annotation.Nullable
@@ -170,7 +170,7 @@ public class MockMarginResult {
     }
 
      /**
-     * Volatility spread risk
+     * Volatility spread risk.
      * @return mr3
     **/
     @javax.annotation.Nullable
@@ -190,7 +190,7 @@ public class MockMarginResult {
     }
 
      /**
-     * Option short risk
+     * Option short risk.
      * @return mr4
     **/
     @javax.annotation.Nullable

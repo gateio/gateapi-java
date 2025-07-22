@@ -39,7 +39,7 @@ public class InsuranceRecord {
     }
 
      /**
-     * Unix timestamp in seconds
+     * Unix timestamp in seconds.
      * @return t
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class InsuranceRecord {
     }
 
      /**
-     * Insurance balance
+     * Insurance balance.
      * @return b
     **/
     @javax.annotation.Nullable

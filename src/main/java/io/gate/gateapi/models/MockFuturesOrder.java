@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Futures order
+ * Futures order.
  */
 public class MockFuturesOrder {
     public static final String SERIALIZED_NAME_CONTRACT = "contract";
@@ -81,7 +81,7 @@ public class MockFuturesOrder {
     }
 
      /**
-     * Unfilled contract quantity, involved in actual calculation
+     * Unfilled contract quantity, involved in actual calculation.
      * @return left
     **/
     public String getLeft() {

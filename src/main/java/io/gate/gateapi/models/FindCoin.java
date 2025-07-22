@@ -39,7 +39,7 @@ public class FindCoin {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return coin
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class FindCoin {
     }
 
      /**
-     * Coin Type  swap-Voucher  lock-Locked
+     * Coin Type swap-Voucher lock-Locked.
      * @return cointype
     **/
     @javax.annotation.Nullable

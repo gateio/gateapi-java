@@ -55,7 +55,7 @@ public class AgencyCommission {
     }
 
      /**
-     * Commission Time. (unix timestamp)
+     * Commission Time. (unix timestamp).
      * @return commissionTime
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class AgencyCommission {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class AgencyCommission {
     }
 
      /**
-     * Group name
+     * Group name.
      * @return groupName
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class AgencyCommission {
     }
 
      /**
-     * Commission Amount
+     * Commission Amount.
      * @return commissionAmount
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class AgencyCommission {
     }
 
      /**
-     * Commission Asset
+     * Commission Asset.
      * @return commissionAsset
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class AgencyCommission {
     }
 
      /**
-     * Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate
+     * Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate.
      * @return source
     **/
     @javax.annotation.Nullable

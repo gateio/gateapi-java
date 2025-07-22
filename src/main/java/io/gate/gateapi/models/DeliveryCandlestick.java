@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * data point in every timestamp
+ * data point in every timestamp.
  */
 public class DeliveryCandlestick {
     public static final String SERIALIZED_NAME_T = "t";
@@ -55,7 +55,7 @@ public class DeliveryCandlestick {
     }
 
      /**
-     * Unix timestamp in seconds
+     * Unix timestamp in seconds.
      * @return t
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class DeliveryCandlestick {
     }
 
      /**
-     * size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed
+     * size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed.
      * @return v
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class DeliveryCandlestick {
     }
 
      /**
-     * Close price (quote currency)
+     * Close price (quote currency).
      * @return c
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class DeliveryCandlestick {
     }
 
      /**
-     * Highest price (quote currency)
+     * Highest price (quote currency).
      * @return h
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class DeliveryCandlestick {
     }
 
      /**
-     * Lowest price (quote currency)
+     * Lowest price (quote currency).
      * @return l
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class DeliveryCandlestick {
     }
 
      /**
-     * Open price (quote currency)
+     * Open price (quote currency).
      * @return o
     **/
     @javax.annotation.Nullable

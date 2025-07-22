@@ -47,7 +47,7 @@ public class CreateCollateralOrder {
     }
 
      /**
-     * Collateral amount
+     * Collateral amount.
      * @return collateralAmount
     **/
     public String getCollateralAmount() {
@@ -66,7 +66,7 @@ public class CreateCollateralOrder {
     }
 
      /**
-     * Collateral
+     * Collateral.
      * @return collateralCurrency
     **/
     public String getCollateralCurrency() {
@@ -85,7 +85,7 @@ public class CreateCollateralOrder {
     }
 
      /**
-     * Borrowing amount
+     * Borrowing amount.
      * @return borrowAmount
     **/
     public String getBorrowAmount() {
@@ -104,7 +104,7 @@ public class CreateCollateralOrder {
     }
 
      /**
-     * Borrowed currency
+     * Borrowed currency.
      * @return borrowCurrency
     **/
     public String getBorrowCurrency() {

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Batch query unified account can be transferred up to a maximum of results
+ * Batch query unified account can be transferred up to a maximum of results.
  */
 public class TransferablesResult {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -39,7 +39,7 @@ public class TransferablesResult {
     }
 
      /**
-     * Currency detail
+     * Currency detail.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class TransferablesResult {
     }
 
      /**
-     * The maximum amount that can be transferred out
+     * The maximum amount that can be transferred out.
      * @return amount
     **/
     @javax.annotation.Nullable

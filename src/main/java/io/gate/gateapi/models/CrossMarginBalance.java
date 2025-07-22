@@ -47,7 +47,7 @@ public class CrossMarginBalance {
     }
 
      /**
-     * Available amount
+     * Available amount.
      * @return available
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class CrossMarginBalance {
     }
 
      /**
-     * Locked amount
+     * Locked amount.
      * @return freeze
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class CrossMarginBalance {
     }
 
      /**
-     * Borrowed amount
+     * Borrowed amount.
      * @return borrowed
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class CrossMarginBalance {
     }
 
      /**
-     * Unpaid interests
+     * Unpaid interests.
      * @return interest
     **/
     @javax.annotation.Nullable

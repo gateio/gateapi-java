@@ -59,7 +59,7 @@ public class SubAccountKeyPerms {
     }
 
      /**
-     * read only
+     * read only.
      * @return readOnly
     **/
     @javax.annotation.Nullable

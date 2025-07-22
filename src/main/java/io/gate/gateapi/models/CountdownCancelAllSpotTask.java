@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Countdown cancel task detail
+ * Countdown cancel task detail.
  */
 public class CountdownCancelAllSpotTask {
     public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
@@ -58,7 +58,7 @@ public class CountdownCancelAllSpotTask {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable

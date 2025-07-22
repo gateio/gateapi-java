@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Futures order details
+ * Futures order details.
  */
 public class BatchFuturesOrder {
     public static final String SERIALIZED_NAME_SUCCEEDED = "succeeded";
@@ -52,7 +52,7 @@ public class BatchFuturesOrder {
     private Double finishTime;
 
     /**
-     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
+     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
      */
     @JsonAdapter(FinishAsEnum.Adapter.class)
     public enum FinishAsEnum {
@@ -334,7 +334,7 @@ public class BatchFuturesOrder {
     private AutoSizeEnum autoSize;
 
     /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      */
     @JsonAdapter(StpActEnum.Adapter.class)
     public enum StpActEnum {
@@ -400,7 +400,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Whether the batch of orders succeeded
+     * Whether the batch of orders succeeded.
      * @return succeeded
     **/
     @javax.annotation.Nullable
@@ -420,7 +420,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Error label, only exists if execution fails
+     * Error label, only exists if execution fails.
      * @return label
     **/
     @javax.annotation.Nullable
@@ -454,7 +454,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Futures order ID
+     * Futures order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -464,7 +464,7 @@ public class BatchFuturesOrder {
 
 
      /**
-     * User ID
+     * User ID.
      * @return user
     **/
     @javax.annotation.Nullable
@@ -474,7 +474,7 @@ public class BatchFuturesOrder {
 
 
      /**
-     * Creation time of order
+     * Creation time of order.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -484,7 +484,7 @@ public class BatchFuturesOrder {
 
 
      /**
-     * Order finished time. Not returned if order is open
+     * Order finished time. Not returned if order is open.
      * @return finishTime
     **/
     @javax.annotation.Nullable
@@ -494,7 +494,7 @@ public class BatchFuturesOrder {
 
 
      /**
-     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
+     * How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
      * @return finishAs
     **/
     @javax.annotation.Nullable
@@ -520,7 +520,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -580,7 +580,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;
+     * Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -600,7 +600,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0
+     * Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0.
      * @return close
     **/
     @javax.annotation.Nullable
@@ -614,7 +614,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Is the order to close position
+     * Is the order to close position.
      * @return isClose
     **/
     @javax.annotation.Nullable
@@ -630,7 +630,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Set as &#x60;true&#x60; to be reduce-only order
+     * Set as &#x60;true&#x60; to be reduce-only order.
      * @return reduceOnly
     **/
     @javax.annotation.Nullable
@@ -644,7 +644,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Is the order reduce-only
+     * Is the order reduce-only.
      * @return isReduceOnly
     **/
     @javax.annotation.Nullable
@@ -654,7 +654,7 @@ public class BatchFuturesOrder {
 
 
      /**
-     * Is the order for liquidation
+     * Is the order for liquidation.
      * @return isLiq
     **/
     @javax.annotation.Nullable
@@ -684,7 +684,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Size left to be traded
+     * Size left to be traded.
      * @return left
     **/
     @javax.annotation.Nullable
@@ -694,7 +694,7 @@ public class BatchFuturesOrder {
 
 
      /**
-     * Fill price of the order
+     * Fill price of the order.
      * @return fillPrice
     **/
     @javax.annotation.Nullable
@@ -724,7 +724,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Taker fee
+     * Taker fee.
      * @return tkfr
     **/
     @javax.annotation.Nullable
@@ -734,7 +734,7 @@ public class BatchFuturesOrder {
 
 
      /**
-     * Maker fee
+     * Maker fee.
      * @return mkfr
     **/
     @javax.annotation.Nullable
@@ -744,7 +744,7 @@ public class BatchFuturesOrder {
 
 
      /**
-     * Reference user ID
+     * Reference user ID.
      * @return refu
     **/
     @javax.annotation.Nullable
@@ -780,7 +780,7 @@ public class BatchFuturesOrder {
     }
 
      /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      * @return stpAct
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Options underlying detail
+ * Options underlying detail.
  */
 public class OptionsUnderlyingTicker {
     public static final String SERIALIZED_NAME_TRADE_PUT = "trade_put";
@@ -43,7 +43,7 @@ public class OptionsUnderlyingTicker {
     }
 
      /**
-     * Total put options trades amount in last 24h
+     * Total put options trades amount in last 24h.
      * @return tradePut
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class OptionsUnderlyingTicker {
     }
 
      /**
-     * Total call options trades amount in last 24h
+     * Total call options trades amount in last 24h.
      * @return tradeCall
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class OptionsUnderlyingTicker {
     }
 
      /**
-     * Index price (quote currency)
+     * Index price (quote currency).
      * @return indexPrice
     **/
     @javax.annotation.Nullable

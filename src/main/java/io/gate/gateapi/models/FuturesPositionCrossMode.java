@@ -39,7 +39,7 @@ public class FuturesPositionCrossMode {
     }
 
      /**
-     * Full position-by-position model, ISOLATED-by-position, CROSS-full position
+     * Full position-by-position model, ISOLATED-by-position, CROSS-full position.
      * @return mode
     **/
     public String getMode() {
@@ -58,7 +58,7 @@ public class FuturesPositionCrossMode {
     }
 
      /**
-     * Contract Market
+     * Contract Market.
      * @return contract
     **/
     public String getContract() {

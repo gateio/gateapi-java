@@ -52,7 +52,7 @@ public class OptionsMyTrade {
     private String underlyingPrice;
 
     /**
-     * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
+     * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.
      */
     @JsonAdapter(RoleEnum.Adapter.class)
     public enum RoleEnum {
@@ -110,7 +110,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Trade ID
+     * Trade ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -130,7 +130,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Trading time
+     * Trading time.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -150,7 +150,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Options contract name
+     * Options contract name.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -170,7 +170,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Order ID related
+     * Order ID related.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -190,7 +190,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Trading size
+     * Trading size.
      * @return size
     **/
     @javax.annotation.Nullable
@@ -210,7 +210,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Trading price (quote currency)
+     * Trading price (quote currency).
      * @return price
     **/
     @javax.annotation.Nullable
@@ -230,7 +230,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Underlying price (quote currency)
+     * Underlying price (quote currency).
      * @return underlyingPrice
     **/
     @javax.annotation.Nullable
@@ -250,7 +250,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
+     * Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.
      * @return role
     **/
     @javax.annotation.Nullable

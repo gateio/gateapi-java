@@ -46,7 +46,7 @@ public class UnifiedRiskUnits {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -94,7 +94,7 @@ public class UnifiedRiskUnits {
     }
 
      /**
-     * Risk unit
+     * Risk unit.
      * @return riskUnits
     **/
     @javax.annotation.Nullable

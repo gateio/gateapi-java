@@ -59,7 +59,7 @@ public class SubAccountToSubAccount {
     }
 
      /**
-     * Transfer currency name
+     * Transfer currency name.
      * @return currency
     **/
     public String getCurrency() {
@@ -98,7 +98,7 @@ public class SubAccountToSubAccount {
     }
 
      /**
-     * Transfer from the user id of the sub-account
+     * Transfer from the user id of the sub-account.
      * @return subAccountFrom
     **/
     public String getSubAccountFrom() {
@@ -136,7 +136,7 @@ public class SubAccountToSubAccount {
     }
 
      /**
-     * Transfer to the user id of the sub-account
+     * Transfer to the user id of the sub-account.
      * @return subAccountTo
     **/
     public String getSubAccountTo() {
@@ -174,7 +174,7 @@ public class SubAccountToSubAccount {
     }
 
      /**
-     * Transfer amount
+     * Transfer amount.
      * @return amount
     **/
     public String getAmount() {

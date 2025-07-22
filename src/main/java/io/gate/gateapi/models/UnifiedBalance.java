@@ -231,7 +231,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Total occupancy (discarded, to be offline field)
+     * Total occupancy (discarded, to be offline field).
      * @return totalFreeze
     **/
     @javax.annotation.Nullable
@@ -291,7 +291,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch
+     * Uniloan financial management amount, effective when turned on as a unified account margin switch
      * @return funding
     **/
     @javax.annotation.Nullable
@@ -311,7 +311,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Funding version
+     * Funding version.
      * @return fundingVersion
     **/
     @javax.annotation.Nullable
@@ -491,7 +491,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Currency enabled as margin: true - Enabled, false - Disabled
+     * Currency enabled as margin: true - Enabled, false - Disabled.
      * @return enabledCollateral
     **/
     @javax.annotation.Nullable

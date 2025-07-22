@@ -65,7 +65,7 @@ public class SubAccountTransferRecordItem {
 
 
      /**
-     * Transfer timestamp
+     * Transfer timestamp.
      * @return timest
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class SubAccountTransferRecordItem {
 
 
      /**
-     * Main account user ID
+     * Main account user ID.
      * @return uid
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class SubAccountTransferRecordItem {
     }
 
      /**
-     * Sub account user ID
+     * Sub account user ID.
      * @return subAccount
     **/
     public String getSubAccount() {
@@ -130,7 +130,7 @@ public class SubAccountTransferRecordItem {
     }
 
      /**
-     * Transfer currency name
+     * Transfer currency name.
      * @return currency
     **/
     public String getCurrency() {
@@ -149,7 +149,7 @@ public class SubAccountTransferRecordItem {
     }
 
      /**
-     * Transfer amount
+     * Transfer amount.
      * @return amount
     **/
     public String getAmount() {
@@ -181,7 +181,7 @@ public class SubAccountTransferRecordItem {
     }
 
      /**
-     * Where the operation is initiated from
+     * Where the operation is initiated from.
      * @return source
     **/
     @javax.annotation.Nullable
@@ -217,7 +217,7 @@ public class SubAccountTransferRecordItem {
     }
 
      /**
-     * Sub-account transfer record status, currently only success
+     * Sub-account transfer record status, currently only success.
      * @return status
     **/
     @javax.annotation.Nullable

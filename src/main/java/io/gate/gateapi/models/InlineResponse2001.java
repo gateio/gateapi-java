@@ -59,7 +59,7 @@ public class InlineResponse2001 {
     }
 
      /**
-     * Unconverted percentage
+     * Unconverted percentage.
      * @return estRate
     **/
     @javax.annotation.Nullable

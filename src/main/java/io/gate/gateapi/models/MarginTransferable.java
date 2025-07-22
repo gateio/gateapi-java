@@ -43,7 +43,7 @@ public class MarginTransferable {
     }
 
      /**
-     * Currency detail
+     * Currency detail.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class MarginTransferable {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class MarginTransferable {
     }
 
      /**
-     * Max transferable amount
+     * Max transferable amount.
      * @return amount
     **/
     @javax.annotation.Nullable

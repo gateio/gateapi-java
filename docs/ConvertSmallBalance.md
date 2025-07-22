@@ -1,12 +1,12 @@
 
 # ConvertSmallBalance
 
-Convert Small Balance
+Convert Small Balance.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **List&lt;String&gt;** | Currency |  [optional]
-**isAll** | **Boolean** | Whether to exchange all |  [optional]
+**currency** | **List&lt;String&gt;** | Currency. |  [optional]
+**isAll** | **Boolean** | Whether to exchange all. |  [optional]
 

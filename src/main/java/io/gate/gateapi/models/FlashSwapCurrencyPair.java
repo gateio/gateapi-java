@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * List all supported currencies in flash swap
+ * List all supported currencies in flash swap.
  */
 public class FlashSwapCurrencyPair {
     public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -63,7 +63,7 @@ public class FlashSwapCurrencyPair {
 
 
      /**
-     * The currency to be sold
+     * The currency to be sold.
      * @return sellCurrency
     **/
     @javax.annotation.Nullable
@@ -73,7 +73,7 @@ public class FlashSwapCurrencyPair {
 
 
      /**
-     * The currency to be bought
+     * The currency to be bought.
      * @return buyCurrency
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class FlashSwapCurrencyPair {
 
 
      /**
-     * The minimum quantity required for selling
+     * The minimum quantity required for selling.
      * @return sellMinAmount
     **/
     @javax.annotation.Nullable
@@ -93,7 +93,7 @@ public class FlashSwapCurrencyPair {
 
 
      /**
-     * The maximum quantity allowed for selling
+     * The maximum quantity allowed for selling.
      * @return sellMaxAmount
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class FlashSwapCurrencyPair {
 
 
      /**
-     * The minimum quantity required for buying
+     * The minimum quantity required for buying.
      * @return buyMinAmount
     **/
     @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class FlashSwapCurrencyPair {
 
 
      /**
-     * The maximum quantity allowed for buying
+     * The maximum quantity allowed for buying.
      * @return buyMaxAmount
     **/
     @javax.annotation.Nullable

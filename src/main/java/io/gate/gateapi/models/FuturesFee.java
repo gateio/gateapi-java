@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * The returned result is a map type, where the key represents the market and the value represents the taker and maker fee rates.
+ * The returned result is a map type, where the key represents the market and taker and maker fee rates.
  */
 public class FuturesFee {
     public static final String SERIALIZED_NAME_TAKER_FEE = "taker_fee";
@@ -33,7 +33,7 @@ public class FuturesFee {
 
 
      /**
-     * Taker fee
+     * Taker fee.
      * @return takerFee
     **/
     @javax.annotation.Nullable
@@ -43,7 +43,7 @@ public class FuturesFee {
 
 
      /**
-     * maker fee
+     * maker fee.
      * @return makerFee
     **/
     @javax.annotation.Nullable

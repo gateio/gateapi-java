@@ -51,7 +51,7 @@ public class BorrowCurrencyInfo {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class BorrowCurrencyInfo {
     }
 
      /**
-     * Currency Index Price
+     * Currency Index Price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class BorrowCurrencyInfo {
     }
 
      /**
-     * outstanding principal
+     * outstanding principal.
      * @return leftRepayPrincipal
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class BorrowCurrencyInfo {
     }
 
      /**
-     * outstanding interest
+     * outstanding interest.
      * @return leftRepayInterest
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class BorrowCurrencyInfo {
     }
 
      /**
-     * Value of left total repayments amount in USDT
+     * Value of left total repayments amount in USDT.
      * @return leftRepayUsdt
     **/
     @javax.annotation.Nullable

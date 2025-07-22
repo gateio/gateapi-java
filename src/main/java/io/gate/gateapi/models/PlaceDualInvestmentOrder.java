@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Dual Investment order
+ * Dual Investment order.
  */
 public class PlaceDualInvestmentOrder {
     public static final String SERIALIZED_NAME_PLAN_ID = "plan_id";
@@ -43,7 +43,7 @@ public class PlaceDualInvestmentOrder {
     }
 
      /**
-     * Plan ID
+     * Plan ID.
      * @return planId
     **/
     public String getPlanId() {
@@ -62,7 +62,7 @@ public class PlaceDualInvestmentOrder {
     }
 
      /**
-     * Subscription amount, mutually exclusive with the copies field
+     * Subscription amount, mutually exclusive with the copies field.
      * @return amount
     **/
     public String getAmount() {

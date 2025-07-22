@@ -43,7 +43,7 @@ public class Eth2RateList {
     }
 
      /**
-     * Date and Time Stamp
+     * Date and Time Stamp.
      * @return dateTime
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class Eth2RateList {
     }
 
      /**
-     * Date
+     * Date.
      * @return date
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class Eth2RateList {
     }
 
      /**
-     * percentage
+     * percentage.
      * @return rate
     **/
     @javax.annotation.Nullable

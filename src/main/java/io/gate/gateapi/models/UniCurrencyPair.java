@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Currency pair of the loan
+ * Currency pair of the loan.
  */
 public class UniCurrencyPair {
     public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -41,7 +41,7 @@ public class UniCurrencyPair {
 
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -51,7 +51,7 @@ public class UniCurrencyPair {
 
 
      /**
-     * Minimum borrow amount of base currency
+     * Minimum borrow amount of base currency.
      * @return baseMinBorrowAmount
     **/
     @javax.annotation.Nullable
@@ -61,7 +61,7 @@ public class UniCurrencyPair {
 
 
      /**
-     * Minimum borrow amount of quote currency
+     * Minimum borrow amount of quote currency.
      * @return quoteMinBorrowAmount
     **/
     @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class UniCurrencyPair {
 
 
      /**
-     * Position leverage
+     * Position leverage.
      * @return leverage
     **/
     @javax.annotation.Nullable

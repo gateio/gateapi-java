@@ -43,7 +43,7 @@ public class MultiLoanRepayItem {
     }
 
      /**
-     * Repayment currency
+     * Repayment currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class MultiLoanRepayItem {
     }
 
      /**
-     * Size
+     * Size.
      * @return amount
     **/
     @javax.annotation.Nullable

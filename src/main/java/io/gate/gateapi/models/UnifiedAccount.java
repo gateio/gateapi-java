@@ -115,7 +115,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Time of the most recent refresh
+     * Time of the most recent refresh.
      * @return refreshTime
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60;  in all currencies (deprecated, to be deprecated, replaced by unified_account_total)
+     * Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60; in all currencies (deprecated, to be deprecated, replaced by unified_account_total)
      * @return total
     **/
     @javax.annotation.Nullable
@@ -417,7 +417,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Actual leverage, valid in cross-currency margin/combined margin mode
+     * Actual leverage, valid in cross-currency margin/combined margin mode.
      * @return leverage
     **/
     @javax.annotation.Nullable
@@ -473,7 +473,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Whether to use funds as margin
+     * Whether to use funds as margin.
      * @return useFunding
     **/
     @javax.annotation.Nullable
@@ -493,7 +493,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Whether all currencies are used as margin, true - All currencies are used as margin, false - No
+     * Whether all currencies are used as margin, true - false - No
      * @return isAllCollateral
     **/
     @javax.annotation.Nullable

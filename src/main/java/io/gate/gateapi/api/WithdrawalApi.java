@@ -58,7 +58,7 @@ public class WithdrawalApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Withdraw request is accepted. Refer to withdrawal records for status </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Withdraw request is accepted. Refer to withdrawal records for status. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call withdrawCall(LedgerRecord ledgerRecord, final ApiCallback _callback) throws ApiException {
@@ -102,7 +102,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * Withdraw
+     * Withdraw.
      * Withdrawals to Gate addresses do not incur transaction fees.
      * @param ledgerRecord  (required)
      * @return LedgerRecord
@@ -110,7 +110,7 @@ public class WithdrawalApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Withdraw request is accepted. Refer to withdrawal records for status </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Withdraw request is accepted. Refer to withdrawal records for status. </td><td>  -  </td></tr>
      </table>
      */
     public LedgerRecord withdraw(LedgerRecord ledgerRecord) throws ApiException {
@@ -119,7 +119,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * Withdraw
+     * Withdraw.
      * Withdrawals to Gate addresses do not incur transaction fees.
      * @param ledgerRecord  (required)
      * @return ApiResponse&lt;LedgerRecord&gt;
@@ -127,7 +127,7 @@ public class WithdrawalApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Withdraw request is accepted. Refer to withdrawal records for status </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Withdraw request is accepted. Refer to withdrawal records for status. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<LedgerRecord> withdrawWithHttpInfo(LedgerRecord ledgerRecord) throws ApiException {
@@ -137,7 +137,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * Withdraw (asynchronously)
+     * Withdraw. (asynchronously)
      * Withdrawals to Gate addresses do not incur transaction fees.
      * @param ledgerRecord  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -146,7 +146,7 @@ public class WithdrawalApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Withdraw request is accepted. Refer to withdrawal records for status </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Withdraw request is accepted. Refer to withdrawal records for status. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call withdrawAsync(LedgerRecord ledgerRecord, final ApiCallback<LedgerRecord> _callback) throws ApiException {
@@ -209,7 +209,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * UID transfer
+     * UID transfer.
      * Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
      * @param uidPushWithdrawal  (required)
      * @return UidPushWithdrawalResp
@@ -226,7 +226,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * UID transfer
+     * UID transfer.
      * Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
      * @param uidPushWithdrawal  (required)
      * @return ApiResponse&lt;UidPushWithdrawalResp&gt;
@@ -244,7 +244,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * UID transfer (asynchronously)
+     * UID transfer. (asynchronously)
      * Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
      * @param uidPushWithdrawal  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -272,7 +272,7 @@ public class WithdrawalApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Cancellation accepted. Refer to record status for the cancellation result </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Cancellation accepted. Refer to record status for the cancellation result. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelWithdrawalCall(String withdrawalId, final ApiCallback _callback) throws ApiException {
@@ -317,7 +317,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * Cancel withdrawal with specified ID
+     * Cancel withdrawal with specified ID.
      * 
      * @param withdrawalId  (required)
      * @return LedgerRecord
@@ -325,7 +325,7 @@ public class WithdrawalApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Cancellation accepted. Refer to record status for the cancellation result </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Cancellation accepted. Refer to record status for the cancellation result. </td><td>  -  </td></tr>
      </table>
      */
     public LedgerRecord cancelWithdrawal(String withdrawalId) throws ApiException {
@@ -334,7 +334,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * Cancel withdrawal with specified ID
+     * Cancel withdrawal with specified ID.
      * 
      * @param withdrawalId  (required)
      * @return ApiResponse&lt;LedgerRecord&gt;
@@ -342,7 +342,7 @@ public class WithdrawalApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Cancellation accepted. Refer to record status for the cancellation result </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Cancellation accepted. Refer to record status for the cancellation result. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<LedgerRecord> cancelWithdrawalWithHttpInfo(String withdrawalId) throws ApiException {
@@ -352,7 +352,7 @@ public class WithdrawalApi {
     }
 
     /**
-     * Cancel withdrawal with specified ID (asynchronously)
+     * Cancel withdrawal with specified ID. (asynchronously)
      * 
      * @param withdrawalId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -361,7 +361,7 @@ public class WithdrawalApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 202 </td><td> Cancellation accepted. Refer to record status for the cancellation result </td><td>  -  </td></tr>
+        <tr><td> 202 </td><td> Cancellation accepted. Refer to record status for the cancellation result. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelWithdrawalAsync(String withdrawalId, final ApiCallback<LedgerRecord> _callback) throws ApiException {

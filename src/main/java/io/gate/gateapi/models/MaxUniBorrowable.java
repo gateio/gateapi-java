@@ -37,7 +37,7 @@ public class MaxUniBorrowable {
 
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     public String getCurrency() {
@@ -46,7 +46,7 @@ public class MaxUniBorrowable {
 
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -56,7 +56,7 @@ public class MaxUniBorrowable {
 
 
      /**
-     * Maximum borrowable
+     * Maximum borrowable.
      * @return borrowable
     **/
     public String getBorrowable() {

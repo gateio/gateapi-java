@@ -39,7 +39,7 @@ public class PatchUniLend {
     }
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class PatchUniLend {
     }
 
      /**
-     * Minimum interest rate
+     * Minimum interest rate.
      * @return minRate
     **/
     @javax.annotation.Nullable

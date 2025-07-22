@@ -6,5 +6,5 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency** | **String** |  |  [optional]
-**estRate** | **String** | Unconverted percentage |  [optional]
+**estRate** | **String** | Unconverted percentage. |  [optional]
 

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Option orders
+ * Option orders.
  */
 public class MockOptionsOrder {
     public static final String SERIALIZED_NAME_OPTIONS_NAME = "options_name";
@@ -62,7 +62,7 @@ public class MockOptionsOrder {
     }
 
      /**
-     * Initial order quantity, not involved in actual calculation
+     * Initial order quantity, not involved in actual calculation.
      * @return size
     **/
     public String getSize() {
@@ -81,7 +81,7 @@ public class MockOptionsOrder {
     }
 
      /**
-     * Unfilled contract quantity, involved in actual calculation
+     * Unfilled contract quantity, involved in actual calculation.
      * @return left
     **/
     public String getLeft() {

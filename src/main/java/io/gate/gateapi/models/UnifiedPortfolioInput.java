@@ -75,7 +75,7 @@ public class UnifiedPortfolioInput {
     }
 
      /**
-     * Spot
+     * Spot.
      * @return spotBalances
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class UnifiedPortfolioInput {
     }
 
      /**
-     * Spot orders
+     * Spot orders.
      * @return spotOrders
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class UnifiedPortfolioInput {
     }
 
      /**
-     * Futures positions
+     * Futures positions.
      * @return futuresPositions
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class UnifiedPortfolioInput {
     }
 
      /**
-     * Futures order
+     * Futures order.
      * @return futuresOrders
     **/
     @javax.annotation.Nullable
@@ -187,7 +187,7 @@ public class UnifiedPortfolioInput {
     }
 
      /**
-     * Options positions
+     * Options positions.
      * @return optionsPositions
     **/
     @javax.annotation.Nullable
@@ -215,7 +215,7 @@ public class UnifiedPortfolioInput {
     }
 
      /**
-     * Option orders
+     * Option orders.
      * @return optionsOrders
     **/
     @javax.annotation.Nullable

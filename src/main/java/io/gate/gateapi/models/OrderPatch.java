@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Spot order details
+ * Spot order details.
  */
 public class OrderPatch {
     public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
@@ -55,7 +55,7 @@ public class OrderPatch {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class OrderPatch {
     }
 
      /**
-     * Trading Quantity. Either amountor pricemust be specified
+     * Trading Quantity. Either amountor pricemust be specified.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class OrderPatch {
     }
 
      /**
-     * Trading Price. Either amountor pricemust be specified
+     * Trading Price. Either amountor pricemust be specified.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class OrderPatch {
     }
 
      /**
-     * Custom info during amending order
+     * Custom info during amending order.
      * @return amendText
     **/
     @javax.annotation.Nullable

@@ -70,7 +70,7 @@ public class CreateMultiCollateralOrder {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -90,7 +90,7 @@ public class CreateMultiCollateralOrder {
     }
 
      /**
-     * current - current, fixed - fixed, if not specified, default to current
+     * current - current, fixed - fixed, if not specified, default to current.
      * @return orderType
     **/
     @javax.annotation.Nullable
@@ -130,7 +130,7 @@ public class CreateMultiCollateralOrder {
     }
 
      /**
-     * Fixed interest rate, must be specified for fixed
+     * Fixed interest rate, must be specified for fixed.
      * @return fixedRate
     **/
     @javax.annotation.Nullable
@@ -150,7 +150,7 @@ public class CreateMultiCollateralOrder {
     }
 
      /**
-     * Fixed interest rate, automatic renewal
+     * Fixed interest rate, automatic renewal.
      * @return autoRenew
     **/
     @javax.annotation.Nullable
@@ -170,7 +170,7 @@ public class CreateMultiCollateralOrder {
     }
 
      /**
-     * Fixed interest rate, automatic repayment
+     * Fixed interest rate, automatic repayment.
      * @return autoRepay
     **/
     @javax.annotation.Nullable
@@ -190,7 +190,7 @@ public class CreateMultiCollateralOrder {
     }
 
      /**
-     * Borrowed currency
+     * Borrowed currency.
      * @return borrowCurrency
     **/
     public String getBorrowCurrency() {
@@ -209,7 +209,7 @@ public class CreateMultiCollateralOrder {
     }
 
      /**
-     * Borrowing amount
+     * Borrowing amount.
      * @return borrowAmount
     **/
     public String getBorrowAmount() {
@@ -236,7 +236,7 @@ public class CreateMultiCollateralOrder {
     }
 
      /**
-     * Collateral currency and amount
+     * Collateral currency and amount.
      * @return collateralCurrencies
     **/
     @javax.annotation.Nullable

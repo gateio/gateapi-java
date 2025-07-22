@@ -42,7 +42,7 @@ public class PartnerCommissionHistory {
     }
 
      /**
-     * Total
+     * Total.
      * @return total
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class PartnerCommissionHistory {
     }
 
      /**
-     * List of comission history
+     * List of comission history.
      * @return list
     **/
     @javax.annotation.Nullable

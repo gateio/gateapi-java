@@ -60,6 +60,10 @@ public class BrokerTransaction1 {
     @SerializedName(SERIALIZED_NAME_SUB_BROKER_INFO)
     private BrokerCommissionSubBrokerInfo subBrokerInfo;
 
+    public static final String SERIALIZED_NAME_ALPHA_CONTRACT_ADDR = "alpha_contract_addr";
+    @SerializedName(SERIALIZED_NAME_ALPHA_CONTRACT_ADDR)
+    private String alphaContractAddr;
+
 
     public BrokerTransaction1 transactionTime(Long transactionTime) {
         
@@ -68,7 +72,7 @@ public class BrokerTransaction1 {
     }
 
      /**
-     * Transaction Time. (unix timestamp)
+     * Transaction Time. (unix timestamp).
      * @return transactionTime
     **/
     @javax.annotation.Nullable
@@ -88,7 +92,7 @@ public class BrokerTransaction1 {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -108,7 +112,7 @@ public class BrokerTransaction1 {
     }
 
      /**
-     * Group name
+     * Group name.
      * @return groupName
     **/
     @javax.annotation.Nullable
@@ -128,7 +132,7 @@ public class BrokerTransaction1 {
     }
 
      /**
-     * fee (usdt)
+     * fee (usdt).
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -148,7 +152,7 @@ public class BrokerTransaction1 {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -168,7 +172,7 @@ public class BrokerTransaction1 {
     }
 
      /**
-     * Commission Amount
+     * Commission Amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -188,7 +192,7 @@ public class BrokerTransaction1 {
     }
 
      /**
-     * Fee currency
+     * Fee currency.
      * @return feeAsset
     **/
     @javax.annotation.Nullable
@@ -208,7 +212,7 @@ public class BrokerTransaction1 {
     }
 
      /**
-     * Rebate Type: Spot、Futures、Options
+     * Rebate Type: Spot、Futures、Options.、Alpha
      * @return source
     **/
     @javax.annotation.Nullable
@@ -240,6 +244,26 @@ public class BrokerTransaction1 {
     public void setSubBrokerInfo(BrokerCommissionSubBrokerInfo subBrokerInfo) {
         this.subBrokerInfo = subBrokerInfo;
     }
+
+    public BrokerTransaction1 alphaContractAddr(String alphaContractAddr) {
+        
+        this.alphaContractAddr = alphaContractAddr;
+        return this;
+    }
+
+     /**
+     * Alpha token address
+     * @return alphaContractAddr
+    **/
+    @javax.annotation.Nullable
+    public String getAlphaContractAddr() {
+        return alphaContractAddr;
+    }
+
+
+    public void setAlphaContractAddr(String alphaContractAddr) {
+        this.alphaContractAddr = alphaContractAddr;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -257,12 +281,13 @@ public class BrokerTransaction1 {
                 Objects.equals(this.amount, brokerTransaction1.amount) &&
                 Objects.equals(this.feeAsset, brokerTransaction1.feeAsset) &&
                 Objects.equals(this.source, brokerTransaction1.source) &&
-                Objects.equals(this.subBrokerInfo, brokerTransaction1.subBrokerInfo);
+                Objects.equals(this.subBrokerInfo, brokerTransaction1.subBrokerInfo) &&
+                Objects.equals(this.alphaContractAddr, brokerTransaction1.alphaContractAddr);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transactionTime, userId, groupName, fee, currencyPair, amount, feeAsset, source, subBrokerInfo);
+        return Objects.hash(transactionTime, userId, groupName, fee, currencyPair, amount, feeAsset, source, subBrokerInfo, alphaContractAddr);
     }
 
 
@@ -279,6 +304,7 @@ public class BrokerTransaction1 {
         sb.append("      feeAsset: ").append(toIndentedString(feeAsset)).append("\n");
         sb.append("      source: ").append(toIndentedString(source)).append("\n");
         sb.append("      subBrokerInfo: ").append(toIndentedString(subBrokerInfo)).append("\n");
+        sb.append("      alphaContractAddr: ").append(toIndentedString(alphaContractAddr)).append("\n");
         sb.append("}");
         return sb.toString();
     }

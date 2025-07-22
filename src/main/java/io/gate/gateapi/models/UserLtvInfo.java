@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * User&#39;s currency statistics data
+ * User&#39;s currency statistics data.
  */
 public class UserLtvInfo {
     public static final String SERIALIZED_NAME_COLLATERAL_CURRENCY = "collateral_currency";
@@ -59,7 +59,7 @@ public class UserLtvInfo {
     }
 
      /**
-     * Collateral
+     * Collateral.
      * @return collateralCurrency
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class UserLtvInfo {
     }
 
      /**
-     * Borrowed currency
+     * Borrowed currency.
      * @return borrowCurrency
     **/
     @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class UserLtvInfo {
     }
 
      /**
-     * The initial collateralization rate
+     * The initial collateralization rate.
      * @return initLtv
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class UserLtvInfo {
     }
 
      /**
-     * Warning collateralization ratio
+     * Warning collateralization ratio.
      * @return alertLtv
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class UserLtvInfo {
     }
 
      /**
-     * The liquidation collateralization rate
+     * The liquidation collateralization rate.
      * @return liquidateLtv
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class UserLtvInfo {
     }
 
      /**
-     * Minimum borrowable amount for the loan currency
+     * Minimum borrowable amount for the loan currency.
      * @return minBorrowAmount
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class UserLtvInfo {
     }
 
      /**
-     * Remaining borrowable amount for the loan currency
+     * Remaining borrowable amount for the loan currency.
      * @return leftBorrowableAmount
     **/
     @javax.annotation.Nullable

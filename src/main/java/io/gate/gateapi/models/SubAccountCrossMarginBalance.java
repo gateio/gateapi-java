@@ -40,7 +40,7 @@ public class SubAccountCrossMarginBalance {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return uid
     **/
     @javax.annotation.Nullable

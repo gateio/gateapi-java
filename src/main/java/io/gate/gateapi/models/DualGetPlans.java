@@ -83,7 +83,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Plan ID
+     * Plan ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Instrument Name
+     * Instrument Name.
      * @return instrumentName
     **/
     @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Investment Currency
+     * Investment Currency.
      * @return investCurrency
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Strike Currency
+     * Strike Currency.
      * @return exerciseCurrency
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Strike price
+     * Strike price.
      * @return exercisePrice
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Settlement time
+     * Settlement time.
      * @return deliveryTime
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Minimum Copies
+     * Minimum Copies.
      * @return minCopies
     **/
     @javax.annotation.Nullable
@@ -223,7 +223,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Maximum Copies
+     * Maximum Copies.
      * @return maxCopies
     **/
     @javax.annotation.Nullable
@@ -243,7 +243,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Per Unit Value
+     * Per Unit Value.
      * @return perValue
     **/
     @javax.annotation.Nullable
@@ -263,7 +263,7 @@ public class DualGetPlans {
     }
 
      /**
-     * APY
+     * APY.
      * @return apyDisplay
     **/
     @javax.annotation.Nullable
@@ -283,7 +283,7 @@ public class DualGetPlans {
     }
 
      /**
-     * start time
+     * start time.
      * @return startTime
     **/
     @javax.annotation.Nullable
@@ -303,7 +303,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Finished time
+     * Finished time.
      * @return endTime
     **/
     @javax.annotation.Nullable

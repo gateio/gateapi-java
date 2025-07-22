@@ -67,7 +67,7 @@ public class UnifiedSettings {
     }
 
      /**
-     * Spot hedging switch. 
+     * Spot hedging switch.
      * @return spotHedge
     **/
     @javax.annotation.Nullable

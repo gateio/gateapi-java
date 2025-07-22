@@ -59,7 +59,7 @@ public class OptionsMMPReset {
     }
 
      /**
-     * Underlying
+     * Underlying.
      * @return underlying
     **/
     public String getUnderlying() {
@@ -72,7 +72,7 @@ public class OptionsMMPReset {
     }
 
      /**
-     * Time window (milliseconds), between 1-5000, 0 means disabling MMP
+     * Time window (milliseconds), between 1-5000, 0 means disabling MMP.
      * @return window
     **/
     @javax.annotation.Nullable
@@ -92,7 +92,7 @@ public class OptionsMMPReset {
 
 
      /**
-     * Trading volume upper limit (positive number, up to 2 decimal places)
+     * Trading volume upper limit (positive number, up to 2 decimal places).
      * @return qtyLimit
     **/
     @javax.annotation.Nullable
@@ -102,7 +102,7 @@ public class OptionsMMPReset {
 
 
      /**
-     * Upper limit of net delta value (positive number, up to 2 decimal places)
+     * Upper limit of net delta value (positive number, up to 2 decimal places).
      * @return deltaLimit
     **/
     @javax.annotation.Nullable
@@ -112,7 +112,7 @@ public class OptionsMMPReset {
 
 
      /**
-     * Trigger freeze time (milliseconds), 0 means no freeze is triggered
+     * Trigger freeze time (milliseconds), 0 means no freeze is triggered.
      * @return triggerTimeMs
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Interest record
+ * Interest record.
  */
 public class UniLoanInterestRecord {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -53,7 +53,7 @@ public class UniLoanInterestRecord {
 
 
      /**
-     * Currency name
+     * Currency name.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class UniLoanInterestRecord {
 
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -73,7 +73,7 @@ public class UniLoanInterestRecord {
 
 
      /**
-     * Actual rate
+     * Actual rate.
      * @return actualRate
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class UniLoanInterestRecord {
 
 
      /**
-     * Interest
+     * Interest.
      * @return interest
     **/
     @javax.annotation.Nullable
@@ -93,7 +93,7 @@ public class UniLoanInterestRecord {
 
 
      /**
-     * Status: 0 - fail, 1 - success
+     * Status: 0 - fail, 1 - success.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class UniLoanInterestRecord {
 
 
      /**
-     * Type, platform - platform，margin - margin
+     * Type, platform - platform，margin - margin.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class UniLoanInterestRecord {
 
 
      /**
-     * Created time
+     * Created time.
      * @return createTime
     **/
     @javax.annotation.Nullable

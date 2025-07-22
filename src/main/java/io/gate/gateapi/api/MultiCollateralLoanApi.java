@@ -136,7 +136,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistMultiCollateralOrdersRequest
          */
         public APIlistMultiCollateralOrdersRequest page(Integer page) {
@@ -146,7 +146,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 10)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 10)
          * @return APIlistMultiCollateralOrdersRequest
          */
         public APIlistMultiCollateralOrdersRequest limit(Integer limit) {
@@ -156,7 +156,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set sort
-         * @param sort Query the current interest rate of the currency in the previous hour (optional)
+         * @param sort Query the current interest rate of the currency in the previous hour. (optional)
          * @return APIlistMultiCollateralOrdersRequest
          */
         public APIlistMultiCollateralOrdersRequest sort(String sort) {
@@ -182,7 +182,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -196,7 +196,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<MultiCollateralOrder> execute() throws ApiException {
@@ -211,7 +211,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<MultiCollateralOrder>> executeWithHttpInfo() throws ApiException {
@@ -226,7 +226,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MultiCollateralOrder>> _callback) throws ApiException {
@@ -235,13 +235,13 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * List Multi-Collateral Orders
+     * List Multi-Collateral Orders.
      * 
      * @return APIlistMultiCollateralOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistMultiCollateralOrdersRequest listMultiCollateralOrders() {
@@ -257,7 +257,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createMultiCollateralCall(CreateMultiCollateralOrder createMultiCollateralOrder, final ApiCallback _callback) throws ApiException {
@@ -301,7 +301,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Create Multi-Collateral Order
+     * Create Multi-Collateral Order.
      * 
      * @param createMultiCollateralOrder  (required)
      * @return OrderResp
@@ -309,7 +309,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public OrderResp createMultiCollateral(CreateMultiCollateralOrder createMultiCollateralOrder) throws ApiException {
@@ -318,7 +318,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Create Multi-Collateral Order
+     * Create Multi-Collateral Order.
      * 
      * @param createMultiCollateralOrder  (required)
      * @return ApiResponse&lt;OrderResp&gt;
@@ -326,7 +326,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OrderResp> createMultiCollateralWithHttpInfo(CreateMultiCollateralOrder createMultiCollateralOrder) throws ApiException {
@@ -336,7 +336,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Create Multi-Collateral Order (asynchronously)
+     * Create Multi-Collateral Order. (asynchronously)
      * 
      * @param createMultiCollateralOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -345,7 +345,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createMultiCollateralAsync(CreateMultiCollateralOrder createMultiCollateralOrder, final ApiCallback<OrderResp> _callback) throws ApiException {
@@ -357,14 +357,14 @@ public class MultiCollateralLoanApi {
 
     /**
      * Build call for getMultiCollateralOrderDetail
-     * @param orderId Order ID returned on successful order creation (required)
+     * @param orderId Order ID returned on successful order creation. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMultiCollateralOrderDetailCall(String orderId, final ApiCallback _callback) throws ApiException {
@@ -409,15 +409,15 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Get Multi-Collateral Order Detail
+     * Get Multi-Collateral Order Detail.
      * 
-     * @param orderId Order ID returned on successful order creation (required)
+     * @param orderId Order ID returned on successful order creation. (required)
      * @return MultiCollateralOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public MultiCollateralOrder getMultiCollateralOrderDetail(String orderId) throws ApiException {
@@ -426,15 +426,15 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Get Multi-Collateral Order Detail
+     * Get Multi-Collateral Order Detail.
      * 
-     * @param orderId Order ID returned on successful order creation (required)
+     * @param orderId Order ID returned on successful order creation. (required)
      * @return ApiResponse&lt;MultiCollateralOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<MultiCollateralOrder> getMultiCollateralOrderDetailWithHttpInfo(String orderId) throws ApiException {
@@ -444,16 +444,16 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Get Multi-Collateral Order Detail (asynchronously)
+     * Get Multi-Collateral Order Detail. (asynchronously)
      * 
-     * @param orderId Order ID returned on successful order creation (required)
+     * @param orderId Order ID returned on successful order creation. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMultiCollateralOrderDetailAsync(String orderId, final ApiCallback<MultiCollateralOrder> _callback) throws ApiException {
@@ -555,7 +555,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set borrowCurrency
-         * @param borrowCurrency Borrowed currency (optional)
+         * @param borrowCurrency Borrowed currency. (optional)
          * @return APIlistMultiRepayRecordsRequest
          */
         public APIlistMultiRepayRecordsRequest borrowCurrency(String borrowCurrency) {
@@ -565,7 +565,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistMultiRepayRecordsRequest
          */
         public APIlistMultiRepayRecordsRequest page(Integer page) {
@@ -575,7 +575,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 10)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 10)
          * @return APIlistMultiRepayRecordsRequest
          */
         public APIlistMultiRepayRecordsRequest limit(Integer limit) {
@@ -585,7 +585,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set from
-         * @param from Start timestamp of the query (optional)
+         * @param from Start timestamp of the query. (optional)
          * @return APIlistMultiRepayRecordsRequest
          */
         public APIlistMultiRepayRecordsRequest from(Long from) {
@@ -595,7 +595,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistMultiRepayRecordsRequest
          */
         public APIlistMultiRepayRecordsRequest to(Long to) {
@@ -611,7 +611,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -625,7 +625,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<MultiRepayRecord> execute() throws ApiException {
@@ -640,7 +640,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<MultiRepayRecord>> executeWithHttpInfo() throws ApiException {
@@ -655,7 +655,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MultiRepayRecord>> _callback) throws ApiException {
@@ -664,14 +664,14 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * List Multi-Collateral Repay Records
+     * List Multi-Collateral Repay Records.
      * 
-     * @param type Operation type: repay - Regular repayment, liquidate - Liquidation (required)
+     * @param type Operation type: repay - Regular repayment, liquidate - Liquidation. (required)
      * @return APIlistMultiRepayRecordsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistMultiRepayRecordsRequest listMultiRepayRecords(String type) {
@@ -687,7 +687,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call repayMultiCollateralLoanCall(RepayMultiLoan repayMultiLoan, final ApiCallback _callback) throws ApiException {
@@ -731,7 +731,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Repay Multi-Collateral Loan
+     * Repay Multi-Collateral Loan.
      * 
      * @param repayMultiLoan  (required)
      * @return MultiRepayResp
@@ -739,7 +739,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public MultiRepayResp repayMultiCollateralLoan(RepayMultiLoan repayMultiLoan) throws ApiException {
@@ -748,7 +748,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Repay Multi-Collateral Loan
+     * Repay Multi-Collateral Loan.
      * 
      * @param repayMultiLoan  (required)
      * @return ApiResponse&lt;MultiRepayResp&gt;
@@ -756,7 +756,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<MultiRepayResp> repayMultiCollateralLoanWithHttpInfo(RepayMultiLoan repayMultiLoan) throws ApiException {
@@ -766,7 +766,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Repay Multi-Collateral Loan (asynchronously)
+     * Repay Multi-Collateral Loan. (asynchronously)
      * 
      * @param repayMultiLoan  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -775,7 +775,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call repayMultiCollateralLoanAsync(RepayMultiLoan repayMultiLoan, final ApiCallback<MultiRepayResp> _callback) throws ApiException {
@@ -866,7 +866,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistMultiCollateralRecordsRequest
          */
         public APIlistMultiCollateralRecordsRequest page(Integer page) {
@@ -876,7 +876,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 10)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 10)
          * @return APIlistMultiCollateralRecordsRequest
          */
         public APIlistMultiCollateralRecordsRequest limit(Integer limit) {
@@ -886,7 +886,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set from
-         * @param from Start timestamp of the query (optional)
+         * @param from Start timestamp of the query. (optional)
          * @return APIlistMultiCollateralRecordsRequest
          */
         public APIlistMultiCollateralRecordsRequest from(Long from) {
@@ -896,7 +896,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistMultiCollateralRecordsRequest
          */
         public APIlistMultiCollateralRecordsRequest to(Long to) {
@@ -906,7 +906,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set collateralCurrency
-         * @param collateralCurrency Collateral (optional)
+         * @param collateralCurrency Collateral. (optional)
          * @return APIlistMultiCollateralRecordsRequest
          */
         public APIlistMultiCollateralRecordsRequest collateralCurrency(String collateralCurrency) {
@@ -922,7 +922,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -936,7 +936,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<MultiCollateralRecord> execute() throws ApiException {
@@ -951,7 +951,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<MultiCollateralRecord>> executeWithHttpInfo() throws ApiException {
@@ -966,7 +966,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MultiCollateralRecord>> _callback) throws ApiException {
@@ -975,13 +975,13 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query collateral adjustment records
+     * Query collateral adjustment records.
      * 
      * @return APIlistMultiCollateralRecordsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistMultiCollateralRecordsRequest listMultiCollateralRecords() {
@@ -997,7 +997,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call operateMultiCollateralCall(CollateralAdjust collateralAdjust, final ApiCallback _callback) throws ApiException {
@@ -1041,7 +1041,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Operate Multi-Collateral
+     * Operate Multi-Collateral.
      * 
      * @param collateralAdjust  (required)
      * @return CollateralAdjustRes
@@ -1049,7 +1049,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public CollateralAdjustRes operateMultiCollateral(CollateralAdjust collateralAdjust) throws ApiException {
@@ -1058,7 +1058,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Operate Multi-Collateral
+     * Operate Multi-Collateral.
      * 
      * @param collateralAdjust  (required)
      * @return ApiResponse&lt;CollateralAdjustRes&gt;
@@ -1066,7 +1066,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CollateralAdjustRes> operateMultiCollateralWithHttpInfo(CollateralAdjust collateralAdjust) throws ApiException {
@@ -1076,7 +1076,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Operate Multi-Collateral (asynchronously)
+     * Operate Multi-Collateral. (asynchronously)
      * 
      * @param collateralAdjust  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1085,7 +1085,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Operated successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Operated successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call operateMultiCollateralAsync(CollateralAdjust collateralAdjust, final ApiCallback<CollateralAdjustRes> _callback) throws ApiException {
@@ -1097,15 +1097,15 @@ public class MultiCollateralLoanApi {
 
     /**
      * Build call for listUserCurrencyQuota
-     * @param type Currency type: collateral - Collateral currency, borrow - Borrowing  (required)
-     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc (required)
+     * @param type Currency type: collateral - Collateral currency, borrow - Borrowing. (required)
+     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUserCurrencyQuotaCall(String type, String currency, final ApiCallback _callback) throws ApiException {
@@ -1162,16 +1162,16 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * List User Currency Quota
+     * List User Currency Quota.
      * 
-     * @param type Currency type: collateral - Collateral currency, borrow - Borrowing  (required)
-     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc (required)
+     * @param type Currency type: collateral - Collateral currency, borrow - Borrowing. (required)
+     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed (required)
      * @return List&lt;CurrencyQuota&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<CurrencyQuota> listUserCurrencyQuota(String type, String currency) throws ApiException {
@@ -1180,16 +1180,16 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * List User Currency Quota
+     * List User Currency Quota.
      * 
-     * @param type Currency type: collateral - Collateral currency, borrow - Borrowing  (required)
-     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc (required)
+     * @param type Currency type: collateral - Collateral currency, borrow - Borrowing. (required)
+     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed (required)
      * @return ApiResponse&lt;List&lt;CurrencyQuota&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CurrencyQuota>> listUserCurrencyQuotaWithHttpInfo(String type, String currency) throws ApiException {
@@ -1199,17 +1199,17 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * List User Currency Quota (asynchronously)
+     * List User Currency Quota. (asynchronously)
      * 
-     * @param type Currency type: collateral - Collateral currency, borrow - Borrowing  (required)
-     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc (required)
+     * @param type Currency type: collateral - Collateral currency, borrow - Borrowing. (required)
+     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listUserCurrencyQuotaAsync(String type, String currency, final ApiCallback<List<CurrencyQuota>> _callback) throws ApiException {
@@ -1227,7 +1227,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listMultiCollateralCurrenciesCall(final ApiCallback _callback) throws ApiException {
@@ -1266,14 +1266,14 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query supported borrowing and collateral currencies in Multi-Collateral 
+     * Query supported borrowing and collateral currencies in Multi-Collateral.
      * 
      * @return MultiCollateralCurrency
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public MultiCollateralCurrency listMultiCollateralCurrencies() throws ApiException {
@@ -1282,14 +1282,14 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query supported borrowing and collateral currencies in Multi-Collateral 
+     * Query supported borrowing and collateral currencies in Multi-Collateral.
      * 
      * @return ApiResponse&lt;MultiCollateralCurrency&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<MultiCollateralCurrency> listMultiCollateralCurrenciesWithHttpInfo() throws ApiException {
@@ -1299,7 +1299,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query supported borrowing and collateral currencies in Multi-Collateral  (asynchronously)
+     * Query supported borrowing and collateral currencies in Multi-Collateral. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1307,7 +1307,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listMultiCollateralCurrenciesAsync(final ApiCallback<MultiCollateralCurrency> _callback) throws ApiException {
@@ -1325,7 +1325,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMultiCollateralLtvCall(final ApiCallback _callback) throws ApiException {
@@ -1364,14 +1364,14 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Get Multi-Collateral ratio
+     * Get Multi-Collateral ratio.
      * The Multi-Collateral ratio is fixed, irrespective of the currency.
      * @return CollateralLtv
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public CollateralLtv getMultiCollateralLtv() throws ApiException {
@@ -1380,14 +1380,14 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Get Multi-Collateral ratio
+     * Get Multi-Collateral ratio.
      * The Multi-Collateral ratio is fixed, irrespective of the currency.
      * @return ApiResponse&lt;CollateralLtv&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CollateralLtv> getMultiCollateralLtvWithHttpInfo() throws ApiException {
@@ -1397,7 +1397,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Get Multi-Collateral ratio (asynchronously)
+     * Get Multi-Collateral ratio. (asynchronously)
      * The Multi-Collateral ratio is fixed, irrespective of the currency.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1405,7 +1405,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMultiCollateralLtvAsync(final ApiCallback<CollateralLtv> _callback) throws ApiException {
@@ -1423,7 +1423,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMultiCollateralFixRateCall(final ApiCallback _callback) throws ApiException {
@@ -1462,14 +1462,14 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query fixed interest rates for the currency for 7 days and 30 days
+     * Query fixed interest rates for the currency for 7 days and 30 days.
      * 
      * @return List&lt;CollateralFixRate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<CollateralFixRate> getMultiCollateralFixRate() throws ApiException {
@@ -1478,14 +1478,14 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query fixed interest rates for the currency for 7 days and 30 days
+     * Query fixed interest rates for the currency for 7 days and 30 days.
      * 
      * @return ApiResponse&lt;List&lt;CollateralFixRate&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CollateralFixRate>> getMultiCollateralFixRateWithHttpInfo() throws ApiException {
@@ -1495,7 +1495,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query fixed interest rates for the currency for 7 days and 30 days (asynchronously)
+     * Query fixed interest rates for the currency for 7 days and 30 days. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1503,7 +1503,7 @@ public class MultiCollateralLoanApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMultiCollateralFixRateAsync(final ApiCallback<List<CollateralFixRate>> _callback) throws ApiException {
@@ -1585,7 +1585,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set vipLevel
-         * @param vipLevel VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)
+         * @param vipLevel VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)
          * @return APIgetMultiCollateralCurrentRateRequest
          */
         public APIgetMultiCollateralCurrentRateRequest vipLevel(String vipLevel) {
@@ -1601,7 +1601,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1615,7 +1615,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<CollateralCurrentRate> execute() throws ApiException {
@@ -1630,7 +1630,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<CollateralCurrentRate>> executeWithHttpInfo() throws ApiException {
@@ -1645,7 +1645,7 @@ public class MultiCollateralLoanApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<CollateralCurrentRate>> _callback) throws ApiException {
@@ -1654,14 +1654,14 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query the current interest rate of the currency
+     * Query the current interest rate of the currency.
      * Query the current interest rate of the currency in the previous hour.
      * @param currencies Specify currency name query array, separated by commas, maximum 100items. (required)
      * @return APIgetMultiCollateralCurrentRateRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetMultiCollateralCurrentRateRequest getMultiCollateralCurrentRate(List<String> currencies) {

@@ -55,7 +55,7 @@ public class RepayRecordRepaidCurrency {
     }
 
      /**
-     * Repayment currency
+     * Repayment currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class RepayRecordRepaidCurrency {
     }
 
      /**
-     * Currency Index Price
+     * Currency Index Price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class RepayRecordRepaidCurrency {
     }
 
      /**
-     * Repayment amount
+     * Repayment amount.
      * @return repaidAmount
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class RepayRecordRepaidCurrency {
     }
 
      /**
-     * Principal
+     * Principal.
      * @return repaidPrincipal
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class RepayRecordRepaidCurrency {
     }
 
      /**
-     * Interest
+     * Interest.
      * @return repaidInterest
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class RepayRecordRepaidCurrency {
     }
 
      /**
-     * Value of the repayment amount in USDT
+     * Value of the repayment amount in USDT.
      * @return repaidAmountUsdt
     **/
     @javax.annotation.Nullable

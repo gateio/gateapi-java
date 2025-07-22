@@ -39,7 +39,7 @@ public class FuturesOrderBookItem {
     }
 
      /**
-     * Price (quote currency)
+     * Price (quote currency).
      * @return p
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class FuturesOrderBookItem {
     }
 
      /**
-     * Size
+     * Size.
      * @return s
     **/
     @javax.annotation.Nullable

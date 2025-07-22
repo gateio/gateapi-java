@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Repay Multi-Collateral Loan
+ * Repay Multi-Collateral Loan.
  */
 public class RepayMultiLoan {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -42,7 +42,7 @@ public class RepayMultiLoan {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     public Long getOrderId() {
@@ -66,7 +66,7 @@ public class RepayMultiLoan {
     }
 
      /**
-     * Repay Currency Item
+     * Repay Currency Item.
      * @return repayItems
     **/
     public List<MultiLoanRepayItem> getRepayItems() {

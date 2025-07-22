@@ -55,7 +55,7 @@ public class RepayCurrencyRes {
     }
 
      /**
-     * Has the repayment been successful
+     * Has the repayment been successful.
      * @return succeeded
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class RepayCurrencyRes {
     }
 
      /**
-     * Repayment currency
+     * Repayment currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class RepayCurrencyRes {
     }
 
      /**
-     * Principal
+     * Principal.
      * @return repaidPrincipal
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class RepayCurrencyRes {
     }
 
      /**
-     * Principal
+     * Principal.
      * @return repaidInterest
     **/
     @javax.annotation.Nullable

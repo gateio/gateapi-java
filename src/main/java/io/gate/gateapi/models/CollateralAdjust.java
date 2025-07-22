@@ -46,7 +46,7 @@ public class CollateralAdjust {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     public Long getOrderId() {
@@ -92,7 +92,7 @@ public class CollateralAdjust {
     }
 
      /**
-     * Collateral Currency List
+     * Collateral Currency List.
      * @return collaterals
     **/
     @javax.annotation.Nullable

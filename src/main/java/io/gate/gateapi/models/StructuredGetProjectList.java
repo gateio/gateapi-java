@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Structured Products
+ * Structured Products.
  */
 public class StructuredGetProjectList {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -79,7 +79,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * Plan ID
+     * Plan ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * name
+     * name.
      * @return nameEn
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * Investment Currency
+     * Investment Currency.
      * @return investmentCoin
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * Investment term
+     * Investment term.
      * @return investmentPeriod
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * Minimum annual rate
+     * Minimum annual rate.
      * @return minAnnualRate
     **/
     @javax.annotation.Nullable
@@ -199,7 +199,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * Intermediate annual rate
+     * Intermediate annual rate.
      * @return midAnnualRate
     **/
     @javax.annotation.Nullable
@@ -219,7 +219,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * Maximum annual rate
+     * Maximum annual rate.
      * @return maxAnnualRate
     **/
     @javax.annotation.Nullable
@@ -239,7 +239,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * Watch market
+     * Watch market.
      * @return watchMarket
     **/
     @javax.annotation.Nullable
@@ -259,7 +259,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * start time
+     * start time.
      * @return startTime
     **/
     @javax.annotation.Nullable
@@ -279,7 +279,7 @@ public class StructuredGetProjectList {
     }
 
      /**
-     * Finished time
+     * Finished time.
      * @return endTime
     **/
     @javax.annotation.Nullable

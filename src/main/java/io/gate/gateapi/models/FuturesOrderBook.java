@@ -74,7 +74,7 @@ public class FuturesOrderBook {
     }
 
      /**
-     * Response data generation timestamp
+     * Response data generation timestamp.
      * @return current
     **/
     @javax.annotation.Nullable
@@ -94,7 +94,7 @@ public class FuturesOrderBook {
     }
 
      /**
-     * Order book changed timestamp
+     * Order book changed timestamp.
      * @return update
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class FuturesOrderBook {
     }
 
      /**
-     * Asks order depth
+     * Asks order depth.
      * @return asks
     **/
     public List<FuturesOrderBookItem> getAsks() {
@@ -143,7 +143,7 @@ public class FuturesOrderBook {
     }
 
      /**
-     * Bids order depth
+     * Bids order depth.
      * @return bids
     **/
     public List<FuturesOrderBookItem> getBids() {

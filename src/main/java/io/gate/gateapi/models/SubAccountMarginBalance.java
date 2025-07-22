@@ -42,7 +42,7 @@ public class SubAccountMarginBalance {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return uid
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class SubAccountMarginBalance {
     }
 
      /**
-     * Margin account balances
+     * Margin account balances.
      * @return available
     **/
     @javax.annotation.Nullable

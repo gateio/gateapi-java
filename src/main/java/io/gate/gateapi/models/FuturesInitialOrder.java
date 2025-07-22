@@ -40,7 +40,7 @@ public class FuturesInitialOrder {
     private Boolean close = false;
 
     /**
-     * Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+     * Time in force strategy, default is gtc, market order currently only supports ioc mode mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
      */
     @JsonAdapter(TifEnum.Adapter.class)
     public enum TifEnum {
@@ -118,7 +118,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return contract
     **/
     public String getContract() {
@@ -157,7 +157,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Order price. Set to 0 to use market price
+     * Order price. Set to 0 to use market price.
      * @return price
     **/
     public String getPrice() {
@@ -196,7 +196,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+     * Time in force strategy, default is gtc, market order currently only supports ioc mode mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
      * @return tif
     **/
     @javax.annotation.Nullable
@@ -270,7 +270,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Is the order reduce-only
+     * Is the order reduce-only.
      * @return isReduceOnly
     **/
     @javax.annotation.Nullable
@@ -280,7 +280,7 @@ public class FuturesInitialOrder {
 
 
      /**
-     * Is the order to close position
+     * Is the order to close position.
      * @return isClose
     **/
     @javax.annotation.Nullable

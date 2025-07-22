@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * The sub broker info
+ * The sub broker info.
  */
 public class BrokerCommissionSubBrokerInfo {
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
@@ -47,7 +47,7 @@ public class BrokerCommissionSubBrokerInfo {
     }
 
      /**
-     * The sub broker user ID
+     * The sub broker user ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -67,7 +67,7 @@ public class BrokerCommissionSubBrokerInfo {
     }
 
      /**
-     * The sub broker original commission rate
+     * The sub broker original commission rate.
      * @return originalCommissionRate
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class BrokerCommissionSubBrokerInfo {
     }
 
      /**
-     * The sub broker relative commission rate
+     * The sub broker relative commission rate.
      * @return relativeCommissionRate
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class BrokerCommissionSubBrokerInfo {
     }
 
      /**
-     * The sub broker actual commission rate
+     * The sub broker actual commission rate.
      * @return commissionRate
     **/
     @javax.annotation.Nullable

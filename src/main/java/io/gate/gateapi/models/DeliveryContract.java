@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Futures contract details
+ * Futures contract details.
  */
 public class DeliveryContract {
     public static final String SERIALIZED_NAME_NAME = "name";
@@ -32,7 +32,7 @@ public class DeliveryContract {
     private String underlying;
 
     /**
-     * Cycle type, e.g. WEEKLY, QUARTERLY
+     * Cycle type, e.g. WEEKLY, QUARTERLY.
      */
     @JsonAdapter(CycleEnum.Adapter.class)
     public enum CycleEnum {
@@ -87,7 +87,7 @@ public class DeliveryContract {
     private CycleEnum cycle;
 
     /**
-     * Futures contract type
+     * Futures contract type.
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -154,7 +154,7 @@ public class DeliveryContract {
     private String maintenanceRate;
 
     /**
-     * Mark price type, internal - based on internal trading, index - based on external index price
+     * Mark price type, internal - based on internal trading, external index price
      */
     @JsonAdapter(MarkTypeEnum.Adapter.class)
     public enum MarkTypeEnum {
@@ -328,7 +328,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Futures contract
+     * Futures contract.
      * @return name
     **/
     @javax.annotation.Nullable
@@ -348,7 +348,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Underlying
+     * Underlying.
      * @return underlying
     **/
     @javax.annotation.Nullable
@@ -368,7 +368,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Cycle type, e.g. WEEKLY, QUARTERLY
+     * Cycle type, e.g. WEEKLY, QUARTERLY.
      * @return cycle
     **/
     @javax.annotation.Nullable
@@ -388,7 +388,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Futures contract type
+     * Futures contract type.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -408,7 +408,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Multiplier used in converting from invoicing to settlement currency
+     * Multiplier used in converting from invoicing to settlement currency.
      * @return quantoMultiplier
     **/
     @javax.annotation.Nullable
@@ -428,7 +428,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Minimum leverage
+     * Minimum leverage.
      * @return leverageMin
     **/
     @javax.annotation.Nullable
@@ -448,7 +448,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Maximum leverage
+     * Maximum leverage.
      * @return leverageMax
     **/
     @javax.annotation.Nullable
@@ -468,7 +468,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Maintenance rate of margin
+     * Maintenance rate of margin.
      * @return maintenanceRate
     **/
     @javax.annotation.Nullable
@@ -488,7 +488,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Mark price type, internal - based on internal trading, index - based on external index price
+     * Mark price type, internal - based on internal trading, external index price
      * @return markType
     **/
     @javax.annotation.Nullable
@@ -508,7 +508,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Current mark price
+     * Current mark price.
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -528,7 +528,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Current index price
+     * Current index price.
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -548,7 +548,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Last trading price
+     * Last trading price.
      * @return lastPrice
     **/
     @javax.annotation.Nullable
@@ -568,7 +568,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Maker fee rate, where negative means rebate
+     * Maker fee rate, where negative means rebate.
      * @return makerFeeRate
     **/
     @javax.annotation.Nullable
@@ -588,7 +588,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Taker fee rate
+     * Taker fee rate.
      * @return takerFeeRate
     **/
     @javax.annotation.Nullable
@@ -608,7 +608,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Minimum order price increment
+     * Minimum order price increment.
      * @return orderPriceRound
     **/
     @javax.annotation.Nullable
@@ -628,7 +628,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Minimum mark price increment
+     * Minimum mark price increment.
      * @return markPriceRound
     **/
     @javax.annotation.Nullable
@@ -648,7 +648,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Fair basis rate
+     * Fair basis rate.
      * @return basisRate
     **/
     @javax.annotation.Nullable
@@ -668,7 +668,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Fair basis value
+     * Fair basis value.
      * @return basisValue
     **/
     @javax.annotation.Nullable
@@ -688,7 +688,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Funding used for calculating impact bid, ask price
+     * Funding used for calculating impact bid, ask price.
      * @return basisImpactValue
     **/
     @javax.annotation.Nullable
@@ -708,7 +708,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Settle price
+     * Settle price.
      * @return settlePrice
     **/
     @javax.annotation.Nullable
@@ -728,7 +728,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Settle price update interval
+     * Settle price update interval.
      * @return settlePriceInterval
     **/
     @javax.annotation.Nullable
@@ -748,7 +748,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Settle price update duration in seconds
+     * Settle price update duration in seconds.
      * @return settlePriceDuration
     **/
     @javax.annotation.Nullable
@@ -768,7 +768,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Contract expiry timestamp
+     * Contract expiry timestamp.
      * @return expireTime
     **/
     @javax.annotation.Nullable
@@ -788,7 +788,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Risk limit base
+     * Risk limit base.
      * @return riskLimitBase
     **/
     @javax.annotation.Nullable
@@ -808,7 +808,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Step of adjusting risk limit
+     * Step of adjusting risk limit.
      * @return riskLimitStep
     **/
     @javax.annotation.Nullable
@@ -828,7 +828,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Maximum risk limit the contract allowed
+     * Maximum risk limit the contract allowed.
      * @return riskLimitMax
     **/
     @javax.annotation.Nullable
@@ -848,7 +848,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Minimum order size the contract allowed
+     * Minimum order size the contract allowed.
      * @return orderSizeMin
     **/
     @javax.annotation.Nullable
@@ -868,7 +868,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Maximum order size the contract allowed
+     * Maximum order size the contract allowed.
      * @return orderSizeMax
     **/
     @javax.annotation.Nullable
@@ -908,7 +908,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Referral fee rate discount
+     * Referral fee rate discount.
      * @return refDiscountRate
     **/
     @javax.annotation.Nullable
@@ -928,7 +928,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Referrer commission rate
+     * Referrer commission rate.
      * @return refRebateRate
     **/
     @javax.annotation.Nullable
@@ -948,7 +948,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Current orderbook ID
+     * Current orderbook ID.
      * @return orderbookId
     **/
     @javax.annotation.Nullable
@@ -968,7 +968,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Current trade ID
+     * Current trade ID.
      * @return tradeId
     **/
     @javax.annotation.Nullable
@@ -988,7 +988,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Historical accumulated trade size
+     * Historical accumulated trade size.
      * @return tradeSize
     **/
     @javax.annotation.Nullable
@@ -1008,7 +1008,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Current total long position size
+     * Current total long position size.
      * @return positionSize
     **/
     @javax.annotation.Nullable
@@ -1028,7 +1028,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Last changed time of configuration
+     * Last changed time of configuration.
      * @return configChangeTime
     **/
     @javax.annotation.Nullable
@@ -1048,7 +1048,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Contract is delisting
+     * Contract is delisting.
      * @return inDelisting
     **/
     @javax.annotation.Nullable
@@ -1068,7 +1068,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Maximum number of open orders
+     * Maximum number of open orders.
      * @return ordersLimit
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Dual Investment Purchase
+ * Dual Investment Purchase.
  */
 public class StructuredBuy {
     public static final String SERIALIZED_NAME_PID = "pid";
@@ -39,7 +39,7 @@ public class StructuredBuy {
     }
 
      /**
-     * Plan ID
+     * Plan ID.
      * @return pid
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class StructuredBuy {
     }
 
      /**
-     * Purchase Amount
+     * Purchase Amount.
      * @return amount
     **/
     @javax.annotation.Nullable

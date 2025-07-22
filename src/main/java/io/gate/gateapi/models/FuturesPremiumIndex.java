@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * data point in every timestamp
+ * data point in every timestamp.
  */
 public class FuturesPremiumIndex {
     public static final String SERIALIZED_NAME_T = "t";
@@ -51,7 +51,7 @@ public class FuturesPremiumIndex {
     }
 
      /**
-     * Unix timestamp in seconds
+     * Unix timestamp in seconds.
      * @return t
     **/
     @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class FuturesPremiumIndex {
     }
 
      /**
-     * Close price
+     * Close price.
      * @return c
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class FuturesPremiumIndex {
     }
 
      /**
-     * Highest price
+     * Highest price.
      * @return h
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class FuturesPremiumIndex {
     }
 
      /**
-     * Lowest price&#x60;
+     * Lowest price&#x60;.
      * @return l
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class FuturesPremiumIndex {
     }
 
      /**
-     * Open price
+     * Open price.
      * @return o
     **/
     @javax.annotation.Nullable

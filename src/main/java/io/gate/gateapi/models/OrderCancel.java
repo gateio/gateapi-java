@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Spot order details
+ * Spot order details.
  */
 public class OrderCancel {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -176,7 +176,7 @@ public class OrderCancel {
     private String account = "spot";
 
     /**
-     * Buy or sell order
+     * Buy or sell order.
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -362,7 +362,7 @@ public class OrderCancel {
     private Integer stpId;
 
     /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      */
     @JsonAdapter(StpActEnum.Adapter.class)
     public enum StpActEnum {
@@ -479,7 +479,7 @@ public class OrderCancel {
 
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -509,7 +509,7 @@ public class OrderCancel {
     }
 
      /**
-     * The custom data that the user remarked when amending the order
+     * The custom data that the user remarked when amending the order.
      * @return amendText
     **/
     @javax.annotation.Nullable
@@ -525,7 +525,7 @@ public class OrderCancel {
     }
 
      /**
-     * Whether the batch of orders succeeded
+     * Whether the batch of orders succeeded.
      * @return succeeded
     **/
     @javax.annotation.Nullable
@@ -545,7 +545,7 @@ public class OrderCancel {
     }
 
      /**
-     * Error label, if any, otherwise an empty string
+     * Error label, if any, otherwise an empty string.
      * @return label
     **/
     @javax.annotation.Nullable
@@ -565,7 +565,7 @@ public class OrderCancel {
     }
 
      /**
-     * Detailed error message, if any, otherwise an empty string
+     * Detailed error message, if any, otherwise an empty string.
      * @return message
     **/
     @javax.annotation.Nullable
@@ -579,7 +579,7 @@ public class OrderCancel {
     }
 
      /**
-     * Creation time of order
+     * Creation time of order.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -589,7 +589,7 @@ public class OrderCancel {
 
 
      /**
-     * Last modification time of order
+     * Last modification time of order.
      * @return updateTime
     **/
     @javax.annotation.Nullable
@@ -599,7 +599,7 @@ public class OrderCancel {
 
 
      /**
-     * Creation time of order (in milliseconds)
+     * Creation time of order (in milliseconds).
      * @return createTimeMs
     **/
     @javax.annotation.Nullable
@@ -609,7 +609,7 @@ public class OrderCancel {
 
 
      /**
-     * Last modification time of order (in milliseconds)
+     * Last modification time of order (in milliseconds).
      * @return updateTimeMs
     **/
     @javax.annotation.Nullable
@@ -635,7 +635,7 @@ public class OrderCancel {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     public String getCurrencyPair() {
@@ -694,7 +694,7 @@ public class OrderCancel {
     }
 
      /**
-     * Buy or sell order
+     * Buy or sell order.
      * @return side
     **/
     public SideEnum getSide() {
@@ -713,7 +713,7 @@ public class OrderCancel {
     }
 
      /**
-     * When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
+     * When &#x60;type&#x60; is limit, it refers to base currency. For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
      * @return amount
     **/
     public String getAmount() {
@@ -732,7 +732,7 @@ public class OrderCancel {
     }
 
      /**
-     * Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;
+     * Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -772,7 +772,7 @@ public class OrderCancel {
     }
 
      /**
-     * Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
+     * Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported.
      * @return iceberg
     **/
     @javax.annotation.Nullable
@@ -826,7 +826,7 @@ public class OrderCancel {
     }
 
      /**
-     * Amount left to fill
+     * Amount left to fill.
      * @return left
     **/
     @javax.annotation.Nullable
@@ -836,7 +836,7 @@ public class OrderCancel {
 
 
      /**
-     * Amount traded to fill 
+     * Amount traded to fill.
      * @return filledAmount
     **/
     @javax.annotation.Nullable
@@ -846,7 +846,7 @@ public class OrderCancel {
 
 
      /**
-     * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
+     * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;.
      * @return fillPrice
     **/
     @javax.annotation.Nullable
@@ -856,7 +856,7 @@ public class OrderCancel {
 
 
      /**
-     * Total filled in quote currency
+     * Total filled in quote currency.
      * @return filledTotal
     **/
     @javax.annotation.Nullable
@@ -866,7 +866,7 @@ public class OrderCancel {
 
 
      /**
-     * Average fill price
+     * Average fill price.
      * @return avgDealPrice
     **/
     @javax.annotation.Nullable
@@ -876,7 +876,7 @@ public class OrderCancel {
 
 
      /**
-     * Fee deducted
+     * Fee deducted.
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -886,7 +886,7 @@ public class OrderCancel {
 
 
      /**
-     * Fee currency unit
+     * Fee currency unit.
      * @return feeCurrency
     **/
     @javax.annotation.Nullable
@@ -896,7 +896,7 @@ public class OrderCancel {
 
 
      /**
-     * Points used to deduct fee
+     * Points used to deduct fee.
      * @return pointFee
     **/
     @javax.annotation.Nullable
@@ -906,7 +906,7 @@ public class OrderCancel {
 
 
      /**
-     * GT used to deduct fee
+     * GT used to deduct fee.
      * @return gtFee
     **/
     @javax.annotation.Nullable
@@ -916,7 +916,7 @@ public class OrderCancel {
 
 
      /**
-     * GT used to deduct maker fee
+     * GT used to deduct maker fee.
      * @return gtMakerFee
     **/
     @javax.annotation.Nullable
@@ -926,7 +926,7 @@ public class OrderCancel {
 
 
      /**
-     * GT used to deduct taker fee
+     * GT used to deduct taker fee.
      * @return gtTakerFee
     **/
     @javax.annotation.Nullable
@@ -936,7 +936,7 @@ public class OrderCancel {
 
 
      /**
-     * Whether GT fee discount is used
+     * Whether GT fee discount is used.
      * @return gtDiscount
     **/
     @javax.annotation.Nullable
@@ -946,7 +946,7 @@ public class OrderCancel {
 
 
      /**
-     * Rebated fee
+     * Rebated fee.
      * @return rebatedFee
     **/
     @javax.annotation.Nullable
@@ -956,7 +956,7 @@ public class OrderCancel {
 
 
      /**
-     * Rebated fee currency unit
+     * Rebated fee currency unit.
      * @return rebatedFeeCurrency
     **/
     @javax.annotation.Nullable
@@ -982,7 +982,7 @@ public class OrderCancel {
     }
 
      /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      * @return stpAct
     **/
     @javax.annotation.Nullable

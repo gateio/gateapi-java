@@ -39,7 +39,7 @@ public class MultiLoanItem {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class MultiLoanItem {
     }
 
      /**
-     * Latest price of the currency
+     * Latest price of the currency.
      * @return price
     **/
     @javax.annotation.Nullable

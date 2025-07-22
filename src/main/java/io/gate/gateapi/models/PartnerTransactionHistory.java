@@ -42,7 +42,7 @@ public class PartnerTransactionHistory {
     }
 
      /**
-     * Total
+     * Total.
      * @return total
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class PartnerTransactionHistory {
     }
 
      /**
-     * List of transaction history
+     * List of transaction history.
      * @return list
     **/
     @javax.annotation.Nullable

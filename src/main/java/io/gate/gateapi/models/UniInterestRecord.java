@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Interest Record
+ * Interest Record.
  */
 public class UniInterestRecord {
     public static final String SERIALIZED_NAME_STATUS = "status";
@@ -49,7 +49,7 @@ public class UniInterestRecord {
 
 
      /**
-     * Status: 0 - fail, 1 - success
+     * Status: 0 - fail, 1 - success.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class UniInterestRecord {
 
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -69,7 +69,7 @@ public class UniInterestRecord {
 
 
      /**
-     * Actual Rate
+     * Actual Rate.
      * @return actualRate
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class UniInterestRecord {
 
 
      /**
-     * Interest
+     * Interest.
      * @return interest
     **/
     @javax.annotation.Nullable
@@ -89,7 +89,7 @@ public class UniInterestRecord {
 
 
      /**
-     * Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+     * Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
      * @return interestStatus
     **/
     @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class UniInterestRecord {
 
 
      /**
-     * Created time
+     * Created time.
      * @return createTime
     **/
     @javax.annotation.Nullable

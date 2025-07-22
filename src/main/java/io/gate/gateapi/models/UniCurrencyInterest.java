@@ -33,7 +33,7 @@ public class UniCurrencyInterest {
 
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -43,7 +43,7 @@ public class UniCurrencyInterest {
 
 
      /**
-     * Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+     * Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
      * @return interestStatus
     **/
     @javax.annotation.Nullable

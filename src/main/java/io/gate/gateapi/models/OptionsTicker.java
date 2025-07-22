@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Options contract detail
+ * Options contract detail.
  */
 public class OptionsTicker {
     public static final String SERIALIZED_NAME_NAME = "name";
@@ -103,7 +103,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Options contract name
+     * Options contract name.
      * @return name
     **/
     @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Last trading price (quote currency)
+     * Last trading price (quote currency).
      * @return lastPrice
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Current mark price (quote currency)
+     * Current mark price (quote currency).
      * @return markPrice
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Current index price (quote currency)
+     * Current index price (quote currency).
      * @return indexPrice
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Best ask size
+     * Best ask size.
      * @return ask1Size
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Best ask price
+     * Best ask price.
      * @return ask1Price
     **/
     @javax.annotation.Nullable
@@ -223,7 +223,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Best bid size
+     * Best bid size.
      * @return bid1Size
     **/
     @javax.annotation.Nullable
@@ -243,7 +243,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Best bid price
+     * Best bid price.
      * @return bid1Price
     **/
     @javax.annotation.Nullable
@@ -263,7 +263,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Current total long position size
+     * Current total long position size.
      * @return positionSize
     **/
     @javax.annotation.Nullable
@@ -283,7 +283,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Implied volatility
+     * Implied volatility.
      * @return markIv
     **/
     @javax.annotation.Nullable
@@ -303,7 +303,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Bid side implied volatility
+     * Bid side implied volatility.
      * @return bidIv
     **/
     @javax.annotation.Nullable
@@ -323,7 +323,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Ask side implied volatility
+     * Ask side implied volatility.
      * @return askIv
     **/
     @javax.annotation.Nullable
@@ -343,7 +343,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Current leverage. Formula: underlying_price / mark_price * delta
+     * Current leverage. Formula: underlying_price / mark_price * delta.
      * @return leverage
     **/
     @javax.annotation.Nullable
@@ -363,7 +363,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Delta
+     * Delta.
      * @return delta
     **/
     @javax.annotation.Nullable
@@ -383,7 +383,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Gamma
+     * Gamma.
      * @return gamma
     **/
     @javax.annotation.Nullable
@@ -403,7 +403,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Vega
+     * Vega.
      * @return vega
     **/
     @javax.annotation.Nullable
@@ -423,7 +423,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Theta
+     * Theta.
      * @return theta
     **/
     @javax.annotation.Nullable
@@ -443,7 +443,7 @@ public class OptionsTicker {
     }
 
      /**
-     * Rho
+     * Rho.
      * @return rho
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Borrow or repay
+ * Borrow or repay.
  */
 public class CreateUniLoan {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";
@@ -28,7 +28,7 @@ public class CreateUniLoan {
     private String currency;
 
     /**
-     * type: borrow - borrow, repay - repay
+     * type: borrow - borrow, repay - repay.
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -98,7 +98,7 @@ public class CreateUniLoan {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     public String getCurrency() {
@@ -117,7 +117,7 @@ public class CreateUniLoan {
     }
 
      /**
-     * type: borrow - borrow, repay - repay
+     * type: borrow - borrow, repay - repay.
      * @return type
     **/
     public TypeEnum getType() {
@@ -136,7 +136,7 @@ public class CreateUniLoan {
     }
 
      /**
-     * The amount of lending or repaying
+     * The amount of lending or repaying.
      * @return amount
     **/
     public String getAmount() {
@@ -155,7 +155,7 @@ public class CreateUniLoan {
     }
 
      /**
-     * Full repayment.  Repay operation only.  If the value is &#x60;true&#x60;, the amount will be ignored and the loan will be repaid in full.
+     * Full repayment. Repay operation only. If the value is &#x60;true&#x60;, the amount will be ignored and repaid in full.
      * @return repaidAll
     **/
     @javax.annotation.Nullable
@@ -175,7 +175,7 @@ public class CreateUniLoan {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     public String getCurrencyPair() {

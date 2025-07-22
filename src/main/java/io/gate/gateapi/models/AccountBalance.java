@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Total balances calculated with specified currency unit
+ * Total balances calculated with specified currency unit.
  */
 public class AccountBalance {
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
@@ -28,7 +28,7 @@ public class AccountBalance {
     private String amount;
 
     /**
-     * Currency
+     * Currency.
      */
     @JsonAdapter(CurrencyEnum.Adapter.class)
     public enum CurrencyEnum {
@@ -98,7 +98,7 @@ public class AccountBalance {
     }
 
      /**
-     * Account total balance amount
+     * Account total balance amount.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -118,7 +118,7 @@ public class AccountBalance {
     }
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -158,7 +158,7 @@ public class AccountBalance {
     }
 
      /**
-     * Borrowed，this field will only appear in margin and cross_margin accounts
+     * Borrowed，this field will only appear in margin and cross_margin accounts.
      * @return borrowed
     **/
     @javax.annotation.Nullable

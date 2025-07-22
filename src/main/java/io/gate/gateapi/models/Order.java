@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Spot order details
+ * Spot order details.
  */
 public class Order {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -164,7 +164,7 @@ public class Order {
     private String account = "spot";
 
     /**
-     * Buy or sell order
+     * Buy or sell order.
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -350,7 +350,7 @@ public class Order {
     private Integer stpId;
 
     /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      */
     @JsonAdapter(StpActEnum.Adapter.class)
     public enum StpActEnum {
@@ -405,7 +405,7 @@ public class Order {
     private StpActEnum stpAct;
 
     /**
-     * Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order strategy because tif is set to poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
+     * Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
      */
     @JsonAdapter(FinishAsEnum.Adapter.class)
     public enum FinishAsEnum {
@@ -481,7 +481,7 @@ public class Order {
 
 
      /**
-     * Order ID
+     * Order ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -511,7 +511,7 @@ public class Order {
     }
 
      /**
-     * The custom data that the user remarked when amending the order
+     * The custom data that the user remarked when amending the order.
      * @return amendText
     **/
     @javax.annotation.Nullable
@@ -521,7 +521,7 @@ public class Order {
 
 
      /**
-     * Creation time of order
+     * Creation time of order.
      * @return createTime
     **/
     @javax.annotation.Nullable
@@ -531,7 +531,7 @@ public class Order {
 
 
      /**
-     * Last modification time of order
+     * Last modification time of order.
      * @return updateTime
     **/
     @javax.annotation.Nullable
@@ -541,7 +541,7 @@ public class Order {
 
 
      /**
-     * Creation time of order (in milliseconds)
+     * Creation time of order (in milliseconds).
      * @return createTimeMs
     **/
     @javax.annotation.Nullable
@@ -551,7 +551,7 @@ public class Order {
 
 
      /**
-     * Last modification time of order (in milliseconds)
+     * Last modification time of order (in milliseconds).
      * @return updateTimeMs
     **/
     @javax.annotation.Nullable
@@ -577,7 +577,7 @@ public class Order {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     public String getCurrencyPair() {
@@ -636,7 +636,7 @@ public class Order {
     }
 
      /**
-     * Buy or sell order
+     * Buy or sell order.
      * @return side
     **/
     public SideEnum getSide() {
@@ -655,7 +655,7 @@ public class Order {
     }
 
      /**
-     * When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
+     * When &#x60;type&#x60; is limit, it refers to base currency. For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
      * @return amount
     **/
     public String getAmount() {
@@ -674,7 +674,7 @@ public class Order {
     }
 
      /**
-     * Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;
+     * Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -714,7 +714,7 @@ public class Order {
     }
 
      /**
-     * Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
+     * Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported.
      * @return iceberg
     **/
     @javax.annotation.Nullable
@@ -768,7 +768,7 @@ public class Order {
     }
 
      /**
-     * Amount left to fill
+     * Amount left to fill.
      * @return left
     **/
     @javax.annotation.Nullable
@@ -778,7 +778,7 @@ public class Order {
 
 
      /**
-     * Amount traded to fill 
+     * Amount traded to fill.
      * @return filledAmount
     **/
     @javax.annotation.Nullable
@@ -788,7 +788,7 @@ public class Order {
 
 
      /**
-     * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
+     * Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;.
      * @return fillPrice
     **/
     @javax.annotation.Nullable
@@ -798,7 +798,7 @@ public class Order {
 
 
      /**
-     * Total filled in quote currency
+     * Total filled in quote currency.
      * @return filledTotal
     **/
     @javax.annotation.Nullable
@@ -808,7 +808,7 @@ public class Order {
 
 
      /**
-     * Average fill price
+     * Average fill price.
      * @return avgDealPrice
     **/
     @javax.annotation.Nullable
@@ -818,7 +818,7 @@ public class Order {
 
 
      /**
-     * Fee deducted
+     * Fee deducted.
      * @return fee
     **/
     @javax.annotation.Nullable
@@ -828,7 +828,7 @@ public class Order {
 
 
      /**
-     * Fee currency unit
+     * Fee currency unit.
      * @return feeCurrency
     **/
     @javax.annotation.Nullable
@@ -838,7 +838,7 @@ public class Order {
 
 
      /**
-     * Points used to deduct fee
+     * Points used to deduct fee.
      * @return pointFee
     **/
     @javax.annotation.Nullable
@@ -848,7 +848,7 @@ public class Order {
 
 
      /**
-     * GT used to deduct fee
+     * GT used to deduct fee.
      * @return gtFee
     **/
     @javax.annotation.Nullable
@@ -858,7 +858,7 @@ public class Order {
 
 
      /**
-     * GT used to deduct maker fee
+     * GT used to deduct maker fee.
      * @return gtMakerFee
     **/
     @javax.annotation.Nullable
@@ -868,7 +868,7 @@ public class Order {
 
 
      /**
-     * GT used to deduct taker fee
+     * GT used to deduct taker fee.
      * @return gtTakerFee
     **/
     @javax.annotation.Nullable
@@ -878,7 +878,7 @@ public class Order {
 
 
      /**
-     * Whether GT fee discount is used
+     * Whether GT fee discount is used.
      * @return gtDiscount
     **/
     @javax.annotation.Nullable
@@ -888,7 +888,7 @@ public class Order {
 
 
      /**
-     * Rebated fee
+     * Rebated fee.
      * @return rebatedFee
     **/
     @javax.annotation.Nullable
@@ -898,7 +898,7 @@ public class Order {
 
 
      /**
-     * Rebated fee currency unit
+     * Rebated fee currency unit.
      * @return rebatedFeeCurrency
     **/
     @javax.annotation.Nullable
@@ -924,7 +924,7 @@ public class Order {
     }
 
      /**
-     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+     * Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
      * @return stpAct
     **/
     @javax.annotation.Nullable
@@ -938,7 +938,7 @@ public class Order {
     }
 
      /**
-     * Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order strategy because tif is set to poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
+     * Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
      * @return finishAs
     **/
     @javax.annotation.Nullable

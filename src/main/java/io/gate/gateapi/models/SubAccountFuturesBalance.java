@@ -43,7 +43,7 @@ public class SubAccountFuturesBalance {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return uid
     **/
     @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class SubAccountFuturesBalance {
     }
 
      /**
-     * Futures account balances
+     * Futures account balances.
      * @return available
     **/
     @javax.annotation.Nullable

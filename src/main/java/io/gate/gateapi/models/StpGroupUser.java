@@ -43,7 +43,7 @@ public class StpGroupUser {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class StpGroupUser {
     }
 
      /**
-     * STP Group ID
+     * STP Group ID.
      * @return stpId
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class StpGroupUser {
     }
 
      /**
-     * Creation time
+     * Creation time.
      * @return createTime
     **/
     @javax.annotation.Nullable

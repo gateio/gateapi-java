@@ -73,7 +73,7 @@ public class OrderBook {
     }
 
      /**
-     * The timestamp of the response data being generated (in milliseconds)
+     * The timestamp of the response data being generated (in milliseconds).
      * @return current
     **/
     @javax.annotation.Nullable
@@ -93,7 +93,7 @@ public class OrderBook {
     }
 
      /**
-     * The timestamp of when the orderbook last changed (in milliseconds)
+     * The timestamp of when the orderbook last changed (in milliseconds).
      * @return update
     **/
     @javax.annotation.Nullable
@@ -118,7 +118,7 @@ public class OrderBook {
     }
 
      /**
-     * Asks order depth
+     * Asks order depth.
      * @return asks
     **/
     public List<List<String>> getAsks() {
@@ -142,7 +142,7 @@ public class OrderBook {
     }
 
      /**
-     * Bids order depth
+     * Bids order depth.
      * @return bids
     **/
     public List<List<String>> getBids() {

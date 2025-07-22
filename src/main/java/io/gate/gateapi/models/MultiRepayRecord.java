@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Mult Repay Record
+ * Mult Repay Record.
  */
 public class MultiRepayRecord {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -85,7 +85,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * Order ID
+     * Order ID.
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -105,7 +105,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * Repayment record ID
+     * Repayment record ID.
      * @return recordId
     **/
     @javax.annotation.Nullable
@@ -125,7 +125,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * The initial collateralization rate
+     * The initial collateralization rate.
      * @return initLtv
     **/
     @javax.annotation.Nullable
@@ -145,7 +145,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * Ltv before the operation
+     * Ltv before the operation.
      * @return beforeLtv
     **/
     @javax.annotation.Nullable
@@ -165,7 +165,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * Ltv after the operation
+     * Ltv after the operation.
      * @return afterLtv
     **/
     @javax.annotation.Nullable
@@ -233,7 +233,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * List of borrowing information
+     * List of borrowing information.
      * @return borrowCurrencies
     **/
     @javax.annotation.Nullable
@@ -261,7 +261,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * List of collateral information
+     * List of collateral information.
      * @return collateralCurrencies
     **/
     @javax.annotation.Nullable
@@ -289,7 +289,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * Repay Currency List
+     * Repay Currency List.
      * @return repaidCurrencies
     **/
     @javax.annotation.Nullable
@@ -317,7 +317,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * Total Interest List
+     * Total Interest List.
      * @return totalInterestList
     **/
     @javax.annotation.Nullable
@@ -345,7 +345,7 @@ public class MultiRepayRecord {
     }
 
      /**
-     * List of left repay interest
+     * List of left repay interest.
      * @return leftRepayInterestList
     **/
     @javax.annotation.Nullable

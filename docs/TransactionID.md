@@ -5,5 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**txId** | **Long** | Order id |  [optional]
+**txId** | **Long** | Order id. |  [optional]
 

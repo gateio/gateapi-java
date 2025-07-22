@@ -83,7 +83,7 @@ public class TradeFee {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return userId
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class TradeFee {
     }
 
      /**
-     * taker fee rate
+     * taker fee rate.
      * @return takerFee
     **/
     @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class TradeFee {
     }
 
      /**
-     * maker fee rate
+     * maker fee rate.
      * @return makerFee
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class TradeFee {
     }
 
      /**
-     * If GT deduction is enabled
+     * If GT deduction is enabled.
      * @return gtDiscount
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class TradeFee {
     }
 
      /**
-     * Loan fee rate of margin lending
+     * Loan fee rate of margin lending.
      * @return loanFee
     **/
     @javax.annotation.Nullable
@@ -223,7 +223,7 @@ public class TradeFee {
     }
 
      /**
-     * Point type. 0 - Initial version. 1 - new version since 202009
+     * Point type. 0 - Initial version. 1 - new version since 202009.
      * @return pointType
     **/
     @javax.annotation.Nullable
@@ -243,7 +243,7 @@ public class TradeFee {
     }
 
      /**
-     * Futures trading taker fee
+     * Futures trading taker fee.
      * @return futuresTakerFee
     **/
     @javax.annotation.Nullable
@@ -263,7 +263,7 @@ public class TradeFee {
     }
 
      /**
-     * Future trading maker fee
+     * Future trading maker fee.
      * @return futuresMakerFee
     **/
     @javax.annotation.Nullable
@@ -283,7 +283,7 @@ public class TradeFee {
     }
 
      /**
-     * Delivery trading taker fee
+     * Delivery trading taker fee.
      * @return deliveryTakerFee
     **/
     @javax.annotation.Nullable
@@ -303,7 +303,7 @@ public class TradeFee {
     }
 
      /**
-     * Delivery trading maker fee
+     * Delivery trading maker fee.
      * @return deliveryMakerFee
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Liquidate Order detail
+ * Liquidate Order detail.
  */
 public class LiquidateOrder {
     public static final String SERIALIZED_NAME_TEXT = "text";
@@ -71,7 +71,7 @@ public class LiquidateOrder {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     public String getCurrencyPair() {
@@ -90,7 +90,7 @@ public class LiquidateOrder {
     }
 
      /**
-     * Trade amount
+     * Trade amount.
      * @return amount
     **/
     public String getAmount() {
@@ -109,7 +109,7 @@ public class LiquidateOrder {
     }
 
      /**
-     * Order price
+     * Order price.
      * @return price
     **/
     public String getPrice() {

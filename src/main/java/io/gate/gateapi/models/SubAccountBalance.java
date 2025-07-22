@@ -42,7 +42,7 @@ public class SubAccountBalance {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return uid
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class SubAccountBalance {
     }
 
      /**
-     * Available balances of currencies
+     * Available balances of currencies.
      * @return available
     **/
     @javax.annotation.Nullable

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Order information that needs to be modified
+ * Order information that needs to be modified.
  */
 public class BatchAmendItem {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
@@ -78,7 +78,7 @@ public class BatchAmendItem {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     public String getCurrencyPair() {
@@ -157,7 +157,7 @@ public class BatchAmendItem {
     }
 
      /**
-     * Custom info during amending order
+     * Custom info during amending order.
      * @return amendText
     **/
     @javax.annotation.Nullable

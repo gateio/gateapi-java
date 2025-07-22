@@ -116,7 +116,7 @@ public class MarginApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Currency pair (optional)
+         * @param currencyPair Currency pair. (optional)
          * @return APIlistMarginAccountsRequest
          */
         public APIlistMarginAccountsRequest currencyPair(String currencyPair) {
@@ -132,7 +132,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -146,7 +146,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<MarginAccount> execute() throws ApiException {
@@ -161,7 +161,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<MarginAccount>> executeWithHttpInfo() throws ApiException {
@@ -176,7 +176,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MarginAccount>> _callback) throws ApiException {
@@ -185,13 +185,13 @@ public class MarginApi {
     }
 
     /**
-     * Margin account list
+     * Margin account list.
      * 
      * @return APIlistMarginAccountsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistMarginAccountsRequest listMarginAccounts() {
@@ -319,7 +319,7 @@ public class MarginApi {
 
         /**
          * Set from
-         * @param from Start timestamp of the query (optional)
+         * @param from Start timestamp of the query. (optional)
          * @return APIlistMarginAccountBookRequest
          */
         public APIlistMarginAccountBookRequest from(Long from) {
@@ -329,7 +329,7 @@ public class MarginApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistMarginAccountBookRequest
          */
         public APIlistMarginAccountBookRequest to(Long to) {
@@ -339,7 +339,7 @@ public class MarginApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistMarginAccountBookRequest
          */
         public APIlistMarginAccountBookRequest page(Integer page) {
@@ -349,7 +349,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistMarginAccountBookRequest
          */
         public APIlistMarginAccountBookRequest limit(Integer limit) {
@@ -365,7 +365,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -379,7 +379,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<MarginAccountBook> execute() throws ApiException {
@@ -394,7 +394,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<MarginAccountBook>> executeWithHttpInfo() throws ApiException {
@@ -409,7 +409,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MarginAccountBook>> _callback) throws ApiException {
@@ -418,13 +418,13 @@ public class MarginApi {
     }
 
     /**
-     * List margin account balance change history
+     * List margin account balance change history.
      * Only transferals from and to margin account are provided for now. Time range allows 30 days at most
      * @return APIlistMarginAccountBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistMarginAccountBookRequest listMarginAccountBook() {
@@ -492,7 +492,7 @@ public class MarginApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistFundingAccountsRequest
          */
         public APIlistFundingAccountsRequest currency(String currency) {
@@ -508,7 +508,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -522,7 +522,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FundingAccount> execute() throws ApiException {
@@ -537,7 +537,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FundingAccount>> executeWithHttpInfo() throws ApiException {
@@ -552,7 +552,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FundingAccount>> _callback) throws ApiException {
@@ -561,13 +561,13 @@ public class MarginApi {
     }
 
     /**
-     * Funding account list
+     * Funding account list.
      * 
      * @return APIlistFundingAccountsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFundingAccountsRequest listFundingAccounts() {
@@ -582,7 +582,7 @@ public class MarginApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Current auto repayment setting </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Current auto repayment setting. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoRepayStatusCall(final ApiCallback _callback) throws ApiException {
@@ -621,14 +621,14 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve user auto repayment setting
+     * Retrieve user auto repayment setting.
      * 
      * @return AutoRepaySetting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Current auto repayment setting </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Current auto repayment setting. </td><td>  -  </td></tr>
      </table>
      */
     public AutoRepaySetting getAutoRepayStatus() throws ApiException {
@@ -637,14 +637,14 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve user auto repayment setting
+     * Retrieve user auto repayment setting.
      * 
      * @return ApiResponse&lt;AutoRepaySetting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Current auto repayment setting </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Current auto repayment setting. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AutoRepaySetting> getAutoRepayStatusWithHttpInfo() throws ApiException {
@@ -654,7 +654,7 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve user auto repayment setting (asynchronously)
+     * Retrieve user auto repayment setting. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -662,7 +662,7 @@ public class MarginApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Current auto repayment setting </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Current auto repayment setting. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAutoRepayStatusAsync(final ApiCallback<AutoRepaySetting> _callback) throws ApiException {
@@ -674,14 +674,14 @@ public class MarginApi {
 
     /**
      * Build call for setAutoRepay
-     * @param status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     * @param status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Current auto repayment setting </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Current auto repayment setting. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setAutoRepayCall(String status, final ApiCallback _callback) throws ApiException {
@@ -729,15 +729,15 @@ public class MarginApi {
     }
 
     /**
-     * Update user&#39;s auto repayment setting
+     * Update user&#39;s auto repayment setting.
      * 
-     * @param status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     * @param status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled. (required)
      * @return AutoRepaySetting
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Current auto repayment setting </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Current auto repayment setting. </td><td>  -  </td></tr>
      </table>
      */
     public AutoRepaySetting setAutoRepay(String status) throws ApiException {
@@ -746,15 +746,15 @@ public class MarginApi {
     }
 
     /**
-     * Update user&#39;s auto repayment setting
+     * Update user&#39;s auto repayment setting.
      * 
-     * @param status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     * @param status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled. (required)
      * @return ApiResponse&lt;AutoRepaySetting&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Current auto repayment setting </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Current auto repayment setting. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AutoRepaySetting> setAutoRepayWithHttpInfo(String status) throws ApiException {
@@ -764,16 +764,16 @@ public class MarginApi {
     }
 
     /**
-     * Update user&#39;s auto repayment setting (asynchronously)
+     * Update user&#39;s auto repayment setting. (asynchronously)
      * 
-     * @param status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled (required)
+     * @param status New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Current auto repayment setting </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Current auto repayment setting. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setAutoRepayAsync(String status, final ApiCallback<AutoRepaySetting> _callback) throws ApiException {
@@ -855,7 +855,7 @@ public class MarginApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Currency pair (optional)
+         * @param currencyPair Currency pair. (optional)
          * @return APIgetMarginTransferableRequest
          */
         public APIgetMarginTransferableRequest currencyPair(String currencyPair) {
@@ -871,7 +871,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -885,7 +885,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public MarginTransferable execute() throws ApiException {
@@ -900,7 +900,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<MarginTransferable> executeWithHttpInfo() throws ApiException {
@@ -915,7 +915,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<MarginTransferable> _callback) throws ApiException {
@@ -924,14 +924,14 @@ public class MarginApi {
     }
 
     /**
-     * Get the max transferable amount for a specific margin currency
+     * Get the max transferable amount for a specific margin currency.
      * 
-     * @param currency Retrieve data of the specified currency (required)
+     * @param currency Retrieve data of the specified currency. (required)
      * @return APIgetMarginTransferableRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetMarginTransferableRequest getMarginTransferable(String currency) {
@@ -940,14 +940,14 @@ public class MarginApi {
 
     /**
      * Build call for getUserMarginTier
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserMarginTierCall(String currencyPair, final ApiCallback _callback) throws ApiException {
@@ -995,15 +995,15 @@ public class MarginApi {
     }
 
     /**
-     * Check the user&#39;s own leverage lending gradient in the current market
+     * Check the user&#39;s own leverage lending gradient in the current market.
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return List&lt;MarginLeverageTier&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<MarginLeverageTier> getUserMarginTier(String currencyPair) throws ApiException {
@@ -1012,15 +1012,15 @@ public class MarginApi {
     }
 
     /**
-     * Check the user&#39;s own leverage lending gradient in the current market
+     * Check the user&#39;s own leverage lending gradient in the current market.
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return ApiResponse&lt;List&lt;MarginLeverageTier&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<MarginLeverageTier>> getUserMarginTierWithHttpInfo(String currencyPair) throws ApiException {
@@ -1030,16 +1030,16 @@ public class MarginApi {
     }
 
     /**
-     * Check the user&#39;s own leverage lending gradient in the current market (asynchronously)
+     * Check the user&#39;s own leverage lending gradient in the current market. (asynchronously)
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getUserMarginTierAsync(String currencyPair, final ApiCallback<List<MarginLeverageTier>> _callback) throws ApiException {
@@ -1051,14 +1051,14 @@ public class MarginApi {
 
     /**
      * Build call for getMarketMarginTier
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMarketMarginTierCall(String currencyPair, final ApiCallback _callback) throws ApiException {
@@ -1106,15 +1106,15 @@ public class MarginApi {
     }
 
     /**
-     * Query the current market leverage lending gradient
+     * Query the current market leverage lending gradient.
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return List&lt;MarginLeverageTier&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<MarginLeverageTier> getMarketMarginTier(String currencyPair) throws ApiException {
@@ -1123,15 +1123,15 @@ public class MarginApi {
     }
 
     /**
-     * Query the current market leverage lending gradient
+     * Query the current market leverage lending gradient.
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @return ApiResponse&lt;List&lt;MarginLeverageTier&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<MarginLeverageTier>> getMarketMarginTierWithHttpInfo(String currencyPair) throws ApiException {
@@ -1141,16 +1141,16 @@ public class MarginApi {
     }
 
     /**
-     * Query the current market leverage lending gradient (asynchronously)
+     * Query the current market leverage lending gradient. (asynchronously)
      * 
-     * @param currencyPair Currency pair (required)
+     * @param currencyPair Currency pair. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMarketMarginTierAsync(String currencyPair, final ApiCallback<List<MarginLeverageTier>> _callback) throws ApiException {
@@ -1169,7 +1169,7 @@ public class MarginApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setUserMarketLeverageCall(MarginMarketLeverage marginMarketLeverage, final ApiCallback _callback) throws ApiException {
@@ -1213,14 +1213,14 @@ public class MarginApi {
     }
 
     /**
-     * Set the user market leverage multiple
+     * Set the user market leverage multiple.
      * 
      * @param marginMarketLeverage  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public void setUserMarketLeverage(MarginMarketLeverage marginMarketLeverage) throws ApiException {
@@ -1228,7 +1228,7 @@ public class MarginApi {
     }
 
     /**
-     * Set the user market leverage multiple
+     * Set the user market leverage multiple.
      * 
      * @param marginMarketLeverage  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1236,7 +1236,7 @@ public class MarginApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> setUserMarketLeverageWithHttpInfo(MarginMarketLeverage marginMarketLeverage) throws ApiException {
@@ -1245,7 +1245,7 @@ public class MarginApi {
     }
 
     /**
-     * Set the user market leverage multiple (asynchronously)
+     * Set the user market leverage multiple. (asynchronously)
      * 
      * @param marginMarketLeverage  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1254,7 +1254,7 @@ public class MarginApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setUserMarketLeverageAsync(MarginMarketLeverage marginMarketLeverage, final ApiCallback<Void> _callback) throws ApiException {
@@ -1324,7 +1324,7 @@ public class MarginApi {
 
         /**
          * Set currencyPair
-         * @param currencyPair Currency pair (optional)
+         * @param currencyPair Currency pair. (optional)
          * @return APIlistMarginUserAccountRequest
          */
         public APIlistMarginUserAccountRequest currencyPair(String currencyPair) {
@@ -1340,7 +1340,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1354,7 +1354,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<MarginAccount> execute() throws ApiException {
@@ -1369,7 +1369,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<MarginAccount>> executeWithHttpInfo() throws ApiException {
@@ -1384,7 +1384,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<MarginAccount>> _callback) throws ApiException {
@@ -1393,13 +1393,13 @@ public class MarginApi {
     }
 
     /**
-     * Query the user&#39;s leverage account list
+     * Query the user&#39;s leverage account list.
      * Support querying risk rate per position account and margin rate per position account
      * @return APIlistMarginUserAccountRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistMarginUserAccountRequest listMarginUserAccount() {
@@ -1494,7 +1494,7 @@ public class MarginApi {
 
         /**
          * Set currency
-         * @param currency Filter by currency (optional)
+         * @param currency Filter by currency. (optional)
          * @return APIlistCrossMarginLoansRequest
          */
         public APIlistCrossMarginLoansRequest currency(String currency) {
@@ -1504,7 +1504,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistCrossMarginLoansRequest
          */
         public APIlistCrossMarginLoansRequest limit(Integer limit) {
@@ -1514,7 +1514,7 @@ public class MarginApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistCrossMarginLoansRequest
          */
         public APIlistCrossMarginLoansRequest offset(Integer offset) {
@@ -1540,7 +1540,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1556,7 +1556,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1573,7 +1573,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1590,7 +1590,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1601,14 +1601,14 @@ public class MarginApi {
     }
 
     /**
-     * List cross margin borrow history. (deprecated)
+     * List cross margin borrow history. (deprecated).
      * Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
-     * @param status Filter by status. Supported values are 2 and 3. (deprecated.) (required)
+     * @param status Filter by status. Supported values are 2 and 3. (deprecated.). (required)
      * @return APIlistCrossMarginLoansRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */
@@ -1719,7 +1719,7 @@ public class MarginApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistCrossMarginRepaymentsRequest
          */
         public APIlistCrossMarginRepaymentsRequest limit(Integer limit) {
@@ -1729,7 +1729,7 @@ public class MarginApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistCrossMarginRepaymentsRequest
          */
         public APIlistCrossMarginRepaymentsRequest offset(Integer offset) {
@@ -1755,7 +1755,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1771,7 +1771,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1788,7 +1788,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1805,7 +1805,7 @@ public class MarginApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          * @deprecated
          */
@@ -1816,13 +1816,13 @@ public class MarginApi {
     }
 
     /**
-     * Retrieve cross margin repayments. (deprecated)
+     * Retrieve cross margin repayments. (deprecated).
      * Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
      * @return APIlistCrossMarginRepaymentsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      * @deprecated
      */

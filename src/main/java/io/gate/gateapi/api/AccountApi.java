@@ -59,7 +59,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAccountDetailCall(final ApiCallback _callback) throws ApiException {
@@ -98,14 +98,14 @@ public class AccountApi {
     }
 
     /**
-     * Get account detail
+     * Get account detail.
      * 
      * @return AccountDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful. </td><td>  -  </td></tr>
      </table>
      */
     public AccountDetail getAccountDetail() throws ApiException {
@@ -114,14 +114,14 @@ public class AccountApi {
     }
 
     /**
-     * Get account detail
+     * Get account detail.
      * 
      * @return ApiResponse&lt;AccountDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AccountDetail> getAccountDetailWithHttpInfo() throws ApiException {
@@ -131,7 +131,7 @@ public class AccountApi {
     }
 
     /**
-     * Get account detail (asynchronously)
+     * Get account detail. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -139,7 +139,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAccountDetailAsync(final ApiCallback<AccountDetail> _callback) throws ApiException {
@@ -157,7 +157,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAccountRateLimitCall(final ApiCallback _callback) throws ApiException {
@@ -196,14 +196,14 @@ public class AccountApi {
     }
 
     /**
-     * Get user transaction rate limit information
+     * Get user transaction rate limit information.
      * 
      * @return List&lt;AccountRateLimit&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful. </td><td>  -  </td></tr>
      </table>
      */
     public List<AccountRateLimit> getAccountRateLimit() throws ApiException {
@@ -212,14 +212,14 @@ public class AccountApi {
     }
 
     /**
-     * Get user transaction rate limit information
+     * Get user transaction rate limit information.
      * 
      * @return ApiResponse&lt;List&lt;AccountRateLimit&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<AccountRateLimit>> getAccountRateLimitWithHttpInfo() throws ApiException {
@@ -229,7 +229,7 @@ public class AccountApi {
     }
 
     /**
-     * Get user transaction rate limit information (asynchronously)
+     * Get user transaction rate limit information. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -237,7 +237,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAccountRateLimitAsync(final ApiCallback<List<AccountRateLimit>> _callback) throws ApiException {
@@ -308,7 +308,7 @@ public class AccountApi {
 
         /**
          * Set name
-         * @param name Perform a fuzzy search based on the name (optional)
+         * @param name Perform a fuzzy search based on the name. (optional)
          * @return APIlistSTPGroupsRequest
          */
         public APIlistSTPGroupsRequest name(String name) {
@@ -324,7 +324,7 @@ public class AccountApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -338,7 +338,7 @@ public class AccountApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<StpGroup> execute() throws ApiException {
@@ -353,7 +353,7 @@ public class AccountApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<StpGroup>> executeWithHttpInfo() throws ApiException {
@@ -368,7 +368,7 @@ public class AccountApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<StpGroup>> _callback) throws ApiException {
@@ -377,13 +377,13 @@ public class AccountApi {
     }
 
     /**
-     * List STP Groups
-     * Retrieve the list of STP groups created by the main account user only
+     * List STP Groups.
+     * Retrieve the list of STP groups created by the main account user only.
      * @return APIlistSTPGroupsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSTPGroupsRequest listSTPGroups() {
@@ -443,8 +443,8 @@ public class AccountApi {
     }
 
     /**
-     * Create STP Group
-     * Only the main account is allowed to create a new STP user group
+     * Create STP Group.
+     * Only the main account is allowed to create a new STP user group.
      * @param stpGroup  (required)
      * @return StpGroup
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -460,8 +460,8 @@ public class AccountApi {
     }
 
     /**
-     * Create STP Group
-     * Only the main account is allowed to create a new STP user group
+     * Create STP Group.
+     * Only the main account is allowed to create a new STP user group.
      * @param stpGroup  (required)
      * @return ApiResponse&lt;StpGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -478,8 +478,8 @@ public class AccountApi {
     }
 
     /**
-     * Create STP Group (asynchronously)
-     * Only the main account is allowed to create a new STP user group
+     * Create STP Group. (asynchronously)
+     * Only the main account is allowed to create a new STP user group.
      * @param stpGroup  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -499,14 +499,14 @@ public class AccountApi {
 
     /**
      * Build call for listSTPGroupsUsers
-     * @param stpId STP Group ID (required)
+     * @param stpId STP Group ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listSTPGroupsUsersCall(Long stpId, final ApiCallback _callback) throws ApiException {
@@ -551,15 +551,15 @@ public class AccountApi {
     }
 
     /**
-     * List users of the STP group
-     * Only the main account that created this STP group can query the account 
-     * @param stpId STP Group ID (required)
+     * List users of the STP group.
+     * Only the main account that created this STP group can query the account.
+     * @param stpId STP Group ID. (required)
      * @return List&lt;StpGroupUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<StpGroupUser> listSTPGroupsUsers(Long stpId) throws ApiException {
@@ -568,15 +568,15 @@ public class AccountApi {
     }
 
     /**
-     * List users of the STP group
-     * Only the main account that created this STP group can query the account 
-     * @param stpId STP Group ID (required)
+     * List users of the STP group.
+     * Only the main account that created this STP group can query the account.
+     * @param stpId STP Group ID. (required)
      * @return ApiResponse&lt;List&lt;StpGroupUser&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<StpGroupUser>> listSTPGroupsUsersWithHttpInfo(Long stpId) throws ApiException {
@@ -586,16 +586,16 @@ public class AccountApi {
     }
 
     /**
-     * List users of the STP group (asynchronously)
-     * Only the main account that created this STP group can query the account 
-     * @param stpId STP Group ID (required)
+     * List users of the STP group. (asynchronously)
+     * Only the main account that created this STP group can query the account.
+     * @param stpId STP Group ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listSTPGroupsUsersAsync(Long stpId, final ApiCallback<List<StpGroupUser>> _callback) throws ApiException {
@@ -607,8 +607,8 @@ public class AccountApi {
 
     /**
      * Build call for addSTPGroupUsers
-     * @param stpId STP Group ID (required)
-     * @param requestBody User ID (required)
+     * @param stpId STP Group ID. (required)
+     * @param requestBody User ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -665,10 +665,10 @@ public class AccountApi {
     }
 
     /**
-     * Add users to the STP group
-     * - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
-     * @param stpId STP Group ID (required)
-     * @param requestBody User ID (required)
+     * Add users to the STP group.
+     * - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+     * @param stpId STP Group ID. (required)
+     * @param requestBody User ID. (required)
      * @return List&lt;StpGroupUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -683,10 +683,10 @@ public class AccountApi {
     }
 
     /**
-     * Add users to the STP group
-     * - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
-     * @param stpId STP Group ID (required)
-     * @param requestBody User ID (required)
+     * Add users to the STP group.
+     * - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+     * @param stpId STP Group ID. (required)
+     * @param requestBody User ID. (required)
      * @return ApiResponse&lt;List&lt;StpGroupUser&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -702,10 +702,10 @@ public class AccountApi {
     }
 
     /**
-     * Add users to the STP group (asynchronously)
-     * - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
-     * @param stpId STP Group ID (required)
-     * @param requestBody User ID (required)
+     * Add users to the STP group. (asynchronously)
+     * - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+     * @param stpId STP Group ID. (required)
+     * @param requestBody User ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -724,15 +724,15 @@ public class AccountApi {
 
     /**
      * Build call for deleteSTPGroupUsers
-     * @param stpId STP Group ID (required)
-     * @param userId STP user ID, multiple can be separated by commas (required)
+     * @param stpId STP Group ID. (required)
+     * @param userId STP user ID, multiple can be separated by commas. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteSTPGroupUsersCall(Long stpId, Long userId, final ApiCallback _callback) throws ApiException {
@@ -786,16 +786,16 @@ public class AccountApi {
     }
 
     /**
-     * Delete the user in the STP group
+     * Delete the user in the STP group.
      * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
-     * @param stpId STP Group ID (required)
-     * @param userId STP user ID, multiple can be separated by commas (required)
+     * @param stpId STP Group ID. (required)
+     * @param userId STP user ID, multiple can be separated by commas. (required)
      * @return List&lt;StpGroupUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public List<StpGroupUser> deleteSTPGroupUsers(Long stpId, Long userId) throws ApiException {
@@ -804,16 +804,16 @@ public class AccountApi {
     }
 
     /**
-     * Delete the user in the STP group
+     * Delete the user in the STP group.
      * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
-     * @param stpId STP Group ID (required)
-     * @param userId STP user ID, multiple can be separated by commas (required)
+     * @param stpId STP Group ID. (required)
+     * @param userId STP user ID, multiple can be separated by commas. (required)
      * @return ApiResponse&lt;List&lt;StpGroupUser&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<StpGroupUser>> deleteSTPGroupUsersWithHttpInfo(Long stpId, Long userId) throws ApiException {
@@ -823,17 +823,17 @@ public class AccountApi {
     }
 
     /**
-     * Delete the user in the STP group (asynchronously)
+     * Delete the user in the STP group. (asynchronously)
      * - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
-     * @param stpId STP Group ID (required)
-     * @param userId STP user ID, multiple can be separated by commas (required)
+     * @param stpId STP Group ID. (required)
+     * @param userId STP user ID, multiple can be separated by commas. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteSTPGroupUsersAsync(Long stpId, Long userId, final ApiCallback<List<StpGroupUser>> _callback) throws ApiException {
@@ -851,7 +851,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDebitFeeCall(final ApiCallback _callback) throws ApiException {
@@ -897,7 +897,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public DebitFee getDebitFee() throws ApiException {
@@ -913,7 +913,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<DebitFee> getDebitFeeWithHttpInfo() throws ApiException {
@@ -931,7 +931,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDebitFeeAsync(final ApiCallback<DebitFee> _callback) throws ApiException {
@@ -950,7 +950,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setDebitFeeCall(DebitFee debitFee, final ApiCallback _callback) throws ApiException {
@@ -1001,7 +1001,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public void setDebitFee(DebitFee debitFee) throws ApiException {
@@ -1017,7 +1017,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> setDebitFeeWithHttpInfo(DebitFee debitFee) throws ApiException {
@@ -1035,7 +1035,7 @@ public class AccountApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call setDebitFeeAsync(DebitFee debitFee, final ApiCallback<Void> _callback) throws ApiException {

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Options positions
+ * Options positions.
  */
 public class MockOptionsPosition {
     public static final String SERIALIZED_NAME_OPTIONS_NAME = "options_name";

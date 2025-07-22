@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Unified account loan and repayment response results
+ * Unified account loan and repayment response results.
  */
 public class UnifiedLoanResult {
     public static final String SERIALIZED_NAME_TRAN_ID = "tran_id";
@@ -35,7 +35,7 @@ public class UnifiedLoanResult {
     }
 
      /**
-     * Transaction id
+     * Transaction id.
      * @return tranId
     **/
     @javax.annotation.Nullable

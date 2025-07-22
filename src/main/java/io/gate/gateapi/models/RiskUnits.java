@@ -63,7 +63,7 @@ public class RiskUnits {
     }
 
      /**
-     * Risk unit flag
+     * Risk unit flag.
      * @return symbol
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class RiskUnits {
     }
 
      /**
-     * Spot hedging utilization
+     * Spot hedging utilization.
      * @return spotInUse
     **/
     @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class RiskUnits {
     }
 
      /**
-     * Maintenance margin for risk unit
+     * Maintenance margin for risk unit.
      * @return maintainMargin
     **/
     @javax.annotation.Nullable
@@ -123,7 +123,7 @@ public class RiskUnits {
     }
 
      /**
-     * Initial margin for risk unit
+     * Initial margin for risk unit.
      * @return initialMargin
     **/
     @javax.annotation.Nullable
@@ -143,7 +143,7 @@ public class RiskUnits {
     }
 
      /**
-     * Total Delta of risk unit
+     * Total Delta of risk unit.
      * @return delta
     **/
     @javax.annotation.Nullable
@@ -163,7 +163,7 @@ public class RiskUnits {
     }
 
      /**
-     * Total Gamma of risk unit
+     * Total Gamma of risk unit.
      * @return gamma
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class RiskUnits {
     }
 
      /**
-     * Total Theta of risk unit
+     * Total Theta of risk unit.
      * @return theta
     **/
     @javax.annotation.Nullable
@@ -203,7 +203,7 @@ public class RiskUnits {
     }
 
      /**
-     * Total Vega of risk unit
+     * Total Vega of risk unit.
      * @return vega
     **/
     @javax.annotation.Nullable

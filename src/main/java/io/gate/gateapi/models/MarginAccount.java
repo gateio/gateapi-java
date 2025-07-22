@@ -64,7 +64,7 @@ public class MarginAccount {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -84,7 +84,7 @@ public class MarginAccount {
     }
 
      /**
-     * Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated
+     * Account type, risk - risk rate account, mmr - maintenance margin market not activated
      * @return accountType
     **/
     @javax.annotation.Nullable
@@ -104,7 +104,7 @@ public class MarginAccount {
     }
 
      /**
-     * User current market leverage multiple
+     * User current market leverage multiple.
      * @return leverage
     **/
     @javax.annotation.Nullable
@@ -124,7 +124,7 @@ public class MarginAccount {
     }
 
      /**
-     * Whether account is locked
+     * Whether account is locked.
      * @return locked
     **/
     @javax.annotation.Nullable
@@ -164,7 +164,7 @@ public class MarginAccount {
     }
 
      /**
-     * Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account)
+     * Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account)
      * @return mmr
     **/
     @javax.annotation.Nullable

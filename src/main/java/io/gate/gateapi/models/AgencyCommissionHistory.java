@@ -46,7 +46,7 @@ public class AgencyCommissionHistory {
     }
 
      /**
-     * Currency pair
+     * Currency pair.
      * @return currencyPair
     **/
     @javax.annotation.Nullable
@@ -66,7 +66,7 @@ public class AgencyCommissionHistory {
     }
 
      /**
-     * Total
+     * Total.
      * @return total
     **/
     @javax.annotation.Nullable
@@ -94,7 +94,7 @@ public class AgencyCommissionHistory {
     }
 
      /**
-     * List of comission history
+     * List of comission history.
      * @return list
     **/
     @javax.annotation.Nullable

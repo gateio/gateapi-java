@@ -51,7 +51,7 @@ public class MarginTiers {
     }
 
      /**
-     * Tier
+     * Tier.
      * @return tier
     **/
     @javax.annotation.Nullable
@@ -71,7 +71,7 @@ public class MarginTiers {
     }
 
      /**
-     * Discount
+     * Discount.
      * @return marginRate
     **/
     @javax.annotation.Nullable
@@ -91,7 +91,7 @@ public class MarginTiers {
     }
 
      /**
-     * Lower limit
+     * Lower limit.
      * @return lowerLimit
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class MarginTiers {
     }
 
      /**
-     * Upper limit, \&quot;\&quot; indicates greater than (the last tier)
+     * Upper limit, \&quot;\&quot; indicates greater than (the last tier).
      * @return upperLimit
     **/
     @javax.annotation.Nullable
@@ -131,7 +131,7 @@ public class MarginTiers {
     }
 
      /**
-     * Position leverage
+     * Position leverage.
      * @return leverage
     **/
     @javax.annotation.Nullable

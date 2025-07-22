@@ -46,7 +46,7 @@ public class UserSubRelation {
     }
 
      /**
-     * Subordinate relationship list
+     * Subordinate relationship list.
      * @return list
     **/
     @javax.annotation.Nullable

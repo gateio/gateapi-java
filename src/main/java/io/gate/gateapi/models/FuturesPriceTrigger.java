@@ -75,7 +75,7 @@ public class FuturesPriceTrigger {
     private StrategyTypeEnum strategyType;
 
     /**
-     * Price type. 0 - latest deal price, 1 - mark price, 2 - index price
+     * Price type. 0 - latest deal price, 1 - mark price, 2 - index price.
      */
     @JsonAdapter(PriceTypeEnum.Adapter.class)
     public enum PriceTypeEnum {
@@ -132,7 +132,7 @@ public class FuturesPriceTrigger {
     private String price;
 
     /**
-     * Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - 2: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price
+     * Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price
      */
     @JsonAdapter(RuleEnum.Adapter.class)
     public enum RuleEnum {
@@ -214,7 +214,7 @@ public class FuturesPriceTrigger {
     }
 
      /**
-     * Price type. 0 - latest deal price, 1 - mark price, 2 - index price
+     * Price type. 0 - latest deal price, 1 - mark price, 2 - index price.
      * @return priceType
     **/
     @javax.annotation.Nullable
@@ -234,7 +234,7 @@ public class FuturesPriceTrigger {
     }
 
      /**
-     * Value of price on price triggered, or price gap on price gap triggered
+     * Value of price on price triggered, or price gap on price gap triggered.
      * @return price
     **/
     @javax.annotation.Nullable
@@ -254,7 +254,7 @@ public class FuturesPriceTrigger {
     }
 
      /**
-     * Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - 2: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price
+     * Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price
      * @return rule
     **/
     @javax.annotation.Nullable

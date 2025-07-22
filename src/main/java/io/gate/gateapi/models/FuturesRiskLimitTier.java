@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Information for each tier of the risk limit ladder
+ * Information for each tier of the risk limit ladder.
  */
 public class FuturesRiskLimitTier {
     public static final String SERIALIZED_NAME_TIER = "tier";
@@ -55,7 +55,7 @@ public class FuturesRiskLimitTier {
     }
 
      /**
-     * Tier
+     * Tier.
      * @return tier
     **/
     @javax.annotation.Nullable
@@ -75,7 +75,7 @@ public class FuturesRiskLimitTier {
     }
 
      /**
-     * Position risk limit
+     * Position risk limit.
      * @return riskLimit
     **/
     @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class FuturesRiskLimitTier {
     }
 
      /**
-     * Initial margin rate
+     * Initial margin rate.
      * @return initialRate
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class FuturesRiskLimitTier {
     }
 
      /**
-     * Maintenance margin rate
+     * Maintenance margin rate.
      * @return maintenanceRate
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class FuturesRiskLimitTier {
     }
 
      /**
-     * Maximum leverage
+     * Maximum leverage.
      * @return leverageMax
     **/
     @javax.annotation.Nullable
@@ -155,7 +155,7 @@ public class FuturesRiskLimitTier {
     }
 
      /**
-     * Maintenance margin quick calculation deduction
+     * Maintenance margin quick calculation deduction.
      * @return deduction
     **/
     @javax.annotation.Nullable

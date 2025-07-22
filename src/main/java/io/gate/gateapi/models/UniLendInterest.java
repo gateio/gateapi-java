@@ -33,7 +33,7 @@ public class UniLendInterest {
 
 
      /**
-     * Currency
+     * Currency.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -43,7 +43,7 @@ public class UniLendInterest {
 
 
      /**
-     * Interest
+     * Interest.
      * @return interest
     **/
     @javax.annotation.Nullable

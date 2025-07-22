@@ -122,7 +122,7 @@ public class FlashSwapApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistFlashSwapCurrencyPairRequest
          */
         public APIlistFlashSwapCurrencyPairRequest currency(String currency) {
@@ -132,7 +132,7 @@ public class FlashSwapApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistFlashSwapCurrencyPairRequest
          */
         public APIlistFlashSwapCurrencyPairRequest page(Integer page) {
@@ -142,7 +142,7 @@ public class FlashSwapApi {
 
         /**
          * Set limit
-         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)
+         * @param limit Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)
          * @return APIlistFlashSwapCurrencyPairRequest
          */
         public APIlistFlashSwapCurrencyPairRequest limit(Integer limit) {
@@ -158,7 +158,7 @@ public class FlashSwapApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -172,7 +172,7 @@ public class FlashSwapApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FlashSwapCurrencyPair> execute() throws ApiException {
@@ -187,7 +187,7 @@ public class FlashSwapApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FlashSwapCurrencyPair>> executeWithHttpInfo() throws ApiException {
@@ -202,7 +202,7 @@ public class FlashSwapApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FlashSwapCurrencyPair>> _callback) throws ApiException {
@@ -211,13 +211,13 @@ public class FlashSwapApi {
     }
 
     /**
-     * List All Supported Currency Pairs In Flash Swap
+     * List All Supported Currency Pairs In Flash Swap.
      * &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
      * @return APIlistFlashSwapCurrencyPairRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFlashSwapCurrencyPairRequest listFlashSwapCurrencyPair() {
@@ -340,7 +340,7 @@ public class FlashSwapApi {
 
         /**
          * Set reverse
-         * @param reverse If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)
+         * @param reverse If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)
          * @return APIlistFlashSwapOrdersRequest
          */
         public APIlistFlashSwapOrdersRequest reverse(Boolean reverse) {
@@ -350,7 +350,7 @@ public class FlashSwapApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistFlashSwapOrdersRequest
          */
         public APIlistFlashSwapOrdersRequest limit(Integer limit) {
@@ -360,7 +360,7 @@ public class FlashSwapApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistFlashSwapOrdersRequest
          */
         public APIlistFlashSwapOrdersRequest page(Integer page) {
@@ -376,7 +376,7 @@ public class FlashSwapApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -390,7 +390,7 @@ public class FlashSwapApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<FlashSwapOrder> execute() throws ApiException {
@@ -405,7 +405,7 @@ public class FlashSwapApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<FlashSwapOrder>> executeWithHttpInfo() throws ApiException {
@@ -420,7 +420,7 @@ public class FlashSwapApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FlashSwapOrder>> _callback) throws ApiException {
@@ -429,13 +429,13 @@ public class FlashSwapApi {
     }
 
     /**
-     * List all flash swap orders
+     * List all flash swap orders.
      * 
      * @return APIlistFlashSwapOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistFlashSwapOrdersRequest listFlashSwapOrders() {
@@ -451,7 +451,7 @@ public class FlashSwapApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The flash swap order is created successfully </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The flash swap order is created successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createFlashSwapOrderCall(FlashSwapOrderRequest flashSwapOrderRequest, final ApiCallback _callback) throws ApiException {
@@ -495,7 +495,7 @@ public class FlashSwapApi {
     }
 
     /**
-     * Create a flash swap order
+     * Create a flash swap order.
      * Initiate a flash swap preview in advance because order creation requires a preview result
      * @param flashSwapOrderRequest  (required)
      * @return FlashSwapOrder
@@ -503,7 +503,7 @@ public class FlashSwapApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The flash swap order is created successfully </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The flash swap order is created successfully. </td><td>  -  </td></tr>
      </table>
      */
     public FlashSwapOrder createFlashSwapOrder(FlashSwapOrderRequest flashSwapOrderRequest) throws ApiException {
@@ -512,7 +512,7 @@ public class FlashSwapApi {
     }
 
     /**
-     * Create a flash swap order
+     * Create a flash swap order.
      * Initiate a flash swap preview in advance because order creation requires a preview result
      * @param flashSwapOrderRequest  (required)
      * @return ApiResponse&lt;FlashSwapOrder&gt;
@@ -520,7 +520,7 @@ public class FlashSwapApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The flash swap order is created successfully </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The flash swap order is created successfully. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FlashSwapOrder> createFlashSwapOrderWithHttpInfo(FlashSwapOrderRequest flashSwapOrderRequest) throws ApiException {
@@ -530,7 +530,7 @@ public class FlashSwapApi {
     }
 
     /**
-     * Create a flash swap order (asynchronously)
+     * Create a flash swap order. (asynchronously)
      * Initiate a flash swap preview in advance because order creation requires a preview result
      * @param flashSwapOrderRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -539,7 +539,7 @@ public class FlashSwapApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The flash swap order is created successfully </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> The flash swap order is created successfully. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createFlashSwapOrderAsync(FlashSwapOrderRequest flashSwapOrderRequest, final ApiCallback<FlashSwapOrder> _callback) throws ApiException {
@@ -551,14 +551,14 @@ public class FlashSwapApi {
 
     /**
      * Build call for getFlashSwapOrder
-     * @param orderId Flash swap order ID (required)
+     * @param orderId Flash swap order ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFlashSwapOrderCall(Integer orderId, final ApiCallback _callback) throws ApiException {
@@ -603,15 +603,15 @@ public class FlashSwapApi {
     }
 
     /**
-     * Get a single flash swap order&#39;s detail
+     * Get a single flash swap order&#39;s detail.
      * 
-     * @param orderId Flash swap order ID (required)
+     * @param orderId Flash swap order ID. (required)
      * @return FlashSwapOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public FlashSwapOrder getFlashSwapOrder(Integer orderId) throws ApiException {
@@ -620,15 +620,15 @@ public class FlashSwapApi {
     }
 
     /**
-     * Get a single flash swap order&#39;s detail
+     * Get a single flash swap order&#39;s detail.
      * 
-     * @param orderId Flash swap order ID (required)
+     * @param orderId Flash swap order ID. (required)
      * @return ApiResponse&lt;FlashSwapOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FlashSwapOrder> getFlashSwapOrderWithHttpInfo(Integer orderId) throws ApiException {
@@ -638,16 +638,16 @@ public class FlashSwapApi {
     }
 
     /**
-     * Get a single flash swap order&#39;s detail (asynchronously)
+     * Get a single flash swap order&#39;s detail. (asynchronously)
      * 
-     * @param orderId Flash swap order ID (required)
+     * @param orderId Flash swap order ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFlashSwapOrderAsync(Integer orderId, final ApiCallback<FlashSwapOrder> _callback) throws ApiException {
@@ -666,7 +666,7 @@ public class FlashSwapApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The flash swap order successfully previewed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The flash swap order successfully previewed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call previewFlashSwapOrderCall(FlashSwapPreviewRequest flashSwapPreviewRequest, final ApiCallback _callback) throws ApiException {
@@ -710,7 +710,7 @@ public class FlashSwapApi {
     }
 
     /**
-     * Initiate a flash swap order preview
+     * Initiate a flash swap order preview.
      * 
      * @param flashSwapPreviewRequest  (required)
      * @return FlashSwapOrderPreview
@@ -718,7 +718,7 @@ public class FlashSwapApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The flash swap order successfully previewed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The flash swap order successfully previewed. </td><td>  -  </td></tr>
      </table>
      */
     public FlashSwapOrderPreview previewFlashSwapOrder(FlashSwapPreviewRequest flashSwapPreviewRequest) throws ApiException {
@@ -727,7 +727,7 @@ public class FlashSwapApi {
     }
 
     /**
-     * Initiate a flash swap order preview
+     * Initiate a flash swap order preview.
      * 
      * @param flashSwapPreviewRequest  (required)
      * @return ApiResponse&lt;FlashSwapOrderPreview&gt;
@@ -735,7 +735,7 @@ public class FlashSwapApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The flash swap order successfully previewed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The flash swap order successfully previewed. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FlashSwapOrderPreview> previewFlashSwapOrderWithHttpInfo(FlashSwapPreviewRequest flashSwapPreviewRequest) throws ApiException {
@@ -745,7 +745,7 @@ public class FlashSwapApi {
     }
 
     /**
-     * Initiate a flash swap order preview (asynchronously)
+     * Initiate a flash swap order preview. (asynchronously)
      * 
      * @param flashSwapPreviewRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -754,7 +754,7 @@ public class FlashSwapApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The flash swap order successfully previewed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The flash swap order successfully previewed. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call previewFlashSwapOrderAsync(FlashSwapPreviewRequest flashSwapPreviewRequest, final ApiCallback<FlashSwapOrderPreview> _callback) throws ApiException {

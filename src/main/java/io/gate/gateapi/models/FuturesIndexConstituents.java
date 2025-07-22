@@ -36,7 +36,7 @@ public class FuturesIndexConstituents {
 
 
      /**
-     * Index name
+     * Index name.
      * @return index
     **/
     @javax.annotation.Nullable
@@ -46,7 +46,7 @@ public class FuturesIndexConstituents {
 
 
      /**
-     * Constituents
+     * Constituents.
      * @return constituents
     **/
     @javax.annotation.Nullable

@@ -47,7 +47,7 @@ public class UserSub {
     }
 
      /**
-     * User ID
+     * User ID.
      * @return uid
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class UserSub {
     }
 
      /**
-     * Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct direct customer 4-indirect direct customer 5-ordinary user)
+     * Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct customer 4-indirect direct customer 5-ordinary user)
      * @return type
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class UserSub {
     }
 
      /**
-     * Inviter user ID
+     * Inviter user ID.
      * @return refUid
     **/
     @javax.annotation.Nullable

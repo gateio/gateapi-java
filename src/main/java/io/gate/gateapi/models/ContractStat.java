@@ -84,7 +84,7 @@ public class ContractStat {
     }
 
      /**
-     * Stat timestamp
+     * Stat timestamp.
      * @return time
     **/
     @javax.annotation.Nullable
@@ -104,7 +104,7 @@ public class ContractStat {
     }
 
      /**
-     * Long/short account number ratio
+     * Long/short account number ratio.
      * @return lsrTaker
     **/
     @javax.annotation.Nullable
@@ -124,7 +124,7 @@ public class ContractStat {
     }
 
      /**
-     * Long/short taker size ratio
+     * Long/short taker size ratio.
      * @return lsrAccount
     **/
     @javax.annotation.Nullable
@@ -144,7 +144,7 @@ public class ContractStat {
     }
 
      /**
-     * Long liquidation size
+     * Long liquidation size.
      * @return longLiqSize
     **/
     @javax.annotation.Nullable
@@ -164,7 +164,7 @@ public class ContractStat {
     }
 
      /**
-     * Long liquidation amount(base currency)
+     * Long liquidation amount(base currency).
      * @return longLiqAmount
     **/
     @javax.annotation.Nullable
@@ -184,7 +184,7 @@ public class ContractStat {
     }
 
      /**
-     * Long liquidation volume(quote currency)
+     * Long liquidation volume(quote currency).
      * @return longLiqUsd
     **/
     @javax.annotation.Nullable
@@ -204,7 +204,7 @@ public class ContractStat {
     }
 
      /**
-     * Short liquidation size
+     * Short liquidation size.
      * @return shortLiqSize
     **/
     @javax.annotation.Nullable
@@ -224,7 +224,7 @@ public class ContractStat {
     }
 
      /**
-     * Short liquidation amount(base currency)
+     * Short liquidation amount(base currency).
      * @return shortLiqAmount
     **/
     @javax.annotation.Nullable
@@ -244,7 +244,7 @@ public class ContractStat {
     }
 
      /**
-     * Short liquidation volume(quote currency)
+     * Short liquidation volume(quote currency).
      * @return shortLiqUsd
     **/
     @javax.annotation.Nullable
@@ -264,7 +264,7 @@ public class ContractStat {
     }
 
      /**
-     * Open interest size
+     * Open interest size.
      * @return openInterest
     **/
     @javax.annotation.Nullable
@@ -284,7 +284,7 @@ public class ContractStat {
     }
 
      /**
-     * Open interest volume(quote currency)
+     * Open interest volume(quote currency).
      * @return openInterestUsd
     **/
     @javax.annotation.Nullable
@@ -304,7 +304,7 @@ public class ContractStat {
     }
 
      /**
-     * Top trader long/short account ratio
+     * Top trader long/short account ratio.
      * @return topLsrAccount
     **/
     @javax.annotation.Nullable
@@ -324,7 +324,7 @@ public class ContractStat {
     }
 
      /**
-     * Top trader long/short position ratio
+     * Top trader long/short position ratio.
      * @return topLsrSize
     **/
     @javax.annotation.Nullable

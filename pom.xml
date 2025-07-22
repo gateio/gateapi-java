@@ -5,7 +5,7 @@
     <artifactId>gate-api</artifactId>
     <packaging>jar</packaging>
     <name>gate-api</name>
-    <version>6.102.1</version>
+    <version>6.102.6</version>
     <url>https://github.com/gateio/gateapi-java.git</url>
     <description>Java client for gateapi</description>
     <scm>

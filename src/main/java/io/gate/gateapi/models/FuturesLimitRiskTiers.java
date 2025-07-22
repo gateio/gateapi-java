@@ -59,7 +59,7 @@ public class FuturesLimitRiskTiers {
     }
 
      /**
-     * Tier
+     * Tier.
      * @return tier
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class FuturesLimitRiskTiers {
     }
 
      /**
-     * Position risk limit
+     * Position risk limit.
      * @return riskLimit
     **/
     @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class FuturesLimitRiskTiers {
     }
 
      /**
-     * Initial margin rate
+     * Initial margin rate.
      * @return initialRate
     **/
     @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class FuturesLimitRiskTiers {
     }
 
      /**
-     * Maintenance margin rate
+     * Maintenance margin rate.
      * @return maintenanceRate
     **/
     @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class FuturesLimitRiskTiers {
     }
 
      /**
-     * Maximum leverage
+     * Maximum leverage.
      * @return leverageMax
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class FuturesLimitRiskTiers {
     }
 
      /**
-     * Markets, visible only during market pagination requests
+     * Markets, visible only during market pagination requests.
      * @return contract
     **/
     @javax.annotation.Nullable
@@ -179,7 +179,7 @@ public class FuturesLimitRiskTiers {
     }
 
      /**
-     * Maintenance margin quick calculation deduction
+     * Maintenance margin quick calculation deduction.
      * @return deduction
     **/
     @javax.annotation.Nullable

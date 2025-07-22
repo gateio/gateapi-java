@@ -70,14 +70,14 @@ public class WalletApi {
 
     /**
      * Build call for listCurrencyChains
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listCurrencyChainsCall(String currency, final ApiCallback _callback) throws ApiException {
@@ -125,15 +125,15 @@ public class WalletApi {
     }
 
     /**
-     * List chains supported for specified currency
+     * List chains supported for specified currency.
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @return List&lt;CurrencyChain&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public List<CurrencyChain> listCurrencyChains(String currency) throws ApiException {
@@ -142,15 +142,15 @@ public class WalletApi {
     }
 
     /**
-     * List chains supported for specified currency
+     * List chains supported for specified currency.
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @return ApiResponse&lt;List&lt;CurrencyChain&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CurrencyChain>> listCurrencyChainsWithHttpInfo(String currency) throws ApiException {
@@ -160,16 +160,16 @@ public class WalletApi {
     }
 
     /**
-     * List chains supported for specified currency (asynchronously)
+     * List chains supported for specified currency. (asynchronously)
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listCurrencyChainsAsync(String currency, final ApiCallback<List<CurrencyChain>> _callback) throws ApiException {
@@ -181,14 +181,14 @@ public class WalletApi {
 
     /**
      * Build call for getDepositAddress
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Address successfully generated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Address successfully generated. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDepositAddressCall(String currency, final ApiCallback _callback) throws ApiException {
@@ -236,15 +236,15 @@ public class WalletApi {
     }
 
     /**
-     * Generate currency deposit address
+     * Generate currency deposit address.
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @return DepositAddress
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Address successfully generated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Address successfully generated. </td><td>  -  </td></tr>
      </table>
      */
     public DepositAddress getDepositAddress(String currency) throws ApiException {
@@ -253,15 +253,15 @@ public class WalletApi {
     }
 
     /**
-     * Generate currency deposit address
+     * Generate currency deposit address.
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @return ApiResponse&lt;DepositAddress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Address successfully generated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Address successfully generated. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<DepositAddress> getDepositAddressWithHttpInfo(String currency) throws ApiException {
@@ -271,16 +271,16 @@ public class WalletApi {
     }
 
     /**
-     * Generate currency deposit address (asynchronously)
+     * Generate currency deposit address. (asynchronously)
      * 
-     * @param currency Currency name (required)
+     * @param currency Currency name. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Address successfully generated </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Address successfully generated. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDepositAddressAsync(String currency, final ApiCallback<DepositAddress> _callback) throws ApiException {
@@ -386,7 +386,7 @@ public class WalletApi {
 
         /**
          * Set currency
-         * @param currency Filter by currency. Return all currency records if not specified (optional)
+         * @param currency Filter by currency. Return all currency records if not specified. (optional)
          * @return APIlistWithdrawalsRequest
          */
         public APIlistWithdrawalsRequest currency(String currency) {
@@ -426,7 +426,7 @@ public class WalletApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Time range beginning, default to 7 days before current time. (optional)
          * @return APIlistWithdrawalsRequest
          */
         public APIlistWithdrawalsRequest from(Long from) {
@@ -436,7 +436,7 @@ public class WalletApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistWithdrawalsRequest
          */
         public APIlistWithdrawalsRequest to(Long to) {
@@ -446,7 +446,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistWithdrawalsRequest
          */
         public APIlistWithdrawalsRequest limit(Integer limit) {
@@ -456,7 +456,7 @@ public class WalletApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistWithdrawalsRequest
          */
         public APIlistWithdrawalsRequest offset(Integer offset) {
@@ -472,7 +472,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -486,7 +486,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<WithdrawalRecord> execute() throws ApiException {
@@ -501,7 +501,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<WithdrawalRecord>> executeWithHttpInfo() throws ApiException {
@@ -516,7 +516,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<WithdrawalRecord>> _callback) throws ApiException {
@@ -525,13 +525,13 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve withdrawal records
-     * Record time range cannot exceed 30 days
+     * Retrieve withdrawal records.
+     * Record time range cannot exceed 30 days.
      * @return APIlistWithdrawalsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistWithdrawalsRequest listWithdrawals() {
@@ -619,7 +619,7 @@ public class WalletApi {
 
         /**
          * Set currency
-         * @param currency Filter by currency. Return all currency records if not specified (optional)
+         * @param currency Filter by currency. Return all currency records if not specified. (optional)
          * @return APIlistDepositsRequest
          */
         public APIlistDepositsRequest currency(String currency) {
@@ -629,7 +629,7 @@ public class WalletApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Time range beginning, default to 7 days before current time. (optional)
          * @return APIlistDepositsRequest
          */
         public APIlistDepositsRequest from(Long from) {
@@ -639,7 +639,7 @@ public class WalletApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistDepositsRequest
          */
         public APIlistDepositsRequest to(Long to) {
@@ -659,7 +659,7 @@ public class WalletApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistDepositsRequest
          */
         public APIlistDepositsRequest offset(Integer offset) {
@@ -675,7 +675,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -689,7 +689,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<DepositRecord> execute() throws ApiException {
@@ -704,7 +704,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<DepositRecord>> executeWithHttpInfo() throws ApiException {
@@ -719,7 +719,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<DepositRecord>> _callback) throws ApiException {
@@ -728,13 +728,13 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve deposit records
-     * Record time range cannot exceed 30 days
+     * Retrieve deposit records.
+     * Record time range cannot exceed 30 days.
      * @return APIlistDepositsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistDepositsRequest listDeposits() {
@@ -750,7 +750,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call transferCall(Transfer transfer, final ApiCallback _callback) throws ApiException {
@@ -794,15 +794,15 @@ public class WalletApi {
     }
 
     /**
-     * Transfer between trading accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
+     * Transfer between trading accounts.
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. options
      * @param transfer  (required)
      * @return TransactionID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public TransactionID transfer(Transfer transfer) throws ApiException {
@@ -811,15 +811,15 @@ public class WalletApi {
     }
 
     /**
-     * Transfer between trading accounts
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
+     * Transfer between trading accounts.
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. options
      * @param transfer  (required)
      * @return ApiResponse&lt;TransactionID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TransactionID> transferWithHttpInfo(Transfer transfer) throws ApiException {
@@ -829,8 +829,8 @@ public class WalletApi {
     }
 
     /**
-     * Transfer between trading accounts (asynchronously)
-     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
+     * Transfer between trading accounts. (asynchronously)
+     * Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. options
      * @param transfer  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -838,7 +838,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call transferAsync(Transfer transfer, final ApiCallback<TransactionID> _callback) throws ApiException {
@@ -939,7 +939,7 @@ public class WalletApi {
 
         /**
          * Set from
-         * @param from Time range beginning, default to 7 days before current time (optional)
+         * @param from Time range beginning, default to 7 days before current time. (optional)
          * @return APIlistSubAccountTransfersRequest
          */
         public APIlistSubAccountTransfersRequest from(Long from) {
@@ -949,7 +949,7 @@ public class WalletApi {
 
         /**
          * Set to
-         * @param to Time range ending, default to current time (optional)
+         * @param to Time range ending, default to current time. (optional)
          * @return APIlistSubAccountTransfersRequest
          */
         public APIlistSubAccountTransfersRequest to(Long to) {
@@ -959,7 +959,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records to be returned in a single list (optional, default to 100)
+         * @param limit Maximum number of records to be returned in a single list. (optional, default to 100)
          * @return APIlistSubAccountTransfersRequest
          */
         public APIlistSubAccountTransfersRequest limit(Integer limit) {
@@ -969,7 +969,7 @@ public class WalletApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistSubAccountTransfersRequest
          */
         public APIlistSubAccountTransfersRequest offset(Integer offset) {
@@ -985,7 +985,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -999,7 +999,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SubAccountTransferRecordItem> execute() throws ApiException {
@@ -1014,7 +1014,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SubAccountTransferRecordItem>> executeWithHttpInfo() throws ApiException {
@@ -1029,7 +1029,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SubAccountTransferRecordItem>> _callback) throws ApiException {
@@ -1038,13 +1038,13 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve transfer records between main and sub accounts
+     * Retrieve transfer records between main and sub accounts.
      * Record time range cannot exceed 30 days  &gt; Note: only records after 20-04-10can be retrieved
      * @return APIlistSubAccountTransfersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSubAccountTransfersRequest listSubAccountTransfers() {
@@ -1060,7 +1060,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call transferWithSubAccountCall(SubAccountTransfer subAccountTransfer, final ApiCallback _callback) throws ApiException {
@@ -1104,7 +1104,7 @@ public class WalletApi {
     }
 
     /**
-     * Transfer between main and sub accounts
+     * Transfer between main and sub accounts.
      * Support transferring with sub user&#39;s spot or futures account. Note that only main user&#39;s spot account is used no matter which sub user&#39;s account is operated.
      * @param subAccountTransfer  (required)
      * @return TransactionID
@@ -1112,7 +1112,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public TransactionID transferWithSubAccount(SubAccountTransfer subAccountTransfer) throws ApiException {
@@ -1121,7 +1121,7 @@ public class WalletApi {
     }
 
     /**
-     * Transfer between main and sub accounts
+     * Transfer between main and sub accounts.
      * Support transferring with sub user&#39;s spot or futures account. Note that only main user&#39;s spot account is used no matter which sub user&#39;s account is operated.
      * @param subAccountTransfer  (required)
      * @return ApiResponse&lt;TransactionID&gt;
@@ -1129,7 +1129,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TransactionID> transferWithSubAccountWithHttpInfo(SubAccountTransfer subAccountTransfer) throws ApiException {
@@ -1139,7 +1139,7 @@ public class WalletApi {
     }
 
     /**
-     * Transfer between main and sub accounts (asynchronously)
+     * Transfer between main and sub accounts. (asynchronously)
      * Support transferring with sub user&#39;s spot or futures account. Note that only main user&#39;s spot account is used no matter which sub user&#39;s account is operated.
      * @param subAccountTransfer  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1148,7 +1148,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call transferWithSubAccountAsync(SubAccountTransfer subAccountTransfer, final ApiCallback<TransactionID> _callback) throws ApiException {
@@ -1167,7 +1167,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call subAccountToSubAccountCall(SubAccountToSubAccount subAccountToSubAccount, final ApiCallback _callback) throws ApiException {
@@ -1211,15 +1211,15 @@ public class WalletApi {
     }
 
     /**
-     * Sub-account transfers to sub-account
-     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
+     * Sub-account transfers to sub-account.
+     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account sub-account to initiate the transfer.
      * @param subAccountToSubAccount  (required)
      * @return TransactionID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public TransactionID subAccountToSubAccount(SubAccountToSubAccount subAccountToSubAccount) throws ApiException {
@@ -1228,15 +1228,15 @@ public class WalletApi {
     }
 
     /**
-     * Sub-account transfers to sub-account
-     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
+     * Sub-account transfers to sub-account.
+     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account sub-account to initiate the transfer.
      * @param subAccountToSubAccount  (required)
      * @return ApiResponse&lt;TransactionID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<TransactionID> subAccountToSubAccountWithHttpInfo(SubAccountToSubAccount subAccountToSubAccount) throws ApiException {
@@ -1246,8 +1246,8 @@ public class WalletApi {
     }
 
     /**
-     * Sub-account transfers to sub-account (asynchronously)
-     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
+     * Sub-account transfers to sub-account. (asynchronously)
+     * It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account sub-account to initiate the transfer.
      * @param subAccountToSubAccount  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1255,7 +1255,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Balance transferred </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Balance transferred. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call subAccountToSubAccountAsync(SubAccountToSubAccount subAccountToSubAccount, final ApiCallback<TransactionID> _callback) throws ApiException {
@@ -1357,7 +1357,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Transfer status obtained successfully </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Transfer status obtained successfully. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1371,7 +1371,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Transfer status obtained successfully </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Transfer status obtained successfully. </td><td>  -  </td></tr>
          </table>
          */
         public TransferOrderStatus execute() throws ApiException {
@@ -1386,7 +1386,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Transfer status obtained successfully </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Transfer status obtained successfully. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<TransferOrderStatus> executeWithHttpInfo() throws ApiException {
@@ -1401,7 +1401,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Transfer status obtained successfully </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Transfer status obtained successfully. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<TransferOrderStatus> _callback) throws ApiException {
@@ -1410,13 +1410,13 @@ public class WalletApi {
     }
 
     /**
-     * Transfer status query
+     * Transfer status query.
      * Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
      * @return APIgetTransferOrderStatusRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Transfer status obtained successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transfer status obtained successfully. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTransferOrderStatusRequest getTransferOrderStatus() {
@@ -1484,7 +1484,7 @@ public class WalletApi {
 
         /**
          * Set currency
-         * @param currency Retrieve data of the specified currency (optional)
+         * @param currency Retrieve data of the specified currency. (optional)
          * @return APIlistWithdrawStatusRequest
          */
         public APIlistWithdrawStatusRequest currency(String currency) {
@@ -1500,7 +1500,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1514,7 +1514,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<WithdrawStatus> execute() throws ApiException {
@@ -1529,7 +1529,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<WithdrawStatus>> executeWithHttpInfo() throws ApiException {
@@ -1544,7 +1544,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<WithdrawStatus>> _callback) throws ApiException {
@@ -1553,13 +1553,13 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve withdrawal status
+     * Retrieve withdrawal status.
      * 
      * @return APIlistWithdrawStatusRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistWithdrawStatusRequest listWithdrawStatus() {
@@ -1643,7 +1643,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1657,7 +1657,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SubAccountBalance> execute() throws ApiException {
@@ -1672,7 +1672,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SubAccountBalance>> executeWithHttpInfo() throws ApiException {
@@ -1687,7 +1687,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SubAccountBalance>> _callback) throws ApiException {
@@ -1696,13 +1696,13 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve sub account balances
+     * Retrieve sub account balances.
      * 
      * @return APIlistSubAccountBalancesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSubAccountBalancesRequest listSubAccountBalances() {
@@ -1786,7 +1786,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1800,7 +1800,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SubAccountMarginBalance> execute() throws ApiException {
@@ -1815,7 +1815,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SubAccountMarginBalance>> executeWithHttpInfo() throws ApiException {
@@ -1830,7 +1830,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SubAccountMarginBalance>> _callback) throws ApiException {
@@ -1839,13 +1839,13 @@ public class WalletApi {
     }
 
     /**
-     * Query sub accounts&#39; margin balances
+     * Query sub accounts&#39; margin balances.
      * 
      * @return APIlistSubAccountMarginBalancesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSubAccountMarginBalancesRequest listSubAccountMarginBalances() {
@@ -1928,7 +1928,7 @@ public class WalletApi {
 
         /**
          * Set settle
-         * @param settle Query only balances of specified settle currency (optional)
+         * @param settle Query only balances of specified settle currency. (optional)
          * @return APIlistSubAccountFuturesBalancesRequest
          */
         public APIlistSubAccountFuturesBalancesRequest settle(String settle) {
@@ -1944,7 +1944,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1958,7 +1958,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SubAccountFuturesBalance> execute() throws ApiException {
@@ -1973,7 +1973,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SubAccountFuturesBalance>> executeWithHttpInfo() throws ApiException {
@@ -1988,7 +1988,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SubAccountFuturesBalance>> _callback) throws ApiException {
@@ -1997,13 +1997,13 @@ public class WalletApi {
     }
 
     /**
-     * Query sub accounts&#39; futures account balances
+     * Query sub accounts&#39; futures account balances.
      * 
      * @return APIlistSubAccountFuturesBalancesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSubAccountFuturesBalancesRequest listSubAccountFuturesBalances() {
@@ -2087,7 +2087,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2101,7 +2101,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SubAccountCrossMarginBalance> execute() throws ApiException {
@@ -2116,7 +2116,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SubAccountCrossMarginBalance>> executeWithHttpInfo() throws ApiException {
@@ -2131,7 +2131,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SubAccountCrossMarginBalance>> _callback) throws ApiException {
@@ -2140,13 +2140,13 @@ public class WalletApi {
     }
 
     /**
-     * Query subaccount&#39;s cross_margin account info
+     * Query subaccount&#39;s cross_margin account info.
      * 
      * @return APIlistSubAccountCrossMarginBalancesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSubAccountCrossMarginBalancesRequest listSubAccountCrossMarginBalances() {
@@ -2235,7 +2235,7 @@ public class WalletApi {
 
         /**
          * Set chain
-         * @param chain Chain name (optional, default to &quot;&quot;)
+         * @param chain Chain name. (optional, default to &quot;&quot;)
          * @return APIlistSavedAddressRequest
          */
         public APIlistSavedAddressRequest chain(String chain) {
@@ -2245,7 +2245,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit Maximum number returned, 100 at most (optional, default to &quot;50&quot;)
+         * @param limit Maximum number returned, 100 at most. (optional, default to &quot;50&quot;)
          * @return APIlistSavedAddressRequest
          */
         public APIlistSavedAddressRequest limit(String limit) {
@@ -2255,7 +2255,7 @@ public class WalletApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistSavedAddressRequest
          */
         public APIlistSavedAddressRequest page(Integer page) {
@@ -2271,7 +2271,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2285,7 +2285,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public List<SavedAddress> execute() throws ApiException {
@@ -2300,7 +2300,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SavedAddress>> executeWithHttpInfo() throws ApiException {
@@ -2315,7 +2315,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SavedAddress>> _callback) throws ApiException {
@@ -2324,14 +2324,14 @@ public class WalletApi {
     }
 
     /**
-     * Query saved address
+     * Query saved address.
      * 
-     * @param currency Currency (required)
+     * @param currency Currency. (required)
      * @return APIlistSavedAddressRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> List retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSavedAddressRequest listSavedAddress(String currency) {
@@ -2430,7 +2430,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2444,7 +2444,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public TradeFee execute() throws ApiException {
@@ -2459,7 +2459,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<TradeFee> executeWithHttpInfo() throws ApiException {
@@ -2474,7 +2474,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<TradeFee> _callback) throws ApiException {
@@ -2483,13 +2483,13 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve personal trading fee
+     * Retrieve personal trading fee.
      * 
      * @return APIgetTradeFeeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTradeFeeRequest getTradeFee() {
@@ -2573,7 +2573,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Request is valid and is successfully responded. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2587,7 +2587,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Request is valid and is successfully responded. </td><td>  -  </td></tr>
          </table>
          */
         public TotalBalance execute() throws ApiException {
@@ -2602,7 +2602,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Request is valid and is successfully responded. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<TotalBalance> executeWithHttpInfo() throws ApiException {
@@ -2617,7 +2617,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Request is valid and is successfully responded. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<TotalBalance> _callback) throws ApiException {
@@ -2626,13 +2626,13 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve user&#39;s total balances
-     * This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
+     * Retrieve user&#39;s total balances.
+     * This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; /futures/{settle}/accounts&#x60; to query futures account balance
      * @return APIgetTotalBalanceRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Request is valid and is successfully responded </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Request is valid and is successfully responded. </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTotalBalanceRequest getTotalBalance() {
@@ -2647,7 +2647,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listSmallBalanceCall(final ApiCallback _callback) throws ApiException {
@@ -2686,14 +2686,14 @@ public class WalletApi {
     }
 
     /**
-     * List small balance
+     * List small balance.
      * 
      * @return List&lt;SmallBalance&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public List<SmallBalance> listSmallBalance() throws ApiException {
@@ -2702,14 +2702,14 @@ public class WalletApi {
     }
 
     /**
-     * List small balance
+     * List small balance.
      * 
      * @return ApiResponse&lt;List&lt;SmallBalance&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<SmallBalance>> listSmallBalanceWithHttpInfo() throws ApiException {
@@ -2719,7 +2719,7 @@ public class WalletApi {
     }
 
     /**
-     * List small balance (asynchronously)
+     * List small balance. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2727,7 +2727,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listSmallBalanceAsync(final ApiCallback<List<SmallBalance>> _callback) throws ApiException {
@@ -2746,7 +2746,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call convertSmallBalanceCall(ConvertSmallBalance convertSmallBalance, final ApiCallback _callback) throws ApiException {
@@ -2790,14 +2790,14 @@ public class WalletApi {
     }
 
     /**
-     * Convert small balance
+     * Convert small balance.
      * 
      * @param convertSmallBalance  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public void convertSmallBalance(ConvertSmallBalance convertSmallBalance) throws ApiException {
@@ -2805,7 +2805,7 @@ public class WalletApi {
     }
 
     /**
-     * Convert small balance
+     * Convert small balance.
      * 
      * @param convertSmallBalance  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -2813,7 +2813,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> convertSmallBalanceWithHttpInfo(ConvertSmallBalance convertSmallBalance) throws ApiException {
@@ -2822,7 +2822,7 @@ public class WalletApi {
     }
 
     /**
-     * Convert small balance (asynchronously)
+     * Convert small balance. (asynchronously)
      * 
      * @param convertSmallBalance  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2831,7 +2831,7 @@ public class WalletApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call convertSmallBalanceAsync(ConvertSmallBalance convertSmallBalance, final ApiCallback<Void> _callback) throws ApiException {
@@ -2911,7 +2911,7 @@ public class WalletApi {
 
         /**
          * Set currency
-         * @param currency Currency (optional)
+         * @param currency Currency. (optional)
          * @return APIlistSmallBalanceHistoryRequest
          */
         public APIlistSmallBalanceHistoryRequest currency(String currency) {
@@ -2921,7 +2921,7 @@ public class WalletApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page Page number. (optional, default to 1)
          * @return APIlistSmallBalanceHistoryRequest
          */
         public APIlistSmallBalanceHistoryRequest page(Integer page) {
@@ -2931,7 +2931,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)
+         * @param limit Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)
          * @return APIlistSmallBalanceHistoryRequest
          */
         public APIlistSmallBalanceHistoryRequest limit(Integer limit) {
@@ -2947,7 +2947,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2961,7 +2961,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
          </table>
          */
         public List<SmallBalanceHistory> execute() throws ApiException {
@@ -2976,7 +2976,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<SmallBalanceHistory>> executeWithHttpInfo() throws ApiException {
@@ -2991,7 +2991,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SmallBalanceHistory>> _callback) throws ApiException {
@@ -3000,13 +3000,13 @@ public class WalletApi {
     }
 
     /**
-     * List small balance history
+     * List small balance history.
      * 
      * @return APIlistSmallBalanceHistoryRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistSmallBalanceHistoryRequest listSmallBalanceHistory() {
@@ -3099,7 +3099,7 @@ public class WalletApi {
 
         /**
          * Set id
-         * @param id Order ID (optional)
+         * @param id Order ID. (optional)
          * @return APIlistPushOrdersRequest
          */
         public APIlistPushOrdersRequest id(Integer id) {
@@ -3129,7 +3129,7 @@ public class WalletApi {
 
         /**
          * Set limit
-         * @param limit The maximum number of items returned in the list, the default value is 100 (optional, default to 100)
+         * @param limit The maximum number of items returned in the list, the default value is 100. (optional, default to 100)
          * @return APIlistPushOrdersRequest
          */
         public APIlistPushOrdersRequest limit(Integer limit) {
@@ -3139,7 +3139,7 @@ public class WalletApi {
 
         /**
          * Set offset
-         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @param offset List offset, starting from 0. (optional, default to 0)
          * @return APIlistPushOrdersRequest
          */
         public APIlistPushOrdersRequest offset(Integer offset) {
@@ -3165,7 +3165,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3179,7 +3179,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
          </table>
          */
         public List<UidPushOrder> execute() throws ApiException {
@@ -3194,7 +3194,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<UidPushOrder>> executeWithHttpInfo() throws ApiException {
@@ -3209,7 +3209,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<UidPushOrder>> _callback) throws ApiException {
@@ -3218,13 +3218,13 @@ public class WalletApi {
     }
 
     /**
-     * Retrieve the UID transfer history
+     * Retrieve the UID transfer history.
      * 
      * @return APIlistPushOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
      </table>
      */
     public APIlistPushOrdersRequest listPushOrders() {

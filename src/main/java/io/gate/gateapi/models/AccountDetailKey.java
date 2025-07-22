@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * API Key detail
+ * API Key detail.
  */
 public class AccountDetailKey {
     public static final String SERIALIZED_NAME_MODE = "mode";
@@ -35,7 +35,7 @@ public class AccountDetailKey {
     }
 
      /**
-     * mode: 1 - classic account 2 - portfolio margin account
+     * mode: 1 - classic account 2 - portfolio margin account.
      * @return mode
     **/
     @javax.annotation.Nullable
