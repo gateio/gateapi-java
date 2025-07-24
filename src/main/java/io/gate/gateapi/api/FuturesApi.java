@@ -45,6 +45,7 @@ import io.gate.gateapi.models.FuturesPriceTriggeredOrder;
 import io.gate.gateapi.models.FuturesRiskLimitTier;
 import io.gate.gateapi.models.FuturesTicker;
 import io.gate.gateapi.models.FuturesTrade;
+import io.gate.gateapi.models.InlineObject;
 import io.gate.gateapi.models.InsuranceRecord;
 import io.gate.gateapi.models.MyFuturesTrade;
 import io.gate.gateapi.models.MyFuturesTradeTimeRange;
@@ -906,7 +907,7 @@ public class FuturesApi {
 
         /**
          * Set interval
-         * @param interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 1 natual month, not 30 days (optional, default to &quot;5m&quot;)
+         * @param interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 1 natual month, not 30 days (optional, default to 5m)
          * @return APIlistFuturesCandlesticksRequest
          */
         public APIlistFuturesCandlesticksRequest interval(String interval) {
@@ -1115,7 +1116,7 @@ public class FuturesApi {
 
         /**
          * Set interval
-         * @param interval Interval time between data points. (optional, default to &quot;5m&quot;)
+         * @param interval Interval time between data points. (optional, default to 5m)
          * @return APIlistFuturesPremiumIndexRequest
          */
         public APIlistFuturesPremiumIndexRequest interval(String interval) {
@@ -3434,6 +3435,123 @@ public class FuturesApi {
     public okhttp3.Call updatePositionCrossModeAsync(String settle, FuturesPositionCrossMode futuresPositionCrossMode, final ApiCallback<Position> _callback) throws ApiException {
         okhttp3.Call localVarCall = updatePositionCrossModeValidateBeforeCall(settle, futuresPositionCrossMode, _callback);
         Type localVarReturnType = new TypeToken<Position>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateDualCompPositionCrossMode
+     * @param settle Settle currency. (required)
+     * @param inlineObject  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDualCompPositionCrossModeCall(String settle, InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/dual_comp/positions/cross_mode"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateDualCompPositionCrossModeValidateBeforeCall(String settle, InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling updateDualCompPositionCrossMode(Async)");
+        }
+
+        // verify the required parameter 'inlineObject' is set
+        if (inlineObject == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject' when calling updateDualCompPositionCrossMode(Async)");
+        }
+
+        okhttp3.Call localVarCall = updateDualCompPositionCrossModeCall(settle, inlineObject, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * 双仓模式下切换全逐仓模式
+     * 
+     * @param settle Settle currency. (required)
+     * @param inlineObject  (required)
+     * @return List&lt;Position&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Position> updateDualCompPositionCrossMode(String settle, InlineObject inlineObject) throws ApiException {
+        ApiResponse<List<Position>> localVarResp = updateDualCompPositionCrossModeWithHttpInfo(settle, inlineObject);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 双仓模式下切换全逐仓模式
+     * 
+     * @param settle Settle currency. (required)
+     * @param inlineObject  (required)
+     * @return ApiResponse&lt;List&lt;Position&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Position>> updateDualCompPositionCrossModeWithHttpInfo(String settle, InlineObject inlineObject) throws ApiException {
+        okhttp3.Call localVarCall = updateDualCompPositionCrossModeValidateBeforeCall(settle, inlineObject, null);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * 双仓模式下切换全逐仓模式 (asynchronously)
+     * 
+     * @param settle Settle currency. (required)
+     * @param inlineObject  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateDualCompPositionCrossModeAsync(String settle, InlineObject inlineObject, final ApiCallback<List<Position>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateDualCompPositionCrossModeValidateBeforeCall(settle, inlineObject, _callback);
+        Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -6118,7 +6236,7 @@ public class FuturesApi {
         return new APIlistPositionCloseRequest(settle);
     }
 
-    private okhttp3.Call listLiquidatesCall(String settle, String contract, Integer limit, Integer at, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLiquidatesCall(String settle, String contract, Integer limit, Integer offset, Long from, Long to, Integer at, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6133,6 +6251,18 @@ public class FuturesApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
         }
 
         if (at != null) {
@@ -6161,25 +6291,25 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLiquidatesValidateBeforeCall(String settle, String contract, Integer limit, Integer at, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLiquidatesValidateBeforeCall(String settle, String contract, Integer limit, Integer offset, Long from, Long to, Integer at, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listLiquidates(Async)");
         }
 
-        okhttp3.Call localVarCall = listLiquidatesCall(settle, contract, limit, at, _callback);
+        okhttp3.Call localVarCall = listLiquidatesCall(settle, contract, limit, offset, from, to, at, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<FuturesLiquidate>> listLiquidatesWithHttpInfo(String settle, String contract, Integer limit, Integer at) throws ApiException {
-        okhttp3.Call localVarCall = listLiquidatesValidateBeforeCall(settle, contract, limit, at, null);
+    private ApiResponse<List<FuturesLiquidate>> listLiquidatesWithHttpInfo(String settle, String contract, Integer limit, Integer offset, Long from, Long to, Integer at) throws ApiException {
+        okhttp3.Call localVarCall = listLiquidatesValidateBeforeCall(settle, contract, limit, offset, from, to, at, null);
         Type localVarReturnType = new TypeToken<List<FuturesLiquidate>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listLiquidatesAsync(String settle, String contract, Integer limit, Integer at, final ApiCallback<List<FuturesLiquidate>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listLiquidatesValidateBeforeCall(settle, contract, limit, at, _callback);
+    private okhttp3.Call listLiquidatesAsync(String settle, String contract, Integer limit, Integer offset, Long from, Long to, Integer at, final ApiCallback<List<FuturesLiquidate>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listLiquidatesValidateBeforeCall(settle, contract, limit, offset, from, to, at, _callback);
         Type localVarReturnType = new TypeToken<List<FuturesLiquidate>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6189,6 +6319,9 @@ public class FuturesApi {
         private final String settle;
         private String contract;
         private Integer limit;
+        private Integer offset;
+        private Long from;
+        private Long to;
         private Integer at;
 
         private APIlistLiquidatesRequest(String settle) {
@@ -6216,6 +6349,36 @@ public class FuturesApi {
         }
 
         /**
+         * Set offset
+         * @param offset List offset, starting from 0. (optional, default to 0)
+         * @return APIlistLiquidatesRequest
+         */
+        public APIlistLiquidatesRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
+         * @return APIlistLiquidatesRequest
+         */
+        public APIlistLiquidatesRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
+         * @return APIlistLiquidatesRequest
+         */
+        public APIlistLiquidatesRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
          * Set at
          * @param at Specify a liquidation timestamp. (optional, default to 0)
          * @return APIlistLiquidatesRequest
@@ -6237,7 +6400,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listLiquidatesCall(settle, contract, limit, at, _callback);
+            return listLiquidatesCall(settle, contract, limit, offset, from, to, at, _callback);
         }
 
         /**
@@ -6251,7 +6414,7 @@ public class FuturesApi {
          </table>
          */
         public List<FuturesLiquidate> execute() throws ApiException {
-            ApiResponse<List<FuturesLiquidate>> localVarResp = listLiquidatesWithHttpInfo(settle, contract, limit, at);
+            ApiResponse<List<FuturesLiquidate>> localVarResp = listLiquidatesWithHttpInfo(settle, contract, limit, offset, from, to, at);
             return localVarResp.getData();
         }
 
@@ -6266,7 +6429,7 @@ public class FuturesApi {
          </table>
          */
         public ApiResponse<List<FuturesLiquidate>> executeWithHttpInfo() throws ApiException {
-            return listLiquidatesWithHttpInfo(settle, contract, limit, at);
+            return listLiquidatesWithHttpInfo(settle, contract, limit, offset, from, to, at);
         }
 
         /**
@@ -6281,7 +6444,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesLiquidate>> _callback) throws ApiException {
-            return listLiquidatesAsync(settle, contract, limit, at, _callback);
+            return listLiquidatesAsync(settle, contract, limit, offset, from, to, at, _callback);
         }
     }
 
@@ -6300,7 +6463,7 @@ public class FuturesApi {
         return new APIlistLiquidatesRequest(settle);
     }
 
-    private okhttp3.Call listAutoDeleveragesCall(String settle, String contract, Integer limit, Integer at, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listAutoDeleveragesCall(String settle, String contract, Integer limit, Integer offset, Long from, Long to, Integer at, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6315,6 +6478,18 @@ public class FuturesApi {
 
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
         }
 
         if (at != null) {
@@ -6343,25 +6518,25 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAutoDeleveragesValidateBeforeCall(String settle, String contract, Integer limit, Integer at, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listAutoDeleveragesValidateBeforeCall(String settle, String contract, Integer limit, Integer offset, Long from, Long to, Integer at, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling listAutoDeleverages(Async)");
         }
 
-        okhttp3.Call localVarCall = listAutoDeleveragesCall(settle, contract, limit, at, _callback);
+        okhttp3.Call localVarCall = listAutoDeleveragesCall(settle, contract, limit, offset, from, to, at, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<FuturesAutoDeleverage>> listAutoDeleveragesWithHttpInfo(String settle, String contract, Integer limit, Integer at) throws ApiException {
-        okhttp3.Call localVarCall = listAutoDeleveragesValidateBeforeCall(settle, contract, limit, at, null);
+    private ApiResponse<List<FuturesAutoDeleverage>> listAutoDeleveragesWithHttpInfo(String settle, String contract, Integer limit, Integer offset, Long from, Long to, Integer at) throws ApiException {
+        okhttp3.Call localVarCall = listAutoDeleveragesValidateBeforeCall(settle, contract, limit, offset, from, to, at, null);
         Type localVarReturnType = new TypeToken<List<FuturesAutoDeleverage>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listAutoDeleveragesAsync(String settle, String contract, Integer limit, Integer at, final ApiCallback<List<FuturesAutoDeleverage>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listAutoDeleveragesValidateBeforeCall(settle, contract, limit, at, _callback);
+    private okhttp3.Call listAutoDeleveragesAsync(String settle, String contract, Integer limit, Integer offset, Long from, Long to, Integer at, final ApiCallback<List<FuturesAutoDeleverage>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoDeleveragesValidateBeforeCall(settle, contract, limit, offset, from, to, at, _callback);
         Type localVarReturnType = new TypeToken<List<FuturesAutoDeleverage>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6371,6 +6546,9 @@ public class FuturesApi {
         private final String settle;
         private String contract;
         private Integer limit;
+        private Integer offset;
+        private Long from;
+        private Long to;
         private Integer at;
 
         private APIlistAutoDeleveragesRequest(String settle) {
@@ -6398,6 +6576,36 @@ public class FuturesApi {
         }
 
         /**
+         * Set offset
+         * @param offset List offset, starting from 0. (optional, default to 0)
+         * @return APIlistAutoDeleveragesRequest
+         */
+        public APIlistAutoDeleveragesRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
+         * @return APIlistAutoDeleveragesRequest
+         */
+        public APIlistAutoDeleveragesRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
+         * @return APIlistAutoDeleveragesRequest
+         */
+        public APIlistAutoDeleveragesRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
          * Set at
          * @param at Specify an auto-deleveraging timestamp. (optional, default to 0)
          * @return APIlistAutoDeleveragesRequest
@@ -6419,7 +6627,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listAutoDeleveragesCall(settle, contract, limit, at, _callback);
+            return listAutoDeleveragesCall(settle, contract, limit, offset, from, to, at, _callback);
         }
 
         /**
@@ -6433,7 +6641,7 @@ public class FuturesApi {
          </table>
          */
         public List<FuturesAutoDeleverage> execute() throws ApiException {
-            ApiResponse<List<FuturesAutoDeleverage>> localVarResp = listAutoDeleveragesWithHttpInfo(settle, contract, limit, at);
+            ApiResponse<List<FuturesAutoDeleverage>> localVarResp = listAutoDeleveragesWithHttpInfo(settle, contract, limit, offset, from, to, at);
             return localVarResp.getData();
         }
 
@@ -6448,7 +6656,7 @@ public class FuturesApi {
          </table>
          */
         public ApiResponse<List<FuturesAutoDeleverage>> executeWithHttpInfo() throws ApiException {
-            return listAutoDeleveragesWithHttpInfo(settle, contract, limit, at);
+            return listAutoDeleveragesWithHttpInfo(settle, contract, limit, offset, from, to, at);
         }
 
         /**
@@ -6463,7 +6671,7 @@ public class FuturesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<FuturesAutoDeleverage>> _callback) throws ApiException {
-            return listAutoDeleveragesAsync(settle, contract, limit, at, _callback);
+            return listAutoDeleveragesAsync(settle, contract, limit, offset, from, to, at, _callback);
         }
     }
 

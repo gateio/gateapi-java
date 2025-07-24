@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**updatePositionMargin**](FuturesApi.md#updatePositionMargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin.
 [**updatePositionLeverage**](FuturesApi.md#updatePositionLeverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage.
 [**updatePositionCrossMode**](FuturesApi.md#updatePositionCrossMode) | **POST** /futures/{settle}/positions/cross_mode | Switch to the full position-by-store mode.
+[**updateDualCompPositionCrossMode**](FuturesApi.md#updateDualCompPositionCrossMode) | **POST** /futures/{settle}/dual_comp/positions/cross_mode | 双仓模式下切换全逐仓模式
 [**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit.
 [**setDualMode**](FuturesApi.md#setDualMode) | **POST** /futures/{settle}/dual_mode | Enable or disable dual mode.
 [**getDualModePosition**](FuturesApi.md#getDualModePosition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Retrieve position detail in dual mode.
@@ -382,7 +383,7 @@ public class Example {
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified
         Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        String interval = "\"5m\""; // String | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0. 1 natual month, not 30 days
+        String interval = "5m"; // String | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0. 1 natual month, not 30 days
         try {
             List<FuturesCandlestick> result = apiInstance.listFuturesCandlesticks(settle, contract)
                         .from(from)
@@ -413,7 +414,7 @@ Name | Type | Description  | Notes
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified | [optional]
  **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **String**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 1 natual month, not 30 days | [optional] [default to &quot;5m&quot;]
+ **interval** | **String**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 1 natual month, not 30 days | [optional] [default to 5m] [enum: 10s, 1m, 5m, 15m, 30m, 1h, 4h, 8h, 1d, 7d]
 
 ### Return type
 
@@ -463,7 +464,7 @@ public class Example {
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified
         Integer limit = 100; // Integer | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected.
-        String interval = "\"5m\""; // String | Interval time between data points.
+        String interval = "5m"; // String | Interval time between data points.
         try {
             List<FuturesPremiumIndex> result = apiInstance.listFuturesPremiumIndex(settle, contract)
                         .from(from)
@@ -494,7 +495,7 @@ Name | Type | Description  | Notes
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified | [optional]
  **limit** | **Integer**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **String**| Interval time between data points. | [optional] [default to &quot;5m&quot;]
+ **interval** | **String**| Interval time between data points. | [optional] [default to 5m] [enum: 10s, 1m, 5m, 15m, 30m, 1h, 4h, 8h, 1d, 7d]
 
 ### Return type
 
@@ -1544,6 +1545,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Position information. |  -  |
+
+<a name="updateDualCompPositionCrossMode"></a>
+# **updateDualCompPositionCrossMode**
+> List&lt;Position&gt; updateDualCompPositionCrossMode(settle, inlineObject)
+
+双仓模式下切换全逐仓模式
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency.
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        try {
+            List<Position> result = apiInstance.updateDualCompPositionCrossMode(settle, inlineObject);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#updateDualCompPositionCrossMode");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency. | [enum: btc, usdt]
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  |
+
+### Return type
+
+[**List&lt;Position&gt;**](Position.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved. |  -  |
 
 <a name="updatePositionRiskLimit"></a>
 # **updatePositionRiskLimit**
@@ -2856,7 +2927,7 @@ Name | Type | Description  | Notes
 
 <a name="listLiquidates"></a>
 # **listLiquidates**
-> List&lt;FuturesLiquidate&gt; listLiquidates(settle).contract(contract).limit(limit).at(at).execute();
+> List&lt;FuturesLiquidate&gt; listLiquidates(settle).contract(contract).limit(limit).offset(offset).from(from).to(to).at(at).execute();
 
 List liquidation history.
 
@@ -2884,11 +2955,17 @@ public class Example {
         String settle = "usdt"; // String | Settle currency.
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified.
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
+        Integer offset = 0; // Integer | List offset, starting from 0.
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         Integer at = 0; // Integer | Specify a liquidation timestamp.
         try {
             List<FuturesLiquidate> result = apiInstance.listLiquidates(settle)
                         .contract(contract)
                         .limit(limit)
+                        .offset(offset)
+                        .from(from)
+                        .to(to)
                         .at(at)
                         .execute();
             System.out.println(result);
@@ -2912,6 +2989,9 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency. | [enum: btc, usdt]
  **contract** | **String**| Futures contract, return related data only if specified. | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **at** | **Integer**| Specify a liquidation timestamp. | [optional] [default to 0]
 
 ### Return type
@@ -2934,7 +3014,7 @@ Name | Type | Description  | Notes
 
 <a name="listAutoDeleverages"></a>
 # **listAutoDeleverages**
-> List&lt;FuturesAutoDeleverage&gt; listAutoDeleverages(settle).contract(contract).limit(limit).at(at).execute();
+> List&lt;FuturesAutoDeleverage&gt; listAutoDeleverages(settle).contract(contract).limit(limit).offset(offset).from(from).to(to).at(at).execute();
 
 List Auto-Deleveraging History.
 
@@ -2962,11 +3042,17 @@ public class Example {
         String settle = "usdt"; // String | Settle currency.
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified.
         Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
+        Integer offset = 0; // Integer | List offset, starting from 0.
+        Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
+        Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         Integer at = 0; // Integer | Specify an auto-deleveraging timestamp.
         try {
             List<FuturesAutoDeleverage> result = apiInstance.listAutoDeleverages(settle)
                         .contract(contract)
                         .limit(limit)
+                        .offset(offset)
+                        .from(from)
+                        .to(to)
                         .at(at)
                         .execute();
             System.out.println(result);
@@ -2990,6 +3076,9 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency. | [enum: btc, usdt]
  **contract** | **String**| Futures contract, return related data only if specified. | [optional]
  **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
+ **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
  **at** | **Integer**| Specify an auto-deleveraging timestamp. | [optional] [default to 0]
 
 ### Return type

@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.102.6
-- SDK version: 6.102.6
+- API version: v4.103.0
+- SDK version: 6.103.0
 
 Welcome to Gate API
  APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.102.6</version>
+    <version>6.103.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -63,7 +63,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.102.6"
+compile "io.gate:gate-api:6.103.0"
 ```
 
 ### Others
@@ -76,7 +76,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.102.6.jar`
+* `target/gate-api-6.103.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -235,6 +235,7 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**updatePositionMargin**](docs/FuturesApi.md#updatePositionMargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin.
 *FuturesApi* | [**updatePositionLeverage**](docs/FuturesApi.md#updatePositionLeverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage.
 *FuturesApi* | [**updatePositionCrossMode**](docs/FuturesApi.md#updatePositionCrossMode) | **POST** /futures/{settle}/positions/cross_mode | Switch to the full position-by-store mode.
+*FuturesApi* | [**updateDualCompPositionCrossMode**](docs/FuturesApi.md#updateDualCompPositionCrossMode) | **POST** /futures/{settle}/dual_comp/positions/cross_mode | 双仓模式下切换全逐仓模式
 *FuturesApi* | [**updatePositionRiskLimit**](docs/FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit.
 *FuturesApi* | [**setDualMode**](docs/FuturesApi.md#setDualMode) | **POST** /futures/{settle}/dual_mode | Enable or disable dual mode.
 *FuturesApi* | [**getDualModePosition**](docs/FuturesApi.md#getDualModePosition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Retrieve position detail in dual mode.
@@ -520,6 +521,7 @@ Class | Method | HTTP request | Description
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
  - [IndexConstituent](docs/IndexConstituent.md)
+ - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
