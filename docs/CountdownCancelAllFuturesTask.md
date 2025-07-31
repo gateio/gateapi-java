@@ -1,12 +1,12 @@
 
 # CountdownCancelAllFuturesTask
 
-Countdown cancel task detail.
+Countdown cancel task details
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **timeout** | **Integer** | Countdown time in seconds At least 5 seconds, 0 means cancel countdown | 
-**contract** | **String** | Futures contract. |  [optional]
+**contract** | **String** | Futures contract |  [optional]
 

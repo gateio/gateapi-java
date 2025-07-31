@@ -4,21 +4,21 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listUniCurrencyPairs**](MarginUniApi.md#listUniCurrencyPairs) | **GET** /margin/uni/currency_pairs | List lending markets.
-[**getUniCurrencyPair**](MarginUniApi.md#getUniCurrencyPair) | **GET** /margin/uni/currency_pairs/{currency_pair} | Get detail of lending market.
-[**getMarginUniEstimateRate**](MarginUniApi.md#getMarginUniEstimateRate) | **GET** /margin/uni/estimate_rate | Estimate interest Rate.
-[**listUniLoans**](MarginUniApi.md#listUniLoans) | **GET** /margin/uni/loans | List loans.
-[**createUniLoan**](MarginUniApi.md#createUniLoan) | **POST** /margin/uni/loans | Borrow or repay.
-[**listUniLoanRecords**](MarginUniApi.md#listUniLoanRecords) | **GET** /margin/uni/loan_records | Get load records.
-[**listUniLoanInterestRecords**](MarginUniApi.md#listUniLoanInterestRecords) | **GET** /margin/uni/interest_records | List interest records.
-[**getUniBorrowable**](MarginUniApi.md#getUniBorrowable) | **GET** /margin/uni/borrowable | Get maximum borrowable.
+[**listUniCurrencyPairs**](MarginUniApi.md#listUniCurrencyPairs) | **GET** /margin/uni/currency_pairs | List lending markets
+[**getUniCurrencyPair**](MarginUniApi.md#getUniCurrencyPair) | **GET** /margin/uni/currency_pairs/{currency_pair} | Get lending market details
+[**getMarginUniEstimateRate**](MarginUniApi.md#getMarginUniEstimateRate) | **GET** /margin/uni/estimate_rate | Estimate interest rate for isolated margin currencies
+[**listUniLoans**](MarginUniApi.md#listUniLoans) | **GET** /margin/uni/loans | Query loans
+[**createUniLoan**](MarginUniApi.md#createUniLoan) | **POST** /margin/uni/loans | Borrow or repay
+[**listUniLoanRecords**](MarginUniApi.md#listUniLoanRecords) | **GET** /margin/uni/loan_records | Query loan records
+[**listUniLoanInterestRecords**](MarginUniApi.md#listUniLoanInterestRecords) | **GET** /margin/uni/interest_records | Query interest deduction records
+[**getUniBorrowable**](MarginUniApi.md#getUniBorrowable) | **GET** /margin/uni/borrowable | Query maximum borrowable amount by currency
 
 
 <a name="listUniCurrencyPairs"></a>
 # **listUniCurrencyPairs**
 > List&lt;UniCurrencyPair&gt; listUniCurrencyPairs()
 
-List lending markets.
+List lending markets
 
 ### Example
 
@@ -72,13 +72,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUniCurrencyPair"></a>
 # **getUniCurrencyPair**
 > UniCurrencyPair getUniCurrencyPair(currencyPair)
 
-Get detail of lending market.
+Get lending market details
 
 ### Example
 
@@ -97,7 +97,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String currencyPair = "AE_USDT"; // String | Currency pair.
+        String currencyPair = "AE_USDT"; // String | Currency pair
         try {
             UniCurrencyPair result = apiInstance.getUniCurrencyPair(currencyPair);
             System.out.println(result);
@@ -118,7 +118,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair. |
+ **currencyPair** | **String**| Currency pair |
 
 ### Return type
 
@@ -136,15 +136,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getMarginUniEstimateRate"></a>
 # **getMarginUniEstimateRate**
 > Map&lt;String, String&gt; getMarginUniEstimateRate(currencies)
 
-Estimate interest Rate.
+Estimate interest rate for isolated margin currencies
 
-Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+Interest rates change hourly based on lending depth, so completely accurate rates cannot be provided.
 
 ### Example
 
@@ -167,7 +167,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        List<String> currencies = Arrays.asList(); // List<String> | An array of up to 10 specifying the currency name.
+        List<String> currencies = Arrays.asList(); // List<String> | Array of currency names to query, maximum 10
         try {
             Map<String, String> result = apiInstance.getMarginUniEstimateRate(currencies);
             System.out.println(result);
@@ -188,7 +188,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**List&lt;String&gt;**](String.md)| An array of up to 10 specifying the currency name. |
+ **currencies** | [**List&lt;String&gt;**](String.md)| Array of currency names to query, maximum 10 |
 
 ### Return type
 
@@ -206,13 +206,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listUniLoans"></a>
 # **listUniLoans**
 > List&lt;UniLoan&gt; listUniLoans().currencyPair(currencyPair).currency(currency).page(page).limit(limit).execute();
 
-List loans.
+Query loans
 
 ### Example
 
@@ -235,10 +235,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        String currency = "BTC"; // String | Query by specified currency name
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
         try {
             List<UniLoan> result = apiInstance.listUniLoans()
                         .currencyPair(currencyPair)
@@ -264,10 +264,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair. | [optional]
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **currencyPair** | **String**| Currency pair | [optional]
+ **currency** | **String**| Query by specified currency name | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 
 ### Return type
 
@@ -285,13 +285,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="createUniLoan"></a>
 # **createUniLoan**
 > createUniLoan(createUniLoan)
 
-Borrow or repay.
+Borrow or repay
 
 ### Example
 
@@ -352,13 +352,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Operated successfully. |  -  |
+**204** | Operation successful |  -  |
 
 <a name="listUniLoanRecords"></a>
 # **listUniLoanRecords**
 > List&lt;UniLoanRecord&gt; listUniLoanRecords().type(type).currency(currency).currencyPair(currencyPair).page(page).limit(limit).execute();
 
-Get load records.
+Query loan records
 
 ### Example
 
@@ -381,11 +381,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String type = "type_example"; // String | type: borrow - borrow, repay - repay.
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+        String type = "type_example"; // String | Type: `borrow` - borrow, `repay` - repay
+        String currency = "BTC"; // String | Query by specified currency name
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
         try {
             List<UniLoanRecord> result = apiInstance.listUniLoanRecords()
                         .type(type)
@@ -412,11 +412,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| type: borrow - borrow, repay - repay. | [optional] [enum: borrow, repay]
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
- **currencyPair** | **String**| Currency pair. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **type** | **String**| Type: &#x60;borrow&#x60; - borrow, &#x60;repay&#x60; - repay | [optional] [enum: borrow, repay]
+ **currency** | **String**| Query by specified currency name | [optional]
+ **currencyPair** | **String**| Currency pair | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 
 ### Return type
 
@@ -434,13 +434,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listUniLoanInterestRecords"></a>
 # **listUniLoanInterestRecords**
 > List&lt;UniLoanInterestRecord&gt; listUniLoanInterestRecords().currencyPair(currencyPair).currency(currency).page(page).limit(limit).from(from).to(to).execute();
 
-List interest records.
+Query interest deduction records
 
 ### Example
 
@@ -463,10 +463,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        String currency = "BTC"; // String | Query by specified currency name
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
@@ -496,10 +496,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair. | [optional]
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **currencyPair** | **String**| Currency pair | [optional]
+ **currency** | **String**| Query by specified currency name | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -519,13 +519,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUniBorrowable"></a>
 # **getUniBorrowable**
 > MaxUniBorrowable getUniBorrowable(currency, currencyPair)
 
-Get maximum borrowable.
+Query maximum borrowable amount by currency
 
 ### Example
 
@@ -548,8 +548,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginUniApi apiInstance = new MarginUniApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
+        String currency = "BTC"; // String | Query by specified currency name
+        String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             MaxUniBorrowable result = apiInstance.getUniBorrowable(currency, currencyPair);
             System.out.println(result);
@@ -570,8 +570,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. |
- **currencyPair** | **String**| Currency pair. |
+ **currency** | **String**| Query by specified currency name |
+ **currencyPair** | **String**| Currency pair |
 
 ### Return type
 
@@ -589,5 +589,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 

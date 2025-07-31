@@ -1,17 +1,17 @@
 
 # FlashSwapCurrencyPair
 
-List all supported currencies in flash swap.
+List all supported currencies in flash swap
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currencyPair** | **String** | The currency pair, BTC_USDT represents selling Bitcoin (BTC) and buying Tether (USDT). |  [optional] [readonly]
-**sellCurrency** | **String** | The currency to be sold. |  [optional] [readonly]
-**buyCurrency** | **String** | The currency to be bought. |  [optional] [readonly]
-**sellMinAmount** | **String** | The minimum quantity required for selling. |  [optional] [readonly]
-**sellMaxAmount** | **String** | The maximum quantity allowed for selling. |  [optional] [readonly]
-**buyMinAmount** | **String** | The minimum quantity required for buying. |  [optional] [readonly]
-**buyMaxAmount** | **String** | The maximum quantity allowed for buying. |  [optional] [readonly]
+**currencyPair** | **String** | Currency pair, &#x60;BTC_USDT&#x60; represents selling &#x60;BTC&#x60; and buying &#x60;USDT&#x60; |  [optional] [readonly]
+**sellCurrency** | **String** | Currency to sell |  [optional] [readonly]
+**buyCurrency** | **String** | Currency to buy |  [optional] [readonly]
+**sellMinAmount** | **String** | Minimum sell quantity |  [optional] [readonly]
+**sellMaxAmount** | **String** | Maximum sell quantity |  [optional] [readonly]
+**buyMinAmount** | **String** | Minimum buy quantity |  [optional] [readonly]
+**buyMaxAmount** | **String** | Maximum buy quantity |  [optional] [readonly]
 

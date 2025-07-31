@@ -1,12 +1,12 @@
 
 # CollateralAdjustRes
 
-Result of multi-collateral adjustment.
+Multi-collateral adjustment result
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderId** | **Long** | Order ID. |  [optional]
-**collateralCurrencies** | [**List&lt;CollateralCurrencyRes&gt;**](CollateralCurrencyRes.md) | Collateral Currency Information. |  [optional]
+**orderId** | **Long** | Order ID |  [optional]
+**collateralCurrencies** | [**List&lt;CollateralCurrencyRes&gt;**](CollateralCurrencyRes.md) | Collateral currency information |  [optional]
 

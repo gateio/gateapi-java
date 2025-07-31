@@ -1,11 +1,11 @@
 
 # UnifiedLoanResult
 
-Unified account loan and repayment response results.
+Unified account borrowing and repayment response result
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tranId** | **Long** | Transaction id. |  [optional]
+**tranId** | **Long** | Transaction ID |  [optional]
 

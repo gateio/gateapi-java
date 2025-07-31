@@ -4,18 +4,18 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**withdraw**](WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw.
-[**withdrawPushOrder**](WithdrawalApi.md#withdrawPushOrder) | **POST** /withdrawals/push | UID transfer.
-[**cancelWithdrawal**](WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID.
+[**withdraw**](WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
+[**withdrawPushOrder**](WithdrawalApi.md#withdrawPushOrder) | **POST** /withdrawals/push | UID transfer
+[**cancelWithdrawal**](WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID
 
 
 <a name="withdraw"></a>
 # **withdraw**
 > LedgerRecord withdraw(ledgerRecord)
 
-Withdraw.
+Withdraw
 
-Withdrawals to Gate addresses do not incur transaction fees.
+If the recipient&#39;s on-chain address is also Gate, no transaction fee will be charged
 
 ### Example
 
@@ -77,15 +77,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Withdraw request is accepted. Refer to withdrawal records for status. |  -  |
+**200** | Withdrawal request accepted. Check withdrawal record status for processing result |  -  |
 
 <a name="withdrawPushOrder"></a>
 # **withdrawPushOrder**
 > UidPushWithdrawalResp withdrawPushOrder(uidPushWithdrawal)
 
-UID transfer.
+UID transfer
 
-Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+Transfers between main spot accounts. Both parties cannot be sub-accounts
 
 ### Example
 
@@ -147,13 +147,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The request has been accepted. Check the withdrawal record status for the processing result. |  -  |
+**200** | Request accepted. Check withdrawal record status for processing result |  -  |
 
 <a name="cancelWithdrawal"></a>
 # **cancelWithdrawal**
 > LedgerRecord cancelWithdrawal(withdrawalId)
 
-Cancel withdrawal with specified ID.
+Cancel withdrawal with specified ID
 
 ### Example
 
@@ -215,5 +215,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Cancellation accepted. Refer to record status for the cancellation result. |  -  |
+**202** | Cancellation request accepted. Check record status for cancellation result |  -  |
 

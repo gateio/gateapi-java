@@ -5,6 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mode** | **String** | Full position-by-position model, ISOLATED-by-position, CROSS-full position. | 
-**contract** | **String** | Contract Market. | 
+**mode** | **String** | Cross margin or isolated margin mode. ISOLATED - isolated margin mode, CROSS - cross margin mode | 
+**contract** | **String** | Futures market | 
 

@@ -1,16 +1,16 @@
 
 # CreateUniLend
 
-Lend or redeem.
+Create lending or redemption
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** | Currency name. | 
-**amount** | **String** | The amount of currency could be lent. | 
-**type** | [**TypeEnum**](#TypeEnum) | type: lend - lend, redeem - redeem. | 
-**minRate** | **String** | The minimum interest rate. If the value is too high, it might lead to the unsuccessful lending and no profit will be gained for that hour.  |  [optional]
+**currency** | **String** | Currency name | 
+**amount** | **String** | Amount to deposit into lending pool | 
+**type** | [**TypeEnum**](#TypeEnum) | Operation type: lend - Lend, redeem - Redeem | 
+**minRate** | **String** | Minimum interest rate. If set too high, lending may fail and no interest will be earned. Required for lending operations.  |  [optional]
 
 ## Enum: TypeEnum
 

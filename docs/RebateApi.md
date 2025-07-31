@@ -4,24 +4,24 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**agencyTransactionHistory**](RebateApi.md#agencyTransactionHistory) | **GET** /rebate/agency/transaction_history | The agency obtains the transaction history of the recommended user.
-[**agencyCommissionsHistory**](RebateApi.md#agencyCommissionsHistory) | **GET** /rebate/agency/commission_history | The agency obtains the commission history of the recommended user.
-[**partnerTransactionHistory**](RebateApi.md#partnerTransactionHistory) | **GET** /rebate/partner/transaction_history | Partner obtains transaction records of recommended users.
-[**partnerCommissionsHistory**](RebateApi.md#partnerCommissionsHistory) | **GET** /rebate/partner/commission_history | Partner obtains commission records of recommended users.
-[**partnerSubList**](RebateApi.md#partnerSubList) | **GET** /rebate/partner/sub_list | Partner subordinate list.
-[**rebateBrokerCommissionHistory**](RebateApi.md#rebateBrokerCommissionHistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records.
-[**rebateBrokerTransactionHistory**](RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history.
-[**rebateUserInfo**](RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User retrieves rebate information.
-[**userSubRelation**](RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User-subordinate relationship.
+[**agencyTransactionHistory**](RebateApi.md#agencyTransactionHistory) | **GET** /rebate/agency/transaction_history | Broker obtains transaction history of recommended users
+[**agencyCommissionsHistory**](RebateApi.md#agencyCommissionsHistory) | **GET** /rebate/agency/commission_history | Broker obtains rebate history of recommended users
+[**partnerTransactionHistory**](RebateApi.md#partnerTransactionHistory) | **GET** /rebate/partner/transaction_history | Partner obtains transaction history of recommended users
+[**partnerCommissionsHistory**](RebateApi.md#partnerCommissionsHistory) | **GET** /rebate/partner/commission_history | Partner obtains rebate records of recommended users
+[**partnerSubList**](RebateApi.md#partnerSubList) | **GET** /rebate/partner/sub_list | Partner subordinate list
+[**rebateBrokerCommissionHistory**](RebateApi.md#rebateBrokerCommissionHistory) | **GET** /rebate/broker/commission_history | Broker obtains user&#39;s rebate records
+[**rebateBrokerTransactionHistory**](RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | Broker obtains user&#39;s trading history
+[**rebateUserInfo**](RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User obtains rebate information
+[**userSubRelation**](RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User subordinate relationship
 
 
 <a name="agencyTransactionHistory"></a>
 # **agencyTransactionHistory**
 > List&lt;AgencyTransactionHistory&gt; agencyTransactionHistory().currencyPair(currencyPair).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
-The agency obtains the transaction history of the recommended user.
+Broker obtains transaction history of recommended users
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -44,12 +44,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         RebateApi apiInstance = new RebateApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Specify the currency pair, if not specified, return all currency pairs.
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned.
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time.
-        Long to = 1602123600L; // Long | Time range ending, default to current time.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String currencyPair = "BTC_USDT"; // String | Specify the trading pair. If not specified, returns all trading pairs
+        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         try {
             List<AgencyTransactionHistory> result = apiInstance.agencyTransactionHistory()
                         .currencyPair(currencyPair)
@@ -77,12 +77,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Specify the currency pair, if not specified, return all currency pairs. | [optional]
- **userId** | **Long**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **currencyPair** | **String**| Specify the trading pair. If not specified, returns all trading pairs | [optional]
+ **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -100,15 +100,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="agencyCommissionsHistory"></a>
 # **agencyCommissionsHistory**
 > List&lt;AgencyCommissionHistory&gt; agencyCommissionsHistory().currency(currency).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
-The agency obtains the commission history of the recommended user.
+Broker obtains rebate history of recommended users
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -131,12 +131,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         RebateApi apiInstance = new RebateApi(defaultClient);
-        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified.
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned.
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time.
-        Long to = 1602123600L; // Long | Time range ending, default to current time.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String currency = "BTC"; // String | Specify the currency. If not specified, returns all currencies
+        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         try {
             List<AgencyCommissionHistory> result = apiInstance.agencyCommissionsHistory()
                         .currency(currency)
@@ -164,12 +164,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Filter by currency. Return all currency records if not specified. | [optional]
- **userId** | **Long**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **currency** | **String**| Specify the currency. If not specified, returns all currencies | [optional]
+ **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -187,15 +187,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="partnerTransactionHistory"></a>
 # **partnerTransactionHistory**
 > PartnerTransactionHistory partnerTransactionHistory().currencyPair(currencyPair).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
-Partner obtains transaction records of recommended users.
+Partner obtains transaction history of recommended users
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -218,12 +218,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         RebateApi apiInstance = new RebateApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Specify the currency pair, if not specified, return all currency pairs.
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned.
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time.
-        Long to = 1602123600L; // Long | Time range ending, default to current time.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String currencyPair = "BTC_USDT"; // String | Specify the trading pair. If not specified, returns all trading pairs
+        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         try {
             PartnerTransactionHistory result = apiInstance.partnerTransactionHistory()
                         .currencyPair(currencyPair)
@@ -251,12 +251,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Specify the currency pair, if not specified, return all currency pairs. | [optional]
- **userId** | **Long**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **currencyPair** | **String**| Specify the trading pair. If not specified, returns all trading pairs | [optional]
+ **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -274,15 +274,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="partnerCommissionsHistory"></a>
 # **partnerCommissionsHistory**
 > PartnerCommissionHistory partnerCommissionsHistory().currency(currency).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
-Partner obtains commission records of recommended users.
+Partner obtains rebate records of recommended users
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -305,12 +305,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         RebateApi apiInstance = new RebateApi(defaultClient);
-        String currency = "BTC"; // String | Filter by currency. Return all currency records if not specified.
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned.
-        Long from = 1602120000L; // Long | Time range beginning, default to 7 days before current time.
-        Long to = 1602123600L; // Long | Time range ending, default to current time.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String currency = "BTC"; // String | Specify the currency. If not specified, returns all currencies
+        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         try {
             PartnerCommissionHistory result = apiInstance.partnerCommissionsHistory()
                         .currency(currency)
@@ -338,12 +338,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Filter by currency. Return all currency records if not specified. | [optional]
- **userId** | **Long**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **Long**| Time range beginning, default to 7 days before current time. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **currency** | **String**| Specify the currency. If not specified, returns all currencies | [optional]
+ **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -361,15 +361,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="partnerSubList"></a>
 # **partnerSubList**
 > PartnerSubList partnerSubList().userId(userId).limit(limit).offset(offset).execute();
 
-Partner subordinate list.
+Partner subordinate list
 
-Including sub-agents, direct customers, indirect customers.
+Including sub-agents, direct customers, and indirect customers
 
 ### Example
 
@@ -392,9 +392,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         RebateApi apiInstance = new RebateApi(defaultClient);
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         try {
             PartnerSubList result = apiInstance.partnerSubList()
                         .userId(userId)
@@ -419,9 +419,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Long**| User ID. If not specified, all user records will be returned. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -439,15 +439,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="rebateBrokerCommissionHistory"></a>
 # **rebateBrokerCommissionHistory**
 > List&lt;BrokerCommission&gt; rebateBrokerCommissionHistory().limit(limit).offset(offset).userId(userId).from(from).to(to).execute();
 
-The broker obtains the user&#39;s commission rebate records.
+Broker obtains user&#39;s rebate records
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -470,11 +470,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         RebateApi apiInstance = new RebateApi(defaultClient);
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned.
-        Long from = 1711929600L; // Long | The start time of the query record. If not specified, the default is to push forward 30 days from the current time.
-        Long to = 1714521600L; // Long | Time range ending, default to current time.
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+        Long from = 1711929600L; // Long | Start time of the query record. If not specified, defaults to 30 days before the current time
+        Long to = 1714521600L; // Long | End timestamp for the query, defaults to current time if not specified
         try {
             List<BrokerCommission> result = apiInstance.rebateBrokerCommissionHistory()
                         .limit(limit)
@@ -501,11 +501,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
- **userId** | **Long**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **Long**| The start time of the query record. If not specified, the default is to push forward 30 days from the current time. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **Long**| Start time of the query record. If not specified, defaults to 30 days before the current time | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
 
 ### Return type
 
@@ -523,15 +523,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="rebateBrokerTransactionHistory"></a>
 # **rebateBrokerTransactionHistory**
 > List&lt;BrokerTransaction&gt; rebateBrokerTransactionHistory().limit(limit).offset(offset).userId(userId).from(from).to(to).execute();
 
-The broker obtains the user&#39;s trading history.
+Broker obtains user&#39;s trading history
 
-Record time range cannot exceed 30 days.
+Record query time range cannot exceed 30 days
 
 ### Example
 
@@ -554,11 +554,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         RebateApi apiInstance = new RebateApi(defaultClient);
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
-        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned.
-        Long from = 1711929600L; // Long | The start time of the query record. If not specified, the default is to push forward 30 days from the current time.
-        Long to = 1714521600L; // Long | Time range ending, default to current time.
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
+        Long from = 1711929600L; // Long | Start time of the query record. If not specified, defaults to 30 days before the current time
+        Long to = 1714521600L; // Long | End timestamp for the query, defaults to current time if not specified
         try {
             List<BrokerTransaction> result = apiInstance.rebateBrokerTransactionHistory()
                         .limit(limit)
@@ -585,11 +585,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
- **userId** | **Long**| User ID. If not specified, all user records will be returned. | [optional]
- **from** | **Long**| The start time of the query record. If not specified, the default is to push forward 30 days from the current time. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+ **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
+ **from** | **Long**| Start time of the query record. If not specified, defaults to 30 days before the current time | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
 
 ### Return type
 
@@ -607,13 +607,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="rebateUserInfo"></a>
 # **rebateUserInfo**
 > List&lt;RebateUserInfo&gt; rebateUserInfo()
 
-User retrieves rebate information.
+User obtains rebate information
 
 ### Example
 
@@ -671,15 +671,15 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="userSubRelation"></a>
 # **userSubRelation**
 > UserSubRelation userSubRelation(userIdList)
 
-User-subordinate relationship.
+User subordinate relationship
 
-Query whether the specified user is in the system.
+Query whether the specified user is within the system
 
 ### Example
 
@@ -702,7 +702,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         RebateApi apiInstance = new RebateApi(defaultClient);
-        String userIdList = "1, 2, 3"; // String | Query the user's ID list, split by,, if there are more than 100, take 100.
+        String userIdList = "1, 2, 3"; // String | Query user ID list, separated by commas. If more than 100, only 100 will be returned
         try {
             UserSubRelation result = apiInstance.userSubRelation(userIdList);
             System.out.println(result);
@@ -723,7 +723,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userIdList** | **String**| Query the user&#39;s ID list, split by,, if there are more than 100, take 100. |
+ **userIdList** | **String**| Query user ID list, separated by commas. If more than 100, only 100 will be returned |
 
 ### Return type
 
@@ -741,5 +741,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 

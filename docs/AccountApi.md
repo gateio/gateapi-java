@@ -4,22 +4,22 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAccountDetail**](AccountApi.md#getAccountDetail) | **GET** /account/detail | Get account detail.
-[**getAccountRateLimit**](AccountApi.md#getAccountRateLimit) | **GET** /account/rate_limit | Get user transaction rate limit information.
-[**listSTPGroups**](AccountApi.md#listSTPGroups) | **GET** /account/stp_groups | List STP Groups.
-[**createSTPGroup**](AccountApi.md#createSTPGroup) | **POST** /account/stp_groups | Create STP Group.
-[**listSTPGroupsUsers**](AccountApi.md#listSTPGroupsUsers) | **GET** /account/stp_groups/{stp_id}/users | List users of the STP group.
-[**addSTPGroupUsers**](AccountApi.md#addSTPGroupUsers) | **POST** /account/stp_groups/{stp_id}/users | Add users to the STP group.
-[**deleteSTPGroupUsers**](AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete the user in the STP group.
-[**getDebitFee**](AccountApi.md#getDebitFee) | **GET** /account/debit_fee | Query GT deduction configuration.
-[**setDebitFee**](AccountApi.md#setDebitFee) | **POST** /account/debit_fee | Set GT deduction.
+[**getAccountDetail**](AccountApi.md#getAccountDetail) | **GET** /account/detail | Retrieve user account information
+[**getAccountRateLimit**](AccountApi.md#getAccountRateLimit) | **GET** /account/rate_limit | Get user transaction rate limit information
+[**listSTPGroups**](AccountApi.md#listSTPGroups) | **GET** /account/stp_groups | Query STP user groups created by the user
+[**createSTPGroup**](AccountApi.md#createSTPGroup) | **POST** /account/stp_groups | Create STP user group
+[**listSTPGroupsUsers**](AccountApi.md#listSTPGroupsUsers) | **GET** /account/stp_groups/{stp_id}/users | Query users in the STP user group
+[**addSTPGroupUsers**](AccountApi.md#addSTPGroupUsers) | **POST** /account/stp_groups/{stp_id}/users | Add users to the STP user group
+[**deleteSTPGroupUsers**](AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete users from the STP user group
+[**getDebitFee**](AccountApi.md#getDebitFee) | **GET** /account/debit_fee | Query GT fee deduction configuration
+[**setDebitFee**](AccountApi.md#setDebitFee) | **POST** /account/debit_fee | Configure GT fee deduction
 
 
 <a name="getAccountDetail"></a>
 # **getAccountDetail**
 > AccountDetail getAccountDetail()
 
-Get account detail.
+Retrieve user account information
 
 ### Example
 
@@ -77,13 +77,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful. |  -  |
+**200** | Successfully retrieved |  -  |
 
 <a name="getAccountRateLimit"></a>
 # **getAccountRateLimit**
 > List&lt;AccountRateLimit&gt; getAccountRateLimit()
 
-Get user transaction rate limit information.
+Get user transaction rate limit information
 
 ### Example
 
@@ -141,15 +141,15 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful. |  -  |
+**200** | Successfully retrieved |  -  |
 
 <a name="listSTPGroups"></a>
 # **listSTPGroups**
 > List&lt;StpGroup&gt; listSTPGroups().name(name).execute();
 
-List STP Groups.
+Query STP user groups created by the user
 
-Retrieve the list of STP groups created by the main account user only.
+Only query STP user groups created by the current main account
 
 ### Example
 
@@ -172,7 +172,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         AccountApi apiInstance = new AccountApi(defaultClient);
-        String name = "group"; // String | Perform a fuzzy search based on the name.
+        String name = "group"; // String | Fuzzy search by name
         try {
             List<StpGroup> result = apiInstance.listSTPGroups()
                         .name(name)
@@ -195,7 +195,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Perform a fuzzy search based on the name. | [optional]
+ **name** | **String**| Fuzzy search by name | [optional]
 
 ### Return type
 
@@ -213,15 +213,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="createSTPGroup"></a>
 # **createSTPGroup**
 > StpGroup createSTPGroup(stpGroup)
 
-Create STP Group.
+Create STP user group
 
-Only the main account is allowed to create a new STP user group.
+Only the main account is allowed to create a new STP user group
 
 ### Example
 
@@ -283,15 +283,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | User added successfully. Returning the current users within the STP group. |  -  |
+**200** | User added successfully, returning current users in the STP group |  -  |
 
 <a name="listSTPGroupsUsers"></a>
 # **listSTPGroupsUsers**
 > List&lt;StpGroupUser&gt; listSTPGroupsUsers(stpId)
 
-List users of the STP group.
+Query users in the STP user group
 
-Only the main account that created this STP group can query the account.
+Only the main account that created this STP group can query the account ID list in the current STP group
 
 ### Example
 
@@ -314,7 +314,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         AccountApi apiInstance = new AccountApi(defaultClient);
-        Long stpId = 1L; // Long | STP Group ID.
+        Long stpId = 1L; // Long | STP Group ID
         try {
             List<StpGroupUser> result = apiInstance.listSTPGroupsUsers(stpId);
             System.out.println(result);
@@ -335,7 +335,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stpId** | **Long**| STP Group ID. |
+ **stpId** | **Long**| STP Group ID |
 
 ### Return type
 
@@ -353,15 +353,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="addSTPGroupUsers"></a>
 # **addSTPGroupUsers**
 > List&lt;StpGroupUser&gt; addSTPGroupUsers(stpId, requestBody)
 
-Add users to the STP group.
+Add users to the STP user group
 
-- Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+- Only the main account that created this STP group can add users to the STP user group - Only accounts under the current main account are allowed, cross-main account is not permitted
 
 ### Example
 
@@ -384,8 +384,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         AccountApi apiInstance = new AccountApi(defaultClient);
-        Long stpId = 1L; // Long | STP Group ID.
-        List<Long> requestBody = Arrays.asList(); // List<Long> | User ID.
+        Long stpId = 1L; // Long | STP Group ID
+        List<Long> requestBody = Arrays.asList(); // List<Long> | User ID
         try {
             List<StpGroupUser> result = apiInstance.addSTPGroupUsers(stpId, requestBody);
             System.out.println(result);
@@ -406,8 +406,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stpId** | **Long**| STP Group ID. |
- **requestBody** | [**List&lt;Long&gt;**](Long.md)| User ID. |
+ **stpId** | **Long**| STP Group ID |
+ **requestBody** | [**List&lt;Long&gt;**](Long.md)| User ID |
 
 ### Return type
 
@@ -425,13 +425,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | User added successfully. Returning the current users within the STP group. |  -  |
+**200** | User added successfully, returning current users in the STP group |  -  |
 
 <a name="deleteSTPGroupUsers"></a>
 # **deleteSTPGroupUsers**
 > List&lt;StpGroupUser&gt; deleteSTPGroupUsers(stpId, userId)
 
-Delete the user in the STP group.
+Delete users from the STP user group
 
 - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
 
@@ -456,8 +456,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         AccountApi apiInstance = new AccountApi(defaultClient);
-        Long stpId = 1L; // Long | STP Group ID.
-        Long userId = 1L; // Long | STP user ID, multiple can be separated by commas.
+        Long stpId = 1L; // Long | STP Group ID
+        Long userId = 1L; // Long | STP user IDs, multiple IDs can be separated by commas
         try {
             List<StpGroupUser> result = apiInstance.deleteSTPGroupUsers(stpId, userId);
             System.out.println(result);
@@ -478,8 +478,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stpId** | **Long**| STP Group ID. |
- **userId** | **Long**| STP user ID, multiple can be separated by commas. |
+ **stpId** | **Long**| STP Group ID |
+ **userId** | **Long**| STP user IDs, multiple IDs can be separated by commas |
 
 ### Return type
 
@@ -497,15 +497,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success. |  -  |
+**200** | Users deleted successfully, returns current users in the STP group |  -  |
 
 <a name="getDebitFee"></a>
 # **getDebitFee**
 > DebitFee getDebitFee()
 
-Query GT deduction configuration.
+Query GT fee deduction configuration
 
-Query the current GT deduction configuration for the account.
+Query the GT fee deduction configuration for the current account
 
 ### Example
 
@@ -563,15 +563,15 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success. |  -  |
+**200** | Success |  -  |
 
 <a name="setDebitFee"></a>
 # **setDebitFee**
 > setDebitFee(debitFee)
 
-Set GT deduction.
+Configure GT fee deduction
 
-Enable or disable GT deduction for the current account.
+Enable or disable GT fee deduction for the current account
 
 ### Example
 
@@ -632,5 +632,5 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success. |  -  |
+**200** | Success |  -  |
 

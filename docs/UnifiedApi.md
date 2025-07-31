@@ -4,37 +4,37 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listUnifiedAccounts**](UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information.
-[**getUnifiedBorrowable**](UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query about the maximum borrowing for the unified account.
-[**getUnifiedTransferable**](UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query about the maximum transferable for the unified account.
-[**getUnifiedTransferables**](UnifiedApi.md#getUnifiedTransferables) | **GET** /unified/transferables | Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
-[**getUnifiedBorrowableList**](UnifiedApi.md#getUnifiedBorrowableList) | **GET** /unified/batch_borrowable | Batch query unified account can be borrowed up to a maximum.
-[**listUnifiedLoans**](UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | List loans.
-[**createUnifiedLoan**](UnifiedApi.md#createUnifiedLoan) | **POST** /unified/loans | Borrow or repay.
-[**listUnifiedLoanRecords**](UnifiedApi.md#listUnifiedLoanRecords) | **GET** /unified/loan_records | Get load records.
-[**listUnifiedLoanInterestRecords**](UnifiedApi.md#listUnifiedLoanInterestRecords) | **GET** /unified/interest_records | List interest records.
-[**getUnifiedRiskUnits**](UnifiedApi.md#getUnifiedRiskUnits) | **GET** /unified/risk_units | Get user risk unit details.
-[**getUnifiedMode**](UnifiedApi.md#getUnifiedMode) | **GET** /unified/unified_mode | Query mode of the unified account.
-[**setUnifiedMode**](UnifiedApi.md#setUnifiedMode) | **PUT** /unified/unified_mode | Set mode of the unified account.
-[**getUnifiedEstimateRate**](UnifiedApi.md#getUnifiedEstimateRate) | **GET** /unified/estimate_rate | Get unified estimate rate.
-[**listCurrencyDiscountTiers**](UnifiedApi.md#listCurrencyDiscountTiers) | **GET** /unified/currency_discount_tiers | List currency discount tiers.
-[**listLoanMarginTiers**](UnifiedApi.md#listLoanMarginTiers) | **GET** /unified/loan_margin_tiers | List loan margin tiers.
-[**calculatePortfolioMargin**](UnifiedApi.md#calculatePortfolioMargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator.
-[**getUserLeverageCurrencyConfig**](UnifiedApi.md#getUserLeverageCurrencyConfig) | **GET** /unified/leverage/user_currency_config | Minimum currency leverage that can be set.
-[**getUserLeverageCurrencySetting**](UnifiedApi.md#getUserLeverageCurrencySetting) | **GET** /unified/leverage/user_currency_setting | Get the leverage multiple of the user currency.
-[**setUserLeverageCurrencySetting**](UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage.
-[**listUnifiedCurrencies**](UnifiedApi.md#listUnifiedCurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account.
-[**getHistoryLoanRate**](UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | get historical lending rates.
-[**setUnifiedCollateral**](UnifiedApi.md#setUnifiedCollateral) | **POST** /unified/collateral_currencies | Set Collateral Currency.
+[**listUnifiedAccounts**](UnifiedApi.md#listUnifiedAccounts) | **GET** /unified/accounts | Get unified account information
+[**getUnifiedBorrowable**](UnifiedApi.md#getUnifiedBorrowable) | **GET** /unified/borrowable | Query maximum borrowable amount for unified account
+[**getUnifiedTransferable**](UnifiedApi.md#getUnifiedTransferable) | **GET** /unified/transferable | Query maximum transferable amount for unified account
+[**getUnifiedTransferables**](UnifiedApi.md#getUnifiedTransferables) | **GET** /unified/transferables | Batch query maximum transferable amount for unified accounts. Each currency shows the maximum value. After user withdrawal, the transferable amount for all currencies will change
+[**getUnifiedBorrowableList**](UnifiedApi.md#getUnifiedBorrowableList) | **GET** /unified/batch_borrowable | Batch query unified account maximum borrowable amount
+[**listUnifiedLoans**](UnifiedApi.md#listUnifiedLoans) | **GET** /unified/loans | Query loans
+[**createUnifiedLoan**](UnifiedApi.md#createUnifiedLoan) | **POST** /unified/loans | Borrow or repay
+[**listUnifiedLoanRecords**](UnifiedApi.md#listUnifiedLoanRecords) | **GET** /unified/loan_records | Query loan records
+[**listUnifiedLoanInterestRecords**](UnifiedApi.md#listUnifiedLoanInterestRecords) | **GET** /unified/interest_records | Query interest deduction records
+[**getUnifiedRiskUnits**](UnifiedApi.md#getUnifiedRiskUnits) | **GET** /unified/risk_units | Get user risk unit details
+[**getUnifiedMode**](UnifiedApi.md#getUnifiedMode) | **GET** /unified/unified_mode | Query mode of the unified account
+[**setUnifiedMode**](UnifiedApi.md#setUnifiedMode) | **PUT** /unified/unified_mode | Set unified account mode
+[**getUnifiedEstimateRate**](UnifiedApi.md#getUnifiedEstimateRate) | **GET** /unified/estimate_rate | Query unified account estimated interest rate
+[**listCurrencyDiscountTiers**](UnifiedApi.md#listCurrencyDiscountTiers) | **GET** /unified/currency_discount_tiers | Query unified account tiered discount
+[**listLoanMarginTiers**](UnifiedApi.md#listLoanMarginTiers) | **GET** /unified/loan_margin_tiers | Query unified account tiered loan margin
+[**calculatePortfolioMargin**](UnifiedApi.md#calculatePortfolioMargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
+[**getUserLeverageCurrencyConfig**](UnifiedApi.md#getUserLeverageCurrencyConfig) | **GET** /unified/leverage/user_currency_config | Maximum and minimum currency leverage that can be set
+[**getUserLeverageCurrencySetting**](UnifiedApi.md#getUserLeverageCurrencySetting) | **GET** /unified/leverage/user_currency_setting | Get user currency leverage
+[**setUserLeverageCurrencySetting**](UnifiedApi.md#setUserLeverageCurrencySetting) | **POST** /unified/leverage/user_currency_setting | Set loan currency leverage
+[**listUnifiedCurrencies**](UnifiedApi.md#listUnifiedCurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account
+[**getHistoryLoanRate**](UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | Get historical lending rates
+[**setUnifiedCollateral**](UnifiedApi.md#setUnifiedCollateral) | **POST** /unified/collateral_currencies | Set collateral currency
 
 
 <a name="listUnifiedAccounts"></a>
 # **listUnifiedAccounts**
 > UnifiedAccount listUnifiedAccounts().currency(currency).subUid(subUid).execute();
 
-Get unified account information.
+Get unified account information
 
-The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
+The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  For specific formulas, please refer to [Margin Formula](#margin-formula)
 
 ### Example
 
@@ -57,8 +57,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        String subUid = "10001"; // String | Sub account user ID.
+        String currency = "BTC"; // String | Query by specified currency name
+        String subUid = "10001"; // String | Sub account user ID
         try {
             UnifiedAccount result = apiInstance.listUnifiedAccounts()
                         .currency(currency)
@@ -82,8 +82,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
- **subUid** | **String**| Sub account user ID. | [optional]
+ **currency** | **String**| Query by specified currency name | [optional]
+ **subUid** | **String**| Sub account user ID | [optional]
 
 ### Return type
 
@@ -101,13 +101,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="getUnifiedBorrowable"></a>
 # **getUnifiedBorrowable**
 > UnifiedBorrowable getUnifiedBorrowable(currency)
 
-Query about the maximum borrowing for the unified account.
+Query maximum borrowable amount for unified account
 
 ### Example
 
@@ -130,7 +130,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
+        String currency = "BTC"; // String | Query by specified currency name
         try {
             UnifiedBorrowable result = apiInstance.getUnifiedBorrowable(currency);
             System.out.println(result);
@@ -151,7 +151,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. |
+ **currency** | **String**| Query by specified currency name |
 
 ### Return type
 
@@ -169,13 +169,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUnifiedTransferable"></a>
 # **getUnifiedTransferable**
 > UnifiedTransferable getUnifiedTransferable(currency)
 
-Query about the maximum transferable for the unified account.
+Query maximum transferable amount for unified account
 
 ### Example
 
@@ -198,7 +198,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
+        String currency = "BTC"; // String | Query by specified currency name
         try {
             UnifiedTransferable result = apiInstance.getUnifiedTransferable(currency);
             System.out.println(result);
@@ -219,7 +219,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. |
+ **currency** | **String**| Query by specified currency name |
 
 ### Return type
 
@@ -237,13 +237,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUnifiedTransferables"></a>
 # **getUnifiedTransferables**
 > List&lt;TransferablesResult&gt; getUnifiedTransferables(currencies)
 
-Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
+Batch query maximum transferable amount for unified accounts. Each currency shows the maximum value. After user withdrawal, the transferable amount for all currencies will change
 
 ### Example
 
@@ -266,7 +266,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currencies = "BTC,ETH"; // String | Specify the currency name to query in batches, and support up to 100 pass parameters at a time.
+        String currencies = "BTC,ETH"; // String | Specify the currency name to query in batches, and support up to 100 pass parameters at a time
         try {
             List<TransferablesResult> result = apiInstance.getUnifiedTransferables(currencies);
             System.out.println(result);
@@ -287,7 +287,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | **String**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time. |
+ **currencies** | **String**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time |
 
 ### Return type
 
@@ -305,13 +305,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUnifiedBorrowableList"></a>
 # **getUnifiedBorrowableList**
 > List&lt;UnifiedBorrowable1&gt; getUnifiedBorrowableList(currencies)
 
-Batch query unified account can be borrowed up to a maximum.
+Batch query unified account maximum borrowable amount
 
 ### Example
 
@@ -334,7 +334,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        List<String> currencies = Arrays.asList(); // List<String> | Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.
+        List<String> currencies = Arrays.asList(); // List<String> | Specify currency names for querying in an array, separated by commas, maximum 10 currencies
         try {
             List<UnifiedBorrowable1> result = apiInstance.getUnifiedBorrowableList(currencies);
             System.out.println(result);
@@ -355,7 +355,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**List&lt;String&gt;**](String.md)| Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. |
+ **currencies** | [**List&lt;String&gt;**](String.md)| Specify currency names for querying in an array, separated by commas, maximum 10 currencies |
 
 ### Return type
 
@@ -373,13 +373,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listUnifiedLoans"></a>
 # **listUnifiedLoans**
 > List&lt;UniLoan&gt; listUnifiedLoans().currency(currency).page(page).limit(limit).type(type).execute();
 
-List loans.
+Query loans
 
 ### Example
 
@@ -402,10 +402,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
-        String type = "platform"; // String | Loan type, platform - platform, margin - margin.
+        String currency = "BTC"; // String | Query by specified currency name
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
+        String type = "platform"; // String | Loan type: platform borrowing - platform, margin borrowing - margin
         try {
             List<UniLoan> result = apiInstance.listUnifiedLoans()
                         .currency(currency)
@@ -431,10 +431,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
- **type** | **String**| Loan type, platform - platform, margin - margin. | [optional]
+ **currency** | **String**| Query by specified currency name | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
+ **type** | **String**| Loan type: platform borrowing - platform, margin borrowing - margin | [optional]
 
 ### Return type
 
@@ -452,15 +452,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="createUnifiedLoan"></a>
 # **createUnifiedLoan**
 > UnifiedLoanResult createUnifiedLoan(unifiedLoan)
 
-Borrow or repay.
+Borrow or repay
 
-When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+When borrowing, ensure the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and user.  Loan interest will be automatically deducted from the account at regular intervals. Users are responsible for managing repayment of borrowed amounts.  For repayment, use &#x60;repaid_all&#x3D;true&#x60; to repay all available amounts
 
 ### Example
 
@@ -522,13 +522,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Operated successfully. |  -  |
+**200** | Operation successful |  -  |
 
 <a name="listUnifiedLoanRecords"></a>
 # **listUnifiedLoanRecords**
 > List&lt;UnifiedLoanRecord&gt; listUnifiedLoanRecords().type(type).currency(currency).page(page).limit(limit).execute();
 
-Get load records.
+Query loan records
 
 ### Example
 
@@ -551,10 +551,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String type = "type_example"; // String | The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+        String type = "type_example"; // String | Loan record type: borrow - borrowing, repay - repayment
+        String currency = "BTC"; // String | Query by specified currency name
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
         try {
             List<UnifiedLoanRecord> result = apiInstance.listUnifiedLoanRecords()
                         .type(type)
@@ -580,10 +580,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds | [optional]
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **type** | **String**| Loan record type: borrow - borrowing, repay - repayment | [optional]
+ **currency** | **String**| Query by specified currency name | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 
 ### Return type
 
@@ -601,13 +601,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listUnifiedLoanInterestRecords"></a>
 # **listUnifiedLoanInterestRecords**
 > List&lt;UniLoanInterestRecord&gt; listUnifiedLoanInterestRecords().currency(currency).page(page).limit(limit).from(from).to(to).type(type).execute();
 
-List interest records.
+Query interest deduction records
 
 ### Example
 
@@ -630,12 +630,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
-        Long from = 1627706330L; // Long | Start timestamp of the query.
-        Long to = 1635329650L; // Long | Time range ending, default to current time.
-        String type = "platform"; // String | Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin
+        String currency = "BTC"; // String | Query by specified currency name
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
+        Long from = 1627706330L; // Long | Start timestamp for the query
+        Long to = 1635329650L; // Long | End timestamp for the query, defaults to current time if not specified
+        String type = "platform"; // String | Loan type: platform borrowing - platform, margin borrowing - margin. Defaults to margin if not specified
         try {
             List<UniLoanInterestRecord> result = apiInstance.listUnifiedLoanInterestRecords()
                         .currency(currency)
@@ -663,12 +663,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
- **from** | **Long**| Start timestamp of the query. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
- **type** | **String**| Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin | [optional]
+ **currency** | **String**| Query by specified currency name | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
+ **from** | **Long**| Start timestamp for the query | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **type** | **String**| Loan type: platform borrowing - platform, margin borrowing - margin. Defaults to margin if not specified | [optional]
 
 ### Return type
 
@@ -686,15 +686,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUnifiedRiskUnits"></a>
 # **getUnifiedRiskUnits**
 > UnifiedRiskUnits getUnifiedRiskUnits()
 
-Get user risk unit details.
+Get user risk unit details
 
-Retrieve user risk unit details, only valid in portfolio margin mode.
+Get user risk unit details, only valid in portfolio margin mode
 
 ### Example
 
@@ -752,13 +752,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUnifiedMode"></a>
 # **getUnifiedMode**
 > UnifiedModeSet getUnifiedMode()
 
-Query mode of the unified account.
+Query mode of the unified account
 
 Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
 
@@ -818,13 +818,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="setUnifiedMode"></a>
 # **setUnifiedMode**
 > setUnifiedMode(unifiedModeSet)
 
-Set mode of the unified account.
+Set unified account mode
 
 Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
 
@@ -887,15 +887,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success. |  -  |
+**204** | Set successfully |  -  |
 
 <a name="getUnifiedEstimateRate"></a>
 # **getUnifiedEstimateRate**
 > Map&lt;String, String&gt; getUnifiedEstimateRate(currencies)
 
-Get unified estimate rate.
+Query unified account estimated interest rate
 
-Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+Interest rates fluctuate hourly based on lending depth, so exact rates cannot be provided. When a currency is not supported, the interest rate returned will be an empty string
 
 ### Example
 
@@ -918,7 +918,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        List<String> currencies = Arrays.asList(); // List<String> | Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.
+        List<String> currencies = Arrays.asList(); // List<String> | Specify currency names for querying in an array, separated by commas, maximum 10 currencies
         try {
             Map<String, String> result = apiInstance.getUnifiedEstimateRate(currencies);
             System.out.println(result);
@@ -939,7 +939,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**List&lt;String&gt;**](String.md)| Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies. |
+ **currencies** | [**List&lt;String&gt;**](String.md)| Specify currency names for querying in an array, separated by commas, maximum 10 currencies |
 
 ### Return type
 
@@ -957,13 +957,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listCurrencyDiscountTiers"></a>
 # **listCurrencyDiscountTiers**
 > List&lt;UnifiedDiscount&gt; listCurrencyDiscountTiers()
 
-List currency discount tiers.
+Query unified account tiered discount
 
 ### Example
 
@@ -1017,13 +1017,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listLoanMarginTiers"></a>
 # **listLoanMarginTiers**
 > List&lt;UnifiedMarginTiers&gt; listLoanMarginTiers()
 
-List loan margin tiers.
+Query unified account tiered loan margin
 
 ### Example
 
@@ -1077,15 +1077,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="calculatePortfolioMargin"></a>
 # **calculatePortfolioMargin**
 > UnifiedPortfolioOutput calculatePortfolioMargin(unifiedPortfolioInput)
 
-Portfolio margin calculator.
+Portfolio margin calculator
 
-Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+Portfolio Margin Calculator  When inputting simulated position portfolios, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
 
 ### Example
 
@@ -1143,13 +1143,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUserLeverageCurrencyConfig"></a>
 # **getUserLeverageCurrencyConfig**
 > UnifiedLeverageConfig getUserLeverageCurrencyConfig(currency)
 
-Minimum currency leverage that can be set.
+Maximum and minimum currency leverage that can be set
 
 ### Example
 
@@ -1172,7 +1172,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "BTC"; // String | Currency.
+        String currency = "BTC"; // String | Currency
         try {
             UnifiedLeverageConfig result = apiInstance.getUserLeverageCurrencyConfig(currency);
             System.out.println(result);
@@ -1193,7 +1193,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency. |
+ **currency** | **String**| Currency |
 
 ### Return type
 
@@ -1211,15 +1211,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUserLeverageCurrencySetting"></a>
 # **getUserLeverageCurrencySetting**
-> UnifiedLeverageSetting getUserLeverageCurrencySetting().currency(currency).execute();
+> List&lt;UnifiedLeverageSetting&gt; getUserLeverageCurrencySetting().currency(currency).execute();
 
-Get the leverage multiple of the user currency.
+Get user currency leverage
 
-Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+Get user currency leverage. If currency is not specified, query all currencies
 
 ### Example
 
@@ -1242,9 +1242,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "BTC"; // String | Currency.
+        String currency = "BTC"; // String | Currency
         try {
-            UnifiedLeverageSetting result = apiInstance.getUserLeverageCurrencySetting()
+            List<UnifiedLeverageSetting> result = apiInstance.getUserLeverageCurrencySetting()
                         .currency(currency)
                         .execute();
             System.out.println(result);
@@ -1265,11 +1265,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency. | [optional]
+ **currency** | **String**| Currency | [optional]
 
 ### Return type
 
-[**UnifiedLeverageSetting**](UnifiedLeverageSetting.md)
+[**List&lt;UnifiedLeverageSetting&gt;**](UnifiedLeverageSetting.md)
 
 ### Authorization
 
@@ -1283,13 +1283,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="setUserLeverageCurrencySetting"></a>
 # **setUserLeverageCurrencySetting**
 > setUserLeverageCurrencySetting(unifiedLeverageSetting)
 
-Set the loan currency leverage.
+Set loan currency leverage
 
 ### Example
 
@@ -1350,13 +1350,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success. |  -  |
+**204** | Set successfully |  -  |
 
 <a name="listUnifiedCurrencies"></a>
 # **listUnifiedCurrencies**
 > List&lt;UnifiedCurrency&gt; listUnifiedCurrencies().currency(currency).execute();
 
-List of loan currencies supported by unified account.
+List of loan currencies supported by unified account
 
 ### Example
 
@@ -1375,7 +1375,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "BTC"; // String | Currency.
+        String currency = "BTC"; // String | Currency
         try {
             List<UnifiedCurrency> result = apiInstance.listUnifiedCurrencies()
                         .currency(currency)
@@ -1398,7 +1398,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency. | [optional]
+ **currency** | **String**| Currency | [optional]
 
 ### Return type
 
@@ -1416,13 +1416,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="getHistoryLoanRate"></a>
 # **getHistoryLoanRate**
 > UnifiedHistoryLoanRate getHistoryLoanRate(currency).tier(tier).page(page).limit(limit).execute();
 
-get historical lending rates.
+Get historical lending rates
 
 ### Example
 
@@ -1441,10 +1441,10 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
-        String currency = "USDT"; // String | Currency.
-        String tier = "1"; // String | The VIP level of the floating rate that needs to be queried.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum response items. Default: 100, minimum: 1, Maximum: 100.
+        String currency = "USDT"; // String | Currency
+        String tier = "1"; // String | VIP level for the floating rate to be queried
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of items returned. Default: 100, minimum: 1, maximum: 100
         try {
             UnifiedHistoryLoanRate result = apiInstance.getHistoryLoanRate(currency)
                         .tier(tier)
@@ -1469,10 +1469,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency. |
- **tier** | **String**| The VIP level of the floating rate that needs to be queried. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
+ **currency** | **String**| Currency |
+ **tier** | **String**| VIP level for the floating rate to be queried | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of items returned. Default: 100, minimum: 1, maximum: 100 | [optional] [default to 100]
 
 ### Return type
 
@@ -1490,13 +1490,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="setUnifiedCollateral"></a>
 # **setUnifiedCollateral**
 > UnifiedCollateralRes setUnifiedCollateral(unifiedCollateralReq)
 
-Set Collateral Currency.
+Set collateral currency
 
 ### Example
 
@@ -1558,5 +1558,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | UpdateSuccess. |  -  |
+**200** | Updated successfully |  -  |
 

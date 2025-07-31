@@ -4,18 +4,18 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listFlashSwapCurrencyPair**](FlashSwapApi.md#listFlashSwapCurrencyPair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap.
-[**listFlashSwapOrders**](FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | List all flash swap orders.
-[**createFlashSwapOrder**](FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order.
-[**getFlashSwapOrder**](FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Get a single flash swap order&#39;s detail.
-[**previewFlashSwapOrder**](FlashSwapApi.md#previewFlashSwapOrder) | **POST** /flash_swap/orders/preview | Initiate a flash swap order preview.
+[**listFlashSwapCurrencyPair**](FlashSwapApi.md#listFlashSwapCurrencyPair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap
+[**listFlashSwapOrders**](FlashSwapApi.md#listFlashSwapOrders) | **GET** /flash_swap/orders | Query flash swap order list
+[**createFlashSwapOrder**](FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
+[**getFlashSwapOrder**](FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Query single flash swap order
+[**previewFlashSwapOrder**](FlashSwapApi.md#previewFlashSwapOrder) | **POST** /flash_swap/orders/preview | Flash swap order preview
 
 
 <a name="listFlashSwapCurrencyPair"></a>
 # **listFlashSwapCurrencyPair**
 > List&lt;FlashSwapCurrencyPair&gt; listFlashSwapCurrencyPair().currency(currency).page(page).limit(limit).execute();
 
-List All Supported Currency Pairs In Flash Swap.
+List All Supported Currency Pairs In Flash Swap
 
 &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
 
@@ -36,9 +36,9 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 1000; // Integer | Maximum response items. Default: 100, minimum: 1, Maximum: 1000.
+        String currency = "BTC"; // String | Query by specified currency name
+        Integer page = 1; // Integer | Page number
+        Integer limit = 1000; // Integer | Maximum number of items returned. Default: 1000, minimum: 1, maximum: 1000
         try {
             List<FlashSwapCurrencyPair> result = apiInstance.listFlashSwapCurrencyPair()
                         .currency(currency)
@@ -63,9 +63,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum response items. Default: 100, minimum: 1, Maximum: 1000. | [optional] [default to 1000]
+ **currency** | **String**| Query by specified currency name | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of items returned. Default: 1000, minimum: 1, maximum: 1000 | [optional] [default to 1000]
 
 ### Return type
 
@@ -83,13 +83,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listFlashSwapOrders"></a>
 # **listFlashSwapOrders**
 > List&lt;FlashSwapOrder&gt; listFlashSwapOrders().status(status).sellCurrency(sellCurrency).buyCurrency(buyCurrency).reverse(reverse).limit(limit).page(page).execute();
 
-List all flash swap orders.
+Query flash swap order list
 
 ### Example
 
@@ -112,12 +112,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
-        Integer status = 1; // Integer | Flash swap order status  `1` - success `2` - failure
-        String sellCurrency = "BTC"; // String | Currency to sell which can be retrieved from supported currency list API `GET /flash_swap/currencies`
-        String buyCurrency = "BTC"; // String | Currency to buy which can be retrieved from supported currency list API `GET /flash_swap/currencies`
-        Boolean reverse = true; // Boolean | If results are sorted by id in reverse order. Default to `true`  - `true`: sort by id in descending order(recent first) - ascending order(oldest first)
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer page = 1; // Integer | Page number.
+        Integer status = 1; // Integer | Flash swap order status  `1` - success `2` - failed
+        String sellCurrency = "BTC"; // String | Asset name to sell - Retrieved from API `GET /flash_swap/currencies` for supported flash swap currencies
+        String buyCurrency = "BTC"; // String | Asset name to buy - Retrieved from API `GET /flash_swap/currencies` for supported flash swap currencies
+        Boolean reverse = true; // Boolean | Sort by ID in ascending or descending order, default `true` - `true`: ID descending order (most recent data first) - `false`: ID ascending order (oldest data first)
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer page = 1; // Integer | Page number
         try {
             List<FlashSwapOrder> result = apiInstance.listFlashSwapOrders()
                         .status(status)
@@ -145,12 +145,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **Integer**| Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure | [optional]
- **sellCurrency** | **String**| Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; | [optional]
- **buyCurrency** | **String**| Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; | [optional]
- **reverse** | **Boolean**| If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **page** | **Integer**| Page number. | [optional] [default to 1]
+ **status** | **Integer**| Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failed | [optional]
+ **sellCurrency** | **String**| Asset name to sell - Retrieved from API &#x60;GET /flash_swap/currencies&#x60; for supported flash swap currencies | [optional]
+ **buyCurrency** | **String**| Asset name to buy - Retrieved from API &#x60;GET /flash_swap/currencies&#x60; for supported flash swap currencies | [optional]
+ **reverse** | **Boolean**| Sort by ID in ascending or descending order, default &#x60;true&#x60; - &#x60;true&#x60;: ID descending order (most recent data first) - &#x60;false&#x60;: ID ascending order (oldest data first) | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **page** | **Integer**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -168,13 +168,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="createFlashSwapOrder"></a>
 # **createFlashSwapOrder**
 > FlashSwapOrder createFlashSwapOrder(flashSwapOrderRequest)
 
-Create a flash swap order.
+Create a flash swap order
 
 Initiate a flash swap preview in advance because order creation requires a preview result
 
@@ -238,13 +238,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | The flash swap order is created successfully. |  -  |
+**201** | Flash swap order created successfully |  -  |
 
 <a name="getFlashSwapOrder"></a>
 # **getFlashSwapOrder**
 > FlashSwapOrder getFlashSwapOrder(orderId)
 
-Get a single flash swap order&#39;s detail.
+Query single flash swap order
 
 ### Example
 
@@ -267,7 +267,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
-        Integer orderId = 1; // Integer | Flash swap order ID.
+        Integer orderId = 1; // Integer | Flash swap order ID
         try {
             FlashSwapOrder result = apiInstance.getFlashSwapOrder(orderId);
             System.out.println(result);
@@ -288,7 +288,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **Integer**| Flash swap order ID. |
+ **orderId** | **Integer**| Flash swap order ID |
 
 ### Return type
 
@@ -306,13 +306,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="previewFlashSwapOrder"></a>
 # **previewFlashSwapOrder**
 > FlashSwapOrderPreview previewFlashSwapOrder(flashSwapPreviewRequest)
 
-Initiate a flash swap order preview.
+Flash swap order preview
 
 ### Example
 
@@ -374,5 +374,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The flash swap order successfully previewed. |  -  |
+**200** | Flash swap order preview successful |  -  |
 

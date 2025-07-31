@@ -4,25 +4,25 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listMarginAccounts**](MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list.
-[**listMarginAccountBook**](MarginApi.md#listMarginAccountBook) | **GET** /margin/account_book | List margin account balance change history.
-[**listFundingAccounts**](MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list.
-[**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting.
-[**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting.
-[**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency.
-[**getUserMarginTier**](MarginApi.md#getUserMarginTier) | **GET** /margin/user/loan_margin_tiers | Check the user&#39;s own leverage lending gradient in the current market.
-[**getMarketMarginTier**](MarginApi.md#getMarketMarginTier) | **GET** /margin/loan_margin_tiers | Query the current market leverage lending gradient.
-[**setUserMarketLeverage**](MarginApi.md#setUserMarketLeverage) | **POST** /margin/leverage/user_market_setting | Set the user market leverage multiple.
-[**listMarginUserAccount**](MarginApi.md#listMarginUserAccount) | **GET** /margin/user/account | Query the user&#39;s leverage account list.
-[**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | List cross margin borrow history. (deprecated).
-[**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments. (deprecated).
+[**listMarginAccounts**](MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list
+[**listMarginAccountBook**](MarginApi.md#listMarginAccountBook) | **GET** /margin/account_book | Query margin account balance change history
+[**listFundingAccounts**](MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list
+[**getAutoRepayStatus**](MarginApi.md#getAutoRepayStatus) | **GET** /margin/auto_repay | Query user auto repayment settings
+[**setAutoRepay**](MarginApi.md#setAutoRepay) | **POST** /margin/auto_repay | Update user auto repayment settings
+[**getMarginTransferable**](MarginApi.md#getMarginTransferable) | **GET** /margin/transferable | Get maximum transferable amount for isolated margin
+[**getUserMarginTier**](MarginApi.md#getUserMarginTier) | **GET** /margin/user/loan_margin_tiers | Query user&#39;s own leverage lending tiers in current market
+[**getMarketMarginTier**](MarginApi.md#getMarketMarginTier) | **GET** /margin/loan_margin_tiers | Query current market leverage lending tiers
+[**setUserMarketLeverage**](MarginApi.md#setUserMarketLeverage) | **POST** /margin/leverage/user_market_setting | Set user market leverage multiplier
+[**listMarginUserAccount**](MarginApi.md#listMarginUserAccount) | **GET** /margin/user/account | Query user&#39;s isolated margin account list
+[**listCrossMarginLoans**](MarginApi.md#listCrossMarginLoans) | **GET** /margin/cross/loans | Query cross margin borrow history (deprecated)
+[**listCrossMarginRepayments**](MarginApi.md#listCrossMarginRepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments. (deprecated)
 
 
 <a name="listMarginAccounts"></a>
 # **listMarginAccounts**
 > List&lt;MarginAccount&gt; listMarginAccounts().currencyPair(currencyPair).execute();
 
-Margin account list.
+Margin account list
 
 ### Example
 
@@ -45,7 +45,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
+        String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             List<MarginAccount> result = apiInstance.listMarginAccounts()
                         .currencyPair(currencyPair)
@@ -68,7 +68,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair. | [optional]
+ **currencyPair** | **String**| Currency pair | [optional]
 
 ### Return type
 
@@ -86,15 +86,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="listMarginAccountBook"></a>
 # **listMarginAccountBook**
 > List&lt;MarginAccountBook&gt; listMarginAccountBook().currency(currency).currencyPair(currencyPair).type(type).from(from).to(to).page(page).limit(limit).execute();
 
-List margin account balance change history.
+Query margin account balance change history
 
-Only transferals from and to margin account are provided for now. Time range allows 30 days at most
+Currently only provides transfer history to and from margin accounts. Query time range cannot exceed 30 days
 
 ### Example
 
@@ -117,13 +117,13 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "currency_example"; // String | List records related to specified currency only. If specified, `currency_pair` is also required.
-        String currencyPair = "currencyPair_example"; // String | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided
-        String type = "lend"; // String | Only retrieve changes of the specified type. All types will be returned if not specified.
-        Long from = 1627706330L; // Long | Start timestamp of the query.
-        Long to = 1635329650L; // Long | Time range ending, default to current time.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
+        String currency = "currency_example"; // String | Query history for specified currency. If `currency` is specified, `currency_pair` must also be specified.
+        String currencyPair = "currencyPair_example"; // String | Specify margin account currency pair. Used in combination with `currency`. Ignored if `currency` is not specified
+        String type = "lend"; // String | Query by specified account change type. If not specified, all change types will be included.
+        Long from = 1627706330L; // Long | Start timestamp for the query
+        Long to = 1635329650L; // Long | End timestamp for the query, defaults to current time if not specified
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
         try {
             List<MarginAccountBook> result = apiInstance.listMarginAccountBook()
                         .currency(currency)
@@ -152,13 +152,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. | [optional]
- **currencyPair** | **String**| List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided | [optional]
- **type** | **String**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional]
- **from** | **Long**| Start timestamp of the query. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **currency** | **String**| Query history for specified currency. If &#x60;currency&#x60; is specified, &#x60;currency_pair&#x60; must also be specified. | [optional]
+ **currencyPair** | **String**| Specify margin account currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not specified | [optional]
+ **type** | **String**| Query by specified account change type. If not specified, all change types will be included. | [optional]
+ **from** | **Long**| Start timestamp for the query | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -176,13 +176,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="listFundingAccounts"></a>
 # **listFundingAccounts**
 > List&lt;FundingAccount&gt; listFundingAccounts().currency(currency).execute();
 
-Funding account list.
+Funding account list
 
 ### Example
 
@@ -205,7 +205,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
+        String currency = "BTC"; // String | Query by specified currency name
         try {
             List<FundingAccount> result = apiInstance.listFundingAccounts()
                         .currency(currency)
@@ -228,7 +228,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. | [optional]
+ **currency** | **String**| Query by specified currency name | [optional]
 
 ### Return type
 
@@ -246,13 +246,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="getAutoRepayStatus"></a>
 # **getAutoRepayStatus**
 > AutoRepaySetting getAutoRepayStatus()
 
-Retrieve user auto repayment setting.
+Query user auto repayment settings
 
 ### Example
 
@@ -310,13 +310,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Current auto repayment setting. |  -  |
+**200** | User&#39;s current auto repayment settings |  -  |
 
 <a name="setAutoRepay"></a>
 # **setAutoRepay**
 > AutoRepaySetting setAutoRepay(status)
 
-Update user&#39;s auto repayment setting.
+Update user auto repayment settings
 
 ### Example
 
@@ -339,7 +339,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String status = "on"; // String | New auto repayment status. `on` - enabled, `off` - disabled.
+        String status = "on"; // String | Whether to enable auto repayment: `on` - enabled, `off` - disabled
         try {
             AutoRepaySetting result = apiInstance.setAutoRepay(status);
             System.out.println(result);
@@ -360,7 +360,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled. |
+ **status** | **String**| Whether to enable auto repayment: &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled |
 
 ### Return type
 
@@ -378,13 +378,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Current auto repayment setting. |  -  |
+**200** | User&#39;s current auto repayment settings |  -  |
 
 <a name="getMarginTransferable"></a>
 # **getMarginTransferable**
 > MarginTransferable getMarginTransferable(currency).currencyPair(currencyPair).execute();
 
-Get the max transferable amount for a specific margin currency.
+Get maximum transferable amount for isolated margin
 
 ### Example
 
@@ -407,8 +407,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currency = "BTC"; // String | Retrieve data of the specified currency.
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
+        String currency = "BTC"; // String | Query by specified currency name
+        String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             MarginTransferable result = apiInstance.getMarginTransferable(currency)
                         .currencyPair(currencyPair)
@@ -431,8 +431,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Retrieve data of the specified currency. |
- **currencyPair** | **String**| Currency pair. | [optional]
+ **currency** | **String**| Query by specified currency name |
+ **currencyPair** | **String**| Currency pair | [optional]
 
 ### Return type
 
@@ -450,13 +450,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUserMarginTier"></a>
 # **getUserMarginTier**
 > List&lt;MarginLeverageTier&gt; getUserMarginTier(currencyPair)
 
-Check the user&#39;s own leverage lending gradient in the current market.
+Query user&#39;s own leverage lending tiers in current market
 
 ### Example
 
@@ -479,7 +479,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
+        String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             List<MarginLeverageTier> result = apiInstance.getUserMarginTier(currencyPair);
             System.out.println(result);
@@ -500,7 +500,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair. |
+ **currencyPair** | **String**| Currency pair |
 
 ### Return type
 
@@ -518,13 +518,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getMarketMarginTier"></a>
 # **getMarketMarginTier**
 > List&lt;MarginLeverageTier&gt; getMarketMarginTier(currencyPair)
 
-Query the current market leverage lending gradient.
+Query current market leverage lending tiers
 
 ### Example
 
@@ -543,7 +543,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
+        String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             List<MarginLeverageTier> result = apiInstance.getMarketMarginTier(currencyPair);
             System.out.println(result);
@@ -564,7 +564,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair. |
+ **currencyPair** | **String**| Currency pair |
 
 ### Return type
 
@@ -582,13 +582,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="setUserMarketLeverage"></a>
 # **setUserMarketLeverage**
 > setUserMarketLeverage(marginMarketLeverage)
 
-Set the user market leverage multiple.
+Set user market leverage multiplier
 
 ### Example
 
@@ -649,15 +649,15 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success. |  -  |
+**204** | Set successfully |  -  |
 
 <a name="listMarginUserAccount"></a>
 # **listMarginUserAccount**
 > List&lt;MarginAccount&gt; listMarginUserAccount().currencyPair(currencyPair).execute();
 
-Query the user&#39;s leverage account list.
+Query user&#39;s isolated margin account list
 
-Support querying risk rate per position account and margin rate per position account
+Supports querying risk ratio isolated accounts and margin ratio isolated accounts
 
 ### Example
 
@@ -680,7 +680,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        String currencyPair = "BTC_USDT"; // String | Currency pair.
+        String currencyPair = "BTC_USDT"; // String | Currency pair
         try {
             List<MarginAccount> result = apiInstance.listMarginUserAccount()
                         .currencyPair(currencyPair)
@@ -703,7 +703,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **String**| Currency pair. | [optional]
+ **currencyPair** | **String**| Currency pair | [optional]
 
 ### Return type
 
@@ -721,15 +721,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="listCrossMarginLoans"></a>
 # **listCrossMarginLoans**
 > List&lt;CrossMarginLoan&gt; listCrossMarginLoans(status).currency(currency).limit(limit).offset(offset).reverse(reverse).execute();
 
-List cross margin borrow history. (deprecated).
+Query cross margin borrow history (deprecated)
 
-Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+Sorted by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; for ascending order
 
 ### Example
 
@@ -752,10 +752,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MarginApi apiInstance = new MarginApi(defaultClient);
-        Integer status = 56; // Integer | Filter by status. Supported values are 2 and 3. (deprecated.).
-        String currency = "currency_example"; // String | Filter by currency.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        Integer status = 56; // Integer | Filter by status. Supported values are 2 and 3. (deprecated.)
+        String currency = "currency_example"; // String | Query by specified currency, includes all currencies if not specified
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
         try {
             List<CrossMarginLoan> result = apiInstance.listCrossMarginLoans(status)
@@ -782,10 +782,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **Integer**| Filter by status. Supported values are 2 and 3. (deprecated.). |
- **currency** | **String**| Filter by currency. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **status** | **Integer**| Filter by status. Supported values are 2 and 3. (deprecated.) |
+ **currency** | **String**| Query by specified currency, includes all currencies if not specified | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **Boolean**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
 ### Return type
@@ -804,15 +804,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listCrossMarginRepayments"></a>
 # **listCrossMarginRepayments**
 > List&lt;CrossMarginRepayment&gt; listCrossMarginRepayments().currency(currency).loanId(loanId).limit(limit).offset(offset).reverse(reverse).execute();
 
-Retrieve cross margin repayments. (deprecated).
+Retrieve cross margin repayments. (deprecated)
 
-Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+Sorted by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; for ascending order
 
 ### Example
 
@@ -837,8 +837,8 @@ public class Example {
         MarginApi apiInstance = new MarginApi(defaultClient);
         String currency = "BTC"; // String | 
         String loanId = "12345"; // String | 
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Boolean reverse = true; // Boolean | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results
         try {
             List<CrossMarginRepayment> result = apiInstance.listCrossMarginRepayments()
@@ -868,8 +868,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**|  | [optional]
  **loanId** | **String**|  | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **Boolean**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
 ### Return type
@@ -888,5 +888,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 

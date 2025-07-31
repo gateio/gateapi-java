@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**available** | **String** | Available amount. |  [optional]
-**freeze** | **String** | Locked amount. |  [optional]
-**borrowed** | **String** | Borrowed amount. |  [optional]
-**interest** | **String** | Unpaid interests. |  [optional]
+**available** | **String** | Available balance |  [optional]
+**freeze** | **String** | Locked balance |  [optional]
+**borrowed** | **String** | Borrowed balance |  [optional]
+**interest** | **String** | Unpaid interest |  [optional]
 

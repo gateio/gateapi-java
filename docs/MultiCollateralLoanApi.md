@@ -4,25 +4,25 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listMultiCollateralOrders**](MultiCollateralLoanApi.md#listMultiCollateralOrders) | **GET** /loan/multi_collateral/orders | List Multi-Collateral Orders.
-[**createMultiCollateral**](MultiCollateralLoanApi.md#createMultiCollateral) | **POST** /loan/multi_collateral/orders | Create Multi-Collateral Order.
-[**getMultiCollateralOrderDetail**](MultiCollateralLoanApi.md#getMultiCollateralOrderDetail) | **GET** /loan/multi_collateral/orders/{order_id} | Get Multi-Collateral Order Detail.
-[**listMultiRepayRecords**](MultiCollateralLoanApi.md#listMultiRepayRecords) | **GET** /loan/multi_collateral/repay | List Multi-Collateral Repay Records.
-[**repayMultiCollateralLoan**](MultiCollateralLoanApi.md#repayMultiCollateralLoan) | **POST** /loan/multi_collateral/repay | Repay Multi-Collateral Loan.
-[**listMultiCollateralRecords**](MultiCollateralLoanApi.md#listMultiCollateralRecords) | **GET** /loan/multi_collateral/mortgage | Query collateral adjustment records.
-[**operateMultiCollateral**](MultiCollateralLoanApi.md#operateMultiCollateral) | **POST** /loan/multi_collateral/mortgage | Operate Multi-Collateral.
-[**listUserCurrencyQuota**](MultiCollateralLoanApi.md#listUserCurrencyQuota) | **GET** /loan/multi_collateral/currency_quota | List User Currency Quota.
-[**listMultiCollateralCurrencies**](MultiCollateralLoanApi.md#listMultiCollateralCurrencies) | **GET** /loan/multi_collateral/currencies | Query supported borrowing and collateral currencies in Multi-Collateral.
-[**getMultiCollateralLtv**](MultiCollateralLoanApi.md#getMultiCollateralLtv) | **GET** /loan/multi_collateral/ltv | Get Multi-Collateral ratio.
-[**getMultiCollateralFixRate**](MultiCollateralLoanApi.md#getMultiCollateralFixRate) | **GET** /loan/multi_collateral/fixed_rate | Query fixed interest rates for the currency for 7 days and 30 days.
-[**getMultiCollateralCurrentRate**](MultiCollateralLoanApi.md#getMultiCollateralCurrentRate) | **GET** /loan/multi_collateral/current_rate | Query the current interest rate of the currency.
+[**listMultiCollateralOrders**](MultiCollateralLoanApi.md#listMultiCollateralOrders) | **GET** /loan/multi_collateral/orders | Query multi-currency collateral order list
+[**createMultiCollateral**](MultiCollateralLoanApi.md#createMultiCollateral) | **POST** /loan/multi_collateral/orders | Place multi-currency collateral order
+[**getMultiCollateralOrderDetail**](MultiCollateralLoanApi.md#getMultiCollateralOrderDetail) | **GET** /loan/multi_collateral/orders/{order_id} | Query order details
+[**listMultiRepayRecords**](MultiCollateralLoanApi.md#listMultiRepayRecords) | **GET** /loan/multi_collateral/repay | Query multi-currency collateral repayment records
+[**repayMultiCollateralLoan**](MultiCollateralLoanApi.md#repayMultiCollateralLoan) | **POST** /loan/multi_collateral/repay | Multi-currency collateral repayment
+[**listMultiCollateralRecords**](MultiCollateralLoanApi.md#listMultiCollateralRecords) | **GET** /loan/multi_collateral/mortgage | Query collateral adjustment records
+[**operateMultiCollateral**](MultiCollateralLoanApi.md#operateMultiCollateral) | **POST** /loan/multi_collateral/mortgage | Add or withdraw collateral
+[**listUserCurrencyQuota**](MultiCollateralLoanApi.md#listUserCurrencyQuota) | **GET** /loan/multi_collateral/currency_quota | Query user&#39;s collateral and borrowing currency quota information
+[**listMultiCollateralCurrencies**](MultiCollateralLoanApi.md#listMultiCollateralCurrencies) | **GET** /loan/multi_collateral/currencies | Query supported borrowing and collateral currencies for multi-currency collateral
+[**getMultiCollateralLtv**](MultiCollateralLoanApi.md#getMultiCollateralLtv) | **GET** /loan/multi_collateral/ltv | Query collateralization ratio information
+[**getMultiCollateralFixRate**](MultiCollateralLoanApi.md#getMultiCollateralFixRate) | **GET** /loan/multi_collateral/fixed_rate | Query currency&#39;s 7-day and 30-day fixed interest rates
+[**getMultiCollateralCurrentRate**](MultiCollateralLoanApi.md#getMultiCollateralCurrentRate) | **GET** /loan/multi_collateral/current_rate | Query currency&#39;s current interest rate
 
 
 <a name="listMultiCollateralOrders"></a>
 # **listMultiCollateralOrders**
 > List&lt;MultiCollateralOrder&gt; listMultiCollateralOrders().page(page).limit(limit).sort(sort).orderType(orderType).execute();
 
-List Multi-Collateral Orders.
+Query multi-currency collateral order list
 
 ### Example
 
@@ -45,10 +45,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 10; // Integer | Maximum number of records to be returned in a single list.
-        String sort = "ltv_asc"; // String | Query the current interest rate of the currency in the previous hour.
-        String orderType = "current"; // String | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
+        Integer page = 1; // Integer | Page number
+        Integer limit = 10; // Integer | Maximum number of records returned in a single list
+        String sort = "ltv_asc"; // String | Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending.
+        String orderType = "current"; // String | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
         try {
             List<MultiCollateralOrder> result = apiInstance.listMultiCollateralOrders()
                         .page(page)
@@ -74,10 +74,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 10]
- **sort** | **String**| Query the current interest rate of the currency in the previous hour. | [optional]
- **orderType** | **String**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 10]
+ **sort** | **String**| Sort type: &#x60;time_desc&#x60; - Created time descending (default), &#x60;ltv_asc&#x60; - Collateral ratio ascending, &#x60;ltv_desc&#x60; - Collateral ratio descending. | [optional]
+ **orderType** | **String**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
 
 ### Return type
 
@@ -95,13 +95,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="createMultiCollateral"></a>
 # **createMultiCollateral**
 > OrderResp createMultiCollateral(createMultiCollateralOrder)
 
-Create Multi-Collateral Order.
+Place multi-currency collateral order
 
 ### Example
 
@@ -163,13 +163,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success. |  -  |
+**200** | Order placed successfully |  -  |
 
 <a name="getMultiCollateralOrderDetail"></a>
 # **getMultiCollateralOrderDetail**
 > MultiCollateralOrder getMultiCollateralOrderDetail(orderId)
 
-Get Multi-Collateral Order Detail.
+Query order details
 
 ### Example
 
@@ -192,7 +192,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        String orderId = "12345"; // String | Order ID returned on successful order creation.
+        String orderId = "12345"; // String | Order ID returned when order is successfully created
         try {
             MultiCollateralOrder result = apiInstance.getMultiCollateralOrderDetail(orderId);
             System.out.println(result);
@@ -213,7 +213,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **String**| Order ID returned on successful order creation. |
+ **orderId** | **String**| Order ID returned when order is successfully created |
 
 ### Return type
 
@@ -231,13 +231,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success. |  -  |
+**200** | Order details queried successfully |  -  |
 
 <a name="listMultiRepayRecords"></a>
 # **listMultiRepayRecords**
 > List&lt;MultiRepayRecord&gt; listMultiRepayRecords(type).borrowCurrency(borrowCurrency).page(page).limit(limit).from(from).to(to).execute();
 
-List Multi-Collateral Repay Records.
+Query multi-currency collateral repayment records
 
 ### Example
 
@@ -260,12 +260,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        String type = "repay"; // String | Operation type: repay - Regular repayment, liquidate - Liquidation.
-        String borrowCurrency = "USDT"; // String | Borrowed currency.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 10; // Integer | Maximum number of records to be returned in a single list.
-        Long from = 1609459200L; // Long | Start timestamp of the query.
-        Long to = 1609459200L; // Long | Time range ending, default to current time.
+        String type = "repay"; // String | Operation type: repay - Regular repayment, liquidate - Liquidation
+        String borrowCurrency = "USDT"; // String | Borrowed currency
+        Integer page = 1; // Integer | Page number
+        Integer limit = 10; // Integer | Maximum number of records returned in a single list
+        Long from = 1609459200L; // Long | Start timestamp for the query
+        Long to = 1609459200L; // Long | End timestamp for the query, defaults to current time if not specified
         try {
             List<MultiRepayRecord> result = apiInstance.listMultiRepayRecords(type)
                         .borrowCurrency(borrowCurrency)
@@ -292,12 +292,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| Operation type: repay - Regular repayment, liquidate - Liquidation. |
- **borrowCurrency** | **String**| Borrowed currency. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 10]
- **from** | **Long**| Start timestamp of the query. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
+ **type** | **String**| Operation type: repay - Regular repayment, liquidate - Liquidation |
+ **borrowCurrency** | **String**| Borrowed currency | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 10]
+ **from** | **Long**| Start timestamp for the query | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
 
 ### Return type
 
@@ -315,13 +315,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="repayMultiCollateralLoan"></a>
 # **repayMultiCollateralLoan**
 > MultiRepayResp repayMultiCollateralLoan(repayMultiLoan)
 
-Repay Multi-Collateral Loan.
+Multi-currency collateral repayment
 
 ### Example
 
@@ -383,13 +383,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Operated successfully. |  -  |
+**200** | Operation successful |  -  |
 
 <a name="listMultiCollateralRecords"></a>
 # **listMultiCollateralRecords**
 > List&lt;MultiCollateralRecord&gt; listMultiCollateralRecords().page(page).limit(limit).from(from).to(to).collateralCurrency(collateralCurrency).execute();
 
-Query collateral adjustment records.
+Query collateral adjustment records
 
 ### Example
 
@@ -412,11 +412,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 10; // Integer | Maximum number of records to be returned in a single list.
-        Long from = 1609459200L; // Long | Start timestamp of the query.
-        Long to = 1609459200L; // Long | Time range ending, default to current time.
-        String collateralCurrency = "BTC"; // String | Collateral.
+        Integer page = 1; // Integer | Page number
+        Integer limit = 10; // Integer | Maximum number of records returned in a single list
+        Long from = 1609459200L; // Long | Start timestamp for the query
+        Long to = 1609459200L; // Long | End timestamp for the query, defaults to current time if not specified
+        String collateralCurrency = "BTC"; // String | Collateral currency
         try {
             List<MultiCollateralRecord> result = apiInstance.listMultiCollateralRecords()
                         .page(page)
@@ -443,11 +443,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 10]
- **from** | **Long**| Start timestamp of the query. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
- **collateralCurrency** | **String**| Collateral. | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 10]
+ **from** | **Long**| Start timestamp for the query | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **collateralCurrency** | **String**| Collateral currency | [optional]
 
 ### Return type
 
@@ -465,13 +465,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="operateMultiCollateral"></a>
 # **operateMultiCollateral**
 > CollateralAdjustRes operateMultiCollateral(collateralAdjust)
 
-Operate Multi-Collateral.
+Add or withdraw collateral
 
 ### Example
 
@@ -533,13 +533,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Operated successfully. |  -  |
+**200** | Operation successful |  -  |
 
 <a name="listUserCurrencyQuota"></a>
 # **listUserCurrencyQuota**
 > List&lt;CurrencyQuota&gt; listUserCurrencyQuota(type, currency)
 
-List User Currency Quota.
+Query user&#39;s collateral and borrowing currency quota information
 
 ### Example
 
@@ -562,8 +562,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        String type = "collateral"; // String | Currency type: collateral - Collateral currency, borrow - Borrowing.
-        String currency = "BTC"; // String | When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed
+        String type = "collateral"; // String | Currency type: collateral - Collateral currency, borrow - Borrowing currency
+        String currency = "BTC"; // String | When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided.
         try {
             List<CurrencyQuota> result = apiInstance.listUserCurrencyQuota(type, currency);
             System.out.println(result);
@@ -584,8 +584,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| Currency type: collateral - Collateral currency, borrow - Borrowing. |
- **currency** | **String**| When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed |
+ **type** | **String**| Currency type: collateral - Collateral currency, borrow - Borrowing currency |
+ **currency** | **String**| When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. |
 
 ### Return type
 
@@ -603,13 +603,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listMultiCollateralCurrencies"></a>
 # **listMultiCollateralCurrencies**
 > MultiCollateralCurrency listMultiCollateralCurrencies()
 
-Query supported borrowing and collateral currencies in Multi-Collateral.
+Query supported borrowing and collateral currencies for multi-currency collateral
 
 ### Example
 
@@ -663,15 +663,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getMultiCollateralLtv"></a>
 # **getMultiCollateralLtv**
 > CollateralLtv getMultiCollateralLtv()
 
-Get Multi-Collateral ratio.
+Query collateralization ratio information
 
-The Multi-Collateral ratio is fixed, irrespective of the currency.
+Multi-currency collateral ratio is fixed, independent of currency
 
 ### Example
 
@@ -725,13 +725,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getMultiCollateralFixRate"></a>
 # **getMultiCollateralFixRate**
 > List&lt;CollateralFixRate&gt; getMultiCollateralFixRate()
 
-Query fixed interest rates for the currency for 7 days and 30 days.
+Query currency&#39;s 7-day and 30-day fixed interest rates
 
 ### Example
 
@@ -785,15 +785,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getMultiCollateralCurrentRate"></a>
 # **getMultiCollateralCurrentRate**
 > List&lt;CollateralCurrentRate&gt; getMultiCollateralCurrentRate(currencies).vipLevel(vipLevel).execute();
 
-Query the current interest rate of the currency.
+Query currency&#39;s current interest rate
 
-Query the current interest rate of the currency in the previous hour.
+Query currency&#39;s current interest rate for the previous hour, current interest rate updates hourly
 
 ### Example
 
@@ -812,8 +812,8 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        List<String> currencies = Arrays.asList(); // List<String> | Specify currency name query array, separated by commas, maximum 100items.
-        String vipLevel = "\"0\""; // String | VIP level, defaults to 0 if not transferred.
+        List<String> currencies = Arrays.asList(); // List<String> | Specify currency name query array, separated by commas, maximum 100 items
+        String vipLevel = "\"0\""; // String | VIP level, defaults to 0 if not specified
         try {
             List<CollateralCurrentRate> result = apiInstance.getMultiCollateralCurrentRate(currencies)
                         .vipLevel(vipLevel)
@@ -836,8 +836,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**List&lt;String&gt;**](String.md)| Specify currency name query array, separated by commas, maximum 100items. |
- **vipLevel** | **String**| VIP level, defaults to 0 if not transferred. | [optional] [default to &quot;0&quot;]
+ **currencies** | [**List&lt;String&gt;**](String.md)| Specify currency name query array, separated by commas, maximum 100 items |
+ **vipLevel** | **String**| VIP level, defaults to 0 if not specified | [optional] [default to &quot;0&quot;]
 
 ### Return type
 
@@ -855,5 +855,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 

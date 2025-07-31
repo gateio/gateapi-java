@@ -4,31 +4,31 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listOptionsUnderlyings**](OptionsApi.md#listOptionsUnderlyings) | **GET** /options/underlyings | List all underlyings.
-[**listOptionsExpirations**](OptionsApi.md#listOptionsExpirations) | **GET** /options/expirations | List all expiration times.
-[**listOptionsContracts**](OptionsApi.md#listOptionsContracts) | **GET** /options/contracts | List all the contracts with specified underlying and expiration time.
-[**getOptionsContract**](OptionsApi.md#getOptionsContract) | **GET** /options/contracts/{contract} | Query specified contract detail.
-[**listOptionsSettlements**](OptionsApi.md#listOptionsSettlements) | **GET** /options/settlements | List settlement history.
-[**getOptionsSettlement**](OptionsApi.md#getOptionsSettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement.
-[**listMyOptionsSettlements**](OptionsApi.md#listMyOptionsSettlements) | **GET** /options/my_settlements | List my options settlements.
-[**listOptionsOrderBook**](OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Options order book.
-[**listOptionsTickers**](OptionsApi.md#listOptionsTickers) | **GET** /options/tickers | List tickers of options contracts.
-[**listOptionsUnderlyingTickers**](OptionsApi.md#listOptionsUnderlyingTickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker.
-[**listOptionsCandlesticks**](OptionsApi.md#listOptionsCandlesticks) | **GET** /options/candlesticks | Get options candlesticks.
-[**listOptionsUnderlyingCandlesticks**](OptionsApi.md#listOptionsUnderlyingCandlesticks) | **GET** /options/underlying/candlesticks | Mark price candlesticks of an underlying.
-[**listOptionsTrades**](OptionsApi.md#listOptionsTrades) | **GET** /options/trades | Options trade history.
-[**listOptionsAccount**](OptionsApi.md#listOptionsAccount) | **GET** /options/accounts | List options account.
-[**listOptionsAccountBook**](OptionsApi.md#listOptionsAccountBook) | **GET** /options/account_book | List account changing history.
-[**listOptionsPositions**](OptionsApi.md#listOptionsPositions) | **GET** /options/positions | List user&#39;s positions of specified underlying.
-[**getOptionsPosition**](OptionsApi.md#getOptionsPosition) | **GET** /options/positions/{contract} | Get specified contract position.
-[**listOptionsPositionClose**](OptionsApi.md#listOptionsPositionClose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying.
-[**listOptionsOrders**](OptionsApi.md#listOptionsOrders) | **GET** /options/orders | List options orders.
-[**createOptionsOrder**](OptionsApi.md#createOptionsOrder) | **POST** /options/orders | Create an options order.
-[**cancelOptionsOrders**](OptionsApi.md#cancelOptionsOrders) | **DELETE** /options/orders | Cancel all &#x60;open&#x60; orders matched.
-[**getOptionsOrder**](OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Get a single order.
-[**cancelOptionsOrder**](OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel a single order.
-[**countdownCancelAllOptions**](OptionsApi.md#countdownCancelAllOptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders.
-[**listMyOptionsTrades**](OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | List personal trading history.
+[**listOptionsUnderlyings**](OptionsApi.md#listOptionsUnderlyings) | **GET** /options/underlyings | List all underlying assets
+[**listOptionsExpirations**](OptionsApi.md#listOptionsExpirations) | **GET** /options/expirations | List all expiration dates
+[**listOptionsContracts**](OptionsApi.md#listOptionsContracts) | **GET** /options/contracts | List all contracts for specified underlying and expiration date
+[**getOptionsContract**](OptionsApi.md#getOptionsContract) | **GET** /options/contracts/{contract} | Query specified contract details
+[**listOptionsSettlements**](OptionsApi.md#listOptionsSettlements) | **GET** /options/settlements | List settlement history
+[**getOptionsSettlement**](OptionsApi.md#getOptionsSettlement) | **GET** /options/settlements/{contract} | Get specified contract settlement information
+[**listMyOptionsSettlements**](OptionsApi.md#listMyOptionsSettlements) | **GET** /options/my_settlements | Query personal settlement records
+[**listOptionsOrderBook**](OptionsApi.md#listOptionsOrderBook) | **GET** /options/order_book | Query options contract order book
+[**listOptionsTickers**](OptionsApi.md#listOptionsTickers) | **GET** /options/tickers | Query options market ticker information
+[**listOptionsUnderlyingTickers**](OptionsApi.md#listOptionsUnderlyingTickers) | **GET** /options/underlying/tickers/{underlying} | Query underlying ticker information
+[**listOptionsCandlesticks**](OptionsApi.md#listOptionsCandlesticks) | **GET** /options/candlesticks | Options contract market candlestick chart
+[**listOptionsUnderlyingCandlesticks**](OptionsApi.md#listOptionsUnderlyingCandlesticks) | **GET** /options/underlying/candlesticks | Underlying index price candlestick chart
+[**listOptionsTrades**](OptionsApi.md#listOptionsTrades) | **GET** /options/trades | Market trade records
+[**listOptionsAccount**](OptionsApi.md#listOptionsAccount) | **GET** /options/accounts | Query account information
+[**listOptionsAccountBook**](OptionsApi.md#listOptionsAccountBook) | **GET** /options/account_book | Query account change history
+[**listOptionsPositions**](OptionsApi.md#listOptionsPositions) | **GET** /options/positions | List user&#39;s positions of specified underlying
+[**getOptionsPosition**](OptionsApi.md#getOptionsPosition) | **GET** /options/positions/{contract} | Get specified contract position
+[**listOptionsPositionClose**](OptionsApi.md#listOptionsPositionClose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying
+[**listOptionsOrders**](OptionsApi.md#listOptionsOrders) | **GET** /options/orders | List options orders
+[**createOptionsOrder**](OptionsApi.md#createOptionsOrder) | **POST** /options/orders | Create an options order
+[**cancelOptionsOrders**](OptionsApi.md#cancelOptionsOrders) | **DELETE** /options/orders | Cancel all orders with &#39;open&#39; status
+[**getOptionsOrder**](OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Query single order details
+[**cancelOptionsOrder**](OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel single order
+[**countdownCancelAllOptions**](OptionsApi.md#countdownCancelAllOptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders
+[**listMyOptionsTrades**](OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | Query personal trading records
 [**getOptionsMMP**](OptionsApi.md#getOptionsMMP) | **GET** /options/mmp | MMP Query.
 [**setOptionsMMP**](OptionsApi.md#setOptionsMMP) | **POST** /options/mmp | MMP Settings
 [**resetOptionsMMP**](OptionsApi.md#resetOptionsMMP) | **POST** /options/mmp/reset | MMP Reset
@@ -38,7 +38,7 @@ Method | HTTP request | Description
 # **listOptionsUnderlyings**
 > List&lt;OptionsUnderlying&gt; listOptionsUnderlyings()
 
-List all underlyings.
+List all underlying assets
 
 ### Example
 
@@ -92,13 +92,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="listOptionsExpirations"></a>
 # **listOptionsExpirations**
 > List&lt;Long&gt; listOptionsExpirations(underlying)
 
-List all expiration times.
+List all expiration dates
 
 ### Example
 
@@ -117,7 +117,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
         try {
             List<Long> result = apiInstance.listOptionsExpirations(underlying);
             System.out.println(result);
@@ -138,7 +138,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
 
 ### Return type
 
@@ -156,13 +156,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List expiration times of specified underlying. |  -  |
+**200** | List expiration dates for specified underlying |  -  |
 
 <a name="listOptionsContracts"></a>
 # **listOptionsContracts**
 > List&lt;OptionsContract&gt; listOptionsContracts(underlying).expiration(expiration).execute();
 
-List all the contracts with specified underlying and expiration time.
+List all contracts for specified underlying and expiration date
 
 ### Example
 
@@ -181,8 +181,8 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
-        Long expiration = 1636588800L; // Long | Unix timestamp of the expiration time.
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
+        Long expiration = 1636588800L; // Long | Unix timestamp of expiration date
         try {
             List<OptionsContract> result = apiInstance.listOptionsContracts(underlying)
                         .expiration(expiration)
@@ -205,8 +205,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
- **expiration** | **Long**| Unix timestamp of the expiration time. | [optional]
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
+ **expiration** | **Long**| Unix timestamp of expiration date | [optional]
 
 ### Return type
 
@@ -224,13 +224,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="getOptionsContract"></a>
 # **getOptionsContract**
 > OptionsContract getOptionsContract(contract)
 
-Query specified contract detail.
+Query specified contract details
 
 ### Example
 
@@ -288,13 +288,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listOptionsSettlements"></a>
 # **listOptionsSettlements**
 > List&lt;OptionsSettlement&gt; listOptionsSettlements(underlying).limit(limit).offset(offset).from(from).to(to).execute();
 
-List settlement history.
+List settlement history
 
 ### Example
 
@@ -313,9 +313,9 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
@@ -343,9 +343,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -365,13 +365,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="getOptionsSettlement"></a>
 # **getOptionsSettlement**
 > OptionsSettlement getOptionsSettlement(contract, underlying, at)
 
-Get specified contract&#39;s settlement.
+Get specified contract settlement information
 
 ### Example
 
@@ -391,7 +391,7 @@ public class Example {
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
         String contract = "BTC_USDT-20211130-65000-C"; // String | 
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
         Long at = 56L; // Long | 
         try {
             OptionsSettlement result = apiInstance.getOptionsSettlement(contract, underlying, at);
@@ -414,7 +414,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contract** | **String**|  |
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
  **at** | **Long**|  |
 
 ### Return type
@@ -433,13 +433,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listMyOptionsSettlements"></a>
 # **listMyOptionsSettlements**
 > List&lt;OptionsMySettlements&gt; listMyOptionsSettlements(underlying).contract(contract).limit(limit).offset(offset).from(from).to(to).execute();
 
-List my options settlements.
+Query personal settlement records
 
 ### Example
 
@@ -462,10 +462,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
-        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
@@ -494,10 +494,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
- **contract** | **String**| Options contract name. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
+ **contract** | **String**| Options contract name | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -517,15 +517,15 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="listOptionsOrderBook"></a>
 # **listOptionsOrderBook**
 > FuturesOrderBook listOptionsOrderBook(contract).interval(interval).limit(limit).withId(withId).execute();
 
-Options order book.
+Query options contract order book
 
-Bids will be sorted by price from high to low, while asks sorted reversely.
+Bids will be sorted by price from high to low, while asks sorted reversely
 
 ### Example
 
@@ -544,10 +544,10 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name.
-        String interval = "0"; // String | Order depth. 0 means no aggregation is applied. default to 0.
-        Integer limit = 10; // Integer | Maximum number of order depth data in asks or bids.
-        Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time.
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
+        String interval = "0"; // String | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        Integer limit = 10; // Integer | Number of depth levels
+        Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time depth changes
         try {
             FuturesOrderBook result = apiInstance.listOptionsOrderBook(contract)
                         .interval(interval)
@@ -572,10 +572,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **String**| Options contract name. |
- **interval** | **String**| Order depth. 0 means no aggregation is applied. default to 0. | [optional] [default to 0] [enum: 0, 0.1, 0.01]
- **limit** | **Integer**| Maximum number of order depth data in asks or bids. | [optional] [default to 10]
- **withId** | **Boolean**| Whether to return depth update ID. This ID increments by 1 each time. | [optional] [default to false]
+ **contract** | **String**| Options contract name |
+ **interval** | **String**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to 0] [enum: 0, 0.1, 0.01]
+ **limit** | **Integer**| Number of depth levels | [optional] [default to 10]
+ **withId** | **Boolean**| Whether to return depth update ID. This ID increments by 1 each time depth changes | [optional] [default to false]
 
 ### Return type
 
@@ -593,13 +593,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Depth query successful. |  -  |
+**200** | Depth query successful |  -  |
 
 <a name="listOptionsTickers"></a>
 # **listOptionsTickers**
 > List&lt;OptionsTicker&gt; listOptionsTickers(underlying)
 
-List tickers of options contracts.
+Query options market ticker information
 
 ### Example
 
@@ -618,7 +618,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
         try {
             List<OptionsTicker> result = apiInstance.listOptionsTickers(underlying);
             System.out.println(result);
@@ -639,7 +639,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
 
 ### Return type
 
@@ -657,13 +657,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listOptionsUnderlyingTickers"></a>
 # **listOptionsUnderlyingTickers**
 > OptionsUnderlyingTicker listOptionsUnderlyingTickers(underlying)
 
-Get underlying ticker.
+Query underlying ticker information
 
 ### Example
 
@@ -682,7 +682,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying.
+        String underlying = "BTC_USDT"; // String | Underlying
         try {
             OptionsUnderlyingTicker result = apiInstance.listOptionsUnderlyingTickers(underlying);
             System.out.println(result);
@@ -703,7 +703,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying. |
+ **underlying** | **String**| Underlying |
 
 ### Return type
 
@@ -721,13 +721,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listOptionsCandlesticks"></a>
 # **listOptionsCandlesticks**
 > List&lt;OptionsCandlestick&gt; listOptionsCandlesticks(contract).limit(limit).from(from).to(to).interval(interval).execute();
 
-Get options candlesticks.
+Options contract market candlestick chart
 
 ### Example
 
@@ -746,11 +746,11 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        String interval = "5m"; // String | Interval time between data points.
+        String interval = "5m"; // String | Time interval between data points
         try {
             List<OptionsCandlestick> result = apiInstance.listOptionsCandlesticks(contract)
                         .limit(limit)
@@ -776,11 +776,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **String**| Options contract name. |
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **contract** | **String**| Options contract name |
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **interval** | **String**| Interval time between data points. | [optional] [default to 5m] [enum: 1m, 5m, 15m, 30m, 1h]
+ **interval** | **String**| Time interval between data points | [optional] [default to 5m] [enum: 1m, 5m, 15m, 30m, 1h]
 
 ### Return type
 
@@ -798,13 +798,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listOptionsUnderlyingCandlesticks"></a>
 # **listOptionsUnderlyingCandlesticks**
 > List&lt;FuturesCandlestick&gt; listOptionsUnderlyingCandlesticks(underlying).limit(limit).from(from).to(to).interval(interval).execute();
 
-Mark price candlesticks of an underlying.
+Underlying index price candlestick chart
 
 ### Example
 
@@ -823,11 +823,11 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        String interval = "5m"; // String | Interval time between data points.
+        String interval = "5m"; // String | Time interval between data points
         try {
             List<FuturesCandlestick> result = apiInstance.listOptionsUnderlyingCandlesticks(underlying)
                         .limit(limit)
@@ -853,11 +853,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **interval** | **String**| Interval time between data points. | [optional] [default to 5m] [enum: 1m, 5m, 15m, 30m, 1h]
+ **interval** | **String**| Time interval between data points | [optional] [default to 5m] [enum: 1m, 5m, 15m, 30m, 1h]
 
 ### Return type
 
@@ -875,13 +875,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listOptionsTrades"></a>
 # **listOptionsTrades**
 > List&lt;FuturesTrade&gt; listOptionsTrades().contract(contract).type(type).limit(limit).offset(offset).from(from).to(to).execute();
 
-Options trade history.
+Market trade records
 
 ### Example
 
@@ -900,10 +900,10 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name.
-        String type = "1546935600"; // String | `C` is call, while `P` is put.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
+        String type = "1546935600"; // String | `C` for call, `P` for put
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
@@ -933,10 +933,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **String**| Options contract name. | [optional]
- **type** | **String**| &#x60;C&#x60; is call, while &#x60;P&#x60; is put. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **contract** | **String**| Options contract name | [optional]
+ **type** | **String**| &#x60;C&#x60; for call, &#x60;P&#x60; for put | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -956,13 +956,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="listOptionsAccount"></a>
 # **listOptionsAccount**
 > OptionsAccount listOptionsAccount()
 
-List options account.
+Query account information
 
 ### Example
 
@@ -1020,13 +1020,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listOptionsAccountBook"></a>
 # **listOptionsAccountBook**
 > List&lt;OptionsAccountBook&gt; listOptionsAccountBook().limit(limit).offset(offset).from(from).to(to).type(type).execute();
 
-List account changing history.
+Query account change history
 
 ### Example
 
@@ -1049,11 +1049,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        String type = "dnw"; // String | Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL 
+        String type = "dnw"; // String | Change types: - dnw: Deposit & Withdrawal - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: Settlement P&L
         try {
             List<OptionsAccountBook> result = apiInstance.listOptionsAccountBook()
                         .limit(limit)
@@ -1080,11 +1080,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **type** | **String**| Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  | [optional] [enum: dnw, prem, fee, refr, set]
+ **type** | **String**| Change types: - dnw: Deposit &amp; Withdrawal - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: Settlement P&amp;L | [optional] [enum: dnw, prem, fee, refr, set]
 
 ### Return type
 
@@ -1102,13 +1102,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="listOptionsPositions"></a>
 # **listOptionsPositions**
 > List&lt;OptionsPosition&gt; listOptionsPositions().underlying(underlying).execute();
 
-List user&#39;s positions of specified underlying.
+List user&#39;s positions of specified underlying
 
 ### Example
 
@@ -1131,7 +1131,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying.
+        String underlying = "BTC_USDT"; // String | Underlying
         try {
             List<OptionsPosition> result = apiInstance.listOptionsPositions()
                         .underlying(underlying)
@@ -1154,7 +1154,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying. | [optional]
+ **underlying** | **String**| Underlying | [optional]
 
 ### Return type
 
@@ -1172,13 +1172,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="getOptionsPosition"></a>
 # **getOptionsPosition**
 > OptionsPosition getOptionsPosition(contract)
 
-Get specified contract position.
+Get specified contract position
 
 ### Example
 
@@ -1240,13 +1240,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listOptionsPositionClose"></a>
 # **listOptionsPositionClose**
 > List&lt;OptionsPositionClose&gt; listOptionsPositionClose(underlying).contract(contract).execute();
 
-List user&#39;s liquidation history of specified underlying.
+List user&#39;s liquidation history of specified underlying
 
 ### Example
 
@@ -1269,8 +1269,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
-        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name.
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
         try {
             List<OptionsPositionClose> result = apiInstance.listOptionsPositionClose(underlying)
                         .contract(contract)
@@ -1293,8 +1293,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
- **contract** | **String**| Options contract name. | [optional]
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
+ **contract** | **String**| Options contract name | [optional]
 
 ### Return type
 
@@ -1312,13 +1312,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="listOptionsOrders"></a>
 # **listOptionsOrders**
 > List&lt;OptionsOrder&gt; listOptionsOrders(status).contract(contract).underlying(underlying).limit(limit).offset(offset).from(from).to(to).execute();
 
-List options orders.
+List options orders
 
 ### Example
 
@@ -1341,11 +1341,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String status = "open"; // String | Only list the orders with this status.
-        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name.
-        String underlying = "BTC_USDT"; // String | Underlying.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String status = "open"; // String | Query order list based on status
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
+        String underlying = "BTC_USDT"; // String | Underlying
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
@@ -1375,11 +1375,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| Only list the orders with this status. | [enum: open, finished]
- **contract** | **String**| Options contract name. | [optional]
- **underlying** | **String**| Underlying. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **status** | **String**| Query order list based on status | [enum: open, finished]
+ **contract** | **String**| Options contract name | [optional]
+ **underlying** | **String**| Underlying | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -1399,13 +1399,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="createOptionsOrder"></a>
 # **createOptionsOrder**
 > OptionsOrder createOptionsOrder(optionsOrder)
 
-Create an options order.
+Create an options order
 
 ### Example
 
@@ -1467,13 +1467,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Order detail. |  -  |
+**201** | Order detail |  -  |
 
 <a name="cancelOptionsOrders"></a>
 # **cancelOptionsOrders**
 > List&lt;OptionsOrder&gt; cancelOptionsOrders(contract, underlying, side)
 
-Cancel all &#x60;open&#x60; orders matched.
+Cancel all orders with &#39;open&#39; status
 
 ### Example
 
@@ -1496,9 +1496,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name.
-        String underlying = "BTC_USDT"; // String | Underlying.
-        String side = "ask"; // String | All bids or asks. Both included if not specified.
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
+        String underlying = "BTC_USDT"; // String | Underlying
+        String side = "ask"; // String | Specify all bids or all asks, both included if not specified
         try {
             List<OptionsOrder> result = apiInstance.cancelOptionsOrders(contract, underlying, side);
             System.out.println(result);
@@ -1519,9 +1519,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **String**| Options contract name. | [optional]
- **underlying** | **String**| Underlying. | [optional]
- **side** | **String**| All bids or asks. Both included if not specified. | [optional] [enum: ask, bid]
+ **contract** | **String**| Options contract name | [optional]
+ **underlying** | **String**| Underlying | [optional]
+ **side** | **String**| Specify all bids or all asks, both included if not specified | [optional] [enum: ask, bid]
 
 ### Return type
 
@@ -1539,13 +1539,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | All orders matched cancelled. |  -  |
+**200** | Batch cancellation successful |  -  |
 
 <a name="getOptionsOrder"></a>
 # **getOptionsOrder**
 > OptionsOrder getOptionsOrder(orderId)
 
-Get a single order.
+Query single order details
 
 ### Example
 
@@ -1568,7 +1568,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        Long orderId = 12345L; // Long | Order ID returned on successful order creation.
+        Long orderId = 12345L; // Long | Order ID returned when order is successfully created
         try {
             OptionsOrder result = apiInstance.getOptionsOrder(orderId);
             System.out.println(result);
@@ -1589,7 +1589,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **Long**| Order ID returned on successful order creation. |
+ **orderId** | **Long**| Order ID returned when order is successfully created |
 
 ### Return type
 
@@ -1607,13 +1607,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Order detail. |  -  |
+**200** | Order detail |  -  |
 
 <a name="cancelOptionsOrder"></a>
 # **cancelOptionsOrder**
 > OptionsOrder cancelOptionsOrder(orderId)
 
-Cancel a single order.
+Cancel single order
 
 ### Example
 
@@ -1636,7 +1636,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        Long orderId = 12345L; // Long | Order ID returned on successful order creation.
+        Long orderId = 12345L; // Long | Order ID returned when order is successfully created
         try {
             OptionsOrder result = apiInstance.cancelOptionsOrder(orderId);
             System.out.println(result);
@@ -1657,7 +1657,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **Long**| Order ID returned on successful order creation. |
+ **orderId** | **Long**| Order ID returned when order is successfully created |
 
 ### Return type
 
@@ -1675,13 +1675,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Order detail. |  -  |
+**200** | Order detail |  -  |
 
 <a name="countdownCancelAllOptions"></a>
 # **countdownCancelAllOptions**
 > TriggerTime countdownCancelAllOptions(countdownCancelAllOptionsTask)
 
-Countdown cancel orders.
+Countdown cancel orders
 
 Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
 
@@ -1745,13 +1745,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Set countdown successfully. |  -  |
+**200** | Countdown set successfully |  -  |
 
 <a name="listMyOptionsTrades"></a>
 # **listMyOptionsTrades**
 > List&lt;OptionsMyTrade&gt; listMyOptionsTrades(underlying).contract(contract).limit(limit).offset(offset).from(from).to(to).execute();
 
-List personal trading history.
+Query personal trading records
 
 ### Example
 
@@ -1774,10 +1774,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint).
-        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Integer offset = 0; // Integer | List offset, starting from 0.
+        String underlying = "BTC_USDT"; // String | Underlying (Obtained by listing underlying endpoint)
+        String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
@@ -1806,10 +1806,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying (Obtained by listing underlying endpoint). |
- **contract** | **String**| Options contract name. | [optional]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **offset** | **Integer**| List offset, starting from 0. | [optional] [default to 0]
+ **underlying** | **String**| Underlying (Obtained by listing underlying endpoint) |
+ **contract** | **String**| Options contract name | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
 
@@ -1829,7 +1829,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="getOptionsMMP"></a>
 # **getOptionsMMP**
@@ -1858,7 +1858,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
-        String underlying = "BTC_USDT"; // String | Underlying.
+        String underlying = "BTC_USDT"; // String | Underlying
         try {
             List<OptionsMMP> result = apiInstance.getOptionsMMP()
                         .underlying(underlying)
@@ -1881,7 +1881,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **String**| Underlying. | [optional]
+ **underlying** | **String**| Underlying | [optional]
 
 ### Return type
 
@@ -1899,7 +1899,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="setOptionsMMP"></a>
 # **setOptionsMMP**
@@ -1967,7 +1967,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | MMP Information. |  -  |
+**200** | MMP Information |  -  |
 
 <a name="resetOptionsMMP"></a>
 # **resetOptionsMMP**
@@ -2035,5 +2035,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | MMP Information. |  -  |
+**200** | MMP Information |  -  |
 

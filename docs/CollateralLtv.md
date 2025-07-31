@@ -1,13 +1,13 @@
 
 # CollateralLtv
 
-Collateral Ratio.
+Multi-collateral ratio
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**initLtv** | **String** | The initial collateralization rate. |  [optional]
-**alertLtv** | **String** | Warning collateralization ratio. |  [optional]
-**liquidateLtv** | **String** | The liquidation collateralization rate. |  [optional]
+**initLtv** | **String** | Initial collateralization rate |  [optional]
+**alertLtv** | **String** | Warning collateralization rate |  [optional]
+**liquidateLtv** | **String** | Liquidation collateralization rate |  [optional]
 

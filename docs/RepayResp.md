@@ -1,12 +1,12 @@
 
 # RepayResp
 
-Repay.
+Repay
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**repaidPrincipal** | **String** | Principal. |  [optional]
-**repaidInterest** | **String** | Interest. |  [optional]
+**repaidPrincipal** | **String** | Principal |  [optional]
+**repaidInterest** | **String** | Interest |  [optional]
 

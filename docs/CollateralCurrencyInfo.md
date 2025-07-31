@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** | Currency. |  [optional]
-**indexPrice** | **String** | Currency Index Price. |  [optional]
-**leftCollateral** | **String** | Left Collateral Amount. |  [optional]
-**leftCollateralUsdt** | **String** | Value of left collateral amount in USDT. |  [optional]
+**currency** | **String** | Currency |  [optional]
+**indexPrice** | **String** | Currency Index Price |  [optional]
+**leftCollateral** | **String** | Remaining collateral amount |  [optional]
+**leftCollateralUsdt** | **String** | Remaining collateral value converted to USDT |  [optional]
 

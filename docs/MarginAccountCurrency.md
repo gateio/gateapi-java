@@ -1,15 +1,15 @@
 
 # MarginAccountCurrency
 
-Account currency details.
+Currency account information
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** | Currency name. |  [optional]
-**available** | **String** | Amount suitable for margin trading. |  [optional]
-**locked** | **String** | Locked amount, used in margin trading. |  [optional]
-**borrowed** | **String** | Borrowed amount. |  [optional]
-**interest** | **String** | Unpaid interests. |  [optional]
+**currency** | **String** | Currency name |  [optional]
+**available** | **String** | Amount available for margin trading, available &#x3D; margin + borrowed |  [optional]
+**locked** | **String** | Frozen funds, such as amounts already placed in margin market for order trading |  [optional]
+**borrowed** | **String** | Borrowed funds |  [optional]
+**interest** | **String** | Unpaid interest |  [optional]
 

@@ -1,14 +1,14 @@
 
 # BrokerCommissionSubBrokerInfo
 
-The sub broker info.
+Sub-broker information
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Long** | The sub broker user ID. |  [optional]
-**originalCommissionRate** | **String** | The sub broker original commission rate. |  [optional]
-**relativeCommissionRate** | **String** | The sub broker relative commission rate. |  [optional]
-**commissionRate** | **String** | The sub broker actual commission rate. |  [optional]
+**userId** | **Long** | Sub-broker user ID |  [optional]
+**originalCommissionRate** | **String** | Sub-broker original commission rate |  [optional]
+**relativeCommissionRate** | **String** | Sub-broker relative commission rate |  [optional]
+**commissionRate** | **String** | Sub-broker actual commission rate |  [optional]
 

@@ -1,11 +1,11 @@
 
 # AccountDetailKey
 
-API Key detail.
+API Key details
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mode** | **Integer** | mode: 1 - classic account 2 - portfolio margin account. |  [optional]
+**mode** | **Integer** | Mode: 1 - Classic mode, 2 - Legacy unified mode |  [optional]
 

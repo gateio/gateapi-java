@@ -4,23 +4,23 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listCollateralLoanOrders**](CollateralLoanApi.md#listCollateralLoanOrders) | **GET** /loan/collateral/orders | List Orders.
-[**createCollateralLoan**](CollateralLoanApi.md#createCollateralLoan) | **POST** /loan/collateral/orders | Place order.
-[**getCollateralLoanOrderDetail**](CollateralLoanApi.md#getCollateralLoanOrderDetail) | **GET** /loan/collateral/orders/{order_id} | Get a single order.
-[**repayCollateralLoan**](CollateralLoanApi.md#repayCollateralLoan) | **POST** /loan/collateral/repay | Repayment.
-[**listRepayRecords**](CollateralLoanApi.md#listRepayRecords) | **GET** /loan/collateral/repay_records | Repayment history.
-[**listCollateralRecords**](CollateralLoanApi.md#listCollateralRecords) | **GET** /loan/collateral/collaterals | Query collateral adjustment records.
-[**operateCollateral**](CollateralLoanApi.md#operateCollateral) | **POST** /loan/collateral/collaterals | Increase or redeem collateral.
-[**getUserTotalAmount**](CollateralLoanApi.md#getUserTotalAmount) | **GET** /loan/collateral/total_amount | Query the total borrowing and collateral amount for the user.
-[**getUserLtvInfo**](CollateralLoanApi.md#getUserLtvInfo) | **GET** /loan/collateral/ltv | Query user&#39;s collateralization ratio.
-[**listCollateralCurrencies**](CollateralLoanApi.md#listCollateralCurrencies) | **GET** /loan/collateral/currencies | Query supported borrowing and collateral currencies.
+[**listCollateralLoanOrders**](CollateralLoanApi.md#listCollateralLoanOrders) | **GET** /loan/collateral/orders | Query collateral loan order list
+[**createCollateralLoan**](CollateralLoanApi.md#createCollateralLoan) | **POST** /loan/collateral/orders | Place collateral loan order
+[**getCollateralLoanOrderDetail**](CollateralLoanApi.md#getCollateralLoanOrderDetail) | **GET** /loan/collateral/orders/{order_id} | Query single order details
+[**repayCollateralLoan**](CollateralLoanApi.md#repayCollateralLoan) | **POST** /loan/collateral/repay | Collateral loan repayment
+[**listRepayRecords**](CollateralLoanApi.md#listRepayRecords) | **GET** /loan/collateral/repay_records | Query collateral loan repayment records
+[**listCollateralRecords**](CollateralLoanApi.md#listCollateralRecords) | **GET** /loan/collateral/collaterals | Query collateral adjustment records
+[**operateCollateral**](CollateralLoanApi.md#operateCollateral) | **POST** /loan/collateral/collaterals | Increase or redeem collateral
+[**getUserTotalAmount**](CollateralLoanApi.md#getUserTotalAmount) | **GET** /loan/collateral/total_amount | Query user&#39;s total borrowing and collateral amount
+[**getUserLtvInfo**](CollateralLoanApi.md#getUserLtvInfo) | **GET** /loan/collateral/ltv | Query user&#39;s collateralization ratio and remaining borrowable currencies
+[**listCollateralCurrencies**](CollateralLoanApi.md#listCollateralCurrencies) | **GET** /loan/collateral/currencies | Query supported borrowing and collateral currencies
 
 
 <a name="listCollateralLoanOrders"></a>
 # **listCollateralLoanOrders**
 > List&lt;CollateralOrder&gt; listCollateralLoanOrders().page(page).limit(limit).collateralCurrency(collateralCurrency).borrowCurrency(borrowCurrency).execute();
 
-List Orders.
+Query collateral loan order list
 
 ### Example
 
@@ -43,10 +43,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        String collateralCurrency = "BTC"; // String | Collateral.
-        String borrowCurrency = "USDT"; // String | Borrowed currency.
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        String collateralCurrency = "BTC"; // String | Collateral currency
+        String borrowCurrency = "USDT"; // String | Borrowed currency
         try {
             List<CollateralOrder> result = apiInstance.listCollateralLoanOrders()
                         .page(page)
@@ -72,10 +72,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **collateralCurrency** | **String**| Collateral. | [optional]
- **borrowCurrency** | **String**| Borrowed currency. | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **collateralCurrency** | **String**| Collateral currency | [optional]
+ **borrowCurrency** | **String**| Borrowed currency | [optional]
 
 ### Return type
 
@@ -93,13 +93,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List retrieved. |  -  |
+**200** | List retrieved successfully |  -  |
 
 <a name="createCollateralLoan"></a>
 # **createCollateralLoan**
 > OrderResp createCollateralLoan(createCollateralOrder)
 
-Place order.
+Place collateral loan order
 
 ### Example
 
@@ -161,13 +161,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success. |  -  |
+**200** | Order placed successfully |  -  |
 
 <a name="getCollateralLoanOrderDetail"></a>
 # **getCollateralLoanOrderDetail**
 > CollateralOrder getCollateralLoanOrderDetail(orderId)
 
-Get a single order.
+Query single order details
 
 ### Example
 
@@ -190,7 +190,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        Long orderId = 100001L; // Long | Order ID returned on successful order creation.
+        Long orderId = 100001L; // Long | Order ID returned when order is successfully created
         try {
             CollateralOrder result = apiInstance.getCollateralLoanOrderDetail(orderId);
             System.out.println(result);
@@ -211,7 +211,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **Long**| Order ID returned on successful order creation. |
+ **orderId** | **Long**| Order ID returned when order is successfully created |
 
 ### Return type
 
@@ -229,13 +229,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success. |  -  |
+**200** | Order details queried successfully |  -  |
 
 <a name="repayCollateralLoan"></a>
 # **repayCollateralLoan**
 > RepayResp repayCollateralLoan(repayLoan)
 
-Repayment.
+Collateral loan repayment
 
 ### Example
 
@@ -297,13 +297,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Operated successfully. |  -  |
+**200** | Operation successful |  -  |
 
 <a name="listRepayRecords"></a>
 # **listRepayRecords**
 > List&lt;RepayRecord&gt; listRepayRecords(source).borrowCurrency(borrowCurrency).collateralCurrency(collateralCurrency).page(page).limit(limit).from(from).to(to).execute();
 
-Repayment history.
+Query collateral loan repayment records
 
 ### Example
 
@@ -326,13 +326,13 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        String source = "repay"; // String | Operation type: repay - Regular repayment, liquidate - Liquidation.
-        String borrowCurrency = "USDT"; // String | Borrowed currency.
-        String collateralCurrency = "BTC"; // String | Collateral.
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Long from = 1609459200L; // Long | Start timestamp of the query.
-        Long to = 1609459200L; // Long | Time range ending, default to current time.
+        String source = "repay"; // String | Operation type: repay - Regular repayment, liquidate - Liquidation
+        String borrowCurrency = "USDT"; // String | Borrowed currency
+        String collateralCurrency = "BTC"; // String | Collateral currency
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Long from = 1609459200L; // Long | Start timestamp for the query
+        Long to = 1609459200L; // Long | End timestamp for the query, defaults to current time if not specified
         try {
             List<RepayRecord> result = apiInstance.listRepayRecords(source)
                         .borrowCurrency(borrowCurrency)
@@ -360,13 +360,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source** | **String**| Operation type: repay - Regular repayment, liquidate - Liquidation. |
- **borrowCurrency** | **String**| Borrowed currency. | [optional]
- **collateralCurrency** | **String**| Collateral. | [optional]
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **from** | **Long**| Start timestamp of the query. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
+ **source** | **String**| Operation type: repay - Regular repayment, liquidate - Liquidation |
+ **borrowCurrency** | **String**| Borrowed currency | [optional]
+ **collateralCurrency** | **String**| Collateral currency | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **from** | **Long**| Start timestamp for the query | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
 
 ### Return type
 
@@ -384,13 +384,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listCollateralRecords"></a>
 # **listCollateralRecords**
 > List&lt;CollateralRecord&gt; listCollateralRecords().page(page).limit(limit).from(from).to(to).borrowCurrency(borrowCurrency).collateralCurrency(collateralCurrency).execute();
 
-Query collateral adjustment records.
+Query collateral adjustment records
 
 ### Example
 
@@ -413,12 +413,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        Integer page = 1; // Integer | Page number.
-        Integer limit = 100; // Integer | Maximum number of records to be returned in a single list.
-        Long from = 1609459200L; // Long | Start timestamp of the query.
-        Long to = 1609459200L; // Long | Time range ending, default to current time.
-        String borrowCurrency = "USDT"; // String | Borrowed currency.
-        String collateralCurrency = "BTC"; // String | Collateral.
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Long from = 1609459200L; // Long | Start timestamp for the query
+        Long to = 1609459200L; // Long | End timestamp for the query, defaults to current time if not specified
+        String borrowCurrency = "USDT"; // String | Borrowed currency
+        String collateralCurrency = "BTC"; // String | Collateral currency
         try {
             List<CollateralRecord> result = apiInstance.listCollateralRecords()
                         .page(page)
@@ -446,12 +446,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Page number. | [optional] [default to 1]
- **limit** | **Integer**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
- **from** | **Long**| Start timestamp of the query. | [optional]
- **to** | **Long**| Time range ending, default to current time. | [optional]
- **borrowCurrency** | **String**| Borrowed currency. | [optional]
- **collateralCurrency** | **String**| Collateral. | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **from** | **Long**| Start timestamp for the query | [optional]
+ **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
+ **borrowCurrency** | **String**| Borrowed currency | [optional]
+ **collateralCurrency** | **String**| Collateral currency | [optional]
 
 ### Return type
 
@@ -469,13 +469,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="operateCollateral"></a>
 # **operateCollateral**
 > operateCollateral(collateralAlign)
 
-Increase or redeem collateral.
+Increase or redeem collateral
 
 ### Example
 
@@ -536,13 +536,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Operated successfully. |  -  |
+**204** | Operation successful |  -  |
 
 <a name="getUserTotalAmount"></a>
 # **getUserTotalAmount**
 > UserTotalAmount getUserTotalAmount()
 
-Query the total borrowing and collateral amount for the user.
+Query user&#39;s total borrowing and collateral amount
 
 ### Example
 
@@ -600,13 +600,13 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="getUserLtvInfo"></a>
 # **getUserLtvInfo**
 > UserLtvInfo getUserLtvInfo(collateralCurrency, borrowCurrency)
 
-Query user&#39;s collateralization ratio.
+Query user&#39;s collateralization ratio and remaining borrowable currencies
 
 ### Example
 
@@ -629,8 +629,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        String collateralCurrency = "BTC"; // String | Collateral.
-        String borrowCurrency = "USDT"; // String | Borrowed currency.
+        String collateralCurrency = "BTC"; // String | Collateral currency
+        String borrowCurrency = "USDT"; // String | Borrowed currency
         try {
             UserLtvInfo result = apiInstance.getUserLtvInfo(collateralCurrency, borrowCurrency);
             System.out.println(result);
@@ -651,8 +651,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collateralCurrency** | **String**| Collateral. |
- **borrowCurrency** | **String**| Borrowed currency. |
+ **collateralCurrency** | **String**| Collateral currency |
+ **borrowCurrency** | **String**| Borrowed currency |
 
 ### Return type
 
@@ -670,13 +670,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 
 <a name="listCollateralCurrencies"></a>
 # **listCollateralCurrencies**
 > List&lt;CollateralLoanCurrency&gt; listCollateralCurrencies().loanCurrency(loanCurrency).execute();
 
-Query supported borrowing and collateral currencies.
+Query supported borrowing and collateral currencies
 
 ### Example
 
@@ -695,7 +695,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         CollateralLoanApi apiInstance = new CollateralLoanApi(defaultClient);
-        String loanCurrency = "BTC"; // String | The parameter loan_currency is used to specify the borrowing currency. If loan_currency is not provided, the API will return all supported borrowing currencies.
+        String loanCurrency = "BTC"; // String | Parameter loan_currency. If omitted, returns all supported borrowing currencies; if provided, returns the array of collateral currencies supported for that borrowing currency
         try {
             List<CollateralLoanCurrency> result = apiInstance.listCollateralCurrencies()
                         .loanCurrency(loanCurrency)
@@ -718,7 +718,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loanCurrency** | **String**| The parameter loan_currency is used to specify the borrowing currency. If loan_currency is not provided, the API will return all supported borrowing currencies. | [optional]
+ **loanCurrency** | **String**| Parameter loan_currency. If omitted, returns all supported borrowing currencies; if provided, returns the array of collateral currencies supported for that borrowing currency | [optional]
 
 ### Return type
 
@@ -736,5 +736,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved. |  -  |
+**200** | Query successful |  -  |
 

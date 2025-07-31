@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**remark** | **String** | custom text. |  [optional]
-**loginName** | **String** | Sub-account login name: Only letters, numbers and underscores are supported, and cannot contain other illegal characters | 
-**password** | **String** | The sub-account&#39;s password. (Default: the same as main account&#39;s password). |  [optional]
+**remark** | **String** | Remark |  [optional]
+**loginName** | **String** | 子账户登陆名：仅支持字母、数字、下划线，不可包含其他非法字符。 | 
+**password** | **String** | The sub-account&#39;s password. (Default: the same as main account&#39;s password) |  [optional]
 **email** | **String** | The sub-account&#39;s email address. (Default: the same as main account&#39;s email address) |  [optional]
-**state** | **Integer** | State: 1-normal, 2-locked\&quot;. |  [optional] [readonly]
-**type** | **Integer** | \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account. |  [optional] [readonly]
-**userId** | **Long** | The user id of the sub-account. |  [optional] [readonly]
-**createTime** | **Long** | Created time. |  [optional] [readonly]
+**state** | **Integer** | Sub-account status: 1-normal, 2-locked |  [optional] [readonly]
+**type** | **Integer** | Sub-account type: 1-Regular sub-account, 3-Cross margin sub-account |  [optional] [readonly]
+**userId** | **Long** | Sub-account user ID |  [optional] [readonly]
+**createTime** | **Long** | Created time |  [optional] [readonly]
 

@@ -5,5 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**serverTime** | **Long** | Server current time(ms). |  [optional]
+**serverTime** | **Long** | Server current time(ms) |  [optional]
 

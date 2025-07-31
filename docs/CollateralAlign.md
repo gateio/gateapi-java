@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderId** | **Long** | Order ID. | 
-**collateralCurrency** | **String** | Collateral. | 
-**collateralAmount** | **String** | Collateral amount. | 
-**type** | **String** | Operation types: append - for adding collateral, redeem - for withdrawing collateral | 
+**orderId** | **Long** | Order ID | 
+**collateralCurrency** | **String** | Collateral currency | 
+**collateralAmount** | **String** | Collateral amount | 
+**type** | **String** | Operation type: append - add collateral, redeem - withdraw collateral | 
 

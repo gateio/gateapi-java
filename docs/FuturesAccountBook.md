@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**time** | **Double** | Change time. |  [optional]
-**change** | **String** | Change amount. |  [optional]
-**balance** | **String** | Balance after change. |  [optional]
+**time** | **Double** | Change time |  [optional]
+**change** | **String** | Change amount |  [optional]
+**balance** | **String** | Balance after change |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction |  [optional]
-**text** | **String** | Comment. |  [optional]
-**contract** | **String** | Futures contract, the field is only available for data after 2023-10-30. |  [optional]
-**tradeId** | **String** | trade id. |  [optional]
-**id** | **String** | Account change record ID. |  [optional]
+**text** | **String** | Comment |  [optional]
+**contract** | **String** | Futures contract, the field is only available for data after 2023-10-30 |  [optional]
+**tradeId** | **String** | trade id |  [optional]
+**id** | **String** | Account change record ID |  [optional]
 
 ## Enum: TypeEnum
 
